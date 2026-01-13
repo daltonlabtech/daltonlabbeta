@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'space-grotesk': ['Space Grotesk', 'ui-sans-serif', 'system-ui'],
+        'inter': ['Inter', 'ui-sans-serif', 'system-ui'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +61,17 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Dalton Lab Brand Colors
+        dalton: {
+          dark: "hsl(var(--dalton-dark))",
+          surface: "hsl(var(--dalton-surface))",
+          purple: "hsl(var(--dalton-purple))",
+          cyan: "hsl(var(--dalton-cyan))",
+          white: "hsl(var(--dalton-white))",
+          gray: "hsl(var(--dalton-gray))",
+          "gray-light": "hsl(var(--dalton-gray-light))",
+          text: "hsl(var(--dalton-text))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,10 +95,32 @@ export default {
             height: "0",
           },
         },
+        "fade-in-up": {
+          from: {
+            opacity: "0",
+            transform: "translateY(30px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-in-right": {
+          from: {
+            opacity: "0",
+            transform: "translateX(-30px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in-up": "fade-in-up 0.6s ease-out forwards",
+        "fade-in-right": "fade-in-right 0.6s ease-out forwards",
       },
     },
   },

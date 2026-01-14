@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import LogoMarquee from '@/components/LogoMarquee';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,7 +10,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen h-screen flex flex-col overflow-hidden">
       {/* Background Gradient */}
       <div 
         className="absolute inset-0"
@@ -52,8 +53,8 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20 py-20 md:py-32">
+      {/* Main Content */}
+      <div className="relative z-10 flex-1 flex items-center container mx-auto px-6 md:px-12 lg:px-20 pt-20 md:pt-24">
         <div className="max-w-5xl">
           {/* Heading - Much larger like 11x */}
           <h1 
@@ -103,6 +104,15 @@ const HeroSection = () => {
             </button>
           </div>
         </div>
+      </div>
+
+      {/* Logo Marquee at bottom */}
+      <div 
+        className={`relative z-10 border-t border-foreground/10 transition-all duration-700 delay-[600ms] ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
+        <LogoMarquee />
       </div>
     </section>
   );

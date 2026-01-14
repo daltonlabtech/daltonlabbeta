@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import HeroSection from "@/components/sections/HeroSection";
 import AIEmployeesSection from "@/components/sections/AIEmployeesSection";
 import PhilosophySection from "@/components/sections/PhilosophySection";
@@ -11,6 +12,7 @@ import FinalCTASection from "@/components/sections/FinalCTASection";
 const Index = () => {
   return (
     <main className="min-h-screen bg-background">
+      <Header />
       <HeroSection />
       <AIEmployeesSection />
       <PhilosophySection />

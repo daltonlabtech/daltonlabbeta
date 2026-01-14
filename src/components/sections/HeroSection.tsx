@@ -62,7 +62,7 @@ const HeroSection = () => {
             }`}
           >
             <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-              Funcionarios
+              Funcionários
             </span>
             <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
               Artificiais,
@@ -88,7 +88,7 @@ const HeroSection = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            O squad de vendas completo para aumentar o faturamento da sua empresa com Inteligencia Artificial.
+            O squad de vendas completo para aumentar o faturamento da sua empresa com Inteligência Artificial.
           </p>
 
           {/* CTA Button */}
@@ -98,7 +98,7 @@ const HeroSection = () => {
             }`}
           >
             <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
-              <span>Agendar Reuniao</span>
+              <span>Agendar Reunião</span>
               <ArrowRight className="inline-block ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
             </button>
           </div>

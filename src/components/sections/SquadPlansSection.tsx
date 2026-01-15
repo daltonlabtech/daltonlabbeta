@@ -1,16 +1,16 @@
 import { Zap, Users, Rocket, ArrowRight, Check, X } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
-// All agents available
+// All agents available (matching new names from AIEmployeesSection)
 const allAgents = [
-  { key: 'leo', label: 'Leo (Prospecção)' },
-  { key: 'sofia', label: 'Sofia (Dados)' },
-  { key: 'bruno', label: 'Bruno (SDR WhatsApp)' },
-  { key: 'pedro', label: 'Pedro (Follow-Up)' },
-  { key: 'laura', label: 'Laura (Aquecimento)' },
-  { key: 'iris', label: 'Íris (Briefing)' },
-  { key: 'arthur', label: 'Arthur (Propostas)' },
-  { key: 'helena', label: 'Helena (Contratos)' },
+  { key: 'qualificacao', label: 'Qualificação de Lead' },
+  { key: 'investigador', label: 'Investigador de Leads' },
+  { key: 'whatsapp', label: 'Vendedor no WhatsApp' },
+  { key: 'gestor', label: 'Gestor Comercial' },
+  { key: 'propostas', label: 'Propostas Comerciais' },
+  { key: 'aquecimento', label: 'Aquecimento da Lead' },
+  { key: 'followup', label: 'Follow-Up Automático' },
+  { key: 'contrato', label: 'Contrato Assinado' },
 ];
 
 // All features in a unified order for comparison
@@ -30,14 +30,14 @@ const plans = [
     icon: Zap,
     color: "dalton-blue",
     agents: {
-      leo: true,
-      sofia: true,
-      bruno: true,
-      pedro: false,
-      laura: false,
-      iris: false,
-      arthur: false,
-      helena: false,
+      qualificacao: true,
+      investigador: true,
+      whatsapp: true,
+      gestor: false,
+      propostas: false,
+      aquecimento: false,
+      followup: false,
+      contrato: false,
     },
     features: {
       support: false,
@@ -54,14 +54,14 @@ const plans = [
     icon: Users,
     color: "dalton-purple",
     agents: {
-      leo: true,
-      sofia: true,
-      bruno: true,
-      pedro: true,
-      laura: true,
-      iris: true,
-      arthur: false,
-      helena: false,
+      qualificacao: true,
+      investigador: true,
+      whatsapp: true,
+      gestor: true,
+      propostas: true,
+      aquecimento: true,
+      followup: false,
+      contrato: false,
     },
     features: {
       support: true,
@@ -79,14 +79,14 @@ const plans = [
     icon: Rocket,
     color: "dalton-orange",
     agents: {
-      leo: true,
-      sofia: true,
-      bruno: true,
-      pedro: true,
-      laura: true,
-      iris: true,
-      arthur: true,
-      helena: true,
+      qualificacao: true,
+      investigador: true,
+      whatsapp: true,
+      gestor: true,
+      propostas: true,
+      aquecimento: true,
+      followup: true,
+      contrato: true,
     },
     features: {
       support: true,

@@ -210,6 +210,19 @@
     animation: marquee-slow 45s linear infinite;
   }
 
+  @keyframes marquee-infinite {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.33%);
+    }
+  }
+
+  .animate-marquee-infinite {
+    animation: marquee-infinite 30s linear infinite;
+  }
+
   .animation-delay-100 {
     animation-delay: 0.1s;
   }

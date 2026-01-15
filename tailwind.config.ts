@@ -73,6 +73,7 @@ export default {
           gray: "hsl(var(--dalton-gray))",
           "gray-light": "hsl(var(--dalton-gray-light))",
           text: "hsl(var(--dalton-text))",
+          "faq-box": "hsl(var(--dalton-faq-box))",
         },
       },
       borderRadius: {

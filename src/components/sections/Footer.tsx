@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-[#0A0A0A] border-t border-white/10">
       {/* Main Footer */}
       <div className="container-main py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Column 1: Navigation */}
           <div>
             <h4 className="font-inter font-semibold text-sm text-dalton-gray-light uppercase tracking-wider mb-4">
@@ -41,17 +41,8 @@ const Footer = () => {
               Empresa
             </h4>
             <p className="font-inter text-sm text-dalton-gray mb-1">Dalton Lab</p>
+            <p className="font-inter text-xs text-dalton-gray/70 font-light tracking-wide mb-2">Alphaville, São Paulo</p>
             <p className="font-inter text-sm text-dalton-gray">CNPJ: 61.730.493/0001-00</p>
-          </div>
-
-          {/* Column 3: Address */}
-          <div>
-            <h4 className="font-inter font-semibold text-sm text-dalton-gray-light uppercase tracking-wider mb-4">
-              Endereço
-            </h4>
-            <p className="font-inter text-sm text-dalton-gray">
-              Alphaville, São Paulo
-            </p>
           </div>
 
           {/* Column 4: Social / Links */}

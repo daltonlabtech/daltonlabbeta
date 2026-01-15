@@ -5,7 +5,6 @@ import PhilosophySection from "@/components/sections/PhilosophySection";
 import SquadPlansSection from "@/components/sections/SquadPlansSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import AudioDemoSection from "@/components/sections/AudioDemoSection";
-import AboutSection from "@/components/sections/AboutSection";
 import SocialProofSection from "@/components/sections/SocialProofSection";
 import FAQSection from "@/components/sections/FAQSection";
 import OtherSolutionsSection from "@/components/sections/OtherSolutionsSection";
@@ -23,7 +22,6 @@ const Index = () => {
       <SquadPlansSection />
       <HowItWorksSection />
       <AudioDemoSection />
-      <AboutSection />
       <SocialProofSection />
       <FAQSection />
       <OtherSolutionsSection />

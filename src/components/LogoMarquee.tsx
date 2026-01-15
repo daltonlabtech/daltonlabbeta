@@ -1,12 +1,23 @@
-const placeholderLogos = [
-  'Cliente 1',
-  'Cliente 2',
-  'Cliente 3',
-  'Cliente 4',
-  'Cliente 5',
-  'Cliente 6',
-  'Cliente 7',
-  'Cliente 8',
+import cliente1 from '@/assets/logos/cliente-1.webp';
+import cliente2 from '@/assets/logos/cliente-2.webp';
+import cliente3 from '@/assets/logos/cliente-3.webp';
+import cliente4 from '@/assets/logos/cliente-4.webp';
+import cliente5 from '@/assets/logos/cliente-5.webp';
+import cliente6 from '@/assets/logos/cliente-6.webp';
+import cliente7 from '@/assets/logos/cliente-7.webp';
+import cliente8 from '@/assets/logos/cliente-8.webp';
+import cliente9 from '@/assets/logos/cliente-9.webp';
+
+const clientLogos = [
+  cliente1,
+  cliente2,
+  cliente3,
+  cliente4,
+  cliente5,
+  cliente6,
+  cliente7,
+  cliente8,
+  cliente9,
 ];
 
 const LogoMarquee = () => {
@@ -15,28 +26,32 @@ const LogoMarquee = () => {
       <div className="relative flex">
         {/* First set of logos */}
         <div className="animate-marquee flex items-center gap-12 md:gap-16">
-          {placeholderLogos.map((logo, index) => (
+          {clientLogos.map((logo, index) => (
             <div
               key={`logo-1-${index}`}
-              className="flex-shrink-0 h-8 md:h-10 px-6 md:px-8 flex items-center justify-center border border-foreground/20 rounded-lg"
+              className="flex-shrink-0 h-8 md:h-10 px-4 flex items-center justify-center"
             >
-              <span className="text-foreground/50 text-sm md:text-base font-medium whitespace-nowrap">
-                {logo}
-              </span>
+              <img 
+                src={logo} 
+                alt={`Cliente ${index + 1}`}
+                className="h-full w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+              />
             </div>
           ))}
         </div>
         
         {/* Duplicate set for seamless loop */}
         <div className="animate-marquee flex items-center gap-12 md:gap-16" aria-hidden="true">
-          {placeholderLogos.map((logo, index) => (
+          {clientLogos.map((logo, index) => (
             <div
               key={`logo-2-${index}`}
-              className="flex-shrink-0 h-8 md:h-10 px-6 md:px-8 flex items-center justify-center border border-foreground/20 rounded-lg"
+              className="flex-shrink-0 h-8 md:h-10 px-4 flex items-center justify-center"
             >
-              <span className="text-foreground/50 text-sm md:text-base font-medium whitespace-nowrap">
-                {logo}
-              </span>
+              <img 
+                src={logo} 
+                alt={`Cliente ${index + 1}`}
+                className="h-full w-auto object-contain opacity-70"
+              />
             </div>
           ))}
         </div>

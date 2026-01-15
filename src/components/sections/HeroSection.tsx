@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import LogoMarquee from '@/components/LogoMarquee';
-import FloatingLogos from '@/components/FloatingLogos';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,9 +44,6 @@ const HeroSection = () => {
           background: 'radial-gradient(circle at 30% 50%, hsl(261 83% 65% / 0.06), transparent 50%)'
         }}
       />
-
-      {/* Floating Client Logos */}
-      <FloatingLogos />
 
       {/* Bottom Fade */}
       <div 

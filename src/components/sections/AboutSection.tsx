@@ -29,7 +29,7 @@ const founders = [
 
 const AboutSection = () => {
   return (
-    <section className="section-padding bg-dalton-dark">
+    <section className="section-padding bg-background pt-32">
       <div className="container-main max-w-[900px]">
         {/* Badge */}
         <div className="flex justify-center">

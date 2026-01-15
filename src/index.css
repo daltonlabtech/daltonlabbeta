@@ -7,7 +7,8 @@
 @layer base {
   :root {
     /* Dalton Lab Brand Colors */
-    --dalton-dark: 0 0% 7%;              /* #111111 - Background escuro */
+    --dalton-dark: 218 29% 14%;          /* #1A232F - Background escuro */
+    --dalton-faq-box: 216 38% 10%;        /* #101823 - FAQ box interior */
     --dalton-surface: 0 0% 12%;          /* #1E1E1E - Cards/superfícies */
     --dalton-purple: 271 76% 53%;        /* #8A2BE2 - Roxo principal */
     --dalton-cyan: 180 100% 50%;         /* #00FFFF - Ciano neon */
@@ -19,7 +20,7 @@
     --dalton-text: 0 0% 88%;             /* #E0E0E0 - Texto corpo */
 
     /* Core System Colors */
-    --background: 0 0% 7%;
+    --background: 218 29% 14%;
     --foreground: 0 0% 88%;
 
     --card: 0 0% 12%;

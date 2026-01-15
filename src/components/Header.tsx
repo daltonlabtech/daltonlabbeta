@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import logoImage from '@/assets/logo-dalton-lab.png';
 
 const navLinks = [
-  { label: 'Quem Somos', href: '#quem-somos' },
+  { label: 'Quem Somos', href: '/quem-somos' },
   { label: 'Newsletter', href: '#newsletter' },
   { label: 'Blog', href: '#blog' },
   { label: 'Mídia', href: '#midia' },

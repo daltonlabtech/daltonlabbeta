@@ -196,6 +196,19 @@
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
+  @keyframes marquee-slow {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.33%);
+    }
+  }
+
+  .animate-marquee-slow {
+    animation: marquee-slow 25s linear infinite;
+  }
+
   .animation-delay-100 {
     animation-delay: 0.1s;
   }

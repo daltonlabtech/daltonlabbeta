@@ -19,7 +19,7 @@ const AudioDemoSection = () => {
 
         {/* Subtitle */}
         <p className="mt-8 font-inter font-normal text-lg text-dalton-gray-light text-center">
-          Escute uma demonstração real de como Nina inicia uma conversa com um lead.
+          Escute uma demonstração real de como Bruno inicia uma conversa com um lead.
         </p>
 
         {/* Description */}
@@ -33,7 +33,7 @@ const AudioDemoSection = () => {
             {/* Left: Label */}
             <div>
               <p className="font-inter font-semibold text-xl text-white">
-                Ouça Nina
+                Ouça Bruno
               </p>
               <p className="mt-1 font-inter font-normal text-sm text-dalton-gray">
                 Demonstração de contato inicial

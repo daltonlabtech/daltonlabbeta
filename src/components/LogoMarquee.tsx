@@ -21,19 +21,19 @@ const clientLogos = [
 ];
 
 const LogoMarquee = () => {
-  // Duplicate the logos array to create seamless loop
-  const allLogos = [...clientLogos, ...clientLogos];
+  // Triple the logos array to create truly seamless infinite loop
+  const allLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
     <div className="w-full overflow-hidden py-6">
       <div 
-        className="flex animate-marquee"
+        className="flex animate-marquee-infinite"
         style={{ width: 'max-content' }}
       >
         {allLogos.map((logo, index) => (
           <div
             key={index}
-            className="h-10 md:h-14 w-[140px] md:w-[180px] flex items-center justify-center"
+            className="h-10 md:h-14 w-[140px] md:w-[180px] flex-shrink-0 flex items-center justify-center"
           >
             <img 
               src={logo} 

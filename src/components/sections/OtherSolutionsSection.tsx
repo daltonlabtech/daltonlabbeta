@@ -107,7 +107,9 @@ const OtherSolutionsSection = () => {
         <div className="text-center">
           {/* Title */}
           <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white">
-            Precisa de especialistas para outras áreas?
+            Precisa de Agentes especialistas
+            <br />
+            para outras áreas do seu negócio?
           </h2>
 
           {/* Description */}

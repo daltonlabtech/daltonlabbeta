@@ -4,12 +4,12 @@ const OtherSolutionsSection = () => {
       <div className="container-main max-w-[800px] text-center">
         {/* Title */}
         <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white">
-          Precisa de especialistas para outras areas?
+          Precisa de especialistas para outras áreas?
         </h2>
 
         {/* Description */}
         <p className="mt-8 font-inter font-normal text-lg text-dalton-gray-light">
-          Alem do time de vendas, temos agentes especializados para atendimento ao cliente, RH, financeiro e outras areas. Explore nosso marketplace de solucoes.
+          Além do time de vendas, temos agentes especializados para atendimento ao cliente, RH, financeiro e outras áreas. Explore nosso marketplace de soluções.
         </p>
 
         {/* CTA Button */}

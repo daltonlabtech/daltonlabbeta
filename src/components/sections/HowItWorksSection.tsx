@@ -1,57 +1,86 @@
+import { Map, Bot, Play } from 'lucide-react';
+
 const steps = [
   {
     number: 1,
-    title: "Analise de Potencial de Faturamento",
-    description: "Avaliamos seu processo comercial atual e identificamos oportunidades de otimizacao com IA."
+    title: "Mostramos ",
+    highlight: "Onde",
+    titleEnd: " a IA Entra no Seu Negócio",
+    description: "Mapeamos seu fluxo de trabalho e identificamos quais funções podem ser executadas por agentes. Você sabe exatamente onde colocar cada um.",
+    icon: Map,
+    color: "dalton-blue"
   },
   {
     number: 2,
-    title: "Plano de Aumento de Vendas",
-    description: "Criamos um plano personalizado com os agentes ideais para maximizar seus resultados."
+    title: "Selecionamos e ",
+    highlight: "Treinamos",
+    titleEnd: " os Agentes Certos",
+    description: "Escolhemos os melhores agentes para as suas necessidades. Treinamos cada um para o seu contexto específico. Prontos para operar.",
+    icon: Bot,
+    color: "dalton-purple"
   },
   {
     number: 3,
-    title: "Implementacao e Resultados",
-    description: "Configuramos e integramos os agentes ao seu fluxo, acompanhando metricas e ajustando estrategias."
+    title: "Colocamos Seus Agentes Para ",
+    highlight: "Trabalhar",
+    titleEnd: "",
+    description: "Colocamos seus Agentes para trabalhar integrados aos seus novos processos e ao seu time atual.",
+    icon: Play,
+    color: "dalton-orange"
   }
 ];
 
 const HowItWorksSection = () => {
+  const colorClasses: Record<string, { bg: string; text: string }> = {
+    "dalton-blue": { bg: "bg-dalton-blue", text: "text-dalton-blue" },
+    "dalton-purple": { bg: "bg-dalton-purple", text: "text-dalton-purple" },
+    "dalton-orange": { bg: "bg-dalton-orange", text: "text-dalton-orange" },
+  };
+
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-dalton-dark">
       <div className="container-main">
         {/* Title */}
-        <h2 className="font-inter font-bold text-4xl md:text-5xl lg:text-[56px] text-white text-center">
+        <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center">
           Como Funciona
         </h2>
+        
+        {/* Subtitle */}
+        <p className="mt-4 font-inter font-light text-lg tracking-[0.15em] uppercase text-dalton-gray-light text-center">
+          TRÊS PASSOS
+        </p>
 
-        {/* Steps */}
-        <div className="mt-16 max-w-[800px] mx-auto relative">
-          {/* Vertical dotted line */}
-          <div className="absolute left-[30px] top-[60px] bottom-[60px] w-px border-l-2 border-dashed border-dalton-gray/30 hidden md:block" />
+        {/* Steps Grid */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1200px] mx-auto">
+          {steps.map((step, index) => {
+            const IconComponent = step.icon;
+            const colors = colorClasses[step.color];
+            
+            return (
+              <div 
+                key={step.number}
+                className="glass-card p-8 rounded-2xl opacity-0 animate-fade-in-up text-center"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                {/* Icon */}
+                <div className={`w-16 h-16 rounded-full ${colors.bg} flex items-center justify-center mx-auto`}>
+                  <IconComponent className="w-7 h-7 text-white" />
+                </div>
 
-          {steps.map((step, index) => (
-            <div 
-              key={step.number}
-              className="flex gap-8 mb-12 last:mb-0 opacity-0 animate-fade-in-right"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              {/* Step Number */}
-              <div className="flex-shrink-0 w-[60px] h-[60px] rounded-full bg-primary flex items-center justify-center relative z-10">
-                <span className="font-inter font-bold text-2xl text-white">{step.number}</span>
-              </div>
-
-              {/* Content */}
-              <div className="pt-2">
-                <h3 className="font-inter font-semibold text-[22px] text-white">
+                {/* Title with highlighted word */}
+                <h3 className="mt-6 font-inter font-semibold text-lg text-white leading-snug">
                   {step.title}
+                  <span className={`${colors.text} italic`}>{step.highlight}</span>
+                  {step.titleEnd}
                 </h3>
-                <p className="mt-3 font-inter font-normal text-base text-dalton-gray-light">
+
+                {/* Description */}
+                <p className="mt-4 font-inter font-normal text-[15px] text-dalton-gray-light leading-relaxed">
                   {step.description}
                 </p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

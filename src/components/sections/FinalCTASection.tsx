@@ -3,13 +3,13 @@ const FinalCTASection = () => {
     <section className="py-[150px]">
       <div className="container-main max-w-[850px] text-center">
         {/* Title */}
-        <h2 className="font-inter font-extrabold text-4xl md:text-5xl lg:text-[64px] text-white leading-tight">
-          Vamos desenhar o futuro da sua area comercial?
+        <h2 className="font-inter font-extrabold text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
+          Vamos desenhar o futuro da sua área comercial?
         </h2>
 
         {/* Description */}
         <p className="mt-8 font-inter font-normal text-lg text-dalton-gray-light max-w-[600px] mx-auto">
-          Agende uma analise gratuita e descubra como nossos agentes de IA podem transformar seus resultados de vendas.
+          Agende uma análise gratuita e descubra como nossos agentes de IA podem transformar seus resultados de vendas.
         </p>
 
         {/* CTA Button with animated glow */}
@@ -18,7 +18,7 @@ const FinalCTASection = () => {
           <div className="absolute inset-0 bg-primary rounded-lg blur-xl opacity-50 animate-pulse-glow" />
           
           <button className="relative btn-cta text-lg px-10 py-5">
-            Agendar Analise Gratuita
+            Agendar Análise Gratuita
             <span className="ml-2">→</span>
           </button>
         </div>

@@ -12,7 +12,7 @@ const SocialProofSection = () => {
     <section className="section-padding">
       <div className="container-main">
         {/* Title */}
-        <h2 className="font-inter font-bold text-4xl md:text-5xl lg:text-[56px] text-white text-center">
+        <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center">
           Marcas que confiam em nosso trabalho
         </h2>
 
@@ -33,7 +33,7 @@ const SocialProofSection = () => {
         {/* Testimonial Card */}
         <div className="mt-20 max-w-[750px] mx-auto border-l-4 border-primary pl-10">
           <blockquote className="font-inter font-normal text-[22px] text-dalton-text italic leading-relaxed">
-            "A implementacao dos agentes de IA da Dalton Lab transformou completamente nosso processo comercial. Aumentamos a taxa de conversao em 40% e nosso time agora foca apenas em fechamento."
+            "A implementação dos agentes de IA da Dalton Lab transformou completamente nosso processo comercial. Aumentamos a taxa de conversão em 40% e nosso time agora foca apenas em fechamento."
           </blockquote>
           <div className="mt-6">
             <p className="font-inter font-semibold text-base text-white">

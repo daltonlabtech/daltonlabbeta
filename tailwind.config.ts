@@ -67,6 +67,8 @@ export default {
           surface: "hsl(var(--dalton-surface))",
           purple: "hsl(var(--dalton-purple))",
           cyan: "hsl(var(--dalton-cyan))",
+          blue: "hsl(var(--dalton-blue))",
+          orange: "hsl(var(--dalton-orange))",
           white: "hsl(var(--dalton-white))",
           gray: "hsl(var(--dalton-gray))",
           "gray-light": "hsl(var(--dalton-gray-light))",

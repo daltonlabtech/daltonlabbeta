@@ -58,7 +58,7 @@ const HeroSection = () => {
               Funcionários Artificiais,
             </span>
             <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-              Resultados Reais.
+              Vendas Reais
             </span>
           </h1>
 
@@ -71,11 +71,11 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p 
-            className={`text-base sm:text-lg md:text-xl text-foreground/70 font-normal max-w-lg transition-all duration-700 delay-300 ${
+            className={`text-base sm:text-lg md:text-xl text-foreground/70 font-normal max-w-xl transition-all duration-700 delay-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            O squad de vendas completo para aumentar o faturamento da sua empresa com Inteligência Artificial.
+            O futuro está aqui. Conheça o squad de vendas de Inteligência Artificial completo para colocar o seu processo comercial no próximo nível.
           </p>
 
           {/* CTA Button */}
@@ -85,7 +85,7 @@ const HeroSection = () => {
             }`}
           >
             <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
-              <span>Agendar Reunião</span>
+              <span>Quero conhecer o Squad</span>
               <ArrowRight className="inline-block ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
             </button>
           </div>

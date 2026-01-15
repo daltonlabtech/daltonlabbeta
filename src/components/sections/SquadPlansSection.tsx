@@ -24,7 +24,7 @@ const plans = [
     description: "Para quem quer um modelo de Vibe Selling de ponta a ponta na sua operação comercial agêntica",
     icon: Rocket,
     color: "dalton-orange",
-    features: ["10 agentes completos", "Integrações ilimitadas", "Suporte dedicado", "Consultoria estratégica", "Customização total"]
+    features: ["8 agentes completos", "Integrações ilimitadas", "Suporte dedicado", "Consultoria estratégica", "Customização total"]
   }
 ];
 

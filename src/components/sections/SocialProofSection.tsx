@@ -1,3 +1,4 @@
+import { ArrowRight, Quote } from 'lucide-react';
 import cliente1 from '@/assets/logos/cliente-1.webp';
 import cliente2 from '@/assets/logos/cliente-2.webp';
 import cliente3 from '@/assets/logos/cliente-3.webp';
@@ -12,6 +13,27 @@ const clientLogos = [
   cliente1, cliente2, cliente3, cliente4, cliente5, cliente6, cliente7, cliente8, cliente9
 ];
 
+const testimonials = [
+  {
+    quote: "A implementação dos agentes de IA da Dalton Lab transformou completamente nosso processo comercial. Nosso time agora foca apenas em fechamento enquanto a IA cuida de toda a prospecção.",
+    author: "Carlos Silva",
+    role: "Diretor Comercial",
+    company: "TechCorp Brasil"
+  },
+  {
+    quote: "Em 3 meses, triplicamos o número de reuniões agendadas sem aumentar a equipe. O ROI foi impressionante e a qualidade dos leads melhorou significativamente.",
+    author: "Marina Santos",
+    role: "CEO",
+    company: "Vendas Plus"
+  },
+  {
+    quote: "O Squad de IA revolucionou nossa abordagem de vendas. Os agentes trabalham 24/7 e nunca esquecem um follow-up. Nosso pipeline nunca esteve tão cheio.",
+    author: "Ricardo Mendes",
+    role: "Head de Vendas",
+    company: "Growth Solutions"
+  }
+];
+
 const SocialProofSection = () => {
   return (
     <section className="section-padding bg-dalton-dark">
@@ -21,62 +43,54 @@ const SocialProofSection = () => {
           Marcas que confiam em nosso trabalho
         </h2>
 
-        {/* Grid Layout */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-[1100px] mx-auto">
-          {/* Featured Logo */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 flex items-center justify-center">
-            <img src={cliente1} alt="Cliente" className="h-16 md:h-20 w-auto object-contain opacity-90" />
-          </div>
-
-          {/* Testimonial Card - spans 2 columns */}
-          <div className="col-span-2 bg-dalton-purple/10 border border-dalton-purple/30 rounded-2xl p-8">
-            <blockquote className="font-inter text-base md:text-lg text-white leading-relaxed">
-              "A implementação dos agentes de IA da Dalton Lab transformou completamente nosso processo comercial. Nosso time agora foca apenas em fechamento."
-            </blockquote>
-            <div className="mt-5">
-              <p className="font-inter font-semibold text-base text-dalton-blue">Carlos Silva</p>
-              <p className="font-inter text-sm text-dalton-gray-light">Diretor Comercial, TechCorp Brasil</p>
-            </div>
-          </div>
-
-          {/* Logo Card */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 flex items-center justify-center hover:bg-white/10 transition-colors">
-            <img 
-              src={cliente2} 
-              alt="Cliente 2"
-              className="h-16 md:h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
-            />
-          </div>
-
-          {/* Logo Cards Row 2 */}
-          {clientLogos.slice(2, 6).map((logo, index) => (
+        {/* Logos Grid */}
+        <div className="mt-12 grid grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 max-w-[1000px] mx-auto">
+          {clientLogos.map((logo, index) => (
             <div 
               key={index}
-              className="bg-white/5 border border-white/10 rounded-2xl p-8 flex items-center justify-center hover:bg-white/10 transition-colors"
+              className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
             >
               <img 
                 src={logo} 
-                alt={`Cliente ${index + 3}`}
-                className="h-14 md:h-18 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+                alt={`Cliente ${index + 1}`}
+                className="h-12 md:h-16 lg:h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
               />
             </div>
           ))}
         </div>
 
-        {/* Bottom Logos Row */}
-        <div className="mt-6 grid grid-cols-3 gap-6 max-w-[825px] mx-auto">
-          {clientLogos.slice(6).map((logo, index) => (
+        {/* Testimonials */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1200px] mx-auto">
+          {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center justify-center hover:bg-white/10 transition-colors"
+              className="relative bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-2xl p-8 hover:border-dalton-blue/30 transition-all duration-300"
             >
-              <img 
-                src={logo} 
-                alt={`Cliente ${index + 7}`}
-                className="h-14 md:h-18 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
-              />
+              {/* Quote Icon */}
+              <Quote className="w-8 h-8 text-dalton-blue/30 mb-4" />
+              
+              {/* Quote Text */}
+              <blockquote className="font-inter text-base text-dalton-gray-light leading-relaxed mb-6">
+                "{testimonial.quote}"
+              </blockquote>
+              
+              {/* Author */}
+              <div className="border-t border-white/10 pt-4">
+                <p className="font-inter font-semibold text-white">{testimonial.author}</p>
+                <p className="font-inter text-sm text-dalton-gray-light">
+                  {testimonial.role}, {testimonial.company}
+                </p>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-12 text-center">
+          <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+            <span>Quero conhecer o Squad</span>
+            <ArrowRight className="inline-block ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+          </button>
         </div>
       </div>
     </section>

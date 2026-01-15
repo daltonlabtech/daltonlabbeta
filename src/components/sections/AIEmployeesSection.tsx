@@ -171,7 +171,7 @@ const AIEmployeesSection = () => {
         
         {/* Title */}
         <h2 className="mt-4 font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-white text-center">
-          Conheça seu Squad de Vendas em IA
+          Conheça seu Squad de Vendas de IA
         </h2>
 
         {/* Description */}
@@ -185,6 +185,14 @@ const AIEmployeesSection = () => {
           {agents.map((agent, index) => (
             <AgentCard key={agent.name} agent={agent} index={index} />
           ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-12 text-center">
+          <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+            <span>Quero conhecer o Squad</span>
+            <ArrowRight className="inline-block ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+          </button>
         </div>
 
         {/* Bullet Points Marquee */}

@@ -1,31 +1,28 @@
-import { Map, Bot, Play } from 'lucide-react';
+import { BarChart3, FileText, Rocket, ArrowRight } from 'lucide-react';
 
 const steps = [
   {
     number: 1,
-    title: "Mostramos ",
-    highlight: "Onde",
-    titleEnd: " a IA Entra no Seu Negócio",
-    description: "Mapeamos seu fluxo de trabalho e identificamos quais funções podem ser executadas por agentes. Você sabe exatamente onde colocar cada um.",
-    icon: Map,
+    title: "Análise de Potencial",
+    highlight: "de Faturamento",
+    description: "Em uma reunião de 30 minutos, nossos especialistas analisam seu processo e mostram o potencial de aumento de receita com a implementação de um Squad de IA.",
+    icon: BarChart3,
     color: "dalton-blue"
   },
   {
     number: 2,
-    title: "Selecionamos e ",
-    highlight: "Treinamos",
-    titleEnd: " os Agentes Certos",
-    description: "Escolhemos os melhores agentes para as suas necessidades. Treinamos cada um para o seu contexto específico. Prontos para operar.",
-    icon: Bot,
+    title: "Plano de Aumento",
+    highlight: "de Vendas",
+    description: "Você recebe um plano claro mostrando quais agentes serão implementados e qual o impacto esperado no seu faturamento mensal.",
+    icon: FileText,
     color: "dalton-purple"
   },
   {
     number: 3,
-    title: "Colocamos Seus Agentes Para ",
-    highlight: "Trabalhar",
-    titleEnd: "",
-    description: "Colocamos seus Agentes para trabalhar integrados aos seus novos processos e ao seu time atual.",
-    icon: Play,
+    title: "Implementação",
+    highlight: "e Resultados",
+    description: "Implementamos seu Squad de Vendas em até 25 dias. Você acompanha o aumento de reuniões e propostas em um painel de controle focado em resultados.",
+    icon: Rocket,
     color: "dalton-orange"
   }
 ];
@@ -69,9 +66,8 @@ const HowItWorksSection = () => {
 
                 {/* Title with highlighted word */}
                 <h3 className="mt-6 font-inter font-semibold text-lg text-white leading-snug">
-                  {step.title}
-                  <span className={`${colors.text} italic`}>{step.highlight}</span>
-                  {step.titleEnd}
+                  {step.title}{" "}
+                  <span className={`${colors.text}`}>{step.highlight}</span>
                 </h3>
 
                 {/* Description */}
@@ -81,6 +77,14 @@ const HowItWorksSection = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-12 text-center">
+          <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+            <span>Quero conhecer o Squad</span>
+            <ArrowRight className="inline-block ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+          </button>
         </div>
       </div>
     </section>

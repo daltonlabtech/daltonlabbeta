@@ -12,7 +12,18 @@ const faqs = [
   },
   {
     question: "Quais são os 8 agentes do Squad de Vendas?",
-    answer: "1. Leo (Prospecção): Encontra novos contatos. 2. Sofia (Enriquecimento): Valida dados dos leads. 3. Bia (WhatsApp): Inicia conversas no WhatsApp. 4. Pedro (Follow-up): Faz acompanhamentos. 5. Laura (Nutrição): Envia conteúdos relevantes. 6. Íris (Resumo): Resume os pontos-chave. 7. Arthur (Proposta): Cria propostas personalizadas. 8. Helena (Contrato): Prepara o contrato final."
+    answer: (
+      <ol className="list-decimal list-inside space-y-2">
+        <li><strong>Leo (Prospecção):</strong> Encontra novos contatos</li>
+        <li><strong>Sofia (Enriquecimento):</strong> Valida dados dos leads</li>
+        <li><strong>Bia (WhatsApp):</strong> Inicia conversas no WhatsApp</li>
+        <li><strong>Pedro (Follow-up):</strong> Faz acompanhamentos</li>
+        <li><strong>Laura (Nutrição):</strong> Envia conteúdos relevantes</li>
+        <li><strong>Íris (Resumo):</strong> Resume os pontos-chave</li>
+        <li><strong>Arthur (Proposta):</strong> Cria propostas personalizadas</li>
+        <li><strong>Helena (Contrato):</strong> Prepara o contrato final</li>
+      </ol>
+    )
   },
   {
     question: "Quanto tempo leva para implementar?",
@@ -62,7 +73,7 @@ const FAQSection = () => {
                 <AccordionTrigger className="font-inter font-medium text-base md:text-lg text-white hover:no-underline py-5 [&[data-state=open]>svg]:text-dalton-blue [&>svg]:text-dalton-gray-light">
                   <span className="text-left">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="font-inter font-normal text-base text-dalton-gray-light pb-5">
+                <AccordionContent className="font-inter font-normal text-base text-dalton-gray-light pb-5 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

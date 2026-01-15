@@ -16,7 +16,7 @@ const faqs = [
       <ol className="list-decimal list-inside space-y-2">
         <li><strong>Leo (Prospecção):</strong> Encontra novos contatos</li>
         <li><strong>Sofia (Enriquecimento):</strong> Valida dados dos leads</li>
-        <li><strong>Bia (WhatsApp):</strong> Inicia conversas no WhatsApp</li>
+        <li><strong>Bruno (WhatsApp):</strong> Inicia conversas no WhatsApp</li>
         <li><strong>Pedro (Follow-up):</strong> Faz acompanhamentos</li>
         <li><strong>Laura (Nutrição):</strong> Envia conteúdos relevantes</li>
         <li><strong>Íris (Resumo):</strong> Resume os pontos-chave</li>

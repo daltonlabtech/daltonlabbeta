@@ -1,4 +1,5 @@
 import { Bot, Users } from 'lucide-react';
+import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
 const comparisonRows = [
   {
@@ -29,21 +30,34 @@ const comparisonRows = [
 ];
 
 const PhilosophySection = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section className="section-padding bg-dalton-dark">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className="section-padding bg-dalton-dark"
+    >
       <div className="container-main max-w-[800px]">
         {/* Title */}
-        <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center">
+        <h2 
+          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center ${revealClasses(isVisible)}`}
+        >
           IA + Humanos = Mais Vendas
         </h2>
 
         {/* Description */}
-        <p className="mt-6 font-inter font-normal text-lg text-dalton-gray-light text-center leading-relaxed max-w-[600px] mx-auto">
+        <p 
+          className={`mt-6 font-inter font-normal text-lg text-dalton-gray-light text-center leading-relaxed max-w-[600px] mx-auto ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(1)}
+        >
           A combinação perfeita: IA executa o operacional, humanos focam em relacionar e fechar.
         </p>
 
         {/* Comparison Table - Minimal & Elegant */}
-        <div className="mt-12 rounded-xl overflow-hidden border border-white/[0.08] bg-white/[0.02]">
+        <div 
+          className={`mt-12 rounded-xl overflow-hidden border border-white/[0.08] bg-white/[0.02] ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(2)}
+        >
           {/* Table Header */}
           <div className="grid grid-cols-3">
             <div className="p-4 md:p-5" />
@@ -83,7 +97,10 @@ const PhilosophySection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-10 text-center">
+        <div 
+          className={`mt-10 text-center ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(3)}
+        >
           <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
             <span>Quero conhecer o Squad</span>
           </button>

@@ -1,8 +1,14 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
 const FinalCTASection = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section className="py-[120px] relative overflow-hidden">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className="py-[120px] relative overflow-hidden"
+    >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-dalton-dark via-dalton-blue/5 to-dalton-dark" />
       <div 
@@ -14,23 +20,34 @@ const FinalCTASection = () => {
       
       <div className="container-main max-w-[900px] text-center relative z-10">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dalton-blue/10 border border-dalton-blue/30 mb-8">
+        <div 
+          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dalton-blue/10 border border-dalton-blue/30 mb-8 ${revealClasses(isVisible)}`}
+        >
           <Sparkles className="w-4 h-4 text-dalton-blue" />
           <span className="font-inter text-sm text-dalton-blue font-medium">Análise Gratuita</span>
         </div>
 
         {/* Title */}
-        <h2 className="font-inter font-extrabold text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
+        <h2 
+          className={`font-inter font-extrabold text-3xl md:text-4xl lg:text-5xl text-white leading-tight ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(1)}
+        >
           Veja como sua operação comercial pode operar em outro ritmo.
         </h2>
 
         {/* Description */}
-        <p className="mt-8 font-inter font-normal text-lg md:text-xl text-dalton-gray-light max-w-[700px] mx-auto leading-relaxed">
+        <p 
+          className={`mt-8 font-inter font-normal text-lg md:text-xl text-dalton-gray-light max-w-[700px] mx-auto leading-relaxed ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(2)}
+        >
           Agende uma análise de potencial e explore o modelo de Squad de Vendas com IA do Dalton Lab.
         </p>
 
         {/* CTA Button with animated glow */}
-        <div className="mt-12 relative inline-block">
+        <div 
+          className={`mt-12 relative inline-block ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(3)}
+        >
           {/* Animated glow behind button */}
           <div className="absolute inset-0 bg-dalton-blue rounded-full blur-2xl opacity-40 animate-pulse-glow scale-110" />
           
@@ -41,7 +58,10 @@ const FinalCTASection = () => {
         </div>
 
         {/* Trust indicators */}
-        <div className="mt-10 flex flex-wrap justify-center gap-6 text-dalton-gray-light text-sm">
+        <div 
+          className={`mt-10 flex flex-wrap justify-center gap-6 text-dalton-gray-light text-sm ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(4)}
+        >
           <span className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-green-500" />
             Sem compromisso

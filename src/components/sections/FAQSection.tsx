@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
 const faqs = [
   {
@@ -48,21 +49,34 @@ const faqs = [
 ];
 
 const FAQSection = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section className="section-padding bg-dalton-dark">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className="section-padding bg-dalton-dark"
+    >
       <div className="container-main">
         {/* Title */}
-        <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center uppercase tracking-wide">
+        <h2 
+          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center uppercase tracking-wide ${revealClasses(isVisible)}`}
+        >
           Perguntas Frequentes
         </h2>
 
         {/* Subtitle */}
-        <p className="mt-4 font-inter font-normal text-lg text-dalton-gray-light text-center">
+        <p 
+          className={`mt-4 font-inter font-normal text-lg text-dalton-gray-light text-center ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(1)}
+        >
           Tire suas dúvidas sobre agentes de IA e o Dalton Lab
         </p>
 
         {/* Accordion */}
-        <div className="mt-12 max-w-[900px] mx-auto space-y-4">
+        <div 
+          className={`mt-12 max-w-[900px] mx-auto space-y-4 ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(2)}
+        >
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem 

@@ -1,6 +1,7 @@
 import { Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react';
 import rodrigoPhoto from '@/assets/founders/rodrigo.webp';
 import marceloPhoto from '@/assets/founders/marcelo.webp';
+import teamPhoto from '@/assets/team/dalton-team.webp';
 
 const founders = [
   {
@@ -46,6 +47,21 @@ const AboutSection = () => {
         {/* Subtitle */}
         <p className="mt-4 font-inter font-normal text-lg text-dalton-gray-light text-center">
           O laboratório que transforma empresas em organizações agênticas.
+        </p>
+
+        {/* Team Photo */}
+        <div className="mt-10 relative rounded-2xl overflow-hidden border border-white/10">
+          <img 
+            src={teamPhoto} 
+            alt="Time Dalton Lab" 
+            className="w-full h-auto object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+        </div>
+
+        {/* Team Count Text */}
+        <p className="mt-6 font-inter font-semibold text-xl md:text-2xl text-white text-center">
+          Somos um time de <span className="text-dalton-blue">11 pessoas</span>... e mais de <span className="text-dalton-purple">20 agentes de IA</span> internos.
         </p>
 
         {/* Description */}

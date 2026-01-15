@@ -49,7 +49,7 @@ const HeroSection = () => {
         <div className="max-w-5xl">
           {/* Heading - Much larger like 11x */}
           <h1 
-            className={`font-inter font-extrabold tracking-tight text-foreground leading-[0.95] transition-all duration-700 ${
+            className={`font-inter font-extrabold tracking-tight text-white leading-[0.95] transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
@@ -70,7 +70,7 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p 
-            className={`text-base sm:text-lg md:text-xl text-foreground/70 font-normal max-w-xl transition-all duration-700 delay-300 ${
+            className={`text-base sm:text-lg md:text-xl text-white/80 font-normal max-w-xl transition-all duration-700 delay-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >

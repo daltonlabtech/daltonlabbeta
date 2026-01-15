@@ -3,29 +3,34 @@ import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScro
 
 const comparisonRows = [
   {
+    criteria: "Função no sistema",
+    ai: "Execução contínua e previsível",
+    human: "Decisão e direção"
+  },
+  {
     criteria: "Consistência",
-    ai: "100% padronizado",
-    human: "Adapta ao contexto"
+    ai: "Executa do mesmo jeito, sempre",
+    human: "Ajusta quando o contexto muda"
   },
   {
     criteria: "Velocidade",
-    ai: "Milhares de leads/s",
-    human: "Foco em qualidade"
+    ai: "Mantém ritmo alto sem desgaste",
+    human: "Atua com profundidade"
   },
   {
     criteria: "Disponibilidade",
-    ai: "24/7 sem pausas",
-    human: "Horário comercial"
+    ai: "Opera 24/7",
+    human: "Atua nos momentos-chave"
   },
   {
     criteria: "Relacionamento",
-    ai: "Eficiente e objetivo",
-    human: "Conexões genuínas"
+    ai: "Garante presença constante",
+    human: "Cria vínculos reais"
   },
   {
     criteria: "Negociação",
-    ai: "Termos padrão",
-    human: "Estratégia em tempo real"
+    ai: "Prepara o terreno",
+    human: "Fecha o jogo"
   }
 ];
 

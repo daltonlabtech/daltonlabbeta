@@ -87,13 +87,13 @@ const PhilosophySection = () => {
                   {row.criteria}
                 </span>
               </div>
-              <div className="p-4 md:p-5 border-l border-white/[0.05] flex items-center justify-center">
-                <span className="font-inter text-sm text-dalton-gray-light text-center">
+              <div className="p-4 md:p-5 border-l border-white/[0.05] flex items-center justify-start">
+                <span className="font-inter text-sm text-dalton-gray-light">
                   {row.ai}
                 </span>
               </div>
-              <div className="p-4 md:p-5 border-l border-white/[0.05] flex items-center justify-center">
-                <span className="font-inter text-sm text-dalton-gray-light text-center">
+              <div className="p-4 md:p-5 border-l border-white/[0.05] flex items-center justify-start">
+                <span className="font-inter text-sm text-dalton-gray-light">
                   {row.human}
                 </span>
               </div>

@@ -38,7 +38,7 @@ const AudioDemoSection = () => {
 
         {/* Subtitle */}
         <p className="mt-8 font-inter font-normal text-lg text-dalton-gray-light text-center">
-          Escute uma demonstração real de como Bruno inicia uma conversa com um lead.
+          Escute uma demonstração real de como o <span className="text-dalton-blue font-semibold">Vendedor no WhatsApp</span> inicia uma conversa com um lead.
         </p>
 
         {/* Description */}
@@ -55,7 +55,7 @@ const AudioDemoSection = () => {
             {/* Left: Label */}
             <div>
               <p className="font-inter font-semibold text-xl text-white">
-                Ouça Bruno
+                Ouça o Vendedor no WhatsApp
               </p>
               <p className="mt-1 font-inter font-normal text-sm text-dalton-gray">
                 Demonstração de contato inicial

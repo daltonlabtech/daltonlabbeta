@@ -1,4 +1,5 @@
-import { Search, Database, MessageSquare, Clock, BookOpen, FileText, FileSignature, FileCheck, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { Search, Database, MessageSquare, Clock, BookOpen, FileText, FileSignature, FileCheck, ArrowRight, ChevronDown } from 'lucide-react';
 
 const agents = [
   {
@@ -10,49 +11,49 @@ const agents = [
   },
   {
     name: "Sofia",
-    role: "Enriquecimento",
+    role: "Dados da Lead",
     description: "Busca e valida dados dos leads (cargo, e-mail, tamanho da empresa) para garantir a qualidade.",
     icon: Database,
     color: "dalton-purple",
   },
   {
     name: "Bia",
-    role: "WhatsApp",
+    role: "SDR no WhatsApp",
     description: "Inicia a conversa via WhatsApp, enviando mensagens personalizadas para criar conexão.",
     icon: MessageSquare,
     color: "dalton-cyan",
   },
   {
     name: "Pedro",
-    role: "Follow-up",
+    role: "Follow-Up Automático",
     description: "Garante que nenhum lead seja esquecido, enviando lembretes e acompanhamentos automáticos.",
     icon: Clock,
     color: "dalton-orange",
   },
   {
     name: "Laura",
-    role: "Nutrição",
+    role: "Aquecimento",
     description: "Envia conteúdos relevantes (cases, artigos) para manter o lead engajado ao longo do tempo.",
     icon: BookOpen,
     color: "dalton-blue",
   },
   {
     name: "Íris",
-    role: "Resumo",
+    role: "Briefing Comercial",
     description: "Analisa conversas e resume os pontos-chave, dores do cliente e próximos passos combinados.",
     icon: FileText,
     color: "dalton-purple",
   },
   {
     name: "Arthur",
-    role: "Proposta",
+    role: "Propostas",
     description: "Gera propostas comerciais personalizadas e alinhadas com as necessidades do cliente.",
     icon: FileSignature,
     color: "dalton-cyan",
   },
   {
     name: "Helena",
-    role: "Contrato",
+    role: "Contratos",
     description: "Prepara o contrato final e o envia para assinatura eletrônica, acelerando o fechamento.",
     icon: FileCheck,
     color: "dalton-orange",
@@ -100,13 +101,17 @@ const colorClasses: Record<string, { bg: string; bgSolid: string; border: string
 };
 
 const AgentCard = ({ agent, index }: { agent: typeof agents[0]; index: number }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const IconComponent = agent.icon;
   const colors = colorClasses[agent.color];
 
   return (
     <div className="group relative">
       {/* Card */}
-      <div className={`relative h-full p-6 rounded-2xl border ${colors.border} bg-gradient-to-b ${colors.gradient} backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-opacity-60 hover:scale-[1.02]`}>
+      <div 
+        onClick={() => setIsExpanded(!isExpanded)}
+        className={`relative h-full p-6 rounded-2xl border ${colors.border} bg-gradient-to-b ${colors.gradient} backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-opacity-60 cursor-pointer ${isExpanded ? 'ring-2 ring-white/20' : ''}`}
+      >
         {/* Number Badge */}
         <span className={`absolute top-4 right-4 font-inter font-bold text-4xl ${colors.text} opacity-20`}>
           {String(index + 1).padStart(2, '0')}
@@ -117,26 +122,32 @@ const AgentCard = ({ agent, index }: { agent: typeof agents[0]; index: number })
           <IconComponent className="w-6 h-6 text-white" />
         </div>
 
-        {/* Name & Role */}
-        <div className="flex items-center gap-2 mb-2">
-          <h3 className="font-inter font-bold text-xl text-white">
-            {agent.name}
-          </h3>
-          <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${colors.bg} ${colors.text}`}>
-            {agent.role}
-          </span>
+        {/* Name & Role - Always visible */}
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center gap-2">
+            <h3 className="font-inter font-bold text-xl text-white">
+              {agent.name}
+            </h3>
+            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${colors.bg} ${colors.text}`}>
+              {agent.role}
+            </span>
+          </div>
+          <ChevronDown className={`w-5 h-5 text-dalton-gray-light transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
         </div>
 
-        {/* Description */}
-        <p className="font-inter text-sm text-dalton-gray-light leading-relaxed mb-4">
-          {agent.description}
-        </p>
+        {/* Expandable Content */}
+        <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-40 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
+          {/* Description */}
+          <p className="font-inter text-sm text-dalton-gray-light leading-relaxed mb-4">
+            {agent.description}
+          </p>
 
-        {/* CTA */}
-        <button className={`inline-flex items-center gap-1.5 text-sm font-inter font-medium ${colors.text} group/btn`}>
-          Contratar {agent.name}
-          <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-        </button>
+          {/* CTA */}
+          <button className={`inline-flex items-center gap-1.5 text-sm font-inter font-medium ${colors.text} group/btn`}>
+            Contratar {agent.name}
+            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -189,9 +200,9 @@ const AIEmployeesSection = () => {
 
         {/* CTA Button */}
         <div className="mt-12 text-center">
-          <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+          <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
             <span>Quero conhecer o Squad</span>
-            <ArrowRight className="inline-block ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+            <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
           </button>
         </div>
 

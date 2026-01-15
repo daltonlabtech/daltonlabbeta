@@ -1,22 +1,28 @@
-import { Bot, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import newtonAvatar from '@/assets/newton-avatar.webp';
 
 const NewtonChatButton = () => {
   return (
     <Link 
       to="/newton"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 bg-dalton-dark border-2 border-dalton-orange rounded-full shadow-2xl hover:border-dalton-orange/80 hover:scale-105 transition-all duration-300 group"
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 bg-dalton-dark border-2 border-dalton-cyan rounded-full shadow-2xl hover:border-dalton-cyan/80 hover:scale-105 transition-all duration-300 group"
     >
       {/* Avatar */}
-      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-dalton-blue to-dalton-purple flex items-center justify-center">
-        <Bot className="w-5 h-5 text-white" />
+      <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-dalton-cyan/50">
+        <img 
+          src={newtonAvatar} 
+          alt="Newton AI" 
+          className="w-full h-full object-cover"
+        />
       </div>
       
       {/* Text */}
-      <div className="flex items-center gap-2">
-        <Sparkles className="w-4 h-4 text-dalton-orange" />
-        <span className="font-inter font-medium text-white text-sm">
-          FALE COM O <span className="text-dalton-orange">NEWTON</span>
+      <div className="flex flex-col">
+        <span className="font-inter font-medium text-white text-sm leading-tight">
+          Fale com o <span className="text-dalton-cyan">Newton AI</span>,
+        </span>
+        <span className="font-inter text-xs text-dalton-gray-light">
+          nosso assistente
         </span>
       </div>
     </Link>

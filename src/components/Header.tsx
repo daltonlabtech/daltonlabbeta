@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import logoImage from '@/assets/logo-dalton-lab.png';
 
 const navLinks = [
   { label: 'Quem Somos', href: '#quem-somos' },
@@ -28,9 +29,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center">
-            <span className="text-foreground font-bold text-xl md:text-2xl tracking-tight">
-              Dalton<span className="text-foreground/70">Lab</span>
-            </span>
+            <img src={logoImage} alt="Dalton Lab" className="h-10 md:h-12 w-auto" />
           </a>
 
           {/* Navigation - Center */}

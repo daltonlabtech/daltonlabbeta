@@ -7,28 +7,28 @@ import {
 
 const faqs = [
   {
-    question: "O que é um Agente de IA do Dalton Lab?",
-    answer: "Um Agente de IA do Dalton Lab é um funcionário artificial especializado em executar tarefas operacionais do seu comercial. Ele trabalha 24/7, sem pausas, integrando-se ao seu time humano para prospectar, qualificar e fazer follow-up de leads."
+    question: "O que é um Agente de IA?",
+    answer: "Um Agente de IA é uma solução de inteligência artificial projetada para automatizar tarefas específicas do seu processo comercial. Diferente de chatbots básicos, nossos agentes são treinados com contexto do seu negócio e executam ações reais como prospectar, qualificar leads, fazer follow-up e agendar reuniões."
   },
   {
-    question: "O Dalton Lab é só um marketplace ou também implementa?",
-    answer: "O Dalton Lab é muito mais que um marketplace. Nós mapeamos seu processo, selecionamos os agentes ideais, treinamos para seu contexto específico e implementamos integrados ao seu time. Cuidamos de tudo."
+    question: "Quanto tempo leva para implementar?",
+    answer: "O tempo de implementação varia de acordo com a complexidade do seu processo comercial. Em média, conseguimos ter os primeiros agentes operando em 2 a 4 semanas, incluindo integração com seu CRM e treinamento com dados do seu negócio."
   },
   {
-    question: "Como os agentes de IA se integram ao meu CRM atual?",
-    answer: "Nossos agentes são compatíveis com os principais CRMs do mercado como Salesforce, HubSpot, Pipedrive e RD Station. A integração é feita via API e normalmente leva de 2 a 5 dias úteis para ser completada."
+    question: "Os agentes substituem meu time de vendas?",
+    answer: "Não. Os agentes de IA são projetados para trabalhar junto com seu time humano, não para substituí-lo. Eles assumem as tarefas operacionais e repetitivas, liberando seus vendedores para focar no que fazem de melhor: construir relacionamentos e fechar negócios."
   },
   {
-    question: "Quanto tempo leva para ver resultados?",
-    answer: "A maioria dos clientes começa a ver melhorias nas métricas de qualificação e contato nas primeiras 2 semanas. Resultados significativos em conversão geralmente aparecem entre 30 e 60 dias após a implementação completa."
+    question: "Como funciona a integração com meu CRM?",
+    answer: "Nossos agentes se integram nativamente com os principais CRMs do mercado (Salesforce, HubSpot, Pipedrive, RD Station, entre outros). A integração é feita via API e todas as ações dos agentes são registradas automaticamente no seu sistema."
   },
   {
-    question: "Os agentes podem ser personalizados para meu negócio?",
-    answer: "Sim, cada agente é configurado de acordo com seu processo comercial, tom de voz da marca, scripts de abordagem e critérios de qualificação específicos do seu negócio."
+    question: "Qual é o investimento necessário?",
+    answer: "O investimento varia de acordo com o número de agentes contratados e o volume de operações. Trabalhamos com modelos flexíveis que se adaptam ao tamanho da sua operação. Entre em contato para uma proposta personalizada."
   },
   {
-    question: "Qual é o custo do serviço?",
-    answer: "O investimento varia de acordo com o volume de leads, número de agentes contratados e nível de personalização. Oferecemos planos flexíveis que se adaptam ao porte da sua operação. Agende uma consulta para receber uma proposta personalizada."
+    question: "E se eu não gostar do resultado?",
+    answer: "Oferecemos um período de teste inicial para você validar os resultados. Além disso, nossa equipe acompanha de perto os primeiros meses de operação para garantir que os agentes estejam performando conforme esperado."
   }
 ];
 
@@ -56,9 +56,7 @@ const FAQSection = () => {
                 className="border border-white/10 rounded-xl bg-white/5 px-6 data-[state=open]:border-dalton-blue/50"
               >
                 <AccordionTrigger className="font-inter font-medium text-base md:text-lg text-white hover:no-underline py-5 [&[data-state=open]>svg]:text-dalton-blue [&>svg]:text-dalton-gray-light">
-                  <span className="text-left" dangerouslySetInnerHTML={{ 
-                    __html: faq.question.replace(/Dalton Lab/g, '<span class="text-dalton-blue">Dalton Lab</span>').replace(/Agente de IA/g, '<span class="text-dalton-blue">Agente de IA</span>')
-                  }} />
+                  <span className="text-left">{faq.question}</span>
                 </AccordionTrigger>
                 <AccordionContent className="font-inter font-normal text-base text-dalton-gray-light pb-5">
                   {faq.answer}

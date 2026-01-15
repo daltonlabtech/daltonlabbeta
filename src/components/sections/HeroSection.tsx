@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import LogoMarquee from '@/components/LogoMarquee';
+import FloatingLogos from '@/components/FloatingLogos';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,6 +46,9 @@ const HeroSection = () => {
         }}
       />
 
+      {/* Floating Client Logos */}
+      <FloatingLogos />
+
       {/* Bottom Fade */}
       <div 
         className="absolute bottom-0 left-0 right-0 h-32"
@@ -63,16 +67,10 @@ const HeroSection = () => {
             }`}
           >
             <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-              Funcionários
+              Funcionários Artificiais,
             </span>
             <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-              Artificiais,
-            </span>
-            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-              Resultados
-            </span>
-            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-              Reais.
+              Resultados Reais.
             </span>
           </h1>
 

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
 // Import agent images
 import agent01 from '@/assets/agents/agent-01-investigador.webp';
@@ -219,6 +220,7 @@ const AIEmployeesSection = () => {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [dragDistance, setDragDistance] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const { ref, isVisible } = useScrollReveal();
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollContainerRef.current) return;
@@ -286,27 +288,41 @@ const AIEmployeesSection = () => {
   }, [selectedAgent]);
 
   return (
-    <section className="section-padding bg-dalton-dark overflow-hidden">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className="section-padding bg-dalton-dark overflow-hidden"
+    >
       <div className="container-main">
         {/* Subtitle */}
-        <p className="font-inter font-normal text-sm tracking-[0.2em] uppercase text-dalton-gray-light text-center">
+        <p 
+          className={`font-inter font-normal text-sm tracking-[0.2em] uppercase text-dalton-gray-light text-center ${revealClasses(isVisible)}`}
+        >
           POR QUE O DALTON LAB
         </p>
         
         {/* Title */}
-        <h2 className="mt-4 font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-white text-center">
+        <h2 
+          className={`mt-4 font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-white text-center ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(1)}
+        >
           Conheça seu Squad de Vendas de IA
         </h2>
 
         {/* Description */}
-        <p className="mt-8 font-inter font-normal text-lg text-dalton-gray-light text-center max-w-[800px] mx-auto leading-relaxed">
+        <p 
+          className={`mt-8 font-inter font-normal text-lg text-dalton-gray-light text-center max-w-[800px] mx-auto leading-relaxed ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(2)}
+        >
           Um time de <span className="text-dalton-blue font-semibold">8 agentes especializados</span> que executa o trabalho operacional do seu comercial. 
           Da prospecção ao follow-up, 24 horas por dia, enquanto seu time humano foca em negociar e fechar.
         </p>
       </div>
 
       {/* Bookshelf Carousel */}
-      <div className="relative mt-12">
+      <div 
+        className={`relative mt-12 ${revealClasses(isVisible)}`}
+        style={getStaggerDelay(3)}
+      >
         {/* Navigation Arrows */}
         <button 
           onClick={() => scrollBookshelf('left')}
@@ -392,7 +408,10 @@ const AIEmployeesSection = () => {
 
       <div className="container-main">
         {/* CTA Button */}
-        <div className="mt-12 text-center">
+        <div 
+          className={`mt-12 text-center ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(4)}
+        >
           <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
             <span>Quero conhecer o Squad</span>
             <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />

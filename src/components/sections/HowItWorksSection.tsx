@@ -1,4 +1,6 @@
+import { useRef } from 'react';
 import { BarChart3, FileText, Rocket, ArrowRight } from 'lucide-react';
+import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
 const steps = [
   {
@@ -28,6 +30,14 @@ const steps = [
 ];
 
 const HowItWorksSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { ref, isVisible } = useScrollReveal();
+  
+  // Assign ref to section
+  if (ref.current === null) {
+    (ref as React.MutableRefObject<HTMLElement | null>).current = sectionRef.current;
+  }
+
   const colorClasses: Record<string, { bg: string; text: string }> = {
     "dalton-blue": { bg: "bg-dalton-blue", text: "text-dalton-blue" },
     "dalton-purple": { bg: "bg-dalton-purple", text: "text-dalton-purple" },
@@ -35,15 +45,22 @@ const HowItWorksSection = () => {
   };
 
   return (
-    <section className="section-padding bg-dalton-dark">
+    <section ref={(el) => {
+      (ref as React.MutableRefObject<HTMLElement | null>).current = el;
+    }} className="section-padding bg-dalton-dark">
       <div className="container-main">
         {/* Title */}
-        <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center">
+        <h2 
+          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center ${revealClasses(isVisible)}`}
+        >
           Como Funciona
         </h2>
         
         {/* Subtitle */}
-        <p className="mt-4 font-inter font-light text-lg tracking-[0.15em] uppercase text-dalton-gray-light text-center">
+        <p 
+          className={`mt-4 font-inter font-light text-lg tracking-[0.15em] uppercase text-dalton-gray-light text-center ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(1)}
+        >
           TRÊS PASSOS
         </p>
 
@@ -56,8 +73,8 @@ const HowItWorksSection = () => {
             return (
               <div 
                 key={step.number}
-                className="glass-card p-8 rounded-2xl opacity-0 animate-fade-in-up text-center"
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className={`glass-card p-8 rounded-2xl text-center ${revealClasses(isVisible)}`}
+                style={getStaggerDelay(index + 2)}
               >
                 {/* Icon */}
                 <div className={`w-16 h-16 rounded-full ${colors.bg} flex items-center justify-center mx-auto`}>
@@ -81,7 +98,10 @@ const HowItWorksSection = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="mt-12 text-center">
+        <div 
+          className={`mt-12 text-center ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(5)}
+        >
           <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
             <span>Quero conhecer o Squad</span>
             <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />

@@ -1,4 +1,5 @@
 import { Zap, Users, Rocket, ArrowRight, Check, X } from 'lucide-react';
+import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
 // All agents available
 const allAgents = [
@@ -98,6 +99,8 @@ const plans = [
 ];
 
 const SquadPlansSection = () => {
+  const { ref, isVisible } = useScrollReveal();
+  
   const colorClasses: Record<string, { bg: string; bgSolid: string; border: string; text: string; gradient: string }> = {
     "dalton-blue": { 
       bg: "bg-dalton-blue/10", 
@@ -123,15 +126,23 @@ const SquadPlansSection = () => {
   };
 
   return (
-    <section className="section-padding bg-[#0A0A0A]">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className="section-padding bg-[#0A0A0A]"
+    >
       <div className="container-main">
         {/* Title */}
-        <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center">
+        <h2 
+          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center ${revealClasses(isVisible)}`}
+        >
           Escolha Seu Squad
         </h2>
 
         {/* Subtitle */}
-        <p className="mt-4 font-inter font-normal text-lg text-dalton-gray-light text-center max-w-2xl mx-auto">
+        <p 
+          className={`mt-4 font-inter font-normal text-lg text-dalton-gray-light text-center max-w-2xl mx-auto ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(1)}
+        >
           Planos flexíveis para cada estágio da sua jornada com IA
         </p>
 
@@ -145,12 +156,12 @@ const SquadPlansSection = () => {
             return (
               <div 
                 key={plan.name}
-                className={`relative p-8 flex flex-col opacity-0 animate-fade-in-up ${
+                className={`relative p-8 flex flex-col ${revealClasses(isVisible)} ${
                   isHighlighted 
                     ? 'bg-gradient-to-b from-dalton-purple/20 to-dalton-purple/5 border-2 border-dalton-purple/50 rounded-2xl md:-my-4 z-10' 
                     : 'bg-[#111111] border border-white/10 md:first:rounded-l-2xl md:last:rounded-r-2xl'
                 }`}
-                style={{ animationDelay: `${index * 0.15}s` }}
+                style={getStaggerDelay(index + 2)}
               >
                 {/* Popular Badge */}
                 {isHighlighted && (

@@ -21,40 +21,27 @@ const clientLogos = [
 ];
 
 const LogoMarquee = () => {
+  // Duplicate the logos array to create seamless loop
+  const allLogos = [...clientLogos, ...clientLogos];
+
   return (
-    <div className="w-full overflow-hidden py-4">
-      <div className="relative flex">
-        {/* First set of logos */}
-        <div className="animate-marquee flex items-center">
-          {clientLogos.map((logo, index) => (
-            <div
-              key={`logo-1-${index}`}
-              className="flex-shrink-0 h-12 md:h-16 flex items-center justify-center mx-8 md:mx-12"
-            >
-              <img 
-                src={logo} 
-                alt={`Cliente ${index + 1}`}
-                className="h-full w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          ))}
-        </div>
-        
-        {/* Duplicate set for seamless loop */}
-        <div className="animate-marquee flex items-center" aria-hidden="true">
-          {clientLogos.map((logo, index) => (
-            <div
-              key={`logo-2-${index}`}
-              className="flex-shrink-0 h-12 md:h-16 flex items-center justify-center mx-8 md:mx-12"
-            >
-              <img 
-                src={logo} 
-                alt={`Cliente ${index + 1}`}
-                className="h-full w-auto object-contain opacity-70"
-              />
-            </div>
-          ))}
-        </div>
+    <div className="w-full overflow-hidden py-6">
+      <div 
+        className="flex animate-marquee"
+        style={{ width: 'max-content' }}
+      >
+        {allLogos.map((logo, index) => (
+          <div
+            key={index}
+            className="h-10 md:h-14 w-[140px] md:w-[180px] flex items-center justify-center"
+          >
+            <img 
+              src={logo} 
+              alt={`Cliente ${(index % clientLogos.length) + 1}`}
+              className="max-h-full max-w-[100px] md:max-w-[140px] object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

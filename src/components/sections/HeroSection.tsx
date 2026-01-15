@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import LogoMarquee from '@/components/LogoMarquee';
+import heroVideo from '@/assets/hero-background.mp4';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,13 +12,19 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen h-screen flex flex-col overflow-hidden">
-      {/* Background Gradient */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(180deg, #05070B 0%, #0A0F17 50%, #05070B 100%)'
-        }}
-      />
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+
+      {/* Dark Overlay Mask */}
+      <div className="absolute inset-0 bg-black/70" />
 
       {/* Noise Texture Overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
@@ -29,19 +36,11 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      {/* Radial Gradient Overlay */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: 'radial-gradient(ellipse 80% 60% at 50% 40%, transparent 0%, rgba(5,7,11,0.85) 100%)'
-        }}
-      />
-
       {/* Subtle Purple Glow */}
       <div 
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(circle at 30% 50%, hsl(261 83% 65% / 0.06), transparent 50%)'
+          background: 'radial-gradient(circle at 30% 50%, hsl(261 83% 65% / 0.08), transparent 50%)'
         }}
       />
 

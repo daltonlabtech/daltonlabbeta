@@ -119,6 +119,12 @@ export default {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-100%)" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0) translateX(0)" },
+          "25%": { transform: "translateY(-15px) translateX(5px)" },
+          "50%": { transform: "translateY(-5px) translateX(-5px)" },
+          "75%": { transform: "translateY(-20px) translateX(3px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -126,6 +132,7 @@ export default {
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
         "fade-in-right": "fade-in-right 0.6s ease-out forwards",
         marquee: "marquee 25s linear infinite",
+        float: "float 20s ease-in-out infinite",
       },
     },
   },

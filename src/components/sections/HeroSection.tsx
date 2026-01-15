@@ -45,14 +45,6 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Bottom Fade */}
-      <div 
-        className="absolute bottom-0 left-0 right-0 h-32"
-        style={{
-          background: 'linear-gradient(to bottom, transparent 0%, #05070B 100%)'
-        }}
-      />
-
       {/* Main Content */}
       <div className="relative z-10 flex-1 flex items-center container mx-auto px-6 md:px-12 lg:px-20 pt-20 md:pt-24">
         <div className="max-w-5xl">
@@ -100,9 +92,9 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Logo Marquee at bottom */}
+      {/* Logo Marquee at bottom - same background, no border */}
       <div 
-        className={`relative z-10 border-t border-foreground/10 transition-all duration-700 delay-[600ms] ${
+        className={`relative z-10 pb-8 transition-all duration-700 delay-[600ms] ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >

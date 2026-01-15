@@ -9,8 +9,8 @@ const AudioDemoSection = () => {
       <div className="container-main max-w-[800px]">
         {/* Title with Badge */}
         <div className="flex items-center justify-center gap-4 flex-wrap">
-          <h2 className="font-inter font-bold text-4xl md:text-5xl lg:text-[56px] text-white text-center">
-            Ouca a IA em acao.
+          <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center">
+            Ouça a IA em ação.
           </h2>
           <span className="px-3 py-1 bg-dalton-cyan text-dalton-dark font-inter font-semibold text-sm rounded-full uppercase">
             Novo
@@ -19,12 +19,12 @@ const AudioDemoSection = () => {
 
         {/* Subtitle */}
         <p className="mt-8 font-inter font-normal text-lg text-dalton-gray-light text-center">
-          Escute uma demonstracao real de como Nina inicia uma conversa com um lead.
+          Escute uma demonstração real de como Nina inicia uma conversa com um lead.
         </p>
 
         {/* Description */}
         <p className="mt-4 font-inter font-normal text-base text-dalton-gray text-center">
-          A voz e natural, o tom e profissional e a abordagem e personalizada para cada contato.
+          A voz é natural, o tom é profissional e a abordagem é personalizada para cada contato.
         </p>
 
         {/* Audio Player Card */}
@@ -33,10 +33,10 @@ const AudioDemoSection = () => {
             {/* Left: Label */}
             <div>
               <p className="font-inter font-semibold text-xl text-white">
-                Ouca Nina
+                Ouça Nina
               </p>
               <p className="mt-1 font-inter font-normal text-sm text-dalton-gray">
-                Demonstracao de contato inicial
+                Demonstração de contato inicial
               </p>
             </div>
 

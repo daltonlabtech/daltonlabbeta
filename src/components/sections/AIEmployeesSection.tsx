@@ -1,70 +1,104 @@
-import { useState } from 'react';
-import { Search, Database, MessageSquare, Clock, BookOpen, FileText, FileSignature, FileCheck, ArrowRight, ChevronDown } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+
+// Import agent images
+import agent01 from '@/assets/agents/agent-01-investigador.webp';
+import agent02 from '@/assets/agents/agent-02-followup.webp';
+import agent03 from '@/assets/agents/agent-03-gestor.webp';
+import agent04 from '@/assets/agents/agent-04-propostas.webp';
+import agent05 from '@/assets/agents/agent-05-aquecimento.webp';
+import agent06 from '@/assets/agents/agent-06-contrato.webp';
+import agent07 from '@/assets/agents/agent-07-qualificacao.webp';
+import agent08 from '@/assets/agents/agent-08-whatsapp.webp';
 
 const agents = [
   {
     id: 1,
-    name: "Leo",
-    role: "Prospecção",
-    description: "Encontra novas empresas e contatos que se encaixam no perfil de cliente ideal (ICP).",
-    icon: Search,
-    color: "dalton-blue",
+    name: "Investigador de Leads",
+    image: agent01,
+    description: "Encontra novas empresas e contatos que se encaixam no perfil de cliente ideal (ICP). Vasculha bases de dados, redes sociais e fontes públicas para identificar oportunidades.",
+    benefits: [
+      "Prospecção ativa 24/7",
+      "Filtros inteligentes de ICP",
+      "Enriquecimento automático de dados"
+    ]
   },
   {
     id: 2,
-    name: "Sofia",
-    role: "Dados da Lead",
-    description: "Busca e valida dados dos leads (cargo, e-mail, tamanho da empresa) para garantir a qualidade.",
-    icon: Database,
-    color: "dalton-purple",
+    name: "Follow-Up Automático",
+    image: agent02,
+    description: "Garante que nenhum lead seja esquecido. Envia lembretes, acompanhamentos e mensagens personalizadas no momento certo para manter a conversa ativa.",
+    benefits: [
+      "Sequências automatizadas",
+      "Timing inteligente de envio",
+      "Personalização por contexto"
+    ]
   },
   {
     id: 3,
-    name: "Bruno",
-    role: "SDR no WhatsApp",
-    description: "Inicia a conversa via WhatsApp, enviando mensagens personalizadas para criar conexão.",
-    icon: MessageSquare,
-    color: "dalton-cyan",
+    name: "Gestor Comercial",
+    image: agent03,
+    description: "Gerencia todo o pipeline de vendas, acompanha métricas e KPIs, e fornece insights para melhorar a performance do time comercial.",
+    benefits: [
+      "Dashboards em tempo real",
+      "Alertas de oportunidades",
+      "Relatórios automatizados"
+    ]
   },
   {
     id: 4,
-    name: "Pedro",
-    role: "Follow-Up Automático",
-    description: "Garante que nenhum lead seja esquecido, enviando lembretes e acompanhamentos automáticos.",
-    icon: Clock,
-    color: "dalton-orange",
+    name: "Propostas Comerciais",
+    image: agent04,
+    description: "Gera propostas comerciais personalizadas e alinhadas com as necessidades do cliente, acelerando o ciclo de vendas.",
+    benefits: [
+      "Templates inteligentes",
+      "Precificação dinâmica",
+      "Envio automatizado"
+    ]
   },
   {
     id: 5,
-    name: "Laura",
-    role: "Aquecimento",
-    description: "Envia conteúdos relevantes (cases, artigos) para manter o lead engajado ao longo do tempo.",
-    icon: BookOpen,
-    color: "dalton-blue",
+    name: "Aquecimento da Lead",
+    image: agent05,
+    description: "Envia conteúdos relevantes (cases, artigos, vídeos) para manter o lead engajado e preparado para a próxima etapa do funil.",
+    benefits: [
+      "Nutrição personalizada",
+      "Score de engajamento",
+      "Conteúdo contextualizado"
+    ]
   },
   {
     id: 6,
-    name: "Íris",
-    role: "Briefing Comercial",
-    description: "Analisa conversas e resume os pontos-chave, dores do cliente e próximos passos combinados.",
-    icon: FileText,
-    color: "dalton-purple",
+    name: "Contrato Assinado",
+    image: agent06,
+    description: "Prepara o contrato final e o envia para assinatura eletrônica, acompanhando todo o processo até o fechamento.",
+    benefits: [
+      "Geração automática de contratos",
+      "Integração com e-sign",
+      "Tracking de assinaturas"
+    ]
   },
   {
     id: 7,
-    name: "Arthur",
-    role: "Propostas",
-    description: "Gera propostas comerciais personalizadas e alinhadas com as necessidades do cliente.",
-    icon: FileSignature,
-    color: "dalton-cyan",
+    name: "Qualificação de Lead",
+    image: agent07,
+    description: "Avalia e pontua cada lead com base em critérios como fit, timing e interesse, priorizando os que têm maior potencial de conversão.",
+    benefits: [
+      "Lead scoring inteligente",
+      "Qualificação BANT automática",
+      "Priorização do pipeline"
+    ]
   },
   {
     id: 8,
-    name: "Helena",
-    role: "Contratos",
-    description: "Prepara o contrato final e o envia para assinatura eletrônica, acelerando o fechamento.",
-    icon: FileCheck,
-    color: "dalton-orange",
+    name: "Vendedor no WhatsApp",
+    image: agent08,
+    description: "Inicia e mantém conversas via WhatsApp, enviando mensagens personalizadas para criar conexão e avançar a negociação.",
+    benefits: [
+      "Respostas instantâneas",
+      "Conversas naturais",
+      "Integração com CRM"
+    ]
   }
 ];
 
@@ -77,91 +111,68 @@ const bulletPoints = [
   "Mais controle sobre o funil, sem aumentar equipe"
 ];
 
-const colorClasses: Record<string, { bg: string; bgSolid: string; border: string; text: string; gradient: string }> = {
-  "dalton-blue": { 
-    bg: "bg-dalton-blue/10", 
-    bgSolid: "bg-dalton-blue",
-    border: "border-dalton-blue/30", 
-    text: "text-dalton-blue",
-    gradient: "from-dalton-blue/20 to-transparent"
-  },
-  "dalton-purple": { 
-    bg: "bg-dalton-purple/10", 
-    bgSolid: "bg-dalton-purple",
-    border: "border-dalton-purple/30", 
-    text: "text-dalton-purple",
-    gradient: "from-dalton-purple/20 to-transparent"
-  },
-  "dalton-cyan": { 
-    bg: "bg-dalton-cyan/10", 
-    bgSolid: "bg-dalton-cyan",
-    border: "border-dalton-cyan/30", 
-    text: "text-dalton-cyan",
-    gradient: "from-dalton-cyan/20 to-transparent"
-  },
-  "dalton-orange": { 
-    bg: "bg-dalton-orange/10", 
-    bgSolid: "bg-dalton-orange",
-    border: "border-dalton-orange/30", 
-    text: "text-dalton-orange",
-    gradient: "from-dalton-orange/20 to-transparent"
-  },
-};
-
-interface AgentCardProps {
-  agent: typeof agents[0];
-  index: number;
-  expandedId: number | null;
-  onToggle: (id: number) => void;
+interface AgentModalProps {
+  agent: typeof agents[0] | null;
+  onClose: () => void;
 }
 
-const AgentCard = ({ agent, index, expandedId, onToggle }: AgentCardProps) => {
-  const isExpanded = expandedId === agent.id;
-  const IconComponent = agent.icon;
-  const colors = colorClasses[agent.color];
+const AgentModal = ({ agent, onClose }: AgentModalProps) => {
+  if (!agent) return null;
 
   return (
-    <div className="group relative">
-      {/* Card */}
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
+      onClick={onClose}
+    >
       <div 
-        onClick={() => onToggle(agent.id)}
-        className={`relative h-full p-6 rounded-2xl border ${colors.border} bg-gradient-to-b ${colors.gradient} backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-opacity-60 cursor-pointer ${isExpanded ? 'ring-2 ring-white/20' : ''}`}
+        className="relative w-full max-w-4xl bg-dalton-dark border border-white/10 rounded-3xl overflow-hidden animate-scale-in"
+        onClick={(e) => e.stopPropagation()}
       >
-        {/* Number Badge */}
-        <span className={`absolute top-4 right-4 font-inter font-bold text-4xl ${colors.text} opacity-20`}>
-          {String(index + 1).padStart(2, '0')}
-        </span>
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+        >
+          <X className="w-5 h-5 text-white" />
+        </button>
 
-        {/* Icon */}
-        <div className={`w-12 h-12 rounded-xl ${colors.bgSolid} flex items-center justify-center mb-4`}>
-          <IconComponent className="w-6 h-6 text-white" />
-        </div>
+        <div className="flex flex-col md:flex-row">
+          {/* Image */}
+          <div className="md:w-1/2">
+            <img 
+              src={agent.image} 
+              alt={agent.name}
+              className="w-full h-64 md:h-full object-cover"
+            />
+          </div>
 
-        {/* Name & Role - Always visible */}
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-2">
-            <h3 className="font-inter font-bold text-xl text-white">
+          {/* Content */}
+          <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+            <span className="text-dalton-blue text-sm font-medium uppercase tracking-wider">
+              Agente #{String(agent.id).padStart(2, '0')}
+            </span>
+            <h3 className="mt-2 font-inter font-bold text-2xl md:text-3xl text-white">
               {agent.name}
             </h3>
-            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${colors.bg} ${colors.text}`}>
-              {agent.role}
-            </span>
+            <p className="mt-4 text-dalton-gray-light leading-relaxed">
+              {agent.description}
+            </p>
+
+            {/* Benefits */}
+            <ul className="mt-6 space-y-2">
+              {agent.benefits.map((benefit, index) => (
+                <li key={index} className="flex items-center gap-3 text-white/80">
+                  <span className="w-1.5 h-1.5 rounded-full bg-dalton-blue flex-shrink-0" />
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+
+            {/* CTA */}
+            <button className="mt-8 group bg-white text-zinc-900 font-medium text-sm px-6 py-3 rounded-full hover:bg-zinc-100 transition-all inline-flex items-center justify-center w-fit">
+              <span>Quero esse agente</span>
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
-          <ChevronDown className={`w-5 h-5 text-dalton-gray-light transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
-        </div>
-
-        {/* Expandable Content */}
-        <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-40 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
-          {/* Description */}
-          <p className="font-inter text-sm text-dalton-gray-light leading-relaxed mb-4">
-            {agent.description}
-          </p>
-
-          {/* CTA */}
-          <button className={`inline-flex items-center gap-1.5 text-sm font-inter font-medium ${colors.text} group/btn`}>
-            Contratar {agent.name}
-            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-          </button>
         </div>
       </div>
     </div>
@@ -187,14 +198,80 @@ const BulletMarquee = () => {
 };
 
 const AIEmployeesSection = () => {
-  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [selectedAgent, setSelectedAgent] = useState<typeof agents[0] | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [dragDistance, setDragDistance] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const handleToggle = (id: number) => {
-    setExpandedId(expandedId === id ? null : id);
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setDragDistance(0);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
   };
 
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    setDragDistance(Math.abs(walk));
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setDragDistance(0);
+    setStartX(e.touches[0].pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    setDragDistance(Math.abs(walk));
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleCardClick = (agent: typeof agents[0]) => {
+    // Only open modal if it wasn't a drag
+    if (dragDistance < 10) {
+      setSelectedAgent(agent);
+    }
+  };
+
+  const scrollBookshelf = (direction: 'left' | 'right') => {
+    if (!scrollContainerRef.current) return;
+    const scrollAmount = 320;
+    scrollContainerRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    });
+  };
+
+  // Disable body scroll when modal is open
+  useEffect(() => {
+    if (selectedAgent) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedAgent]);
+
   return (
-    <section className="section-padding bg-dalton-dark">
+    <section className="section-padding bg-dalton-dark overflow-hidden">
       <div className="container-main">
         {/* Subtitle */}
         <p className="font-inter font-normal text-sm tracking-[0.2em] uppercase text-dalton-gray-light text-center">
@@ -211,20 +288,94 @@ const AIEmployeesSection = () => {
           Um time de <span className="text-dalton-blue font-semibold">8 agentes especializados</span> que executa o trabalho operacional do seu comercial. 
           Da prospecção ao follow-up, 24 horas por dia, enquanto seu time humano foca em negociar e fechar.
         </p>
+      </div>
 
-        {/* Agents Grid */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* Bookshelf Carousel */}
+      <div className="relative mt-12">
+        {/* Navigation Arrows */}
+        <button 
+          onClick={() => scrollBookshelf('left')}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110 hidden md:flex"
+        >
+          <ChevronLeft className="w-6 h-6 text-white" />
+        </button>
+        <button 
+          onClick={() => scrollBookshelf('right')}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110 hidden md:flex"
+        >
+          <ChevronRight className="w-6 h-6 text-white" />
+        </button>
+
+        {/* Gradient Overlays */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-dalton-dark to-transparent z-[5] pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-dalton-dark to-transparent z-[5] pointer-events-none" />
+
+        {/* Scrollable Container */}
+        <div 
+          ref={scrollContainerRef}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleMouseUp}
+          onTouchMove={handleTouchMove}
+          className={`flex gap-6 overflow-x-auto scrollbar-hide px-8 md:px-16 py-4 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+          style={{ 
+            scrollbarWidth: 'none', 
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch'
+          }}
+        >
           {agents.map((agent, index) => (
-            <AgentCard 
-              key={agent.id} 
-              agent={agent} 
-              index={index}
-              expandedId={expandedId}
-              onToggle={handleToggle}
-            />
+            <div
+              key={agent.id}
+              onClick={() => handleCardClick(agent)}
+              className="group relative flex-shrink-0 w-[200px] md:w-[240px] transition-all duration-500 ease-out hover:scale-105 select-none"
+              style={{
+                transform: `perspective(1000px) rotateY(${index % 2 === 0 ? '-2deg' : '2deg'})`,
+                transformStyle: 'preserve-3d'
+              }}
+            >
+              {/* Card Shadow/Shelf Effect */}
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[90%] h-4 bg-black/40 blur-lg rounded-full" />
+              
+              {/* Agent Card */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 transition-all duration-300 group-hover:ring-white/30 group-hover:shadow-dalton-blue/20">
+                {/* Number Badge */}
+                <div className="absolute top-3 left-3 z-10 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
+                  <span className="font-inter font-bold text-sm text-white">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                </div>
+
+                {/* Image */}
+                <img 
+                  src={agent.image} 
+                  alt={agent.name}
+                  draggable={false}
+                  className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <div className="flex items-center gap-2 text-white font-medium text-sm">
+                    <span>Ver detalhes</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 
+        {/* Scroll Hint */}
+        <p className="text-center text-dalton-gray-light/60 text-sm mt-4 md:hidden">
+          ← Arraste para explorar →
+        </p>
+      </div>
+
+      <div className="container-main">
         {/* CTA Button */}
         <div className="mt-12 text-center">
           <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
@@ -236,6 +387,9 @@ const AIEmployeesSection = () => {
         {/* Bullet Points Marquee */}
         <BulletMarquee />
       </div>
+
+      {/* Agent Detail Modal */}
+      <AgentModal agent={selectedAgent} onClose={() => setSelectedAgent(null)} />
     </section>
   );
 };

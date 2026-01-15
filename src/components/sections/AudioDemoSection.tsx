@@ -20,7 +20,7 @@ const AudioDemoSection = () => {
           }}
         />
         {/* Corner accent - left */}
-        <div className="absolute left-8 top-1/2 -translate-y-1/2 w-20 h-40 border-l-2 border-t-2 border-dalton-orange/40 rounded-tl-3xl" />
+        <div className="absolute left-8 top-1/2 -translate-y-1/2 w-20 h-40 border-l-2 border-t-2 border-dalton-blue/40 rounded-tl-3xl" />
         {/* Subtle radial gradient */}
         <div className="absolute inset-0 bg-gradient-radial from-dalton-purple/5 via-transparent to-transparent" />
       </div>

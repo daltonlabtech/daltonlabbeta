@@ -41,6 +41,9 @@ const testimonials = [
 ];
 
 const SocialProofSection = () => {
+  // Duplicate the logos array to create seamless loop
+  const allLogos = [...clientLogos, ...clientLogos];
+
   return (
     <section className="section-padding bg-gradient-to-b from-dalton-dark via-[#0d1628] to-dalton-dark">
       <div className="container-main">
@@ -49,42 +52,24 @@ const SocialProofSection = () => {
           Marcas que confiam em nosso trabalho
         </h2>
 
-        {/* Logos Marquee */}
-        <div className="mt-12 relative overflow-hidden">
-          {/* Gradient overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-dalton-dark to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-dalton-dark to-transparent z-10 pointer-events-none" />
-          
-          {/* Logos - Continuous marquee */}
-          <div className="flex py-6">
-            <div className="flex items-center gap-16 md:gap-24 animate-marquee">
-              {clientLogos.map((logo, index) => (
-                <div 
-                  key={`logo-1-${index}`}
-                  className="flex-shrink-0 h-14 md:h-18 lg:h-20 flex items-center justify-center"
-                >
-                  <img 
-                    src={logo} 
-                    alt={`Cliente ${index + 1}`}
-                    className="h-full w-auto object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center gap-16 md:gap-24 animate-marquee ml-16 md:ml-24" aria-hidden="true">
-              {clientLogos.map((logo, index) => (
-                <div 
-                  key={`logo-2-${index}`}
-                  className="flex-shrink-0 h-14 md:h-18 lg:h-20 flex items-center justify-center"
-                >
-                  <img 
-                    src={logo} 
-                    alt={`Cliente ${index + 1}`}
-                    className="h-full w-auto object-contain grayscale opacity-60"
-                  />
-                </div>
-              ))}
-            </div>
+        {/* Logos Marquee - Same structure as LogoMarquee component */}
+        <div className="mt-12 w-full overflow-hidden py-6">
+          <div 
+            className="flex animate-marquee-slow"
+            style={{ width: 'max-content' }}
+          >
+            {allLogos.map((logo, index) => (
+              <div
+                key={index}
+                className="h-10 md:h-14 w-[140px] md:w-[180px] flex items-center justify-center"
+              >
+                <img 
+                  src={logo} 
+                  alt={`Cliente ${(index % clientLogos.length) + 1}`}
+                  className="max-h-full max-w-[100px] md:max-w-[140px] object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            ))}
           </div>
         </div>
 

@@ -1,11 +1,22 @@
 import { Zap, Users, Rocket, ArrowRight, Check, X } from 'lucide-react';
 
+// All agents available
+const allAgents = [
+  { key: 'leo', label: 'Leo (Prospecção)' },
+  { key: 'sofia', label: 'Sofia (Dados)' },
+  { key: 'bruno', label: 'Bruno (SDR WhatsApp)' },
+  { key: 'pedro', label: 'Pedro (Follow-Up)' },
+  { key: 'laura', label: 'Laura (Aquecimento)' },
+  { key: 'iris', label: 'Íris (Briefing)' },
+  { key: 'arthur', label: 'Arthur (Propostas)' },
+  { key: 'helena', label: 'Helena (Contratos)' },
+];
+
 // All features in a unified order for comparison
 const allFeatures = [
-  { key: 'agents', label: 'Agentes incluídos' },
   { key: 'support', label: 'Suporte prioritário' },
-  { key: 'dedicated', label: 'Suporte dedicado' },
   { key: 'reports', label: 'Relatórios avançados' },
+  { key: 'dedicated', label: 'Suporte dedicado' },
   { key: 'consulting', label: 'Consultoria estratégica' },
   { key: 'customization', label: 'Customização total' },
 ];
@@ -17,12 +28,20 @@ const plans = [
     description: "Para quem quer testar agentes de IA na sua força de vendas",
     icon: Zap,
     color: "dalton-blue",
-    agents: ["Hunter", "Tracker", "Bruno"],
+    agents: {
+      leo: true,
+      sofia: true,
+      bruno: true,
+      pedro: false,
+      laura: false,
+      iris: false,
+      arthur: false,
+      helena: false,
+    },
     features: {
-      agents: true,
       support: false,
-      dedicated: false,
       reports: false,
+      dedicated: false,
       consulting: false,
       customization: false,
     }
@@ -33,12 +52,20 @@ const plans = [
     description: "Para quem quer agentes de IA trabalhando integrados ao seu time",
     icon: Users,
     color: "dalton-purple",
-    agents: ["Hunter", "Tracker", "Bruno", "Phoenix", "Spark", "Doc"],
+    agents: {
+      leo: true,
+      sofia: true,
+      bruno: true,
+      pedro: true,
+      laura: true,
+      iris: true,
+      arthur: false,
+      helena: false,
+    },
     features: {
-      agents: true,
       support: true,
-      dedicated: false,
       reports: true,
+      dedicated: false,
       consulting: false,
       customization: false,
     },
@@ -50,12 +77,20 @@ const plans = [
     description: "Modelo de Vibe Selling de ponta a ponta na sua operação comercial",
     icon: Rocket,
     color: "dalton-orange",
-    agents: ["Hunter", "Tracker", "Bruno", "Phoenix", "Spark", "Doc", "Deal", "Sign"],
+    agents: {
+      leo: true,
+      sofia: true,
+      bruno: true,
+      pedro: true,
+      laura: true,
+      iris: true,
+      arthur: true,
+      helena: true,
+    },
     features: {
-      agents: true,
       support: true,
-      dedicated: true,
       reports: true,
+      dedicated: true,
       consulting: true,
       customization: true,
     }
@@ -159,38 +194,61 @@ const SquadPlansSection = () => {
                   {plan.description}
                 </p>
 
-                {/* Agents List */}
+                {/* Agents List as bullet points */}
                 <div className="mt-6">
-                  <p className="font-inter font-semibold text-xs text-white/60 uppercase tracking-wider mb-2">
+                  <p className="font-inter font-semibold text-xs text-white/60 uppercase tracking-wider mb-3">
                     Agentes incluídos:
                   </p>
-                  <p className={`font-inter text-sm ${colors.text}`}>
-                    {plan.agents.join(', ')}
-                  </p>
+                  <ul className="space-y-2">
+                    {allAgents.map((agent) => {
+                      const isIncluded = plan.agents[agent.key as keyof typeof plan.agents];
+                      return (
+                        <li key={agent.key} className="flex items-center gap-2">
+                          {isIncluded ? (
+                            <div className={`w-4 h-4 rounded-full ${colors.bg} flex items-center justify-center flex-shrink-0`}>
+                              <Check className={`w-2.5 h-2.5 ${colors.text}`} />
+                            </div>
+                          ) : (
+                            <div className="w-4 h-4 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
+                              <X className="w-2.5 h-2.5 text-dalton-gray" />
+                            </div>
+                          )}
+                          <span className={`font-inter text-xs ${isIncluded ? 'text-dalton-gray-light' : 'text-dalton-gray line-through'}`}>
+                            {agent.label}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
 
                 {/* Features List - Same order for all plans */}
-                <ul className="mt-6 space-y-3 flex-grow">
-                  {allFeatures.slice(1).map((feature) => {
-                    const isIncluded = plan.features[feature.key as keyof typeof plan.features];
-                    return (
-                      <li key={feature.key} className="flex items-center gap-3">
-                        {isIncluded ? (
-                          <div className={`w-5 h-5 rounded-full ${colors.bg} flex items-center justify-center flex-shrink-0`}>
-                            <Check className={`w-3 h-3 ${colors.text}`} />
-                          </div>
-                        ) : (
-                          <div className="w-5 h-5 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
-                            <X className="w-3 h-3 text-dalton-gray" />
-                          </div>
-                        )}
-                        <span className={`font-inter text-sm ${isIncluded ? 'text-dalton-gray-light' : 'text-dalton-gray line-through'}`}>
-                          {feature.label}
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <div className="mt-6">
+                  <p className="font-inter font-semibold text-xs text-white/60 uppercase tracking-wider mb-3">
+                    Recursos:
+                  </p>
+                  <ul className="space-y-2">
+                    {allFeatures.map((feature) => {
+                      const isIncluded = plan.features[feature.key as keyof typeof plan.features];
+                      return (
+                        <li key={feature.key} className="flex items-center gap-2">
+                          {isIncluded ? (
+                            <div className={`w-4 h-4 rounded-full ${colors.bg} flex items-center justify-center flex-shrink-0`}>
+                              <Check className={`w-2.5 h-2.5 ${colors.text}`} />
+                            </div>
+                          ) : (
+                            <div className="w-4 h-4 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
+                              <X className="w-2.5 h-2.5 text-dalton-gray" />
+                            </div>
+                          )}
+                          <span className={`font-inter text-xs ${isIncluded ? 'text-dalton-gray-light' : 'text-dalton-gray line-through'}`}>
+                            {feature.label}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
 
                 {/* CTA Button */}
                 <button 

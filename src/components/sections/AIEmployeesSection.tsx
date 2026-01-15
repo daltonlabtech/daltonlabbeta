@@ -14,72 +14,6 @@ import agent08 from '@/assets/agents/agent-08-whatsapp.webp';
 const agents = [
   {
     id: 1,
-    name: "Investigador de Leads",
-    image: agent01,
-    description: "Encontra novas empresas e contatos que se encaixam no perfil de cliente ideal (ICP). Vasculha bases de dados, redes sociais e fontes públicas para identificar oportunidades.",
-    benefits: [
-      "Prospecção ativa 24/7",
-      "Filtros inteligentes de ICP",
-      "Enriquecimento automático de dados"
-    ]
-  },
-  {
-    id: 2,
-    name: "Follow-Up Automático",
-    image: agent02,
-    description: "Garante que nenhum lead seja esquecido. Envia lembretes, acompanhamentos e mensagens personalizadas no momento certo para manter a conversa ativa.",
-    benefits: [
-      "Sequências automatizadas",
-      "Timing inteligente de envio",
-      "Personalização por contexto"
-    ]
-  },
-  {
-    id: 3,
-    name: "Gestor Comercial",
-    image: agent03,
-    description: "Gerencia todo o pipeline de vendas, acompanha métricas e KPIs, e fornece insights para melhorar a performance do time comercial.",
-    benefits: [
-      "Dashboards em tempo real",
-      "Alertas de oportunidades",
-      "Relatórios automatizados"
-    ]
-  },
-  {
-    id: 4,
-    name: "Propostas Comerciais",
-    image: agent04,
-    description: "Gera propostas comerciais personalizadas e alinhadas com as necessidades do cliente, acelerando o ciclo de vendas.",
-    benefits: [
-      "Templates inteligentes",
-      "Precificação dinâmica",
-      "Envio automatizado"
-    ]
-  },
-  {
-    id: 5,
-    name: "Aquecimento da Lead",
-    image: agent05,
-    description: "Envia conteúdos relevantes (cases, artigos, vídeos) para manter o lead engajado e preparado para a próxima etapa do funil.",
-    benefits: [
-      "Nutrição personalizada",
-      "Score de engajamento",
-      "Conteúdo contextualizado"
-    ]
-  },
-  {
-    id: 6,
-    name: "Contrato Assinado",
-    image: agent06,
-    description: "Prepara o contrato final e o envia para assinatura eletrônica, acompanhando todo o processo até o fechamento.",
-    benefits: [
-      "Geração automática de contratos",
-      "Integração com e-sign",
-      "Tracking de assinaturas"
-    ]
-  },
-  {
-    id: 7,
     name: "Qualificação de Lead",
     image: agent07,
     description: "Avalia e pontua cada lead com base em critérios como fit, timing e interesse, priorizando os que têm maior potencial de conversão.",
@@ -90,7 +24,18 @@ const agents = [
     ]
   },
   {
-    id: 8,
+    id: 2,
+    name: "Investigador de Leads",
+    image: agent01,
+    description: "Encontra novas empresas e contatos que se encaixam no perfil de cliente ideal (ICP). Vasculha bases de dados, redes sociais e fontes públicas para identificar oportunidades.",
+    benefits: [
+      "Prospecção ativa 24/7",
+      "Filtros inteligentes de ICP",
+      "Enriquecimento automático de dados"
+    ]
+  },
+  {
+    id: 3,
     name: "Vendedor no WhatsApp",
     image: agent08,
     description: "Inicia e mantém conversas via WhatsApp, enviando mensagens personalizadas para criar conexão e avançar a negociação.",
@@ -98,6 +43,61 @@ const agents = [
       "Respostas instantâneas",
       "Conversas naturais",
       "Integração com CRM"
+    ]
+  },
+  {
+    id: 4,
+    name: "Gestor Comercial",
+    image: agent03,
+    description: "Gerencia todo o pipeline de vendas, acompanha métricas e KPIs, e fornece insights para melhorar a performance do time comercial.",
+    benefits: [
+      "Dashboards em tempo real",
+      "Alertas de oportunidades",
+      "Relatórios automatizados"
+    ]
+  },
+  {
+    id: 5,
+    name: "Propostas Comerciais",
+    image: agent04,
+    description: "Gera propostas comerciais personalizadas e alinhadas com as necessidades do cliente, acelerando o ciclo de vendas.",
+    benefits: [
+      "Templates inteligentes",
+      "Precificação dinâmica",
+      "Envio automatizado"
+    ]
+  },
+  {
+    id: 6,
+    name: "Aquecimento da Lead",
+    image: agent05,
+    description: "Envia conteúdos relevantes (cases, artigos, vídeos) para manter o lead engajado e preparado para a próxima etapa do funil.",
+    benefits: [
+      "Nutrição personalizada",
+      "Score de engajamento",
+      "Conteúdo contextualizado"
+    ]
+  },
+  {
+    id: 7,
+    name: "Follow-Up Automático",
+    image: agent02,
+    description: "Garante que nenhum lead seja esquecido. Envia lembretes, acompanhamentos e mensagens personalizadas no momento certo para manter a conversa ativa.",
+    benefits: [
+      "Sequências automatizadas",
+      "Timing inteligente de envio",
+      "Personalização por contexto"
+    ]
+  },
+  {
+    id: 8,
+    name: "Contrato Assinado",
+    image: agent06,
+    description: "Prepara o contrato final e o envia para assinatura eletrônica, acompanhando todo o processo até o fechamento.",
+    benefits: [
+      "Geração automática de contratos",
+      "Integração com e-sign",
+      "Tracking de assinaturas"
     ]
   }
 ];
@@ -117,58 +117,73 @@ interface AgentModalProps {
 }
 
 const AgentModal = ({ agent, onClose }: AgentModalProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (agent) {
+      setTimeout(() => setIsVisible(true), 10);
+    } else {
+      setIsVisible(false);
+    }
+  }, [agent]);
+
   if (!agent) return null;
+
+  const handleClose = () => {
+    setIsVisible(false);
+    setTimeout(onClose, 200);
+  };
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
-      onClick={onClose}
+      className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity duration-200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      onClick={handleClose}
     >
       <div 
-        className="relative w-full max-w-4xl bg-dalton-dark border border-white/10 rounded-3xl overflow-hidden animate-scale-in"
+        className={`relative w-full max-w-2xl bg-dalton-dark border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ${isVisible ? 'scale-100 translate-y-0 opacity-100' : 'scale-95 translate-y-4 opacity-0'}`}
         onClick={(e) => e.stopPropagation()}
       >
         <button 
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+          onClick={handleClose}
+          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center transition-colors"
         >
-          <X className="w-5 h-5 text-white" />
+          <X className="w-4 h-4 text-white" />
         </button>
 
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col sm:flex-row">
           {/* Image */}
-          <div className="md:w-1/2">
+          <div className="sm:w-2/5">
             <img 
               src={agent.image} 
               alt={agent.name}
-              className="w-full h-64 md:h-full object-cover"
+              className="w-full h-48 sm:h-full object-cover"
             />
           </div>
 
           {/* Content */}
-          <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
-            <span className="text-dalton-blue text-sm font-medium uppercase tracking-wider">
+          <div className="sm:w-3/5 p-5 flex flex-col justify-center">
+            <span className="text-dalton-blue text-xs font-medium uppercase tracking-wider">
               Agente #{String(agent.id).padStart(2, '0')}
             </span>
-            <h3 className="mt-2 font-inter font-bold text-2xl md:text-3xl text-white">
+            <h3 className="mt-1 font-inter font-bold text-xl text-white">
               {agent.name}
             </h3>
-            <p className="mt-4 text-dalton-gray-light leading-relaxed">
+            <p className="mt-3 text-dalton-gray-light text-sm leading-relaxed">
               {agent.description}
             </p>
 
             {/* Benefits */}
-            <ul className="mt-6 space-y-2">
+            <ul className="mt-4 space-y-1.5">
               {agent.benefits.map((benefit, index) => (
-                <li key={index} className="flex items-center gap-3 text-white/80">
-                  <span className="w-1.5 h-1.5 rounded-full bg-dalton-blue flex-shrink-0" />
+                <li key={index} className="flex items-center gap-2 text-white/80 text-sm">
+                  <span className="w-1 h-1 rounded-full bg-dalton-blue flex-shrink-0" />
                   {benefit}
                 </li>
               ))}
             </ul>
 
             {/* CTA */}
-            <button className="mt-8 group bg-white text-zinc-900 font-medium text-sm px-6 py-3 rounded-full hover:bg-zinc-100 transition-all inline-flex items-center justify-center w-fit">
+            <button className="mt-5 group bg-white text-zinc-900 font-medium text-sm px-5 py-2.5 rounded-full hover:bg-zinc-100 transition-all inline-flex items-center justify-center w-fit">
               <span>Quero esse agente</span>
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>

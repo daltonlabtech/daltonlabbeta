@@ -3,16 +3,16 @@ import { BarChart3, FileText, Rocket, ArrowRight } from 'lucide-react';
 const steps = [
   {
     number: 1,
-    title: "Análise de Potencial",
-    highlight: "de Faturamento",
+    title: "Análise",
+    highlight: "Potencial de Faturamento",
     description: "Em uma reunião de 30 minutos, nossos especialistas analisam seu processo e mostram o potencial de aumento de receita com a implementação de um Squad de IA.",
     icon: BarChart3,
     color: "dalton-blue"
   },
   {
     number: 2,
-    title: "Plano de Aumento",
-    highlight: "de Vendas",
+    title: "Plano",
+    highlight: "Aumento de Vendas",
     description: "Você recebe um plano claro mostrando quais agentes serão implementados e qual o impacto esperado no seu faturamento mensal.",
     icon: FileText,
     color: "dalton-purple"
@@ -20,7 +20,7 @@ const steps = [
   {
     number: 3,
     title: "Implementação",
-    highlight: "e Resultados",
+    highlight: "Resultados",
     description: "Implementamos seu Squad de Vendas em até 25 dias. Você acompanha o aumento de reuniões e propostas em um painel de controle focado em resultados.",
     icon: Rocket,
     color: "dalton-orange"
@@ -67,6 +67,7 @@ const HowItWorksSection = () => {
                 {/* Title with highlighted word */}
                 <h3 className="mt-6 font-inter font-semibold text-lg text-white leading-snug">
                   {step.title}{" "}
+                  <span className="text-dalton-gray-light">|</span>{" "}
                   <span className={`${colors.text}`}>{step.highlight}</span>
                 </h3>
 

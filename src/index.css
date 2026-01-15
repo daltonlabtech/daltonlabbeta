@@ -206,7 +206,7 @@
   }
 
   .animate-marquee-slow {
-    animation: marquee-slow 25s linear infinite;
+    animation: marquee-slow 45s linear infinite;
   }
 
   .animation-delay-100 {

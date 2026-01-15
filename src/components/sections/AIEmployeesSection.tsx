@@ -3,6 +3,7 @@ import { Search, Database, MessageSquare, Clock, BookOpen, FileText, FileSignatu
 
 const agents = [
   {
+    id: 1,
     name: "Leo",
     role: "Prospecção",
     description: "Encontra novas empresas e contatos que se encaixam no perfil de cliente ideal (ICP).",
@@ -10,6 +11,7 @@ const agents = [
     color: "dalton-blue",
   },
   {
+    id: 2,
     name: "Sofia",
     role: "Dados da Lead",
     description: "Busca e valida dados dos leads (cargo, e-mail, tamanho da empresa) para garantir a qualidade.",
@@ -17,6 +19,7 @@ const agents = [
     color: "dalton-purple",
   },
   {
+    id: 3,
     name: "Bruno",
     role: "SDR no WhatsApp",
     description: "Inicia a conversa via WhatsApp, enviando mensagens personalizadas para criar conexão.",
@@ -24,6 +27,7 @@ const agents = [
     color: "dalton-cyan",
   },
   {
+    id: 4,
     name: "Pedro",
     role: "Follow-Up Automático",
     description: "Garante que nenhum lead seja esquecido, enviando lembretes e acompanhamentos automáticos.",
@@ -31,6 +35,7 @@ const agents = [
     color: "dalton-orange",
   },
   {
+    id: 5,
     name: "Laura",
     role: "Aquecimento",
     description: "Envia conteúdos relevantes (cases, artigos) para manter o lead engajado ao longo do tempo.",
@@ -38,6 +43,7 @@ const agents = [
     color: "dalton-blue",
   },
   {
+    id: 6,
     name: "Íris",
     role: "Briefing Comercial",
     description: "Analisa conversas e resume os pontos-chave, dores do cliente e próximos passos combinados.",
@@ -45,6 +51,7 @@ const agents = [
     color: "dalton-purple",
   },
   {
+    id: 7,
     name: "Arthur",
     role: "Propostas",
     description: "Gera propostas comerciais personalizadas e alinhadas com as necessidades do cliente.",
@@ -52,6 +59,7 @@ const agents = [
     color: "dalton-cyan",
   },
   {
+    id: 8,
     name: "Helena",
     role: "Contratos",
     description: "Prepara o contrato final e o envia para assinatura eletrônica, acelerando o fechamento.",
@@ -100,8 +108,15 @@ const colorClasses: Record<string, { bg: string; bgSolid: string; border: string
   },
 };
 
-const AgentCard = ({ agent, index }: { agent: typeof agents[0]; index: number }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+interface AgentCardProps {
+  agent: typeof agents[0];
+  index: number;
+  expandedId: number | null;
+  onToggle: (id: number) => void;
+}
+
+const AgentCard = ({ agent, index, expandedId, onToggle }: AgentCardProps) => {
+  const isExpanded = expandedId === agent.id;
   const IconComponent = agent.icon;
   const colors = colorClasses[agent.color];
 
@@ -109,7 +124,7 @@ const AgentCard = ({ agent, index }: { agent: typeof agents[0]; index: number })
     <div className="group relative">
       {/* Card */}
       <div 
-        onClick={() => setIsExpanded(!isExpanded)}
+        onClick={() => onToggle(agent.id)}
         className={`relative h-full p-6 rounded-2xl border ${colors.border} bg-gradient-to-b ${colors.gradient} backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-opacity-60 cursor-pointer ${isExpanded ? 'ring-2 ring-white/20' : ''}`}
       >
         {/* Number Badge */}
@@ -172,6 +187,12 @@ const BulletMarquee = () => {
 };
 
 const AIEmployeesSection = () => {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  const handleToggle = (id: number) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
+
   return (
     <section className="section-padding bg-dalton-dark">
       <div className="container-main">
@@ -194,7 +215,13 @@ const AIEmployeesSection = () => {
         {/* Agents Grid */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {agents.map((agent, index) => (
-            <AgentCard key={agent.name} agent={agent} index={index} />
+            <AgentCard 
+              key={agent.id} 
+              agent={agent} 
+              index={index}
+              expandedId={expandedId}
+              onToggle={handleToggle}
+            />
           ))}
         </div>
 

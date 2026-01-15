@@ -1,11 +1,13 @@
 import { Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react';
+import rodrigoPhoto from '@/assets/founders/rodrigo.webp';
+import marceloPhoto from '@/assets/founders/marcelo.webp';
 
 const founders = [
   {
     name: "Rodrigo Spínola",
     role: "Fundador e CEO",
     description: "Empreendedor e líder de times de alta performance. Especialista em arquitetura de go-to-market. Obcecado por cultura, resultado e crescimento.",
-    image: null, // Placeholder - será substituído
+    image: rodrigoPhoto,
     socials: {
       instagram: "#",
       linkedin: "#",
@@ -16,7 +18,7 @@ const founders = [
     name: "Marcelo Ramos",
     role: "Fundador e COO",
     description: "Gerenciou mais de 120 projetos de iniciativas digitais no mercado de Saúde e Educação, gerando +7000 clientes. Obcecado por arquitetura operacional.",
-    image: null, // Placeholder - será substituído
+    image: marceloPhoto,
     socials: {
       instagram: "#",
       linkedin: "#",
@@ -31,7 +33,7 @@ const AboutSection = () => {
       <div className="container-main max-w-[900px]">
         {/* Badge */}
         <div className="flex justify-center">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-dalton-cyan/10 border border-dalton-cyan/30 text-dalton-cyan font-inter font-medium text-xs uppercase tracking-wider">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-dalton-blue/10 border border-dalton-blue/30 text-dalton-blue font-inter font-medium text-xs uppercase tracking-wider">
             Quem Somos
           </span>
         </div>
@@ -55,7 +57,7 @@ const AboutSection = () => {
             Humanos decidem, se relacionam e lideram. Agentes executam, escalam e mantêm a operação rodando.
           </p>
           <p className="font-inter text-base text-dalton-gray-light leading-relaxed">
-            Hoje, já atendemos empresas nos mais diversos mercados espalhados em <span className="text-dalton-cyan font-semibold">4 continentes</span>.
+            Hoje, já atendemos empresas nos mais diversos mercados espalhados em <span className="text-dalton-blue font-semibold">4 continentes</span>.
           </p>
         </div>
 
@@ -84,7 +86,7 @@ const AboutSection = () => {
                 <h3 className="font-inter font-bold text-xl text-white">
                   {founder.name}
                 </h3>
-                <p className="font-inter font-medium text-sm text-dalton-cyan">
+                <p className="font-inter font-medium text-sm text-dalton-blue">
                   {founder.role}
                 </p>
                 <p className="mt-3 font-inter text-sm text-dalton-gray-light leading-relaxed">
@@ -112,7 +114,7 @@ const AboutSection = () => {
         <div className="mt-10 text-center">
           <a 
             href="#" 
-            className="inline-flex items-center gap-2 font-inter font-medium text-dalton-cyan hover:text-dalton-cyan/80 transition-colors"
+            className="inline-flex items-center gap-2 font-inter font-medium text-dalton-blue hover:text-dalton-blue/80 transition-colors"
           >
             Conheça os 10 princípios do Dalton Lab
             <ArrowRight className="w-4 h-4" />

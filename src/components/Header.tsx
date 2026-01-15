@@ -1,11 +1,23 @@
 import { useState, useEffect } from 'react';
+import { ChevronDown } from 'lucide-react';
 import logoImage from '@/assets/logo-dalton-lab.png';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const navLinks = [
   { label: 'Quem Somos', href: '/quem-somos' },
   { label: 'Newsletter', href: '#newsletter' },
   { label: 'Blog', href: '#blog' },
   { label: 'Mídia', href: '#midia' },
+];
+
+const moreLinks = [
+  { label: 'Organograma Híbrido Grátis', href: '#organograma' },
+  { label: 'Nossos Treinamentos', href: '#treinamentos' },
 ];
 
 const Header = () => {
@@ -43,6 +55,26 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
+            
+            {/* Dropdown "Mais" */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground/70 hover:text-foreground text-sm font-medium transition-colors duration-200 outline-none">
+                Mais
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-white/10 z-50">
+                {moreLinks.map((link) => (
+                  <DropdownMenuItem key={link.label} asChild>
+                    <a
+                      href={link.href}
+                      className="cursor-pointer text-foreground/70 hover:text-foreground"
+                    >
+                      {link.label}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
 
           {/* Spacer for balance - same width as logo */}

@@ -5,14 +5,33 @@ const AudioDemoSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section className="section-padding">
-      <div className="container-main max-w-[800px]">
+    <section className="section-padding relative overflow-hidden">
+      {/* Grid Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Grid lines */}
+        <div 
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, hsl(var(--dalton-gray)) 1px, transparent 1px),
+              linear-gradient(to bottom, hsl(var(--dalton-gray)) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}
+        />
+        {/* Corner accent - left */}
+        <div className="absolute left-8 top-1/2 -translate-y-1/2 w-20 h-40 border-l-2 border-t-2 border-dalton-orange/40 rounded-tl-3xl" />
+        {/* Subtle radial gradient */}
+        <div className="absolute inset-0 bg-gradient-radial from-dalton-purple/5 via-transparent to-transparent" />
+      </div>
+
+      <div className="container-main max-w-[800px] relative z-10">
         {/* Title with Badge */}
         <div className="flex items-center justify-center gap-4 flex-wrap">
           <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center">
             Ouça a IA em ação.
           </h2>
-          <span className="px-3 py-1 bg-dalton-cyan text-dalton-dark font-inter font-semibold text-sm rounded-full uppercase">
+          <span className="px-3 py-1 bg-dalton-blue text-dalton-dark font-inter font-semibold text-sm rounded-full uppercase">
             Novo
           </span>
         </div>
@@ -28,8 +47,11 @@ const AudioDemoSection = () => {
         </p>
 
         {/* Audio Player Card */}
-        <div className="mt-16 glass-card p-10">
-          <div className="flex items-center justify-between gap-6 flex-wrap">
+        <div className="mt-16 glass-card p-10 relative">
+          {/* Subtle border glow */}
+          <div className="absolute inset-0 rounded-2xl border border-dalton-blue/20" />
+          
+          <div className="flex items-center justify-between gap-6 flex-wrap relative z-10">
             {/* Left: Label */}
             <div>
               <p className="font-inter font-semibold text-xl text-white">
@@ -48,7 +70,7 @@ const AudioDemoSection = () => {
                   <div
                     key={i}
                     className={`w-1 rounded-full transition-all duration-300 ${
-                      isPlaying ? 'bg-dalton-cyan' : 'bg-dalton-gray'
+                      isPlaying ? 'bg-dalton-blue' : 'bg-dalton-gray'
                     }`}
                     style={{
                       height: `${Math.random() * 24 + 8}px`,

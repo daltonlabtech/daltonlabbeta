@@ -1,52 +1,52 @@
-import { Bot, Users, Check, X } from 'lucide-react';
+import { Bot, Users } from 'lucide-react';
 
-const comparisonCategories = [
+const comparisonRows = [
   {
-    category: "Consistência",
-    ai: "Executa processos 100% padronizados, sem variação",
-    human: "Pode variar dependendo do dia ou contexto"
+    criteria: "Consistência",
+    ai: "100% padronizado, sem variação",
+    human: "Pode variar dependendo do contexto"
   },
   {
-    category: "Velocidade",
-    ai: "Processa milhares de leads em segundos",
+    criteria: "Velocidade",
+    ai: "Milhares de leads em segundos",
     human: "Foco em qualidade sobre quantidade"
   },
   {
-    category: "Disponibilidade",
-    ai: "Opera 24/7 sem pausas ou férias",
-    human: "Trabalha em horário comercial"
+    criteria: "Disponibilidade",
+    ai: "24/7 sem pausas ou férias",
+    human: "Horário comercial"
   },
   {
-    category: "Memória",
-    ai: "Lembra cada interação e detalhe",
+    criteria: "Memória",
+    ai: "Lembra cada interação",
     human: "Prioriza informações estratégicas"
   },
   {
-    category: "Julgamento",
-    ai: "Segue regras e padrões definidos",
-    human: "Avalia situações complexas com contexto"
+    criteria: "Julgamento",
+    ai: "Segue regras e padrões",
+    human: "Avalia situações com contexto"
   },
   {
-    category: "Relacionamento",
-    ai: "Comunicação eficiente e objetiva",
-    human: "Cria conexões genuínas e duradouras"
+    criteria: "Relacionamento",
+    ai: "Comunicação eficiente",
+    human: "Conexões genuínas e duradouras"
   },
   {
-    category: "Negociação",
-    ai: "Apresenta propostas e termos padrão",
+    criteria: "Negociação",
+    ai: "Propostas e termos padrão",
     human: "Adapta estratégias em tempo real"
   },
   {
-    category: "Fechamento",
-    ai: "Prepara contratos e documentação",
-    human: "Fecha deals importantes com persuasão"
+    criteria: "Fechamento",
+    ai: "Prepara contratos e docs",
+    human: "Fecha deals com persuasão"
   }
 ];
 
 const PhilosophySection = () => {
   return (
     <section className="section-padding bg-dalton-dark">
-      <div className="container-main max-w-[1200px]">
+      <div className="container-main max-w-[1000px]">
         {/* Title */}
         <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center">
           IA + Humanos = Mais Vendas
@@ -58,58 +58,55 @@ const PhilosophySection = () => {
         </p>
 
         {/* Comparison Table */}
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* AI Column */}
-          <div className="rounded-2xl border border-dalton-blue/30 bg-gradient-to-b from-dalton-blue/10 to-transparent overflow-hidden">
-            <div className="bg-dalton-blue/20 border-b border-dalton-blue/30 p-6 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-dalton-blue flex items-center justify-center">
-                <Bot className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="font-inter font-bold text-xl text-white">Squad de IA</h3>
-                <p className="font-inter text-sm text-dalton-blue">Excelente em...</p>
+        <div className="mt-12 rounded-2xl border border-white/10 overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
+          {/* Table Header */}
+          <div className="grid grid-cols-3 border-b border-white/10">
+            <div className="p-4 md:p-6 bg-white/5">
+              <span className="font-inter font-semibold text-sm md:text-base text-dalton-gray-light uppercase tracking-wide">
+                Critério
+              </span>
+            </div>
+            <div className="p-4 md:p-6 bg-dalton-blue/10 border-l border-white/10">
+              <div className="flex items-center gap-2 md:gap-3">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-dalton-blue flex items-center justify-center flex-shrink-0">
+                  <Bot className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                </div>
+                <span className="font-inter font-bold text-sm md:text-lg text-white">Squad de IA</span>
               </div>
             </div>
-            <ul className="p-6 space-y-4">
-              {comparisonCategories.slice(0, 4).map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <div className="mt-1 w-5 h-5 rounded-full bg-dalton-blue/20 flex items-center justify-center flex-shrink-0">
-                    <Check className="w-3 h-3 text-dalton-blue" />
-                  </div>
-                  <div>
-                    <span className="font-inter font-semibold text-white">{item.category}:</span>
-                    <span className="font-inter text-dalton-gray-light ml-2">{item.ai}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <div className="p-4 md:p-6 bg-dalton-purple/10 border-l border-white/10">
+              <div className="flex items-center gap-2 md:gap-3">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-dalton-purple flex items-center justify-center flex-shrink-0">
+                  <Users className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                </div>
+                <span className="font-inter font-bold text-sm md:text-lg text-white">Seu Time</span>
+              </div>
+            </div>
           </div>
 
-          {/* Human Column */}
-          <div className="rounded-2xl border border-dalton-purple/30 bg-gradient-to-b from-dalton-purple/10 to-transparent overflow-hidden">
-            <div className="bg-dalton-purple/20 border-b border-dalton-purple/30 p-6 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-dalton-purple flex items-center justify-center">
-                <Users className="w-6 h-6 text-white" />
+          {/* Table Body */}
+          {comparisonRows.map((row, index) => (
+            <div 
+              key={index} 
+              className={`grid grid-cols-3 ${index !== comparisonRows.length - 1 ? 'border-b border-white/5' : ''} hover:bg-white/5 transition-colors`}
+            >
+              <div className="p-4 md:p-5 flex items-center">
+                <span className="font-inter font-semibold text-sm md:text-base text-white">
+                  {row.criteria}
+                </span>
               </div>
-              <div>
-                <h3 className="font-inter font-bold text-xl text-white">Seu Time</h3>
-                <p className="font-inter text-sm text-dalton-purple">Excelente em...</p>
+              <div className="p-4 md:p-5 border-l border-white/5 flex items-center">
+                <span className="font-inter text-sm text-dalton-blue">
+                  {row.ai}
+                </span>
+              </div>
+              <div className="p-4 md:p-5 border-l border-white/5 flex items-center">
+                <span className="font-inter text-sm text-dalton-purple">
+                  {row.human}
+                </span>
               </div>
             </div>
-            <ul className="p-6 space-y-4">
-              {comparisonCategories.slice(4).map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <div className="mt-1 w-5 h-5 rounded-full bg-dalton-purple/20 flex items-center justify-center flex-shrink-0">
-                    <Check className="w-3 h-3 text-dalton-purple" />
-                  </div>
-                  <div>
-                    <span className="font-inter font-semibold text-white">{item.category}:</span>
-                    <span className="font-inter text-dalton-gray-light ml-2">{item.human}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+          ))}
         </div>
 
         {/* Bottom CTA */}

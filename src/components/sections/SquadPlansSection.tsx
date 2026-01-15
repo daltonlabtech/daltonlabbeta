@@ -1,4 +1,4 @@
-import { Zap, Users, Rocket, ArrowRight, Check } from 'lucide-react';
+import { Zap, Users, Rocket, ArrowRight, Check, X } from 'lucide-react';
 
 const plans = [
   {
@@ -7,7 +7,8 @@ const plans = [
     description: "Para quem quer testar agentes de IA na sua força de vendas",
     icon: Zap,
     color: "dalton-blue",
-    features: ["3 agentes à escolha", "Integração CRM básica", "Suporte por e-mail"]
+    features: ["3 agentes à escolha", "Suporte por e-mail", "Relatórios básicos"],
+    notIncluded: ["Agentes de Propostas e Contratos", "Suporte dedicado", "Consultoria estratégica"]
   },
   {
     name: "Squad Pro",
@@ -15,7 +16,8 @@ const plans = [
     description: "Para quem quer agentes de IA trabalhando integrados ao seu time de humanos",
     icon: Users,
     color: "dalton-purple",
-    features: ["6 agentes integrados", "Integração CRM avançada", "Suporte prioritário", "Relatórios mensais"],
+    features: ["6 agentes integrados", "Suporte prioritário", "Relatórios mensais", "Customização parcial"],
+    notIncluded: ["Consultoria estratégica", "Customização total"],
     highlighted: true
   },
   {
@@ -24,7 +26,8 @@ const plans = [
     description: "Para quem quer um modelo de Vibe Selling de ponta a ponta na sua operação comercial agêntica",
     icon: Rocket,
     color: "dalton-orange",
-    features: ["8 agentes completos", "Integrações ilimitadas", "Suporte dedicado", "Consultoria estratégica", "Customização total"]
+    features: ["8 agentes completos", "Suporte dedicado", "Consultoria estratégica", "Customização total", "Relatórios avançados"],
+    notIncluded: []
   }
 ];
 
@@ -126,7 +129,7 @@ const SquadPlansSection = () => {
                 </p>
 
                 {/* Features */}
-                <ul className="mt-6 space-y-3 flex-grow">
+                <ul className="mt-6 space-y-3">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-3">
                       <div className={`w-5 h-5 rounded-full ${colors.bg} flex items-center justify-center flex-shrink-0`}>
@@ -136,6 +139,20 @@ const SquadPlansSection = () => {
                     </li>
                   ))}
                 </ul>
+
+                {/* Not Included */}
+                {plan.notIncluded && plan.notIncluded.length > 0 && (
+                  <ul className="mt-4 space-y-2 flex-grow">
+                    {plan.notIncluded.map((item, i) => (
+                      <li key={i} className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
+                          <X className="w-3 h-3 text-dalton-gray" />
+                        </div>
+                        <span className="font-inter text-sm text-dalton-gray line-through">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 {/* CTA Button */}
                 <button 

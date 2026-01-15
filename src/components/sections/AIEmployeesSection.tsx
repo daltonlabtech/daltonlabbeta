@@ -17,7 +17,7 @@ const agents = [
     color: "dalton-purple",
   },
   {
-    name: "Bia",
+    name: "Bruno",
     role: "SDR no WhatsApp",
     description: "Inicia a conversa via WhatsApp, enviando mensagens personalizadas para criar conexão.",
     icon: MessageSquare,

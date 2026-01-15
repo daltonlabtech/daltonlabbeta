@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { ArrowUp, Bot, ArrowLeft } from 'lucide-react';
+import { ArrowUp, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '@/assets/logo-dalton-lab.png';
+import newtonAvatar from '@/assets/newton-avatar.webp';
 
 interface Message {
   id: string;
@@ -84,9 +85,9 @@ const Newton = () => {
           <div className="space-y-6">
             {messages.map((message) => (
               <div key={message.id} className="flex gap-4">
-                {message.role === 'assistant' && (
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-dalton-blue to-dalton-purple flex items-center justify-center">
-                    <Bot className="w-5 h-5 text-white" />
+              {message.role === 'assistant' && (
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden border-2 border-[#36BDFC]/50">
+                    <img src={newtonAvatar} alt="Newton AI" className="w-full h-full object-cover" />
                   </div>
                 )}
                 
@@ -104,8 +105,8 @@ const Newton = () => {
 
             {isLoading && (
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-dalton-blue to-dalton-purple flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-white" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden border-2 border-[#36BDFC]/50">
+                  <img src={newtonAvatar} alt="Newton AI" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex items-center gap-1 py-3">
                   <span className="w-2 h-2 bg-dalton-blue rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />

@@ -68,12 +68,15 @@ const AIEmployeesSection = () => {
       <div className="container-main">
         {/* Title */}
         <h2 className="font-inter font-bold text-4xl md:text-5xl lg:text-[56px] text-white text-center">
-          Conheca seus funcionarios de IA
+          Conheça seu Squad de Vendas em IA
         </h2>
 
         {/* Subtitle */}
-        <p className="mt-12 font-inter font-normal text-lg text-dalton-gray-light text-center max-w-[700px] mx-auto">
-          Um time de 4 especialistas que executa as tarefas repetitivas do seu processo de vendas, 24 horas por dia.
+        <p className="mt-12 font-inter font-normal text-lg text-dalton-gray-light text-center max-w-[800px] mx-auto leading-relaxed">
+          Um time de agentes especializados que executa o trabalho operacional do seu comercial.
+        </p>
+        <p className="mt-4 font-inter font-normal text-lg text-dalton-gray-light text-center max-w-[800px] mx-auto leading-relaxed">
+          Da prospecção ao follow-up, 24 horas por dia, enquanto seu time humano foca em negociar e fechar.
         </p>
 
         {/* Agent Cards Grid */}

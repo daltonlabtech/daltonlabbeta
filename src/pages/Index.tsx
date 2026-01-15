@@ -9,6 +9,7 @@ import SocialProofSection from "@/components/sections/SocialProofSection";
 import FAQSection from "@/components/sections/FAQSection";
 import OtherSolutionsSection from "@/components/sections/OtherSolutionsSection";
 import FinalCTASection from "@/components/sections/FinalCTASection";
+import NewtonChatButton from "@/components/NewtonChatButton";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       <FAQSection />
       <OtherSolutionsSection />
       <FinalCTASection />
+      <NewtonChatButton />
     </main>
   );
 };

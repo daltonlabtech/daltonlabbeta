@@ -28,12 +28,12 @@ const Header = () => {
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center">
+          <a href="/" className="flex items-center flex-shrink-0">
             <img src={logoImage} alt="Dalton Lab" className="h-10 md:h-12 w-auto" />
           </a>
 
           {/* Navigation - Center */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center justify-center gap-8 flex-1">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -45,8 +45,8 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Spacer for balance */}
-          <div className="w-20 md:w-32" />
+          {/* Spacer for balance - same width as logo */}
+          <div className="hidden md:block w-[120px]" />
         </div>
       </div>
     </header>

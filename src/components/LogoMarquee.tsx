@@ -25,11 +25,11 @@ const LogoMarquee = () => {
     <div className="w-full overflow-hidden py-4">
       <div className="relative flex">
         {/* First set of logos */}
-        <div className="animate-marquee flex items-center gap-16 md:gap-20">
+        <div className="animate-marquee flex items-center">
           {clientLogos.map((logo, index) => (
             <div
               key={`logo-1-${index}`}
-              className="flex-shrink-0 h-12 md:h-16 flex items-center justify-center"
+              className="flex-shrink-0 h-12 md:h-16 flex items-center justify-center mx-8 md:mx-12"
             >
               <img 
                 src={logo} 
@@ -41,11 +41,11 @@ const LogoMarquee = () => {
         </div>
         
         {/* Duplicate set for seamless loop */}
-        <div className="animate-marquee flex items-center gap-16 md:gap-20 ml-16 md:ml-20" aria-hidden="true">
+        <div className="animate-marquee flex items-center" aria-hidden="true">
           {clientLogos.map((logo, index) => (
             <div
               key={`logo-2-${index}`}
-              className="flex-shrink-0 h-12 md:h-16 flex items-center justify-center"
+              className="flex-shrink-0 h-12 md:h-16 flex items-center justify-center mx-8 md:mx-12"
             >
               <img 
                 src={logo} 

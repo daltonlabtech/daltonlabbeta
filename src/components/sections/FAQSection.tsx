@@ -11,6 +11,10 @@ const faqs = [
     answer: "Um Agente de IA é uma solução de inteligência artificial projetada para automatizar tarefas específicas do seu processo comercial. Diferente de chatbots básicos, nossos agentes são treinados com contexto do seu negócio e executam ações reais como prospectar, qualificar leads, fazer follow-up e agendar reuniões."
   },
   {
+    question: "Quais são os 10 agentes do Squad de Vendas?",
+    answer: "1. Leo (Prospecção): Encontra novos contatos. 2. Sofia (Enriquecimento): Valida dados dos leads. 3. André (Outreach): Envia e-mails iniciais. 4. Bia (WhatsApp): Inicia conversas no WhatsApp. 5. Pedro (Follow-up): Faz acompanhamentos. 6. Laura (Nutrição): Envia conteúdos relevantes. 7. Tomás (Transcrição): Grava e transcreve reuniões. 8. Íris (Resumo): Resume os pontos-chave. 9. Arthur (Proposta): Cria propostas personalizadas. 10. Helena (Contrato): Prepara o contrato final."
+  },
+  {
     question: "Quanto tempo leva para implementar?",
     answer: "O tempo de implementação varia de acordo com a complexidade do seu processo comercial. Em média, conseguimos ter os primeiros agentes operando em 2 a 4 semanas, incluindo integração com seu CRM e treinamento com dados do seu negócio."
   },

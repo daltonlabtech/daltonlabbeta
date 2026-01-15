@@ -74,7 +74,7 @@ const OtherSolutionsSection = () => {
     <section className="section-padding">
       <div className="container-main max-w-[1000px]">
         {/* Image Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-12">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4 mb-12 max-w-[700px] mx-auto">
           {displayedImages.map((image, index) => (
             <div
               key={index}
@@ -97,7 +97,7 @@ const OtherSolutionsSection = () => {
               <img
                 src={image}
                 alt="Solução Dalton Lab"
-                className="w-full h-auto aspect-[3/4] object-cover"
+                className="w-full h-auto aspect-[3/4] object-cover rounded-lg"
               />
             </div>
           ))}

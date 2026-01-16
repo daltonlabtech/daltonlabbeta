@@ -11,9 +11,21 @@ const heroVideos = [heroVideo1, heroVideo2, heroVideo3, heroVideo4];
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isVideoReady, setIsVideoReady] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const preloadedVideos = useRef<HTMLVideoElement[]>([]);
 
+  // Preload all videos on mount
   useEffect(() => {
+    heroVideos.forEach((src, index) => {
+      const video = document.createElement('video');
+      video.src = src;
+      video.preload = 'auto';
+      video.muted = true;
+      video.playsInline = true;
+      preloadedVideos.current[index] = video;
+    });
+    
     setIsVisible(true);
   }, []);
 
@@ -21,10 +33,17 @@ const HeroSection = () => {
     setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length);
   };
 
+  const handleCanPlayThrough = () => {
+    setIsVideoReady(true);
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  };
+
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.load();
-      videoRef.current.play();
+      videoRef.current.play().catch(() => {});
     }
   }, [currentVideoIndex]);
 
@@ -36,8 +55,10 @@ const HeroSection = () => {
         autoPlay
         muted
         playsInline
+        preload="auto"
         onEnded={handleVideoEnded}
-        className="absolute inset-0 w-full h-full object-cover bg-black"
+        onCanPlayThrough={handleCanPlayThrough}
+        className={`absolute inset-0 w-full h-full object-cover bg-black transition-opacity duration-300 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
       >
         <source src={heroVideos[currentVideoIndex]} type="video/mp4" />
       </video>

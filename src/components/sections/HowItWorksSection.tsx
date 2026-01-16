@@ -53,7 +53,7 @@ const HowItWorksSection = () => {
         <h2 
           className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center ${revealClasses(isVisible)}`}
         >
-          Como Funciona
+          O Método Dalton
         </h2>
         
         {/* Subtitle */}

@@ -132,22 +132,28 @@ const PhilosophySection = () => {
           style={getStaggerDelay(4)}
         >
           <p className="font-inter text-sm md:text-base text-dalton-gray-light">
-            Tecnologias que usamos para gerar <span className="text-white font-medium italic">crescimento com IA</span>.
+            Tecnologias que usamos em nosso <span className="text-white font-medium italic">laboratório de IAs</span>.
           </p>
           
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            {techLogos.map((logo, index) => (
-              <div 
-                key={index}
-                className="h-6 md:h-8 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300"
-              >
-                <img 
-                  src={logo.src} 
-                  alt={logo.alt}
-                  className="h-full w-auto object-contain"
-                />
-              </div>
-            ))}
+          {/* Marquee Container */}
+          <div className="mt-8 w-full overflow-hidden">
+            <div 
+              className="flex animate-marquee-infinite"
+              style={{ width: 'max-content' }}
+            >
+              {[...techLogos, ...techLogos, ...techLogos].map((logo, index) => (
+                <div 
+                  key={index}
+                  className="h-6 md:h-8 w-[120px] md:w-[160px] flex-shrink-0 flex items-center justify-center"
+                >
+                  <img 
+                    src={logo.src} 
+                    alt={logo.alt}
+                    className="h-full w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

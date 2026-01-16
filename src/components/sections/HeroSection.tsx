@@ -11,14 +11,14 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen h-screen flex flex-col overflow-hidden">
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
       {/* Background Video */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-contain bg-black"
       >
         <source src={heroVideo} type="video/mp4" />
       </video>

@@ -134,27 +134,27 @@ const PhilosophySection = () => {
           <p className="font-inter text-sm md:text-base text-dalton-gray-light">
             Tecnologias que usamos em nosso laboratório de IAs.
           </p>
-          
-          {/* Marquee Container */}
-          <div className="mt-8 w-full overflow-hidden">
+        </div>
+      </div>
+      
+      {/* Marquee Container - Full Width */}
+      <div className="mt-8 w-full overflow-hidden">
+        <div 
+          className="flex animate-marquee-infinite"
+          style={{ width: 'max-content' }}
+        >
+          {[...techLogos, ...techLogos, ...techLogos].map((logo, index) => (
             <div 
-              className="flex animate-marquee-infinite"
-              style={{ width: 'max-content' }}
+              key={index}
+              className="h-4 md:h-5 w-[160px] md:w-[200px] flex-shrink-0 flex items-center justify-center"
             >
-              {[...techLogos, ...techLogos, ...techLogos].map((logo, index) => (
-                <div 
-                  key={index}
-                  className="h-6 md:h-8 w-[120px] md:w-[160px] flex-shrink-0 flex items-center justify-center"
-                >
-                  <img 
-                    src={logo.src} 
-                    alt={logo.alt}
-                    className="h-full w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ))}
+              <img 
+                src={logo.src} 
+                alt={logo.alt}
+                className="h-full w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+              />
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

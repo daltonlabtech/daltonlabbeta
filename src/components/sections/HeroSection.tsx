@@ -93,7 +93,7 @@ const HeroSection = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            O futuro está aqui. Conheça o squad de vendas de Inteligência Artificial completo para colocar o seu processo comercial no próximo nível.
+            O futuro está aqui. Conheça o Squad de Vendas que vende no piloto automático usando Inteligência Artificial.
           </p>
 
           {/* CTA Button */}

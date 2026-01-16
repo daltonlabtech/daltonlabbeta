@@ -305,7 +305,7 @@ const AIEmployeesSection = () => {
           className={`mt-4 font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-white text-center ${revealClasses(isVisible)}`}
           style={getStaggerDelay(1)}
         >
-          Conheça seu Squad de Vendas de IA
+          Conheça seu Time de Vendas de IA
         </h2>
 
         {/* Description */}

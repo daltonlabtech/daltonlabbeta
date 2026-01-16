@@ -12,7 +12,7 @@ const faqs = [
     answer: "Um Agente de IA é uma solução de inteligência artificial projetada para automatizar tarefas específicas do seu processo comercial. Diferente de chatbots básicos, nossos agentes são treinados com contexto do seu negócio e executam ações reais como prospectar, qualificar leads, fazer follow-up e agendar reuniões."
   },
   {
-    question: "Quais são os 8 agentes do Squad de Vendas?",
+    question: "Quais são os 8 agentes do Time de Vendas?",
     answer: (
       <ol className="list-decimal list-inside space-y-2">
         <li><strong>Leo (Prospecção):</strong> Encontra novos contatos</li>

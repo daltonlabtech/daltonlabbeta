@@ -40,7 +40,7 @@ const FinalCTASection = () => {
           className={`mt-8 font-inter font-normal text-lg md:text-xl text-dalton-gray-light max-w-[700px] mx-auto leading-relaxed ${revealClasses(isVisible)}`}
           style={getStaggerDelay(2)}
         >
-          Agende uma análise de potencial e explore o modelo de Squad de Vendas com IA do Dalton Lab.
+          Agende uma análise de potencial e explore o modelo de Time de Vendas com IA do Dalton Lab.
         </p>
 
         {/* CTA Button with animated glow */}
@@ -52,7 +52,7 @@ const FinalCTASection = () => {
           <div className="absolute inset-0 bg-dalton-blue rounded-full blur-2xl opacity-40 animate-pulse-glow scale-110" />
           
           <button className="relative group bg-white text-zinc-900 font-semibold text-base md:text-lg px-8 py-4 md:px-10 md:py-5 rounded-full shadow-2xl hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
-            <span>Quero conhecer o Squad</span>
+            <span>Quero conhecer</span>
             <ArrowRight className="ml-2 w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
           </button>
         </div>

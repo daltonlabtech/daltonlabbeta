@@ -31,7 +31,7 @@ const testimonials = [
     metricLabel: "mais pipeline"
   },
   {
-    quote: "O Squad de IA revolucionou nossa abordagem de vendas. Os agentes trabalham 24/7 e nunca esquecem um follow-up. Nosso pipeline nunca esteve tão cheio.",
+    quote: "O Time de IA revolucionou nossa abordagem de vendas. Os agentes trabalham 24/7 e nunca esquecem um follow-up. Nosso pipeline nunca esteve tão cheio.",
     author: "Ricardo Mendes",
     role: "Head de Vendas",
     company: "Growth Solutions",
@@ -125,7 +125,7 @@ const SocialProofSection = () => {
         {/* CTA Button */}
         <div className="mt-16 text-center">
           <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
-            <span>Quero conhecer o Squad</span>
+            <span>Quero conhecer</span>
             <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
           </button>
         </div>

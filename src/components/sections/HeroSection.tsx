@@ -1,26 +1,45 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import LogoMarquee from '@/components/LogoMarquee';
-import heroVideo from '@/assets/hero-background.mp4';
+import heroVideo1 from '@/assets/hero-video-1.mp4';
+import heroVideo2 from '@/assets/hero-video-2.mp4';
+import heroVideo3 from '@/assets/hero-video-3.mp4';
+import heroVideo4 from '@/assets/hero-video-4.mp4';
+
+const heroVideos = [heroVideo1, heroVideo2, heroVideo3, heroVideo4];
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
+  const handleVideoEnded = () => {
+    setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length);
+  };
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+      videoRef.current.play();
+    }
+  }, [currentVideoIndex]);
+
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
       {/* Background Video */}
       <video
+        ref={videoRef}
         autoPlay
-        loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-contain bg-black"
+        onEnded={handleVideoEnded}
+        className="absolute inset-0 w-full h-full object-cover bg-black"
       >
-        <source src={heroVideo} type="video/mp4" />
+        <source src={heroVideos[currentVideoIndex]} type="video/mp4" />
       </video>
 
       {/* Dark Overlay Mask */}

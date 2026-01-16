@@ -50,7 +50,7 @@ const AboutSection = () => {
         </p>
 
         {/* Team Photo */}
-        <div className="mt-10 relative rounded-2xl overflow-hidden border border-white/10">
+        <div className="mt-10 relative rounded-2xl overflow-hidden border border-white/10 max-w-md mx-auto">
           <img 
             src={teamPhoto} 
             alt="Time Dalton Lab" 

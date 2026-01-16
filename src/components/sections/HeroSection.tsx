@@ -57,7 +57,7 @@ const HeroSection = () => {
             }`}
           >
             <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-              Funcionários Artificiais,
+              Funcionários Artificiais
             </span>
             <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
               Vendas Reais

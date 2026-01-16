@@ -24,7 +24,7 @@ const allFeatures = [
 
 const plans = [
   {
-    name: "Squad Start",
+    name: "Time Start",
     tagline: "Teste o poder da IA",
     description: "Para quem quer testar agentes de IA na sua força de vendas",
     icon: Zap,
@@ -48,7 +48,7 @@ const plans = [
     }
   },
   {
-    name: "Squad Pro",
+    name: "Time Pro",
     tagline: "Escale sua operação",
     description: "Para quem quer agentes de IA trabalhando integrados ao seu time",
     icon: Users,
@@ -73,7 +73,7 @@ const plans = [
     highlighted: true
   },
   {
-    name: "Squad Full",
+    name: "Time Full",
     tagline: "Vibe Selling completo",
     description: "Modelo de Vibe Selling de ponta a ponta na sua operação comercial",
     icon: Rocket,
@@ -135,7 +135,7 @@ const SquadPlansSection = () => {
         <h2 
           className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center ${revealClasses(isVisible)}`}
         >
-          Escolha Seu Squad
+          Escolha Seu Time
         </h2>
 
         {/* Subtitle */}

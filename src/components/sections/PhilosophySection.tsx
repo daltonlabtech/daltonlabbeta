@@ -83,7 +83,7 @@ const PhilosophySection = () => {
             <div className="p-2 md:p-5" />
             <div className="p-2 md:p-5 border-l border-white/[0.08] flex items-center justify-center gap-1 md:gap-2">
               <Bot className="w-3 h-3 md:w-4 md:h-4 text-dalton-blue flex-shrink-0" />
-              <span className="font-inter font-semibold text-xs md:text-sm text-dalton-blue">Squad de IA</span>
+              <span className="font-inter font-semibold text-xs md:text-sm text-dalton-blue">Time de IA</span>
             </div>
             <div className="p-2 md:p-5 border-l border-white/[0.08] flex items-center justify-center gap-1 md:gap-2">
               <Users className="w-3 h-3 md:w-4 md:h-4 text-dalton-purple flex-shrink-0" />
@@ -122,7 +122,7 @@ const PhilosophySection = () => {
           style={getStaggerDelay(3)}
         >
           <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
-            <span>Quero conhecer o Squad</span>
+            <span>Quero conhecer</span>
           </button>
         </div>
 

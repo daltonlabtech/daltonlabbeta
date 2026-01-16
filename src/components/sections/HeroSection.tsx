@@ -11,7 +11,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden">
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-black">
       {/* Background Video */}
       <video
         autoPlay
@@ -19,7 +19,8 @@ const HeroSection = () => {
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover bg-black"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ backgroundColor: '#000' }}
       >
         <source src={heroVideo} type="video/mp4" />
       </video>

@@ -11,57 +11,41 @@ const heroVideos = [heroVideo1, heroVideo2, heroVideo3, heroVideo4];
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [isVideoReady, setIsVideoReady] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const preloadedVideos = useRef<HTMLVideoElement[]>([]);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-  // Preload all videos on mount
   useEffect(() => {
-    heroVideos.forEach((src, index) => {
-      const video = document.createElement('video');
-      video.src = src;
-      video.preload = 'auto';
-      video.muted = true;
-      video.playsInline = true;
-      preloadedVideos.current[index] = video;
-    });
-    
     setIsVisible(true);
+    // Start playing the first video
+    videoRefs.current[0]?.play().catch(() => {});
   }, []);
 
-  const handleVideoEnded = () => {
-    setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length);
-  };
-
-  const handleCanPlayThrough = () => {
-    setIsVideoReady(true);
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
+  const handleVideoEnded = (index: number) => {
+    if (index === currentVideoIndex) {
+      const nextIndex = (index + 1) % heroVideos.length;
+      setCurrentVideoIndex(nextIndex);
+      // Immediately play the next video
+      videoRefs.current[nextIndex]?.play().catch(() => {});
     }
   };
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play().catch(() => {});
-    }
-  }, [currentVideoIndex]);
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Background Video */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        playsInline
-        preload="auto"
-        onEnded={handleVideoEnded}
-        onCanPlayThrough={handleCanPlayThrough}
-        className={`absolute inset-0 w-full h-full object-cover bg-black transition-opacity duration-300 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
-      >
-        <source src={heroVideos[currentVideoIndex]} type="video/mp4" />
-      </video>
+      {/* Background Videos - all stacked, only current one visible */}
+      {heroVideos.map((video, index) => (
+        <video
+          key={index}
+          ref={(el) => { videoRefs.current[index] = el; }}
+          muted
+          playsInline
+          preload="auto"
+          onEnded={() => handleVideoEnded(index)}
+          className={`absolute inset-0 w-full h-full object-cover bg-black transition-opacity duration-0 ${
+            index === currentVideoIndex ? 'opacity-100 z-[1]' : 'opacity-0 z-0'
+          }`}
+        >
+          <source src={video} type="video/mp4" />
+        </video>
+      ))}
 
       {/* Dark Overlay Mask */}
       <div className="absolute inset-0 bg-black/70" />

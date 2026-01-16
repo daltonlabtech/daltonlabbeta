@@ -128,7 +128,7 @@ const SquadPlansSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#0A0A0A]"
+      className="section-padding bg-[#19212E]"
     >
       <div className="container-main">
         {/* Title */}

@@ -33,12 +33,12 @@ const LogoMarquee = () => {
         {allLogos.map((logo, index) => (
           <div
             key={index}
-            className="h-10 md:h-14 w-[140px] md:w-[180px] flex-shrink-0 flex items-center justify-center"
+            className="h-14 md:h-20 w-[180px] md:w-[220px] flex-shrink-0 flex items-center justify-center"
           >
             <img 
               src={logo} 
               alt={`Cliente ${(index % clientLogos.length) + 1}`}
-              className="max-h-full max-w-[100px] md:max-w-[140px] object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+              className="max-h-full max-w-[130px] md:max-w-[170px] object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
             />
           </div>
         ))}

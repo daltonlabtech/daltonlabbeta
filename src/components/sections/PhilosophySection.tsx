@@ -1,6 +1,21 @@
 import { Bot, Users } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
+// Tech logos
+import anthropicLogo from '@/assets/tech/anthropic.webp';
+import manusLogo from '@/assets/tech/manus.png';
+import n8nLogo from '@/assets/tech/n8n.png';
+import openaiLogo from '@/assets/tech/openai.webp';
+import geminiLogo from '@/assets/tech/gemini.png';
+
+const techLogos = [
+  { src: openaiLogo, alt: 'OpenAI' },
+  { src: geminiLogo, alt: 'Gemini' },
+  { src: anthropicLogo, alt: 'Anthropic' },
+  { src: n8nLogo, alt: 'n8n' },
+  { src: manusLogo, alt: 'Manus' },
+];
+
 const comparisonRows = [
   {
     criteria: "Função no sistema",
@@ -109,6 +124,31 @@ const PhilosophySection = () => {
           <button className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
             <span>Quero conhecer o Squad</span>
           </button>
+        </div>
+
+        {/* Tech Stack Section */}
+        <div 
+          className={`mt-20 text-center ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(4)}
+        >
+          <p className="font-inter text-sm md:text-base text-dalton-gray-light">
+            Tecnologias que usamos para gerar <span className="text-white font-medium italic">crescimento com IA</span>.
+          </p>
+          
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            {techLogos.map((logo, index) => (
+              <div 
+                key={index}
+                className="h-6 md:h-8 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300"
+              >
+                <img 
+                  src={logo.src} 
+                  alt={logo.alt}
+                  className="h-full w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

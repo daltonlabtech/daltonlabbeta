@@ -65,14 +65,14 @@ const PhilosophySection = () => {
         >
           {/* Table Header */}
           <div className="grid grid-cols-3">
-            <div className="p-4 md:p-5" />
-            <div className="p-4 md:p-5 border-l border-white/[0.08] flex items-center justify-center gap-2">
-              <Bot className="w-4 h-4 text-dalton-blue" />
-              <span className="font-inter font-semibold text-sm text-dalton-blue">Squad de IA</span>
+            <div className="p-2 md:p-5" />
+            <div className="p-2 md:p-5 border-l border-white/[0.08] flex items-center justify-center gap-1 md:gap-2">
+              <Bot className="w-3 h-3 md:w-4 md:h-4 text-dalton-blue flex-shrink-0" />
+              <span className="font-inter font-semibold text-xs md:text-sm text-dalton-blue">Squad de IA</span>
             </div>
-            <div className="p-4 md:p-5 border-l border-white/[0.08] flex items-center justify-center gap-2">
-              <Users className="w-4 h-4 text-dalton-purple" />
-              <span className="font-inter font-semibold text-sm text-dalton-purple">Seu Time</span>
+            <div className="p-2 md:p-5 border-l border-white/[0.08] flex items-center justify-center gap-1 md:gap-2">
+              <Users className="w-3 h-3 md:w-4 md:h-4 text-dalton-purple flex-shrink-0" />
+              <span className="font-inter font-semibold text-xs md:text-sm text-dalton-purple">Seu Time</span>
             </div>
           </div>
 
@@ -82,18 +82,18 @@ const PhilosophySection = () => {
               key={index} 
               className="grid grid-cols-3 border-t border-white/[0.05]"
             >
-              <div className="p-4 md:p-5 flex items-center">
-                <span className="font-inter font-medium text-sm text-white">
+              <div className="p-2 md:p-5 flex items-center">
+                <span className="font-inter font-medium text-xs md:text-sm text-white break-words hyphens-auto">
                   {row.criteria}
                 </span>
               </div>
-              <div className="p-4 md:p-5 border-l border-white/[0.05] flex items-center justify-start">
-                <span className="font-inter text-sm text-dalton-gray-light">
+              <div className="p-2 md:p-5 border-l border-white/[0.05] flex items-center justify-start">
+                <span className="font-inter text-xs md:text-sm text-dalton-gray-light break-words">
                   {row.ai}
                 </span>
               </div>
-              <div className="p-4 md:p-5 border-l border-white/[0.05] flex items-center justify-start">
-                <span className="font-inter text-sm text-dalton-gray-light">
+              <div className="p-2 md:p-5 border-l border-white/[0.05] flex items-center justify-start">
+                <span className="font-inter text-xs md:text-sm text-dalton-gray-light break-words">
                   {row.human}
                 </span>
               </div>

@@ -1,51 +1,28 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import LogoMarquee from '@/components/LogoMarquee';
-import heroVideo1 from '@/assets/hero-video-1.mp4';
-import heroVideo2 from '@/assets/hero-video-2.mp4';
-import heroVideo3 from '@/assets/hero-video-3.mp4';
-import heroVideo4 from '@/assets/hero-video-4.mp4';
-
-const heroVideos = [heroVideo1, heroVideo2, heroVideo3, heroVideo4];
+import heroVideo from '@/assets/hero-video.mp4';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
     setIsVisible(true);
-    // Start playing the first video
-    videoRefs.current[0]?.play().catch(() => {});
   }, []);
-
-  const handleVideoEnded = (index: number) => {
-    if (index === currentVideoIndex) {
-      const nextIndex = (index + 1) % heroVideos.length;
-      setCurrentVideoIndex(nextIndex);
-      // Immediately play the next video
-      videoRefs.current[nextIndex]?.play().catch(() => {});
-    }
-  };
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Background Videos - all stacked, only current one visible */}
-      {heroVideos.map((video, index) => (
-        <video
-          key={index}
-          ref={(el) => { videoRefs.current[index] = el; }}
-          muted
-          playsInline
-          preload="auto"
-          onEnded={() => handleVideoEnded(index)}
-          className={`absolute inset-0 w-full h-full object-cover bg-black transition-opacity duration-0 ${
-            index === currentVideoIndex ? 'opacity-100 z-[1]' : 'opacity-0 z-0'
-          }`}
-        >
-          <source src={video} type="video/mp4" />
-        </video>
-      ))}
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover bg-black"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
 
       {/* Dark Overlay Mask */}
       <div className="absolute inset-0 bg-black/70" />

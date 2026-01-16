@@ -132,7 +132,7 @@ const PhilosophySection = () => {
           style={getStaggerDelay(4)}
         >
           <p className="font-inter text-sm md:text-base text-dalton-gray-light">
-            Tecnologias que usamos em nosso <span className="text-white font-medium italic">laboratório de IAs</span>.
+            Tecnologias que usamos em nosso laboratório de IAs.
           </p>
           
           {/* Marquee Container */}

@@ -115,7 +115,7 @@
 
   /* Section Spacing */
   .section-padding {
-    @apply py-[120px];
+    @apply py-16 md:py-[120px];
   }
 
   /* Glass Card */

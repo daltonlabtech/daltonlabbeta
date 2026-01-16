@@ -123,7 +123,7 @@ const Newton = () => {
 
       {/* Input Area */}
       <div className="border-t border-white/10 bg-[#0a1628]/80 backdrop-blur-sm">
-        <div className="container mx-auto px-6 py-6 max-w-3xl">
+        <div className="container mx-auto px-6 py-4 max-w-3xl">
           <form onSubmit={handleSubmit} className="relative">
             <input
               type="text"
@@ -141,6 +141,16 @@ const Newton = () => {
               <ArrowUp className="w-5 h-5 text-white" />
             </button>
           </form>
+          
+          {/* Disclaimer */}
+          <div className="mt-4 text-center">
+            <p className="font-inter text-xs text-dalton-gray-light/70 leading-relaxed">
+              O Agente de IA Newton pode cometer erros. Considere verificar informações importantes.
+            </p>
+            <p className="font-inter text-xs text-dalton-gray-light/50 mt-2">
+              ©2026 | Powered by Dalton Lab
+            </p>
+          </div>
         </div>
       </div>
     </div>

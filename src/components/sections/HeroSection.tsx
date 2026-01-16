@@ -19,6 +19,7 @@ const HeroSection = () => {
         loop
         playsInline
         preload="auto"
+        poster="/hero-poster.png"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ backgroundColor: '#000' }}
       >

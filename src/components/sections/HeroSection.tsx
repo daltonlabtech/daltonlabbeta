@@ -64,7 +64,8 @@ const HeroSection = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            Escale a receita da sua empresa. Em menos tempo. Com menos custo.
+            <span className="block">Escale a receita da sua empresa.</span>
+            <span className="block">Em menos tempo. Com menos custo.</span>
           </p>
 
           {/* CTA Button */}

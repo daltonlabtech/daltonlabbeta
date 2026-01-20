@@ -29,10 +29,10 @@ const ProspectionSection = () => {
 
         {/* CTA Button */}
         <div 
-          className={`mt-8 text-center ${revealClasses(isVisible)}`}
+          className={`mt-8 flex justify-center ${revealClasses(isVisible)}`}
           style={getStaggerDelay(2)}
         >
-          <button className="bg-zinc-900 text-white font-medium text-sm px-6 py-3 rounded-full hover:bg-zinc-800 transition-all duration-300 flex items-center justify-center">
+          <button className="bg-zinc-900 text-white font-medium text-sm px-6 py-3 rounded-full hover:bg-zinc-800 transition-all duration-300">
             Fale com o Dalton
           </button>
         </div>

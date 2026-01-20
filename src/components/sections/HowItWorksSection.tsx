@@ -29,13 +29,13 @@ const HowItWorksSection = () => {
       className="flex flex-col items-center gap-3 flex-shrink-0"
     >
       <div 
-        className={`w-32 h-32 md:w-40 md:h-40 rounded-2xl ${tool.bgColor} ${tool.hasBorder ? 'border border-gray-200' : ''} flex items-center justify-center shadow-md`}
+        className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl ${tool.bgColor} ${tool.hasBorder ? 'border border-gray-200' : ''} flex items-center justify-center shadow-md`}
       >
         {tool.isEmoji && (
-          <span className="text-5xl md:text-6xl">{tool.icon}</span>
+          <span className="text-2xl md:text-3xl">{tool.icon}</span>
         )}
         {tool.isText && (
-          <span className={`text-4xl md:text-5xl font-bold ${tool.textColor}`}>{tool.icon}</span>
+          <span className={`text-xl md:text-2xl font-bold ${tool.textColor}`}>{tool.icon}</span>
         )}
       </div>
     </div>

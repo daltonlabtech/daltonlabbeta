@@ -58,7 +58,7 @@ const SocialProofSection = () => {
               >
                 {/* Logo */}
                 <div className="mb-6">
-                  <img src={testimonial.logo} alt="Logo cliente" className="h-8 object-contain" />
+                  <img src={testimonial.logo} alt="Logo cliente" className="h-20 object-contain brightness-0" />
                 </div>
 
                 {/* Quote */}
@@ -81,16 +81,6 @@ const SocialProofSection = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* CTA Button */}
-        <div 
-          className={`mt-16 text-center ${revealClasses(isVisible)}`}
-          style={getStaggerDelay(5)}
-        >
-          <button className="bg-[#F5F3F0] text-[#101823] font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center">
-            Fale com o Dalton
-          </button>
         </div>
       </div>
     </section>

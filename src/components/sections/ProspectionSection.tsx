@@ -16,15 +16,15 @@ const ProspectionSection = () => {
           <h2 
             className={`font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-zinc-900 text-center leading-tight ${revealClasses(isVisible)}`}
           >
-            Da prospecção à venda: tudo em um só lugar.
+            Automatize seu funil com Agentes de IA
           </h2>
 
         {/* Subtitle */}
         <p 
-          className={`mt-4 font-inter font-normal text-lg md:text-xl text-zinc-600 text-center max-w-2xl mx-auto ${revealClasses(isVisible)}`}
+          className={`mt-4 font-inter font-normal text-lg md:text-xl text-zinc-600 text-center max-w-3xl mx-auto ${revealClasses(isVisible)}`}
           style={getStaggerDelay(1)}
         >
-          Acelere seu crescimento com IA, enquanto sua equipe foca no que realmente importa.
+          Qualifique leads, agende reuniões e crie propostas instantaneamente, enquanto sua equipe foca no que realmente importa.
         </p>
 
         {/* CTA Button */}
@@ -32,7 +32,7 @@ const ProspectionSection = () => {
           className={`mt-8 flex justify-center ${revealClasses(isVisible)}`}
           style={getStaggerDelay(2)}
         >
-          <button className="bg-zinc-900 text-white font-medium text-sm px-6 py-3 rounded-full hover:bg-zinc-800 transition-all duration-300">
+          <button className="bg-[#101823] text-white font-medium text-sm px-6 py-3 rounded-full hover:bg-[#1a2533] transition-all duration-300">
             Fale com o Dalton
           </button>
         </div>
@@ -262,35 +262,44 @@ const ProspectionSection = () => {
           >
             {/* Conteúdo */}
             <div className="text-center md:text-left">
-              <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
+              <span className="bg-[#101823] text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
+                Agente de
+              </span>
+              <div className="flex items-center gap-2 justify-center md:justify-start mb-2 mt-2">
                 <h3 className="font-inter font-semibold text-2xl text-zinc-900/40">Conteúdo</h3>
                 <span className="bg-gradient-to-r from-[hsl(var(--dalton-purple))] to-[hsl(271,76%,45%)] text-white text-[10px] font-medium px-2 py-0.5 rounded-full uppercase">
                   Em breve
                 </span>
               </div>
               <p className="text-base text-zinc-600/60 leading-relaxed">
-                Conteúdo de alta performance todos os dias, sem você precisar criar nada.
+                Gere leads orgânicos. Agentes de IA que estudam sua marca, criam posts, roteiros e newsletters no seu tom de voz.
               </p>
             </div>
 
             {/* Anúncio */}
             <div className="text-center md:text-left">
-              <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
+              <span className="bg-[#101823] text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
+                Agente de
+              </span>
+              <div className="flex items-center gap-2 justify-center md:justify-start mb-2 mt-2">
                 <h3 className="font-inter font-semibold text-2xl text-zinc-900/40">Anúncio</h3>
                 <span className="bg-gradient-to-r from-[hsl(var(--dalton-purple))] to-[hsl(271,76%,45%)] text-white text-[10px] font-medium px-2 py-0.5 rounded-full uppercase">
                   Em breve
                 </span>
               </div>
               <p className="text-base text-zinc-600/60 leading-relaxed">
-                Copies, roteiros e briefings de anúncio em alto volume. Mais testes, mais winners, menor CAC.
+                Anuncie para o público certo. Realize testes em massa, identifique padrões e melhore a performance do seu funil de Ads.
               </p>
             </div>
 
             {/* Vendas */}
             <div className="text-center md:text-left">
-              <h3 className="font-inter font-semibold text-2xl text-zinc-900 mb-2">Vendas</h3>
+              <span className="bg-[#101823] text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
+                Agente de
+              </span>
+              <h3 className="font-inter font-semibold text-2xl text-zinc-900 mb-2 mt-2">Vendas</h3>
               <p className="text-base text-zinc-600 leading-relaxed">
-                Nunca perca um lead. Respostas instantâneas 24/7 com o seu CRM atualizado automaticamente.
+                Nunca perca um lead. Respostas instantâneas 24/7, qualificação automatizada e receita previsível.
               </p>
             </div>
           </div>

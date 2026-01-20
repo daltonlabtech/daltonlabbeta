@@ -7,15 +7,17 @@ const ProspectionSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#F5F3F0] overflow-hidden"
+      className="section-padding bg-[#19212E] overflow-hidden"
     >
       <div className="container-main">
-        {/* Heading */}
-        <h2 
-          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 text-center leading-tight ${revealClasses(isVisible)}`}
-        >
-          Da prospecção à venda: tudo em um só lugar.
-        </h2>
+        {/* Content Box */}
+        <div className="bg-[#F5F3F0] rounded-3xl p-8 md:p-12 lg:p-16">
+          {/* Heading */}
+          <h2 
+            className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 text-center leading-tight ${revealClasses(isVisible)}`}
+          >
+            Da prospecção à venda: tudo em um só lugar.
+          </h2>
 
         {/* Subtitle */}
         <p 
@@ -254,43 +256,44 @@ const ProspectionSection = () => {
           </div>
         </div>
 
-        {/* Feature Cards */}
-        <div 
-          className={`mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 ${revealClasses(isVisible)}`}
-          style={getStaggerDelay(4)}
-        >
-          {/* Conteúdo */}
-          <div className="text-center md:text-left">
-            <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
-              <h3 className="font-inter font-semibold text-xl text-zinc-900">Conteúdo</h3>
-              <span className="bg-zinc-200 text-zinc-600 text-[10px] font-medium px-2 py-0.5 rounded-full uppercase">
-                Em breve
-              </span>
+          {/* Feature Cards */}
+          <div 
+            className={`mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 ${revealClasses(isVisible)}`}
+            style={getStaggerDelay(4)}
+          >
+            {/* Conteúdo */}
+            <div className="text-center md:text-left">
+              <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
+                <h3 className="font-inter font-semibold text-2xl text-zinc-900/40">Conteúdo</h3>
+                <span className="bg-gradient-to-r from-[hsl(var(--dalton-purple))] to-[hsl(271,76%,45%)] text-white text-[10px] font-medium px-2 py-0.5 rounded-full uppercase">
+                  Em breve
+                </span>
+              </div>
+              <p className="text-base text-zinc-600/60 leading-relaxed">
+                Conteúdo de alta performance todos os dias, sem você precisar criar nada.
+              </p>
             </div>
-            <p className="text-sm text-zinc-600 leading-relaxed">
-              Conteúdo de alta performance todos os dias, sem você precisar criar nada.
-            </p>
-          </div>
 
-          {/* Anúncio */}
-          <div className="text-center md:text-left">
-            <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
-              <h3 className="font-inter font-semibold text-xl text-zinc-900">Anúncio</h3>
-              <span className="bg-zinc-200 text-zinc-600 text-[10px] font-medium px-2 py-0.5 rounded-full uppercase">
-                Em breve
-              </span>
+            {/* Anúncio */}
+            <div className="text-center md:text-left">
+              <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
+                <h3 className="font-inter font-semibold text-2xl text-zinc-900/40">Anúncio</h3>
+                <span className="bg-gradient-to-r from-[hsl(var(--dalton-purple))] to-[hsl(271,76%,45%)] text-white text-[10px] font-medium px-2 py-0.5 rounded-full uppercase">
+                  Em breve
+                </span>
+              </div>
+              <p className="text-base text-zinc-600/60 leading-relaxed">
+                Copies, roteiros e briefings de anúncio em alto volume. Mais testes, mais winners, menor CAC.
+              </p>
             </div>
-            <p className="text-sm text-zinc-600 leading-relaxed">
-              Copies, roteiros e briefings de anúncio em alto volume. Mais testes, mais winners, menor CAC.
-            </p>
-          </div>
 
-          {/* Vendas */}
-          <div className="text-center md:text-left">
-            <h3 className="font-inter font-semibold text-xl text-zinc-900 mb-2">Vendas</h3>
-            <p className="text-sm text-zinc-600 leading-relaxed">
-              Nunca perca um lead. Respostas instantâneas 24/7 com o seu CRM atualizado automaticamente.
-            </p>
+            {/* Vendas */}
+            <div className="text-center md:text-left">
+              <h3 className="font-inter font-semibold text-2xl text-zinc-900 mb-2">Vendas</h3>
+              <p className="text-base text-zinc-600 leading-relaxed">
+                Nunca perca um lead. Respostas instantâneas 24/7 com o seu CRM atualizado automaticamente.
+              </p>
+            </div>
           </div>
         </div>
       </div>

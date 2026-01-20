@@ -7,16 +7,16 @@ const InsightsSection = () => {
 
   const features = [
     {
-      title: 'Análise de saúde do funil',
-      description: 'Visibilidade sobre padrões e tendências, te trazendo previsibilidade nos seus negócios.',
+      title: 'Alertas em tempo real',
+      description: 'Lead parado há 3 dias? Reunião sem follow-up? O Dalton identifica e te notifica antes que vire problema.',
     },
     {
-      title: 'Insights inteligentes',
-      description: 'Automatize',
+      title: 'Resumos diários sob demanda',
+      description: 'Pergunte "como foi ontem?" por áudio ou texto. O Dalton responde com números, não com dashboards.',
     },
     {
-      title: 'Atualizações instantâneas',
-      description: 'O Dalton te mantém atualizado via WhatsApp. Dúvidas? Basta mandar uma mensagem ou aúdio.',
+      title: 'Previsões, não só relatórios',
+      description: 'O Agente analisa padrões e te diz o que provavelmente vai acontecer no seu funil, não só o que já aconteceu.',
     },
   ];
 
@@ -34,7 +34,7 @@ const InsightsSection = () => {
             <h2 
               className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 leading-tight ${revealClasses(isVisible)}`}
             >
-              O desempenho do seu negócio na palma da sua mão.
+              Pergunte pro Dalton. Ele sabe.
             </h2>
 
             {/* Subtitle */}
@@ -42,7 +42,7 @@ const InsightsSection = () => {
               className={`mt-4 font-inter font-normal text-lg md:text-xl text-zinc-600 max-w-lg ${revealClasses(isVisible)}`}
               style={getStaggerDelay(1)}
             >
-              Transparência, previsibilidade e insights inteligentes, o Dalton te entrega tudo, de forma acessível.
+              Ele te avisa quando um lead esfriou, quando o funil travou e quando uma oportunidade está pronta para fechar. Tudo no seu WhatsApp.
             </p>
 
             {/* Feature Cards */}

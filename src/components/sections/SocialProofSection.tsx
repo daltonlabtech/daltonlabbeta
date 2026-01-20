@@ -58,7 +58,7 @@ const SocialProofSection = () => {
               >
                 {/* Logo */}
                 <div className="mb-6">
-                  <img src={testimonial.logo} alt="Logo cliente" className="h-10 object-contain brightness-0" />
+                  <img src={testimonial.logo} alt="Logo cliente" className="h-24 object-contain brightness-0" />
                 </div>
 
                 {/* Quote */}

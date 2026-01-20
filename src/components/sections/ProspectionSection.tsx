@@ -14,7 +14,7 @@ const ProspectionSection = () => {
         <div className="bg-[#F5F3F0] rounded-3xl p-8 md:p-12 lg:p-16">
           {/* Heading */}
           <h2 
-            className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 text-center leading-tight ${revealClasses(isVisible)}`}
+            className={`font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-zinc-900 text-center leading-tight ${revealClasses(isVisible)}`}
           >
             Da prospecção à venda: tudo em um só lugar.
           </h2>

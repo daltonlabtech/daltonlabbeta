@@ -7,8 +7,6 @@ import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import AudioDemoSection from "@/components/sections/AudioDemoSection";
 import SocialProofSection from "@/components/sections/SocialProofSection";
 import FAQSection from "@/components/sections/FAQSection";
-import OtherSolutionsSection from "@/components/sections/OtherSolutionsSection";
-import FinalCTASection from "@/components/sections/FinalCTASection";
 import Footer from "@/components/sections/Footer";
 import NewtonChatButton from "@/components/NewtonChatButton";
 
@@ -24,8 +22,6 @@ const Index = () => {
       <AudioDemoSection />
       <SocialProofSection />
       <FAQSection />
-      <OtherSolutionsSection />
-      <FinalCTASection />
       <Footer />
       <NewtonChatButton />
     </main>

@@ -54,40 +54,32 @@ const FAQSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-dalton-dark"
+      className="section-padding bg-[#F5F3F0]"
     >
       <div className="container-main">
         {/* Title */}
         <h2 
-          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center uppercase tracking-wide ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-[#1A232F] text-center ${revealClasses(isVisible)}`}
         >
           Perguntas Frequentes
         </h2>
 
-        {/* Subtitle */}
-        <p 
-          className={`mt-4 font-inter font-normal text-lg text-dalton-gray-light text-center ${revealClasses(isVisible)}`}
-          style={getStaggerDelay(1)}
-        >
-          Tire suas dúvidas sobre agentes de IA e o Dalton Lab
-        </p>
-
         {/* Accordion */}
         <div 
           className={`mt-12 max-w-[900px] mx-auto space-y-4 ${revealClasses(isVisible)}`}
-          style={getStaggerDelay(2)}
+          style={getStaggerDelay(1)}
         >
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border border-white/10 rounded-xl bg-dalton-faq-box px-6 data-[state=open]:border-dalton-blue/50"
+                className="border-0 rounded-2xl bg-[#E8E6E3] px-6 data-[state=open]:bg-[#E0DEDA]"
               >
-                <AccordionTrigger className="font-inter font-medium text-base md:text-lg text-white hover:no-underline py-5 [&[data-state=open]>svg]:text-dalton-blue [&>svg]:text-dalton-gray-light">
+                <AccordionTrigger className="font-inter font-medium text-base md:text-lg text-[#1A232F] hover:no-underline py-5 [&[data-state=open]>svg]:text-[#1A232F] [&>svg]:text-[#1A232F]/50">
                   <span className="text-left">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="font-inter font-normal text-base text-dalton-gray-light pb-5 leading-relaxed">
+                <AccordionContent className="font-inter font-normal text-base text-[#1A232F]/70 pb-5 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

@@ -53,8 +53,13 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Spacer for balance - same width as logo (Desktop) */}
-          <div className="hidden md:block w-[120px]" />
+          {/* CTA Button (Desktop) */}
+          <a 
+            href="#contato" 
+            className="hidden md:inline-flex items-center bg-white text-zinc-900 font-medium text-sm px-5 py-2.5 rounded-full hover:bg-zinc-100 transition-all duration-300"
+          >
+            Fale com o Dalton
+          </a>
 
           {/* Mobile Hamburger Menu */}
           <Sheet>

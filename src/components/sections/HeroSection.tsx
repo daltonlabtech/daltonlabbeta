@@ -10,38 +10,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden" style={{ backgroundColor: '#101823' }}>
-      {/* Abstract Wave Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <svg 
-          className="absolute w-full h-full" 
-          viewBox="0 0 1920 1080" 
-          preserveAspectRatio="xMidYMid slice"
-          fill="none"
-        >
-          <defs>
-            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.4" />
-              <stop offset="50%" stopColor="#60A5FA" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.3" />
-            </linearGradient>
-          </defs>
-          {/* Multiple flowing wave lines */}
-          {[...Array(20)].map((_, i) => {
-            const yOffset = 400 + i * 15;
-            const amplitude = 100 + i * 5;
-            return (
-              <path
-                key={i}
-                d={`M-100 ${yOffset} Q 400 ${yOffset - amplitude}, 960 ${yOffset + 50} T 2020 ${yOffset - 30}`}
-                stroke="url(#waveGradient)"
-                strokeWidth={1 + i * 0.1}
-                strokeOpacity={0.3 - i * 0.01}
-                fill="none"
-              />
-            );
-          })}
-        </svg>
-      </div>
 
       {/* Main Content */}
       <div className="relative z-10 flex-1 flex items-center container mx-auto px-6 md:px-12 lg:px-20 pt-20 md:pt-24">
@@ -76,14 +44,18 @@ const HeroSection = () => {
           </h1>
 
           {/* Subtitle */}
-          <p 
-            className={`text-sm sm:text-base md:text-lg font-normal max-w-xl mt-6 md:mt-8 transition-all duration-700 delay-300 ${
+          <div 
+            className={`mt-6 md:mt-8 transition-all duration-700 delay-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
-            style={{ color: '#F5F3F0' }}
           >
-            Escale a receita da sua empresa. Em menos tempo. Com menos custo.
-          </p>
+            <p className="text-sm sm:text-base md:text-lg font-normal" style={{ color: '#F5F3F0' }}>
+              Escale a receita da sua empresa. Em menos tempo.
+            </p>
+            <p className="text-sm sm:text-base md:text-lg font-normal" style={{ color: '#F5F3F0' }}>
+              Com menos custo.
+            </p>
+          </div>
 
           {/* CTA Button */}
           <div 
@@ -92,11 +64,10 @@ const HeroSection = () => {
             }`}
           >
             <button 
-              className="group font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center"
+              className="font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center"
               style={{ backgroundColor: '#F5F3F0', color: '#000000' }}
             >
-              <span>Fale com o Dalton</span>
-              <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+              Fale com o Dalton
             </button>
           </div>
         </div>

@@ -62,7 +62,7 @@ const AudioDemoSection = () => {
                 {metrics.map((metric, index) => (
                   <div 
                     key={index}
-                    className="bg-[#1A232F] rounded-xl px-5 py-4 flex items-center gap-3"
+                    className="bg-[#1A232F] rounded-xl px-5 py-4 flex items-center gap-3 min-w-[160px]"
                   >
                     <span className="font-inter font-bold text-2xl md:text-3xl text-white">
                       {metric.value}

@@ -1,10 +1,12 @@
 import { ArrowRight } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
+import cliente1 from '@/assets/logos/cliente-1.webp';
+import cliente2 from '@/assets/logos/cliente-2.webp';
+import cliente3 from '@/assets/logos/cliente-3.webp';
 
 const testimonials = [
   {
-    logo: '▲',
-    logoText: 'TYFONE',
+    logo: cliente1,
     quote: "Você vai de reunião em reunião e depois fica preso ao acompanhamento. Seguir adiante é muito desafiador.",
     author: "Siva",
     role: "fundadora da Tyfone",
@@ -12,8 +14,7 @@ const testimonials = [
     metricLabel: "aumento em leads"
   },
   {
-    logo: '◆',
-    logoText: 'VENDAS+',
+    logo: cliente2,
     quote: "Em 3 meses, triplicamos o número de reuniões agendadas sem aumentar a equipe. O ROI foi impressionante.",
     author: "Marina Santos",
     role: "CEO da Vendas Plus",
@@ -21,8 +22,7 @@ const testimonials = [
     metricLabel: "mais pipeline"
   },
   {
-    logo: '●',
-    logoText: 'GROWTH',
+    logo: cliente3,
     quote: "Os agentes trabalham 24/7 e nunca esquecem um follow-up. Nosso pipeline nunca esteve tão cheio.",
     author: "Ricardo Mendes",
     role: "Head de Vendas, Growth",
@@ -57,9 +57,8 @@ const SocialProofSection = () => {
                 style={getStaggerDelay(index + 1)}
               >
                 {/* Logo */}
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="text-2xl text-[#1A232F]">{testimonial.logo}</span>
-                  <span className="font-inter font-bold text-lg text-[#1A232F]">{testimonial.logoText}</span>
+                <div className="mb-6">
+                  <img src={testimonial.logo} alt="Logo cliente" className="h-8 object-contain" />
                 </div>
 
                 {/* Quote */}
@@ -89,9 +88,8 @@ const SocialProofSection = () => {
           className={`mt-16 text-center ${revealClasses(isVisible)}`}
           style={getStaggerDelay(5)}
         >
-          <button className="group bg-[#F5F3F0] text-[#101823] font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
-            <span>Fale com o Dalton</span>
-            <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+          <button className="bg-[#F5F3F0] text-[#101823] font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center">
+            Fale com o Dalton
           </button>
         </div>
       </div>

@@ -1,107 +1,124 @@
-import { Play, Pause } from "lucide-react";
-import { useState } from "react";
+import { Play } from "lucide-react";
+import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
+
+const metrics = [
+  { value: '10x', label: 'aumento em leads' },
+  { value: '2x', label: 'contratos assinados' },
+  { value: '80%', label: 'aumento na taxa de conversão' },
+];
 
 const AudioDemoSection = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="section-padding relative overflow-hidden">
-      {/* Grid Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Grid lines */}
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className="section-padding bg-[#19212E]"
+    >
+      <div className="container-main">
+        {/* Main Card */}
         <div 
-          className="absolute inset-0 opacity-[0.08]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, hsl(var(--dalton-gray)) 1px, transparent 1px),
-              linear-gradient(to bottom, hsl(var(--dalton-gray)) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px'
-          }}
-        />
-        {/* Corner accent - left (hidden on mobile) */}
-        <div className="absolute left-8 top-1/2 -translate-y-1/2 w-20 h-40 border-l-2 border-t-2 border-dalton-blue/40 rounded-tl-3xl hidden md:block" />
-        {/* Subtle radial gradient */}
-        <div className="absolute inset-0 bg-gradient-radial from-dalton-purple/5 via-transparent to-transparent" />
-      </div>
-
-      <div className="container-main max-w-[800px] relative z-10">
-        {/* Title with Badge */}
-        <div className="flex items-center justify-center gap-4 flex-wrap">
-          <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center">
-            Ouça a IA em ação.
-          </h2>
-          <span className="px-3 py-1 bg-dalton-blue text-dalton-dark font-inter font-semibold text-sm rounded-full uppercase">
-            Novo
-          </span>
-        </div>
-
-        {/* Subtitle */}
-        <p className="mt-8 font-inter font-normal text-lg text-dalton-gray-light text-center">
-          Escute uma demonstração real de como o <span className="text-dalton-blue font-semibold">Vendedor no WhatsApp</span> inicia uma conversa com um lead.
-        </p>
-
-        {/* Description */}
-        <p className="mt-4 font-inter font-normal text-base text-dalton-gray text-center">
-          A voz é natural, o tom é profissional e a abordagem é personalizada para cada contato.
-        </p>
-
-        {/* Audio Player Card */}
-        <div className="mt-16 glass-card p-10 relative">
-          {/* Subtle border glow */}
-          <div className="absolute inset-0 rounded-2xl border border-dalton-blue/20" />
-          
-          <div className="flex items-center justify-between gap-6 flex-wrap relative z-10">
-            {/* Left: Label */}
-            <div>
-              <p className="font-inter font-semibold text-xl text-white">
-                Ouça o Vendedor no WhatsApp
+          className={`bg-[#E8E6E3] rounded-3xl p-8 md:p-12 lg:p-16 ${revealClasses(isVisible)}`}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Left Content */}
+            <div className="order-2 lg:order-1">
+              {/* Label */}
+              <p 
+                className={`font-inter font-normal text-sm text-[#1A232F]/60 ${revealClasses(isVisible)}`}
+                style={getStaggerDelay(1)}
+              >
+                História do cliente
               </p>
-              <p className="mt-1 font-inter font-normal text-sm text-dalton-gray">
-                Demonstração de contato inicial
-              </p>
-            </div>
 
-            {/* Right: Play button and waveform */}
-            <div className="flex items-center gap-4">
-              {/* Waveform visualization */}
-              <div className="flex items-center gap-1 h-10">
-                {[...Array(12)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={`w-1 rounded-full transition-all duration-300 ${
-                      isPlaying ? 'bg-dalton-blue' : 'bg-dalton-gray'
-                    }`}
-                    style={{
-                      height: `${Math.random() * 24 + 8}px`,
-                      animation: isPlaying ? `waveform 0.5s ease-in-out ${i * 0.05}s infinite alternate` : 'none'
-                    }}
-                  />
+              {/* Title */}
+              <h2 
+                className={`mt-4 font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-[#1A232F] leading-tight ${revealClasses(isVisible)}`}
+                style={getStaggerDelay(2)}
+              >
+                Como o Tyfone 10x melhorou a produtividade com o Dalton
+              </h2>
+
+              {/* Quote */}
+              <p 
+                className={`mt-6 font-inter font-normal text-base md:text-lg text-[#1A232F]/80 leading-relaxed ${revealClasses(isVisible)}`}
+                style={getStaggerDelay(3)}
+              >
+                "Você vai de reunião em reunião e depois fica preso ao acompanhamento. Seguir adiante é muito desafiador."
+              </p>
+
+              {/* Attribution */}
+              <p 
+                className={`mt-4 font-inter font-medium text-sm text-[#1A232F] ${revealClasses(isVisible)}`}
+                style={getStaggerDelay(4)}
+              >
+                -Siva, fundadora da Tyfone
+              </p>
+
+              {/* Metrics */}
+              <div 
+                className={`mt-8 flex flex-wrap gap-3 ${revealClasses(isVisible)}`}
+                style={getStaggerDelay(5)}
+              >
+                {metrics.map((metric, index) => (
+                  <div 
+                    key={index}
+                    className="bg-[#1A232F] rounded-xl px-5 py-4 flex items-center gap-3"
+                  >
+                    <span className="font-inter font-bold text-2xl md:text-3xl text-white">
+                      {metric.value}
+                    </span>
+                    <span className="font-inter font-normal text-xs text-white/70 max-w-[80px] leading-tight">
+                      {metric.label}
+                    </span>
+                  </div>
                 ))}
               </div>
+            </div>
 
-              {/* Play/Pause Button */}
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="w-14 h-14 rounded-full bg-primary flex items-center justify-center transition-transform duration-300 hover:scale-110 glow-purple"
-              >
-                {isPlaying ? (
-                  <Pause className="w-6 h-6 text-white" />
-                ) : (
-                  <Play className="w-6 h-6 text-white ml-1" />
-                )}
-              </button>
+            {/* Right Content - Video */}
+            <div 
+              className={`order-1 lg:order-2 ${revealClasses(isVisible)}`}
+              style={getStaggerDelay(2)}
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#1A232F]">
+                {/* Video Placeholder with YouTube style */}
+                <div className="aspect-video relative">
+                  {/* Placeholder Image Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4D2CF] to-[#C8C6C3] flex items-center justify-center">
+                    {/* Person silhouette placeholder */}
+                    <div className="w-32 h-32 rounded-full bg-[#1A232F]/10 flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-[#1A232F]/20" />
+                    </div>
+                  </div>
+                  
+                  {/* YouTube Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <button className="w-16 h-16 md:w-20 md:h-20 bg-red-600 rounded-2xl flex items-center justify-center hover:bg-red-700 transition-colors duration-300 shadow-lg hover:scale-105 active:scale-95">
+                      <Play className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="white" />
+                    </button>
+                  </div>
+
+                  {/* Corner decorations - like in reference */}
+                  <div className="absolute top-4 left-4 w-12 h-12 border-l-2 border-t-2 border-white/30 rounded-tl-lg" />
+                  <div className="absolute top-4 right-4 w-12 h-12 border-r-2 border-t-2 border-white/30 rounded-tr-lg" />
+                  <div className="absolute bottom-12 left-4 w-12 h-12 border-l-2 border-b-2 border-white/30 rounded-bl-lg" />
+                  <div className="absolute bottom-12 right-4 w-12 h-12 border-r-2 border-b-2 border-white/30 rounded-br-lg" />
+
+                  {/* YouTube bottom bar */}
+                  <div className="absolute bottom-0 left-0 right-0 h-10 bg-[#1A232F]/90 flex items-center justify-between px-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-red-500 rounded-full" />
+                      <span className="text-white/70 text-xs font-inter">Assistir no</span>
+                      <span className="text-white text-xs font-inter font-bold">YouTube</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes waveform {
-          0% { transform: scaleY(1); }
-          100% { transform: scaleY(1.5); }
-        }
-      `}</style>
     </section>
   );
 };

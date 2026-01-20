@@ -135,14 +135,16 @@ const SquadPlansSection = () => {
         </h2>
 
         {/* Plans Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-[1100px] mx-auto">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-[1100px] mx-auto md:items-end">
           {plans.map((plan, index) => {
             const colors = colorClasses[plan.color];
+            // Stair effect: Start is shortest, Pro is medium, Enterprise is tallest
+            const heightClass = index === 0 ? 'md:min-h-[520px]' : index === 1 ? 'md:min-h-[580px]' : 'md:min-h-[640px]';
 
             return (
               <div 
                 key={plan.name}
-                className={`relative p-8 flex flex-col bg-[#F5F3F0] rounded-2xl ${revealClasses(isVisible)}`}
+                className={`relative p-8 flex flex-col bg-[#F5F3F0] rounded-2xl ${heightClass} ${revealClasses(isVisible)}`}
                 style={getStaggerDelay(index + 2)}
               >
                 {/* Plan Name */}
@@ -183,33 +185,8 @@ const SquadPlansSection = () => {
                   </ul>
                 </div>
 
-                {/* Features List - Same order for all plans */}
-                <div className="mt-6">
-                  <p className="font-inter font-semibold text-xs text-[#1A232F]/50 uppercase tracking-wider mb-3">
-                    Recursos:
-                  </p>
-                  <ul className="space-y-2">
-                    {allFeatures.map((feature) => {
-                      const isIncluded = plan.features[feature.key as keyof typeof plan.features];
-                      return (
-                        <li key={feature.key} className="flex items-center gap-2">
-                          {isIncluded ? (
-                            <div className={`w-4 h-4 rounded-full ${colors.bgSolid} flex items-center justify-center flex-shrink-0`}>
-                              <Check className="w-2.5 h-2.5 text-white" />
-                            </div>
-                          ) : (
-                            <div className="w-4 h-4 rounded-full bg-[#1A232F]/10 flex items-center justify-center flex-shrink-0">
-                              <X className="w-2.5 h-2.5 text-[#1A232F]/30" />
-                            </div>
-                          )}
-                          <span className={`font-inter text-xs ${isIncluded ? 'text-[#1A232F]' : 'text-[#1A232F]/40 line-through'}`}>
-                            {feature.label}
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
+                {/* Spacer to push button to bottom */}
+                <div className="flex-grow" />
 
                 {/* CTA Button */}
                 <button 

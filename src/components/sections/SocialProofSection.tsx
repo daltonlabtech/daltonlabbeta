@@ -37,12 +37,12 @@ const SocialProofSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#F5F3F0]"
+      className="section-padding bg-[#101823]"
     >
       <div className="container-main">
         {/* Title */}
         <h2 
-          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-[#1A232F] text-center ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-[#F5F3F0] text-center ${revealClasses(isVisible)}`}
         >
           Marcas que confiam em nosso trabalho
         </h2>
@@ -89,7 +89,7 @@ const SocialProofSection = () => {
           className={`mt-16 text-center ${revealClasses(isVisible)}`}
           style={getStaggerDelay(5)}
         >
-          <button className="group bg-[#101823] text-white font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-[#1A232F] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
+          <button className="group bg-[#F5F3F0] text-[#101823] font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
             <span>Fale com o Dalton</span>
             <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
           </button>

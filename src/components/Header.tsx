@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
-import logoImage from '@/assets/logo-dalton-lab.png';
-import daltonLabText from '@/assets/dalton-lab-text.png';
+import logoWhite from '@/assets/logo-dalton-white.png';
 import {
   Sheet,
   SheetContent,
@@ -34,10 +33,9 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo + Text */}
-          <a href="/" className="flex items-center gap-2 flex-shrink-0">
-            <img src={logoImage} alt="Dalton Lab" className="h-10 md:h-12 w-auto" />
-            <img src={daltonLabText} alt="Dalton Lab" className="h-4 md:h-5 w-auto" />
+          {/* Logo */}
+          <a href="/" className="flex items-center flex-shrink-0">
+            <img src={logoWhite} alt="Dalton Lab" className="h-6 md:h-8 w-auto" />
           </a>
 
           {/* Navigation - Center (Desktop) */}
@@ -56,7 +54,8 @@ const Header = () => {
           {/* CTA Button (Desktop) */}
           <a 
             href="#contato" 
-            className="hidden md:inline-flex items-center bg-white text-zinc-900 font-medium text-sm px-5 py-2.5 rounded-full hover:bg-zinc-100 transition-all duration-300"
+            className="hidden md:inline-flex items-center justify-center font-medium text-sm px-5 py-2.5 rounded-full hover:opacity-90 transition-all duration-300"
+            style={{ backgroundColor: '#F5F3F0', color: '#000000' }}
           >
             Fale com o Dalton
           </a>

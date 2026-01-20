@@ -25,15 +25,13 @@ const InsightsSection = () => {
   const chatMessages = [
     { type: 'user', text: 'Dalton, quantas reuniões foram feitas essa semana?', time: '10:32' },
     { type: 'bot', text: 'Foram feitas 30 reuniões essa semana com potencial de 300K em ARR. Gostaria de saber mais?', time: '10:33' },
-    { type: 'user', text: 'Qual foi o lead mais quente?', time: '10:34' },
-    { type: 'bot', text: 'O lead mais quente é a TechCorp, com 85% de chance de fechamento. Última interação há 2 horas.', time: '10:34' },
   ];
 
-  // Cycle through messages for typing animation
+  // Cycle through conversation states: 0 = typing user, 1 = user sent, 2 = typing bot, 3 = bot sent, 4 = typing user again
   useEffect(() => {
     const interval = setInterval(() => {
-      setMessageIndex((prev) => (prev + 1) % 3); // 0, 1, 2 states
-    }, 4000);
+      setMessageIndex((prev) => (prev + 1) % 5);
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
@@ -276,10 +274,22 @@ const InsightsSection = () => {
 
                   {/* Chat Messages */}
                   <div className="flex-1 p-3 space-y-2 overflow-hidden">
-                    {/* Message 1 - User */}
-                    <div className={`flex justify-end transition-all duration-500 ${messageIndex >= 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                    {/* Typing Indicator - User (green) - State 0 */}
+                    <div className={`flex justify-end transition-all duration-300 ${messageIndex === 0 ? 'opacity-100' : 'opacity-0 hidden'}`}>
                       <div 
-                        className="rounded-xl px-3 py-2 max-w-[88%] shadow-sm"
+                        className="rounded-xl px-4 py-3 shadow-sm flex items-center gap-1"
+                        style={{ backgroundColor: '#DCF8C6' }}
+                      >
+                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot" />
+                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot-2" />
+                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot-3" />
+                      </div>
+                    </div>
+
+                    {/* Message 1 - User (green) - State 1+ */}
+                    <div className={`flex justify-end transition-all duration-500 ${messageIndex >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                      <div 
+                        className="rounded-xl px-3 py-2 max-w-[88%] shadow-sm animate-message-appear"
                         style={{ backgroundColor: '#DCF8C6' }}
                       >
                         <p className="text-[12px] text-zinc-800 leading-relaxed">
@@ -289,9 +299,18 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Message 2 - Bot */}
-                    <div className={`flex justify-start transition-all duration-500 delay-100 ${messageIndex >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                      <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm">
+                    {/* Typing Indicator - Bot (white) - State 2 */}
+                    <div className={`flex justify-start transition-all duration-300 ${messageIndex === 2 ? 'opacity-100' : 'opacity-0 hidden'}`}>
+                      <div className="bg-white rounded-xl px-4 py-3 shadow-sm flex items-center gap-1">
+                        <div className="w-2 h-2 bg-zinc-400 rounded-full animate-typing-dot" />
+                        <div className="w-2 h-2 bg-zinc-400 rounded-full animate-typing-dot-2" />
+                        <div className="w-2 h-2 bg-zinc-400 rounded-full animate-typing-dot-3" />
+                      </div>
+                    </div>
+
+                    {/* Message 2 - Bot (white) - State 3+ */}
+                    <div className={`flex justify-start transition-all duration-500 ${messageIndex >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                      <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm animate-message-appear">
                         <p className="text-[12px] text-zinc-800 leading-relaxed">
                           {chatMessages[1].text}
                         </p>
@@ -299,12 +318,15 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Typing Indicator */}
-                    <div className={`flex justify-start transition-all duration-300 ${messageIndex === 2 ? 'opacity-100' : 'opacity-0'}`}>
-                      <div className="bg-white rounded-xl px-4 py-3 shadow-sm flex items-center gap-1">
-                        <div className="w-2 h-2 bg-zinc-400 rounded-full animate-typing-dot" />
-                        <div className="w-2 h-2 bg-zinc-400 rounded-full animate-typing-dot-2" />
-                        <div className="w-2 h-2 bg-zinc-400 rounded-full animate-typing-dot-3" />
+                    {/* Typing Indicator - User (green) again - State 4 */}
+                    <div className={`flex justify-end transition-all duration-300 ${messageIndex === 4 ? 'opacity-100' : 'opacity-0 hidden'}`}>
+                      <div 
+                        className="rounded-xl px-4 py-3 shadow-sm flex items-center gap-1"
+                        style={{ backgroundColor: '#DCF8C6' }}
+                      >
+                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot" />
+                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot-2" />
+                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot-3" />
                       </div>
                     </div>
                   </div>

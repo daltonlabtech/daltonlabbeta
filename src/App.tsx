@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import logo from "@/assets/logo-dalton-lab.png";
+import dBranco from "@/assets/d-branco.png";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -18,9 +18,9 @@ const queryClient = new QueryClient();
 const PageLoader = () => (
   <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-6 animate-fade-in">
     <img 
-      src={logo} 
+      src={dBranco} 
       alt="Dalton Lab" 
-      className="h-12 md:h-16 animate-pulse"
+      className="h-16 md:h-24 animate-pulse"
     />
     <div className="w-8 h-8 border-2 border-dalton-blue border-t-transparent rounded-full animate-spin" />
   </div>

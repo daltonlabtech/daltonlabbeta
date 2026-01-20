@@ -1,5 +1,6 @@
 import { MessageCircle, Mail } from 'lucide-react';
 import logo from '@/assets/logo-dalton-lab.png';
+import dBranco from '@/assets/d-branco.png';
 
 const Footer = () => {
   return (
@@ -65,7 +66,7 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-white/5">
         <div className="container-main py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={logo} alt="Dalton Lab" className="h-6 w-auto opacity-70" />
+          <img src={dBranco} alt="Dalton Lab" className="h-8 w-auto opacity-70" />
           <p className="font-inter text-xs text-white/40">
             © 2026 Dalton Lab. Todos os direitos reservados.
           </p>

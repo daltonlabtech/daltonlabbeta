@@ -64,19 +64,76 @@ const InsightsSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Phone Mockups */}
+          {/* Right Column - Phone Mockups with Callouts */}
           <div 
-            className={`relative h-[480px] md:h-[560px] flex items-center justify-center ${revealClasses(isVisible)}`}
+            className={`relative h-[520px] md:h-[600px] flex items-center justify-center ${revealClasses(isVisible)}`}
             style={getStaggerDelay(3)}
           >
+            {/* Callout 1 - Dashboard metrics (top right) */}
+            <div 
+              className="absolute hidden md:block z-30"
+              style={{ top: '-10px', right: '-20px' }}
+            >
+              <div className="relative bg-zinc-900 text-white px-4 py-3 rounded-2xl shadow-lg max-w-[180px]">
+                <p className="text-sm font-semibold leading-snug">
+                  Métricas em tempo real
+                </p>
+                <p className="text-xs text-zinc-400 mt-1">
+                  Pipeline, leads e revenue atualizados
+                </p>
+                {/* Pointer arrow */}
+                <div 
+                  className="absolute w-3 h-3 bg-zinc-900 rotate-45"
+                  style={{ bottom: '-6px', left: '30px' }}
+                />
+              </div>
+            </div>
+
+            {/* Callout 2 - WhatsApp integration (bottom left) */}
+            <div 
+              className="absolute hidden md:block z-30"
+              style={{ bottom: '40px', left: '-40px' }}
+            >
+              <div className="relative bg-white text-zinc-900 px-4 py-3 rounded-2xl shadow-lg border border-zinc-200 max-w-[200px]">
+                <p className="text-sm font-semibold leading-snug">
+                  Converse pelo WhatsApp
+                </p>
+                <p className="text-xs text-zinc-500 mt-1">
+                  Pergunte qualquer coisa, receba respostas instantâneas
+                </p>
+                {/* Pointer arrow */}
+                <div 
+                  className="absolute w-3 h-3 bg-white border-r border-b border-zinc-200 rotate-45"
+                  style={{ top: '20px', right: '-6px' }}
+                />
+              </div>
+            </div>
+
+            {/* Callout 3 - Growth indicator (middle right) */}
+            <div 
+              className="absolute hidden md:block z-30"
+              style={{ top: '140px', right: '-60px' }}
+            >
+              <div className="relative bg-green-500 text-white px-4 py-2.5 rounded-2xl shadow-lg">
+                <p className="text-sm font-bold">
+                  +19% crescimento
+                </p>
+                {/* Pointer arrow */}
+                <div 
+                  className="absolute w-3 h-3 bg-green-500 rotate-45"
+                  style={{ top: '50%', left: '-5px', transform: 'translateY(-50%) rotate(45deg)' }}
+                />
+              </div>
+            </div>
+
             {/* Back Phone - Dashboard App (iPhone style) */}
             <div 
               className="absolute z-10"
               style={{ 
                 width: '180px',
                 height: '368px',
-                top: '0',
-                right: '12%',
+                top: '30px',
+                right: '15%',
               }}
             >
               {/* iPhone Frame */}
@@ -159,8 +216,8 @@ const InsightsSection = () => {
               style={{ 
                 width: '165px',
                 height: '337px',
-                bottom: '0',
-                left: '8%',
+                bottom: '20px',
+                left: '10%',
               }}
             >
               {/* iPhone Frame */}

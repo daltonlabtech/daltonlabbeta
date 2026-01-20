@@ -9,7 +9,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden" style={{ backgroundColor: '#101823' }}>
+    <section className="relative min-h-screen flex flex-col overflow-hidden" style={{ backgroundColor: '#19212E' }}>
       {/* Noise Texture Overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <svg width="100%" height="100%">

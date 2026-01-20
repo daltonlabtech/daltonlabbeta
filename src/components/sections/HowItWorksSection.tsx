@@ -42,18 +42,18 @@ const HowItWorksSection = () => {
   const duplicatedTools = [...tools, ...tools, ...tools, ...tools];
 
   return (
-    <section ref={ref as React.RefObject<HTMLElement>} className="section-padding bg-[#F5F3F0] overflow-hidden">
+    <section ref={ref as React.RefObject<HTMLElement>} className="py-12 md:py-16 bg-[#F5F3F0] overflow-hidden">
       <div className="container-main">
         {/* Title */}
         <h2 
-          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-[#1A232F] text-center ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-[#1A232F] text-center ${revealClasses(isVisible)}`}
         >
           Tecnologias que usamos em nosso laboratório de IAs
         </h2>
       </div>
 
       {/* Tool Logos - Single Row with Marquee */}
-      <div className="mt-16">
+      <div className="mt-10">
         {/* Row - Right to Left */}
         <div className="relative w-full overflow-hidden">
           <div className="flex gap-8 animate-marquee-right">

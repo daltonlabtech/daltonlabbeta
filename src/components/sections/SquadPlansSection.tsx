@@ -124,9 +124,21 @@ const SquadPlansSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#19212E]"
+      className="section-padding bg-[#19212E] relative overflow-hidden"
     >
-      <div className="container-main">
+      {/* Checkered Background Pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #F5F3F0 1px, transparent 1px),
+            linear-gradient(to bottom, #F5F3F0 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+        }}
+      />
+      
+      <div className="container-main relative z-10">
         {/* Title */}
         <h2 
           className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-[#F5F3F0] text-center ${revealClasses(isVisible)}`}
@@ -144,8 +156,13 @@ const SquadPlansSection = () => {
             return (
               <div 
                 key={plan.name}
-                className={`relative p-8 flex flex-col bg-[#F5F3F0] rounded-2xl ${heightClass} ${revealClasses(isVisible)}`}
-                style={getStaggerDelay(index + 2)}
+                className={`relative p-8 flex flex-col bg-[#F5F3F0] rounded-2xl ${heightClass} ${revealClasses(isVisible)} 
+                  transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-2xl
+                  animate-rise-up`}
+                style={{
+                  ...getStaggerDelay(index + 2),
+                  animationDelay: `${(index + 1) * 150}ms`,
+                }}
               >
                 {/* Plan Name */}
                 <h3 className={`font-inter font-bold text-2xl text-[#1A232F]`}>

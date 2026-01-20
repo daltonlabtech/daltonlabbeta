@@ -1,9 +1,11 @@
+import { useState, useEffect } from 'react';
 import { MessageCircle, TrendingUp, Users, DollarSign, BarChart3 } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 import daltonIcon from '@/assets/dalton-icon.png';
 
 const InsightsSection = () => {
   const { ref, isVisible } = useScrollReveal();
+  const [messageIndex, setMessageIndex] = useState(0);
 
   const features = [
     {
@@ -19,6 +21,21 @@ const InsightsSection = () => {
       description: 'O Agente analisa padrões e te diz o que provavelmente vai acontecer no seu funil, não só o que já aconteceu.',
     },
   ];
+
+  const chatMessages = [
+    { type: 'user', text: 'Dalton, quantas reuniões foram feitas essa semana?', time: '10:32' },
+    { type: 'bot', text: 'Foram feitas 30 reuniões essa semana com potencial de 300K em ARR. Gostaria de saber mais?', time: '10:33' },
+    { type: 'user', text: 'Qual foi o lead mais quente?', time: '10:34' },
+    { type: 'bot', text: 'O lead mais quente é a TechCorp, com 85% de chance de fechamento. Última interação há 2 horas.', time: '10:34' },
+  ];
+
+  // Cycle through messages for typing animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMessageIndex((prev) => (prev + 1) % 3); // 0, 1, 2 states
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section 
@@ -50,7 +67,7 @@ const InsightsSection = () => {
               {features.map((feature, index) => (
                 <div 
                   key={feature.title}
-                  className={`bg-[#E8E6E3] rounded-2xl p-6 ${revealClasses(isVisible)}`}
+                  className={`bg-[#E8E6E3] rounded-2xl p-6 ${revealClasses(isVisible)} hover:scale-[1.02] transition-transform duration-300`}
                   style={getStaggerDelay(index + 2)}
                 >
                   <h3 className="font-inter font-semibold text-xl text-zinc-900 mb-2">
@@ -71,8 +88,8 @@ const InsightsSection = () => {
           >
             {/* Callout 1 - Dashboard metrics (top right) */}
             <div 
-              className="absolute hidden md:block z-30"
-              style={{ top: '-10px', right: '-20px' }}
+              className="absolute hidden md:block z-30 animate-subtle-float"
+              style={{ top: '-10px', right: '-20px', animationDelay: '0s' }}
             >
               <div className="relative bg-zinc-900 text-white px-4 py-3 rounded-2xl shadow-lg max-w-[180px]">
                 <p className="text-sm font-semibold leading-snug">
@@ -91,8 +108,8 @@ const InsightsSection = () => {
 
             {/* Callout 2 - WhatsApp integration (bottom left) */}
             <div 
-              className="absolute hidden md:block z-30"
-              style={{ bottom: '60px', left: '-40px' }}
+              className="absolute hidden md:block z-30 animate-subtle-float"
+              style={{ bottom: '60px', left: '-40px', animationDelay: '1s' }}
             >
               <div className="relative bg-white text-zinc-900 px-4 py-3 rounded-2xl shadow-lg border border-zinc-200 max-w-[200px]">
                 <p className="text-sm font-semibold leading-snug">
@@ -111,11 +128,11 @@ const InsightsSection = () => {
 
             {/* Callout 3 - Growth indicator (middle right) */}
             <div 
-              className="absolute hidden md:block z-30"
-              style={{ top: '180px', right: '-60px' }}
+              className="absolute hidden md:block z-30 animate-subtle-float"
+              style={{ top: '180px', right: '-60px', animationDelay: '2s' }}
             >
               <div className="relative bg-green-500 text-white px-4 py-2.5 rounded-2xl shadow-lg">
-                <p className="text-sm font-bold">
+                <p className="text-sm font-bold animate-value-pulse">
                   +19% crescimento
                 </p>
                 {/* Pointer arrow */}
@@ -128,12 +145,13 @@ const InsightsSection = () => {
 
             {/* Back Phone - Dashboard App (iPhone style) */}
             <div 
-              className="absolute z-10"
+              className="absolute z-10 animate-subtle-float"
               style={{ 
                 width: '270px',
                 height: '552px',
                 top: '30px',
                 right: '10%',
+                animationDelay: '0.5s',
               }}
             >
               {/* iPhone Frame */}
@@ -169,7 +187,7 @@ const InsightsSection = () => {
                         <TrendingUp className="w-4 h-4 text-green-500" />
                         <span className="text-[10px] text-zinc-500 font-medium">Pipeline Generated</span>
                       </div>
-                      <p className="font-inter font-bold text-xl text-zinc-900">$565,202</p>
+                      <p className="font-inter font-bold text-xl text-zinc-900 animate-value-pulse">$565,202</p>
                       <p className="text-[10px] text-green-500 font-medium">↗ +19% vs Last Week</p>
                     </div>
 
@@ -178,13 +196,13 @@ const InsightsSection = () => {
                       <div className="bg-green-50 rounded-xl p-3">
                         <Users className="w-4 h-4 text-green-600 mb-1.5" />
                         <p className="text-[10px] text-zinc-500">Leads</p>
-                        <p className="font-semibold text-base text-zinc-900">1,234</p>
+                        <p className="font-semibold text-base text-zinc-900 animate-value-pulse" style={{ animationDelay: '0.3s' }}>1,234</p>
                         <p className="text-[9px] text-green-600 font-medium">+12%</p>
                       </div>
                       <div className="bg-blue-50 rounded-xl p-3">
                         <DollarSign className="w-4 h-4 text-blue-600 mb-1.5" />
                         <p className="text-[10px] text-zinc-500">Revenue</p>
-                        <p className="font-semibold text-base text-zinc-900">$89K</p>
+                        <p className="font-semibold text-base text-zinc-900 animate-value-pulse" style={{ animationDelay: '0.6s' }}>$89K</p>
                         <p className="text-[9px] text-blue-600 font-medium">+8%</p>
                       </div>
                     </div>
@@ -193,13 +211,13 @@ const InsightsSection = () => {
                     <div className="bg-white rounded-2xl p-4 shadow-sm">
                       <p className="text-[10px] text-zinc-500 font-medium mb-2">Weekly Performance</p>
                       <div className="flex items-end gap-1.5 h-14">
-                        <div className="flex-1 bg-green-400 rounded-t" style={{ height: '40%' }} />
-                        <div className="flex-1 bg-green-400 rounded-t" style={{ height: '60%' }} />
-                        <div className="flex-1 bg-green-400 rounded-t" style={{ height: '45%' }} />
-                        <div className="flex-1 bg-green-400 rounded-t" style={{ height: '80%' }} />
-                        <div className="flex-1 bg-green-400 rounded-t" style={{ height: '70%' }} />
-                        <div className="flex-1 bg-green-500 rounded-t" style={{ height: '100%' }} />
-                        <div className="flex-1 bg-green-400 rounded-t" style={{ height: '85%' }} />
+                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-1" style={{ height: '40%' }} />
+                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-2" style={{ height: '60%' }} />
+                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-3" style={{ height: '45%' }} />
+                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-4" style={{ height: '80%' }} />
+                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-5" style={{ height: '70%' }} />
+                        <div className="flex-1 bg-green-500 rounded-t animate-bar-grow animate-bar-6" style={{ height: '100%' }} />
+                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-7" style={{ height: '85%' }} />
                       </div>
                     </div>
                   </div>
@@ -258,26 +276,35 @@ const InsightsSection = () => {
 
                   {/* Chat Messages */}
                   <div className="flex-1 p-3 space-y-2 overflow-hidden">
-                    {/* User Message */}
-                    <div className="flex justify-end">
+                    {/* Message 1 - User */}
+                    <div className={`flex justify-end transition-all duration-500 ${messageIndex >= 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                       <div 
                         className="rounded-xl px-3 py-2 max-w-[88%] shadow-sm"
                         style={{ backgroundColor: '#DCF8C6' }}
                       >
                         <p className="text-[12px] text-zinc-800 leading-relaxed">
-                          Dalton, quantas reuniões foram feitas essa semana?
+                          {chatMessages[0].text}
                         </p>
-                        <p className="text-[9px] text-zinc-500 text-right mt-1">10:32</p>
+                        <p className="text-[9px] text-zinc-500 text-right mt-1">{chatMessages[0].time}</p>
                       </div>
                     </div>
 
-                    {/* Bot Response */}
-                    <div className="flex justify-start">
+                    {/* Message 2 - Bot */}
+                    <div className={`flex justify-start transition-all duration-500 delay-100 ${messageIndex >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                       <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm">
                         <p className="text-[12px] text-zinc-800 leading-relaxed">
-                          Foram feitas 30 reuniões essa semana com potencial de 300K em ARR. Gostaria de saber mais?
+                          {chatMessages[1].text}
                         </p>
-                        <p className="text-[9px] text-zinc-500 text-right mt-1">10:33</p>
+                        <p className="text-[9px] text-zinc-500 text-right mt-1">{chatMessages[1].time}</p>
+                      </div>
+                    </div>
+
+                    {/* Typing Indicator */}
+                    <div className={`flex justify-start transition-all duration-300 ${messageIndex === 2 ? 'opacity-100' : 'opacity-0'}`}>
+                      <div className="bg-white rounded-xl px-4 py-3 shadow-sm flex items-center gap-1">
+                        <div className="w-2 h-2 bg-zinc-400 rounded-full animate-typing-dot" />
+                        <div className="w-2 h-2 bg-zinc-400 rounded-full animate-typing-dot-2" />
+                        <div className="w-2 h-2 bg-zinc-400 rounded-full animate-typing-dot-3" />
                       </div>
                     </div>
                   </div>

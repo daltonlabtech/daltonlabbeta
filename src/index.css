@@ -268,4 +268,113 @@
   .animation-delay-500 {
     animation-delay: 0.5s;
   }
+
+  /* Rise Up Animation for Plans */
+  @keyframes rise-up {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-rise-up {
+    animation: rise-up 0.8s ease-out forwards;
+  }
+
+  /* Typing Animation for WhatsApp */
+  @keyframes typing-dots {
+    0%, 20% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+    80%, 100% {
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes message-appear {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-typing-dot {
+    animation: typing-dots 1.4s ease-in-out infinite;
+  }
+
+  .animate-typing-dot-2 {
+    animation: typing-dots 1.4s ease-in-out infinite 0.2s;
+  }
+
+  .animate-typing-dot-3 {
+    animation: typing-dots 1.4s ease-in-out infinite 0.4s;
+  }
+
+  .animate-message-appear {
+    animation: message-appear 0.4s ease-out forwards;
+  }
+
+  /* Dashboard Pulse Animation */
+  @keyframes value-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes bar-grow {
+    0% {
+      transform: scaleY(0.6);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+    100% {
+      transform: scaleY(0.6);
+    }
+  }
+
+  @keyframes subtle-float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .animate-value-pulse {
+    animation: value-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-bar-grow {
+    animation: bar-grow 3s ease-in-out infinite;
+    transform-origin: bottom;
+  }
+
+  .animate-subtle-float {
+    animation: subtle-float 4s ease-in-out infinite;
+  }
+
+  /* Staggered bar animations */
+  .animate-bar-1 { animation-delay: 0s; }
+  .animate-bar-2 { animation-delay: 0.2s; }
+  .animate-bar-3 { animation-delay: 0.4s; }
+  .animate-bar-4 { animation-delay: 0.6s; }
+  .animate-bar-5 { animation-delay: 0.8s; }
+  .animate-bar-6 { animation-delay: 1s; }
+  .animate-bar-7 { animation-delay: 1.2s; }
 }

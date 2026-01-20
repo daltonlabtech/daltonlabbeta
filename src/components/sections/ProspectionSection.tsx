@@ -52,7 +52,7 @@ const ProspectionSection = () => {
                 <div className="w-8 h-8 rounded-lg bg-zinc-100 hover:bg-zinc-200 transition-colors cursor-pointer flex items-center justify-center">
                   <div className="w-4 h-4 rounded-sm bg-zinc-400" />
                 </div>
-                <div className="w-8 h-8 rounded-lg bg-dalton-blue/10 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-dalton-blue/10 flex items-center justify-center animate-subtle-float">
                   <div className="w-4 h-4 rounded-full bg-dalton-blue" />
                 </div>
                 <div className="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center">
@@ -91,32 +91,32 @@ const ProspectionSection = () => {
                       
                       <div className="space-y-3">
                         <div className="flex gap-2">
-                          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex-shrink-0" />
+                          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex-shrink-0 animate-subtle-float" style={{ animationDelay: '0s' }} />
                           <div className="bg-white rounded-lg p-2 text-xs text-zinc-700 shadow-sm">
                             ⚡ Target Sales Leaders in the FinTech industry
                           </div>
                         </div>
                         
                         <div className="flex gap-2">
-                          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 flex-shrink-0" />
+                          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 flex-shrink-0 animate-subtle-float" style={{ animationDelay: '0.5s' }} />
                           <div className="bg-white rounded-lg p-2 text-xs text-zinc-700 shadow-sm">
                             ❓ Any specific geographical location?
                           </div>
                         </div>
 
                         <div className="flex justify-end">
-                          <span className="bg-dalton-blue text-white text-xs px-3 py-1 rounded-full">
+                          <span className="bg-dalton-blue text-white text-xs px-3 py-1 rounded-full animate-value-pulse">
                             📍 San Francisco
                           </span>
                         </div>
 
                         <div className="flex items-center gap-4 text-xs text-zinc-600 mt-4">
                           <div className="flex items-center gap-1">
-                            <span className="font-semibold text-zinc-900">11,215</span>
+                            <span className="font-semibold text-zinc-900 animate-value-pulse">11,215</span>
                             <span>Identified Leads</span>
                           </div>
                           <div className="flex items-center gap-1">
-                            <span className="font-semibold text-zinc-900">8,429</span>
+                            <span className="font-semibold text-zinc-900 animate-value-pulse" style={{ animationDelay: '0.5s' }}>8,429</span>
                             <span>📞 Phone Numbers</span>
                           </div>
                         </div>
@@ -140,7 +140,7 @@ const ProspectionSection = () => {
                     {/* Identified Accounts */}
                     <div>
                       <div className="flex items-center justify-between mb-2">
-                        <h4 className="font-medium text-sm text-zinc-900">Identified Accounts: 1,250</h4>
+                        <h4 className="font-medium text-sm text-zinc-900">Identified Accounts: <span className="animate-value-pulse">1,250</span></h4>
                         <span className="text-xs text-dalton-blue cursor-pointer">View all</span>
                       </div>
                       <div className="bg-zinc-50 rounded-xl border border-zinc-100 overflow-hidden">
@@ -153,7 +153,7 @@ const ProspectionSection = () => {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr className="border-b border-zinc-100">
+                            <tr className="border-b border-zinc-100 hover:bg-zinc-100/50 transition-colors">
                               <td className="p-2 flex items-center gap-2">
                                 <div className="w-5 h-5 rounded bg-black flex items-center justify-center">
                                   <span className="text-white text-[8px]">P</span>
@@ -163,7 +163,7 @@ const ProspectionSection = () => {
                               <td className="p-2 text-zinc-600">1,200</td>
                               <td className="p-2"><span className="text-zinc-400">⊘ Not found</span></td>
                             </tr>
-                            <tr className="border-b border-zinc-100">
+                            <tr className="border-b border-zinc-100 hover:bg-zinc-100/50 transition-colors">
                               <td className="p-2 flex items-center gap-2">
                                 <div className="w-5 h-5 rounded bg-purple-600 flex items-center justify-center">
                                   <span className="text-white text-[8px]">S</span>
@@ -171,9 +171,9 @@ const ProspectionSection = () => {
                                 Stripe
                               </td>
                               <td className="p-2 text-zinc-600">9,800</td>
-                              <td className="p-2"><span className="text-green-600">● Active Lead</span></td>
+                              <td className="p-2"><span className="text-green-600 animate-value-pulse">● Active Lead</span></td>
                             </tr>
-                            <tr>
+                            <tr className="hover:bg-zinc-100/50 transition-colors">
                               <td className="p-2 flex items-center gap-2">
                                 <div className="w-5 h-5 rounded bg-blue-600 flex items-center justify-center">
                                   <span className="text-white text-[8px]">C</span>
@@ -191,7 +191,7 @@ const ProspectionSection = () => {
                     {/* Estimated Leads */}
                     <div>
                       <div className="flex items-center justify-between mb-2">
-                        <h4 className="font-medium text-sm text-zinc-900">Estimated Leads: 11,215</h4>
+                        <h4 className="font-medium text-sm text-zinc-900">Estimated Leads: <span className="animate-value-pulse">11,215</span></h4>
                         <span className="text-xs text-dalton-blue cursor-pointer">View all</span>
                       </div>
                       <div className="bg-zinc-50 rounded-xl border border-zinc-100 overflow-hidden">
@@ -204,41 +204,41 @@ const ProspectionSection = () => {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr className="border-b border-zinc-100">
+                            <tr className="border-b border-zinc-100 hover:bg-zinc-100/50 transition-colors">
                               <td className="p-2 flex items-center gap-2">
-                                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-amber-300 to-orange-400" />
+                                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-amber-300 to-orange-400 animate-subtle-float" style={{ animationDelay: '0s' }} />
                                 Cameron Williamson
                               </td>
                               <td className="p-2 text-zinc-600">MQL</td>
                               <td className="p-2"><span className="bg-purple-100 text-purple-700 text-[10px] px-2 py-0.5 rounded-full">🎧 Listening to Podcast</span></td>
                             </tr>
-                            <tr className="border-b border-zinc-100">
+                            <tr className="border-b border-zinc-100 hover:bg-zinc-100/50 transition-colors">
                               <td className="p-2 flex items-center gap-2">
-                                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-pink-300 to-rose-400" />
+                                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-pink-300 to-rose-400 animate-subtle-float" style={{ animationDelay: '0.3s' }} />
                                 Marvin McKinney
                               </td>
                               <td className="p-2 text-zinc-600">Closed Lost</td>
                               <td className="p-2"><span className="bg-red-100 text-red-700 text-[10px] px-2 py-0.5 rounded-full">📝 Reviewing CRM Notes</span></td>
                             </tr>
-                            <tr className="border-b border-zinc-100">
+                            <tr className="border-b border-zinc-100 hover:bg-zinc-100/50 transition-colors">
                               <td className="p-2 flex items-center gap-2">
-                                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-green-300 to-emerald-400" />
+                                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-green-300 to-emerald-400 animate-subtle-float" style={{ animationDelay: '0.6s' }} />
                                 Devon Lane
                               </td>
                               <td className="p-2 text-zinc-600">MQL</td>
                               <td className="p-2"><span className="bg-amber-100 text-amber-700 text-[10px] px-2 py-0.5 rounded-full">📖 Reading Blog Post</span></td>
                             </tr>
-                            <tr className="border-b border-zinc-100">
+                            <tr className="border-b border-zinc-100 hover:bg-zinc-100/50 transition-colors">
                               <td className="p-2 flex items-center gap-2">
-                                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-blue-300 to-indigo-400" />
+                                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-blue-300 to-indigo-400 animate-subtle-float" style={{ animationDelay: '0.9s' }} />
                                 Leslie Alexander
                               </td>
                               <td className="p-2 text-zinc-600">Warm</td>
                               <td className="p-2"><span className="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded-full">🔍 Searching LinkedIn Feed</span></td>
                             </tr>
-                            <tr>
+                            <tr className="hover:bg-zinc-100/50 transition-colors">
                               <td className="p-2 flex items-center gap-2">
-                                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-violet-300 to-purple-400" />
+                                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-violet-300 to-purple-400 animate-subtle-float" style={{ animationDelay: '1.2s' }} />
                                 Jacob Jones
                               </td>
                               <td className="p-2 text-zinc-600">Closed Lost</td>

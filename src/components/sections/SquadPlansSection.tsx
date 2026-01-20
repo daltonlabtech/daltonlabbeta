@@ -129,7 +129,7 @@ const SquadPlansSection = () => {
       <div className="container-main">
         {/* Title */}
         <h2 
-          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-[#F5F3F0] text-center ${revealClasses(isVisible)}`}
         >
           Escolha seu plano
         </h2>

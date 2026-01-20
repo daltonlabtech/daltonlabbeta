@@ -14,14 +14,14 @@ const ProspectionSection = () => {
         <div className="bg-[#F5F3F0] rounded-3xl p-8 md:p-12 lg:p-16">
           {/* Heading */}
           <h2 
-            className={`font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-zinc-900 text-center leading-tight ${revealClasses(isVisible)}`}
+            className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 text-center leading-tight ${revealClasses(isVisible)}`}
           >
             Automatize seu funil com Agentes de IA
           </h2>
 
         {/* Subtitle */}
         <p 
-          className={`mt-4 font-inter font-normal text-lg md:text-xl text-zinc-600 text-center max-w-3xl mx-auto ${revealClasses(isVisible)}`}
+          className={`mt-4 font-inter font-normal text-base md:text-lg text-zinc-600 text-center max-w-3xl mx-auto ${revealClasses(isVisible)}`}
           style={getStaggerDelay(1)}
         >
           Qualifique leads, agende reuniões e crie propostas instantaneamente, enquanto sua equipe foca no que realmente importa.
@@ -262,10 +262,10 @@ const ProspectionSection = () => {
           >
             {/* Conteúdo */}
             <div className="text-center md:text-left">
-              <span className="bg-[#101823] text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
+              <span className="text-[#101823] text-sm font-medium">
                 Agente de
               </span>
-              <div className="flex items-center gap-2 justify-center md:justify-start mb-2 mt-2">
+              <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
                 <h3 className="font-inter font-semibold text-2xl text-zinc-900/40">Conteúdo</h3>
                 <span className="bg-gradient-to-r from-[hsl(var(--dalton-purple))] to-[hsl(271,76%,45%)] text-white text-[10px] font-medium px-2 py-0.5 rounded-full uppercase">
                   Em breve
@@ -278,10 +278,10 @@ const ProspectionSection = () => {
 
             {/* Anúncio */}
             <div className="text-center md:text-left">
-              <span className="bg-[#101823] text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
+              <span className="text-[#101823] text-sm font-medium">
                 Agente de
               </span>
-              <div className="flex items-center gap-2 justify-center md:justify-start mb-2 mt-2">
+              <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
                 <h3 className="font-inter font-semibold text-2xl text-zinc-900/40">Anúncio</h3>
                 <span className="bg-gradient-to-r from-[hsl(var(--dalton-purple))] to-[hsl(271,76%,45%)] text-white text-[10px] font-medium px-2 py-0.5 rounded-full uppercase">
                   Em breve
@@ -294,10 +294,10 @@ const ProspectionSection = () => {
 
             {/* Vendas */}
             <div className="text-center md:text-left">
-              <span className="bg-[#101823] text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
+              <span className="text-[#101823] text-sm font-medium">
                 Agente de
               </span>
-              <h3 className="font-inter font-semibold text-2xl text-zinc-900 mb-2 mt-2">Vendas</h3>
+              <h3 className="font-inter font-semibold text-2xl text-zinc-900 mb-2">Vendas</h3>
               <p className="text-base text-zinc-600 leading-relaxed">
                 Nunca perca um lead. Respostas instantâneas 24/7, qualificação automatizada e receita previsível.
               </p>

@@ -1,6 +1,5 @@
 import { useRef } from 'react';
-import { ArrowRight, MessageCircle, Instagram, Music2, Triangle, Globe, Headphones, Zap, Share2 } from 'lucide-react';
-import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
+import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
 
 // Tool logos with their visual representation
 const toolsRow1 = [
@@ -22,37 +21,32 @@ const toolsRow2 = [
 ];
 
 const HowItWorksSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
   const { ref, isVisible } = useScrollReveal();
-  
-  // Assign ref to section
-  if (ref.current === null) {
-    (ref as React.MutableRefObject<HTMLElement | null>).current = sectionRef.current;
-  }
 
-  const renderToolCard = (tool: typeof toolsRow1[0], index: number, rowOffset: number = 0) => (
+  const renderToolCard = (tool: typeof toolsRow1[0], index: number) => (
     <div 
-      key={tool.name}
-      className={`flex flex-col items-center gap-3 ${revealClasses(isVisible)}`}
-      style={getStaggerDelay(index + rowOffset + 2)}
+      key={`${tool.name}-${index}`}
+      className="flex flex-col items-center gap-3 flex-shrink-0"
     >
       <div 
-        className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl ${tool.bgColor} ${tool.hasBorder ? 'border border-gray-200' : ''} flex items-center justify-center shadow-md hover:scale-110 hover:shadow-xl transition-all duration-300`}
+        className={`w-32 h-32 md:w-40 md:h-40 rounded-2xl ${tool.bgColor} ${tool.hasBorder ? 'border border-gray-200' : ''} flex items-center justify-center shadow-md`}
       >
         {tool.isEmoji && (
-          <span className="text-2xl md:text-3xl">{tool.icon}</span>
+          <span className="text-5xl md:text-6xl">{tool.icon}</span>
         )}
         {tool.isText && (
-          <span className={`text-xl md:text-2xl font-bold ${tool.textColor}`}>{tool.icon}</span>
+          <span className={`text-4xl md:text-5xl font-bold ${tool.textColor}`}>{tool.icon}</span>
         )}
       </div>
     </div>
   );
 
+  // Duplicate items for seamless loop
+  const duplicatedRow1 = [...toolsRow1, ...toolsRow1, ...toolsRow1, ...toolsRow1];
+  const duplicatedRow2 = [...toolsRow2, ...toolsRow2, ...toolsRow2, ...toolsRow2];
+
   return (
-    <section ref={(el) => {
-      (ref as React.MutableRefObject<HTMLElement | null>).current = el;
-    }} className="section-padding bg-[#F5F3F0]">
+    <section ref={ref as React.RefObject<HTMLElement>} className="section-padding bg-[#F5F3F0] overflow-hidden">
       <div className="container-main">
         {/* Title */}
         <h2 
@@ -60,35 +54,22 @@ const HowItWorksSection = () => {
         >
           Integre o Dalton onde você já trabalha
         </h2>
+      </div>
 
-        {/* Tool Logos - Two Rows */}
-        <div className="mt-16 flex flex-col items-center gap-8 max-w-[900px] mx-auto">
-          {/* First Row */}
-          <div 
-            className={`flex flex-wrap justify-center gap-6 md:gap-8 ${revealClasses(isVisible)}`}
-            style={getStaggerDelay(1)}
-          >
-            {toolsRow1.map((tool, index) => renderToolCard(tool, index))}
-          </div>
-
-          {/* Second Row */}
-          <div 
-            className={`flex flex-wrap justify-center gap-6 md:gap-8 ${revealClasses(isVisible)}`}
-            style={getStaggerDelay(2)}
-          >
-            {toolsRow2.map((tool, index) => renderToolCard(tool, index, 6))}
+      {/* Tool Logos - Two Rows with Marquee */}
+      <div className="mt-16 flex flex-col gap-8">
+        {/* First Row - Left to Right */}
+        <div className="relative w-full overflow-hidden">
+          <div className="flex gap-8 animate-marquee-left">
+            {duplicatedRow1.map((tool, index) => renderToolCard(tool, index))}
           </div>
         </div>
 
-        {/* CTA Button */}
-        <div 
-          className={`mt-12 text-center ${revealClasses(isVisible)}`}
-          style={getStaggerDelay(5)}
-        >
-          <button className="group bg-[#101823] text-white font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-[#1A232F] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
-            <span>Fale com o Dalton</span>
-            <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-          </button>
+        {/* Second Row - Right to Left */}
+        <div className="relative w-full overflow-hidden">
+          <div className="flex gap-8 animate-marquee-right">
+            {duplicatedRow2.map((tool, index) => renderToolCard(tool, index))}
+          </div>
         </div>
       </div>
     </section>

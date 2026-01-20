@@ -4,7 +4,6 @@ import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScro
 const metrics = [
   { value: '10x', label: 'aumento em leads' },
   { value: '2x', label: 'contratos assinados' },
-  { value: '80%', label: 'aumento na taxa de conversão' },
 ];
 
 const AudioDemoSection = () => {
@@ -49,7 +48,7 @@ const AudioDemoSection = () => {
 
               {/* Attribution */}
               <p 
-                className={`mt-4 font-inter font-medium text-sm text-[#1A232F] ${revealClasses(isVisible)}`}
+                className={`mt-4 font-inter font-medium text-sm text-[#1A232F]/80 ${revealClasses(isVisible)}`}
                 style={getStaggerDelay(4)}
               >
                 -Siva, fundadora da Tyfone

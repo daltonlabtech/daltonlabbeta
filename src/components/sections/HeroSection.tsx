@@ -9,24 +9,39 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden" style={{ backgroundColor: '#19212E' }}>
-      {/* Noise Texture Overlay */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-        <svg width="100%" height="100%">
-          <filter id="noise">
-            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
-          </filter>
-          <rect width="100%" height="100%" filter="url(#noise)" />
+    <section className="relative min-h-screen flex flex-col overflow-hidden" style={{ backgroundColor: '#101823' }}>
+      {/* Abstract Wave Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <svg 
+          className="absolute w-full h-full" 
+          viewBox="0 0 1920 1080" 
+          preserveAspectRatio="xMidYMid slice"
+          fill="none"
+        >
+          <defs>
+            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.4" />
+              <stop offset="50%" stopColor="#60A5FA" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.3" />
+            </linearGradient>
+          </defs>
+          {/* Multiple flowing wave lines */}
+          {[...Array(20)].map((_, i) => {
+            const yOffset = 400 + i * 15;
+            const amplitude = 100 + i * 5;
+            return (
+              <path
+                key={i}
+                d={`M-100 ${yOffset} Q 400 ${yOffset - amplitude}, 960 ${yOffset + 50} T 2020 ${yOffset - 30}`}
+                stroke="url(#waveGradient)"
+                strokeWidth={1 + i * 0.1}
+                strokeOpacity={0.3 - i * 0.01}
+                fill="none"
+              />
+            );
+          })}
         </svg>
       </div>
-
-      {/* Subtle Purple Glow */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: 'radial-gradient(circle at 30% 50%, hsl(261 83% 65% / 0.08), transparent 50%)'
-        }}
-      />
 
       {/* Main Content */}
       <div className="relative z-10 flex-1 flex items-center container mx-auto px-6 md:px-12 lg:px-20 pt-20 md:pt-24">
@@ -62,7 +77,7 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p 
-            className={`text-base sm:text-lg md:text-xl font-normal max-w-xl mt-6 md:mt-8 transition-all duration-700 delay-300 ${
+            className={`text-sm sm:text-base md:text-lg font-normal max-w-xl mt-6 md:mt-8 transition-all duration-700 delay-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{ color: '#F5F3F0' }}

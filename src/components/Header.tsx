@@ -1,13 +1,7 @@
 import { useState, useEffect } from 'react';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import logoImage from '@/assets/logo-dalton-lab.png';
 import daltonLabText from '@/assets/dalton-lab-text.png';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import {
   Sheet,
   SheetContent,
@@ -16,15 +10,9 @@ import {
 } from '@/components/ui/sheet';
 
 const navLinks = [
+  { label: 'Produto', href: '#produto' },
+  { label: 'Notícias', href: '#noticias' },
   { label: 'Quem Somos', href: '/quem-somos' },
-  { label: 'Newsletter', href: '#newsletter' },
-  { label: 'Blog', href: '#blog' },
-  { label: 'Mídia', href: '#midia' },
-];
-
-const moreLinks = [
-  { label: 'Organograma Híbrido Grátis', href: '#organograma' },
-  { label: 'Nossos Treinamentos', href: '#treinamentos' },
 ];
 
 const Header = () => {
@@ -37,8 +25,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const allLinks = [...navLinks, ...moreLinks];
 
   return (
     <header 
@@ -65,26 +51,6 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
-            
-            {/* Dropdown "Mais" */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground/70 hover:text-foreground text-sm font-medium transition-colors duration-200 outline-none">
-                Mais
-                <ChevronDown className="w-4 h-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-background border border-white/10 z-50">
-                {moreLinks.map((link) => (
-                  <DropdownMenuItem key={link.label} asChild>
-                    <a
-                      href={link.href}
-                      className="cursor-pointer text-foreground/70 hover:text-foreground"
-                    >
-                      {link.label}
-                    </a>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
           </nav>
 
           {/* Spacer for balance - same width as logo (Desktop) */}
@@ -99,7 +65,7 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="bg-background border-l border-white/10 w-[280px]">
               <nav className="flex flex-col gap-4 mt-8">
-                {allLinks.map((link) => (
+                {navLinks.map((link) => (
                   <SheetClose asChild key={link.label}>
                     <a
                       href={link.href}

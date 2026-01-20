@@ -35,7 +35,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0">
-            <img src={logoWhite} alt="Dalton Lab" className="h-6 md:h-8 w-auto" />
+            <img src={logoWhite} alt="Dalton Lab" className="h-16 md:h-20 w-auto" />
           </a>
 
           {/* Navigation - Center (Desktop) */}

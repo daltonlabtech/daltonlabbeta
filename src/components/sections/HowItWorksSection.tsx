@@ -1,17 +1,24 @@
 import { useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageCircle, Instagram, Music2, Triangle, Globe, Headphones, Zap, Share2 } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
-// Tool logos - using brand colors and icons
-const tools = [
-  { name: 'WhatsApp', icon: '💬', bgColor: 'bg-[#25D366]' },
-  { name: 'Meta', icon: '📘', bgColor: 'bg-[#0081FB]' },
-  { name: 'Monday', icon: '📊', bgColor: 'bg-[#FF3D57]' },
-  { name: 'Salesforce', icon: '☁️', bgColor: 'bg-[#00A1E0]' },
-  { name: 'Slack', icon: '💜', bgColor: 'bg-[#4A154B]' },
-  { name: 'Outlook', icon: '📧', bgColor: 'bg-[#0078D4]' },
-  { name: 'Trello', icon: '📋', bgColor: 'bg-[#0052CC]' },
-  { name: 'Google Ads', icon: '📢', bgColor: 'bg-[#FBBC04]' },
+// Tool logos with their visual representation
+const toolsRow1 = [
+  { name: 'Salesforce', bgColor: 'bg-[#00A1E0]', icon: '☁️', isEmoji: true, isText: false, textColor: '', hasBorder: false },
+  { name: 'Bling', bgColor: 'bg-[#5046E5]', icon: 'D', isEmoji: false, isText: true, textColor: 'text-white', hasBorder: false },
+  { name: 'Odoo', bgColor: 'bg-[#714B67]', icon: '◉', isEmoji: false, isText: true, textColor: 'text-white', hasBorder: false },
+  { name: 'Fathom', bgColor: 'bg-[#1A1A1A]', icon: '⚡', isEmoji: true, isText: false, textColor: '', hasBorder: false },
+  { name: 'Intercom', bgColor: 'bg-[#1F1F1F]', icon: '|||', isEmoji: false, isText: true, textColor: 'text-white', hasBorder: false },
+  { name: 'ActiveCampaign', bgColor: 'bg-[#356AE6]', icon: '>', isEmoji: false, isText: true, textColor: 'text-white', hasBorder: false },
+];
+
+const toolsRow2 = [
+  { name: 'Confluence', bgColor: 'bg-[#2684FF]', icon: '⟨⟩', isEmoji: false, isText: true, textColor: 'text-white', hasBorder: false },
+  { name: 'Freshdesk', bgColor: 'bg-[#25C16F]', icon: '🎧', isEmoji: true, isText: false, textColor: '', hasBorder: false },
+  { name: 'Google Ads', bgColor: 'bg-white', icon: '📊', isEmoji: true, isText: false, textColor: '', hasBorder: true },
+  { name: 'HubSpot', bgColor: 'bg-white', icon: '🔶', isEmoji: true, isText: false, textColor: '', hasBorder: true },
+  { name: 'Zapier', bgColor: 'bg-white', icon: '⚡', isEmoji: true, isText: false, textColor: '', hasBorder: true },
+  { name: 'Meta', bgColor: 'bg-[#0081FB]', icon: '∞', isEmoji: false, isText: true, textColor: 'text-white', hasBorder: false },
 ];
 
 const HowItWorksSection = () => {
@@ -23,9 +30,24 @@ const HowItWorksSection = () => {
     (ref as React.MutableRefObject<HTMLElement | null>).current = sectionRef.current;
   }
 
-  // Split tools into two rows
-  const firstRow = tools.slice(0, 4);
-  const secondRow = tools.slice(4, 8);
+  const renderToolCard = (tool: typeof toolsRow1[0], index: number, rowOffset: number = 0) => (
+    <div 
+      key={tool.name}
+      className={`flex flex-col items-center gap-3 ${revealClasses(isVisible)}`}
+      style={getStaggerDelay(index + rowOffset + 2)}
+    >
+      <div 
+        className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl ${tool.bgColor} ${tool.hasBorder ? 'border border-gray-200' : ''} flex items-center justify-center shadow-md hover:scale-110 hover:shadow-xl transition-all duration-300`}
+      >
+        {tool.isEmoji && (
+          <span className="text-2xl md:text-3xl">{tool.icon}</span>
+        )}
+        {tool.isText && (
+          <span className={`text-xl md:text-2xl font-bold ${tool.textColor}`}>{tool.icon}</span>
+        )}
+      </div>
+    </div>
+  );
 
   return (
     <section ref={(el) => {
@@ -40,51 +62,21 @@ const HowItWorksSection = () => {
         </h2>
 
         {/* Tool Logos - Two Rows */}
-        <div className="mt-16 flex flex-col items-center gap-6 max-w-[900px] mx-auto">
+        <div className="mt-16 flex flex-col items-center gap-8 max-w-[900px] mx-auto">
           {/* First Row */}
           <div 
-            className={`flex flex-wrap justify-center gap-4 md:gap-6 ${revealClasses(isVisible)}`}
+            className={`flex flex-wrap justify-center gap-6 md:gap-8 ${revealClasses(isVisible)}`}
             style={getStaggerDelay(1)}
           >
-            {firstRow.map((tool, index) => (
-              <div 
-                key={tool.name}
-                className="flex flex-col items-center gap-2"
-                style={getStaggerDelay(index + 2)}
-              >
-                <div 
-                  className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl ${tool.bgColor} flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300`}
-                >
-                  <span className="text-2xl md:text-3xl">{tool.icon}</span>
-                </div>
-                <span className="font-inter text-xs md:text-sm text-[#1A232F]/70 font-medium">
-                  {tool.name}
-                </span>
-              </div>
-            ))}
+            {toolsRow1.map((tool, index) => renderToolCard(tool, index))}
           </div>
 
           {/* Second Row */}
           <div 
-            className={`flex flex-wrap justify-center gap-4 md:gap-6 ${revealClasses(isVisible)}`}
+            className={`flex flex-wrap justify-center gap-6 md:gap-8 ${revealClasses(isVisible)}`}
             style={getStaggerDelay(2)}
           >
-            {secondRow.map((tool, index) => (
-              <div 
-                key={tool.name}
-                className="flex flex-col items-center gap-2"
-                style={getStaggerDelay(index + 6)}
-              >
-                <div 
-                  className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl ${tool.bgColor} flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300`}
-                >
-                  <span className="text-2xl md:text-3xl">{tool.icon}</span>
-                </div>
-                <span className="font-inter text-xs md:text-sm text-[#1A232F]/70 font-medium">
-                  {tool.name}
-                </span>
-              </div>
-            ))}
+            {toolsRow2.map((tool, index) => renderToolCard(tool, index, 6))}
           </div>
         </div>
 
@@ -93,7 +85,7 @@ const HowItWorksSection = () => {
           className={`mt-12 text-center ${revealClasses(isVisible)}`}
           style={getStaggerDelay(5)}
         >
-          <button className="group bg-[#F5F3F0] border-2 border-[#1A232F] text-[#1A232F] font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-[#1A232F] hover:text-[#F5F3F0] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
+          <button className="group bg-[#101823] text-white font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-[#1A232F] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
             <span>Fale com o Dalton</span>
             <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
           </button>

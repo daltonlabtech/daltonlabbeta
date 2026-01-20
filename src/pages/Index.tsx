@@ -8,8 +8,6 @@ import AudioDemoSection from "@/components/sections/AudioDemoSection";
 import SocialProofSection from "@/components/sections/SocialProofSection";
 import FAQSection from "@/components/sections/FAQSection";
 import Footer from "@/components/sections/Footer";
-import NewtonChatButton from "@/components/NewtonChatButton";
-
 const Index = () => {
   return (
     <main className="min-h-screen bg-background">
@@ -23,7 +21,6 @@ const Index = () => {
       <SocialProofSection />
       <FAQSection />
       <Footer />
-      <NewtonChatButton />
     </main>
   );
 };

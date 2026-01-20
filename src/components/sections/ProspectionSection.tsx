@@ -262,7 +262,7 @@ const ProspectionSection = () => {
           >
             {/* Conteúdo */}
             <div className="text-center md:text-left">
-              <span className="text-[#101823] text-sm font-medium">
+              <span className="text-zinc-900/40 text-sm font-medium">
                 Agente de
               </span>
               <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
@@ -278,7 +278,7 @@ const ProspectionSection = () => {
 
             {/* Anúncio */}
             <div className="text-center md:text-left">
-              <span className="text-[#101823] text-sm font-medium">
+              <span className="text-zinc-900/40 text-sm font-medium">
                 Agente de
               </span>
               <div className="flex items-center gap-2 justify-center md:justify-start mb-2">

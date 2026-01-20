@@ -35,7 +35,7 @@ const AudioDemoSection = () => {
                 className={`mt-4 font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-[#1A232F] leading-tight ${revealClasses(isVisible)}`}
                 style={getStaggerDelay(2)}
               >
-                Como o Tyfone 10x melhorou a produtividade com o Dalton
+                Como o [Cliente] melhorou sua produtividade com o Dalton IA
               </h2>
 
               {/* Quote */}
@@ -43,7 +43,7 @@ const AudioDemoSection = () => {
                 className={`mt-6 font-inter font-normal text-base md:text-lg text-[#1A232F]/80 leading-relaxed ${revealClasses(isVisible)}`}
                 style={getStaggerDelay(3)}
               >
-                "Você vai de reunião em reunião e depois fica preso ao acompanhamento. Seguir adiante é muito desafiador."
+                "Os agentes trabalham 24/7 e nunca esquecem um follow-up. Nosso pipeline nunca esteve tão cheio."
               </p>
 
               {/* Attribution */}
@@ -51,7 +51,7 @@ const AudioDemoSection = () => {
                 className={`mt-4 font-inter font-medium text-sm text-[#1A232F]/80 ${revealClasses(isVisible)}`}
                 style={getStaggerDelay(4)}
               >
-                -Siva, fundadora da Tyfone
+                Nome cliente, cargo e empresa
               </p>
 
               {/* Metrics */}

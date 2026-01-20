@@ -32,9 +32,8 @@ const ProspectionSection = () => {
           className={`mt-8 text-center ${revealClasses(isVisible)}`}
           style={getStaggerDelay(2)}
         >
-          <button className="group bg-zinc-900 text-white font-medium text-sm px-6 py-3 rounded-full hover:bg-zinc-800 transition-all duration-300 inline-flex items-center justify-center">
-            <span>Fale com o Dalton</span>
-            <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+          <button className="bg-zinc-900 text-white font-medium text-sm px-6 py-3 rounded-full hover:bg-zinc-800 transition-all duration-300 flex items-center justify-center">
+            Fale com o Dalton
           </button>
         </div>
 

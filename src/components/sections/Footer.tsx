@@ -12,9 +12,6 @@ const Footer = () => {
             <h4 className="font-inter font-semibold text-sm text-white/80 uppercase tracking-wider mb-4">
               Suporte
             </h4>
-            <p className="font-inter text-sm text-white/50 mb-4">
-              Precisa de ajuda? Fale conosco.
-            </p>
             <div className="flex flex-col gap-2">
               <a 
                 href="mailto:administrativo@daltonlab.ai"
@@ -106,7 +103,7 @@ const Footer = () => {
         <div className="container-main py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <img src={dBranco} alt="Dalton Lab" className="h-8 w-auto opacity-70" />
           <p className="font-inter text-xs text-white/40">
-            © 2026 Dalton Lab. Todos os direitos reservados.
+            © 2026 Dalton Lab. Todos os direitos reservados. Feito com ❤️ no Brasil.
           </p>
         </div>
       </div>

@@ -73,7 +73,7 @@ const Newton = () => {
             <span className="font-inter text-sm">Voltar</span>
           </Link>
           
-          <img src={logo} alt="Dalton Lab" className="h-12 w-auto" />
+          <img src={logo} alt="Dalton Lab" className="h-20 w-auto" />
           
           <div className="w-20" /> {/* Spacer for centering */}
         </div>

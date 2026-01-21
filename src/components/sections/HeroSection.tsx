@@ -13,8 +13,9 @@ const HeroSection = () => {
         <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-60">
           <source src={heroVideo} type="video/mp4" />
         </video>
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#101823]/40 via-transparent to-[#101823]/80" />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#101823]/30 via-transparent to-[#101823]/80" />
       </div>
 
       {/* Main Content */}
@@ -48,7 +49,7 @@ const HeroSection = () => {
           }}>
               Escale a receita da sua empresa.
             </p>
-            <p className="text-sm md:text-lg lg:text-xl font-normal" style={{
+            <p className="text-base md:text-xl lg:text-2xl font-normal" style={{
             color: '#F5F3F0'
           }}>
               Em menos tempo. Com menos custo.

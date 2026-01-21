@@ -64,7 +64,7 @@ const Newton = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F3F0] flex flex-col">
+    <div className="min-h-screen bg-[#1a2a3d] flex flex-col">
       {/* Header */}
       <header className="border-b border-white/10 bg-[#101823]">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -73,7 +73,7 @@ const Newton = () => {
             <span className="font-inter text-sm">Voltar</span>
           </Link>
           
-          <img src={logo} alt="Dalton Lab" className="h-8 w-auto" />
+          <img src={logo} alt="Dalton Lab" className="h-12 w-auto" />
           
           <div className="w-20" /> {/* Spacer for centering */}
         </div>
@@ -94,8 +94,8 @@ const Newton = () => {
                 <div className={`flex-1 ${message.role === 'user' ? 'text-right' : ''}`}>
                   <p className={`inline-block font-inter text-base leading-relaxed ${
                     message.role === 'assistant' 
-                      ? 'text-[#101823]' 
-                      : 'bg-[#101823] text-white px-4 py-3 rounded-2xl rounded-tr-sm'
+                      ? 'text-[#F5F3F0]' 
+                      : 'bg-[#F5F3F0]/10 text-[#F5F3F0] px-4 py-3 rounded-2xl rounded-tr-sm'
                   }`}>
                     {message.content}
                   </p>
@@ -109,9 +109,9 @@ const Newton = () => {
                   <img src={chatAvatar} alt="Dalton AI" className="w-6 h-6 object-contain" />
                 </div>
                 <div className="flex items-center gap-1 py-3">
-                  <span className="w-2 h-2 bg-[#101823] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                  <span className="w-2 h-2 bg-[#101823] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                  <span className="w-2 h-2 bg-[#101823] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                  <span className="w-2 h-2 bg-[#F5F3F0] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <span className="w-2 h-2 bg-[#F5F3F0] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                  <span className="w-2 h-2 bg-[#F5F3F0] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                 </div>
               </div>
             )}
@@ -130,15 +130,15 @@ const Newton = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Digite aqui o seu nome..."
-              className="w-full px-6 py-4 pr-14 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-[#F5F3F0]/60 font-inter focus:outline-none focus:border-[#36BDFC]/50 transition-colors"
+              className="w-full px-6 py-4 pr-14 bg-white/10 border border-[#F5F3F0]/40 rounded-2xl text-white placeholder-[#F5F3F0]/60 font-inter focus:outline-none focus:border-[#F5F3F0]/70 transition-colors"
               disabled={isLoading}
             />
             <button
               type="submit"
               disabled={!input.trim() || isLoading}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-[#36BDFC] flex items-center justify-center hover:bg-[#36BDFC]/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-[#F5F3F0] flex items-center justify-center hover:bg-[#F5F3F0]/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ArrowUp className="w-5 h-5 text-white" />
+              <ArrowUp className="w-5 h-5 text-[#101823]" />
             </button>
           </form>
           

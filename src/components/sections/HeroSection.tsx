@@ -44,13 +44,13 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <div className={`mt-6 md:mt-8 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <p className="text-base md:text-xl lg:text-2xl font-normal" style={{
-            color: '#F5F3F0'
+            <p className="text-sm md:text-base lg:text-lg font-normal" style={{
+            color: 'rgba(245, 243, 240, 0.85)'
           }}>
               Escale a receita da sua empresa.
             </p>
-            <p className="text-base md:text-xl lg:text-2xl font-normal" style={{
-            color: '#F5F3F0'
+            <p className="text-sm md:text-base lg:text-lg font-normal" style={{
+            color: 'rgba(245, 243, 240, 0.85)'
           }}>
               Em menos tempo. Com menos custo.
             </p>

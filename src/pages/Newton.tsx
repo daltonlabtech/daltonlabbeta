@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { ArrowUp, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '@/assets/logo-dalton-horizontal-white.png';
-import chatAvatar from '@/assets/chat-avatar.png';
+import chatAvatar from '@/assets/d-branco.png';
 
 interface Message {
   id: string;

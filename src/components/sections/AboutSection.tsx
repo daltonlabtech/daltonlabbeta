@@ -1,7 +1,8 @@
-import { Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react';
+import { Instagram, Linkedin, Youtube } from 'lucide-react';
 import rodrigoPhoto from '@/assets/founders/rodrigo.webp';
 import marceloPhoto from '@/assets/founders/marcelo.webp';
-import teamPhoto from '@/assets/team/dalton-team.webp';
+import foundersPhoto from '@/assets/about/founders-photo.jpg';
+import teamFullPhoto from '@/assets/about/team-photo.jpg';
 
 const founders = [
   {
@@ -30,34 +31,46 @@ const founders = [
 
 const AboutSection = () => {
   return (
-    <section className="section-padding bg-background pt-32">
-      <div className="container-main max-w-[900px]">
-        {/* Badge */}
-        <div className="flex justify-center">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-dalton-blue/10 border border-dalton-blue/30 text-dalton-blue font-inter font-medium text-xs uppercase tracking-wider">
-            Quem Somos
-          </span>
+    <section className="bg-background">
+      {/* Hero Photo Section - Full Width */}
+      <div className="w-full bg-[#F5F3F0] pt-20">
+        <div className="flex w-full">
+          <div className="w-1/2">
+            <img 
+              src={foundersPhoto} 
+              alt="Fundadores Dalton Lab" 
+              className="w-full h-[300px] md:h-[450px] lg:h-[550px] object-cover"
+            />
+          </div>
+          <div className="w-1/2">
+            <img 
+              src={teamFullPhoto} 
+              alt="Time Dalton Lab" 
+              className="w-full h-[300px] md:h-[450px] lg:h-[550px] object-cover"
+            />
+          </div>
         </div>
+      </div>
 
-        {/* Title */}
-        <h2 className="mt-6 font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center uppercase tracking-wide">
-          Bem-vindo ao Dalton Lab
-        </h2>
+      {/* Content Section */}
+      <div className="section-padding">
+        <div className="container-main max-w-[900px]">
+          {/* Badge */}
+          <div className="flex justify-center">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-dalton-blue/10 border border-dalton-blue/30 text-dalton-blue font-inter font-medium text-xs uppercase tracking-wider">
+              Quem Somos
+            </span>
+          </div>
 
-        {/* Subtitle */}
-        <p className="mt-4 font-inter font-normal text-lg text-dalton-gray-light text-center">
-          O laboratório que transforma empresas em organizações agênticas.
-        </p>
+          {/* Title */}
+          <h2 className="mt-6 font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-white text-center uppercase tracking-wide">
+            Bem-vindo ao Dalton Lab
+          </h2>
 
-        {/* Team Photo */}
-        <div className="mt-10 relative rounded-2xl overflow-hidden border border-white/10 max-w-md mx-auto">
-          <img 
-            src={teamPhoto} 
-            alt="Time Dalton Lab" 
-            className="w-full h-auto object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-        </div>
+          {/* Subtitle */}
+          <p className="mt-4 font-inter font-normal text-lg text-dalton-gray-light text-center">
+            O laboratório que transforma empresas em organizações agênticas.
+          </p>
 
         {/* Team Count Text */}
         <p className="mt-6 font-inter font-semibold text-xl md:text-2xl text-white text-center">
@@ -126,15 +139,6 @@ const AboutSection = () => {
           ))}
         </div>
 
-        {/* CTA Link */}
-        <div className="mt-10 text-center">
-          <a 
-            href="#" 
-            className="inline-flex items-center gap-2 font-inter font-medium text-dalton-blue hover:text-dalton-blue/80 transition-colors"
-          >
-            Conheça os 10 princípios do Dalton Lab
-            <ArrowRight className="w-4 h-4" />
-          </a>
         </div>
       </div>
     </section>

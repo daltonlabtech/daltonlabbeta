@@ -44,11 +44,11 @@ const Header = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-foreground/70 hover:text-foreground text-sm font-medium transition-colors duration-200 flex items-center gap-1.5"
+                className="text-foreground/70 hover:text-foreground text-sm font-medium transition-colors duration-200 relative"
               >
                 {link.label}
                 {link.label === 'Notícias' && (
-                  <span className="px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide bg-dalton-blue/20 text-dalton-blue rounded">
+                  <span className="absolute -top-2 -right-8 px-1 py-0.5 text-[6px] font-bold uppercase tracking-wide bg-dalton-blue/20 text-dalton-blue rounded whitespace-nowrap">
                     Em breve
                   </span>
                 )}
@@ -78,11 +78,11 @@ const Header = () => {
                   <SheetClose asChild key={link.label}>
                     <a
                       href={link.href}
-                      className="text-foreground/70 hover:text-foreground text-lg font-medium transition-colors duration-200 py-2 flex items-center gap-2"
+                      className="text-foreground/70 hover:text-foreground text-lg font-medium transition-colors duration-200 py-2 relative inline-flex"
                     >
                       {link.label}
                       {link.label === 'Notícias' && (
-                        <span className="px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide bg-dalton-blue/20 text-dalton-blue rounded">
+                        <span className="absolute -top-1 left-[70px] px-1 py-0.5 text-[6px] font-bold uppercase tracking-wide bg-dalton-blue/20 text-dalton-blue rounded whitespace-nowrap">
                           Em breve
                         </span>
                       )}

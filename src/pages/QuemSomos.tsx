@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/sections/Footer";
-import NewtonChatButton from "@/components/NewtonChatButton";
 import AboutSection from "@/components/sections/AboutSection";
 
 const QuemSomos = () => {
@@ -9,7 +8,6 @@ const QuemSomos = () => {
       <Header />
       <AboutSection />
       <Footer />
-      <NewtonChatButton />
     </main>
   );
 };

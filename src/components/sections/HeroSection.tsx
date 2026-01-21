@@ -81,10 +81,21 @@ const HeroSection = () => {
             }`}
             style={{ color: '#F5F3F0' }}
           >
-            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal">
+            {/* Mobile: 3 lines */}
+            <span className="block sm:hidden text-4xl font-normal">
               Do lead à venda
             </span>
-            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mt-1">
+            <span className="block sm:hidden text-4xl font-light mt-1">
+              com
+            </span>
+            <span className="block sm:hidden text-4xl font-light mt-1">
+              Agentes de IA
+            </span>
+            {/* Desktop: 2 lines */}
+            <span className="hidden sm:block text-5xl md:text-6xl lg:text-7xl font-normal">
+              Do lead à venda
+            </span>
+            <span className="hidden sm:block text-5xl md:text-6xl lg:text-7xl font-light mt-1">
               com Agentes de IA
             </span>
           </h1>

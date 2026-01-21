@@ -3,7 +3,7 @@ import rodrigoPhoto from '@/assets/founders/rodrigo.webp';
 import marceloPhoto from '@/assets/founders/marcelo.webp';
 import foundersPhoto from '@/assets/about/founders-photo.jpg';
 import teamFullPhoto from '@/assets/about/team-photo.jpg';
-import cardTextureDark from '@/assets/textures/card-texture-dark.png';
+import cardTexture from '@/assets/textures/card-texture.png';
 
 const founders = [
   {
@@ -64,11 +64,11 @@ const AboutSection = () => {
 
       {/* Empresa Section */}
       <div className="container mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-24">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-32">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-32 items-start">
           <h2 className="font-inter text-2xl md:text-3xl text-white font-normal flex-shrink-0">
             Empresa
           </h2>
-          <p className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed max-w-2xl md:ml-auto md:text-right">
+          <p className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed max-w-2xl">
             O Dalton Lab transforma empresas em organizações agênticas. Somos 11 pessoas trabalhando lado a lado com mais de 20 agentes de IA internos. Nascemos com um propósito claro: acelerar a transição das empresas para um modelo em que humanos e agentes de IA trabalham juntos. Humanos decidem, se relacionam e lideram. Agentes executam, escalam e mantêm a operação em movimento.
           </p>
         </div>
@@ -88,13 +88,13 @@ const AboutSection = () => {
               className={`relative flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl overflow-hidden ${
                 index % 2 === 1 ? 'md:flex-row-reverse' : ''
               }`}
-              style={{ backgroundColor: '#101823' }}
+              style={{ backgroundColor: '#F5F3F0' }}
             >
               {/* Background Texture */}
               <div 
-                className="absolute inset-0 opacity-40"
+                className="absolute inset-0 opacity-30"
                 style={{
-                  backgroundImage: `url(${cardTextureDark})`,
+                  backgroundImage: `url(${cardTexture})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}
@@ -106,7 +106,7 @@ const AboutSection = () => {
                   <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-dalton-blue/20 to-dalton-purple/20 flex items-center justify-center">
-                    <span className="font-inter font-bold text-3xl text-[#F5F3F0]/30">
+                    <span className="font-inter font-bold text-3xl text-black/30">
                       {founder.name.charAt(0)}
                     </span>
                   </div>
@@ -115,25 +115,25 @@ const AboutSection = () => {
 
               {/* Info */}
               <div className={`relative z-10 flex-1 ${index % 2 === 1 ? 'md:text-right' : ''}`}>
-                <h3 className="font-inter font-bold text-xl text-[#F5F3F0]">
+                <h3 className="font-inter font-bold text-xl text-black">
                   {founder.name}
                 </h3>
-                <p className="font-inter font-medium text-sm text-[#F5F3F0]/50">
+                <p className="font-inter font-medium text-sm text-black/50">
                   {founder.role}
                 </p>
-                <p className="mt-3 font-inter text-sm text-[#F5F3F0] leading-relaxed">
+                <p className="mt-3 font-inter text-sm text-black leading-relaxed">
                   {founder.description}
                 </p>
                 
                 {/* Social Icons */}
                 <div className={`mt-4 flex items-center gap-3 ${index % 2 === 1 ? 'md:justify-end' : ''}`}>
-                  <a href={founder.socials.instagram} className="text-[#F5F3F0]/50 hover:text-[#F5F3F0] transition-colors">
+                  <a href={founder.socials.instagram} className="text-black/50 hover:text-black transition-colors">
                     <Instagram className="w-4 h-4" />
                   </a>
-                  <a href={founder.socials.linkedin} className="text-[#F5F3F0]/50 hover:text-[#F5F3F0] transition-colors">
+                  <a href={founder.socials.linkedin} className="text-black/50 hover:text-black transition-colors">
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a href={founder.socials.youtube} className="text-[#F5F3F0]/50 hover:text-[#F5F3F0] transition-colors">
+                  <a href={founder.socials.youtube} className="text-black/50 hover:text-black transition-colors">
                     <Youtube className="w-4 h-4" />
                   </a>
                 </div>

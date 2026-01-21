@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/sheet';
 
 const navLinks = [
-  { label: 'Produto', href: '#produto' },
+  { label: 'Produto', href: '/' },
   { label: 'Notícias', href: '#noticias' },
   { label: 'Quem Somos', href: '/quem-somos' },
 ];

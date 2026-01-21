@@ -3,6 +3,7 @@ import rodrigoPhoto from '@/assets/founders/rodrigo.webp';
 import marceloPhoto from '@/assets/founders/marcelo.webp';
 import foundersPhoto from '@/assets/about/founders-photo.jpg';
 import teamFullPhoto from '@/assets/about/team-photo.jpg';
+import cardTexture from '@/assets/textures/card-texture.png';
 
 const founders = [
   {
@@ -32,10 +33,39 @@ const founders = [
 const AboutSection = () => {
   return (
     <section className="bg-[#101823] pt-24 md:pt-32">
+      {/* Fundadores e equipe - Hero Title */}
+      <div className="container mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-24">
+        <h1 className="font-inter text-4xl md:text-5xl lg:text-6xl text-[#F5F3F0] font-light text-center">
+          Fundadores e equipe
+        </h1>
+      </div>
+
+      {/* Photos Section - After Title */}
+      <div className="w-full py-8 md:py-12">
+        <div className="container mx-auto px-6 md:px-12 lg:px-20">
+          <div className="flex gap-4 md:gap-6">
+            <div className="w-1/2">
+              <img 
+                src={foundersPhoto} 
+                alt="Fundadores Dalton Lab" 
+                className="w-full h-[180px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
+              />
+            </div>
+            <div className="w-1/2">
+              <img 
+                src={teamFullPhoto} 
+                alt="Time Dalton Lab" 
+                className="w-full h-[180px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Empresa Section */}
       <div className="container mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-24">
         <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-32">
-          <h2 className="font-inter text-xl md:text-2xl text-white font-normal flex-shrink-0">
+          <h2 className="font-inter text-2xl md:text-3xl text-white font-normal flex-shrink-0">
             Empresa
           </h2>
           <p className="font-inter text-sm md:text-base text-dalton-gray-light/80 leading-relaxed max-w-2xl">
@@ -46,21 +76,32 @@ const AboutSection = () => {
 
       {/* Fundadores Section */}
       <div className="container mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16">
-        <h2 className="font-inter text-xl md:text-2xl text-white font-normal mb-8 md:mb-12">
+        <h2 className="font-inter text-2xl md:text-3xl text-white font-normal mb-8 md:mb-12">
           Fundadores
         </h2>
 
-        {/* Founders Cards */}
-        <div className="space-y-6 max-w-[900px]">
+        {/* Founders Cards - Centered */}
+        <div className="space-y-6 max-w-[900px] mx-auto">
           {founders.map((founder, index) => (
             <div 
               key={index}
-              className={`flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl bg-[#F5F3F0] ${
+              className={`relative flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl overflow-hidden ${
                 index % 2 === 1 ? 'md:flex-row-reverse' : ''
               }`}
+              style={{ backgroundColor: '#F5F3F0' }}
             >
+              {/* Background Texture */}
+              <div 
+                className="absolute inset-0 opacity-30"
+                style={{
+                  backgroundImage: `url(${cardTexture})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              
               {/* Photo */}
-              <div className="w-28 h-28 md:w-32 md:h-32 rounded-xl overflow-hidden flex-shrink-0">
+              <div className="relative z-10 w-28 h-28 md:w-32 md:h-32 rounded-xl overflow-hidden flex-shrink-0">
                 {founder.image ? (
                   <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
                 ) : (
@@ -73,7 +114,7 @@ const AboutSection = () => {
               </div>
 
               {/* Info */}
-              <div className={`flex-1 ${index % 2 === 1 ? 'md:text-right' : ''}`}>
+              <div className={`relative z-10 flex-1 ${index % 2 === 1 ? 'md:text-right' : ''}`}>
                 <h3 className="font-inter font-bold text-xl text-black">
                   {founder.name}
                 </h3>
@@ -99,28 +140,6 @@ const AboutSection = () => {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Photos Section - Before Footer */}
-      <div className="w-full py-8 md:py-12 mt-8 md:mt-12">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20">
-          <div className="flex gap-4 md:gap-6">
-            <div className="w-1/2">
-              <img 
-                src={foundersPhoto} 
-                alt="Fundadores Dalton Lab" 
-                className="w-full h-[180px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
-              />
-            </div>
-            <div className="w-1/2">
-              <img 
-                src={teamFullPhoto} 
-                alt="Time Dalton Lab" 
-                className="w-full h-[180px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>

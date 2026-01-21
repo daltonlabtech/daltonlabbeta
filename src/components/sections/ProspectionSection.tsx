@@ -32,9 +32,9 @@ const ProspectionSection = () => {
           className={`mt-8 flex justify-center ${revealClasses(isVisible)}`}
           style={getStaggerDelay(2)}
         >
-          <button className="bg-[#101823] text-white font-medium text-sm px-6 py-3 rounded-full hover:bg-[#1a2533] transition-all duration-300">
+          <a href="/newton" className="bg-[#101823] text-white font-medium text-sm px-6 py-3 rounded-full hover:bg-[#1a2533] transition-all duration-300">
             Fale com o Dalton
-          </button>
+          </a>
         </div>
 
         {/* Dashboard Mockup */}

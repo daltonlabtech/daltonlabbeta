@@ -205,12 +205,13 @@ const SquadPlansSection = () => {
                 <div className="flex-grow" />
 
                 {/* CTA Button */}
-                <button 
+                <a 
+                  href="/newton"
                   className={`mt-8 w-full py-3.5 rounded-xl font-inter font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${colors.bgSolid} text-white hover:opacity-90`}
                 >
                   Saiba mais
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </a>
               </div>
             );
           })}

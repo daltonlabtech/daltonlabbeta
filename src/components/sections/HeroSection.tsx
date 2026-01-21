@@ -37,7 +37,7 @@ const HeroSection = () => {
           color: '#F5F3F0'
         }}>
             <span className="block text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold">Do lead à venda</span>
-            <span className="block text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-normal">
+            <span className="block text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-normal">
               com Agentes de IA
             </span>
           </h1>

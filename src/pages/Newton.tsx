@@ -88,8 +88,8 @@ const Newton = () => {
             {messages.map((message) => (
               <div key={message.id} className="flex gap-4">
               {message.role === 'assistant' && (
-                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden">
-                    <img src={chatAvatar} alt="Dalton AI" className="w-full h-full object-cover" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden bg-transparent">
+                    <img src={chatAvatar} alt="Dalton AI" className="w-full h-full object-cover scale-110" />
                   </div>
                 )}
                 
@@ -107,8 +107,8 @@ const Newton = () => {
 
             {isLoading && (
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden">
-                  <img src={chatAvatar} alt="Dalton AI" className="w-full h-full object-cover" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden bg-transparent">
+                  <img src={chatAvatar} alt="Dalton AI" className="w-full h-full object-cover scale-110" />
                 </div>
                 <div className="flex items-center gap-1 py-3">
                   <span className="w-2 h-2 bg-[#F5F3F0] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />

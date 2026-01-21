@@ -12,21 +12,6 @@ const faqs = [
     answer: "Um Agente de IA é uma solução de inteligência artificial projetada para automatizar tarefas específicas do seu processo comercial. Diferente de chatbots básicos, nossos agentes são treinados com contexto do seu negócio e executam ações reais como prospectar, qualificar leads, fazer follow-up e agendar reuniões."
   },
   {
-    question: "Quais são os 8 agentes do Time de Vendas?",
-    answer: (
-      <ol className="list-decimal list-inside space-y-2">
-        <li><strong>Leo (Prospecção):</strong> Encontra novos contatos</li>
-        <li><strong>Sofia (Enriquecimento):</strong> Valida dados dos leads</li>
-        <li><strong>Bruno (WhatsApp):</strong> Inicia conversas no WhatsApp</li>
-        <li><strong>Pedro (Follow-up):</strong> Faz acompanhamentos</li>
-        <li><strong>Laura (Nutrição):</strong> Envia conteúdos relevantes</li>
-        <li><strong>Íris (Resumo):</strong> Resume os pontos-chave</li>
-        <li><strong>Arthur (Proposta):</strong> Cria propostas personalizadas</li>
-        <li><strong>Helena (Contrato):</strong> Prepara o contrato final</li>
-      </ol>
-    )
-  },
-  {
     question: "Quanto tempo leva para implementar?",
     answer: "O tempo de implementação varia de acordo com a complexidade do seu processo comercial. Em média, conseguimos ter os primeiros agentes operando em 2 a 4 semanas, incluindo integração com seu CRM e treinamento com dados do seu negócio."
   },
@@ -37,10 +22,6 @@ const faqs = [
   {
     question: "Como funciona a integração com meu CRM?",
     answer: "Nossos agentes se integram nativamente com os principais CRMs do mercado (Salesforce, HubSpot, Pipedrive, RD Station, entre outros). A integração é feita via API e todas as ações dos agentes são registradas automaticamente no seu sistema."
-  },
-  {
-    question: "Qual é o investimento necessário?",
-    answer: "O investimento varia de acordo com o número de agentes contratados e o volume de operações. Trabalhamos com modelos flexíveis que se adaptam ao tamanho da sua operação. Entre em contato para uma proposta personalizada."
   },
   {
     question: "E se eu não gostar do resultado?",

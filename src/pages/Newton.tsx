@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { ArrowUp, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logo from '@/assets/logo-dalton-lab.png';
-import newtonAvatar from '@/assets/newton-avatar.webp';
+import logo from '@/assets/logo-dalton-horizontal-white.png';
+import chatAvatar from '@/assets/d-branco-chat.png';
 
 interface Message {
   id: string;
@@ -64,9 +64,9 @@ const Newton = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628] flex flex-col">
+    <div className="min-h-screen bg-[#F5F3F0] flex flex-col">
       {/* Header */}
-      <header className="border-b border-white/10 bg-[#0a1628]/80 backdrop-blur-sm">
+      <header className="border-b border-white/10 bg-[#101823]">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 text-dalton-gray-light hover:text-white transition-colors">
             <ArrowLeft className="w-5 h-5" />
@@ -86,16 +86,16 @@ const Newton = () => {
             {messages.map((message) => (
               <div key={message.id} className="flex gap-4">
               {message.role === 'assistant' && (
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden border-2 border-[#36BDFC]/50">
-                    <img src={newtonAvatar} alt="Newton AI" className="w-full h-full object-cover" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden bg-[#101823] border-2 border-[#101823] flex items-center justify-center">
+                    <img src={chatAvatar} alt="Dalton AI" className="w-6 h-6 object-contain" />
                   </div>
                 )}
                 
                 <div className={`flex-1 ${message.role === 'user' ? 'text-right' : ''}`}>
                   <p className={`inline-block font-inter text-base leading-relaxed ${
                     message.role === 'assistant' 
-                      ? 'text-white' 
-                      : 'bg-dalton-blue/20 text-white px-4 py-3 rounded-2xl rounded-tr-sm'
+                      ? 'text-[#101823]' 
+                      : 'bg-[#101823] text-white px-4 py-3 rounded-2xl rounded-tr-sm'
                   }`}>
                     {message.content}
                   </p>
@@ -105,13 +105,13 @@ const Newton = () => {
 
             {isLoading && (
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden border-2 border-[#36BDFC]/50">
-                  <img src={newtonAvatar} alt="Newton AI" className="w-full h-full object-cover" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden bg-[#101823] border-2 border-[#101823] flex items-center justify-center">
+                  <img src={chatAvatar} alt="Dalton AI" className="w-6 h-6 object-contain" />
                 </div>
                 <div className="flex items-center gap-1 py-3">
-                  <span className="w-2 h-2 bg-dalton-blue rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                  <span className="w-2 h-2 bg-dalton-blue rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                  <span className="w-2 h-2 bg-dalton-blue rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                  <span className="w-2 h-2 bg-[#101823] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <span className="w-2 h-2 bg-[#101823] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                  <span className="w-2 h-2 bg-[#101823] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                 </div>
               </div>
             )}
@@ -122,7 +122,7 @@ const Newton = () => {
       </main>
 
       {/* Input Area */}
-      <div className="border-t border-white/10 bg-[#0a1628]/80 backdrop-blur-sm">
+      <div className="border-t border-[#F5F3F0]/20 bg-[#101823]">
         <div className="container mx-auto px-6 py-4 max-w-3xl">
           <form onSubmit={handleSubmit} className="relative">
             <input
@@ -130,13 +130,13 @@ const Newton = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Digite aqui o seu nome..."
-              className="w-full px-6 py-4 pr-14 bg-white/5 border border-white/20 rounded-2xl text-white placeholder-dalton-gray-light font-inter focus:outline-none focus:border-dalton-blue/50 transition-colors"
+              className="w-full px-6 py-4 pr-14 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-[#F5F3F0]/60 font-inter focus:outline-none focus:border-[#36BDFC]/50 transition-colors"
               disabled={isLoading}
             />
             <button
               type="submit"
               disabled={!input.trim() || isLoading}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-dalton-blue flex items-center justify-center hover:bg-dalton-blue/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-[#36BDFC] flex items-center justify-center hover:bg-[#36BDFC]/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <ArrowUp className="w-5 h-5 text-white" />
             </button>
@@ -144,10 +144,10 @@ const Newton = () => {
           
           {/* Disclaimer */}
           <div className="mt-4 text-center">
-            <p className="font-inter text-xs text-dalton-gray-light/70 leading-relaxed">
+            <p className="font-inter text-xs text-[#F5F3F0]/70 leading-relaxed">
               O Agente de IA Newton pode cometer erros. Considere verificar informações importantes.
             </p>
-            <p className="font-inter text-xs text-dalton-gray-light/50 mt-2">
+            <p className="font-inter text-xs text-[#F5F3F0]/50 mt-2">
               ©2026 | Powered by Dalton Lab
             </p>
           </div>

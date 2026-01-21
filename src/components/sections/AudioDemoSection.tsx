@@ -1,38 +1,8 @@
-import { Play } from "lucide-react";
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
 const metrics = [
   { value: '10x', label: 'aumento em leads' },
   { value: '2x', label: 'contratos assinados' },
-];
-
-// Success case cards for the marquee
-const successCases = [
-  {
-    company: 'TechCorp',
-    result: '150% mais reuniões',
-    quote: 'O Dalton transformou nosso processo de vendas.',
-  },
-  {
-    company: 'StartupX',
-    result: '3x mais leads qualificados',
-    quote: 'Nunca mais perdemos um follow-up importante.',
-  },
-  {
-    company: 'InnovateBR',
-    result: 'ROI em 30 dias',
-    quote: 'Os agentes trabalham enquanto dormimos.',
-  },
-  {
-    company: 'SalesForce Pro',
-    result: '200% crescimento ARR',
-    quote: 'Pipeline sempre cheio, time focado no que importa.',
-  },
-  {
-    company: 'CloudTech',
-    result: '5x conversões',
-    quote: 'Automatizamos toda a prospecção com sucesso.',
-  },
 ];
 
 const AudioDemoSection = () => {
@@ -56,7 +26,7 @@ const AudioDemoSection = () => {
                 className={`font-inter font-normal text-sm text-[#1A232F]/60 ${revealClasses(isVisible)}`}
                 style={getStaggerDelay(1)}
               >
-                História do cliente
+                Podcast Dalton Lab
               </p>
 
               {/* Title */}
@@ -64,29 +34,21 @@ const AudioDemoSection = () => {
                 className={`mt-4 font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-[#1A232F] leading-tight ${revealClasses(isVisible)}`}
                 style={getStaggerDelay(2)}
               >
-                Como o [Cliente] melhorou sua produtividade com o Dalton IA
+                Ouça nosso podcast sobre IA e Vendas
               </h2>
 
-              {/* Quote */}
+              {/* Description */}
               <p 
                 className={`mt-6 font-inter font-normal text-base md:text-lg text-[#1A232F]/80 leading-relaxed ${revealClasses(isVisible)}`}
                 style={getStaggerDelay(3)}
               >
-                "Os agentes trabalham 24/7 e nunca esquecem um follow-up. Nosso pipeline nunca esteve tão cheio."
-              </p>
-
-              {/* Attribution */}
-              <p 
-                className={`mt-4 font-inter font-medium text-sm text-[#1A232F]/80 ${revealClasses(isVisible)}`}
-                style={getStaggerDelay(4)}
-              >
-                Nome cliente, cargo e empresa
+                Descubra insights, estratégias e cases de sucesso no mundo de agentes de IA para vendas.
               </p>
 
               {/* Metrics */}
               <div 
                 className={`mt-8 flex flex-wrap gap-3 ${revealClasses(isVisible)}`}
-                style={getStaggerDelay(5)}
+                style={getStaggerDelay(4)}
               >
                 {metrics.map((metric, index) => (
                   <div 
@@ -104,44 +66,22 @@ const AudioDemoSection = () => {
               </div>
             </div>
 
-            {/* Right Content - Video */}
+            {/* Right Content - Spotify Embed */}
             <div 
               className={`order-1 lg:order-2 ${revealClasses(isVisible)}`}
               style={getStaggerDelay(2)}
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#1A232F]">
-                {/* Video Placeholder with YouTube style */}
-                <div className="aspect-video relative">
-                  {/* Placeholder Image Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4D2CF] to-[#C8C6C3] flex items-center justify-center">
-                    {/* Person silhouette placeholder */}
-                    <div className="w-32 h-32 rounded-full bg-[#1A232F]/10 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-[#1A232F]/20" />
-                    </div>
-                  </div>
-                  
-                  {/* YouTube Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <button className="w-16 h-16 md:w-20 md:h-20 bg-red-600 rounded-2xl flex items-center justify-center hover:bg-red-700 transition-colors duration-300 shadow-lg hover:scale-105 active:scale-95">
-                      <Play className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="white" />
-                    </button>
-                  </div>
-
-                  {/* Corner decorations - like in reference */}
-                  <div className="absolute top-4 left-4 w-12 h-12 border-l-2 border-t-2 border-white/30 rounded-tl-lg" />
-                  <div className="absolute top-4 right-4 w-12 h-12 border-r-2 border-t-2 border-white/30 rounded-tr-lg" />
-                  <div className="absolute bottom-12 left-4 w-12 h-12 border-l-2 border-b-2 border-white/30 rounded-bl-lg" />
-                  <div className="absolute bottom-12 right-4 w-12 h-12 border-r-2 border-b-2 border-white/30 rounded-br-lg" />
-
-                  {/* YouTube bottom bar */}
-                  <div className="absolute bottom-0 left-0 right-0 h-10 bg-[#1A232F]/90 flex items-center justify-between px-4">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-red-500 rounded-full" />
-                      <span className="text-white/70 text-xs font-inter">Assistir no</span>
-                      <span className="text-white text-xs font-inter font-bold">YouTube</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <iframe 
+                  style={{ borderRadius: '12px' }}
+                  src="https://open.spotify.com/embed/episode/6VzyyF8zIzsB5oecGUjWIY?utm_source=generator&theme=0" 
+                  width="100%" 
+                  height="352" 
+                  frameBorder="0" 
+                  allowFullScreen
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>

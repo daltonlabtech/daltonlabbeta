@@ -50,10 +50,11 @@ const testimonials = [
 const SocialProofSection = () => {
   const { ref, isVisible } = useScrollReveal();
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(2); // Start at center card (index 2)
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [hasInitialized, setHasInitialized] = useState(false);
 
   // Handle scroll to update active index
   const handleScroll = () => {
@@ -104,9 +105,19 @@ const SocialProofSection = () => {
     const container = scrollRef.current;
     if (container) {
       container.addEventListener('scroll', handleScroll);
+      
+      // Initialize to center card
+      if (!hasInitialized) {
+        setTimeout(() => {
+          const cardWidth = container.scrollWidth / testimonials.length;
+          container.scrollLeft = cardWidth * 2; // Scroll to index 2 (center)
+          setHasInitialized(true);
+        }, 100);
+      }
+      
       return () => container.removeEventListener('scroll', handleScroll);
     }
-  }, []);
+  }, [hasInitialized]);
 
   return (
     <section 
@@ -121,10 +132,6 @@ const SocialProofSection = () => {
           Marcas que confiam em nosso trabalho
         </h2>
 
-        {/* Scroll hint */}
-        <p className="text-center text-[#F5F3F0]/50 text-sm mt-4 mb-8">
-          ← Arraste para explorar →
-        </p>
       </div>
 
       {/* Carousel Container */}

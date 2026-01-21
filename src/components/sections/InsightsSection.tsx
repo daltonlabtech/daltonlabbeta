@@ -57,7 +57,7 @@ const InsightsSection = () => {
               className={`mt-4 font-inter font-normal text-sm md:text-base text-zinc-600 max-w-lg ${revealClasses(isVisible)}`}
               style={getStaggerDelay(1)}
             >
-              Ele te avisa quando um lead esfriou, quando o funil travou e quando uma oportunidade está pronta para fechar. Tudo no seu WhatsApp.
+              Ele avisa quando um lead esfria, o funil trava ou é hora de fechar. Tudo no <span className="font-bold" style={{ color: '#73cf60' }}>WhatsApp</span>.
             </p>
 
             {/* Feature Cards */}

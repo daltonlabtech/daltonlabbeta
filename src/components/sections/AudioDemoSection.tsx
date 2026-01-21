@@ -19,7 +19,7 @@ const AudioDemoSection = () => {
           {/* Title and Subtitle inside the card */}
           <div className="mb-4 md:mb-6 pr-12">
             <h2 className="font-inter font-bold text-lg md:text-xl lg:text-2xl text-[#1A232F] leading-tight mb-1 md:mb-2">
-              Ouça o Dalton Lab no Spotify
+              Confira nosso podcast no Spotify
             </h2>
             <p className="font-inter text-xs md:text-sm text-[#1A232F]/70">
               Conversas com nossos fundadores sobre IA, empreendedorismo e inovação.

@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import heroVideo from '@/assets/hero-background.mp4';
 import openaiLogo from '@/assets/tech/openai.webp';
 import claudeLogo from '@/assets/tech/claude-logo.png';
 import manusLogo from '@/assets/tech/manus-logo.png';
-import metaLogo from '@/assets/tech/meta-logo.png';
 
 const techLogos = [
   { name: 'OpenAI', src: openaiLogo },
   { name: 'Claude', src: claudeLogo },
   { name: 'Manus', src: manusLogo },
-  { name: 'Meta', src: metaLogo },
 ];
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playbackRate, setPlaybackRate] = useState(1);
 
   useEffect(() => {
     setIsVisible(true);
@@ -27,6 +27,47 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Ping-pong video loop effect
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleTimeUpdate = () => {
+      // When playing forward and near end, reverse
+      if (playbackRate > 0 && video.currentTime >= video.duration - 0.1) {
+        setPlaybackRate(-1);
+        video.playbackRate = 1;
+      }
+      // When playing backward and near start, go forward
+      if (playbackRate < 0 && video.currentTime <= 0.1) {
+        setPlaybackRate(1);
+        video.playbackRate = 1;
+      }
+    };
+
+    const handleFrame = () => {
+      if (playbackRate < 0) {
+        video.currentTime = Math.max(0, video.currentTime - 0.033);
+      }
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    
+    let frameId: number;
+    if (playbackRate < 0) {
+      const animate = () => {
+        handleFrame();
+        frameId = requestAnimationFrame(animate);
+      };
+      frameId = requestAnimationFrame(animate);
+    }
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      if (frameId) cancelAnimationFrame(frameId);
+    };
+  }, [playbackRate]);
+
   return (
     <section
       className="relative min-h-screen flex flex-col overflow-hidden"
@@ -35,8 +76,8 @@ const HeroSection = () => {
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           autoPlay
-          loop
           muted
           playsInline
           className="w-full h-full object-cover opacity-60"

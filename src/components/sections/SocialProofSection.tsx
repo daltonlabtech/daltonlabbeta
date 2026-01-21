@@ -168,9 +168,10 @@ const SocialProofSection = () => {
                 }}
               >
                 <div 
-                  className="bg-[#E8E6E3] rounded-2xl p-6 md:p-8 flex flex-col transition-all duration-500 select-none scale-100 opacity-100 shadow-lg"
+                  className="bg-[#F5F3F0] rounded-2xl p-6 md:p-8 flex flex-col transition-all duration-500 select-none shadow-lg"
                   style={{
-                    minHeight: '360px',
+                    height: '380px',
+                    width: '100%',
                   }}
                 >
                   <div className="mb-6">

@@ -124,7 +124,7 @@ const SquadPlansSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#19212E] relative overflow-hidden"
+      className="section-padding bg-[#101823] relative overflow-hidden"
     >
       {/* Checkered Background Pattern */}
       <div 

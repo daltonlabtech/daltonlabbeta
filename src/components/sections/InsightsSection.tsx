@@ -258,11 +258,11 @@ const InsightsSection = () => {
                     className="relative pt-10 px-3 pb-2 flex items-center gap-3 shrink-0"
                     style={{ backgroundColor: '#075E54' }}
                   >
-                    <div className="w-9 h-9 rounded-full bg-zinc-800 border-2 border-white/20 flex items-center justify-center overflow-hidden">
+                    <div className="w-9 h-9 rounded-full bg-black border-2 border-white/20 flex items-center justify-center overflow-hidden">
                       <img 
-                        src={daltonIcon} 
+                        src="/src/assets/d-branco.png" 
                         alt="Dalton Lab" 
-                        className="w-6 h-6 object-contain" 
+                        className="w-5 h-5 object-contain" 
                       />
                     </div>
                     <div className="flex-1 min-w-0">

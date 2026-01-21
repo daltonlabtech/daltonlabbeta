@@ -147,63 +147,6 @@ const AudioDemoSection = () => {
           </div>
         </div>
 
-        {/* Success Cases Marquee - Desktop Only */}
-        <div className="hidden md:block mt-12 overflow-hidden">
-          <div className="flex animate-marquee-success">
-            {/* First set of cards */}
-            {successCases.map((caseItem, index) => (
-              <div 
-                key={`first-${index}`}
-                className="flex-shrink-0 w-[320px] mx-3 bg-[#E8E6E3] rounded-2xl p-6 hover:scale-[1.02] transition-transform duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-[#1A232F]/10 flex items-center justify-center">
-                    <span className="font-inter font-bold text-sm text-[#1A232F]">
-                      {caseItem.company.charAt(0)}
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="font-inter font-semibold text-sm text-[#1A232F]">
-                      {caseItem.company}
-                    </h4>
-                    <p className="font-inter font-bold text-xs text-green-600">
-                      {caseItem.result}
-                    </p>
-                  </div>
-                </div>
-                <p className="font-inter text-sm text-[#1A232F]/70 italic">
-                  "{caseItem.quote}"
-                </p>
-              </div>
-            ))}
-            {/* Second set for seamless loop */}
-            {successCases.map((caseItem, index) => (
-              <div 
-                key={`second-${index}`}
-                className="flex-shrink-0 w-[320px] mx-3 bg-[#E8E6E3] rounded-2xl p-6 hover:scale-[1.02] transition-transform duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-[#1A232F]/10 flex items-center justify-center">
-                    <span className="font-inter font-bold text-sm text-[#1A232F]">
-                      {caseItem.company.charAt(0)}
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="font-inter font-semibold text-sm text-[#1A232F]">
-                      {caseItem.company}
-                    </h4>
-                    <p className="font-inter font-bold text-xs text-green-600">
-                      {caseItem.result}
-                    </p>
-                  </div>
-                </div>
-                <p className="font-inter text-sm text-[#1A232F]/70 italic">
-                  "{caseItem.quote}"
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

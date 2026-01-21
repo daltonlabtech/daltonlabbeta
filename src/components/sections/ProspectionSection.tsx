@@ -42,6 +42,7 @@ const ProspectionSection = () => {
           className={`mt-12 ${revealClasses(isVisible)}`}
           style={getStaggerDelay(3)}
         >
+          {/* Desktop Dashboard */}
           <div className="bg-white rounded-2xl shadow-2xl border border-zinc-200 overflow-hidden animate-dashboard-glow hidden md:block">
             <div className="flex">
               {/* Sidebar */}
@@ -249,6 +250,45 @@ const ProspectionSection = () => {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Dashboard - Compact Version */}
+          <div className="md:hidden mt-8 bg-white rounded-xl shadow-lg border border-zinc-200 overflow-hidden p-4 max-w-[320px] mx-auto">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-6 h-6 rounded bg-zinc-900 flex items-center justify-center overflow-hidden">
+                <img src="/src/assets/dalton-icon.png" alt="Dalton" className="w-4 h-4 object-contain" />
+              </div>
+              <span className="text-xs font-semibold text-zinc-700">Dalton Dashboard</span>
+            </div>
+            <div className="grid grid-cols-2 gap-2 mb-3">
+              <div className="bg-zinc-50 rounded-lg p-2">
+                <p className="text-[9px] text-zinc-500">Leads</p>
+                <p className="font-semibold text-sm text-zinc-900 animate-value-pulse">11,215</p>
+              </div>
+              <div className="bg-zinc-50 rounded-lg p-2">
+                <p className="text-[9px] text-zinc-500">Accounts</p>
+                <p className="font-semibold text-sm text-zinc-900 animate-value-pulse" style={{ animationDelay: '0.3s' }}>1,250</p>
+              </div>
+            </div>
+            <div className="bg-zinc-50 rounded-lg p-2">
+              <p className="text-[9px] text-zinc-500 mb-1">Top Accounts</p>
+              <div className="space-y-1">
+                <div className="flex items-center justify-between text-[10px]">
+                  <span className="flex items-center gap-1">
+                    <span className="w-3 h-3 rounded bg-black flex items-center justify-center text-white text-[6px]">P</span>
+                    Plaid
+                  </span>
+                  <span className="text-green-600">● Active</span>
+                </div>
+                <div className="flex items-center justify-between text-[10px]">
+                  <span className="flex items-center gap-1">
+                    <span className="w-3 h-3 rounded bg-purple-600 flex items-center justify-center text-white text-[6px]">S</span>
+                    Stripe
+                  </span>
+                  <span className="text-green-600">● Active</span>
                 </div>
               </div>
             </div>

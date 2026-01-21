@@ -174,14 +174,6 @@ const SocialProofSection = () => {
                     width: '100%',
                   }}
                 >
-                  <div className="mb-6">
-                    <img 
-                      src={testimonial.logo} 
-                      alt="Logo cliente" 
-                      className="h-20 md:h-24 object-contain brightness-0 pointer-events-none" 
-                      draggable={false}
-                    />
-                  </div>
                   <blockquote className="font-inter text-sm md:text-base text-[#1A232F]/80 leading-relaxed flex-grow">
                     "{testimonial.quote}"
                   </blockquote>

@@ -1,4 +1,6 @@
+import { useState, useRef, useEffect } from 'react';
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
+import useEmblaCarousel from 'embla-carousel-react';
 import cliente1 from '@/assets/logos/cliente-1.webp';
 import cliente2 from '@/assets/logos/cliente-2.webp';
 import cliente3 from '@/assets/logos/cliente-3.webp';
@@ -27,16 +29,59 @@ const testimonials = [
     role: "Head de Vendas, Growth",
     metric: "-40%",
     metricLabel: "custo por lead"
-  }
+  },
+  {
+    logo: cliente1,
+    quote: "A automação de follow-ups nos permitiu focar no que realmente importa: fechar negócios.",
+    author: "Carlos Lima",
+    role: "Diretor Comercial, SalesMax",
+    metric: "2x",
+    metricLabel: "taxa de conversão"
+  },
+  {
+    logo: cliente2,
+    quote: "Nunca imaginei que poderíamos escalar vendas sem contratar mais vendedores. O Dalton fez isso acontecer.",
+    author: "Ana Paula",
+    role: "CMO, GrowthTech",
+    metric: "+85%",
+    metricLabel: "leads qualificados"
+  },
 ];
 
 const SocialProofSection = () => {
   const { ref, isVisible } = useScrollReveal();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: 'center',
+    skipSnaps: false,
+    dragFree: false,
+  });
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+    
+    emblaApi.on('select', onSelect);
+    onSelect();
+    
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi]);
+
+  const scrollTo = (index: number) => {
+    emblaApi?.scrollTo(index);
+  };
 
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#101823] overflow-hidden"
+      className="py-16 md:py-20 bg-[#101823] overflow-hidden"
     >
       <div className="container-main">
         {/* Title */}
@@ -46,85 +91,84 @@ const SocialProofSection = () => {
           Marcas que confiam em nosso trabalho
         </h2>
 
-        {/* Testimonials Cards - Horizontal Marquee on Desktop */}
-        <div className="mt-16">
-          {/* Mobile: Static Grid */}
-          <div className="md:hidden grid grid-cols-1 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index}
-                className="bg-[#E8E6E3] rounded-2xl p-8 flex flex-col"
-              >
-                <div className="mb-6">
-                  <img src={testimonial.logo} alt="Logo cliente" className="h-24 object-contain brightness-0" />
-                </div>
-                <blockquote className="font-inter text-base text-[#1A232F]/80 leading-relaxed flex-grow">
-                  "{testimonial.quote}"
-                </blockquote>
-                <p className="mt-6 font-inter font-medium text-sm text-[#1A232F]">
-                  -{testimonial.author}, {testimonial.role}
-                </p>
-                <div className="mt-6 inline-flex items-center gap-3 bg-[#1A232F] rounded-xl px-5 py-4 self-start">
-                  <span className="font-inter font-bold text-2xl text-white">{testimonial.metric}</span>
-                  <span className="font-inter font-normal text-xs text-white/70 max-w-[80px] leading-tight">
-                    {testimonial.metricLabel}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Scroll hint */}
+        <p className="text-center text-[#F5F3F0]/50 text-sm mt-4 mb-8">
+          ← Arraste para explorar →
+        </p>
+      </div>
 
-          {/* Desktop: Horizontal Marquee */}
-          <div className="hidden md:block overflow-hidden">
-            <div className="flex animate-marquee-testimonials">
-              {/* First set */}
-              {testimonials.map((testimonial, index) => (
+      {/* Carousel Container */}
+      <div className="mt-8">
+        <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
+          <div className="flex">
+            {testimonials.map((testimonial, index) => {
+              const isActive = index === selectedIndex;
+              const distance = Math.abs(index - selectedIndex);
+              const isAdjacent = distance === 1 || distance === testimonials.length - 1;
+              
+              return (
                 <div 
-                  key={`first-${index}`}
-                  className="flex-shrink-0 w-[380px] mx-3 bg-[#E8E6E3] rounded-2xl p-8 flex flex-col hover:scale-[1.02] transition-transform duration-300"
+                  key={index}
+                  className="flex-shrink-0 px-3 md:px-4"
+                  style={{ 
+                    flexBasis: '85%',
+                    maxWidth: '380px',
+                  }}
                 >
-                  <div className="mb-6">
-                    <img src={testimonial.logo} alt="Logo cliente" className="h-24 object-contain brightness-0" />
-                  </div>
-                  <blockquote className="font-inter text-base text-[#1A232F]/80 leading-relaxed flex-grow">
-                    "{testimonial.quote}"
-                  </blockquote>
-                  <p className="mt-6 font-inter font-medium text-sm text-[#1A232F]">
-                    -{testimonial.author}, {testimonial.role}
-                  </p>
-                  <div className="mt-6 inline-flex items-center gap-3 bg-[#1A232F] rounded-xl px-5 py-4 self-start">
-                    <span className="font-inter font-bold text-2xl text-white">{testimonial.metric}</span>
-                    <span className="font-inter font-normal text-xs text-white/70 max-w-[80px] leading-tight">
-                      {testimonial.metricLabel}
-                    </span>
+                  <div 
+                    className={`bg-[#E8E6E3] rounded-2xl p-6 md:p-8 flex flex-col transition-all duration-500 ${
+                      isActive 
+                        ? 'scale-100 opacity-100 shadow-2xl' 
+                        : isAdjacent 
+                          ? 'scale-95 opacity-60 blur-[1px]' 
+                          : 'scale-90 opacity-40 blur-[2px]'
+                    }`}
+                    style={{
+                      minHeight: '360px',
+                    }}
+                  >
+                    <div className="mb-6">
+                      <img 
+                        src={testimonial.logo} 
+                        alt="Logo cliente" 
+                        className="h-20 md:h-24 object-contain brightness-0" 
+                      />
+                    </div>
+                    <blockquote className="font-inter text-sm md:text-base text-[#1A232F]/80 leading-relaxed flex-grow">
+                      "{testimonial.quote}"
+                    </blockquote>
+                    <p className="mt-6 font-inter font-medium text-sm text-[#1A232F]">
+                      -{testimonial.author}, {testimonial.role}
+                    </p>
+                    <div className="mt-6 inline-flex items-center gap-3 bg-[#1A232F] rounded-xl px-5 py-4 self-start">
+                      <span className="font-inter font-bold text-xl md:text-2xl text-white">
+                        {testimonial.metric}
+                      </span>
+                      <span className="font-inter font-normal text-xs text-white/70 max-w-[80px] leading-tight">
+                        {testimonial.metricLabel}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              ))}
-              {/* Second set for seamless loop */}
-              {testimonials.map((testimonial, index) => (
-                <div 
-                  key={`second-${index}`}
-                  className="flex-shrink-0 w-[380px] mx-3 bg-[#E8E6E3] rounded-2xl p-8 flex flex-col hover:scale-[1.02] transition-transform duration-300"
-                >
-                  <div className="mb-6">
-                    <img src={testimonial.logo} alt="Logo cliente" className="h-24 object-contain brightness-0" />
-                  </div>
-                  <blockquote className="font-inter text-base text-[#1A232F]/80 leading-relaxed flex-grow">
-                    "{testimonial.quote}"
-                  </blockquote>
-                  <p className="mt-6 font-inter font-medium text-sm text-[#1A232F]">
-                    -{testimonial.author}, {testimonial.role}
-                  </p>
-                  <div className="mt-6 inline-flex items-center gap-3 bg-[#1A232F] rounded-xl px-5 py-4 self-start">
-                    <span className="font-inter font-bold text-2xl text-white">{testimonial.metric}</span>
-                    <span className="font-inter font-normal text-xs text-white/70 max-w-[80px] leading-tight">
-                      {testimonial.metricLabel}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
+        </div>
+
+        {/* Dot Indicators */}
+        <div className="flex justify-center gap-2 mt-8">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollTo(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === selectedIndex 
+                  ? 'bg-[#F5F3F0] w-6' 
+                  : 'bg-[#F5F3F0]/30 hover:bg-[#F5F3F0]/50'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

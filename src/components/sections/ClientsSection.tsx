@@ -28,8 +28,8 @@ const ClientsSection = () => {
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <h2
-          className="text-center text-sm md:text-base font-light mb-6"
-          style={{ color: '#F5F3F0' }}
+          className="text-center text-sm md:text-base font-extralight tracking-wide uppercase mb-6"
+          style={{ color: 'rgba(245, 243, 240, 0.7)' }}
         >
           Empresas que confiam em nós
         </h2>

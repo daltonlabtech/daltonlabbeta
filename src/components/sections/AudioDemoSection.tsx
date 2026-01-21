@@ -41,7 +41,7 @@ const AudioDemoSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#101823]"
+      className="py-8 md:py-12 bg-[#101823]"
     >
       <div className="container-main">
         {/* Main Card */}

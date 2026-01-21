@@ -23,7 +23,7 @@ const clientLogos = [
 const ClientsSection = () => {
   return (
     <section
-      className="py-8 md:py-12 overflow-hidden"
+      className="pt-4 pb-8 md:py-12 overflow-hidden"
       style={{ backgroundColor: '#101823' }}
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-20">

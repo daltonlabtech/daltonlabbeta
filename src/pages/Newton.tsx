@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { ArrowUp, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '@/assets/logo-dalton-horizontal-white.png';
-import chatAvatar from '@/assets/d-branco-chat.png';
+import chatAvatar from '/hero-poster.png';
 
 interface Message {
   id: string;
@@ -88,8 +88,8 @@ const Newton = () => {
             {messages.map((message) => (
               <div key={message.id} className="flex gap-4">
               {message.role === 'assistant' && (
-                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden bg-[#101823] border-2 border-[#101823] flex items-center justify-center">
-                    <img src={chatAvatar} alt="Dalton AI" className="w-6 h-6 object-contain" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden">
+                    <img src={chatAvatar} alt="Dalton AI" className="w-full h-full object-cover" />
                   </div>
                 )}
                 
@@ -107,8 +107,8 @@ const Newton = () => {
 
             {isLoading && (
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden bg-[#101823] border-2 border-[#101823] flex items-center justify-center">
-                  <img src={chatAvatar} alt="Dalton AI" className="w-6 h-6 object-contain" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden">
+                  <img src={chatAvatar} alt="Dalton AI" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex items-center gap-1 py-3">
                   <span className="w-2 h-2 bg-[#F5F3F0] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
@@ -147,7 +147,7 @@ const Newton = () => {
           {/* Disclaimer */}
           <div className="mt-4 text-center">
             <p className="font-inter text-xs text-[#F5F3F0]/70 leading-relaxed">
-              O Agente de IA Newton pode cometer erros. Considere verificar informações importantes.
+              O Dalton pode cometer erros. Considere verificar informações importantes.
             </p>
             <p className="font-inter text-xs text-[#F5F3F0]/50 mt-2">
               ©2026 | Powered by Dalton Lab

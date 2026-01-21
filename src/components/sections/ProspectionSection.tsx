@@ -24,7 +24,7 @@ const ProspectionSection = () => {
           className={`mt-4 font-inter font-normal text-base md:text-lg text-zinc-600 text-center max-w-3xl mx-auto ${revealClasses(isVisible)}`}
           style={getStaggerDelay(1)}
         >
-          Qualifique leads, agende reuniões e crie propostas instantaneamente, enquanto sua equipe foca no que realmente importa.
+          Deixe sua equipe focar no que realmente importa.
         </p>
 
         {/* CTA Button */}

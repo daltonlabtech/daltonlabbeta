@@ -15,12 +15,6 @@ const AudioDemoSection = () => {
           className={`relative rounded-2xl p-6 md:p-8 ${revealClasses(isVisible)}`}
           style={{ backgroundColor: '#F5F3F0' }}
         >
-          {/* Spotify Logo in top right */}
-          <img 
-            src={spotifyLogo} 
-            alt="Spotify" 
-            className="absolute top-4 right-4 w-8 h-8 md:w-10 md:h-10 z-10"
-          />
 
           {/* Title and Subtitle inside the card */}
           <div className="mb-4 md:mb-6 pr-12">

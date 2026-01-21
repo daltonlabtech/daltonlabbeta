@@ -50,7 +50,7 @@ const testimonials = [
 const SocialProofSection = () => {
   const { ref, isVisible } = useScrollReveal();
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(2); // Start at center card (index 2)
+  const [activeIndex, setActiveIndex] = useState(Math.floor(testimonials.length / 2)); // Start at center card
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
@@ -110,7 +110,8 @@ const SocialProofSection = () => {
       if (!hasInitialized) {
         setTimeout(() => {
           const cardWidth = container.scrollWidth / testimonials.length;
-          container.scrollLeft = cardWidth * 2; // Scroll to index 2 (center)
+          const centerIndex = Math.floor(testimonials.length / 2);
+          container.scrollLeft = cardWidth * centerIndex; // Scroll to center
           setHasInitialized(true);
         }, 100);
       }

@@ -35,23 +35,23 @@ const HeroSection = () => {
           <h1 className={`font-inter tracking-tight leading-[1.1] transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{
           color: '#F5F3F0'
         }}>
-            <span className="block sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-4xl">Do lead à venda</span>
-            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal">
+            <span className="block text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold">Do lead à venda</span>
+            <span className="block text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-normal">
               com Agentes de IA
             </span>
           </h1>
 
           {/* Subtitle */}
           <div className={`mt-6 md:mt-8 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <p className="sm:text-base md:text-lg font-normal text-xl" style={{
+            <p className="text-base md:text-xl lg:text-2xl font-normal" style={{
             color: '#F5F3F0'
           }}>
-              Escale a receita da sua empresa. Em menos tempo.
+              Escale a receita da sua empresa.
             </p>
-            <p className="sm:text-base md:text-lg font-normal text-base" style={{
+            <p className="text-sm md:text-lg lg:text-xl font-normal" style={{
             color: '#F5F3F0'
           }}>
-              Com menos custo.
+              Em menos tempo. Com menos custo.
             </p>
           </div>
 

@@ -82,7 +82,7 @@ const HeroSection = () => {
             }`}
             style={{ color: '#F5F3F0' }}
           >
-            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal">
               Do lead à venda
             </span>
             <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mt-1">

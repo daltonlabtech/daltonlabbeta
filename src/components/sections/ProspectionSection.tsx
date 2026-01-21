@@ -7,7 +7,7 @@ const ProspectionSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#101823] overflow-hidden"
+      className="pt-8 pb-[60px] md:pt-12 md:pb-[120px] bg-[#101823] overflow-hidden"
     >
       <div className="container-main">
         {/* Content Box */}
@@ -300,6 +300,17 @@ const ProspectionSection = () => {
             className={`mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 ${revealClasses(isVisible)}`}
             style={getStaggerDelay(4)}
           >
+            {/* Vendas */}
+            <div className="text-left">
+              <span className="text-[#101823] text-sm font-medium">
+                Agente de
+              </span>
+              <h3 className="font-inter font-semibold text-2xl text-zinc-900 mb-2">Vendas</h3>
+              <p className="text-base text-zinc-600 leading-relaxed">
+                Nunca perca um lead. Respostas instantâneas 24/7, qualificação automatizada e receita previsível.
+              </p>
+            </div>
+
             {/* Conteúdo */}
             <div className="text-left">
               <span className="text-zinc-900/40 text-sm font-medium">
@@ -329,17 +340,6 @@ const ProspectionSection = () => {
               </div>
               <p className="text-base text-zinc-600/60 leading-relaxed">
                 Anuncie para o público certo. Realize testes em massa, identifique padrões e melhore a performance do seu funil de Ads.
-              </p>
-            </div>
-
-            {/* Vendas */}
-            <div className="text-left">
-              <span className="text-[#101823] text-sm font-medium">
-                Agente de
-              </span>
-              <h3 className="font-inter font-semibold text-2xl text-zinc-900 mb-2">Vendas</h3>
-              <p className="text-base text-zinc-600 leading-relaxed">
-                Nunca perca um lead. Respostas instantâneas 24/7, qualificação automatizada e receita previsível.
               </p>
             </div>
           </div>

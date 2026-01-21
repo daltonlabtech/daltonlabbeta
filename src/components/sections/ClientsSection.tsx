@@ -28,7 +28,7 @@ const ClientsSection = () => {
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <h2
-          className="text-center text-sm md:text-base font-medium mb-6"
+          className="text-center text-sm md:text-base font-light mb-6"
           style={{ color: '#F5F3F0' }}
         >
           Empresas que confiam em nós
@@ -47,7 +47,7 @@ const ClientsSection = () => {
               <img
                 src={logo.src}
                 alt={logo.name}
-                className="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
+                className="h-12 md:h-16 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
           ))}
@@ -60,7 +60,7 @@ const ClientsSection = () => {
               <img
                 src={logo.src}
                 alt={logo.name}
-                className="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
+                className="h-12 md:h-16 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
           ))}

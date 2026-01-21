@@ -1,4 +1,5 @@
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
+import spotifyLogo from '@/assets/tech/spotify-logo.png';
 
 const AudioDemoSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -6,49 +7,49 @@ const AudioDemoSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-8 md:py-12 bg-[#101823]"
+      className="py-6 md:py-8 bg-[#101823]"
     >
-      <div className="container-main">
-        {/* Main Card */}
-        <div 
-          className={`bg-[#E8E6E3] rounded-3xl p-8 md:p-12 lg:p-16 ${revealClasses(isVisible)}`}
-        >
-          {/* Two-column layout: Text left, Spotify right */}
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
-            {/* Left side: Text */}
-            <div className="flex-1">
-              <h2 
-                className={`font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-[#1A232F] leading-tight mb-4 ${revealClasses(isVisible)}`}
-                style={getStaggerDelay(1)}
-              >
-                Ouça o Dalton Lab no Spotify
-              </h2>
-              <p 
-                className={`font-inter text-base md:text-lg text-[#1A232F]/70 ${revealClasses(isVisible)}`}
-                style={getStaggerDelay(2)}
-              >
-                Conversas com nossos fundadores sobre IA, empreendedorismo e inovação.
-              </p>
-            </div>
+      <div className="container-main max-w-4xl">
+        {/* Title and Subtitle above the card */}
+        <div className={`mb-6 ${revealClasses(isVisible)}`}>
+          <h2 
+            className={`font-inter font-bold text-xl md:text-2xl lg:text-3xl text-[#1A232F] leading-tight mb-2 ${revealClasses(isVisible)}`}
+            style={getStaggerDelay(1)}
+          >
+            Ouça o Dalton Lab no Spotify
+          </h2>
+          <p 
+            className={`font-inter text-sm md:text-base text-[#1A232F]/70 ${revealClasses(isVisible)}`}
+            style={getStaggerDelay(2)}
+          >
+            Conversas com nossos fundadores sobre IA, empreendedorismo e inovação.
+          </p>
+        </div>
 
-            {/* Right side: Spotify Embed */}
-            <div 
-              className={`flex-1 ${revealClasses(isVisible)}`}
-              style={getStaggerDelay(3)}
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-xl lg:ml-auto">
-                <iframe 
-                  style={{ borderRadius: '12px' }}
-                  src="https://open.spotify.com/embed/episode/6VzyyF8zIzsB5oecGUjWIY?utm_source=generator&theme=0" 
-                  width="100%" 
-                  height="352" 
-                  frameBorder="0" 
-                  allowFullScreen
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                  loading="lazy"
-                />
-              </div>
-            </div>
+        {/* Main Card with Spotify embed */}
+        <div 
+          className={`relative bg-[#E8E6E3] rounded-2xl p-4 md:p-6 ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(3)}
+        >
+          {/* Spotify Logo in top right */}
+          <img 
+            src={spotifyLogo} 
+            alt="Spotify" 
+            className="absolute top-4 right-4 w-8 h-8 md:w-10 md:h-10 z-10"
+          />
+
+          {/* Spotify Embed */}
+          <div className="relative rounded-xl overflow-hidden shadow-lg">
+            <iframe 
+              style={{ borderRadius: '12px' }}
+              src="https://open.spotify.com/embed/episode/6VzyyF8zIzsB5oecGUjWIY?utm_source=generator&theme=0" 
+              width="100%" 
+              height="232" 
+              frameBorder="0" 
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy"
+            />
           </div>
         </div>
       </div>

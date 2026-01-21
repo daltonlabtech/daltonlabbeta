@@ -6,13 +6,42 @@ const metrics = [
   { value: '2x', label: 'contratos assinados' },
 ];
 
+// Success case cards for the marquee
+const successCases = [
+  {
+    company: 'TechCorp',
+    result: '150% mais reuniões',
+    quote: 'O Dalton transformou nosso processo de vendas.',
+  },
+  {
+    company: 'StartupX',
+    result: '3x mais leads qualificados',
+    quote: 'Nunca mais perdemos um follow-up importante.',
+  },
+  {
+    company: 'InnovateBR',
+    result: 'ROI em 30 dias',
+    quote: 'Os agentes trabalham enquanto dormimos.',
+  },
+  {
+    company: 'SalesForce Pro',
+    result: '200% crescimento ARR',
+    quote: 'Pipeline sempre cheio, time focado no que importa.',
+  },
+  {
+    company: 'CloudTech',
+    result: '5x conversões',
+    quote: 'Automatizamos toda a prospecção com sucesso.',
+  },
+];
+
 const AudioDemoSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#19212E]"
+      className="section-padding bg-[#101823]"
     >
       <div className="container-main">
         {/* Main Card */}
@@ -115,6 +144,64 @@ const AudioDemoSection = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Success Cases Marquee - Desktop Only */}
+        <div className="hidden md:block mt-12 overflow-hidden">
+          <div className="flex animate-marquee-success">
+            {/* First set of cards */}
+            {successCases.map((caseItem, index) => (
+              <div 
+                key={`first-${index}`}
+                className="flex-shrink-0 w-[320px] mx-3 bg-[#E8E6E3] rounded-2xl p-6 hover:scale-[1.02] transition-transform duration-300"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#1A232F]/10 flex items-center justify-center">
+                    <span className="font-inter font-bold text-sm text-[#1A232F]">
+                      {caseItem.company.charAt(0)}
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="font-inter font-semibold text-sm text-[#1A232F]">
+                      {caseItem.company}
+                    </h4>
+                    <p className="font-inter font-bold text-xs text-green-600">
+                      {caseItem.result}
+                    </p>
+                  </div>
+                </div>
+                <p className="font-inter text-sm text-[#1A232F]/70 italic">
+                  "{caseItem.quote}"
+                </p>
+              </div>
+            ))}
+            {/* Second set for seamless loop */}
+            {successCases.map((caseItem, index) => (
+              <div 
+                key={`second-${index}`}
+                className="flex-shrink-0 w-[320px] mx-3 bg-[#E8E6E3] rounded-2xl p-6 hover:scale-[1.02] transition-transform duration-300"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#1A232F]/10 flex items-center justify-center">
+                    <span className="font-inter font-bold text-sm text-[#1A232F]">
+                      {caseItem.company.charAt(0)}
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="font-inter font-semibold text-sm text-[#1A232F]">
+                      {caseItem.company}
+                    </h4>
+                    <p className="font-inter font-bold text-xs text-green-600">
+                      {caseItem.result}
+                    </p>
+                  </div>
+                </div>
+                <p className="font-inter text-sm text-[#1A232F]/70 italic">
+                  "{caseItem.quote}"
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

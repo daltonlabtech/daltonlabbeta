@@ -7,7 +7,7 @@ const ProspectionSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#19212E] overflow-hidden"
+      className="section-padding bg-[#101823] overflow-hidden"
     >
       <div className="container-main">
         {/* Content Box */}
@@ -42,12 +42,12 @@ const ProspectionSection = () => {
           className={`mt-12 ${revealClasses(isVisible)}`}
           style={getStaggerDelay(3)}
         >
-          <div className="bg-white rounded-2xl shadow-2xl border border-zinc-200 overflow-hidden animate-dashboard-glow">
+          <div className="bg-white rounded-2xl shadow-2xl border border-zinc-200 overflow-hidden animate-dashboard-glow hidden md:block">
             <div className="flex">
               {/* Sidebar */}
-              <div className="hidden md:flex flex-col w-14 bg-zinc-50 border-r border-zinc-200 py-4 items-center gap-4">
-                <div className="w-8 h-8 rounded-lg bg-zinc-900 flex items-center justify-center animate-pulse-scale">
-                  <span className="text-white text-xs font-bold">11x</span>
+              <div className="flex flex-col w-14 bg-zinc-50 border-r border-zinc-200 py-4 items-center gap-4">
+                <div className="w-8 h-8 rounded-lg bg-zinc-900 flex items-center justify-center animate-pulse-scale overflow-hidden">
+                  <img src="/src/assets/dalton-icon.png" alt="Dalton" className="w-5 h-5 object-contain" />
                 </div>
                 <div className="w-8 h-8 rounded-lg bg-zinc-100 hover:bg-zinc-200 transition-colors cursor-pointer flex items-center justify-center animate-icon-bounce" style={{ animationDelay: '0.2s' }}>
                   <div className="w-4 h-4 rounded-sm bg-zinc-400" />
@@ -155,7 +155,7 @@ const ProspectionSection = () => {
                           <tbody>
                             <tr className="border-b border-zinc-100 hover:bg-zinc-100/50 transition-colors animate-row-slide" style={{ animationDelay: '0s' }}>
                               <td className="p-2 flex items-center gap-2">
-                                <div className="w-5 h-5 rounded bg-black flex items-center justify-center animate-logo-spin">
+                                <div className="w-5 h-5 rounded bg-black flex items-center justify-center">
                                   <span className="text-white text-[8px]">P</span>
                                 </div>
                                 Plaid
@@ -165,7 +165,7 @@ const ProspectionSection = () => {
                             </tr>
                             <tr className="border-b border-zinc-100 hover:bg-zinc-100/50 transition-colors animate-row-slide" style={{ animationDelay: '0.15s' }}>
                               <td className="p-2 flex items-center gap-2">
-                                <div className="w-5 h-5 rounded bg-purple-600 flex items-center justify-center animate-logo-spin" style={{ animationDelay: '0.1s' }}>
+                                <div className="w-5 h-5 rounded bg-purple-600 flex items-center justify-center">
                                   <span className="text-white text-[8px]">S</span>
                                 </div>
                                 Stripe
@@ -175,7 +175,7 @@ const ProspectionSection = () => {
                             </tr>
                             <tr className="hover:bg-zinc-100/50 transition-colors animate-row-slide" style={{ animationDelay: '0.3s' }}>
                               <td className="p-2 flex items-center gap-2">
-                                <div className="w-5 h-5 rounded bg-blue-600 flex items-center justify-center animate-logo-spin" style={{ animationDelay: '0.2s' }}>
+                                <div className="w-5 h-5 rounded bg-blue-600 flex items-center justify-center">
                                   <span className="text-white text-[8px]">C</span>
                                 </div>
                                 Coinbase
@@ -261,11 +261,11 @@ const ProspectionSection = () => {
             style={getStaggerDelay(4)}
           >
             {/* Conteúdo */}
-            <div className="text-center md:text-left">
+            <div className="text-left">
               <span className="text-zinc-900/40 text-sm font-medium">
                 Agente de
               </span>
-              <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
+              <div className="flex items-center gap-2 justify-start mb-2">
                 <h3 className="font-inter font-semibold text-2xl text-zinc-900/40">Conteúdo</h3>
                 <span className="bg-gradient-to-r from-[hsl(var(--dalton-purple))] to-[hsl(271,76%,45%)] text-white text-[10px] font-medium px-2 py-0.5 rounded-full uppercase">
                   Em breve
@@ -277,11 +277,11 @@ const ProspectionSection = () => {
             </div>
 
             {/* Anúncio */}
-            <div className="text-center md:text-left">
+            <div className="text-left">
               <span className="text-zinc-900/40 text-sm font-medium">
                 Agente de
               </span>
-              <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
+              <div className="flex items-center gap-2 justify-start mb-2">
                 <h3 className="font-inter font-semibold text-2xl text-zinc-900/40">Anúncio</h3>
                 <span className="bg-gradient-to-r from-[hsl(var(--dalton-purple))] to-[hsl(271,76%,45%)] text-white text-[10px] font-medium px-2 py-0.5 rounded-full uppercase">
                   Em breve
@@ -293,7 +293,7 @@ const ProspectionSection = () => {
             </div>
 
             {/* Vendas */}
-            <div className="text-center md:text-left">
+            <div className="text-left">
               <span className="text-[#101823] text-sm font-medium">
                 Agente de
               </span>

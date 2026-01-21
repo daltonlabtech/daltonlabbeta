@@ -81,7 +81,7 @@ const InsightsSection = () => {
 
           {/* Right Column - Phone Mockups with Callouts */}
           <div 
-            className={`relative h-[600px] md:h-[720px] flex items-center justify-center ${revealClasses(isVisible)}`}
+            className={`relative h-[500px] md:h-[720px] flex items-center justify-center ${revealClasses(isVisible)}`}
             style={getStaggerDelay(3)}
           >
             {/* Callout 1 - Dashboard metrics (top right) */}
@@ -141,9 +141,9 @@ const InsightsSection = () => {
               </div>
             </div>
 
-            {/* Back Phone - Dashboard App (iPhone style) */}
+            {/* Back Phone - Dashboard App (iPhone style) - Hidden on Mobile */}
             <div 
-              className="absolute z-10 animate-subtle-float"
+              className="absolute z-10 animate-subtle-float hidden md:block"
               style={{ 
                 width: '270px',
                 height: '552px',
@@ -228,12 +228,10 @@ const InsightsSection = () => {
 
             {/* Front Phone - WhatsApp (iPhone style) */}
             <div 
-              className="absolute z-20"
+              className="relative md:absolute z-20 md:bottom-0 md:left-[5%]"
               style={{ 
                 width: '248px',
                 height: '506px',
-                bottom: '0',
-                left: '5%',
               }}
             >
               {/* iPhone Frame */}
@@ -260,11 +258,13 @@ const InsightsSection = () => {
                     className="relative pt-10 px-3 pb-2 flex items-center gap-3 shrink-0"
                     style={{ backgroundColor: '#075E54' }}
                   >
-                    <img 
-                      src={daltonIcon} 
-                      alt="Dalton Lab" 
-                      className="w-9 h-9 rounded-full object-cover bg-zinc-800 border-2 border-white/20" 
-                    />
+                    <div className="w-9 h-9 rounded-full bg-zinc-800 border-2 border-white/20 flex items-center justify-center overflow-hidden">
+                      <img 
+                        src={daltonIcon} 
+                        alt="Dalton Lab" 
+                        className="w-6 h-6 object-contain" 
+                      />
+                    </div>
                     <div className="flex-1 min-w-0">
                       <span className="text-white text-[13px] font-semibold block">Dalton Lab</span>
                       <p className="text-white/70 text-[10px]">online</p>

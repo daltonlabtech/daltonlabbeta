@@ -64,10 +64,10 @@ const Newton = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1a2a3d] flex flex-col">
+    <div className="min-h-screen bg-[#101823] flex flex-col">
       {/* Header */}
       <header className="border-b border-white/10 bg-[#101823]">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 text-dalton-gray-light hover:text-white transition-colors">
             <ArrowLeft className="w-5 h-5" />
             <span className="font-inter text-sm">Voltar</span>

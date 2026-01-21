@@ -156,12 +156,11 @@ const SquadPlansSection = () => {
             return (
               <div 
                 key={plan.name}
-                className={`relative p-8 flex flex-col bg-[#F5F3F0] rounded-2xl ${heightClass} ${revealClasses(isVisible)} 
-                  transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-3 hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35)]
-                  ${isVisible ? 'animate-rise-up' : 'opacity-0'}`}
+                className={`relative p-8 flex flex-col bg-[#F5F3F0] rounded-2xl ${heightClass}
+                  transform transition-all duration-700 hover:scale-[1.03] hover:-translate-y-3 hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35)]
+                  ${isVisible ? 'opacity-100 translate-x-0 md:translate-x-0 translate-y-0' : 'opacity-0 translate-x-[-40px] md:translate-x-0 md:translate-y-[60px]'}`}
                 style={{
-                  animationDelay: `${(index + 1) * 200}ms`,
-                  animationFillMode: 'forwards',
+                  transitionDelay: `${(index + 1) * 150}ms`,
                 }}
               >
                 {/* Plan Name */}

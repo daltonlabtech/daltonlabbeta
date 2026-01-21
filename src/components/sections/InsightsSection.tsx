@@ -14,11 +14,11 @@ const InsightsSection = () => {
     },
     {
       title: 'Resumos diários sob demanda',
-      description: 'Pergunte "como foi ontem?" por áudio ou texto. O Dalton responde com números, não com dashboards.',
+      description: 'Pergunte "como foi ontem?" por áudio ou texto. O Dalton responde com análises, não com dashboards.',
     },
     {
       title: 'Previsões, não só relatórios',
-      description: 'O Agente analisa padrões e te diz o que provavelmente vai acontecer no seu funil, não só o que já aconteceu.',
+      description: 'O Dalton analisa padrões e te diz o que provavelmente vai acontecer no seu funil, não só o que já aconteceu.',
     },
   ];
 

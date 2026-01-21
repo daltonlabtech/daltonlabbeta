@@ -14,8 +14,6 @@ const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playbackRate, setPlaybackRate] = useState(1);
-
   useEffect(() => {
     setIsVisible(true);
   }, []);
@@ -26,47 +24,6 @@ const HeroSection = () => {
     }, 2000);
     return () => clearInterval(interval);
   }, []);
-
-  // Ping-pong video loop effect
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handleTimeUpdate = () => {
-      // When playing forward and near end, reverse
-      if (playbackRate > 0 && video.currentTime >= video.duration - 0.1) {
-        setPlaybackRate(-1);
-        video.playbackRate = 1;
-      }
-      // When playing backward and near start, go forward
-      if (playbackRate < 0 && video.currentTime <= 0.1) {
-        setPlaybackRate(1);
-        video.playbackRate = 1;
-      }
-    };
-
-    const handleFrame = () => {
-      if (playbackRate < 0) {
-        video.currentTime = Math.max(0, video.currentTime - 0.033);
-      }
-    };
-
-    video.addEventListener('timeupdate', handleTimeUpdate);
-    
-    let frameId: number;
-    if (playbackRate < 0) {
-      const animate = () => {
-        handleFrame();
-        frameId = requestAnimationFrame(animate);
-      };
-      frameId = requestAnimationFrame(animate);
-    }
-
-    return () => {
-      video.removeEventListener('timeupdate', handleTimeUpdate);
-      if (frameId) cancelAnimationFrame(frameId);
-    };
-  }, [playbackRate]);
 
   return (
     <section
@@ -79,6 +36,7 @@ const HeroSection = () => {
           ref={videoRef}
           autoPlay
           muted
+          loop
           playsInline
           className="w-full h-full object-cover opacity-60"
         >

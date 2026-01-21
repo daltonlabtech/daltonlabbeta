@@ -126,7 +126,8 @@ const HeroSection = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <button
+            <a
+              href="/newton"
               className="font-medium text-sm px-5 py-2.5 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_6px_25px_rgba(0,0,0,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center gap-2"
               style={{
                 backgroundColor: '#F5F3F0',
@@ -146,7 +147,7 @@ const HeroSection = () => {
                 <line x1="7" y1="17" x2="17" y2="7" />
                 <polyline points="7 7 17 7 17 17" />
               </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>

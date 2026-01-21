@@ -614,4 +614,17 @@
   .animate-badge-pop {
     animation: badge-pop 0.5s ease-out forwards;
   }
+
+  @keyframes marquee-success {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee-success {
+    animation: marquee-success 30s linear infinite;
+  }
 }

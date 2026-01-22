@@ -139,8 +139,8 @@ const ProspectionSection = () => {
                 {/* Charts Row */}
                 <div className="grid grid-cols-12 gap-4 mb-6">
                   {/* Line Chart - Performance de Conversação */}
-                  <div className="col-span-5 bg-white rounded-xl p-4 border border-zinc-100">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="col-span-5 bg-white rounded-xl p-4 border border-zinc-100 flex flex-col">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-semibold text-zinc-900">Performance de Conversação</span>
                       </div>
@@ -149,7 +149,7 @@ const ProspectionSection = () => {
                       </div>
                     </div>
                     {/* Chart SVG - Static */}
-                    <div className="h-32 relative">
+                    <div className="h-28 relative pl-10 flex-1">
                       <svg className="w-full h-full" viewBox="0 0 300 100" preserveAspectRatio="none">
                         {/* Grid lines */}
                         <line x1="0" y1="25" x2="300" y2="25" stroke="#f4f4f5" strokeWidth="1" />
@@ -184,15 +184,15 @@ const ProspectionSection = () => {
                         <circle cx="300" cy="30" r="4" fill="#18181b" />
                       </svg>
                       {/* Y-axis labels */}
-                      <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-[9px] text-zinc-400 -ml-8">
-                        <span>R$380K</span>
-                        <span>R$285K</span>
-                        <span>R$190K</span>
-                        <span>R$95K</span>
-                        <span>R$0K</span>
+                      <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-[9px] text-zinc-400">
+                        <span>380K</span>
+                        <span>285K</span>
+                        <span>190K</span>
+                        <span>95K</span>
+                        <span>0K</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-4 mt-3 text-xs text-zinc-500">
+                    <div className="flex items-center gap-4 mt-2 text-xs text-zinc-500">
                       <div className="flex items-center gap-1">
                         <div className="w-3 h-0.5 bg-zinc-900 rounded" />
                         <span>Período atual</span>
@@ -205,14 +205,14 @@ const ProspectionSection = () => {
                   </div>
 
                   {/* Donut Chart - Desempenho por Canal */}
-                  <div className="col-span-4 bg-white rounded-xl p-4 border border-zinc-100">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="col-span-4 bg-white rounded-xl p-4 border border-zinc-100 flex flex-col">
+                    <div className="flex items-center justify-between mb-3">
                       <span className="text-sm font-semibold text-zinc-900">Desempenho por Canal</span>
                       <span className="text-xs text-zinc-500 bg-zinc-100 px-2 py-1 rounded">Mensal</span>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 flex-1">
                       {/* Donut Chart SVG - Static */}
-                      <div className="relative w-28 h-28">
+                      <div className="relative w-24 h-24 flex-shrink-0">
                         <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                           {/* WhatsApp - 42% */}
                           <circle 
@@ -261,30 +261,30 @@ const ProspectionSection = () => {
                           />
                         </svg>
                         <div className="absolute inset-0 flex flex-col items-center justify-center">
-                          <span className="text-xl font-bold text-zinc-900">5,700</span>
-                          <span className="text-[9px] text-zinc-500">leads totais</span>
+                          <span className="text-lg font-bold text-zinc-900">5,700</span>
+                          <span className="text-[8px] text-zinc-500">leads totais</span>
                         </div>
                       </div>
                       {/* Legend */}
-                      <div className="flex-1 space-y-1.5 text-[10px]">
+                      <div className="flex-1 space-y-1 text-[10px]">
                         <div className="flex items-center gap-1.5">
-                          <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
+                          <div className="w-2 h-2 rounded-full bg-green-500" />
                           <span className="text-zinc-600">WhatsApp (42%)</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
+                          <div className="w-2 h-2 rounded-full bg-blue-500" />
                           <span className="text-zinc-600">Email (25%)</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <div className="w-2.5 h-2.5 rounded-full bg-cyan-500" />
+                          <div className="w-2 h-2 rounded-full bg-cyan-500" />
                           <span className="text-zinc-600">Chat Web (18%)</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <div className="w-2.5 h-2.5 rounded-full bg-pink-500" />
+                          <div className="w-2 h-2 rounded-full bg-pink-500" />
                           <span className="text-zinc-600">Instagram (10%)</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <div className="w-2.5 h-2.5 rounded-full bg-violet-500" />
+                          <div className="w-2 h-2 rounded-full bg-violet-500" />
                           <span className="text-zinc-600">LinkedIn (5%)</span>
                         </div>
                       </div>
@@ -292,21 +292,21 @@ const ProspectionSection = () => {
                   </div>
 
                   {/* Insights do Dalton - Static */}
-                  <div className="col-span-3 bg-white rounded-xl p-4 border border-zinc-100">
-                    <div className="flex items-center gap-2 mb-3">
+                  <div className="col-span-3 bg-white rounded-xl p-4 border border-zinc-100 flex flex-col">
+                    <div className="flex items-center gap-2 mb-2">
                       <span className="text-sm font-semibold text-zinc-900">Insights do Dalton</span>
                     </div>
-                    <div className="space-y-2">
-                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-2.5 text-[10px] text-amber-800">
+                    <div className="space-y-1.5 flex-1">
+                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-2 text-[10px] text-amber-800">
                         Taxa de conversão aumentou <span className="font-semibold">23%</span> nas conversas iniciadas antes das 10h
                       </div>
-                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-2.5 text-[10px] text-blue-800">
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-2 text-[10px] text-blue-800">
                         Leads do segmento Enterprise têm <span className="font-semibold">2.3x</span> mais chance de conversão
                       </div>
-                      <div className="bg-green-50 border border-green-200 rounded-lg p-2.5 text-[10px] text-green-800">
+                      <div className="bg-green-50 border border-green-200 rounded-lg p-2 text-[10px] text-green-800">
                         Tempo médio de resposta da IA: <span className="font-semibold">1.2s</span> (18% mais rápido)
                       </div>
-                      <div className="bg-purple-50 border border-purple-200 rounded-lg p-2.5 text-[10px] text-purple-800">
+                      <div className="bg-purple-50 border border-purple-200 rounded-lg p-2 text-[10px] text-purple-800">
                         Palavras-chave com maior taxa: <span className="font-semibold">'ROI', 'integração', 'suporte'</span>
                       </div>
                     </div>

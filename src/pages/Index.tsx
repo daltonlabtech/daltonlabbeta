@@ -1,10 +1,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/sections/HeroSection";
-import ClientsSection from "@/components/sections/ClientsSection";
 import ProspectionSection from "@/components/sections/ProspectionSection";
 import InsightsSection from "@/components/sections/InsightsSection";
-import SquadPlansSection from "@/components/sections/SquadPlansSection";
-
 import AudioDemoSection from "@/components/sections/AudioDemoSection";
 import SocialProofSection from "@/components/sections/SocialProofSection";
 import FAQSection from "@/components/sections/FAQSection";
@@ -15,11 +12,8 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      <ClientsSection />
       <ProspectionSection />
       <InsightsSection />
-      <SquadPlansSection />
-      
       <AudioDemoSection />
       <SocialProofSection />
       <FAQSection />

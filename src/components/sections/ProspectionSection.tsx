@@ -73,7 +73,7 @@ const ProspectionSection = () => {
                 <div className="w-8 h-8 rounded-lg bg-[#1a3a4a] flex items-center justify-center">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M3 3v18h18" />
-                    <path d="M18 17l-5-5-4 4-4-4" />
+                    <path d="M7 17l4-4 4 4 5-5" />
                   </svg>
                 </div>
                 {/* Settings icon */}
@@ -95,7 +95,6 @@ const ProspectionSection = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="bg-zinc-100 text-zinc-700 text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                      <span>📅</span>
                       <span>Este Mês</span>
                     </div>
                     <button className="bg-dalton-blue text-white text-xs px-4 py-1.5 rounded-lg hover:bg-dalton-blue/90 transition-colors">
@@ -109,28 +108,28 @@ const ProspectionSection = () => {
                 <div className="grid grid-cols-4 gap-4 mb-6">
                   <div className="bg-zinc-50 rounded-xl p-4 border border-zinc-100">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs text-zinc-500">👥 Leads Processados</span>
+                      <span className="text-xs text-zinc-500">Leads Processados</span>
                     </div>
                     <p className="font-inter font-bold text-2xl text-zinc-900">23.456</p>
                     <p className="text-xs text-green-600 font-medium">↗ +12.5% vs Last Week</p>
                   </div>
                   <div className="bg-zinc-50 rounded-xl p-4 border border-zinc-100">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs text-zinc-500">💬 Taxa de Engajamento</span>
+                      <span className="text-xs text-zinc-500">Taxa de Engajamento</span>
                     </div>
                     <p className="font-inter font-bold text-2xl text-zinc-900">64.9%</p>
                     <p className="text-xs text-green-600 font-medium">↗ +8.3% vs Last Week</p>
                   </div>
                   <div className="bg-zinc-50 rounded-xl p-4 border border-zinc-100">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs text-zinc-500">🔄 Taxa de Conversão</span>
+                      <span className="text-xs text-zinc-500">Taxa de Conversão</span>
                     </div>
                     <p className="font-inter font-bold text-2xl text-zinc-900">45.1%</p>
                     <p className="text-xs text-green-600 font-medium">↗ +2.1% vs Last Week</p>
                   </div>
                   <div className="bg-zinc-50 rounded-xl p-4 border border-zinc-100">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs text-zinc-500">📅 Agendamentos</span>
+                      <span className="text-xs text-zinc-500">Agendamentos</span>
                     </div>
                     <p className="font-inter font-bold text-2xl text-zinc-900">1.847</p>
                     <p className="text-xs text-green-600 font-medium">↗ +15.7% vs Last Week</p>
@@ -143,11 +142,10 @@ const ProspectionSection = () => {
                   <div className="col-span-5 bg-white rounded-xl p-4 border border-zinc-100">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-semibold text-zinc-900">📈 Performance de Conversação</span>
+                        <span className="text-sm font-semibold text-zinc-900">Performance de Conversação</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="text-xs text-zinc-500 bg-zinc-100 px-2 py-1 rounded">Mensal</span>
-                        <span className="text-xs text-zinc-500 bg-zinc-100 px-2 py-1 rounded">Pipeline Gerado</span>
                       </div>
                     </div>
                     {/* Chart SVG - Static */}
@@ -209,7 +207,7 @@ const ProspectionSection = () => {
                   {/* Donut Chart - Desempenho por Canal */}
                   <div className="col-span-4 bg-white rounded-xl p-4 border border-zinc-100">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm font-semibold text-zinc-900">📊 Desempenho por Canal</span>
+                      <span className="text-sm font-semibold text-zinc-900">Desempenho por Canal</span>
                       <span className="text-xs text-zinc-500 bg-zinc-100 px-2 py-1 rounded">Mensal</span>
                     </div>
                     <div className="flex items-center gap-4">
@@ -296,7 +294,7 @@ const ProspectionSection = () => {
                   {/* Insights do Dalton - Static */}
                   <div className="col-span-3 bg-white rounded-xl p-4 border border-zinc-100">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-sm font-semibold text-zinc-900">💡 Insights do Dalton</span>
+                      <span className="text-sm font-semibold text-zinc-900">Insights do Dalton</span>
                     </div>
                     <div className="space-y-2">
                       <div className="bg-amber-50 border border-amber-200 rounded-lg p-2.5 text-[10px] text-amber-800">
@@ -318,7 +316,7 @@ const ProspectionSection = () => {
                 {/* Activity Table */}
                 <div className="bg-white rounded-xl border border-zinc-100 overflow-hidden">
                   <div className="p-4 border-b border-zinc-100">
-                    <span className="text-sm font-semibold text-zinc-900">📊 Atividade</span>
+                    <span className="text-sm font-semibold text-zinc-900">Atividade</span>
                   </div>
                   <table className="w-full text-xs">
                     <thead>

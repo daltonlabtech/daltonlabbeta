@@ -168,8 +168,8 @@ const InsightsSection = () => {
                   {/* Dynamic Island */}
                   <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-zinc-900 rounded-full z-10" />
                   
-                  {/* Dashboard Content */}
-                  <div className="pt-14 px-4 pb-3 h-full bg-zinc-50 overflow-hidden">
+                  {/* Dashboard Content - New Design */}
+                  <div className="pt-14 px-3 pb-3 h-full bg-zinc-50 overflow-hidden">
                     {/* App Header */}
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-1.5">
@@ -179,43 +179,77 @@ const InsightsSection = () => {
                       <div className="w-7 h-7 rounded-full bg-zinc-200" />
                     </div>
 
-                    {/* Pipeline Widget */}
-                    <div className="bg-white rounded-2xl p-4 shadow-sm mb-3">
-                      <div className="flex items-center gap-1.5 mb-1.5">
-                        <TrendingUp className="w-4 h-4 text-green-500" />
-                        <span className="text-[10px] text-zinc-500 font-medium">Pipeline Generated</span>
-                      </div>
-                      <p className="font-inter font-bold text-xl text-zinc-900 animate-value-pulse">$565,202</p>
-                      <p className="text-[10px] text-green-500 font-medium">↗ +19% vs Last Week</p>
-                    </div>
-
-                    {/* Stats Grid */}
+                    {/* KPI Cards Row */}
                     <div className="grid grid-cols-2 gap-2 mb-3">
-                      <div className="bg-green-50 rounded-xl p-3">
-                        <Users className="w-4 h-4 text-green-600 mb-1.5" />
-                        <p className="text-[10px] text-zinc-500">Leads</p>
-                        <p className="font-semibold text-base text-zinc-900 animate-value-pulse" style={{ animationDelay: '0.3s' }}>1,234</p>
-                        <p className="text-[9px] text-green-600 font-medium">+12%</p>
+                      <div className="bg-white rounded-xl p-2.5 shadow-sm">
+                        <p className="text-[9px] text-zinc-500 mb-0.5">Leads</p>
+                        <p className="font-inter font-bold text-lg text-zinc-900 animate-value-pulse">23.4K</p>
+                        <p className="text-[8px] text-green-500 font-medium">↗ +12.5%</p>
                       </div>
-                      <div className="bg-blue-50 rounded-xl p-3">
-                        <DollarSign className="w-4 h-4 text-blue-600 mb-1.5" />
-                        <p className="text-[10px] text-zinc-500">Revenue</p>
-                        <p className="font-semibold text-base text-zinc-900 animate-value-pulse" style={{ animationDelay: '0.6s' }}>$89K</p>
-                        <p className="text-[9px] text-blue-600 font-medium">+8%</p>
+                      <div className="bg-white rounded-xl p-2.5 shadow-sm">
+                        <p className="text-[9px] text-zinc-500 mb-0.5">Conversão</p>
+                        <p className="font-inter font-bold text-lg text-zinc-900 animate-value-pulse" style={{ animationDelay: '0.3s' }}>45.1%</p>
+                        <p className="text-[8px] text-green-500 font-medium">↗ +2.1%</p>
                       </div>
                     </div>
 
-                    {/* Mini Chart */}
-                    <div className="bg-white rounded-2xl p-4 shadow-sm">
-                      <p className="text-[10px] text-zinc-500 font-medium mb-2">Weekly Performance</p>
-                      <div className="flex items-end gap-1.5 h-14">
-                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-1" style={{ height: '40%' }} />
-                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-2" style={{ height: '60%' }} />
-                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-3" style={{ height: '45%' }} />
-                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-4" style={{ height: '80%' }} />
-                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-5" style={{ height: '70%' }} />
-                        <div className="flex-1 bg-green-500 rounded-t animate-bar-grow animate-bar-6" style={{ height: '100%' }} />
-                        <div className="flex-1 bg-green-400 rounded-t animate-bar-grow animate-bar-7" style={{ height: '85%' }} />
+                    {/* Mini Line Chart */}
+                    <div className="bg-white rounded-xl p-3 shadow-sm mb-3">
+                      <p className="text-[9px] text-zinc-500 font-medium mb-2">Performance Semanal</p>
+                      <div className="h-12 relative">
+                        <svg className="w-full h-full" viewBox="0 0 200 50" preserveAspectRatio="none">
+                          <path 
+                            d="M0,45 L30,35 L60,25 L90,30 L120,15 L150,20 L180,10 L200,15" 
+                            fill="none" 
+                            stroke="#18181b" 
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            style={{ strokeDasharray: '300', strokeDashoffset: '300', animation: 'drawLine 2s ease-out forwards' }}
+                          />
+                          <circle cx="120" cy="15" r="3" fill="#18181b" className="animate-pulse-dot" />
+                          <circle cx="180" cy="10" r="3" fill="#18181b" className="animate-pulse-dot" style={{ animationDelay: '0.5s' }} />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* Mini Donut Chart */}
+                    <div className="bg-white rounded-xl p-3 shadow-sm mb-3">
+                      <p className="text-[9px] text-zinc-500 font-medium mb-2">Canais</p>
+                      <div className="flex items-center gap-3">
+                        <div className="relative w-14 h-14">
+                          <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="#22c55e" strokeWidth="10" strokeDasharray="92.4 219.8" className="animate-donut-segment" />
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="#3b82f6" strokeWidth="10" strokeDasharray="55 219.8" strokeDashoffset="-92.4" className="animate-donut-segment" style={{ animationDelay: '0.2s' }} />
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="#ec4899" strokeWidth="10" strokeDasharray="72.4 219.8" strokeDashoffset="-147.4" className="animate-donut-segment" style={{ animationDelay: '0.4s' }} />
+                          </svg>
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="text-[10px] font-bold text-zinc-900">5.7K</span>
+                          </div>
+                        </div>
+                        <div className="flex-1 space-y-1 text-[8px]">
+                          <div className="flex items-center gap-1">
+                            <div className="w-2 h-2 rounded-full bg-green-500" />
+                            <span className="text-zinc-600">WhatsApp 42%</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <div className="w-2 h-2 rounded-full bg-blue-500" />
+                            <span className="text-zinc-600">Email 25%</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <div className="w-2 h-2 rounded-full bg-pink-500" />
+                            <span className="text-zinc-600">Outros 33%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Insights Cards */}
+                    <div className="space-y-1.5">
+                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-2 text-[8px] text-amber-800 animate-insight-card">
+                        💡 Conversões +23% pela manhã
+                      </div>
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-2 text-[8px] text-blue-800 animate-insight-card" style={{ animationDelay: '0.3s' }}>
+                        💡 Enterprise: 2.3x conversão
                       </div>
                     </div>
                   </div>

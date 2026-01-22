@@ -115,7 +115,7 @@ const AboutSection = () => {
               </div>
 
               {/* Info */}
-              <div className={`relative z-10 flex-1 ${index % 2 === 1 ? 'md:text-right' : ''}`}>
+              <div className="relative z-10 flex-1">
                 <h3 className="font-inter font-bold text-xl text-white">
                   {founder.name}
                 </h3>
@@ -127,7 +127,7 @@ const AboutSection = () => {
                 </p>
                 
                 {/* Social Icons */}
-                <div className={`mt-4 flex items-center gap-3 ${index % 2 === 1 ? 'md:justify-end' : ''}`}>
+                <div className="mt-4 flex items-center gap-3">
                   {founder.socials.instagram && (
                     <a href={founder.socials.instagram} className="text-white/50 hover:text-white transition-colors">
                       <Instagram className="w-4 h-4" />

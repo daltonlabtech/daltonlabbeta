@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { MessageCircle, TrendingUp, Users, DollarSign, BarChart3 } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 import daltonIcon from '@/assets/dalton-icon.png';
+import daltonCircleLogo from '@/assets/dalton-logo-circle.webp';
 
 const InsightsSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -291,11 +292,11 @@ const InsightsSection = () => {
                     className="relative pt-10 px-3 pb-2 flex items-center gap-3 shrink-0"
                     style={{ backgroundColor: '#075E54' }}
                   >
-                    <div className="w-9 h-9 rounded-full bg-black border-2 border-white/20 flex items-center justify-center overflow-hidden">
+                    <div className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center">
                       <img 
-                        src="/src/assets/d-branco.png" 
+                        src={daltonCircleLogo}
                         alt="Dalton Lab" 
-                        className="w-5 h-5 object-contain" 
+                        className="w-full h-full object-cover" 
                       />
                     </div>
                     <div className="flex-1 min-w-0">

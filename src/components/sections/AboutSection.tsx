@@ -3,13 +3,12 @@ import rodrigoPhoto from '@/assets/founders/rodrigo.webp';
 import marceloPhoto from '@/assets/founders/marcelo.webp';
 import foundersPhoto from '@/assets/about/founders-photo.jpg';
 import teamFullPhoto from '@/assets/about/team-photo.jpg';
-import cardTexture from '@/assets/textures/card-texture.png';
 
 const founders = [
   {
     name: "Rodrigo Spínola",
     role: "Fundador e CEO",
-    description: "Empreendedor e líder de times de alta performance. Especialista em arquitetura de go-to-market. Obcecado por cultura, resultado e crescimento.",
+    description: "Foi CEO da Rede Ok, onde liderou +500 vendedores e preparou a empresa para M&A. Reconhecido como Top 1% mundial em vendas (MDRT). Hoje lidera o Dalton Lab na transformação de empresas em Organizações Agênticas. Embaixador da Escola de IA da Pós PUC/PR. Obcecado por cultura, resultado e crescimento.",
     image: rodrigoPhoto,
     socials: {
       instagram: "#",
@@ -20,8 +19,19 @@ const founders = [
   {
     name: "Marcelo Ramos",
     role: "Fundador e COO",
-    description: "Gerenciou mais de 120 projetos de iniciativas digitais no mercado de Saúde e Educação, gerando +7000 clientes. Obcecado por arquitetura operacional.",
+    description: "Gerenciou mais de 120 projetos de iniciativas digitais no mercado de Saúde e Educação, gerando +7000 clientes em seu primeiro empreendimento, aos 21 anos. Tendo experiência em multinacionais como Deloitte, hoje desenha a arquitetura operacional que transforma estratégia em execução no Dalton Lab.",
     image: marceloPhoto,
+    socials: {
+      instagram: "#",
+      linkedin: "#",
+      youtube: "#"
+    }
+  },
+  {
+    name: "Julio Lohn",
+    role: "Sócio-conselheiro",
+    description: "Diretor Comercial e Marketing do Grupo Mundial Mix, que controla Brasil Atacadista e Supermercados Imperatriz, uma das maiores redes do varejo alimentar de Santa Catarina. Presidente do Conselho da Rede Brasil - RBSM. +13 anos liderando estratégia comercial e inovação no setor.",
+    image: null,
     socials: {
       instagram: "#",
       linkedin: "#",
@@ -69,7 +79,7 @@ const AboutSection = () => {
             Empresa
           </h2>
           <p className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed max-w-2xl">
-            O Dalton Lab transforma empresas em organizações agênticas. Somos 11 pessoas trabalhando lado a lado com mais de 20 agentes de IA internos. Nascemos com um propósito claro: acelerar a transição das empresas para um modelo em que humanos e agentes de IA trabalham juntos. Humanos decidem, se relacionam e lideram. Agentes executam, escalam e mantêm a operação em movimento.
+            O Dalton Lab transforma empresas em organizações agênticas. Somos <span className="text-white">(apenas) 11 pessoas trabalhando lado a lado com mais de 20 agentes de IA internos.</span> Nascemos com um propósito claro: acelerar a transição das empresas para um modelo em que humanos e agentes de IA trabalham juntos. Humanos decidem, se relacionam e lideram. Agentes executam, escalam e mantêm a operação em movimento.
           </p>
         </div>
       </div>
@@ -80,33 +90,23 @@ const AboutSection = () => {
           Fundadores
         </h2>
 
-        {/* Founders Cards - Centered */}
-        <div className="space-y-6 max-w-[900px] mx-auto">
+        {/* Founders Cards - Dark Theme */}
+        <div className="space-y-4 max-w-[900px] mx-auto">
           {founders.map((founder, index) => (
             <div 
               key={index}
-              className={`relative flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl overflow-hidden ${
+              className={`relative flex flex-col md:flex-row items-start gap-6 p-6 rounded-2xl overflow-hidden border border-white/10 ${
                 index % 2 === 1 ? 'md:flex-row-reverse' : ''
               }`}
-              style={{ backgroundColor: '#F5F3F0' }}
+              style={{ backgroundColor: '#1A232F' }}
             >
-              {/* Background Texture */}
-              <div 
-                className="absolute inset-0 opacity-30"
-                style={{
-                  backgroundImage: `url(${cardTexture})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              />
-              
               {/* Photo */}
-              <div className="relative z-10 w-28 h-28 md:w-32 md:h-32 rounded-xl overflow-hidden flex-shrink-0">
+              <div className="relative z-10 w-28 h-28 md:w-36 md:h-36 rounded-xl overflow-hidden flex-shrink-0">
                 {founder.image ? (
                   <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-dalton-blue/20 to-dalton-purple/20 flex items-center justify-center">
-                    <span className="font-inter font-bold text-3xl text-black/30">
+                  <div className="w-full h-full bg-gradient-to-br from-dalton-blue/30 to-dalton-purple/30 flex items-center justify-center">
+                    <span className="font-inter font-bold text-3xl text-white/50">
                       {founder.name.charAt(0)}
                     </span>
                   </div>
@@ -115,25 +115,25 @@ const AboutSection = () => {
 
               {/* Info */}
               <div className={`relative z-10 flex-1 ${index % 2 === 1 ? 'md:text-right' : ''}`}>
-                <h3 className="font-inter font-bold text-xl text-black">
+                <h3 className="font-inter font-bold text-xl text-white">
                   {founder.name}
                 </h3>
-                <p className="font-inter font-medium text-sm text-black/50">
+                <p className="font-inter font-medium text-sm text-dalton-blue">
                   {founder.role}
                 </p>
-                <p className="mt-3 font-inter text-sm text-black leading-relaxed">
+                <p className="mt-3 font-inter text-sm text-white/70 leading-relaxed">
                   {founder.description}
                 </p>
                 
                 {/* Social Icons */}
                 <div className={`mt-4 flex items-center gap-3 ${index % 2 === 1 ? 'md:justify-end' : ''}`}>
-                  <a href={founder.socials.instagram} className="text-black/50 hover:text-black transition-colors">
+                  <a href={founder.socials.instagram} className="text-white/50 hover:text-white transition-colors">
                     <Instagram className="w-4 h-4" />
                   </a>
-                  <a href={founder.socials.linkedin} className="text-black/50 hover:text-black transition-colors">
+                  <a href={founder.socials.linkedin} className="text-white/50 hover:text-white transition-colors">
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a href={founder.socials.youtube} className="text-black/50 hover:text-black transition-colors">
+                  <a href={founder.socials.youtube} className="text-white/50 hover:text-white transition-colors">
                     <Youtube className="w-4 h-4" />
                   </a>
                 </div>

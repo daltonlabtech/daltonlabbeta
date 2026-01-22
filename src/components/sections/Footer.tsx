@@ -90,12 +90,12 @@ const Footer = () => {
               Legal
             </h4>
             <div className="flex flex-col gap-2">
-              <a href="#" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
+              <Link to="/politica-de-privacidade" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
                 Política de Privacidade
-              </a>
-              <a href="#" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
+              </Link>
+              <Link to="/termos-de-uso" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
                 Termos de Uso
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@ const Footer = () => {
         <div className="container-main py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <img src={dBranco} alt="Dalton Lab" className="h-8 w-auto opacity-70" />
           <p className="font-inter text-xs text-white/40">
-            © 2026 Dalton Lab. Todos os direitos reservados. Feito com ❤️ no Brasil.
+            © 2026 Dalton Lab. Todos os direitos reservados. Esse site foi feito por IA (em cooperação com nossos humanos).
           </p>
         </div>
       </div>

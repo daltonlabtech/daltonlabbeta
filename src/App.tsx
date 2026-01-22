@@ -10,6 +10,8 @@ import dBranco from "@/assets/d-branco.png";
 const Index = lazy(() => import("./pages/Index"));
 const Newton = lazy(() => import("./pages/Newton"));
 const QuemSomos = lazy(() => import("./pages/QuemSomos"));
+const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
+const TermosDeUso = lazy(() => import("./pages/TermosDeUso"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -37,6 +39,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/newton" element={<Newton />} />
             <Route path="/quem-somos" element={<QuemSomos />} />
+            <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
+            <Route path="/termos-de-uso" element={<TermosDeUso />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

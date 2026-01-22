@@ -206,7 +206,9 @@ const SquadPlansSection = () => {
 
                 {/* CTA Button */}
                 <a 
-                  href="/newton"
+                  href="https://chat.daltonlab.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`mt-8 w-full py-3.5 rounded-xl font-inter font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${colors.bgSolid} text-white hover:opacity-90`}
                 >
                   Saiba mais

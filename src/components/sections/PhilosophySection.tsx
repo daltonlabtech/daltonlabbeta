@@ -121,7 +121,7 @@ const PhilosophySection = () => {
           className={`mt-10 text-center ${revealClasses(isVisible)}`}
           style={getStaggerDelay(3)}
         >
-          <a href="/newton" className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
+          <a href="https://chat.daltonlab.ai/" target="_blank" rel="noopener noreferrer" className="group bg-white text-zinc-900 font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center">
             <span>Quero conhecer</span>
           </a>
         </div>

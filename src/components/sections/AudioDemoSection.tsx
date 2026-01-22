@@ -1,5 +1,4 @@
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
-import spotifyLogo from '@/assets/tech/spotify-logo.png';
 
 const AudioDemoSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -7,10 +6,22 @@ const AudioDemoSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-6 md:py-8 bg-[#101823]"
+      className="section-padding bg-[#101823] relative overflow-hidden"
     >
-      <div className="container-main max-w-4xl">
-        {/* Main Card with title, subtitle, Spotify logo and embed all inside */}
+      {/* Checkered Background Pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #F5F3F0 1px, transparent 1px),
+            linear-gradient(to bottom, #F5F3F0 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+        }}
+      />
+      
+      <div className="container-main max-w-4xl relative z-10">
+        {/* Main Card with title, subtitle and embed all inside */}
         <div 
           className={`relative rounded-2xl p-6 md:p-8 ${revealClasses(isVisible)}`}
           style={{ backgroundColor: '#F5F3F0' }}

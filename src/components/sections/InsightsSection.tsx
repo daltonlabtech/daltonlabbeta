@@ -183,17 +183,17 @@ const InsightsSection = () => {
                     <div className="grid grid-cols-2 gap-2 mb-3">
                       <div className="bg-white rounded-xl p-2.5 shadow-sm">
                         <p className="text-[9px] text-zinc-500 mb-0.5">Leads</p>
-                        <p className="font-inter font-bold text-lg text-zinc-900 animate-value-pulse">23.4K</p>
+                        <p className="font-inter font-bold text-lg text-zinc-900">23.4K</p>
                         <p className="text-[8px] text-green-500 font-medium">↗ +12.5%</p>
                       </div>
                       <div className="bg-white rounded-xl p-2.5 shadow-sm">
                         <p className="text-[9px] text-zinc-500 mb-0.5">Conversão</p>
-                        <p className="font-inter font-bold text-lg text-zinc-900 animate-value-pulse" style={{ animationDelay: '0.3s' }}>45.1%</p>
+                        <p className="font-inter font-bold text-lg text-zinc-900">45.1%</p>
                         <p className="text-[8px] text-green-500 font-medium">↗ +2.1%</p>
                       </div>
                     </div>
 
-                    {/* Mini Line Chart */}
+                    {/* Mini Line Chart - Static */}
                     <div className="bg-white rounded-xl p-3 shadow-sm mb-3">
                       <p className="text-[9px] text-zinc-500 font-medium mb-2">Performance Semanal</p>
                       <div className="h-12 relative">
@@ -204,23 +204,22 @@ const InsightsSection = () => {
                             stroke="#18181b" 
                             strokeWidth="2"
                             strokeLinecap="round"
-                            style={{ strokeDasharray: '300', strokeDashoffset: '300', animation: 'drawLine 2s ease-out forwards' }}
                           />
-                          <circle cx="120" cy="15" r="3" fill="#18181b" className="animate-pulse-dot" />
-                          <circle cx="180" cy="10" r="3" fill="#18181b" className="animate-pulse-dot" style={{ animationDelay: '0.5s' }} />
+                          <circle cx="120" cy="15" r="3" fill="#18181b" />
+                          <circle cx="180" cy="10" r="3" fill="#18181b" />
                         </svg>
                       </div>
                     </div>
 
-                    {/* Mini Donut Chart */}
+                    {/* Mini Donut Chart - Static */}
                     <div className="bg-white rounded-xl p-3 shadow-sm mb-3">
                       <p className="text-[9px] text-zinc-500 font-medium mb-2">Canais</p>
                       <div className="flex items-center gap-3">
                         <div className="relative w-14 h-14">
                           <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="35" fill="none" stroke="#22c55e" strokeWidth="10" strokeDasharray="92.4 219.8" className="animate-donut-segment" />
-                            <circle cx="50" cy="50" r="35" fill="none" stroke="#3b82f6" strokeWidth="10" strokeDasharray="55 219.8" strokeDashoffset="-92.4" className="animate-donut-segment" style={{ animationDelay: '0.2s' }} />
-                            <circle cx="50" cy="50" r="35" fill="none" stroke="#ec4899" strokeWidth="10" strokeDasharray="72.4 219.8" strokeDashoffset="-147.4" className="animate-donut-segment" style={{ animationDelay: '0.4s' }} />
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="#22c55e" strokeWidth="10" strokeDasharray="92.4 219.8" />
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="#3b82f6" strokeWidth="10" strokeDasharray="55 219.8" strokeDashoffset="-92.4" />
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="#ec4899" strokeWidth="10" strokeDasharray="72.4 219.8" strokeDashoffset="-147.4" />
                           </svg>
                           <div className="absolute inset-0 flex items-center justify-center">
                             <span className="text-[10px] font-bold text-zinc-900">5.7K</span>
@@ -243,12 +242,12 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Insights Cards */}
+                    {/* Insights Cards - Static */}
                     <div className="space-y-1.5">
-                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-2 text-[8px] text-amber-800 animate-insight-card">
+                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-2 text-[8px] text-amber-800">
                         💡 Conversões +23% pela manhã
                       </div>
-                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-2 text-[8px] text-blue-800 animate-insight-card" style={{ animationDelay: '0.3s' }}>
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-2 text-[8px] text-blue-800">
                         💡 Enterprise: 2.3x conversão
                       </div>
                     </div>

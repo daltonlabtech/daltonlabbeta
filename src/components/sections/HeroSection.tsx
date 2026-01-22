@@ -116,7 +116,7 @@ const HeroSection = () => {
               className="text-sm md:text-base lg:text-lg font-light"
               style={{ color: 'rgba(245, 243, 240, 0.75)' }}
             >
-              Em menos tempo. Com menos custo.
+              Em menos tempo. Com mais retorno.
             </p>
           </div>
 

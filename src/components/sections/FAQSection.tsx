@@ -9,23 +9,27 @@ import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScro
 const faqs = [
   {
     question: "O que é um Agente de IA?",
-    answer: "Um Agente de IA é uma solução de inteligência artificial projetada para automatizar tarefas específicas do seu processo comercial. Diferente de chatbots básicos, nossos agentes são treinados com contexto do seu negócio e executam ações reais como prospectar, qualificar leads, fazer follow-up e agendar reuniões."
+    answer: "Um Agente de IA é um software autônomo que executa tarefas seguindo processos definidos. Ele se comporta como um ser humano.\n\nDiferente de chatbots ou assistentes genéricos, nossos Agentes são treinados especificamente no seu negócio para gerar resultados mensuráveis. Tudo isso sem a necessidade de expandir seu quadro de colaboradores."
   },
   {
     question: "Quanto tempo leva para implementar?",
-    answer: "O tempo de implementação varia de acordo com a complexidade do seu processo comercial. Em média, conseguimos ter os primeiros agentes operando em 2 a 4 semanas, incluindo integração com seu CRM e treinamento com dados do seu negócio."
+    answer: "De 2 a 4 semanas, dependendo da complexidade do seu processo comercial.\n\nEsse prazo inclui integração com suas APIs e treinamento com dados reais da sua operação."
   },
   {
-    question: "Os agentes substituem meu time de vendas?",
-    answer: "Não. Os agentes de IA são projetados para trabalhar junto com seu time humano, não para substituí-lo. Eles assumem as tarefas operacionais e repetitivas, liberando seus vendedores para focar no que fazem de melhor: construir relacionamentos e fechar negócios."
+    question: "Os agentes vendem de verdade?",
+    answer: "Sim. O Dalton, nosso Agente de Vendas, conduz o processo comercial de ponta a ponta: da qualificação inicial ao fechamento."
   },
   {
-    question: "Como funciona a integração com meu CRM?",
-    answer: "Nossos agentes se integram nativamente com os principais CRMs do mercado (Salesforce, HubSpot, Pipedrive, RD Station, entre outros). A integração é feita via API e todas as ações dos agentes são registradas automaticamente no seu sistema."
+    question: "Como funciona a integração com meus sistemas?",
+    answer: "Nosso time realiza a integração sob medida com os sistemas que você já usa. Além disso, você acompanha toda a operação através do nosso dashboard de performance."
+  },
+  {
+    question: "Terei contato com humanos durante o processo?",
+    answer: "Sim. Acreditamos que a combinação entre Agentes de IA e expertise humana é o que gera resultados consistentes.\n\nAssim que o contrato é assinado, nosso time agenda a reunião de Levantamento de Processos para iniciar a implementação."
   },
   {
     question: "E se eu não gostar do resultado?",
-    answer: "Oferecemos um período de teste inicial para você validar os resultados. Além disso, nossa equipe acompanha de perto os primeiros meses de operação para garantir que os agentes estejam performando conforme esperado."
+    answer: "Você pode pausar o Agente a qualquer momento. Nosso trabalho é baseado em otimização contínua. O seu feedback guia os ajustes. E caso decida cancelar, não há cláusula de fidelidade ou multa rescisória."
   }
 ];
 

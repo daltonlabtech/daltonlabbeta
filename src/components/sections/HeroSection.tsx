@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import heroVideo from '@/assets/hero-background.mp4';
+import heroPoster from '/hero-poster.png';
 import openaiLogo from '@/assets/tech/openai.webp';
 import claudeLogo from '@/assets/tech/claude-logo.png';
 import manusLogo from '@/assets/tech/manus-logo.png';
@@ -13,7 +14,9 @@ const techLogos = [
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  
   useEffect(() => {
     setIsVisible(true);
   }, []);
@@ -30,15 +33,28 @@ const HeroSection = () => {
       className="relative min-h-screen flex flex-col overflow-hidden"
       style={{ backgroundColor: '#101823' }}
     >
-      {/* Video Background */}
+      {/* Video Background with Poster */}
       <div className="absolute inset-0 z-0">
+        {/* Poster image shown until video loads */}
+        <img
+          src={heroPoster}
+          alt=""
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            videoLoaded ? 'opacity-0' : 'opacity-60'
+          }`}
+        />
         <video
           ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-60"
+          preload="auto"
+          poster={heroPoster}
+          onLoadedData={() => setVideoLoaded(true)}
+          className={`w-full h-full object-cover transition-opacity duration-700 ${
+            videoLoaded ? 'opacity-60' : 'opacity-0'
+          }`}
         >
           <source src={heroVideo} type="video/mp4" />
         </video>

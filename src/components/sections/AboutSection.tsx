@@ -1,6 +1,7 @@
 import { Instagram, Linkedin, Youtube } from 'lucide-react';
 import rodrigoPhoto from '@/assets/founders/rodrigo.webp';
 import marceloPhoto from '@/assets/founders/marcelo.webp';
+import julioPhoto from '@/assets/founders/julio.png';
 import foundersPhoto from '@/assets/about/founders-photo.jpg';
 import teamFullPhoto from '@/assets/about/team-photo.jpg';
 
@@ -31,11 +32,11 @@ const founders = [
     name: "Julio Lohn",
     role: "Sócio-conselheiro",
     description: "Diretor Comercial e Marketing do Grupo Mundial Mix, que controla Brasil Atacadista e Supermercados Imperatriz, uma das maiores redes do varejo alimentar de Santa Catarina. Presidente do Conselho da Rede Brasil - RBSM. +13 anos liderando estratégia comercial e inovação no setor.",
-    image: null,
+    image: julioPhoto,
     socials: {
-      instagram: "#",
-      linkedin: "#",
-      youtube: "#"
+      instagram: null,
+      linkedin: "https://www.linkedin.com/in/julio-cesar-lohn-6b63b231/",
+      youtube: null
     }
   }
 ];
@@ -127,15 +128,21 @@ const AboutSection = () => {
                 
                 {/* Social Icons */}
                 <div className={`mt-4 flex items-center gap-3 ${index % 2 === 1 ? 'md:justify-end' : ''}`}>
-                  <a href={founder.socials.instagram} className="text-white/50 hover:text-white transition-colors">
-                    <Instagram className="w-4 h-4" />
-                  </a>
-                  <a href={founder.socials.linkedin} className="text-white/50 hover:text-white transition-colors">
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a href={founder.socials.youtube} className="text-white/50 hover:text-white transition-colors">
-                    <Youtube className="w-4 h-4" />
-                  </a>
+                  {founder.socials.instagram && (
+                    <a href={founder.socials.instagram} className="text-white/50 hover:text-white transition-colors">
+                      <Instagram className="w-4 h-4" />
+                    </a>
+                  )}
+                  {founder.socials.linkedin && (
+                    <a href={founder.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors">
+                      <Linkedin className="w-4 h-4" />
+                    </a>
+                  )}
+                  {founder.socials.youtube && (
+                    <a href={founder.socials.youtube} className="text-white/50 hover:text-white transition-colors">
+                      <Youtube className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import heroVideo from '@/assets/hero-background.mp4';
+import heroVideoWebm from '@/assets/hero-background.webm';
+import heroVideoMp4 from '@/assets/hero-background.mp4';
 import heroPoster from '/hero-poster.png';
 import openaiLogo from '@/assets/tech/openai.webp';
 import claudeLogo from '@/assets/tech/claude-logo.png';
@@ -56,7 +57,8 @@ const HeroSection = () => {
             videoLoaded ? 'opacity-60' : 'opacity-0'
           }`}
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src={heroVideoWebm} type="video/webm" />
+          <source src={heroVideoMp4} type="video/mp4" />
         </video>
         {/* Gradient overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#101823]/30 via-transparent to-[#101823]/80" />

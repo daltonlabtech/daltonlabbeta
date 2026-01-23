@@ -104,7 +104,15 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-white/5">
         <div className="container-main py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={dBranco} alt="Dalton Lab" className="h-8 w-auto opacity-70" />
+          <img 
+            src={dBranco} 
+            alt="Logo Dalton Lab" 
+            className="h-8 w-auto opacity-70"
+            loading="lazy"
+            decoding="async"
+            width={32}
+            height={32}
+          />
           <p className="font-inter text-xs text-white/40">
             © 2026 Dalton Lab. Todos os direitos reservados. Esse site foi feito por IA (em cooperação com nossos humanos).
           </p>

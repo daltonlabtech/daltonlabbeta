@@ -390,7 +390,15 @@ const ProspectionSection = () => {
           <div className="md:hidden mt-8 bg-white rounded-xl shadow-lg border border-zinc-200 overflow-hidden p-4 max-w-[320px] mx-auto">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-6 h-6 rounded bg-zinc-900 flex items-center justify-center overflow-hidden">
-                <img src="/src/assets/dalton-icon.png" alt="Dalton" className="w-4 h-4 object-contain" />
+                <img 
+                  src="/src/assets/dalton-icon.png" 
+                  alt="Ícone do Dashboard Dalton" 
+                  className="w-4 h-4 object-contain"
+                  loading="lazy"
+                  decoding="async"
+                  width={16}
+                  height={16}
+                />
               </div>
               <span className="text-xs font-semibold text-zinc-700">Dashboard</span>
             </div>

@@ -1,10 +1,12 @@
 import { Instagram, Linkedin, Youtube } from 'lucide-react';
-import rodrigoPhoto from '@/assets/founders/rodrigo.webp';
-import marceloPhoto from '@/assets/founders/marcelo.webp';
-import julioPhoto from '@/assets/founders/julio.png';
-import foundersPhoto from '@/assets/about/founders-photo.jpg';
-import teamFullPhoto from '@/assets/about/team-photo.jpg';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
+
+// Lazy load images with proper imports
+const rodrigoPhoto = new URL('@/assets/founders/rodrigo.webp', import.meta.url).href;
+const marceloPhoto = new URL('@/assets/founders/marcelo.webp', import.meta.url).href;
+const julioPhoto = new URL('@/assets/founders/julio.png', import.meta.url).href;
+const foundersPhoto = new URL('@/assets/about/founders-photo.jpg', import.meta.url).href;
+const teamFullPhoto = new URL('@/assets/about/team-photo.jpg', import.meta.url).href;
 
 const founders = [
   {
@@ -64,8 +66,12 @@ const AboutSection = () => {
             >
               <img 
                 src={foundersPhoto} 
-                alt="Fundadores Dalton Lab" 
+                alt="Fundadores do Dalton Lab - Rodrigo, Marcelo e Julio reunidos discutindo estratégias de IA" 
                 className="w-full h-[180px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
+                loading="lazy"
+                decoding="async"
+                width={600}
+                height={350}
               />
             </div>
             <div 
@@ -74,8 +80,12 @@ const AboutSection = () => {
             >
               <img 
                 src={teamFullPhoto} 
-                alt="Time Dalton Lab" 
+                alt="Equipe completa do Dalton Lab - Time de especialistas em IA e vendas" 
                 className="w-full h-[180px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
+                loading="lazy"
+                decoding="async"
+                width={600}
+                height={350}
               />
             </div>
           </div>
@@ -113,7 +123,15 @@ const AboutSection = () => {
               {/* Photo */}
               <div className="relative z-10 w-28 h-28 md:w-36 md:h-36 rounded-xl overflow-hidden flex-shrink-0">
                 {founder.image ? (
-                  <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
+                  <img 
+                    src={founder.image} 
+                    alt={`Foto de ${founder.name}, ${founder.role} do Dalton Lab`} 
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    width={144}
+                    height={144}
+                  />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-dalton-blue/30 to-dalton-purple/30 flex items-center justify-center">
                     <span className="font-inter font-bold text-3xl text-white/50">

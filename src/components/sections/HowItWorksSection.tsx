@@ -31,8 +31,12 @@ const HowItWorksSection = () => {
       <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden shadow-md">
         <img 
           src={tool.logo} 
-          alt={tool.name} 
+          alt={`Logo da tecnologia ${tool.name} utilizada no Dalton Lab`}
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+          width={80}
+          height={80}
         />
       </div>
     </div>

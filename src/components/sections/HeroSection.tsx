@@ -39,10 +39,14 @@ const HeroSection = () => {
         {/* Poster image shown until video loads */}
         <img
           src={heroPoster}
-          alt=""
+          alt="Dalton Lab - Agentes de IA para vendas"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
             videoLoaded ? 'opacity-0' : 'opacity-60'
           }`}
+          loading="eager"
+          fetchPriority="high"
+          width={1920}
+          height={1080}
         />
         <video
           ref={videoRef}
@@ -80,7 +84,9 @@ const HeroSection = () => {
                 <img
                   key={logo.name}
                   src={logo.src}
-                  alt={logo.name}
+                  alt={`Powered by ${logo.name}`}
+                  width={48}
+                  height={16}
                   className={`absolute inset-0 w-full h-full object-contain transition-all duration-500 ${
                     index === currentLogoIndex
                       ? 'opacity-100 translate-y-0'

@@ -80,7 +80,7 @@ const AboutSection = () => {
             Empresa
           </h2>
           <p className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed max-w-2xl">
-            O Dalton Lab transforma empresas em organizações agênticas. Somos <span className="text-white">(apenas) 11 pessoas trabalhando lado a lado com mais de 20 agentes de IA internos.</span> Nascemos com um propósito claro: acelerar a transição das empresas para um modelo em que humanos e agentes de IA trabalham juntos. Humanos decidem, se relacionam e lideram. Agentes executam, escalam e mantêm a operação em movimento.
+            O Dalton Lab transforma empresas em organizações agênticas. <span className="text-white">Somos (apenas) 11 pessoas trabalhando lado a lado com mais de 20 agentes de IA internos.</span> Nascemos com um propósito claro: acelerar a transição das empresas para um modelo em que humanos e agentes de IA trabalham juntos. Humanos decidem, se relacionam e lideram. Agentes executam, escalam e mantêm a operação em movimento.
           </p>
         </div>
       </div>

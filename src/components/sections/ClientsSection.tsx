@@ -46,8 +46,12 @@ const ClientsSection = () => {
             >
               <img
                 src={logo.src}
-                alt={logo.name}
+                alt={`Logo do cliente ${logo.name}`}
                 className="h-12 md:h-16 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
+                loading="lazy"
+                decoding="async"
+                width={120}
+                height={64}
               />
             </div>
           ))}
@@ -59,8 +63,12 @@ const ClientsSection = () => {
             >
               <img
                 src={logo.src}
-                alt={logo.name}
+                alt={`Logo do cliente ${logo.name}`}
                 className="h-12 md:h-16 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
+                loading="lazy"
+                decoding="async"
+                width={120}
+                height={64}
               />
             </div>
           ))}

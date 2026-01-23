@@ -34,8 +34,16 @@ const Header = () => {
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center flex-shrink-0">
-            <img src={logoWhite} alt="Dalton Lab" className="h-32 md:h-40 w-auto" />
+          <a href="/" className="flex items-center flex-shrink-0" aria-label="Dalton Lab - Página inicial">
+            <img 
+              src={logoWhite} 
+              alt="Dalton Lab - Agentes de IA" 
+              className="h-32 md:h-40 w-auto"
+              width={160}
+              height={40}
+              loading="eager"
+              fetchPriority="high"
+            />
           </a>
 
           {/* Navigation - Center (Desktop) */}
@@ -70,7 +78,10 @@ const Header = () => {
           {/* Mobile Hamburger Menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <button className="md:hidden p-2 text-foreground/70 hover:text-foreground transition-colors">
+              <button 
+                className="md:hidden p-2 text-foreground/70 hover:text-foreground transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+                aria-label="Abrir menu de navegação"
+              >
                 <Menu className="w-6 h-6" />
               </button>
             </SheetTrigger>

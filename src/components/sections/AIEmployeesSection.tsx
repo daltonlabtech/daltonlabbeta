@@ -152,12 +152,16 @@ const AgentModal = ({ agent, onClose }: AgentModalProps) => {
         </button>
 
         <div className="flex flex-col sm:flex-row">
-          {/* Image */}
+        {/* Image */}
           <div className="sm:w-2/5">
             <img 
               src={agent.image} 
-              alt={agent.name}
+              alt={`Agente de IA ${agent.name} - ${agent.description.substring(0, 50)}...`}
               className="w-full h-48 sm:h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              width={320}
+              height={400}
             />
           </div>
 
@@ -383,8 +387,12 @@ const AIEmployeesSection = () => {
                 {/* Image */}
                 <img 
                   src={agent.image} 
-                  alt={agent.name}
+                  alt={`Agente de IA ${agent.name} - ${agent.description.substring(0, 50)}...`}
                   draggable={false}
+                  loading="lazy"
+                  decoding="async"
+                  width={240}
+                  height={320}
                   className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 

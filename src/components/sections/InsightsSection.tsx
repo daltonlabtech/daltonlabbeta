@@ -295,8 +295,12 @@ const InsightsSection = () => {
                     <div className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center">
                       <img 
                         src={daltonCircleLogo}
-                        alt="Dalton Lab" 
-                        className="w-full h-full object-cover" 
+                        alt="Logo do Dalton Lab no WhatsApp" 
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                        width={36}
+                        height={36}
                       />
                     </div>
                     <div className="flex-1 min-w-0">

@@ -9,7 +9,7 @@ const founders = [
   {
     name: "Rodrigo Spínola",
     role: "Fundador e CEO",
-    description: "Foi CEO da Rede Ok, onde liderou +500 vendedores e preparou a empresa para M&A. Reconhecido como Top 1% mundial em vendas (MDRT). Hoje lidera o Dalton Lab na transformação de empresas em Organizações Agênticas. Embaixador da Escola de IA da Pós PUC/PR. Obcecado por cultura, resultado e crescimento.",
+    description: "Foi CEO da maior operação comercial da Serasa para PMEs no Brasil. Liderou e formou +500 vendedores de alta performance. Recebeu diversos prêmios nacionais e internacionais (Paris 2018, Hawaii 2019, Montevideo 2019 e USA 2020). Hoje lidera o Dalton Lab na transformação de empresas em Organizações Agênticas. Embaixador da Escola de IA da Pós PUC/PR. Obcecado por cultura, resultado e crescimento.",
     image: rodrigoPhoto,
     socials: {
       instagram: "#",
@@ -55,14 +55,14 @@ const AboutSection = () => {
       <div className="w-full py-4 md:py-6">
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex gap-4 md:gap-6">
-            <div className="w-1/2">
+            <div className="w-1/2 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
               <img 
                 src={foundersPhoto} 
                 alt="Fundadores Dalton Lab" 
                 className="w-full h-[180px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
               />
             </div>
-            <div className="w-1/2">
+            <div className="w-1/2 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
               <img 
                 src={teamFullPhoto} 
                 alt="Time Dalton Lab" 

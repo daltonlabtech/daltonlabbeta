@@ -4,6 +4,7 @@ import marceloPhoto from '@/assets/founders/marcelo.webp';
 import julioPhoto from '@/assets/founders/julio.png';
 import foundersPhoto from '@/assets/about/founders-photo.jpg';
 import teamFullPhoto from '@/assets/about/team-photo.jpg';
+import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
 const founders = [
   {
@@ -42,6 +43,8 @@ const founders = [
 ];
 
 const AboutSection = () => {
+  const { ref: photosRef, isVisible: photosVisible } = useScrollReveal();
+
   return (
     <section className="bg-[#101823] pt-24 md:pt-32">
       {/* Fundadores e equipe - Hero Title */}
@@ -52,17 +55,23 @@ const AboutSection = () => {
       </div>
 
       {/* Photos Section - After Title */}
-      <div className="w-full py-4 md:py-6">
+      <div className="w-full py-4 md:py-6" ref={photosRef as React.RefObject<HTMLDivElement>}>
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex gap-4 md:gap-6">
-            <div className="w-1/2 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+            <div 
+              className={`w-1/2 ${revealClasses(photosVisible)}`}
+              style={getStaggerDelay(0)}
+            >
               <img 
                 src={foundersPhoto} 
                 alt="Fundadores Dalton Lab" 
                 className="w-full h-[180px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
               />
             </div>
-            <div className="w-1/2 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+            <div 
+              className={`w-1/2 ${revealClasses(photosVisible)}`}
+              style={getStaggerDelay(1)}
+            >
               <img 
                 src={teamFullPhoto} 
                 alt="Time Dalton Lab" 

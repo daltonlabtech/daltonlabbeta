@@ -1,16 +1,57 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import heroVideoWebm from '@/assets/hero-background.webm';
 import heroVideoMp4 from '@/assets/hero-background.mp4';
-import heroPoster from '/hero-poster.png';
-import openaiLogo from '@/assets/tech/openai.webp';
-import claudeLogo from '@/assets/tech/claude-logo.png';
-import manusLogo from '@/assets/tech/manus-logo.png';
 
+// Inline poster path for fastest loading
+const heroPoster = '/hero-poster.png';
+
+// Lazy load tech logos since they're not critical
 const techLogos = [
-  { name: 'OpenAI', src: openaiLogo },
-  { name: 'Claude', src: claudeLogo },
-  { name: 'Manus', src: manusLogo },
+  { name: 'OpenAI', src: () => import('@/assets/tech/openai.webp') },
+  { name: 'Claude', src: () => import('@/assets/tech/claude-logo.png') },
+  { name: 'Manus', src: () => import('@/assets/tech/manus-logo.png') },
 ];
+
+// Memoized logo component to prevent re-renders
+const TechLogoBadge = memo(({ currentIndex }: { currentIndex: number }) => {
+  const [logos, setLogos] = useState<{ name: string; src: string }[]>([]);
+  
+  useEffect(() => {
+    // Load logos after initial render
+    Promise.all(
+      techLogos.map(async (logo) => ({
+        name: logo.name,
+        src: (await logo.src()).default,
+      }))
+    ).then(setLogos);
+  }, []);
+
+  if (logos.length === 0) return null;
+
+  return (
+    <div className="relative w-12 h-4 overflow-hidden">
+      {logos.map((logo, index) => (
+        <img
+          key={logo.name}
+          src={logo.src}
+          alt={`Powered by ${logo.name}`}
+          width={48}
+          height={16}
+          loading="lazy"
+          decoding="async"
+          className={`absolute inset-0 w-full h-full object-contain transition-all duration-500 ${
+            index === currentIndex
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-4'
+          }`}
+          style={{ filter: 'brightness(0)' }}
+        />
+      ))}
+    </div>
+  );
+});
+
+TechLogoBadge.displayName = 'TechLogoBadge';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,7 +60,8 @@ const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   
   useEffect(() => {
-    setIsVisible(true);
+    // Immediate visibility for faster perceived performance
+    requestAnimationFrame(() => setIsVisible(true));
   }, []);
 
   useEffect(() => {
@@ -79,23 +121,7 @@ const HeroSection = () => {
             style={{ backgroundColor: 'rgba(245, 243, 240, 0.7)' }}
           >
             <span className="text-zinc-900/70 text-[10px] font-medium">Powered by</span>
-            <div className="relative w-12 h-4 overflow-hidden">
-              {techLogos.map((logo, index) => (
-                <img
-                  key={logo.name}
-                  src={logo.src}
-                  alt={`Powered by ${logo.name}`}
-                  width={48}
-                  height={16}
-                  className={`absolute inset-0 w-full h-full object-contain transition-all duration-500 ${
-                    index === currentLogoIndex
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-4'
-                  } ${logo.name === 'Meta' ? 'scale-75' : ''}`}
-                  style={{ filter: 'brightness(0)' }}
-                />
-              ))}
-            </div>
+            <TechLogoBadge currentIndex={currentLogoIndex} />
           </div>
 
           {/* Heading - Centered */}

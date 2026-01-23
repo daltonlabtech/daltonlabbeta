@@ -8,6 +8,37 @@
     <meta name="author" content="Dalton Lab" />
     <meta name="theme-color" content="#101823" />
 
+    <!-- Critical CSS Inline - Above the fold rendering -->
+    <style>
+      /* Critical CSS for immediate first paint */
+      *,*::before,*::after{box-sizing:border-box}
+      body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;background:#101823;color:#F5F3F0;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .hero-critical{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#101823}
+      .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+      .hero-content{position:relative;z-index:10;flex:1;display:flex;align-items:center;justify-content:center;padding:5rem 1.5rem}
+      .hero-text{text-align:center;max-width:56rem}
+      .hero-h1{font-size:clamp(2.25rem,5vw,4.5rem);font-weight:400;line-height:1.1;color:#F5F3F0;margin:0}
+      .hero-sub{margin-top:1.5rem;font-size:clamp(0.875rem,2vw,1.125rem);color:rgba(245,243,240,0.75);font-weight:300}
+      .hero-cta{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2rem;padding:0.625rem 1.25rem;background:#F5F3F0;color:#000;border-radius:9999px;font-weight:500;font-size:0.875rem;text-decoration:none}
+      @media(min-width:640px){.hero-content{padding:6rem 3rem}}
+    </style>
+
+    <!-- DNS Prefetch & Preconnect for Performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload Critical Assets - Hero poster first -->
+    <link rel="preload" as="image" href="/hero-poster.png" fetchpriority="high">
+    <link rel="preload" as="video" href="/src/assets/hero-background.webm" type="video/webm">
+
+    <!-- Google Fonts with display=swap - loaded async -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"></noscript>
+
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://daltonlabbeta.lovable.app/" />
@@ -28,19 +59,6 @@
     <meta name="twitter:description" content="Do lead à venda com Agentes de IA. Escale a receita da sua empresa. Em menos tempo. Com menos custo.">
     <meta name="twitter:image" content="https://daltonlabbeta.lovable.app/og-image.png">
     <meta name="twitter:image:alt" content="Dalton Lab - Do lead à venda com Agentes de IA" />
-
-    <!-- DNS Prefetch & Preconnect for Performance -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Preload Critical Assets -->
-    <link rel="preload" as="video" href="/src/assets/hero-background.webm" type="video/webm" fetchpriority="high">
-    <link rel="preload" as="image" href="/hero-poster.png" fetchpriority="high">
-
-    <!-- Google Fonts with display=swap for better performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://storage.googleapis.com/gpt-engineer-file-uploads/vC8E6cRru2ZWbM95YxsOa5SctCP2/uploads/1769123486696-Design sem nome (19).png">

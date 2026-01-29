@@ -216,49 +216,101 @@ const ProspectionSection = () => {
   );
 };
 
-// Sales Dashboard Mockup - Ultra Minimalist Pipeline Chart
+// Sales Dashboard Mockup - Static Smooth Line Chart
 const SalesDashboardMockup = () => (
-  <div className="bg-[#e8e6e3] rounded-2xl overflow-hidden h-full flex flex-col p-6 justify-center">
-    {/* Chart Area - Clean and minimal */}
-    <div className="flex-1 flex items-center">
-      <svg className="w-full h-full max-h-[200px]" viewBox="0 0 240 120" preserveAspectRatio="xMidYMid meet">
-        {/* Single upward trend line - minimal */}
-        <path 
-          d="M20,100 Q60,90 100,70 T180,30 Q200,20 220,15" 
-          fill="none" 
-          stroke="#18181b" 
-          strokeWidth="3"
-          strokeLinecap="round"
-          className="animate-draw-line"
+  <div className="bg-[#e8e6e3] rounded-2xl overflow-hidden h-full flex flex-col p-4 justify-center">
+    <svg className="w-full h-full" viewBox="0 0 280 180" preserveAspectRatio="xMidYMid meet">
+      {/* Gradient definition for area fill */}
+      <defs>
+        <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#a1a1aa" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#a1a1aa" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      
+      {/* Y-axis labels */}
+      <text x="20" y="35" fontSize="10" fill="#71717a" fontFamily="Inter, sans-serif">20</text>
+      <text x="20" y="70" fontSize="10" fill="#71717a" fontFamily="Inter, sans-serif">15</text>
+      <text x="20" y="105" fontSize="10" fill="#71717a" fontFamily="Inter, sans-serif">10</text>
+      <text x="24" y="140" fontSize="10" fill="#71717a" fontFamily="Inter, sans-serif">5</text>
+      
+      {/* Vertical grid lines */}
+      {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+        <line 
+          key={i}
+          x1={45 + i * 35} 
+          y1="25" 
+          x2={45 + i * 35} 
+          y2="145" 
+          stroke="#d4d4d8" 
+          strokeOpacity="0.3" 
+          strokeWidth="1"
         />
-        
-        {/* Subtle secondary line */}
-        <path 
-          d="M20,105 Q80,95 140,85 T220,70" 
-          fill="none" 
-          stroke="#a1a1aa" 
-          strokeWidth="2"
-          strokeLinecap="round"
-          opacity="0.5"
-        />
-        
-        {/* Animated endpoint dot */}
-        <circle 
-          cx="220" 
-          cy="15" 
-          r="6" 
-          fill="#18181b" 
-          className="animate-pulse-dot" 
-          style={{ animationDelay: '1s' }} 
-        />
-        
-        {/* Growth indicator */}
-        <g className="animate-bounce-subtle" style={{ animationDelay: '1.5s' }}>
-          <circle cx="200" cy="25" r="14" fill="#18181b" />
-          <text x="200" y="30" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">↗</text>
-        </g>
-      </svg>
-    </div>
+      ))}
+      
+      {/* X-axis labels (S, T, Q, Q, S, S, D) */}
+      {['S', 'T', 'Q', 'Q', 'S', 'S', 'D'].map((day, i) => (
+        <text 
+          key={i}
+          x={45 + i * 35} 
+          y="160" 
+          fontSize="10" 
+          fill="#71717a" 
+          textAnchor="middle"
+          fontFamily="Inter, sans-serif"
+        >
+          {day}
+        </text>
+      ))}
+      
+      {/* Upper trend line (subtle) */}
+      <path 
+        d="M45,125 Q80,115 115,100 Q150,80 185,55 Q220,45 255,35" 
+        fill="none" 
+        stroke="#a1a1aa" 
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.4"
+      />
+      
+      {/* Lower trend line (subtle) */}
+      <path 
+        d="M45,140 Q80,132 115,122 Q150,108 185,90 Q220,82 255,72" 
+        fill="none" 
+        stroke="#a1a1aa" 
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.4"
+      />
+      
+      {/* Area fill below main line */}
+      <path 
+        d="M45,135 Q80,125 115,110 Q150,90 185,70 Q220,60 255,50 L255,145 L45,145 Z" 
+        fill="url(#areaGradient)"
+      />
+      
+      {/* Main line - ascending curve from ~5 to ~17-18 */}
+      <path 
+        d="M45,135 Q80,125 115,110 Q150,90 185,70 Q220,60 255,50" 
+        fill="none" 
+        stroke="#18181b" 
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      
+      {/* Highlighted data point on Thursday (~15) */}
+      <circle 
+        cx="150" 
+        cy="70" 
+        r="7" 
+        fill="#18181b" 
+        stroke="white" 
+        strokeWidth="3"
+      />
+    </svg>
   </div>
 );
 

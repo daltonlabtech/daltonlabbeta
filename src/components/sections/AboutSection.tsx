@@ -48,10 +48,10 @@ const AboutSection = () => {
   const { ref: photosRef, isVisible: photosVisible } = useScrollReveal();
 
   return (
-    <section className="bg-[#101823] pt-24 md:pt-32">
+    <section className="bg-[#F5F3F0] pt-24 md:pt-32">
       {/* Fundadores e equipe - Hero Title */}
       <div className="container mx-auto px-6 md:px-12 lg:px-20 py-6 md:py-10">
-        <h1 className="font-inter text-4xl md:text-5xl lg:text-6xl text-[#F5F3F0] font-light text-center">
+        <h1 className="font-inter text-4xl md:text-5xl lg:text-6xl text-[#1A232F] font-light text-center">
           Fundadores e equipe
         </h1>
       </div>

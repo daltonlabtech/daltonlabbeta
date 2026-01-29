@@ -114,7 +114,7 @@ const Footer = () => {
             height={32}
           />
           <p className="font-inter text-xs text-white/40">
-            © 2026 Dalton Lab. Todos os direitos reservados. Esse site foi feito por IA (em cooperação com nossos humanos).
+            © 2026 Dalton Lab. Todos os direitos reservados.
           </p>
         </div>
       </div>

@@ -167,10 +167,10 @@ const ProspectionSection = () => {
                 className="inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 relative overflow-hidden"
                 style={{
                   background: currentAgent.ctaAction === 'modal' 
-                    ? `url(${buttonLightGradient}) center/cover no-repeat` 
+                    ? `url(${buttonDarkGradient}) center/cover no-repeat` 
                     : '#101823',
                   backgroundAttachment: 'scroll',
-                  color: currentAgent.ctaAction === 'modal' ? '#1A232F' : '#fff'
+                  color: '#fff'
                 }}
               >
                 {currentAgent.ctaText}

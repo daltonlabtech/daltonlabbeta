@@ -18,8 +18,7 @@ const plans = [
   },
   {
     name: "Consultoria Enterprise",
-    descriptionLine1: "Não sabe por onde começar?",
-    descriptionLine2: "Descubra o que automatizar e o que manter com humanos.",
+    description: "Para empresas consolidadas que querem evoluir para uma organização agêntica.",
     listTitle: "Incluso na consultoria:",
     items: [
       'Diagnóstico estratégico',

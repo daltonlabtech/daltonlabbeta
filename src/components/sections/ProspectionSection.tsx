@@ -18,7 +18,7 @@ interface AgentContent {
 
 const agentData: Record<AgentTab, AgentContent> = {
   vendas: {
-    title: 'Nunca mais perca um lead',
+    title: 'Atenda todos seus leads com qualidade e velocidade',
     description: 'O Dalton automatiza o seu processo comercial, escalando suas vendas e garantindo receita previsível.',
     features: [
       'Respostas instantâneas 24/7',

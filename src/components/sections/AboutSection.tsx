@@ -94,11 +94,11 @@ const AboutSection = () => {
 
       {/* Empresa Section */}
       <div className="container mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-24">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-32 items-start max-w-[900px] mx-auto">
-          <h2 className="font-inter text-2xl md:text-3xl text-white font-normal flex-shrink-0">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-inter text-2xl md:text-3xl text-white font-normal mb-6">
             Empresa
           </h2>
-          <div className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed flex-1 space-y-4">
+          <div className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed space-y-4">
             <p>
               Somos uma startup brasileira pioneira no modelo Agents-as-a-Service (AaaS). Nossa missão é transformar empresas convencionais em organizações agênticas, onde agentes de IA executam tarefas operacionais complexas e humanos tomam decisões estratégicas.
             </p>

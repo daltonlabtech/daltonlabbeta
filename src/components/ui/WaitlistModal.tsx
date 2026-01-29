@@ -79,7 +79,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   type="text"
                   value={formData.name}
                   onChange={(e) => handleChange('name', e.target.value)}
-                  placeholder="Seu nome completo"
+                  placeholder="Nome"
                   required
                   className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400"
                 />

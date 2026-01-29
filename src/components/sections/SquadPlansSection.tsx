@@ -5,7 +5,7 @@ const plans = [
   {
     name: "Agente de Vendas",
     description: "Para empresas que querem escalar seu ciclo comercial",
-    listTitle: "O Dalton será responsável por:",
+    listTitle: "Incluso no Agente de Vendas:",
     items: [
       'Qualificar oportunidades',
       'Fazer follow-up',

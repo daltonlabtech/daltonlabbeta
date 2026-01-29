@@ -4,6 +4,7 @@ import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScro
 import WaitlistModal from '@/components/ui/WaitlistModal';
 import blurBackground from '@/assets/backgrounds/blur-gradient.jpg';
 import buttonLightGradient from '@/assets/backgrounds/button-light-gradient.jpg';
+import buttonDarkGradient from '@/assets/backgrounds/button-dark-gradient.jpg';
 
 type AgentTab = 'vendas' | 'conteudo' | 'anuncio';
 
@@ -166,10 +167,10 @@ const ProspectionSection = () => {
                 className="inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 relative overflow-hidden"
                 style={{
                   background: currentAgent.ctaAction === 'modal' 
-                    ? `url(${buttonLightGradient}) center/cover no-repeat` 
+                    ? `url(${buttonDarkGradient}) center/cover no-repeat` 
                     : '#101823',
                   backgroundAttachment: 'scroll',
-                  color: currentAgent.ctaAction === 'modal' ? '#1A232F' : '#fff'
+                  color: '#fff'
                 }}
               >
                 {currentAgent.ctaText}
@@ -183,12 +184,12 @@ const ProspectionSection = () => {
             >
               <div className="relative w-full max-w-[320px] mx-auto aspect-square">
                 {currentAgent.isComingSoon ? (
-                  /* Coming Soon Background with Blur Image - All corners rounded */
+                  /* Coming Soon Background with Blur Image - All corners rounded - Monochromatic */
                   <div className="w-full h-full rounded-2xl overflow-hidden relative">
                     <img 
                       src={blurBackground} 
                       alt="" 
-                      className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                      className="absolute inset-0 w-full h-full object-cover rounded-2xl grayscale"
                     />
                     {/* Coming Soon Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center rounded-2xl">
@@ -218,7 +219,13 @@ const ProspectionSection = () => {
 
 // Sales Dashboard Mockup - Static Smooth Line Chart
 const SalesDashboardMockup = () => (
-  <div className="bg-[#e8e6e3] rounded-2xl overflow-hidden h-full flex flex-col p-4 justify-center">
+  <div className="bg-[#e8e6e3] rounded-2xl overflow-hidden h-full flex flex-col p-4 justify-center relative">
+    {/* Conversão de leads tag */}
+    <div className="absolute top-4 left-4 z-10">
+      <span className="bg-zinc-800 text-white text-xs font-medium px-3 py-1.5 rounded-full">
+        Conversão de leads
+      </span>
+    </div>
     <svg className="w-full h-full" viewBox="0 0 280 180" preserveAspectRatio="xMidYMid meet">
       {/* Gradient definition for area fill */}
       <defs>

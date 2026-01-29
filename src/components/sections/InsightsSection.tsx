@@ -9,16 +9,16 @@ const InsightsSection = () => {
 
   const features = [
     {
-      title: 'Ciclo completo',
-      description: 'Da prospecção ao fechamento, do post ao anúncio. Tudo automatizado.',
+      title: 'Automação ponta a ponta',
+      description: 'Gere leads orgânicos, potencialize o ROI dos seus anúncios e feche vendas em um único fluxo automatizado.',
     },
     {
       title: 'Escala infinita',
-      description: 'Atende todos seus leads com a mesma qualidade e velocidade.',
+      description: 'Atenda todos os seus leads 24/7 com o mesmo padrão de qualidade e velocidade.',
     },
     {
       title: 'Alertas em tempo real',
-      description: 'Ele avisa quando há uma nova venda, traz previsões de faturamento e gera insights. Tudo no WhatsApp.',
+      description: 'Acompanhe novas vendas em tempo real e receba insights e previsões de faturamento. Tudo no WhatsApp.',
     },
   ];
 

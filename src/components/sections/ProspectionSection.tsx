@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 import WaitlistModal from '@/components/ui/WaitlistModal';
 import blurBackground from '@/assets/backgrounds/blur-gradient.jpg';
+import buttonPinkGradient from '@/assets/backgrounds/button-pink-gradient.jpg';
 
 type AgentTab = 'vendas' | 'conteudo' | 'anuncio';
 
@@ -78,14 +79,14 @@ const ProspectionSection = () => {
         {/* Fixed Header - Outside Card */}
         <div className={`text-center mb-8 md:mb-10 ${revealClasses(isVisible)}`}>
           <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-[48px] text-[#F5F3F0] leading-tight mb-3">
-            A IA que vende para você.
+            IA que vende para você
           </h2>
           <p className="text-base md:text-lg text-[#F5F3F0]/70 max-w-2xl mx-auto">
             Qualifica leads, agenda reuniões, fecha vendas e atrai seu cliente ideal.
           </p>
         </div>
 
-        {/* Content Box */}
+        {/* Content Box - Fixed height */}
         <div className="bg-[#F5F3F0] rounded-3xl p-6 md:p-10 lg:p-12">
           {/* Tabs - Large and prominent */}
           <div 
@@ -106,17 +107,17 @@ const ProspectionSection = () => {
                   className={`
                     relative px-4 py-4 md:py-6 text-left transition-all duration-300 group rounded-xl
                     ${isActive 
-                      ? 'bg-dalton-purple' 
+                      ? 'bg-[#e8e6e3]' 
                       : 'bg-zinc-100 hover:bg-zinc-200'
                     }
                   `}
                 >
-                  <span className={`block text-xs md:text-base mb-1 ${isActive ? 'text-white/70' : 'text-zinc-500'}`}>
+                  <span className={`block text-xs md:text-base mb-1 ${isActive ? 'text-zinc-600' : 'text-zinc-500'}`}>
                     Agente de
                   </span>
                   <span className={`
                     block font-inter font-bold text-2xl md:text-3xl lg:text-[40px] transition-colors leading-tight
-                    ${isActive ? 'text-white' : 'text-zinc-700 group-hover:text-zinc-900'}
+                    ${isActive ? 'text-zinc-900' : 'text-zinc-700 group-hover:text-zinc-900'}
                   `}>
                     {tabLabels[tab]}
                   </span>
@@ -125,8 +126,8 @@ const ProspectionSection = () => {
             })}
           </div>
 
-          {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+          {/* Main Content Grid - Fixed min-height for consistency */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center min-h-[400px]">
             {/* Left: Text Content */}
             <div 
               className={`${revealClasses(isVisible)}`}
@@ -144,16 +145,14 @@ const ProspectionSection = () => {
                 {currentAgent.description}
               </p>
 
-              {/* Feature List */}
+              {/* Feature List - Check only, no checkbox */}
               <ul className="space-y-3 mb-6">
                 {currentAgent.features.map((feature, index) => (
                   <li 
                     key={index}
                     className="flex items-start gap-3"
                   >
-                    <div className="flex-shrink-0 w-5 h-5 rounded bg-zinc-900 flex items-center justify-center mt-0.5">
-                      <Check className="w-3 h-3 text-white" strokeWidth={3} />
-                    </div>
+                    <Check className="w-5 h-5 text-zinc-900 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                     <span className="text-sm md:text-base text-zinc-700 leading-relaxed">
                       {feature}
                     </span>
@@ -164,42 +163,43 @@ const ProspectionSection = () => {
               {/* CTA Button */}
               <button
                 onClick={handleCtaClick}
-                className={`inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 ${
-                  currentAgent.ctaAction === 'modal' 
-                    ? 'bg-dalton-purple text-white hover:bg-dalton-purple/90' 
-                    : 'bg-[#101823] text-white hover:bg-[#1a2533]'
-                }`}
+                className="inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 text-white relative overflow-hidden"
+                style={{
+                  background: currentAgent.ctaAction === 'modal' 
+                    ? `url(${buttonPinkGradient}) center/cover` 
+                    : '#101823'
+                }}
               >
                 {currentAgent.ctaText}
               </button>
             </div>
 
-            {/* Right: Dashboard or Coming Soon Image */}
+            {/* Right: Dashboard or Coming Soon Image - Fixed size container */}
             <div 
-              className={`relative ${revealClasses(isVisible)}`}
+              className={`relative flex items-center justify-center ${revealClasses(isVisible)}`}
               style={getStaggerDelay(2)}
             >
-              {currentAgent.isComingSoon ? (
-                /* Coming Soon Background with Blur Image */
-                <div className="relative aspect-square max-w-[280px] mx-auto rounded-2xl overflow-hidden">
-                  <img 
-                    src={blurBackground} 
-                    alt="" 
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  {/* Coming Soon Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-white/95 backdrop-blur-sm text-zinc-900 font-semibold text-lg md:text-xl px-6 py-3 rounded-full shadow-lg">
-                      Em breve
-                    </span>
+              <div className="relative aspect-square w-full max-w-[280px] mx-auto">
+                {currentAgent.isComingSoon ? (
+                  /* Coming Soon Background with Blur Image */
+                  <div className="w-full h-full rounded-2xl overflow-hidden">
+                    <img 
+                      src={blurBackground} 
+                      alt="" 
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    {/* Coming Soon Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="bg-white/95 backdrop-blur-sm text-zinc-900 font-semibold text-lg md:text-xl px-6 py-3 rounded-full shadow-lg">
+                        Em breve
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                /* Dashboard Mockup - Compact Square */
-                <div className="aspect-square max-w-[280px] mx-auto">
+                ) : (
+                  /* Dashboard Mockup - Compact Square */
                   <CompactDashboardMockup />
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
         </div>

@@ -6,15 +6,15 @@ const AudioDemoSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#101823] relative overflow-hidden"
+      className="section-padding bg-[#F5F3F0] relative overflow-hidden"
     >
       {/* Checkered Background Pattern */}
       <div 
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #F5F3F0 1px, transparent 1px),
-            linear-gradient(to bottom, #F5F3F0 1px, transparent 1px)
+            linear-gradient(to right, #101823 1px, transparent 1px),
+            linear-gradient(to bottom, #101823 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
         }}

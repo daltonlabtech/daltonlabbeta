@@ -74,18 +74,18 @@ const ProspectionSection = () => {
       className="pt-8 pb-[60px] md:pt-12 md:pb-[120px] bg-[#101823] overflow-hidden"
     >
       <div className="container-main">
+        {/* Fixed Header - Outside Card */}
+        <div className={`text-center mb-8 md:mb-10 ${revealClasses(isVisible)}`}>
+          <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-[48px] text-[#F5F3F0] leading-tight mb-3">
+            A IA que vende para você.
+          </h2>
+          <p className="text-base md:text-lg text-[#F5F3F0]/70 max-w-2xl mx-auto">
+            Qualifica leads, agenda reuniões, fecha vendas e atrai seu cliente ideal.
+          </p>
+        </div>
+
         {/* Content Box */}
         <div className="bg-[#F5F3F0] rounded-3xl p-6 md:p-10 lg:p-12">
-          {/* Fixed Header */}
-          <div className={`text-center mb-8 md:mb-10 ${revealClasses(isVisible)}`}>
-            <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-[48px] text-zinc-900 leading-tight mb-3">
-              A IA que vende para você.
-            </h2>
-            <p className="text-base md:text-lg text-zinc-600 max-w-2xl mx-auto">
-              Qualifica leads, agenda reuniões, fecha vendas e atrai seu cliente ideal.
-            </p>
-          </div>
-
           {/* Tabs - Larger and more prominent */}
           <div 
             className={`flex flex-col sm:flex-row justify-center gap-4 md:gap-8 mb-8 md:mb-12 ${revealClasses(isVisible)}`}

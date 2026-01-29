@@ -164,7 +164,13 @@ const ProspectionSection = () => {
               {/* CTA Button */}
               <button
                 onClick={handleCtaClick}
-                className="inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 bg-[#101823] text-white hover:bg-zinc-800"
+                className="inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 relative overflow-hidden hover:opacity-90"
+                style={{
+                  background: currentAgent.ctaAction === 'modal' 
+                    ? `url(${buttonPinkGradient}) center/cover no-repeat` 
+                    : '#101823',
+                  color: currentAgent.ctaAction === 'modal' ? '#fff' : '#fff'
+                }}
               >
                 {currentAgent.ctaText}
               </button>

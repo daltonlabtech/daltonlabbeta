@@ -88,7 +88,7 @@ const ProspectionSection = () => {
         <div className="bg-[#F5F3F0] rounded-3xl p-6 md:p-10 lg:p-12">
           {/* Tabs - Larger and more prominent */}
           <div 
-            className={`flex flex-col sm:flex-row justify-center gap-4 md:gap-8 mb-8 md:mb-12 ${revealClasses(isVisible)}`}
+            className={`grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-4 mb-8 md:mb-12 ${revealClasses(isVisible)}`}
           >
             {(['vendas', 'conteudo', 'anuncio'] as AgentTab[]).map((tab) => {
               const isActive = activeTab === tab;
@@ -103,19 +103,19 @@ const ProspectionSection = () => {
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={`
-                    relative px-6 py-4 text-center transition-all duration-300 group
+                    relative px-4 py-4 md:py-6 text-left transition-all duration-300 group rounded-xl
                     ${isActive 
-                      ? 'border-b-2 border-zinc-900' 
-                      : 'border-b-2 border-transparent hover:border-zinc-300'
+                      ? 'bg-zinc-900' 
+                      : 'bg-zinc-100 hover:bg-zinc-200'
                     }
                   `}
                 >
-                  <span className="block text-xs md:text-sm text-zinc-500 mb-1">
+                  <span className={`block text-xs md:text-sm mb-1 ${isActive ? 'text-zinc-400' : 'text-zinc-500'}`}>
                     Agente de
                   </span>
                   <span className={`
-                    block font-inter font-bold text-2xl md:text-3xl lg:text-4xl transition-colors
-                    ${isActive ? 'text-zinc-900' : 'text-zinc-400 group-hover:text-zinc-600'}
+                    block font-inter font-bold text-xl md:text-2xl lg:text-3xl transition-colors
+                    ${isActive ? 'text-white' : 'text-zinc-700 group-hover:text-zinc-900'}
                   `}>
                     {tabLabels[tab]}
                   </span>

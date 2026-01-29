@@ -216,84 +216,48 @@ const ProspectionSection = () => {
   );
 };
 
-// Sales Dashboard Mockup - Minimalist Pipeline Chart
+// Sales Dashboard Mockup - Ultra Minimalist Pipeline Chart
 const SalesDashboardMockup = () => (
-  <div className="bg-[#e8e6e3] rounded-2xl overflow-hidden h-full flex flex-col p-5">
-    {/* Tabs */}
-    <div className="flex gap-2 mb-6">
-      <span className="text-[11px] text-zinc-500 bg-white/60 px-3 py-1.5 rounded-full">Campaign 1</span>
-      <span className="text-[11px] text-zinc-500 bg-white/60 px-3 py-1.5 rounded-full">Campaign 2</span>
-      <span className="text-[11px] text-zinc-900 bg-zinc-900 text-white px-3 py-1.5 rounded-full font-medium">Campaign 3</span>
-    </div>
-
-    {/* Chart Area */}
-    <div className="flex-1 relative">
-      {/* Y-axis labels */}
-      <div className="absolute left-0 top-0 bottom-6 flex flex-col justify-between text-[10px] text-zinc-400 w-6">
-        <span>20</span>
-        <span>15</span>
-        <span>10</span>
-        <span>5</span>
-      </div>
-      
-      {/* Chart */}
-      <div className="ml-8 h-full pb-6">
-        <svg className="w-full h-full" viewBox="0 0 280 100" preserveAspectRatio="none">
-          {/* Grid lines - subtle */}
-          <line x1="0" y1="0" x2="280" y2="0" stroke="#d4d4d8" strokeWidth="0.5" strokeDasharray="4 4" />
-          <line x1="0" y1="25" x2="280" y2="25" stroke="#d4d4d8" strokeWidth="0.5" strokeDasharray="4 4" />
-          <line x1="0" y1="50" x2="280" y2="50" stroke="#d4d4d8" strokeWidth="0.5" strokeDasharray="4 4" />
-          <line x1="0" y1="75" x2="280" y2="75" stroke="#d4d4d8" strokeWidth="0.5" strokeDasharray="4 4" />
-          
-          {/* Gray line (Campaign 1) - flat trend */}
-          <path 
-            d="M0,70 L47,68 L94,65 L141,63 L188,60 L235,58 L280,55" 
-            fill="none" 
-            stroke="#a1a1aa" 
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          
-          {/* Dark gray line (Campaign 2) - slight growth */}
-          <path 
-            d="M0,75 L47,60 L94,50 L141,45 L188,40 L235,35 L280,30" 
-            fill="none" 
-            stroke="#71717a" 
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          
-          {/* Black line (Campaign 3) - STRONG UPWARD TREND with animation */}
-          <path 
-            d="M0,85 L47,70 L94,55 L141,40 L188,28 L235,18 L280,10" 
-            fill="none" 
-            stroke="#18181b" 
-            strokeWidth="3"
-            strokeLinecap="round"
-            className="animate-draw-line"
-          />
-          
-          {/* Animated dot at end of main line */}
-          <circle cx="280" cy="10" r="6" fill="#18181b" className="animate-pulse-dot" style={{ animationDelay: '1s' }} />
-          
-          {/* Avatar indicator at the peak */}
-          <g className="animate-bounce-subtle" style={{ animationDelay: '1.5s' }}>
-            <circle cx="260" cy="15" r="12" fill="#18181b" stroke="white" strokeWidth="2" />
-            <text x="260" y="19" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">↗</text>
-          </g>
-        </svg>
-      </div>
-      
-      {/* X-axis labels */}
-      <div className="absolute bottom-0 left-8 right-0 flex justify-between text-[10px] text-zinc-400">
-        <span>S</span>
-        <span>M</span>
-        <span>T</span>
-        <span>W</span>
-        <span>T</span>
-        <span>F</span>
-        <span>S</span>
-      </div>
+  <div className="bg-[#e8e6e3] rounded-2xl overflow-hidden h-full flex flex-col p-6 justify-center">
+    {/* Chart Area - Clean and minimal */}
+    <div className="flex-1 flex items-center">
+      <svg className="w-full h-full max-h-[200px]" viewBox="0 0 240 120" preserveAspectRatio="xMidYMid meet">
+        {/* Single upward trend line - minimal */}
+        <path 
+          d="M20,100 Q60,90 100,70 T180,30 Q200,20 220,15" 
+          fill="none" 
+          stroke="#18181b" 
+          strokeWidth="3"
+          strokeLinecap="round"
+          className="animate-draw-line"
+        />
+        
+        {/* Subtle secondary line */}
+        <path 
+          d="M20,105 Q80,95 140,85 T220,70" 
+          fill="none" 
+          stroke="#a1a1aa" 
+          strokeWidth="2"
+          strokeLinecap="round"
+          opacity="0.5"
+        />
+        
+        {/* Animated endpoint dot */}
+        <circle 
+          cx="220" 
+          cy="15" 
+          r="6" 
+          fill="#18181b" 
+          className="animate-pulse-dot" 
+          style={{ animationDelay: '1s' }} 
+        />
+        
+        {/* Growth indicator */}
+        <g className="animate-bounce-subtle" style={{ animationDelay: '1.5s' }}>
+          <circle cx="200" cy="25" r="14" fill="#18181b" />
+          <text x="200" y="30" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">↗</text>
+        </g>
+      </svg>
     </div>
   </div>
 );

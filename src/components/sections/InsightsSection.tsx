@@ -52,8 +52,8 @@ const InsightsSection = () => {
             <h2 
               className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 leading-tight ${revealClasses(isVisible)}`}
             >
-              A nova forma de escalar<br />
-              receita
+              A nova forma de<br />
+              escalar receita
             </h2>
 
             {/* Feature Cards */}

@@ -5,7 +5,7 @@ const plans = [
   {
     name: "Agente de Vendas",
     description: "Para empresas que querem escalar seu ciclo comercial",
-    listTitle: "O Dalton será responsável por:",
+    listTitle: "Incluso no Agente de Vendas:",
     items: [
       'Qualificar oportunidades',
       'Fazer follow-up',
@@ -71,14 +71,14 @@ const SquadPlansSection = () => {
                   {plan.name}
                 </h3>
 
-                {/* Description - Larger text */}
+                {/* Description - Smaller text */}
                 {'descriptionLine1' in plan ? (
-                  <p className="mt-4 font-inter font-normal text-base md:text-lg text-[#1A232F]/70 leading-relaxed text-center">
+                  <p className="mt-3 font-inter font-normal text-sm md:text-base text-[#1A232F]/70 leading-relaxed text-center">
                     {plan.descriptionLine1}<br />
                     {plan.descriptionLine2}
                   </p>
                 ) : (
-                  <p className="mt-4 font-inter font-normal text-base md:text-lg text-[#1A232F]/70 leading-relaxed text-center">
+                  <p className="mt-3 font-inter font-normal text-sm md:text-base text-[#1A232F]/70 leading-relaxed text-center">
                     {'description' in plan ? plan.description : ''}
                   </p>
                 )}
@@ -103,12 +103,12 @@ const SquadPlansSection = () => {
                 {/* Spacer to push button to bottom */}
                 <div className="flex-grow" />
 
-                {/* CTA Button - Dark blue, no arrow */}
+                {/* CTA Button - Rounded like header button */}
                 <a 
                   href={plan.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 w-full py-4 rounded-xl font-inter font-semibold text-base flex items-center justify-center transition-all duration-300 bg-[#101823] text-white hover:bg-[#1a2533]"
+                  className="mt-8 w-full py-3.5 rounded-full font-inter font-semibold text-base flex items-center justify-center transition-all duration-300 bg-[#101823] text-white hover:bg-[#1a2533]"
                 >
                   {plan.ctaText}
                 </a>

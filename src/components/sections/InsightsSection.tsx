@@ -18,7 +18,7 @@ const InsightsSection = () => {
     },
     {
       title: 'Alertas em tempo real',
-      description: 'Acompanhe novas vendas em tempo real e receba insights e previsões de faturamento. Tudo no WhatsApp.',
+      description: 'Acompanhe novas vendas e receba insights e previsões de faturamento. Tudo no WhatsApp.',
     },
   ];
 

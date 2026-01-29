@@ -48,10 +48,10 @@ const AboutSection = () => {
   const { ref: photosRef, isVisible: photosVisible } = useScrollReveal();
 
   return (
-    <section className="bg-[#101823] pt-24 md:pt-32">
+    <section className="bg-[#F5F3F0] pt-24 md:pt-32">
       {/* Fundadores e equipe - Hero Title */}
       <div className="container mx-auto px-6 md:px-12 lg:px-20 py-6 md:py-10">
-        <h1 className="font-inter text-4xl md:text-5xl lg:text-6xl text-[#F5F3F0] font-light text-center">
+        <h1 className="font-inter text-4xl md:text-5xl lg:text-6xl text-[#1A232F] font-light text-center">
           Fundadores e equipe
         </h1>
       </div>
@@ -95,15 +95,15 @@ const AboutSection = () => {
       {/* Empresa Section */}
       <div className="container mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-24">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-inter text-2xl md:text-3xl text-white font-normal mb-6">
+          <h2 className="font-inter text-2xl md:text-3xl text-[#1A232F] font-normal mb-6">
             Empresa
           </h2>
-          <div className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed space-y-4 text-justify">
+          <div className="font-inter text-base md:text-lg text-[#1A232F]/80 leading-relaxed space-y-4 text-justify">
             <p>
               Somos uma startup brasileira pioneira no modelo Agents-as-a-Service (AaaS). Nossa missão é transformar empresas convencionais em organizações agênticas, onde agentes de IA executam tarefas operacionais complexas e humanos tomam decisões estratégicas.
             </p>
             <p>
-              Enquanto o mercado debate o potencial da IA, nós já vivemos essa realidade. Somos 11 profissionais operando lado a lado com mais de 30 agentes de IA proprietários.
+              Enquanto o mercado debate o potencial da IA, nós já vivemos essa realidade. Somos 11 professionais operando lado a lado com mais de 30 agentes de IA proprietários.
             </p>
             <p>
               Essa configuração híbrida define a nova era do trabalho: agentes executam em volume e mantêm operações 24/7, enquanto humanos focam em estratégia, relacionamentos e liderança.
@@ -118,7 +118,7 @@ const AboutSection = () => {
       {/* Fundadores Section */}
       <div className="container mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-inter text-2xl md:text-3xl text-white font-normal mb-8 md:mb-12">
+          <h2 className="font-inter text-2xl md:text-3xl text-[#1A232F] font-normal mb-8 md:mb-12">
             Fundadores
           </h2>
         </div>
@@ -128,10 +128,10 @@ const AboutSection = () => {
           {founders.map((founder, index) => (
             <div 
               key={index}
-              className={`relative flex flex-col md:flex-row items-start gap-6 p-6 rounded-2xl overflow-hidden border border-white/10 ${
+              className={`relative flex flex-col md:flex-row items-start gap-6 p-6 rounded-2xl overflow-hidden border border-[#1A232F]/10 ${
                 index % 2 === 1 ? 'md:flex-row-reverse' : ''
               }`}
-              style={{ backgroundColor: '#1A232F' }}
+              style={{ backgroundColor: '#E8E6E3' }}
             >
               {/* Photo */}
               <div className="relative z-10 w-28 h-28 md:w-36 md:h-36 rounded-xl overflow-hidden flex-shrink-0">
@@ -156,30 +156,30 @@ const AboutSection = () => {
 
               {/* Info */}
               <div className="relative z-10 flex-1">
-                <h3 className="font-inter font-bold text-xl text-white">
+                <h3 className="font-inter font-bold text-xl text-[#1A232F]">
                   {founder.name}
                 </h3>
                 <p className="font-inter font-medium text-sm text-dalton-blue">
                   {founder.role}
                 </p>
-                <p className="mt-3 font-inter text-sm text-white/70 leading-relaxed">
+                <p className="mt-3 font-inter text-sm text-[#1A232F]/70 leading-relaxed">
                   {founder.description}
                 </p>
                 
                 {/* Social Icons */}
                 <div className="mt-4 flex items-center gap-3">
                   {founder.socials.instagram && (
-                    <a href={founder.socials.instagram} className="text-white/50 hover:text-white transition-colors">
+                    <a href={founder.socials.instagram} className="text-[#1A232F]/50 hover:text-[#1A232F] transition-colors">
                       <Instagram className="w-4 h-4" />
                     </a>
                   )}
                   {founder.socials.linkedin && (
-                    <a href={founder.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors">
+                    <a href={founder.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#1A232F]/50 hover:text-[#1A232F] transition-colors">
                       <Linkedin className="w-4 h-4" />
                     </a>
                   )}
                   {founder.socials.youtube && (
-                    <a href={founder.socials.youtube} className="text-white/50 hover:text-white transition-colors">
+                    <a href={founder.socials.youtube} className="text-[#1A232F]/50 hover:text-[#1A232F] transition-colors">
                       <Youtube className="w-4 h-4" />
                     </a>
                   )}

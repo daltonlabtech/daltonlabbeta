@@ -216,74 +216,76 @@ const ProspectionSection = () => {
   );
 };
 
-// Sales Dashboard Mockup - Performance Chart with Upward Trend
+// Sales Dashboard Mockup - Minimalist Pipeline Chart
 const SalesDashboardMockup = () => (
-  <div className="bg-white rounded-2xl shadow-xl border border-zinc-200 overflow-hidden h-full flex flex-col p-4">
-    {/* Header */}
-    <div className="flex items-center justify-between mb-4">
-      <div className="flex items-center gap-2">
-        <span className="text-zinc-600">↗</span>
-        <span className="text-sm font-semibold text-zinc-900">Performance de Conversação</span>
-      </div>
-      <div className="flex gap-2">
-        <span className="text-[10px] text-zinc-500 bg-zinc-100 px-2 py-1 rounded">Mensal</span>
-        <span className="text-[10px] text-zinc-500 bg-zinc-100 px-2 py-1 rounded">Pipeline Gerado</span>
-      </div>
+  <div className="bg-[#e8e6e3] rounded-2xl overflow-hidden h-full flex flex-col p-5">
+    {/* Tabs */}
+    <div className="flex gap-2 mb-6">
+      <span className="text-[11px] text-zinc-500 bg-white/60 px-3 py-1.5 rounded-full">Campaign 1</span>
+      <span className="text-[11px] text-zinc-500 bg-white/60 px-3 py-1.5 rounded-full">Campaign 2</span>
+      <span className="text-[11px] text-zinc-900 bg-zinc-900 text-white px-3 py-1.5 rounded-full font-medium">Campaign 3</span>
     </div>
 
     {/* Chart Area */}
     <div className="flex-1 relative">
       {/* Y-axis labels */}
-      <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-[9px] text-zinc-400 w-12">
-        <span>R$380K</span>
-        <span>R$285K</span>
-        <span>R$190K</span>
-        <span>R$95K</span>
-        <span>R$0K</span>
+      <div className="absolute left-0 top-0 bottom-6 flex flex-col justify-between text-[10px] text-zinc-400 w-6">
+        <span>20</span>
+        <span>15</span>
+        <span>10</span>
+        <span>5</span>
       </div>
       
       {/* Chart */}
-      <div className="ml-14 h-full pb-8">
-        <svg className="w-full h-full" viewBox="0 0 280 120" preserveAspectRatio="none">
-          {/* Grid lines */}
-          <line x1="0" y1="0" x2="280" y2="0" stroke="#f4f4f5" strokeWidth="1" />
-          <line x1="0" y1="30" x2="280" y2="30" stroke="#f4f4f5" strokeWidth="1" />
-          <line x1="0" y1="60" x2="280" y2="60" stroke="#f4f4f5" strokeWidth="1" />
-          <line x1="0" y1="90" x2="280" y2="90" stroke="#f4f4f5" strokeWidth="1" />
-          <line x1="0" y1="120" x2="280" y2="120" stroke="#f4f4f5" strokeWidth="1" />
+      <div className="ml-8 h-full pb-6">
+        <svg className="w-full h-full" viewBox="0 0 280 100" preserveAspectRatio="none">
+          {/* Grid lines - subtle */}
+          <line x1="0" y1="0" x2="280" y2="0" stroke="#d4d4d8" strokeWidth="0.5" strokeDasharray="4 4" />
+          <line x1="0" y1="25" x2="280" y2="25" stroke="#d4d4d8" strokeWidth="0.5" strokeDasharray="4 4" />
+          <line x1="0" y1="50" x2="280" y2="50" stroke="#d4d4d8" strokeWidth="0.5" strokeDasharray="4 4" />
+          <line x1="0" y1="75" x2="280" y2="75" stroke="#d4d4d8" strokeWidth="0.5" strokeDasharray="4 4" />
           
-          {/* Gray line (previous period) - declining trend */}
+          {/* Gray line (Campaign 1) - flat trend */}
           <path 
-            d="M0,50 L47,55 L94,60 L141,65 L188,70 L235,75 L280,80" 
+            d="M0,70 L47,68 L94,65 L141,63 L188,60 L235,58 L280,55" 
             fill="none" 
-            stroke="#d4d4d8" 
+            stroke="#a1a1aa" 
             strokeWidth="2"
+            strokeLinecap="round"
           />
           
-          {/* Black line (current period) - UPWARD TREND with animation */}
+          {/* Dark gray line (Campaign 2) - slight growth */}
           <path 
-            d="M0,95 L47,75 L94,60 L141,45 L188,35 L235,22 L280,10" 
+            d="M0,75 L47,60 L94,50 L141,45 L188,40 L235,35 L280,30" 
+            fill="none" 
+            stroke="#71717a" 
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          
+          {/* Black line (Campaign 3) - STRONG UPWARD TREND with animation */}
+          <path 
+            d="M0,85 L47,70 L94,55 L141,40 L188,28 L235,18 L280,10" 
             fill="none" 
             stroke="#18181b" 
-            strokeWidth="2.5"
+            strokeWidth="3"
             strokeLinecap="round"
             className="animate-draw-line"
           />
           
-          {/* Animated dots on the upward line */}
-          <circle cx="141" cy="45" r="4" fill="#18181b" className="animate-pulse-dot" style={{ animationDelay: '0.5s' }} />
-          <circle cx="235" cy="22" r="4" fill="#18181b" className="animate-pulse-dot" style={{ animationDelay: '1s' }} />
-          <circle cx="280" cy="10" r="5" fill="#22c55e" className="animate-pulse-dot" style={{ animationDelay: '1.5s' }} />
+          {/* Animated dot at end of main line */}
+          <circle cx="280" cy="10" r="6" fill="#18181b" className="animate-pulse-dot" style={{ animationDelay: '1s' }} />
           
-          {/* Growth arrow indicator */}
-          <g className="animate-bounce-subtle" style={{ animationDelay: '2s' }}>
-            <polygon points="280,10 270,20 275,17 275,30 285,30 285,17 290,20" fill="#22c55e" />
+          {/* Avatar indicator at the peak */}
+          <g className="animate-bounce-subtle" style={{ animationDelay: '1.5s' }}>
+            <circle cx="260" cy="15" r="12" fill="#18181b" stroke="white" strokeWidth="2" />
+            <text x="260" y="19" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">↗</text>
           </g>
         </svg>
       </div>
       
       {/* X-axis labels */}
-      <div className="absolute bottom-0 left-14 right-0 flex justify-between text-[9px] text-zinc-400">
+      <div className="absolute bottom-0 left-8 right-0 flex justify-between text-[10px] text-zinc-400">
         <span>S</span>
         <span>M</span>
         <span>T</span>
@@ -291,18 +293,6 @@ const SalesDashboardMockup = () => (
         <span>T</span>
         <span>F</span>
         <span>S</span>
-      </div>
-    </div>
-
-    {/* Legend */}
-    <div className="flex items-center justify-center gap-6 mt-2 pt-2 border-t border-zinc-100">
-      <div className="flex items-center gap-2">
-        <div className="w-4 h-0.5 bg-zinc-900"></div>
-        <span className="text-[10px] text-zinc-600">Período atual</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <div className="w-4 h-0.5 bg-zinc-300"></div>
-        <span className="text-[10px] text-zinc-600">Período anterior</span>
       </div>
     </div>
   </div>

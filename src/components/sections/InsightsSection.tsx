@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { MessageCircle, TrendingUp, Users, DollarSign, BarChart3 } from 'lucide-react';
+import { MessageCircle, BarChart3 } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
-import daltonIcon from '@/assets/dalton-icon.png';
 import daltonCircleLogo from '@/assets/dalton-logo-circle.webp';
 
 const InsightsSection = () => {
@@ -10,29 +9,32 @@ const InsightsSection = () => {
 
   const features = [
     {
+      title: 'Ciclo completo',
+      description: 'Da prospecção ao fechamento, do post ao anúncio. Tudo automatizado.',
+    },
+    {
+      title: 'Escala infinita',
+      description: 'Atende todos seus leads com a mesma qualidade e velocidade.',
+    },
+    {
       title: 'Alertas em tempo real',
-      description: 'Lead parado há 3 dias? Reunião sem follow-up? O Dalton identifica e te notifica antes que vire problema.',
-    },
-    {
-      title: 'Resumos diários sob demanda',
-      description: 'Pergunte "como foi ontem?" por áudio ou texto. O Dalton responde com análises, não com dashboards.',
-    },
-    {
-      title: 'Previsões, não só relatórios',
-      description: 'O Dalton analisa padrões e te diz o que provavelmente vai acontecer no seu funil, não só o que já aconteceu.',
+      description: 'Ele avisa quando há uma nova venda, traz previsões de faturamento e gera insights. Tudo no WhatsApp.',
     },
   ];
 
   const chatMessages = [
-    { type: 'user', text: 'Dalton, quantas reuniões foram feitas essa semana?', time: '10:32' },
-    { type: 'bot', text: 'Foram feitas 30 reuniões essa semana com potencial de 300K em ARR. Gostaria de saber mais?', time: '10:33' },
+    { type: 'bot', text: 'Oi, Rodrigo!', time: '10:30' },
+    { type: 'bot', text: 'Notícia boa: batemos 119% da meta este mês!', time: '10:30' },
+    { type: 'bot', text: 'Analisando os números, vi que se triplicarmos os leads qualificados, podemos dobrar o faturamento até março.', time: '10:31' },
+    { type: 'bot', text: 'Que tal um teste gratuito de 30 dias da minha funcionalidade de anúncio para escalarmos ainda mais o ROI das suas campanhas?', time: '10:31' },
+    { type: 'user', text: 'Bora nessa!', time: '10:32' },
   ];
 
-  // Cycle through conversation states: 0 = typing user, 1 = user sent, 2 = typing bot, 3 = bot sent, 4 = typing user again
+  // Cycle through conversation states
   useEffect(() => {
     const interval = setInterval(() => {
-      setMessageIndex((prev) => (prev + 1) % 5);
-    }, 2500);
+      setMessageIndex((prev) => (prev + 1) % 8);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -50,7 +52,7 @@ const InsightsSection = () => {
             <h2 
               className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 leading-tight ${revealClasses(isVisible)}`}
             >
-              Pergunte pro Dalton. Ele sabe.
+              Enquanto outras IAs conversam, o Dalton executa.
             </h2>
 
             {/* Subtitle */}
@@ -58,7 +60,7 @@ const InsightsSection = () => {
               className={`mt-4 font-inter font-normal text-sm md:text-base text-zinc-600 max-w-lg ${revealClasses(isVisible)}`}
               style={getStaggerDelay(1)}
             >
-              Ele avisa quando um lead esfria, o funil trava ou é hora de fechar. Tudo no <span className="font-bold" style={{ color: '#73cf60' }}>WhatsApp</span>.
+              A nova forma de escalar os seus negócios.
             </p>
 
             {/* Feature Cards */}
@@ -105,17 +107,17 @@ const InsightsSection = () => {
               </div>
             </div>
 
-            {/* Callout 2 - WhatsApp integration (bottom left) */}
+            {/* Callout 2 - Natural Language (bottom left) */}
             <div 
               className="absolute hidden md:block z-30 animate-subtle-float"
               style={{ bottom: '60px', left: '-40px', animationDelay: '1s' }}
             >
               <div className="relative bg-white text-zinc-900 px-4 py-3 rounded-2xl shadow-lg border border-zinc-200 max-w-[200px]">
                 <p className="text-sm font-semibold leading-snug">
-                  Converse pelo WhatsApp
+                  Linguagem natural
                 </p>
                 <p className="text-xs text-zinc-500 mt-1">
-                  Pergunte qualquer coisa, receba respostas instantâneas
+                  Compreende contexto, tom e intenção em cada conversa
                 </p>
                 {/* Pointer arrow */}
                 <div 
@@ -169,7 +171,7 @@ const InsightsSection = () => {
                   {/* Dynamic Island */}
                   <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-zinc-900 rounded-full z-10" />
                   
-                  {/* Dashboard Content - New Design */}
+                  {/* Dashboard Content */}
                   <div className="pt-14 px-3 pb-3 h-full bg-zinc-50 overflow-hidden">
                     {/* App Header */}
                     <div className="flex items-center justify-between mb-3">
@@ -194,7 +196,7 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Mini Line Chart - Static */}
+                    {/* Mini Line Chart */}
                     <div className="bg-white rounded-xl p-3 shadow-sm mb-3">
                       <p className="text-[9px] text-zinc-500 font-medium mb-2">Performance Semanal</p>
                       <div className="h-12 relative">
@@ -212,7 +214,7 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Mini Donut Chart - Static */}
+                    {/* Mini Donut Chart */}
                     <div className="bg-white rounded-xl p-3 shadow-sm mb-3">
                       <p className="text-[9px] text-zinc-500 font-medium mb-2">Canais</p>
                       <div className="flex items-center gap-3">
@@ -243,7 +245,7 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Insights Cards - Static */}
+                    {/* Insights Cards */}
                     <div className="space-y-1.5">
                       <div className="bg-amber-50 border border-amber-200 rounded-lg p-2 text-[8px] text-amber-800">
                         💡 Conversões +23% pela manhã
@@ -311,34 +313,9 @@ const InsightsSection = () => {
                   </div>
 
                   {/* Chat Messages */}
-                  <div className="flex-1 p-3 space-y-2 overflow-hidden">
-                    {/* Typing Indicator - User (green) - State 0 */}
-                    <div className={`flex justify-end transition-all duration-300 ${messageIndex === 0 ? 'opacity-100' : 'opacity-0 hidden'}`}>
-                      <div 
-                        className="rounded-xl px-4 py-3 shadow-sm flex items-center gap-1"
-                        style={{ backgroundColor: '#DCF8C6' }}
-                      >
-                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot" />
-                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot-2" />
-                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot-3" />
-                      </div>
-                    </div>
-
-                    {/* Message 1 - User (green) - State 1+ */}
-                    <div className={`flex justify-end transition-all duration-500 ${messageIndex >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                      <div 
-                        className="rounded-xl px-3 py-2 max-w-[88%] shadow-sm animate-message-appear"
-                        style={{ backgroundColor: '#DCF8C6' }}
-                      >
-                        <p className="text-[12px] text-zinc-800 leading-relaxed">
-                          {chatMessages[0].text}
-                        </p>
-                        <p className="text-[9px] text-zinc-500 text-right mt-1">{chatMessages[0].time}</p>
-                      </div>
-                    </div>
-
-                    {/* Typing Indicator - Bot (white) - State 2 */}
-                    <div className={`flex justify-start transition-all duration-300 ${messageIndex === 2 ? 'opacity-100' : 'opacity-0 hidden'}`}>
+                  <div className="flex-1 p-3 space-y-1.5 overflow-hidden">
+                    {/* Typing Indicator - Bot (white) - State 0 */}
+                    <div className={`flex justify-start transition-all duration-300 ${messageIndex === 0 ? 'opacity-100' : 'opacity-0 hidden'}`}>
                       <div className="bg-white rounded-xl px-4 py-3 shadow-sm flex items-center gap-1">
                         <div className="w-2 h-2 bg-zinc-400 rounded-full animate-typing-dot" />
                         <div className="w-2 h-2 bg-zinc-400 rounded-full animate-typing-dot-2" />
@@ -346,18 +323,48 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Message 2 - Bot (white) - State 3+ */}
-                    <div className={`flex justify-start transition-all duration-500 ${messageIndex >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                      <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm animate-message-appear">
-                        <p className="text-[12px] text-zinc-800 leading-relaxed">
-                          {chatMessages[1].text}
+                    {/* Message 1 - Bot: "Oi, Rodrigo!" - State 1+ */}
+                    <div className={`flex justify-start transition-all duration-500 ${messageIndex >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                      <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm">
+                        <p className="text-[11px] text-zinc-800 leading-relaxed">
+                          {chatMessages[0].text}
                         </p>
-                        <p className="text-[9px] text-zinc-500 text-right mt-1">{chatMessages[1].time}</p>
+                        <p className="text-[8px] text-zinc-500 text-right mt-0.5">{chatMessages[0].time}</p>
                       </div>
                     </div>
 
-                    {/* Typing Indicator - User (green) again - State 4 */}
-                    <div className={`flex justify-end transition-all duration-300 ${messageIndex === 4 ? 'opacity-100' : 'opacity-0 hidden'}`}>
+                    {/* Message 2 - Bot: "Notícia boa..." - State 2+ */}
+                    <div className={`flex justify-start transition-all duration-500 ${messageIndex >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                      <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm">
+                        <p className="text-[11px] text-zinc-800 leading-relaxed">
+                          {chatMessages[1].text}
+                        </p>
+                        <p className="text-[8px] text-zinc-500 text-right mt-0.5">{chatMessages[1].time}</p>
+                      </div>
+                    </div>
+
+                    {/* Message 3 - Bot: "Analisando os números..." - State 3+ */}
+                    <div className={`flex justify-start transition-all duration-500 ${messageIndex >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                      <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm">
+                        <p className="text-[11px] text-zinc-800 leading-relaxed">
+                          {chatMessages[2].text}
+                        </p>
+                        <p className="text-[8px] text-zinc-500 text-right mt-0.5">{chatMessages[2].time}</p>
+                      </div>
+                    </div>
+
+                    {/* Message 4 - Bot: "Que tal um teste..." - State 4+ */}
+                    <div className={`flex justify-start transition-all duration-500 ${messageIndex >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                      <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm">
+                        <p className="text-[11px] text-zinc-800 leading-relaxed">
+                          {chatMessages[3].text}
+                        </p>
+                        <p className="text-[8px] text-zinc-500 text-right mt-0.5">{chatMessages[3].time}</p>
+                      </div>
+                    </div>
+
+                    {/* Typing Indicator - User (green) - State 5 */}
+                    <div className={`flex justify-end transition-all duration-300 ${messageIndex === 5 ? 'opacity-100' : 'opacity-0 hidden'}`}>
                       <div 
                         className="rounded-xl px-4 py-3 shadow-sm flex items-center gap-1"
                         style={{ backgroundColor: '#DCF8C6' }}
@@ -365,6 +372,19 @@ const InsightsSection = () => {
                         <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot" />
                         <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot-2" />
                         <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot-3" />
+                      </div>
+                    </div>
+
+                    {/* Message 5 - User: "Bora nessa!" - State 6+ */}
+                    <div className={`flex justify-end transition-all duration-500 ${messageIndex >= 6 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                      <div 
+                        className="rounded-xl px-3 py-2 max-w-[88%] shadow-sm"
+                        style={{ backgroundColor: '#DCF8C6' }}
+                      >
+                        <p className="text-[11px] text-zinc-800 leading-relaxed">
+                          {chatMessages[4].text}
+                        </p>
+                        <p className="text-[8px] text-zinc-500 text-right mt-0.5">{chatMessages[4].time}</p>
                       </div>
                     </div>
                   </div>

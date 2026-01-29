@@ -94,16 +94,16 @@ const AboutSection = () => {
 
       {/* Empresa Section */}
       <div className="container mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-24">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-32 items-start">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-32 items-start max-w-[900px] mx-auto">
           <h2 className="font-inter text-2xl md:text-3xl text-white font-normal flex-shrink-0">
             Empresa
           </h2>
-          <div className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed max-w-2xl space-y-4">
+          <div className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed flex-1 space-y-4">
             <p>
               Somos uma startup brasileira pioneira no modelo Agents-as-a-Service (AaaS). Nossa missão é transformar empresas convencionais em organizações agênticas, onde agentes de IA executam tarefas operacionais complexas e humanos tomam decisões estratégicas.
             </p>
             <p>
-              Enquanto o mercado debate o potencial da IA, nós já vivemos essa realidade. <span className="text-white">Somos 11 profissionais operando lado a lado com mais de 30 agentes de IA proprietários.</span>
+              Enquanto o mercado debate o potencial da IA, nós já vivemos essa realidade. Somos 11 profissionais operando lado a lado com mais de 30 agentes de IA proprietários.
             </p>
             <p>
               Essa configuração híbrida define a nova era do trabalho: agentes executam em volume e mantêm operações 24/7, enquanto humanos focam em estratégia, relacionamentos e liderança.

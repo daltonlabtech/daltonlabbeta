@@ -156,13 +156,13 @@ const AboutSection = () => {
 
               {/* Info */}
               <div className="relative z-10 flex-1">
-                <h3 className="font-inter font-bold text-xl text-[#1A232F]">
+                <h3 className="font-inter font-bold text-xl text-[#F5F3F0]">
                   {founder.name}
                 </h3>
                 <p className="font-inter font-medium text-sm text-dalton-blue">
                   {founder.role}
                 </p>
-                <p className="mt-3 font-inter text-sm text-[#1A232F]/70 leading-relaxed">
+                <p className="mt-3 font-inter text-sm text-[#F5F3F0]/70 leading-relaxed">
                   {founder.description}
                 </p>
                 

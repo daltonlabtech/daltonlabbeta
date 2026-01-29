@@ -100,7 +100,7 @@ const AboutSection = () => {
           </h2>
           <div className="font-inter text-base md:text-lg text-[#F5F3F0]/80 leading-relaxed space-y-4 text-justify">
             <p>
-              Somos uma startup brasileira pioneira no modelo Agents-as-a-Service (AaaS). Nossa missão é transformar empresas convencionais em organizações agênticas, onde agentes de IA executam tarefas operacionais complexas e humanos tomam decisões estratégicas.
+              Somos uma startup brasileira pioneira no modelo Agents-as-a-Service (AaaS), operando globalmente em 4 continentes. Nossa missão é transformar empresas convencionais em organizações agênticas, onde agentes de IA executam tarefas operacionais complexas e humanos tomam decisões estratégicas.
             </p>
             <p>
               Enquanto o mercado debate o potencial da IA, nós já vivemos essa realidade. Somos 11 professionais operando lado a lado com mais de 30 agentes de IA proprietários.

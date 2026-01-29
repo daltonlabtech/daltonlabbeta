@@ -52,7 +52,8 @@ const InsightsSection = () => {
             <h2 
               className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 leading-tight ${revealClasses(isVisible)}`}
             >
-              Enquanto outras IAs conversam, o Dalton executa.
+              IAs conversam.<br />
+              Dalton vende.
             </h2>
 
             {/* Subtitle */}

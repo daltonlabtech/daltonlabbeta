@@ -111,7 +111,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => handleChange('phone', e.target.value)}
-                  placeholder="👉 +55 (11) 9999-999"
+                  placeholder="+55 (11) 9999-999"
                   required
                   className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400"
                 />

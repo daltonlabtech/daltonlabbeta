@@ -199,7 +199,7 @@ const ProspectionSection = () => {
                 </div>
               ) : (
                 /* Dashboard Mockup - Compact Square */
-                <div className="aspect-square max-w-[380px] mx-auto">
+                <div className="aspect-square max-w-[320px] mx-auto">
                   <CompactDashboardMockup />
                 </div>
               )}

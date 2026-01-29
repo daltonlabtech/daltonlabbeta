@@ -201,6 +201,7 @@ const ProspectionSection = () => {
                   /* Dashboard Mockup - Compact Square */
                   <CompactDashboardMockup />
                 )}
+              </div>
             </div>
           </div>
         </div>

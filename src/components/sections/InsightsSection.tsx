@@ -25,15 +25,15 @@ const InsightsSection = () => {
   const chatMessages = [
     { type: 'bot', text: 'Oi, Rodrigo!', time: '10:30' },
     { type: 'bot', text: 'Notícia boa: batemos 119% da meta este mês!', time: '10:30' },
-    { type: 'bot', text: 'Analisando os números, vi que se triplicarmos os leads qualificados, podemos dobrar o faturamento até março.', time: '10:31' },
-    { type: 'bot', text: 'Que tal um teste gratuito de 30 dias da minha funcionalidade de anúncio para escalarmos ainda mais o ROI das suas campanhas?', time: '10:31' },
+    { type: 'user', text: 'Boa, Dalton!', time: '10:31' },
+    { type: 'bot', text: 'Que tal testarmos minha funcionalidade de conteúdo próximo mês?', time: '10:31' },
     { type: 'user', text: 'Bora nessa!', time: '10:32' },
   ];
 
-  // Cycle through conversation states
+  // Cycle through conversation states (6 states: typing + 5 messages)
   useEffect(() => {
     const interval = setInterval(() => {
-      setMessageIndex((prev) => (prev + 1) % 8);
+      setMessageIndex((prev) => (prev + 1) % 7);
     }, 2000);
     return () => clearInterval(interval);
   }, []);
@@ -52,7 +52,8 @@ const InsightsSection = () => {
             <h2 
               className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 leading-tight ${revealClasses(isVisible)}`}
             >
-              Enquanto outras IAs conversam, o Dalton executa.
+              IAs conversam.<br />
+              Dalton vende.
             </h2>
 
             {/* Subtitle */}
@@ -343,9 +344,12 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Message 3 - Bot: "Analisando os números..." - State 3+ */}
-                    <div className={`flex justify-start transition-all duration-500 ${messageIndex >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                      <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm">
+                    {/* Message 3 - User: "Boa, Dalton!" - State 3+ */}
+                    <div className={`flex justify-end transition-all duration-500 ${messageIndex >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                      <div 
+                        className="rounded-xl px-3 py-2 max-w-[88%] shadow-sm"
+                        style={{ backgroundColor: '#DCF8C6' }}
+                      >
                         <p className="text-[11px] text-zinc-800 leading-relaxed">
                           {chatMessages[2].text}
                         </p>
@@ -353,7 +357,7 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Message 4 - Bot: "Que tal um teste..." - State 4+ */}
+                    {/* Message 4 - Bot: "Que tal testarmos..." - State 4+ */}
                     <div className={`flex justify-start transition-all duration-500 ${messageIndex >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                       <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm">
                         <p className="text-[11px] text-zinc-800 leading-relaxed">
@@ -363,20 +367,8 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Typing Indicator - User (green) - State 5 */}
-                    <div className={`flex justify-end transition-all duration-300 ${messageIndex === 5 ? 'opacity-100' : 'opacity-0 hidden'}`}>
-                      <div 
-                        className="rounded-xl px-4 py-3 shadow-sm flex items-center gap-1"
-                        style={{ backgroundColor: '#DCF8C6' }}
-                      >
-                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot" />
-                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot-2" />
-                        <div className="w-2 h-2 bg-green-600 rounded-full animate-typing-dot-3" />
-                      </div>
-                    </div>
-
-                    {/* Message 5 - User: "Bora nessa!" - State 6+ */}
-                    <div className={`flex justify-end transition-all duration-500 ${messageIndex >= 6 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                    {/* Message 5 - User: "Bora nessa!" - State 5+ */}
+                    <div className={`flex justify-end transition-all duration-500 ${messageIndex >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                       <div 
                         className="rounded-xl px-3 py-2 max-w-[88%] shadow-sm"
                         style={{ backgroundColor: '#DCF8C6' }}

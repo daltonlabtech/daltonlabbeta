@@ -74,21 +74,21 @@ const ProspectionSection = () => {
       className="pt-8 pb-[60px] md:pt-12 md:pb-[120px] bg-[#101823] overflow-hidden"
     >
       <div className="container-main">
+        {/* Fixed Header - Outside Card */}
+        <div className={`text-center mb-8 md:mb-10 ${revealClasses(isVisible)}`}>
+          <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-[48px] text-[#F5F3F0] leading-tight mb-3">
+            A IA que vende para você.
+          </h2>
+          <p className="text-base md:text-lg text-[#F5F3F0]/70 max-w-2xl mx-auto">
+            Qualifica leads, agenda reuniões, fecha vendas e atrai seu cliente ideal.
+          </p>
+        </div>
+
         {/* Content Box */}
         <div className="bg-[#F5F3F0] rounded-3xl p-6 md:p-10 lg:p-12">
-          {/* Fixed Header */}
-          <div className={`text-center mb-8 md:mb-10 ${revealClasses(isVisible)}`}>
-            <h2 className="font-inter font-bold text-3xl md:text-4xl lg:text-[48px] text-zinc-900 leading-tight mb-3">
-              A IA que vende para você.
-            </h2>
-            <p className="text-base md:text-lg text-zinc-600 max-w-2xl mx-auto">
-              Qualifica leads, agenda reuniões, fecha vendas e atrai seu cliente ideal.
-            </p>
-          </div>
-
           {/* Tabs - Larger and more prominent */}
           <div 
-            className={`flex flex-col sm:flex-row justify-center gap-4 md:gap-8 mb-8 md:mb-12 ${revealClasses(isVisible)}`}
+            className={`grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-4 mb-8 md:mb-12 ${revealClasses(isVisible)}`}
           >
             {(['vendas', 'conteudo', 'anuncio'] as AgentTab[]).map((tab) => {
               const isActive = activeTab === tab;
@@ -103,19 +103,19 @@ const ProspectionSection = () => {
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={`
-                    relative px-6 py-4 text-center transition-all duration-300 group
+                    relative px-4 py-4 md:py-6 text-left transition-all duration-300 group rounded-xl
                     ${isActive 
-                      ? 'border-b-2 border-zinc-900' 
-                      : 'border-b-2 border-transparent hover:border-zinc-300'
+                      ? 'bg-zinc-900' 
+                      : 'bg-zinc-100 hover:bg-zinc-200'
                     }
                   `}
                 >
-                  <span className="block text-xs md:text-sm text-zinc-500 mb-1">
+                  <span className={`block text-xs md:text-sm mb-1 ${isActive ? 'text-zinc-400' : 'text-zinc-500'}`}>
                     Agente de
                   </span>
                   <span className={`
-                    block font-inter font-bold text-2xl md:text-3xl lg:text-4xl transition-colors
-                    ${isActive ? 'text-zinc-900' : 'text-zinc-400 group-hover:text-zinc-600'}
+                    block font-inter font-bold text-xl md:text-2xl lg:text-3xl transition-colors
+                    ${isActive ? 'text-white' : 'text-zinc-700 group-hover:text-zinc-900'}
                   `}>
                     {tabLabels[tab]}
                   </span>
@@ -176,16 +176,16 @@ const ProspectionSection = () => {
             >
               {currentAgent.isComingSoon ? (
                 /* Coming Soon Background with Blur */
-                <div className="relative aspect-square max-w-[380px] mx-auto rounded-2xl overflow-hidden">
+                <div className="relative aspect-square max-w-[320px] mx-auto rounded-2xl overflow-hidden">
                   <div 
-                    className="absolute inset-0 blur-md"
+                    className="absolute inset-0 blur-xl"
                     style={{
-                      background: 'linear-gradient(135deg, #1a4a5e 0%, #2d3a4a 25%, #1e3a5f 50%, #3d2a4a 75%, #1a4a5e 100%)',
+                      background: 'linear-gradient(135deg, #1e5a8a 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #f472b6 100%)',
                     }}
                   />
                   {/* Noise texture overlay */}
                   <div 
-                    className="absolute inset-0 opacity-40"
+                    className="absolute inset-0 opacity-30"
                     style={{
                       backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
                     }}
@@ -199,7 +199,7 @@ const ProspectionSection = () => {
                 </div>
               ) : (
                 /* Dashboard Mockup - Compact Square */
-                <div className="aspect-square max-w-[380px] mx-auto">
+                <div className="aspect-square max-w-[320px] mx-auto">
                   <CompactDashboardMockup />
                 </div>
               )}

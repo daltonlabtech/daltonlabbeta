@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Check } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 import WaitlistModal from '@/components/ui/WaitlistModal';
+import blurBackground from '@/assets/backgrounds/blur-gradient.jpg';
 
 type AgentTab = 'vendas' | 'conteudo' | 'anuncio';
 
@@ -86,7 +87,7 @@ const ProspectionSection = () => {
 
         {/* Content Box */}
         <div className="bg-[#F5F3F0] rounded-3xl p-6 md:p-10 lg:p-12">
-          {/* Tabs - Larger and more prominent */}
+          {/* Tabs - Large and prominent */}
           <div 
             className={`grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-4 mb-8 md:mb-12 ${revealClasses(isVisible)}`}
           >
@@ -105,16 +106,16 @@ const ProspectionSection = () => {
                   className={`
                     relative px-4 py-4 md:py-6 text-left transition-all duration-300 group rounded-xl
                     ${isActive 
-                      ? 'bg-zinc-900' 
+                      ? 'bg-dalton-purple' 
                       : 'bg-zinc-100 hover:bg-zinc-200'
                     }
                   `}
                 >
-                  <span className={`block text-xs md:text-sm mb-1 ${isActive ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                  <span className={`block text-xs md:text-base mb-1 ${isActive ? 'text-white/70' : 'text-zinc-500'}`}>
                     Agente de
                   </span>
                   <span className={`
-                    block font-inter font-bold text-xl md:text-2xl lg:text-3xl transition-colors
+                    block font-inter font-bold text-2xl md:text-3xl lg:text-[40px] transition-colors leading-tight
                     ${isActive ? 'text-white' : 'text-zinc-700 group-hover:text-zinc-900'}
                   `}>
                     {tabLabels[tab]}
@@ -163,32 +164,28 @@ const ProspectionSection = () => {
               {/* CTA Button */}
               <button
                 onClick={handleCtaClick}
-                className="inline-flex items-center justify-center bg-[#101823] text-white font-medium text-sm px-6 py-3 rounded-full hover:bg-[#1a2533] transition-all duration-300"
+                className={`inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 ${
+                  currentAgent.ctaAction === 'modal' 
+                    ? 'bg-dalton-purple text-white hover:bg-dalton-purple/90' 
+                    : 'bg-[#101823] text-white hover:bg-[#1a2533]'
+                }`}
               >
                 {currentAgent.ctaText}
               </button>
             </div>
 
-            {/* Right: Dashboard or Coming Soon Image - Smaller and square */}
+            {/* Right: Dashboard or Coming Soon Image */}
             <div 
               className={`relative ${revealClasses(isVisible)}`}
               style={getStaggerDelay(2)}
             >
               {currentAgent.isComingSoon ? (
-                /* Coming Soon Background with Blur */
-                <div className="relative aspect-square max-w-[320px] mx-auto rounded-2xl overflow-hidden">
-                  <div 
-                    className="absolute inset-0 blur-xl"
-                    style={{
-                      background: 'linear-gradient(135deg, #1e5a8a 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #f472b6 100%)',
-                    }}
-                  />
-                  {/* Noise texture overlay */}
-                  <div 
-                    className="absolute inset-0 opacity-30"
-                    style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-                    }}
+                /* Coming Soon Background with Blur Image */
+                <div className="relative aspect-square max-w-[280px] mx-auto rounded-2xl overflow-hidden">
+                  <img 
+                    src={blurBackground} 
+                    alt="" 
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                   {/* Coming Soon Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -199,7 +196,7 @@ const ProspectionSection = () => {
                 </div>
               ) : (
                 /* Dashboard Mockup - Compact Square */
-                <div className="aspect-square max-w-[320px] mx-auto">
+                <div className="aspect-square max-w-[280px] mx-auto">
                   <CompactDashboardMockup />
                 </div>
               )}

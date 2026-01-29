@@ -183,23 +183,23 @@ const ProspectionSection = () => {
             >
               <div className="relative w-full max-w-[320px] mx-auto aspect-square">
                 {currentAgent.isComingSoon ? (
-                  /* Coming Soon Background with Blur Image */
-                  <div className="w-full h-full rounded-2xl overflow-hidden">
+                  /* Coming Soon Background with Blur Image - All corners rounded */
+                  <div className="w-full h-full rounded-2xl overflow-hidden relative">
                     <img 
                       src={blurBackground} 
                       alt="" 
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover rounded-2xl"
                     />
                     {/* Coming Soon Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex items-center justify-center rounded-2xl">
                       <span className="bg-white/95 backdrop-blur-sm text-zinc-900 font-semibold text-lg md:text-xl px-6 py-3 rounded-full shadow-lg">
                         Em breve
                       </span>
                     </div>
                   </div>
                 ) : (
-                  /* Dashboard Mockup - Compact Square */
-                  <CompactDashboardMockup />
+                  /* Dashboard Mockup - Sales Preview */
+                  <SalesDashboardMockup />
                 )}
               </div>
             </div>

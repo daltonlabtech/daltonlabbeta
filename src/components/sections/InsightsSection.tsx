@@ -25,8 +25,8 @@ const InsightsSection = () => {
   const chatMessages = [
     { type: 'bot', text: 'Oi, Rodrigo!', time: '10:30' },
     { type: 'bot', text: 'Notícia boa: batemos 119% da meta este mês!', time: '10:30' },
-    { type: 'bot', text: 'Analisando os números, vi que se triplicarmos os leads qualificados, podemos dobrar o faturamento até março.', time: '10:31' },
-    { type: 'bot', text: 'Que tal um teste gratuito de 30 dias da minha funcionalidade de anúncio para escalarmos ainda mais o ROI das suas campanhas?', time: '10:31' },
+    { type: 'user', text: 'Boa, Dalton!', time: '10:31' },
+    { type: 'bot', text: 'Que tal testarmos minha funcionalidade de conteúdo próximo mês?', time: '10:31' },
     { type: 'user', text: 'Bora nessa!', time: '10:32' },
   ];
 

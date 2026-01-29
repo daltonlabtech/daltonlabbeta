@@ -95,7 +95,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleChange('email', e.target.value)}
-                  placeholder="seu@empresa.com"
+                  placeholder="nome@empresa.com"
                   required
                   className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400"
                 />

@@ -13,8 +13,8 @@ const AudioDemoSection = () => {
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #F5F3F0 1px, transparent 1px),
-            linear-gradient(to bottom, #F5F3F0 1px, transparent 1px)
+            linear-gradient(to right, #101823 1px, transparent 1px),
+            linear-gradient(to bottom, #101823 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
         }}

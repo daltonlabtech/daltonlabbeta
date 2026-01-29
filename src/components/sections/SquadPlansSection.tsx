@@ -1,5 +1,5 @@
-import { ArrowRight, Check } from 'lucide-react';
-import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
+import { Check } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const plans = [
   {
@@ -15,7 +15,6 @@ const plans = [
     ],
     ctaText: "Fale com o Dalton",
     ctaLink: "https://chat.daltonlab.ai/",
-    color: "dalton-purple",
   },
   {
     name: "Consultoria Enterprise",
@@ -29,21 +28,11 @@ const plans = [
     ],
     ctaText: "Agende uma reunião",
     ctaLink: "https://chat.daltonlab.ai/",
-    color: "dalton-orange",
   }
 ];
 
 const SquadPlansSection = () => {
   const { ref, isVisible } = useScrollReveal();
-  
-  const colorClasses: Record<string, { bgSolid: string }> = {
-    "dalton-purple": { 
-      bgSolid: "bg-dalton-purple",
-    },
-    "dalton-orange": { 
-      bgSolid: "bg-dalton-orange",
-    },
-  };
 
   return (
     <section 
@@ -66,8 +55,6 @@ const SquadPlansSection = () => {
         {/* Plans Grid - Two Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
           {plans.map((plan, index) => {
-            const colors = colorClasses[plan.color];
-
             return (
               <div 
                 key={plan.name}
@@ -88,7 +75,7 @@ const SquadPlansSection = () => {
                   {plan.description}
                 </p>
 
-                {/* Items List */}
+                {/* Items List - Check icon only, no checkbox */}
                 <div className="mt-6">
                   <p className="font-inter font-semibold text-xs text-[#1A232F]/50 uppercase tracking-wider mb-3">
                     {plan.listTitle}
@@ -96,9 +83,7 @@ const SquadPlansSection = () => {
                   <ul className="space-y-2">
                     {plan.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-center gap-2">
-                        <div className={`w-4 h-4 rounded-full ${colors.bgSolid} flex items-center justify-center flex-shrink-0`}>
-                          <Check className="w-2.5 h-2.5 text-white" />
-                        </div>
+                        <Check className="w-4 h-4 text-[#1A232F] flex-shrink-0" strokeWidth={2.5} />
                         <span className="font-inter text-xs text-[#1A232F]">
                           {item}
                         </span>
@@ -110,15 +95,14 @@ const SquadPlansSection = () => {
                 {/* Spacer to push button to bottom */}
                 <div className="flex-grow" />
 
-                {/* CTA Button */}
+                {/* CTA Button - Dark blue, no arrow */}
                 <a 
                   href={plan.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-8 w-full py-3.5 rounded-xl font-inter font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${colors.bgSolid} text-white hover:opacity-90`}
+                  className="mt-8 w-full py-3.5 rounded-xl font-inter font-semibold text-sm flex items-center justify-center transition-all duration-300 bg-[#101823] text-white hover:bg-[#1a2533]"
                 >
                   {plan.ctaText}
-                  <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             );

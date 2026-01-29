@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import backgroundBlur from '@/assets/backgrounds/background-blur.webp';
 
 const plans = [
   {
@@ -37,17 +38,15 @@ const SquadPlansSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#101823] relative overflow-hidden"
+      className="section-padding relative overflow-hidden"
     >
-      {/* Checkered Background Pattern */}
+      {/* Background Image */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0"
         style={{
-          backgroundImage: `
-            linear-gradient(to right, #F5F3F0 1px, transparent 1px),
-            linear-gradient(to bottom, #F5F3F0 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px',
+          backgroundImage: `url(${backgroundBlur})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       />
       
@@ -65,26 +64,26 @@ const SquadPlansSection = () => {
                   transitionDelay: `${(index + 1) * 150}ms`,
                 }}
               >
-                {/* Plan Name */}
-                <h3 className="font-inter font-bold text-2xl text-[#1A232F]">
+                {/* Plan Name - Title size, centered */}
+                <h3 className="font-inter font-bold text-2xl md:text-3xl lg:text-[32px] text-[#1A232F] text-center">
                   {plan.name}
                 </h3>
 
-                {/* Description */}
-                <p className="mt-4 font-inter font-normal text-sm text-[#1A232F]/70 leading-relaxed">
+                {/* Description - Larger text */}
+                <p className="mt-4 font-inter font-normal text-base md:text-lg text-[#1A232F]/70 leading-relaxed text-center">
                   {plan.description}
                 </p>
 
-                {/* Items List - Check icon only, no checkbox */}
-                <div className="mt-6">
-                  <p className="font-inter font-semibold text-xs text-[#1A232F]/50 uppercase tracking-wider mb-3">
+                {/* Items List - Check icon only, no checkbox, larger text */}
+                <div className="mt-8">
+                  <p className="font-inter font-semibold text-sm text-[#1A232F]/50 uppercase tracking-wider mb-4">
                     {plan.listTitle}
                   </p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {plan.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-[#1A232F] flex-shrink-0" strokeWidth={2.5} />
-                        <span className="font-inter text-xs text-[#1A232F]">
+                      <li key={itemIndex} className="flex items-center gap-3">
+                        <Check className="w-5 h-5 text-[#1A232F] flex-shrink-0" strokeWidth={2.5} />
+                        <span className="font-inter text-base text-[#1A232F]">
                           {item}
                         </span>
                       </li>
@@ -100,7 +99,7 @@ const SquadPlansSection = () => {
                   href={plan.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 w-full py-3.5 rounded-xl font-inter font-semibold text-sm flex items-center justify-center transition-all duration-300 bg-[#101823] text-white hover:bg-[#1a2533]"
+                  className="mt-8 w-full py-4 rounded-xl font-inter font-semibold text-base flex items-center justify-center transition-all duration-300 bg-[#101823] text-white hover:bg-[#1a2533]"
                 >
                   {plan.ctaText}
                 </a>

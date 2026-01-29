@@ -18,7 +18,7 @@ interface AgentContent {
 
 const agentData: Record<AgentTab, AgentContent> = {
   vendas: {
-    title: 'Nunca perca um lead',
+    title: 'Nunca mais perca um lead',
     description: 'O Dalton automatiza o seu processo comercial, escalando suas vendas e garantindo receita previsível.',
     features: [
       'Respostas instantâneas 24/7',
@@ -108,7 +108,7 @@ const ProspectionSection = () => {
                     relative px-4 py-4 md:py-6 text-left transition-all duration-300 group rounded-xl
                     ${isActive 
                       ? 'bg-[#e8e6e3]' 
-                      : 'bg-zinc-100 hover:bg-zinc-200'
+                      : 'bg-[#F5F3F0] hover:bg-[#eae8e5]'
                     }
                   `}
                 >
@@ -163,11 +163,13 @@ const ProspectionSection = () => {
               {/* CTA Button */}
               <button
                 onClick={handleCtaClick}
-                className="inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 text-white relative overflow-hidden"
+                className="inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 relative overflow-hidden"
                 style={{
                   background: currentAgent.ctaAction === 'modal' 
-                    ? `url(${buttonPinkGradient}) center/cover` 
-                    : '#101823'
+                    ? `url(${buttonPinkGradient}) center/cover no-repeat` 
+                    : '#101823',
+                  backgroundAttachment: 'scroll',
+                  color: currentAgent.ctaAction === 'modal' ? '#1A232F' : '#fff'
                 }}
               >
                 {currentAgent.ctaText}
@@ -179,7 +181,7 @@ const ProspectionSection = () => {
               className={`relative flex items-center justify-center ${revealClasses(isVisible)}`}
               style={getStaggerDelay(2)}
             >
-              <div className="relative aspect-square w-full max-w-[280px] mx-auto">
+              <div className="relative w-full max-w-[320px] mx-auto aspect-square">
                 {currentAgent.isComingSoon ? (
                   /* Coming Soon Background with Blur Image */
                   <div className="w-full h-full rounded-2xl overflow-hidden">

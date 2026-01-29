@@ -98,7 +98,7 @@ const AboutSection = () => {
           <h2 className="font-inter text-2xl md:text-3xl text-white font-normal mb-6">
             Empresa
           </h2>
-          <div className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed space-y-4">
+          <div className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed space-y-4 text-justify">
             <p>
               Somos uma startup brasileira pioneira no modelo Agents-as-a-Service (AaaS). Nossa missão é transformar empresas convencionais em organizações agênticas, onde agentes de IA executam tarefas operacionais complexas e humanos tomam decisões estratégicas.
             </p>

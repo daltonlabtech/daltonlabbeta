@@ -4,7 +4,7 @@ import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScro
 import WaitlistModal from '@/components/ui/WaitlistModal';
 import blurBackground from '@/assets/backgrounds/blur-gradient.jpg';
 import buttonLightGradient from '@/assets/backgrounds/button-light-gradient.jpg';
-import buttonDarkGradient from '@/assets/backgrounds/button-dark-gradient.jpg';
+
 
 type AgentTab = 'vendas' | 'conteudo' | 'anuncio';
 

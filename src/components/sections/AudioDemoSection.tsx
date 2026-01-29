@@ -6,7 +6,7 @@ const AudioDemoSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#101823] relative overflow-hidden"
+      className="section-padding bg-[#F5F3F0] relative overflow-hidden"
     >
       {/* Checkered Background Pattern */}
       <div 

@@ -219,7 +219,13 @@ const ProspectionSection = () => {
 
 // Sales Dashboard Mockup - Static Smooth Line Chart
 const SalesDashboardMockup = () => (
-  <div className="bg-[#e8e6e3] rounded-2xl overflow-hidden h-full flex flex-col p-4 justify-center">
+  <div className="bg-[#e8e6e3] rounded-2xl overflow-hidden h-full flex flex-col p-4 justify-center relative">
+    {/* Conversão de leads tag */}
+    <div className="absolute top-4 left-4 z-10">
+      <span className="bg-zinc-800 text-white text-xs font-medium px-3 py-1.5 rounded-full">
+        Conversão de leads
+      </span>
+    </div>
     <svg className="w-full h-full" viewBox="0 0 280 180" preserveAspectRatio="xMidYMid meet">
       {/* Gradient definition for area fill */}
       <defs>

@@ -6,20 +6,8 @@ const AudioDemoSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="section-padding bg-[#F5F3F0] relative overflow-hidden"
+      className="py-12 md:py-16 bg-[#F5F3F0] relative overflow-hidden"
     >
-      {/* Checkered Background Pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #101823 1px, transparent 1px),
-            linear-gradient(to bottom, #101823 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px',
-        }}
-      />
-      
       <div className="container-main max-w-4xl relative z-10">
         {/* Main Card with title, subtitle and embed all inside */}
         <div 
@@ -48,7 +36,7 @@ const AudioDemoSection = () => {
               allowFullScreen
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
               loading="lazy"
-              className="md:h-[232px]"
+              className="md:h-[152px]"
             />
           </div>
         </div>

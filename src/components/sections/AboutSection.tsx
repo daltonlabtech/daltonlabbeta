@@ -118,7 +118,7 @@ const AboutSection = () => {
       {/* Fundadores Section */}
       <div className="container mx-auto px-6 md:px-12 lg:px-20 py-12 md:py-16">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-inter text-2xl md:text-3xl text-white font-normal mb-8 md:mb-12">
+          <h2 className="font-inter text-2xl md:text-3xl text-[#1A232F] font-normal mb-8 md:mb-12">
             Fundadores
           </h2>
         </div>

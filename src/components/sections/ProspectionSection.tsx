@@ -216,74 +216,93 @@ const ProspectionSection = () => {
   );
 };
 
-// Compact Square Dashboard Mockup Component
-const CompactDashboardMockup = () => (
+// Sales Dashboard Mockup - Matching the reference design
+const SalesDashboardMockup = () => (
   <div className="bg-white rounded-2xl shadow-xl border border-zinc-200 overflow-hidden h-full flex flex-col">
-    {/* Header */}
-    <div className="px-4 py-3 border-b border-zinc-100 flex items-center justify-between">
-      <div>
-        <h3 className="font-inter font-semibold text-sm text-zinc-900">Dashboard</h3>
-        <p className="text-[10px] text-zinc-500">Atualizado agora</p>
+    {/* KPI Cards Row */}
+    <div className="grid grid-cols-2 gap-3 p-4 pb-2">
+      <div className="bg-white rounded-xl p-3 border border-zinc-100">
+        <div className="flex items-center gap-1 text-[10px] text-zinc-500 mb-1">
+          <span>↗</span>
+          <span>Taxa de Conversão</span>
+        </div>
+        <p className="font-inter font-bold text-2xl text-zinc-900">45.1%</p>
+        <p className="text-[10px] text-green-600 font-medium">↗ +2.1% vs Last Week</p>
       </div>
-      <button className="bg-dalton-blue text-white text-[10px] px-3 py-1 rounded-lg">
-        Exportar
-      </button>
+      <div className="bg-white rounded-xl p-3 border border-zinc-100">
+        <div className="flex items-center gap-1 text-[10px] text-zinc-500 mb-1">
+          <span>📅</span>
+          <span>Agendamentos Realizados</span>
+        </div>
+        <p className="font-inter font-bold text-2xl text-zinc-900">1.847</p>
+        <p className="text-[10px] text-green-600 font-medium">↗ +15.7% vs Last Week</p>
+      </div>
     </div>
 
-    {/* Content */}
-    <div className="p-4 flex-1 flex flex-col gap-3">
-      {/* KPI Cards */}
-      <div className="grid grid-cols-2 gap-2">
-        <div className="bg-zinc-50 rounded-xl p-3 border border-zinc-100">
-          <span className="text-[10px] text-zinc-500">Leads</span>
-          <p className="font-inter font-bold text-xl text-zinc-900">23.456</p>
-          <p className="text-[10px] text-green-600 font-medium">↗ +12.5%</p>
-        </div>
-        <div className="bg-zinc-50 rounded-xl p-3 border border-zinc-100">
-          <span className="text-[10px] text-zinc-500">Engajamento</span>
-          <p className="font-inter font-bold text-xl text-zinc-900">64.9%</p>
-          <p className="text-[10px] text-green-600 font-medium">↗ +8.3%</p>
-        </div>
-        <div className="bg-zinc-50 rounded-xl p-3 border border-zinc-100">
-          <span className="text-[10px] text-zinc-500">Conversão</span>
-          <p className="font-inter font-bold text-xl text-zinc-900">45.1%</p>
-          <p className="text-[10px] text-green-600 font-medium">↗ +2.1%</p>
-        </div>
-        <div className="bg-zinc-50 rounded-xl p-3 border border-zinc-100">
-          <span className="text-[10px] text-zinc-500">Agendamentos</span>
-          <p className="font-inter font-bold text-xl text-zinc-900">1.847</p>
-          <p className="text-[10px] text-green-600 font-medium">↗ +15.7%</p>
-        </div>
-      </div>
-
-      {/* Line Chart */}
-      <div className="bg-white rounded-xl p-3 border border-zinc-100 flex-1">
+    {/* Line Chart */}
+    <div className="px-4 py-2 flex-1">
+      <div className="bg-white rounded-xl p-3 border border-zinc-100 h-full">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-semibold text-zinc-900">Performance</span>
-          <span className="text-[10px] text-zinc-500 bg-zinc-100 px-2 py-0.5 rounded">Mensal</span>
+          <div className="flex items-center gap-1 text-xs font-semibold text-zinc-900">
+            <span>↗</span>
+            <span>Performance de Conversação</span>
+          </div>
+          <div className="flex gap-1">
+            <span className="text-[8px] text-zinc-500 bg-zinc-100 px-2 py-0.5 rounded">Mensal</span>
+            <span className="text-[8px] text-zinc-500 bg-zinc-100 px-2 py-0.5 rounded">Pipeline Gerado</span>
+          </div>
         </div>
-        <div className="h-16 relative">
-          <svg className="w-full h-full" viewBox="0 0 300 60" preserveAspectRatio="none">
-            <line x1="0" y1="15" x2="300" y2="15" stroke="#f4f4f5" strokeWidth="1" />
-            <line x1="0" y1="30" x2="300" y2="30" stroke="#f4f4f5" strokeWidth="1" />
-            <line x1="0" y1="45" x2="300" y2="45" stroke="#f4f4f5" strokeWidth="1" />
+        <div className="h-20 relative">
+          <svg className="w-full h-full" viewBox="0 0 300 80" preserveAspectRatio="none">
+            {/* Y-axis labels simulation */}
+            <text x="5" y="10" className="text-[6px] fill-zinc-400">R$380K</text>
+            <text x="5" y="30" className="text-[6px] fill-zinc-400">R$285K</text>
+            <text x="5" y="50" className="text-[6px] fill-zinc-400">R$190K</text>
+            <text x="5" y="70" className="text-[6px] fill-zinc-400">R$95K</text>
+            
+            {/* Grid lines */}
+            <line x1="40" y1="10" x2="295" y2="10" stroke="#f4f4f5" strokeWidth="1" />
+            <line x1="40" y1="30" x2="295" y2="30" stroke="#f4f4f5" strokeWidth="1" />
+            <line x1="40" y1="50" x2="295" y2="50" stroke="#f4f4f5" strokeWidth="1" />
+            <line x1="40" y1="70" x2="295" y2="70" stroke="#f4f4f5" strokeWidth="1" />
+            
+            {/* Gray line (previous period) */}
             <path 
-              d="M0,50 L50,45 L100,40 L150,35 L200,30 L250,25 L300,20" 
+              d="M40,45 L80,35 L120,50 L160,40 L200,30 L240,35 L280,40" 
               fill="none" 
               stroke="#d4d4d8" 
-              strokeWidth="1.5" 
-              strokeDasharray="4,4"
+              strokeWidth="1.5"
             />
+            
+            {/* Black line (current period) */}
             <path 
-              d="M0,55 L50,35 L100,25 L150,30 L200,12 L250,18 L300,15" 
+              d="M40,55 L80,35 L120,50 L160,10 L200,25 L240,18 L280,35" 
               fill="none" 
               stroke="#18181b" 
               strokeWidth="2"
               strokeLinecap="round"
             />
-            <circle cx="200" cy="12" r="3" fill="#18181b" />
-            <circle cx="300" cy="15" r="3" fill="#18181b" />
+            <circle cx="160" cy="10" r="3" fill="#18181b" />
+            <circle cx="240" cy="18" r="3" fill="#18181b" />
           </svg>
+        </div>
+      </div>
+    </div>
+
+    {/* Insights Section */}
+    <div className="px-4 pb-4">
+      <div className="bg-zinc-50 rounded-xl p-3 border border-zinc-100">
+        <div className="flex items-center gap-1 text-xs font-semibold text-zinc-900 mb-2">
+          <span>💡</span>
+          <span>Insights do Dalton</span>
+        </div>
+        <div className="space-y-1.5">
+          <div className="bg-white rounded-lg p-2 text-[9px] text-zinc-700 border border-zinc-100">
+            Taxa de conversão aumentou 23% nas conversas iniciadas antes das 10h
+          </div>
+          <div className="bg-white rounded-lg p-2 text-[9px] text-zinc-700 border border-zinc-100">
+            Leads do segmento Enterprise têm 2.3x mais chance de conversão
+          </div>
         </div>
       </div>
     </div>

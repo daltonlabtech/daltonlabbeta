@@ -6,7 +6,7 @@ const AudioDemoSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-12 md:py-16 bg-[#F5F3F0] relative overflow-hidden"
+      className="py-6 md:py-8 pb-2 md:pb-4 bg-[#F5F3F0] relative overflow-hidden"
     >
       <div className="container-main max-w-4xl relative z-10">
         {/* Main Card with title, subtitle and embed all inside */}
@@ -17,26 +17,26 @@ const AudioDemoSection = () => {
 
           {/* Title and Subtitle inside the card */}
           <div className="mb-4 md:mb-6 pr-12">
-            <h2 className="font-inter font-bold text-xl md:text-2xl lg:text-3xl text-[#1A232F] leading-tight mb-1 md:mb-2">
+            <h2 className="font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-[#1A232F] leading-tight mb-2 md:mb-3">
               Confira nosso podcast no Spotify
             </h2>
-            <p className="font-inter text-xs md:text-sm text-[#1A232F]/70">
+            <p className="font-inter text-sm md:text-base text-[#1A232F]/70">
               Conversas com nossos fundadores sobre IA, empreendedorismo e inovação.
             </p>
           </div>
 
-          {/* Spotify Embed - hide album art on mobile */}
+          {/* Spotify Embed - larger height */}
           <div className="relative rounded-xl overflow-hidden shadow-lg">
             <iframe 
               style={{ borderRadius: '12px' }}
               src="https://open.spotify.com/embed/episode/6VzyyF8zIzsB5oecGUjWIY?utm_source=generator&theme=0" 
               width="100%" 
-              height="152"
+              height="232"
               frameBorder="0" 
               allowFullScreen
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
               loading="lazy"
-              className="md:h-[152px]"
+              className="md:h-[232px]"
             />
           </div>
         </div>

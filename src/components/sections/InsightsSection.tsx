@@ -57,12 +57,12 @@ const InsightsSection = () => {
             </h2>
 
             {/* Feature Cards */}
-            <div className="mt-10 space-y-4">
+            <div className="mt-8 space-y-4">
               {features.map((feature, index) => (
                 <div 
                   key={feature.title}
                   className={`bg-[#E8E6E3] rounded-2xl p-6 ${revealClasses(isVisible)} hover:scale-[1.02] transition-transform duration-300`}
-                  style={getStaggerDelay(index + 2)}
+                  style={getStaggerDelay(index + 1)}
                 >
                   <h3 className="font-inter font-semibold text-xl text-zinc-900 mb-2">
                     {feature.title}

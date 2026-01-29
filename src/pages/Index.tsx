@@ -7,6 +7,7 @@ import SkeletonSection from "@/components/ui/SkeletonSection";
 const ClientsSection = lazy(() => import("@/components/sections/ClientsSection"));
 const ProspectionSection = lazy(() => import("@/components/sections/ProspectionSection"));
 const InsightsSection = lazy(() => import("@/components/sections/InsightsSection"));
+const SquadPlansSection = lazy(() => import("@/components/sections/SquadPlansSection"));
 const AudioDemoSection = lazy(() => import("@/components/sections/AudioDemoSection"));
 const FAQSection = lazy(() => import("@/components/sections/FAQSection"));
 const Footer = lazy(() => import("@/components/sections/Footer"));
@@ -46,6 +47,10 @@ const Index = () => {
       
       <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
         <InsightsSection />
+      </Suspense>
+
+      <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
+        <SquadPlansSection />
       </Suspense>
       
       <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>

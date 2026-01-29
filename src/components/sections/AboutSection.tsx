@@ -98,9 +98,20 @@ const AboutSection = () => {
           <h2 className="font-inter text-2xl md:text-3xl text-white font-normal flex-shrink-0">
             Empresa
           </h2>
-          <p className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed max-w-2xl">
-            O Dalton Lab transforma empresas em organizações agênticas. <span className="text-white">Somos (apenas) 11 pessoas trabalhando lado a lado com mais de 20 agentes de IA internos.</span> Nascemos com um propósito claro: acelerar a transição das empresas para um modelo em que humanos e agentes de IA trabalham juntos. Humanos decidem, se relacionam e lideram. Agentes executam, escalam e mantêm a operação em movimento.
-          </p>
+          <div className="font-inter text-base md:text-lg text-dalton-gray-light/80 leading-relaxed max-w-2xl space-y-4">
+            <p>
+              Somos uma startup brasileira pioneira no modelo Agents-as-a-Service (AaaS). Nossa missão é transformar empresas convencionais em organizações agênticas — onde agentes de IA executam tarefas operacionais complexas e humanos tomam decisões estratégicas.
+            </p>
+            <p>
+              Enquanto o mercado debate o potencial da IA, nós já vivemos essa realidade. <span className="text-white">Somos 11 profissionais operando lado a lado com mais de 30 agentes de IA proprietários.</span>
+            </p>
+            <p>
+              Essa configuração híbrida define a nova era do trabalho: agentes executam em volume e mantêm operações 24/7, enquanto humanos focam em estratégia, relacionamentos e liderança.
+            </p>
+            <p>
+              O que buscamos é escala infinita — para nós e para nossos clientes.
+            </p>
+          </div>
         </div>
       </div>
 

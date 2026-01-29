@@ -103,12 +103,12 @@ const SquadPlansSection = () => {
                 {/* Spacer to push button to bottom */}
                 <div className="flex-grow" />
 
-                {/* CTA Button - Dark blue, no arrow */}
+                {/* CTA Button - Rounded like header button */}
                 <a 
                   href={plan.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 w-full py-4 rounded-xl font-inter font-semibold text-base flex items-center justify-center transition-all duration-300 bg-[#101823] text-white hover:bg-[#1a2533]"
+                  className="mt-8 w-full py-3.5 rounded-full font-inter font-semibold text-base flex items-center justify-center transition-all duration-300 bg-[#101823] text-white hover:bg-[#1a2533]"
                 >
                   {plan.ctaText}
                 </a>

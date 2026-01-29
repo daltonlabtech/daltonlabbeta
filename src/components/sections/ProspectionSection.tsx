@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 import WaitlistModal from '@/components/ui/WaitlistModal';
 import blurBackground from '@/assets/backgrounds/blur-gradient.jpg';
-import buttonLightGradient from '@/assets/backgrounds/button-light-gradient.jpg';
+import buttonPinkGradient from '@/assets/backgrounds/button-pink-gradient.jpg';
 
 
 type AgentTab = 'vendas' | 'conteudo' | 'anuncio';

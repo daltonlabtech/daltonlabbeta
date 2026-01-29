@@ -52,17 +52,9 @@ const InsightsSection = () => {
             <h2 
               className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 leading-tight ${revealClasses(isVisible)}`}
             >
-              IAs conversam.<br />
-              Dalton vende.
+              A nova forma de escalar<br />
+              os seus negócios
             </h2>
-
-            {/* Subtitle */}
-            <p 
-              className={`mt-4 font-inter font-normal text-sm md:text-base text-zinc-600 max-w-lg ${revealClasses(isVisible)}`}
-              style={getStaggerDelay(1)}
-            >
-              A nova forma de escalar os seus negócios.
-            </p>
 
             {/* Feature Cards */}
             <div className="mt-10 space-y-4">

@@ -176,16 +176,16 @@ const ProspectionSection = () => {
             >
               {currentAgent.isComingSoon ? (
                 /* Coming Soon Background with Blur */
-                <div className="relative aspect-square max-w-[380px] mx-auto rounded-2xl overflow-hidden">
+                <div className="relative aspect-square max-w-[320px] mx-auto rounded-2xl overflow-hidden">
                   <div 
-                    className="absolute inset-0 blur-md"
+                    className="absolute inset-0 blur-xl"
                     style={{
-                      background: 'linear-gradient(135deg, #1a4a5e 0%, #2d3a4a 25%, #1e3a5f 50%, #3d2a4a 75%, #1a4a5e 100%)',
+                      background: 'linear-gradient(135deg, #1e5a8a 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #f472b6 100%)',
                     }}
                   />
                   {/* Noise texture overlay */}
                   <div 
-                    className="absolute inset-0 opacity-40"
+                    className="absolute inset-0 opacity-30"
                     style={{
                       backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
                     }}

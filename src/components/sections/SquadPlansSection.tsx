@@ -27,7 +27,7 @@ const plans = [
       'Acompanhamento contínuo',
     ],
     ctaText: "Agende uma reunião",
-    ctaLink: "https://chat.daltonlab.ai/",
+    ctaLink: "https://cal.com/daltonlab/consultoria-estrutura-ia",
   }
 ];
 

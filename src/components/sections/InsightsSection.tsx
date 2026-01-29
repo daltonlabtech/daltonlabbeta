@@ -9,16 +9,16 @@ const InsightsSection = () => {
 
   const features = [
     {
-      title: 'Ciclo completo',
-      description: 'Da prospecção ao fechamento, do post ao anúncio. Tudo automatizado.',
+      title: 'Automação ponta a ponta',
+      description: 'Gere leads orgânicos, potencialize o ROI dos seus anúncios e feche vendas em um único fluxo automatizado.',
     },
     {
       title: 'Escala infinita',
-      description: 'Atende todos seus leads com a mesma qualidade e velocidade.',
+      description: 'Atenda todos os seus leads 24/7 com o mesmo padrão de qualidade e velocidade.',
     },
     {
       title: 'Alertas em tempo real',
-      description: 'Ele avisa quando há uma nova venda, traz previsões de faturamento e gera insights. Tudo no WhatsApp.',
+      description: 'Acompanhe novas vendas em tempo real e receba insights e previsões de faturamento. Tudo no WhatsApp.',
     },
   ];
 
@@ -52,25 +52,17 @@ const InsightsSection = () => {
             <h2 
               className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 leading-tight ${revealClasses(isVisible)}`}
             >
-              IAs conversam.<br />
-              Dalton vende.
+              A nova forma de escalar<br />
+              os seus negócios
             </h2>
 
-            {/* Subtitle */}
-            <p 
-              className={`mt-4 font-inter font-normal text-sm md:text-base text-zinc-600 max-w-lg ${revealClasses(isVisible)}`}
-              style={getStaggerDelay(1)}
-            >
-              A nova forma de escalar os seus negócios.
-            </p>
-
             {/* Feature Cards */}
-            <div className="mt-10 space-y-4">
+            <div className="mt-8 space-y-4">
               {features.map((feature, index) => (
                 <div 
                   key={feature.title}
                   className={`bg-[#E8E6E3] rounded-2xl p-6 ${revealClasses(isVisible)} hover:scale-[1.02] transition-transform duration-300`}
-                  style={getStaggerDelay(index + 2)}
+                  style={getStaggerDelay(index + 1)}
                 >
                   <h3 className="font-inter font-semibold text-xl text-zinc-900 mb-2">
                     {feature.title}

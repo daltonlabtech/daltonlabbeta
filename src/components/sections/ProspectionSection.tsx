@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 import WaitlistModal from '@/components/ui/WaitlistModal';
 import blurBackground from '@/assets/backgrounds/blur-gradient.jpg';
-import buttonLightGradient from '@/assets/backgrounds/button-light-gradient.jpg';
+import buttonPinkGradient from '@/assets/backgrounds/button-pink-gradient.jpg';
 
 
 type AgentTab = 'vendas' | 'conteudo' | 'anuncio';
@@ -164,7 +164,13 @@ const ProspectionSection = () => {
               {/* CTA Button */}
               <button
                 onClick={handleCtaClick}
-                className="inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 bg-[#101823] text-white hover:bg-zinc-800"
+                className="inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 relative overflow-hidden hover:opacity-90"
+                style={{
+                  background: currentAgent.ctaAction === 'modal' 
+                    ? `url(${buttonPinkGradient}) center/cover no-repeat` 
+                    : '#101823',
+                  color: currentAgent.ctaAction === 'modal' ? '#fff' : '#fff'
+                }}
               >
                 {currentAgent.ctaText}
               </button>
@@ -177,12 +183,12 @@ const ProspectionSection = () => {
             >
               <div className="relative w-full max-w-[320px] mx-auto aspect-square">
                 {currentAgent.isComingSoon ? (
-                  /* Coming Soon Background with Blur Image - All corners rounded - Light Monochromatic */
+                  /* Coming Soon Background with Blur Image - All corners rounded - Very Light Monochromatic */
                   <div className="w-full h-full rounded-2xl overflow-hidden relative">
                     <img 
                       src={blurBackground} 
                       alt="" 
-                      className="absolute inset-0 w-full h-full object-cover rounded-2xl grayscale brightness-125 contrast-75"
+                      className="absolute inset-0 w-full h-full object-cover rounded-2xl grayscale brightness-150 contrast-50 opacity-70"
                     />
                     {/* Coming Soon Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center rounded-2xl">

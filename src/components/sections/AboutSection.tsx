@@ -128,10 +128,10 @@ const AboutSection = () => {
           {founders.map((founder, index) => (
             <div 
               key={index}
-              className={`relative flex flex-col md:flex-row items-start gap-6 p-6 rounded-2xl overflow-hidden border border-[#1A232F]/10 ${
+              className={`relative flex flex-col md:flex-row items-start gap-6 p-6 rounded-2xl overflow-hidden border border-[#F5F3F0]/10 ${
                 index % 2 === 1 ? 'md:flex-row-reverse' : ''
               }`}
-              style={{ backgroundColor: '#E8E6E3' }}
+              style={{ backgroundColor: '#1a2533' }}
             >
               {/* Photo */}
               <div className="relative z-10 w-28 h-28 md:w-36 md:h-36 rounded-xl overflow-hidden flex-shrink-0">

@@ -30,10 +30,10 @@ const InsightsSection = () => {
     { type: 'user', text: 'Bora nessa!', time: '10:32' },
   ];
 
-  // Cycle through conversation states
+  // Cycle through conversation states (6 states: typing + 5 messages)
   useEffect(() => {
     const interval = setInterval(() => {
-      setMessageIndex((prev) => (prev + 1) % 8);
+      setMessageIndex((prev) => (prev + 1) % 7);
     }, 2000);
     return () => clearInterval(interval);
   }, []);

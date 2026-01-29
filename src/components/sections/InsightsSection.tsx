@@ -50,7 +50,7 @@ const InsightsSection = () => {
           <div>
             {/* Heading */}
             <h2 
-              className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 leading-tight ${revealClasses(isVisible)}`}
+              className={`font-inter font-bold text-4xl md:text-5xl lg:text-[60px] text-zinc-900 leading-tight ${revealClasses(isVisible)}`}
             >
               A nova forma de<br />
               escalar receita

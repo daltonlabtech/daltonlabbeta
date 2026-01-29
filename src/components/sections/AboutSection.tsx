@@ -169,17 +169,17 @@ const AboutSection = () => {
                 {/* Social Icons */}
                 <div className="mt-4 flex items-center gap-3">
                   {founder.socials.instagram && (
-                    <a href={founder.socials.instagram} className="text-[#1A232F]/50 hover:text-[#1A232F] transition-colors">
+                    <a href={founder.socials.instagram} className="text-[#F5F3F0]/50 hover:text-[#F5F3F0] transition-colors">
                       <Instagram className="w-4 h-4" />
                     </a>
                   )}
                   {founder.socials.linkedin && (
-                    <a href={founder.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#1A232F]/50 hover:text-[#1A232F] transition-colors">
+                    <a href={founder.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#F5F3F0]/50 hover:text-[#F5F3F0] transition-colors">
                       <Linkedin className="w-4 h-4" />
                     </a>
                   )}
                   {founder.socials.youtube && (
-                    <a href={founder.socials.youtube} className="text-[#1A232F]/50 hover:text-[#1A232F] transition-colors">
+                    <a href={founder.socials.youtube} className="text-[#F5F3F0]/50 hover:text-[#F5F3F0] transition-colors">
                       <Youtube className="w-4 h-4" />
                     </a>
                   )}

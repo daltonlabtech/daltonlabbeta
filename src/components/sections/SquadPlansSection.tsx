@@ -71,16 +71,9 @@ const SquadPlansSection = () => {
                 </h3>
 
                 {/* Description - Smaller text */}
-                {'descriptionLine1' in plan ? (
-                  <p className="mt-3 font-inter font-normal text-sm md:text-base text-[#1A232F]/70 leading-relaxed text-center">
-                    {plan.descriptionLine1}<br />
-                    {plan.descriptionLine2}
-                  </p>
-                ) : (
-                  <p className="mt-3 font-inter font-normal text-sm md:text-base text-[#1A232F]/70 leading-relaxed text-center">
-                    {'description' in plan ? plan.description : ''}
-                  </p>
-                )}
+                <p className="mt-3 font-inter font-normal text-sm md:text-base text-[#1A232F]/70 leading-relaxed text-center">
+                  {plan.description}
+                </p>
 
                 {/* Items List - Check icon only, no checkbox, larger text */}
                 <div className="mt-8">

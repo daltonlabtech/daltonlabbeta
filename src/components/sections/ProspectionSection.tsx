@@ -177,12 +177,12 @@ const ProspectionSection = () => {
             >
               <div className="relative w-full max-w-[320px] mx-auto aspect-square">
                 {currentAgent.isComingSoon ? (
-                  /* Coming Soon Background with Blur Image - All corners rounded - Monochromatic */
+                  /* Coming Soon Background with Blur Image - All corners rounded - Light Monochromatic */
                   <div className="w-full h-full rounded-2xl overflow-hidden relative">
                     <img 
                       src={blurBackground} 
                       alt="" 
-                      className="absolute inset-0 w-full h-full object-cover rounded-2xl grayscale"
+                      className="absolute inset-0 w-full h-full object-cover rounded-2xl grayscale brightness-125 contrast-75"
                     />
                     {/* Coming Soon Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center rounded-2xl">

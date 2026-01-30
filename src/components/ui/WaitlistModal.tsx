@@ -64,8 +64,16 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
     }
   };
 
+  const handleClose = () => {
+    // Reset form state when closing without submitting
+    setFormData({ name: '', email: '', phone: '' });
+    setEmailError('');
+    setIsSubmitted(false);
+    onClose();
+  };
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-[425px] bg-white p-0 overflow-hidden">
         <div className="p-6">
           <DialogHeader className="mb-6">

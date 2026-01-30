@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { X } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,6 +9,13 @@ interface WaitlistModalProps {
   onClose: () => void;
 }
 
+const BLOCKED_DOMAINS = ['gmail.com', 'hotmail.com', 'outlook.com'];
+
+const isPersonalEmail = (email: string): boolean => {
+  const emailLower = email.toLowerCase().trim();
+  return BLOCKED_DOMAINS.some(domain => emailLower.endsWith(`@${domain}`));
+};
+
 const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -18,6 +24,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [emailError, setEmailError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,6 +34,13 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
       return;
     }
 
+    // Validate business email
+    if (isPersonalEmail(formData.email)) {
+      setEmailError('Por favor, use um e-mail corporativo');
+      return;
+    }
+
+    setEmailError('');
     setIsSubmitting(true);
     
     // Simulate API call
@@ -45,6 +59,9 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
 
   const handleChange = (field: keyof typeof formData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    if (field === 'email') {
+      setEmailError('');
+    }
   };
 
   return (
@@ -97,8 +114,11 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   onChange={(e) => handleChange('email', e.target.value)}
                   placeholder="nome@empresa.com"
                   required
-                  className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400"
+                  className={`h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 ${emailError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
                 />
+                {emailError && (
+                  <p className="text-sm text-red-500">{emailError}</p>
+                )}
               </div>
 
               {/* Telefone */}

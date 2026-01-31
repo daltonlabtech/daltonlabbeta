@@ -122,7 +122,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   onChange={(e) => handleChange('email', e.target.value)}
                   placeholder="nome@empresa.com"
                   required
-                  className={`h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 ${emailError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                  className={`h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400 ${emailError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
                 />
                 {emailError && (
                   <p className="text-sm text-red-500">{emailError}</p>

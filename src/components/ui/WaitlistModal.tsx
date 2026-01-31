@@ -130,8 +130,8 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
               </div>
 
               {/* Telefone */}
-              <div className="space-y-2">
-                <Label htmlFor="phone" className="text-sm font-medium text-zinc-700">
+              <div className="space-y-1.5 md:space-y-2">
+                <Label htmlFor="phone" className="text-xs md:text-sm font-medium text-zinc-700">
                   Telefone <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -141,7 +141,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   onChange={(e) => handleChange('phone', e.target.value)}
                   placeholder="+55 (11) 9999-999"
                   required
-                  className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
+                  className="h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
                 />
               </div>
 
@@ -149,7 +149,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-12 bg-[#101823] hover:bg-[#1a2533] text-white font-medium rounded-xl transition-all duration-300 mt-6"
+                className="w-full h-10 md:h-12 bg-[#101823] hover:bg-[#1a2533] text-white text-sm font-medium rounded-xl transition-all duration-300 mt-4 md:mt-6"
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">

@@ -17,10 +17,10 @@ const AudioDemoSection = () => {
 
           {/* Title and Subtitle inside the card */}
           <div className="mb-4 md:mb-6 pr-12">
-            <h2 className="font-inter font-bold text-2xl md:text-3xl lg:text-4xl text-[#1A232F] leading-tight mb-2 md:mb-3">
+            <h2 className="font-inter font-bold text-xl md:text-3xl lg:text-4xl text-[#1A232F] leading-tight mb-2 md:mb-3">
               Confira nosso podcast no Spotify
             </h2>
-            <p className="font-inter text-sm md:text-base text-[#1A232F]/70">
+            <p className="font-inter text-xs md:text-base text-[#1A232F]/70">
               Conversas com nossos fundadores sobre IA, empreendedorismo e inovação.
             </p>
           </div>

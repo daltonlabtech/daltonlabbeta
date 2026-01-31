@@ -67,7 +67,7 @@ const AboutSection = () => {
               <img 
                 src={foundersPhoto} 
                 alt="Fundadores do Dalton Lab - Rodrigo, Marcelo e Julio reunidos discutindo estratégias de IA" 
-                className="w-full h-[200px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
+                className="w-full h-[200px] md:h-auto md:aspect-[16/10] lg:h-[350px] lg:aspect-auto object-cover rounded-lg"
                 loading="lazy"
                 decoding="async"
                 width={600}

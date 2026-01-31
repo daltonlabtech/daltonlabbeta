@@ -74,10 +74,10 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-[90vw] sm:max-w-[425px] bg-white p-0 overflow-hidden mx-4">
-        <div className="p-6">
-          <DialogHeader className="mb-6">
-            <DialogTitle className="text-xl font-bold text-zinc-900 text-center">
+      <DialogContent className="w-[85vw] max-w-[380px] bg-white p-0 overflow-hidden">
+        <div className="p-4 md:p-6">
+          <DialogHeader className="mb-4 md:mb-6">
+            <DialogTitle className="text-lg md:text-xl font-bold text-zinc-900 text-center">
               Quero entrar para a lista de espera
             </DialogTitle>
           </DialogHeader>

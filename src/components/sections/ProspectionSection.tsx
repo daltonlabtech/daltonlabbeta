@@ -176,9 +176,9 @@ const ProspectionSection = () => {
               </button>
             </div>
 
-            {/* Right: Dashboard or Coming Soon Image - Fixed size container */}
+            {/* Right: Dashboard or Coming Soon Image - Hidden on mobile */}
             <div 
-              className={`relative flex items-center justify-center ${revealClasses(isVisible)}`}
+              className={`relative hidden lg:flex items-center justify-center ${revealClasses(isVisible)}`}
               style={getStaggerDelay(2)}
             >
               <div className="relative w-full max-w-[320px] mx-auto aspect-square">

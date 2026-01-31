@@ -74,10 +74,10 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-[90vw] sm:max-w-[425px] bg-white p-0 overflow-hidden mx-4">
-        <div className="p-6">
-          <DialogHeader className="mb-6">
-            <DialogTitle className="text-xl font-bold text-zinc-900 text-center">
+      <DialogContent className="w-[85vw] max-w-[380px] bg-white p-0 overflow-hidden">
+        <div className="p-4 md:p-6">
+          <DialogHeader className="mb-4 md:mb-6">
+            <DialogTitle className="text-lg md:text-xl font-bold text-zinc-900 text-center">
               Quero entrar para a lista de espera
             </DialogTitle>
           </DialogHeader>
@@ -93,10 +93,10 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
               <p className="text-zinc-600 text-sm">Você receberá novidades em primeira mão.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
               {/* Nome completo */}
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-sm font-medium text-zinc-700">
+              <div className="space-y-1.5 md:space-y-2">
+                <Label htmlFor="name" className="text-xs md:text-sm font-medium text-zinc-700">
                   Nome completo <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -106,13 +106,13 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   onChange={(e) => handleChange('name', e.target.value)}
                   placeholder="Nome"
                   required
-                  className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
+                  className="h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
                 />
               </div>
 
               {/* E-mail de trabalho */}
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium text-zinc-700">
+              <div className="space-y-1.5 md:space-y-2">
+                <Label htmlFor="email" className="text-xs md:text-sm font-medium text-zinc-700">
                   E-mail de trabalho <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -122,16 +122,16 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   onChange={(e) => handleChange('email', e.target.value)}
                   placeholder="nome@empresa.com"
                   required
-                  className={`h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400 ${emailError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                  className={`h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400 ${emailError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
                 />
                 {emailError && (
-                  <p className="text-sm text-red-500">{emailError}</p>
+                  <p className="text-xs md:text-sm text-red-500">{emailError}</p>
                 )}
               </div>
 
               {/* Telefone */}
-              <div className="space-y-2">
-                <Label htmlFor="phone" className="text-sm font-medium text-zinc-700">
+              <div className="space-y-1.5 md:space-y-2">
+                <Label htmlFor="phone" className="text-xs md:text-sm font-medium text-zinc-700">
                   Telefone <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -141,7 +141,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   onChange={(e) => handleChange('phone', e.target.value)}
                   placeholder="+55 (11) 9999-999"
                   required
-                  className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
+                  className="h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
                 />
               </div>
 
@@ -149,7 +149,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-12 bg-[#101823] hover:bg-[#1a2533] text-white font-medium rounded-xl transition-all duration-300 mt-6"
+                className="w-full h-10 md:h-12 bg-[#101823] hover:bg-[#1a2533] text-white text-sm font-medium rounded-xl transition-all duration-300 mt-4 md:mt-6"
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">

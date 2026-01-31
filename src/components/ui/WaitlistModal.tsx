@@ -74,7 +74,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-[425px] bg-white p-0 overflow-hidden">
+      <DialogContent className="max-w-[90vw] sm:max-w-[425px] bg-white p-0 overflow-hidden mx-4">
         <div className="p-6">
           <DialogHeader className="mb-6">
             <DialogTitle className="text-xl font-bold text-zinc-900 text-center">
@@ -106,7 +106,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   onChange={(e) => handleChange('name', e.target.value)}
                   placeholder="Nome"
                   required
-                  className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400"
+                  className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
                 />
               </div>
 
@@ -122,7 +122,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   onChange={(e) => handleChange('email', e.target.value)}
                   placeholder="nome@empresa.com"
                   required
-                  className={`h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 ${emailError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                  className={`h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400 ${emailError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
                 />
                 {emailError && (
                   <p className="text-sm text-red-500">{emailError}</p>
@@ -141,7 +141,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   onChange={(e) => handleChange('phone', e.target.value)}
                   placeholder="+55 (11) 9999-999"
                   required
-                  className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400"
+                  className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
                 />
               </div>
 

@@ -44,7 +44,7 @@ const FAQSection = () => {
       <div className="container-main">
         {/* Title */}
         <h2 
-          className={`font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-[#1A232F] text-center ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-2xl md:text-4xl lg:text-5xl text-[#1A232F] text-center ${revealClasses(isVisible)}`}
         >
           Perguntas Frequentes
         </h2>

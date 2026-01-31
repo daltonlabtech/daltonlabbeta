@@ -74,7 +74,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-[425px] bg-white p-0 overflow-hidden">
+      <DialogContent className="max-w-[90vw] sm:max-w-[425px] bg-white p-0 overflow-hidden mx-4">
         <div className="p-6">
           <DialogHeader className="mb-6">
             <DialogTitle className="text-xl font-bold text-zinc-900 text-center">

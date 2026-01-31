@@ -95,8 +95,8 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
               {/* Nome completo */}
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-sm font-medium text-zinc-700">
+              <div className="space-y-1.5 md:space-y-2">
+                <Label htmlFor="name" className="text-xs md:text-sm font-medium text-zinc-700">
                   Nome completo <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -106,7 +106,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
                   onChange={(e) => handleChange('name', e.target.value)}
                   placeholder="Nome"
                   required
-                  className="h-11 bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
+                  className="h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
                 />
               </div>
 

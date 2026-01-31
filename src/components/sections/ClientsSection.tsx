@@ -47,11 +47,11 @@ const ClientsSection = () => {
               <img
                 src={logo.src}
                 alt={`Logo do cliente ${logo.name}`}
-                className="h-12 md:h-16 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
+                className="h-24 md:h-32 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
                 loading="lazy"
                 decoding="async"
-                width={120}
-                height={64}
+                width={240}
+                height={128}
               />
             </div>
           ))}

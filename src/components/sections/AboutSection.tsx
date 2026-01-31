@@ -59,15 +59,15 @@ const AboutSection = () => {
       {/* Photos Section - After Title */}
       <div className="w-full py-4 md:py-6" ref={photosRef as React.RefObject<HTMLDivElement>}>
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
-          <div className="flex gap-4 md:gap-6">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6">
             <div 
-              className={`w-1/2 ${revealClasses(photosVisible)}`}
+              className={`w-full md:w-1/2 ${revealClasses(photosVisible)}`}
               style={getStaggerDelay(0)}
             >
               <img 
                 src={foundersPhoto} 
                 alt="Fundadores do Dalton Lab - Rodrigo, Marcelo e Julio reunidos discutindo estratégias de IA" 
-                className="w-full h-[180px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
+                className="w-full h-[200px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
                 loading="lazy"
                 decoding="async"
                 width={600}
@@ -75,13 +75,13 @@ const AboutSection = () => {
               />
             </div>
             <div 
-              className={`w-1/2 ${revealClasses(photosVisible)}`}
+              className={`w-full md:w-1/2 ${revealClasses(photosVisible)}`}
               style={getStaggerDelay(1)}
             >
               <img 
                 src={teamFullPhoto} 
                 alt="Equipe completa do Dalton Lab - Time de especialistas em IA e vendas" 
-                className="w-full h-[180px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
+                className="w-full h-[200px] md:h-[280px] lg:h-[350px] object-cover rounded-lg"
                 loading="lazy"
                 decoding="async"
                 width={600}
@@ -98,7 +98,7 @@ const AboutSection = () => {
           <h2 className="font-inter text-2xl md:text-3xl text-[#F5F3F0] font-normal mb-6">
             Empresa
           </h2>
-          <div className="font-inter text-base md:text-lg text-[#F5F3F0]/80 leading-relaxed space-y-4 text-justify">
+          <div className="font-inter text-sm md:text-lg text-[#F5F3F0]/80 leading-relaxed space-y-3 md:space-y-4 text-right md:text-justify">
             <p>
               Somos uma startup brasileira pioneira em Agents-as-a-Service (AaaS), operando globalmente em quatro continentes. Nossa missão é clara: transformar empresas convencionais em organizações agênticas, onde agentes de IA executam tarefas operacionais complexas e humanos se concentram em decisões estratégicas.
             </p>

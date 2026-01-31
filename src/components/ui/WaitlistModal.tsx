@@ -93,7 +93,7 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
               <p className="text-zinc-600 text-sm">Você receberá novidades em primeira mão.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
               {/* Nome completo */}
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-sm font-medium text-zinc-700">

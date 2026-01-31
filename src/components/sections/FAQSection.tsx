@@ -59,9 +59,9 @@ const FAQSection = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border-0 rounded-2xl bg-[#E8E6E3] px-6 data-[state=open]:bg-[#E0DEDA]"
+                className="border-0 rounded-2xl bg-[#E8E6E3] px-4 md:px-6 data-[state=open]:bg-[#E0DEDA]"
               >
-                <AccordionTrigger className="font-inter font-medium text-base md:text-lg text-[#1A232F] hover:no-underline py-5 [&[data-state=open]>svg]:text-[#1A232F] [&>svg]:text-[#1A232F]/50">
+                <AccordionTrigger className="font-inter font-medium text-sm md:text-lg text-[#1A232F] hover:no-underline py-4 md:py-5 [&[data-state=open]>svg]:text-[#1A232F] [&>svg]:text-[#1A232F]/50">
                   <span className="text-left">{faq.question}</span>
                 </AccordionTrigger>
                 <AccordionContent className="font-inter font-normal text-base text-[#1A232F]/70 pb-5 leading-relaxed">

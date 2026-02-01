@@ -1,6 +1,7 @@
 import { Check } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-
+import { useTrackSection } from '@/hooks/useTrackSection';
+import { trackCtaClick } from '@/lib/analytics';
 const plans = [
   {
     name: "Agente de Vendas",
@@ -32,10 +33,23 @@ const plans = [
 
 const SquadPlansSection = () => {
   const { ref, isVisible } = useScrollReveal();
+  const sectionRef = useTrackSection('squad_plans');
+
+  const handleCtaClick = (planName: string, ctaText: string, ctaLink: string) => {
+    const location = planName === 'Agente de Vendas' ? 'squad_vendas' : 'squad_enterprise';
+    trackCtaClick(ctaText, location, ctaLink);
+  };
 
   return (
     <section 
-      ref={ref as React.RefObject<HTMLElement>}
+      ref={(el) => {
+        if (ref && 'current' in ref) {
+          (ref as React.MutableRefObject<HTMLElement | null>).current = el;
+        }
+        if (sectionRef && 'current' in sectionRef) {
+          (sectionRef as React.MutableRefObject<HTMLElement | null>).current = el;
+        }
+      }}
       className="section-padding relative overflow-hidden bg-[#101823]"
     >
       {/* Grid Pattern Overlay */}
@@ -99,6 +113,7 @@ const SquadPlansSection = () => {
                   href={plan.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => handleCtaClick(plan.name, plan.ctaText, plan.ctaLink)}
                   className="mt-8 w-full py-3.5 rounded-full font-inter font-semibold text-base flex items-center justify-center transition-all duration-300 bg-[#101823] text-white hover:bg-[#1a2533]"
                 >
                   {plan.ctaText}

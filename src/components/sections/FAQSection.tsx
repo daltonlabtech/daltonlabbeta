@@ -5,6 +5,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
+import { useTrackSection } from '@/hooks/useTrackSection';
+import { trackFaqOpen } from '@/lib/analytics';
 
 const faqs = [
   {
@@ -35,10 +37,22 @@ const faqs = [
 
 const FAQSection = () => {
   const { ref, isVisible } = useScrollReveal();
+  const sectionRef = useTrackSection('faq');
+
+  const handleFaqOpen = (question: string) => {
+    trackFaqOpen(question);
+  };
 
   return (
     <section 
-      ref={ref as React.RefObject<HTMLElement>}
+      ref={(el) => {
+        if (ref && 'current' in ref) {
+          (ref as React.MutableRefObject<HTMLElement | null>).current = el;
+        }
+        if (sectionRef && 'current' in sectionRef) {
+          (sectionRef as React.MutableRefObject<HTMLElement | null>).current = el;
+        }
+      }}
       className="section-padding bg-[#F5F3F0]"
     >
       <div className="container-main">
@@ -54,7 +68,19 @@ const FAQSection = () => {
           className={`mt-12 max-w-[900px] mx-auto space-y-4 ${revealClasses(isVisible)}`}
           style={getStaggerDelay(1)}
         >
-          <Accordion type="single" collapsible className="w-full space-y-4">
+          <Accordion 
+            type="single" 
+            collapsible 
+            className="w-full space-y-4"
+            onValueChange={(value) => {
+              if (value) {
+                const index = parseInt(value.replace('item-', ''));
+                if (!isNaN(index) && faqs[index]) {
+                  handleFaqOpen(faqs[index].question);
+                }
+              }
+            }}
+          >
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 

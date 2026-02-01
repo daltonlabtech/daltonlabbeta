@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Check } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
+import { useTrackSection } from '@/hooks/useTrackSection';
+import { trackCtaClick, trackTabChange, trackWaitlistOpen } from '@/lib/analytics';
 import WaitlistModal from '@/components/ui/WaitlistModal';
 import blurBackground from '@/assets/backgrounds/blur-gradient.jpg';
 import buttonPinkGradient from '@/assets/backgrounds/button-pink-gradient.jpg';
@@ -44,17 +46,39 @@ const ProspectionSection = () => {
     ref,
     isVisible
   } = useScrollReveal();
+  const sectionRef = useTrackSection('prospection');
   const [activeTab, setActiveTab] = useState<AgentTab>('vendas');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const currentAgent = agentData[activeTab];
+  const handleTabChange = (tab: AgentTab) => {
+    setActiveTab(tab);
+    trackTabChange(tab, 'prospection');
+  };
+
   const handleCtaClick = () => {
+    const locationMap: Record<AgentTab, string> = {
+      vendas: 'prospection_vendas',
+      conteudo: 'prospection_conteudo',
+      anuncio: 'prospection_anuncio',
+    };
+    
     if (currentAgent.ctaAction === 'external') {
+      trackCtaClick(currentAgent.ctaText, locationMap[activeTab], 'https://chat.daltonlab.ai/');
       window.open('https://chat.daltonlab.ai/', '_blank', 'noopener,noreferrer');
     } else {
+      trackWaitlistOpen(locationMap[activeTab]);
       setIsModalOpen(true);
     }
   };
-  return <section ref={ref as React.RefObject<HTMLElement>} className="pt-8 pb-[60px] md:pt-12 md:pb-[120px] bg-[#101823] overflow-hidden">
+  return <section ref={(el) => {
+    // Merge refs: scrollReveal ref and tracking ref
+    if (ref && 'current' in ref) {
+      (ref as React.MutableRefObject<HTMLElement | null>).current = el;
+    }
+    if (sectionRef && 'current' in sectionRef) {
+      (sectionRef as React.MutableRefObject<HTMLElement | null>).current = el;
+    }
+  }} className="pt-8 pb-[60px] md:pt-12 md:pb-[120px] bg-[#101823] overflow-hidden">
       <div className="container-main">
         {/* Fixed Header - Outside Card */}
         <div className={`text-center mb-8 md:mb-10 ${revealClasses(isVisible)}`}>
@@ -77,7 +101,7 @@ const ProspectionSection = () => {
               conteudo: 'Conteúdo',
               anuncio: 'Anúncio'
             };
-            return <button key={tab} onClick={() => setActiveTab(tab)} className={`
+            return <button key={tab} onClick={() => handleTabChange(tab)} className={`
                     relative px-4 py-4 md:py-6 text-left transition-all duration-300 group rounded-xl
                     ${isActive ? 'bg-[#e8e6e3]' : 'bg-[#F5F3F0] hover:bg-[#eae8e5]'}
                   `}>
@@ -148,7 +172,11 @@ const ProspectionSection = () => {
       </div>
 
       {/* Waitlist Modal */}
-      <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <WaitlistModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        formLocation={`prospection_${activeTab}`}
+      />
     </section>;
 };
 

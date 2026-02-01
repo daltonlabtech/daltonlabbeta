@@ -99,7 +99,7 @@ const ProspectionSection = () => {
             {/* Left: Text Content */}
             <div className={`${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
               {/* Title */}
-              <h3 className="font-inter font-bold text-2xl md:text-3xl text-zinc-900 leading-tight mb-4 lg:text-3xl">
+              <h3 className="font-inter font-bold text-3xl md:text-4xl lg:text-5xl text-zinc-900 leading-tight mb-4">
                 {currentAgent.title}
               </h3>
 

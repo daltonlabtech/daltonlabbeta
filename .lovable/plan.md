@@ -1,72 +1,145 @@
 
-## Ajustes nas Dobras do Site
+# Plano de Implementacao: Tracking GTM
 
-### 1. Dobra "IA que vende para você" - Gráfico de Pipeline
+## Resumo
 
-**Arquivo:** `src/components/sections/ProspectionSection.tsx`
-
-Substituir o componente `SalesDashboardMockup` atual por um gráfico de linha suave detalhado com as seguintes especificações:
-
-| Elemento | Especificação |
-|----------|---------------|
-| Eixo Y | Escala de 5 a 20 (incrementos de 5) |
-| Eixo X | Dias da semana: S, T, Q, Q, S, S, D |
-| Grid | Linhas verticais sutis para cada dia |
-| Linha principal | Preto/cinza escuro, trajetória ascendente de ~5 a ~17-18 |
-| Área sombreada | Gradiente cinza claro para transparente abaixo da linha |
-| Linhas de tendência | Duas linhas em cinza claro (acima e abaixo da principal) |
-| Ponto destacado | Círculo na quinta-feira (~15), borda branca, interior escuro |
-
-**Remoção de animações:** Serão removidas as classes `animate-draw-line`, `animate-pulse-dot` e `animate-bounce-subtle`.
+Implementar Google Tag Manager (GTM-PPF26W8Q) na Landing Page para rastrear eventos de engajamento e conversao. O evento final de funil na LP sera **CTA Click** (clique para ir ao chat), enquanto Lead/MQL/SQL serao rastreados no chat.daltonlab.ai.
 
 ---
 
-### 2. Dobra "A nova forma de escalar receita" - Tamanho do Título
+## Arquivos a Criar
 
-**Arquivo:** `src/components/sections/InsightsSection.tsx`
+### 1. `src/lib/analytics.ts`
+Utilitario central de tracking com funcoes tipadas para enviar eventos ao dataLayer.
 
-| De | Para |
-|----|------|
-| `text-3xl md:text-4xl lg:text-5xl` | `text-4xl md:text-5xl lg:text-[60px]` |
+**Funcoes:**
+- `trackPageView(path, title)` - Visualizacao de pagina
+- `trackSectionView(sectionName)` - Secao visivel na viewport
+- `trackCtaClick(buttonText, location, destinationUrl)` - Clique em CTA principal
+- `trackTabChange(tabName, sectionName)` - Troca de aba
+- `trackFaqOpen(questionText)` - Abertura de pergunta no FAQ
+- `trackOutboundLink(linkUrl, linkText)` - Link externo (redes sociais)
+- `trackWaitlistOpen(location)` - Abriu modal de lista de espera
+- `trackWaitlistSubmit(location)` - Enviou formulario de lista de espera
 
-O título continuará em duas linhas: "A nova forma de" / "escalar receita"
-
----
-
-### 3. Dobra "Plano" - Lista de Itens
-
-**Arquivo:** `src/components/sections/SquadPlansSection.tsx`
-
-Atualizar os itens do card "Agente de Vendas":
-
-| De | Para |
-|----|------|
-| Qualificar oportunidades | Qualificação automática de leads |
-| Fazer follow-up | Follow-up 24/7 |
-| Agendar reuniões | Agendamento de reuniões |
-| Fechar vendas | Fechamento de vendas automatizado |
-| Enviar reports via WhatsApp | *(removido)* |
+### 2. `src/hooks/useTrackSection.ts`
+Hook para detectar quando secoes entram na viewport e disparar `section_view` automaticamente (apenas uma vez por sessao).
 
 ---
 
-### Detalhes Técnicos do Gráfico SVG
+## Arquivos a Modificar
+
+### 1. `index.html`
+Adicionar snippets do GTM no `<head>` e apos `<body>`.
 
 ```text
-Estrutura do gráfico:
-┌────────────────────────────────────────────────────┐
-│ 20 ─┬───┬───┬───┬───┬───┬───┬                     │
-│ 15 ─┼───┼───┼───┼─●─┼───┼───┼─── Ponto destacado  │
-│ 10 ─┼───┼───┼───┼───┼───┼───┼                     │
-│  5 ─┼───┼───┼───┼───┼───┼───┼                     │
-│     S   T   Q   Q   S   S   D                     │
-└────────────────────────────────────────────────────┘
+HEAD (linha 4, apos <meta charset>):
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PPF26W8Q');</script>
+<!-- End Google Tag Manager -->
+
+BODY (logo apos <body>):
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPF26W8Q"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 ```
 
-Elementos SVG:
-- **defs**: Gradiente linear vertical para área sombreada
-- **Grid lines**: Linhas verticais em `#d4d4d8` com opacidade 0.3
-- **Eixos**: Textos para valores Y (5, 10, 15, 20) e dias X (S, T, Q, Q, S, S, D)
-- **Área preenchida**: Path com fill usando gradiente
-- **Linha principal**: Curva suave com `stroke-linecap="round"` e `stroke-linejoin="round"`
-- **Linhas de tendência**: Duas linhas em cinza claro (`#a1a1aa`) com opacidade 0.4
-- **Ponto destacado**: Círculo com borda branca (3px) e preenchimento `#18181b`
+### 2. `src/App.tsx`
+Adicionar tracking de `page_view` em cada navegacao de rota usando `useLocation` do React Router.
+
+### 3. `src/components/Header.tsx`
+Adicionar `trackCtaClick` no botao "Fale com o Dalton" (location: 'header').
+
+### 4. `src/components/NewtonChatButton.tsx`
+Adicionar `trackCtaClick` no botao flutuante (location: 'floating_button').
+
+### 5. `src/components/sections/HeroSection.tsx`
+- Adicionar `useTrackSection` para disparar `section_view` quando Hero entrar na viewport
+- Adicionar `trackCtaClick` no botao principal (location: 'hero')
+
+### 6. `src/components/sections/ProspectionSection.tsx`
+- Adicionar `useTrackSection` para `section_view`
+- Adicionar `trackTabChange` quando usuario trocar entre Vendas/Conteudo/Anuncio
+- Adicionar `trackCtaClick` nos botoes de CTA (location: 'prospection_vendas', 'prospection_conteudo', 'prospection_anuncio')
+- Adicionar `trackWaitlistOpen` quando abrir modal
+
+### 7. `src/components/sections/SquadPlansSection.tsx`
+- Adicionar `useTrackSection` para `section_view`
+- Adicionar `trackCtaClick` nos botoes de cada plano (location: 'squad_vendas', 'squad_enterprise')
+
+### 8. `src/components/sections/FAQSection.tsx`
+- Adicionar `useTrackSection` para `section_view`
+- Adicionar `trackFaqOpen` quando usuario abrir uma pergunta
+
+### 9. `src/components/sections/Footer.tsx`
+Adicionar `trackOutboundLink` nos links de redes sociais (LinkedIn, YouTube, Spotify, Instagram).
+
+### 10. `src/components/ui/WaitlistModal.tsx`
+- Adicionar `trackWaitlistOpen` quando modal abrir
+- Adicionar `trackWaitlistSubmit` quando formulario for enviado com sucesso
+
+---
+
+## Estrutura do DataLayer
+
+Exemplos de eventos que serao enviados:
+
+```text
+// Page View
+{ event: 'page_view', page_path: '/', page_title: 'Dalton Lab' }
+
+// Section View
+{ event: 'section_view', section_name: 'hero' }
+
+// CTA Click (Conversao Principal)
+{ event: 'cta_click', button_text: 'Fale com o Dalton', button_location: 'hero', destination_url: 'https://chat.daltonlab.ai/' }
+
+// Tab Change
+{ event: 'tab_change', tab_name: 'conteudo', section_name: 'prospection' }
+
+// FAQ Open
+{ event: 'faq_open', question_text: 'O que e um Agente de IA?' }
+
+// Outbound Link
+{ event: 'outbound_link', link_url: 'https://linkedin.com/...', link_text: 'LinkedIn' }
+
+// Waitlist
+{ event: 'waitlist_open', form_location: 'prospection_conteudo' }
+{ event: 'waitlist_submit', form_location: 'prospection_conteudo' }
+```
+
+---
+
+## Mapeamento de Eventos por Componente
+
+| Componente | Eventos |
+|------------|---------|
+| `App.tsx` | `page_view` |
+| `Header.tsx` | `cta_click` |
+| `NewtonChatButton.tsx` | `cta_click` |
+| `HeroSection.tsx` | `section_view`, `cta_click` |
+| `ProspectionSection.tsx` | `section_view`, `tab_change`, `cta_click`, `waitlist_open` |
+| `SquadPlansSection.tsx` | `section_view`, `cta_click` |
+| `FAQSection.tsx` | `section_view`, `faq_open` |
+| `Footer.tsx` | `outbound_link` |
+| `WaitlistModal.tsx` | `waitlist_open`, `waitlist_submit` |
+
+---
+
+## Proximos Passos (Configuracao no GTM)
+
+Apos a implementacao no codigo, voce precisara configurar no GTM:
+
+1. **Criar Variaveis de DataLayer** para capturar parametros (button_text, button_location, etc.)
+2. **Criar Triggers** para cada evento customizado
+3. **Criar Tags**:
+   - Meta Pixel: PageView, ViewContent, Lead
+   - Google Ads: Conversion Tracking
+   - LinkedIn Insight Tag
+
+Os eventos `cta_click` serao os triggers para conversao principal nas tres plataformas.

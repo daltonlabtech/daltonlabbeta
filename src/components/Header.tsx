@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
 import logoWhite from '@/assets/logo-dalton-white.png';
+import { trackCtaClick } from '@/lib/analytics';
 import {
   Sheet,
   SheetContent,
@@ -69,6 +70,7 @@ const Header = () => {
             href="https://chat.daltonlab.ai/" 
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackCtaClick('Fale com o Dalton', 'header', 'https://chat.daltonlab.ai/')}
             className="hidden md:inline-flex items-center justify-center font-medium text-sm px-5 py-2.5 rounded-full hover:opacity-90 transition-all duration-300"
             style={{ backgroundColor: '#F5F3F0', color: '#000000' }}
           >

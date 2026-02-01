@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import { trackWaitlistOpen, trackWaitlistSubmit } from '@/lib/analytics';
 
 interface WaitlistModalProps {
   isOpen: boolean;
   onClose: () => void;
+  formLocation?: string;
 }
 
 const BLOCKED_DOMAINS = ['gmail.com', 'hotmail.com', 'outlook.com'];
@@ -16,7 +18,7 @@ const isPersonalEmail = (email: string): boolean => {
   return BLOCKED_DOMAINS.some(domain => emailLower.endsWith(`@${domain}`));
 };
 
-const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
+const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown' }: WaitlistModalProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,6 +27,13 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
+
+  // Track modal open
+  useEffect(() => {
+    if (isOpen) {
+      trackWaitlistOpen(formLocation);
+    }
+  }, [isOpen, formLocation]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,6 +54,9 @@ const WaitlistModal = ({ isOpen, onClose }: WaitlistModalProps) => {
     
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Track successful submit
+    trackWaitlistSubmit(formLocation);
     
     setIsSubmitting(false);
     setIsSubmitted(true);

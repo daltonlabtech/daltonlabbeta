@@ -1,9 +1,10 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { trackPageView } from "@/lib/analytics";
 import dBranco from "@/assets/d-branco.png";
 
 // Lazy load pages for better performance
@@ -15,6 +16,19 @@ const TermosDeUso = lazy(() => import("./pages/TermosDeUso"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
+
+// Component to track page views on route change
+const PageViewTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Get page title from document or use path
+    const pageTitle = document.title || location.pathname;
+    trackPageView(location.pathname, pageTitle);
+  }, [location.pathname]);
+
+  return null;
+};
 
 // Page loader with logo and smooth animation
 const PageLoader = () => (
@@ -34,6 +48,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <PageViewTracker />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />

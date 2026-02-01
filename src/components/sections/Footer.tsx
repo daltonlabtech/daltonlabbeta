@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import dBranco from '@/assets/d-branco.png';
+import { trackOutboundLink } from '@/lib/analytics';
 
 const Footer = () => {
   return (
@@ -53,6 +54,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/dalton-lab/" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                onClick={() => trackOutboundLink('https://www.linkedin.com/company/dalton-lab/', 'LinkedIn')}
                 className="font-inter text-sm text-white/50 hover:text-white transition-colors"
               >
                 LinkedIn
@@ -61,6 +63,7 @@ const Footer = () => {
                 href="https://youtube.com/@dalton_lab?si=mOfQCKAmASA4TKYB" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                onClick={() => trackOutboundLink('https://youtube.com/@dalton_lab?si=mOfQCKAmASA4TKYB', 'YouTube')}
                 className="font-inter text-sm text-white/50 hover:text-white transition-colors"
               >
                 YouTube
@@ -69,6 +72,7 @@ const Footer = () => {
                 href="https://open.spotify.com/show/4fnDNmjCB0EQzT7HlmCUr4?si=932194c816404620" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                onClick={() => trackOutboundLink('https://open.spotify.com/show/4fnDNmjCB0EQzT7HlmCUr4?si=932194c816404620', 'Spotify')}
                 className="font-inter text-sm text-white/50 hover:text-white transition-colors"
               >
                 Spotify
@@ -77,6 +81,7 @@ const Footer = () => {
                 href="https://www.instagram.com/daltonlab.ai?igsh=MW84MHo5dW91ZDA1ag==" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                onClick={() => trackOutboundLink('https://www.instagram.com/daltonlab.ai?igsh=MW84MHo5dW91ZDA1ag==', 'Instagram')}
                 className="font-inter text-sm text-white/50 hover:text-white transition-colors"
               >
                 Instagram

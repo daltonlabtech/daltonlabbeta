@@ -53,23 +53,51 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
     }
 
     setEmailError('');
+    setSubmitError('');
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Track successful submit
-    trackWaitlistSubmit(formLocation);
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset after showing success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', phone: '' });
-      onClose();
-    }, 2000);
+    try {
+      // Call edge function to submit waitlist
+      const { data, error } = await supabase.functions.invoke('submit-waitlist', {
+        body: {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          product: product,
+          source: formLocation,
+        },
+      });
+
+      if (error) {
+        console.error('Waitlist submission error:', error);
+        setSubmitError('Erro ao enviar. Tente novamente.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (data?.error) {
+        setSubmitError(data.error);
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Track successful submit
+      trackWaitlistSubmit(formLocation);
+      
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      
+      // Reset after showing success
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: '', email: '', phone: '' });
+        onClose();
+      }, 2000);
+    } catch (err) {
+      console.error('Unexpected error:', err);
+      setSubmitError('Erro inesperado. Tente novamente.');
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: keyof typeof formData, value: string) => {

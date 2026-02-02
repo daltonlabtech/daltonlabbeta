@@ -25,6 +25,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
     name: '',
     email: '',
     phone: '',
+    honeypot: '', // Hidden field to catch bots
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);

@@ -189,6 +189,13 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
                 />
               </div>
 
+              {/* Submit Error */}
+              {submitError && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                  <p className="text-xs md:text-sm text-red-600">{submitError}</p>
+                </div>
+              )}
+
               {/* Submit Button */}
               <Button
                 type="submit"

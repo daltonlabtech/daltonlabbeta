@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import dBranco from '@/assets/d-branco.png';
 import { trackOutboundLink } from '@/lib/analytics';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-[#101823] border-t border-white/10">
       {/* Main Footer */}
@@ -11,7 +14,7 @@ const Footer = () => {
           {/* Column 1: Suporte */}
           <div>
             <h4 className="font-inter font-semibold text-sm text-white/80 uppercase tracking-wider mb-4">
-              Suporte
+              {t('footer.support')}
             </h4>
             <div className="flex flex-col gap-2">
               <a 
@@ -26,20 +29,20 @@ const Footer = () => {
           {/* Column 2: Sobre */}
           <div>
             <h4 className="font-inter font-semibold text-sm text-white/80 uppercase tracking-wider mb-4">
-              Sobre
+              {t('footer.about')}
             </h4>
             <div className="flex flex-col gap-2">
               <Link to="/" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
-                Produto
+                {t('nav.product')}
               </Link>
               <a href="#noticias" className="font-inter text-sm text-white/50 hover:text-white transition-colors flex items-center gap-1.5">
-                Notícias
+                {t('nav.news')}
                 <span className="px-1.5 py-0.5 text-[8px] font-semibold uppercase tracking-wide bg-dalton-blue/20 text-dalton-blue rounded">
-                  Em breve
+                  {t('nav.comingSoon')}
                 </span>
               </a>
               <Link to="/quem-somos" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
-                Quem somos
+                {t('nav.about')}
               </Link>
             </div>
           </div>
@@ -47,7 +50,7 @@ const Footer = () => {
           {/* Column 3: Redes Sociais */}
           <div>
             <h4 className="font-inter font-semibold text-sm text-white/80 uppercase tracking-wider mb-4">
-              Redes Sociais
+              {t('footer.socialMedia')}
             </h4>
             <div className="flex flex-col gap-2">
               <a 
@@ -92,14 +95,14 @@ const Footer = () => {
           {/* Column 4: Legal */}
           <div>
             <h4 className="font-inter font-semibold text-sm text-white/80 uppercase tracking-wider mb-4">
-              Legal
+              {t('footer.legal')}
             </h4>
             <div className="flex flex-col gap-2">
               <Link to="/politica-de-privacidade" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
-                Política de Privacidade
+                {t('footer.privacyPolicy')}
               </Link>
               <Link to="/termos-de-uso" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
-                Termos de Uso
+                {t('footer.termsOfUse')}
               </Link>
             </div>
           </div>
@@ -119,7 +122,7 @@ const Footer = () => {
             height={32}
           />
           <p className="font-inter text-xs text-white/40">
-            © 2026 Dalton Lab. Todos os direitos reservados.
+            {t('footer.copyright')}
           </p>
         </div>
       </div>

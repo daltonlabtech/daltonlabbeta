@@ -1,120 +1,123 @@
-# Plano de Implementação: Tracking GTM ✅ CONCLUÍDO
+
+# Plano: Banco de Dados para Lista de Espera
 
 ## Resumo
 
-Implementação do Google Tag Manager (GTM-PPF26W8Q) na Landing Page concluída. O tracking está configurado para rastrear eventos de engajamento e conversão. O evento final de funil na LP é **CTA Click** (clique para ir ao chat), enquanto Lead/MQL/SQL serão rastreados no chat.daltonlab.ai.
+Criar um banco de dados para armazenar os leads da lista de espera, incluindo nome, email, telefone e qual produto/agente o cliente se interessou (Agente de Conteudo ou Agente de Anuncio).
 
 ---
 
-## Arquivos Criados ✅
-
-### 1. `src/lib/analytics.ts` ✅
-Utilitário central de tracking com funções tipadas para enviar eventos ao dataLayer.
-
-### 2. `src/hooks/useTrackSection.ts` ✅
-Hook para detectar quando seções entram na viewport e disparar `section_view` automaticamente (apenas uma vez por sessão).
-
----
-
-## Arquivos Modificados ✅
-
-### 1. `index.html` ✅
-Snippets do GTM adicionados no `<head>` e após `<body>`.
-
-### 2. `src/App.tsx` ✅
-Tracking de `page_view` em cada navegação de rota via `PageViewTracker` component.
-
-### 3. `src/components/Header.tsx` ✅
-`trackCtaClick` no botão "Fale com o Dalton" (location: 'header').
-
-### 4. `src/components/NewtonChatButton.tsx` ✅
-`trackCtaClick` no botão flutuante (location: 'floating_button').
-
-### 5. `src/components/sections/HeroSection.tsx` ✅
-- `useTrackSection` para `section_view`
-- `trackCtaClick` no botão principal (location: 'hero')
-
-### 6. `src/components/sections/ProspectionSection.tsx` ✅
-- `useTrackSection` para `section_view`
-- `trackTabChange` quando usuário trocar entre Vendas/Conteúdo/Anúncio
-- `trackCtaClick` nos botões de CTA
-- `trackWaitlistOpen` passado para o modal
-
-### 7. `src/components/sections/SquadPlansSection.tsx` ✅
-- `useTrackSection` para `section_view`
-- `trackCtaClick` nos botões de cada plano
-
-### 8. `src/components/sections/FAQSection.tsx` ✅
-- `useTrackSection` para `section_view`
-- `trackFaqOpen` quando usuário abrir uma pergunta
-
-### 9. `src/components/sections/Footer.tsx` ✅
-`trackOutboundLink` nos links de redes sociais (LinkedIn, YouTube, Spotify, Instagram).
-
-### 10. `src/components/ui/WaitlistModal.tsx` ✅
-- `trackWaitlistOpen` quando modal abrir
-- `trackWaitlistSubmit` quando formulário for enviado com sucesso
-
----
-
-## Estrutura do DataLayer
-
-Eventos que serão enviados:
+## Arquitetura
 
 ```text
-// Page View
-{ event: 'page_view', page_path: '/', page_title: 'Dalton Lab' }
-
-// Section View
-{ event: 'section_view', section_name: 'hero' }
-
-// CTA Click (Conversão Principal)
-{ event: 'cta_click', button_text: 'Fale com o Dalton', button_location: 'hero', destination_url: 'https://chat.daltonlab.ai/' }
-
-// Tab Change
-{ event: 'tab_change', tab_name: 'conteudo', section_name: 'prospection' }
-
-// FAQ Open
-{ event: 'faq_open', question_text: 'O que e um Agente de IA?' }
-
-// Outbound Link
-{ event: 'outbound_link', link_url: 'https://linkedin.com/...', link_text: 'LinkedIn' }
-
-// Waitlist
-{ event: 'waitlist_open', form_location: 'prospection_conteudo' }
-{ event: 'waitlist_submit', form_location: 'prospection_conteudo' }
++------------------+     +------------------+     +------------------+
+|   WaitlistModal  | --> |   Edge Function  | --> |    Supabase      |
+|                  |     |                  |     |                  |
+|  Nome, Email,    |     |  submit-waitlist |     |  waitlist_leads  |
+|  Telefone,       |     |                  |     |                  |
+|  Produto         |     |  Validacao +     |     |  Armazena dados  |
++------------------+     |  Insercao        |     +------------------+
+                         +------------------+
 ```
 
 ---
 
-## Próximos Passos (Configuração no GTM)
+## Estrutura do Banco de Dados
 
-Agora você precisa configurar no GTM:
+### Tabela: `waitlist_leads`
 
-1. **Criar Variáveis de DataLayer** para capturar parâmetros:
-   - `button_text`
-   - `button_location`
-   - `destination_url`
-   - `section_name`
-   - `tab_name`
-   - `question_text`
-   - `link_url`
-   - `link_text`
-   - `form_location`
+| Coluna | Tipo | Descricao |
+|--------|------|-----------|
+| `id` | uuid | Chave primaria (gerada automaticamente) |
+| `name` | text | Nome completo do lead |
+| `email` | text | Email corporativo |
+| `phone` | text | Telefone |
+| `product` | text | Produto de interesse: 'conteudo' ou 'anuncio' |
+| `source` | text | Origem completa (ex: 'prospection_conteudo') |
+| `created_at` | timestamp | Data/hora do cadastro |
 
-2. **Criar Triggers** para cada evento customizado:
-   - `page_view`
-   - `section_view`
-   - `cta_click`
-   - `tab_change`
-   - `faq_open`
-   - `outbound_link`
-   - `waitlist_open`
-   - `waitlist_submit`
+---
 
-3. **Criar Tags**:
-   - Meta Pixel: PageView, ViewContent (section_view), Lead (cta_click)
-   - Google Ads: Conversion Tracking (cta_click)
-   - LinkedIn Insight Tag
+## Arquivos a Criar
 
-Os eventos `cta_click` serão os triggers para conversão principal nas três plataformas.
+### 1. Migration SQL
+Criar tabela `waitlist_leads` com as colunas necessarias.
+
+### 2. `supabase/functions/submit-waitlist/index.ts`
+Edge function para receber os dados do formulario e inserir no banco.
+
+**Funcionalidades:**
+- Recebe: name, email, phone, product, source
+- Valida campos obrigatorios
+- Valida email corporativo (bloqueia Gmail, Hotmail, Outlook)
+- Insere no banco de dados
+- Retorna sucesso ou erro
+
+### 3. `supabase/config.toml`
+Configuracao do Supabase com a edge function.
+
+---
+
+## Arquivos a Modificar
+
+### 1. `src/components/ui/WaitlistModal.tsx`
+
+**Mudancas:**
+- Adicionar prop `product` para identificar qual agente (conteudo ou anuncio)
+- Substituir simulacao por chamada real a edge function
+- Manter validacao client-side + adicionar tratamento de erros da API
+
+### 2. `src/components/sections/ProspectionSection.tsx`
+
+**Mudancas:**
+- Passar o produto ativo (activeTab) como prop `product` para o WaitlistModal
+- Mapear 'conteudo' e 'anuncio' para nomes amigaveis
+
+---
+
+## Fluxo de Dados
+
+1. Usuario clica em "Lista de espera" no card Conteudo ou Anuncio
+2. Modal abre com `product='conteudo'` ou `product='anuncio'`
+3. Usuario preenche nome, email e telefone
+4. Ao submeter:
+   - Validacao client-side (campos, email corporativo)
+   - Chamada POST para `/functions/v1/submit-waitlist`
+   - Edge function valida e insere no Supabase
+   - Retorna sucesso/erro
+5. Modal exibe feedback (sucesso ou erro)
+6. Tracking GTM continua funcionando normalmente
+
+---
+
+## Validacao de Email (Duplicada)
+
+A validacao de email corporativo sera feita em **dois lugares** para seguranca:
+
+1. **Client-side** (WaitlistModal.tsx) - Feedback imediato
+2. **Server-side** (Edge Function) - Seguranca contra bypass
+
+Dominios bloqueados:
+- gmail.com
+- hotmail.com
+- outlook.com
+- yahoo.com
+- icloud.com
+- live.com
+- uol.com.br
+
+---
+
+## Consulta de Dados
+
+Apos implementacao, voce podera ver os leads no painel do Supabase:
+- Acessar: Database > Tables > waitlist_leads
+- Ou executar SQL: `SELECT * FROM waitlist_leads ORDER BY created_at DESC`
+
+---
+
+## Seguranca
+
+- RLS (Row Level Security) sera configurado para permitir apenas INSERT publico
+- SELECT/UPDATE/DELETE bloqueados para usuarios anonimos
+- Dados sensiveis protegidos no banco

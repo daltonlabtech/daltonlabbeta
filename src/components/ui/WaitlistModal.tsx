@@ -20,7 +20,7 @@ const isPersonalEmail = (email: string): boolean => {
   return BLOCKED_DOMAINS.some(domain => emailLower.endsWith(`@${domain}`));
 };
 
-const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown' }: WaitlistModalProps) => {
+const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'unknown' }: WaitlistModalProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,6 +29,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown' }: WaitlistMo
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
+  const [submitError, setSubmitError] = useState('');
 
   // Track modal open
   useEffect(() => {

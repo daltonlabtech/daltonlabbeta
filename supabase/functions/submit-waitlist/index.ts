@@ -49,11 +49,11 @@ const isValidEmail = (email: string): boolean => {
 };
 
 const isValidPhone = (phone: string): boolean => {
-  // Remove common formatting characters
-  const cleanPhone = phone.replace(/[\s\-\(\)\.]/g, '');
-  // E.164-like format: optional + followed by 8-15 digits
-  const phoneRegex = /^\+?[1-9]\d{7,14}$/;
-  return phoneRegex.test(cleanPhone);
+  // Remove all non-digit characters for validation
+  const digitsOnly = phone.replace(/\D/g, '');
+  // Accept Brazilian phones: 10-11 digits (with DDD) or 12-13 digits (with country code)
+  // Also accept international: 8-15 digits total
+  return digitsOnly.length >= 8 && digitsOnly.length <= 15;
 };
 
 // Sanitize input to prevent injection
@@ -158,7 +158,7 @@ Deno.serve(async (req) => {
     if (!isValidPhone(phone)) {
       console.log('Validation failed: invalid phone format');
       return new Response(
-        JSON.stringify({ error: 'Telefone inválido. Use o formato: +55 11 99999-9999' }),
+        JSON.stringify({ error: 'Telefone inválido. Insira um número com DDD.' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }

@@ -186,6 +186,8 @@
     "emailPlaceholder": "name@company.com",
     "emailError": "请使用企业邮箱",
     "phoneLabel": "电话",
+    "phonePlaceholder": "+86 10 12345678",
+    "phoneError": "电话号码无效。请包含区号。",
     "phonePlaceholder": "+86 138 0000 0000",
     "submit": "加入",
     "submitting": "处理中...",

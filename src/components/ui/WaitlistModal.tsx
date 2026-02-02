@@ -21,6 +21,11 @@ const isPersonalEmail = (email: string): boolean => {
   return BLOCKED_DOMAINS.some(domain => emailLower.endsWith(`@${domain}`));
 };
 
+const isValidPhone = (phone: string): boolean => {
+  const digitsOnly = phone.replace(/\D/g, '');
+  return digitsOnly.length >= 8 && digitsOnly.length <= 15;
+};
+
 const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'unknown' }: WaitlistModalProps) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
@@ -32,6 +37,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
   const [submitError, setSubmitError] = useState('');
 
   // Track modal open
@@ -55,7 +61,14 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
       return;
     }
 
+    // Validate phone
+    if (!isValidPhone(formData.phone)) {
+      setPhoneError(t('waitlist.phoneError'));
+      return;
+    }
+
     setEmailError('');
+    setPhoneError('');
     setSubmitError('');
     setIsSubmitting(true);
     
@@ -109,12 +122,16 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
     if (field === 'email') {
       setEmailError('');
     }
+    if (field === 'phone') {
+      setPhoneError('');
+    }
   };
 
   const handleClose = () => {
     // Reset form state when closing without submitting
     setFormData({ name: '', email: '', phone: '', honeypot: '' });
     setEmailError('');
+    setPhoneError('');
     setSubmitError('');
     setIsSubmitted(false);
     onClose();
@@ -201,8 +218,11 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
                   onChange={(e) => handleChange('phone', e.target.value)}
                   placeholder={t('waitlist.phonePlaceholder')}
                   required
-                  className="h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
+                  className={`h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400 ${phoneError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
                 />
+                {phoneError && (
+                  <p className="text-xs md:text-sm text-red-500">{phoneError}</p>
+                )}
               </div>
 
               {/* Submit Error */}

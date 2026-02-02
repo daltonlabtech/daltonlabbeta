@@ -187,6 +187,7 @@
     "emailError": "Please use a corporate email",
     "phoneLabel": "Phone",
     "phonePlaceholder": "+1 (555) 123-4567",
+    "phoneError": "Invalid phone number. Please include area code.",
     "submit": "Join",
     "submitting": "Processing...",
     "successTitle": "Registration complete!",

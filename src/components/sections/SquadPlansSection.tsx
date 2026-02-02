@@ -1,42 +1,37 @@
 import { Check } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useTrackSection } from '@/hooks/useTrackSection';
 import { trackCtaClick } from '@/lib/analytics';
-const plans = [
-  {
-    name: "Agente de Vendas",
-    description: "Para empresas que querem escalar seu ciclo comercial",
-    listTitle: "Incluso no Agente de Vendas:",
-    items: [
-      'Qualificação automática de leads',
-      'Follow-up 24/7',
-      'Agendamento de reuniões',
-      'Fechamento de vendas automatizado',
-    ],
-    ctaText: "Fale com o Dalton",
-    ctaLink: "https://chat.daltonlab.ai/",
-  },
-  {
-    name: "Consultoria Enterprise",
-    description: "Para empresas consolidadas que querem evoluir para uma organização agêntica.",
-    listTitle: "Incluso na consultoria:",
-    items: [
-      'Diagnóstico estratégico',
-      'Organograma agêntico',
-      'Agentes de IA personalizados',
-      'Acompanhamento contínuo',
-    ],
-    ctaText: "Agende uma reunião",
-    ctaLink: "https://chat.daltonlab.ai/",
-  }
-];
 
 const SquadPlansSection = () => {
+  const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
   const sectionRef = useTrackSection('squad_plans');
 
-  const handleCtaClick = (planName: string, ctaText: string, ctaLink: string) => {
-    const location = planName === 'Agente de Vendas' ? 'squad_vendas' : 'squad_enterprise';
+  const plans = [
+    {
+      key: 'vendas',
+      name: t('plans.vendas.name'),
+      description: t('plans.vendas.description'),
+      listTitle: t('plans.vendas.listTitle'),
+      items: t('plans.vendas.items', { returnObjects: true }) as string[],
+      ctaText: t('plans.vendas.cta'),
+      ctaLink: "https://chat.daltonlab.ai/",
+    },
+    {
+      key: 'enterprise',
+      name: t('plans.enterprise.name'),
+      description: t('plans.enterprise.description'),
+      listTitle: t('plans.enterprise.listTitle'),
+      items: t('plans.enterprise.items', { returnObjects: true }) as string[],
+      ctaText: t('plans.enterprise.cta'),
+      ctaLink: "https://chat.daltonlab.ai/",
+    }
+  ];
+
+  const handleCtaClick = (planKey: string, ctaText: string, ctaLink: string) => {
+    const location = planKey === 'vendas' ? 'squad_vendas' : 'squad_enterprise';
     trackCtaClick(ctaText, location, ctaLink);
   };
 
@@ -70,7 +65,7 @@ const SquadPlansSection = () => {
           {plans.map((plan, index) => {
             return (
               <div 
-                key={plan.name}
+                key={plan.key}
                 className={`relative p-8 flex flex-col bg-[#F5F3F0] rounded-2xl min-h-[400px]
                   transform transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35)]
                   ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[40px]'}`}
@@ -113,7 +108,7 @@ const SquadPlansSection = () => {
                   href={plan.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => handleCtaClick(plan.name, plan.ctaText, plan.ctaLink)}
+                  onClick={() => handleCtaClick(plan.key, plan.ctaText, plan.ctaLink)}
                   className="mt-8 w-full py-3.5 rounded-full font-inter font-semibold text-base flex items-center justify-center transition-all duration-300 bg-[#101823] text-white hover:bg-[#1a2533]"
                 >
                   {plan.ctaText}

@@ -1,33 +1,35 @@
 import { useState, useEffect } from 'react';
 import { MessageCircle, BarChart3 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 import daltonCircleLogo from '@/assets/dalton-logo-circle.webp';
 
 const InsightsSection = () => {
+  const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
   const [messageIndex, setMessageIndex] = useState(0);
 
   const features = [
     {
-      title: 'Automação ponta a ponta',
-      description: 'Gere leads orgânicos, potencialize o ROI dos seus anúncios e feche vendas em um único fluxo automatizado.',
+      title: t('insights.features.automation.title'),
+      description: t('insights.features.automation.description'),
     },
     {
-      title: 'Escala infinita',
-      description: 'Atenda todos os seus leads 24/7 com o mesmo padrão de qualidade e velocidade.',
+      title: t('insights.features.scale.title'),
+      description: t('insights.features.scale.description'),
     },
     {
-      title: 'Alertas em tempo real',
-      description: 'Acompanhe novas vendas e receba insights e previsões de faturamento. Tudo no WhatsApp.',
+      title: t('insights.features.alerts.title'),
+      description: t('insights.features.alerts.description'),
     },
   ];
 
   const chatMessages = [
-    { type: 'bot', text: 'Oi, Rodrigo!', time: '10:30' },
-    { type: 'bot', text: 'Notícia boa: batemos 119% da meta este mês!', time: '10:30' },
-    { type: 'user', text: 'Boa, Dalton!', time: '10:31' },
-    { type: 'bot', text: 'Que tal testarmos minha funcionalidade de conteúdo próximo mês?', time: '10:31' },
-    { type: 'user', text: 'Bora nessa!', time: '10:32' },
+    { type: 'bot', text: t('insights.chat.message1'), time: '10:30' },
+    { type: 'bot', text: t('insights.chat.message2'), time: '10:30' },
+    { type: 'user', text: t('insights.chat.message3'), time: '10:31' },
+    { type: 'bot', text: t('insights.chat.message4'), time: '10:31' },
+    { type: 'user', text: t('insights.chat.message5'), time: '10:32' },
   ];
 
   // Cycle through conversation states (6 states: typing + 5 messages)
@@ -52,8 +54,8 @@ const InsightsSection = () => {
             <h2 
               className={`font-inter font-bold text-4xl md:text-5xl lg:text-[60px] text-zinc-900 leading-tight ${revealClasses(isVisible)}`}
             >
-              A nova forma de<br />
-              escalar receita
+              {t('insights.title')}<br />
+              {t('insights.titleLine2')}
             </h2>
 
             {/* Feature Cards */}
@@ -87,10 +89,10 @@ const InsightsSection = () => {
             >
               <div className="relative bg-zinc-900 text-white px-4 py-3 rounded-2xl shadow-lg max-w-[180px]">
                 <p className="text-sm font-semibold leading-snug">
-                  Métricas em tempo real
+                  {t('insights.callouts.metrics.title')}
                 </p>
                 <p className="text-xs text-zinc-400 mt-1">
-                  Pipeline, leads e revenue atualizados
+                  {t('insights.callouts.metrics.description')}
                 </p>
                 {/* Pointer arrow */}
                 <div 
@@ -107,10 +109,10 @@ const InsightsSection = () => {
             >
               <div className="relative bg-white text-zinc-900 px-4 py-3 rounded-2xl shadow-lg border border-zinc-200 max-w-[200px]">
                 <p className="text-sm font-semibold leading-snug">
-                  Linguagem natural
+                  {t('insights.callouts.language.title')}
                 </p>
                 <p className="text-xs text-zinc-500 mt-1">
-                  Compreende contexto, tom e intenção em cada conversa
+                  {t('insights.callouts.language.description')}
                 </p>
                 {/* Pointer arrow */}
                 <div 
@@ -127,7 +129,7 @@ const InsightsSection = () => {
             >
               <div className="relative bg-green-500 text-white px-4 py-2.5 rounded-2xl shadow-lg">
                 <p className="text-sm font-bold animate-value-pulse">
-                  +19% crescimento
+                  {t('insights.callouts.growth')}
                 </p>
                 {/* Pointer arrow */}
                 <div 
@@ -170,7 +172,7 @@ const InsightsSection = () => {
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-1.5">
                         <BarChart3 className="w-4 h-4 text-zinc-600" />
-                        <span className="text-[13px] font-semibold text-zinc-700">Dashboard</span>
+                        <span className="text-[13px] font-semibold text-zinc-700">{t('insights.dashboard.title')}</span>
                       </div>
                       <div className="w-7 h-7 rounded-full bg-zinc-200" />
                     </div>
@@ -178,12 +180,12 @@ const InsightsSection = () => {
                     {/* KPI Cards Row */}
                     <div className="grid grid-cols-2 gap-2 mb-3">
                       <div className="bg-white rounded-xl p-2.5 shadow-sm">
-                        <p className="text-[9px] text-zinc-500 mb-0.5">Leads</p>
+                        <p className="text-[9px] text-zinc-500 mb-0.5">{t('insights.dashboard.leads')}</p>
                         <p className="font-inter font-bold text-lg text-zinc-900">23.4K</p>
                         <p className="text-[8px] text-green-500 font-medium">↗ +12.5%</p>
                       </div>
                       <div className="bg-white rounded-xl p-2.5 shadow-sm">
-                        <p className="text-[9px] text-zinc-500 mb-0.5">Conversão</p>
+                        <p className="text-[9px] text-zinc-500 mb-0.5">{t('insights.dashboard.conversion')}</p>
                         <p className="font-inter font-bold text-lg text-zinc-900">45.1%</p>
                         <p className="text-[8px] text-green-500 font-medium">↗ +2.1%</p>
                       </div>
@@ -191,7 +193,7 @@ const InsightsSection = () => {
 
                     {/* Mini Line Chart */}
                     <div className="bg-white rounded-xl p-3 shadow-sm mb-3">
-                      <p className="text-[9px] text-zinc-500 font-medium mb-2">Performance Semanal</p>
+                      <p className="text-[9px] text-zinc-500 font-medium mb-2">{t('insights.dashboard.weeklyPerformance')}</p>
                       <div className="h-12 relative">
                         <svg className="w-full h-full" viewBox="0 0 200 50" preserveAspectRatio="none">
                           <path 
@@ -209,7 +211,7 @@ const InsightsSection = () => {
 
                     {/* Mini Donut Chart */}
                     <div className="bg-white rounded-xl p-3 shadow-sm mb-3">
-                      <p className="text-[9px] text-zinc-500 font-medium mb-2">Canais</p>
+                      <p className="text-[9px] text-zinc-500 font-medium mb-2">{t('insights.dashboard.channels')}</p>
                       <div className="flex items-center gap-3">
                         <div className="relative w-14 h-14">
                           <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
@@ -224,15 +226,15 @@ const InsightsSection = () => {
                         <div className="flex-1 space-y-1 text-[8px]">
                           <div className="flex items-center gap-1">
                             <div className="w-2 h-2 rounded-full bg-green-500" />
-                            <span className="text-zinc-600">WhatsApp 42%</span>
+                            <span className="text-zinc-600">{t('insights.dashboard.whatsapp')} 42%</span>
                           </div>
                           <div className="flex items-center gap-1">
                             <div className="w-2 h-2 rounded-full bg-blue-500" />
-                            <span className="text-zinc-600">Email 25%</span>
+                            <span className="text-zinc-600">{t('insights.dashboard.email')} 25%</span>
                           </div>
                           <div className="flex items-center gap-1">
                             <div className="w-2 h-2 rounded-full bg-pink-500" />
-                            <span className="text-zinc-600">Outros 33%</span>
+                            <span className="text-zinc-600">{t('insights.dashboard.others')} 33%</span>
                           </div>
                         </div>
                       </div>
@@ -241,10 +243,10 @@ const InsightsSection = () => {
                     {/* Insights Cards */}
                     <div className="space-y-1.5">
                       <div className="bg-amber-50 border border-amber-200 rounded-lg p-2 text-[8px] text-amber-800">
-                        💡 Conversões +23% pela manhã
+                        {t('insights.dashboard.insight1')}
                       </div>
                       <div className="bg-blue-50 border border-blue-200 rounded-lg p-2 text-[8px] text-blue-800">
-                        💡 Enterprise: 2.3x conversão
+                        {t('insights.dashboard.insight2')}
                       </div>
                     </div>
                   </div>
@@ -300,7 +302,7 @@ const InsightsSection = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="text-white text-[13px] font-semibold block">Dalton Lab</span>
-                      <p className="text-white/70 text-[10px]">online</p>
+                      <p className="text-white/70 text-[10px]">{t('insights.chat.online')}</p>
                     </div>
                     <MessageCircle className="w-5 h-5 text-white shrink-0" />
                   </div>
@@ -316,7 +318,7 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Message 1 - Bot: "Oi, Rodrigo!" - State 1+ */}
+                    {/* Message 1 - Bot - State 1+ */}
                     <div className={`flex justify-start transition-all duration-500 ${messageIndex >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                       <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm">
                         <p className="text-[11px] text-zinc-800 leading-relaxed">
@@ -326,7 +328,7 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Message 2 - Bot: "Notícia boa..." - State 2+ */}
+                    {/* Message 2 - Bot - State 2+ */}
                     <div className={`flex justify-start transition-all duration-500 ${messageIndex >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                       <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm">
                         <p className="text-[11px] text-zinc-800 leading-relaxed">
@@ -336,7 +338,7 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Message 3 - User: "Boa, Dalton!" - State 3+ */}
+                    {/* Message 3 - User - State 3+ */}
                     <div className={`flex justify-end transition-all duration-500 ${messageIndex >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                       <div 
                         className="rounded-xl px-3 py-2 max-w-[88%] shadow-sm"
@@ -349,7 +351,7 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Message 4 - Bot: "Que tal testarmos..." - State 4+ */}
+                    {/* Message 4 - Bot - State 4+ */}
                     <div className={`flex justify-start transition-all duration-500 ${messageIndex >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                       <div className="bg-white rounded-xl px-3 py-2 max-w-[88%] shadow-sm">
                         <p className="text-[11px] text-zinc-800 leading-relaxed">
@@ -359,7 +361,7 @@ const InsightsSection = () => {
                       </div>
                     </div>
 
-                    {/* Message 5 - User: "Bora nessa!" - State 5+ */}
+                    {/* Message 5 - User - State 5+ */}
                     <div className={`flex justify-end transition-all duration-500 ${messageIndex >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                       <div 
                         className="rounded-xl px-3 py-2 max-w-[88%] shadow-sm"
@@ -373,22 +375,21 @@ const InsightsSection = () => {
                     </div>
                   </div>
 
-                  {/* Input Bar */}
+                  {/* WhatsApp Input Area */}
                   <div 
-                    className="px-2 py-2 flex items-center gap-2 shrink-0"
+                    className="p-2 flex items-center gap-2 shrink-0"
                     style={{ backgroundColor: '#F0F0F0' }}
                   >
-                    <div className="flex-1 bg-white rounded-full px-4 py-1.5 shadow-sm">
-                      <span className="text-[10px] text-zinc-400">Mensagem</span>
+                    <div className="flex-1 bg-white rounded-full px-3 py-1.5 text-[10px] text-zinc-400">
+                      Mensagem
                     </div>
-                    <div 
-                      className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
-                      style={{ backgroundColor: '#075E54' }}
-                    >
-                      <MessageCircle className="w-4 h-4 text-white" />
+                    <div className="w-7 h-7 bg-[#075E54] rounded-full flex items-center justify-center">
+                      <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                      </svg>
                     </div>
                   </div>
-
+                  
                   {/* Home Indicator */}
                   <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 h-1 bg-zinc-900/30 rounded-full" />
                 </div>

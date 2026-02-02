@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
 
 const AudioDemoSection = () => {
+  const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
 
   return (
@@ -18,10 +20,10 @@ const AudioDemoSection = () => {
           {/* Title and Subtitle inside the card */}
           <div className="mb-4 md:mb-6 pr-12">
             <h2 className="font-inter font-bold text-xl md:text-3xl lg:text-4xl text-[#1A232F] leading-tight mb-2 md:mb-3">
-              Confira nosso podcast no Spotify
+              {t('audio.title')}
             </h2>
             <p className="font-inter text-xs md:text-base text-[#1A232F]/70">
-              Conversas com nossos fundadores sobre IA, empreendedorismo e inovação.
+              {t('audio.subtitle')}
             </p>
           </div>
 

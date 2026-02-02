@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "product": "Producto",
+    "news": "Noticias",
+    "about": "Quiénes somos",
+    "comingSoon": "Próximamente",
+    "cta": "Habla con Dalton"
+  },
+  "hero": {
+    "poweredBy": "Powered by",
+    "titleLine1": "Del lead a la venta",
+    "titleLine2": "con Agentes de IA",
+    "titleLine2Mobile": "con",
+    "titleLine3Mobile": "Agentes de IA",
+    "subtitle1": "Escala los ingresos de tu empresa.",
+    "subtitle2": "En menos tiempo. Con más retorno.",
+    "cta": "Habla con Dalton"
+  },
+  "clients": {
+    "title": "Empresas que confían en nosotros"
+  },
+  "prospection": {
+    "title": "IA que vende por ti",
+    "subtitle": "Califica leads, agenda reuniones, cierra ventas y atrae a tu cliente ideal.",
+    "agentOf": "Agente de",
+    "tabs": {
+      "vendas": "Ventas",
+      "conteudo": "Contenido",
+      "anuncio": "Anuncios"
+    },
+    "vendas": {
+      "title": "Atiende a todos tus leads 24/7",
+      "description": "Dalton automatiza tu proceso comercial, escalando tus ventas y garantizando ingresos predecibles.",
+      "features": [
+        "Respuestas instantáneas",
+        "Entiende a tu cliente ideal y lo dirige a reuniones",
+        "Guía al cliente en el proceso de compra de forma autónoma"
+      ],
+      "cta": "Habla con Dalton"
+    },
+    "conteudo": {
+      "title": "Genera leads orgánicos a escala",
+      "description": "Dalton estudia tu marca, absorbe tu posicionamiento y produce materiales auténticos.",
+      "features": [
+        "Analiza tu marca y entiende tu identidad",
+        "Automatiza la creación de contenido para tus redes sociales",
+        "Personaliza los contenidos según el perfil de tu marca y público"
+      ],
+      "cta": "Lista de espera"
+    },
+    "anuncio": {
+      "title": "Potencia el ROI de tus anuncios",
+      "description": "Dalton aprende, prueba y optimiza cada centavo invertido para maximizar el retorno.",
+      "features": [
+        "Realiza pruebas masivas para encontrar tu público ideal",
+        "Analiza datos en tiempo real para identificar tendencias de rendimiento",
+        "Aplica mejoras de rendimiento para maximizar el ROI"
+      ],
+      "cta": "Lista de espera"
+    },
+    "comingSoon": "Próximamente",
+    "leadConversion": "Conversión de leads"
+  },
+  "insights": {
+    "title": "La nueva forma de",
+    "titleLine2": "escalar ingresos",
+    "features": {
+      "automation": {
+        "title": "Automatización de punta a punta",
+        "description": "Genera leads orgánicos, potencia el ROI de tus anuncios y cierra ventas en un único flujo automatizado."
+      },
+      "scale": {
+        "title": "Escala infinita",
+        "description": "Atiende a todos tus leads 24/7 con el mismo estándar de calidad y velocidad."
+      },
+      "alerts": {
+        "title": "Alertas en tiempo real",
+        "description": "Sigue las nuevas ventas y recibe insights y previsiones de facturación. Todo en WhatsApp."
+      }
+    },
+    "callouts": {
+      "metrics": {
+        "title": "Métricas en tiempo real",
+        "description": "Pipeline, leads e ingresos actualizados"
+      },
+      "language": {
+        "title": "Lenguaje natural",
+        "description": "Comprende contexto, tono e intención en cada conversación"
+      },
+      "growth": "+19% crecimiento"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "leads": "Leads",
+      "conversion": "Conversión",
+      "weeklyPerformance": "Rendimiento Semanal",
+      "channels": "Canales",
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "others": "Otros",
+      "insight1": "💡 Conversiones +23% por la mañana",
+      "insight2": "💡 Enterprise: 2.3x conversión"
+    },
+    "chat": {
+      "online": "en línea",
+      "message1": "¡Hola, Rodrigo!",
+      "message2": "¡Buenas noticias: alcanzamos el 119% de la meta este mes!",
+      "message3": "¡Genial, Dalton!",
+      "message4": "¿Qué tal si probamos mi funcionalidad de contenido el próximo mes?",
+      "message5": "¡Vamos!"
+    }
+  },
+  "plans": {
+    "vendas": {
+      "name": "Agente de Ventas",
+      "description": "Para empresas que quieren escalar su ciclo comercial",
+      "listTitle": "Incluido en el Agente de Ventas:",
+      "items": [
+        "Calificación automática de leads",
+        "Follow-up 24/7",
+        "Agendamiento de reuniones",
+        "Cierre de ventas automatizado"
+      ],
+      "cta": "Habla con Dalton"
+    },
+    "enterprise": {
+      "name": "Consultoría Enterprise",
+      "description": "Para empresas consolidadas que quieren evolucionar hacia una organización agéntica.",
+      "listTitle": "Incluido en la consultoría:",
+      "items": [
+        "Diagnóstico estratégico",
+        "Organigrama agéntico",
+        "Agentes de IA personalizados",
+        "Acompañamiento continuo"
+      ],
+      "cta": "Agenda una reunión"
+    }
+  },
+  "audio": {
+    "title": "Mira nuestro podcast en Spotify",
+    "subtitle": "Conversaciones con nuestros fundadores sobre IA, emprendimiento e innovación."
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "questions": [
+      {
+        "question": "¿Qué es un Agente de IA?",
+        "answer": "Un Agente de IA es un software autónomo que ejecuta tareas siguiendo procesos definidos. Se comporta como un ser humano.\n\nA diferencia de chatbots o asistentes genéricos, nuestros Agentes están entrenados específicamente en tu negocio para generar resultados medibles. Todo esto sin necesidad de expandir tu plantilla."
+      },
+      {
+        "question": "¿Cuánto tiempo tarda la implementación?",
+        "answer": "De 2 a 4 semanas, dependiendo de la complejidad de tu proceso comercial.\n\nEste plazo incluye integración con tus APIs y entrenamiento con datos reales de tu operación."
+      },
+      {
+        "question": "¿Los agentes venden de verdad?",
+        "answer": "Sí. Dalton, nuestro Agente de Ventas, conduce el proceso comercial de principio a fin: desde la calificación inicial hasta el cierre."
+      },
+      {
+        "question": "¿Cómo funciona la integración con mis sistemas?",
+        "answer": "Nuestro equipo realiza la integración a medida con los sistemas que ya usas. Además, puedes seguir toda la operación a través de nuestro dashboard de rendimiento."
+      },
+      {
+        "question": "¿Tendré contacto con humanos durante el proceso?",
+        "answer": "Sí. Creemos que la combinación entre Agentes de IA y experiencia humana es lo que genera resultados consistentes.\n\nUna vez firmado el contrato, nuestro equipo agenda la reunión de Levantamiento de Procesos para iniciar la implementación."
+      },
+      {
+        "question": "¿Y si no me gusta el resultado?",
+        "answer": "Puedes pausar el Agente en cualquier momento. Nuestro trabajo se basa en optimización continua. Tu feedback guía los ajustes. Y si decides cancelar, no hay cláusula de fidelidad ni multa por rescisión."
+      }
+    ]
+  },
+  "footer": {
+    "support": "Soporte",
+    "about": "Acerca de",
+    "socialMedia": "Redes Sociales",
+    "legal": "Legal",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfUse": "Términos de Uso",
+    "copyright": "© 2026 Dalton Lab. Todos los derechos reservados."
+  },
+  "waitlist": {
+    "title": "Quiero unirme a la lista de espera",
+    "nameLabel": "Nombre completo",
+    "namePlaceholder": "Nombre",
+    "emailLabel": "Email de trabajo",
+    "emailPlaceholder": "nombre@empresa.com",
+    "emailError": "Por favor, usa un email corporativo",
+    "phoneLabel": "Teléfono",
+    "phonePlaceholder": "+34 600 123 456",
+    "submit": "Unirse",
+    "submitting": "Procesando...",
+    "successTitle": "¡Registro completado!",
+    "successMessage": "Recibirás novedades de primera mano.",
+    "errorGeneric": "Error al enviar. Intenta de nuevo.",
+    "errorUnexpected": "Error inesperado. Intenta de nuevo."
+  }
+}

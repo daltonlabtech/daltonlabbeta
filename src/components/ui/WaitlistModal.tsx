@@ -92,7 +92,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
       // Reset after showing success
       setTimeout(() => {
         setIsSubmitted(false);
-        setFormData({ name: '', email: '', phone: '' });
+        setFormData({ name: '', email: '', phone: '', honeypot: '' });
         onClose();
       }, 2000);
     } catch (err) {

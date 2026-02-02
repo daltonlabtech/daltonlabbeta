@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import cliente1 from '@/assets/logos/cliente-1.webp';
 import cliente2 from '@/assets/logos/cliente-2.webp';
 import cliente3 from '@/assets/logos/cliente-3.webp';
@@ -21,6 +22,8 @@ const clientLogos = [
 ];
 
 const ClientsSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section
       className="pt-4 pb-8 md:py-12 overflow-hidden"
@@ -31,7 +34,7 @@ const ClientsSection = () => {
           className="text-center text-sm md:text-base lg:text-lg font-extralight tracking-wide uppercase mb-6"
           style={{ color: 'rgba(245, 243, 240, 0.7)' }}
         >
-          Empresas que confiam em nós
+          {t('clients.title')}
         </h2>
       </div>
 

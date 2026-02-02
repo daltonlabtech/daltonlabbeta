@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import heroVideoWebm from '@/assets/hero-background.webm';
 import heroVideoMp4 from '@/assets/hero-background.mp4';
 import { useTrackSection } from '@/hooks/useTrackSection';
@@ -56,6 +57,7 @@ const TechLogoBadge = memo(({ currentIndex }: { currentIndex: number }) => {
 TechLogoBadge.displayName = 'TechLogoBadge';
 
 const HeroSection = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -75,7 +77,7 @@ const HeroSection = () => {
   }, []);
 
   const handleCtaClick = () => {
-    trackCtaClick('Fale com o Dalton', 'hero', 'https://chat.daltonlab.ai/');
+    trackCtaClick(t('hero.cta'), 'hero', 'https://chat.daltonlab.ai/');
   };
 
   return (
@@ -128,7 +130,7 @@ const HeroSection = () => {
             }`}
             style={{ backgroundColor: 'rgba(245, 243, 240, 0.7)' }}
           >
-            <span className="text-zinc-900/70 text-[10px] font-medium">Powered by</span>
+            <span className="text-zinc-900/70 text-[10px] font-medium">{t('hero.poweredBy')}</span>
             <TechLogoBadge currentIndex={currentLogoIndex} />
           </div>
 
@@ -141,20 +143,20 @@ const HeroSection = () => {
           >
             {/* Mobile: 3 lines */}
             <span className="block sm:hidden text-4xl font-normal">
-              Do lead à venda
+              {t('hero.titleLine1')}
             </span>
             <span className="block sm:hidden text-4xl font-light mt-1">
-              com
+              {t('hero.titleLine2Mobile')}
             </span>
             <span className="block sm:hidden text-4xl font-light mt-1">
-              Agentes de IA
+              {t('hero.titleLine3Mobile')}
             </span>
             {/* Desktop: 2 lines */}
             <span className="hidden sm:block text-5xl md:text-6xl lg:text-7xl font-normal">
-              Do lead à venda
+              {t('hero.titleLine1')}
             </span>
             <span className="hidden sm:block text-5xl md:text-6xl lg:text-7xl font-light mt-1">
-              com Agentes de IA
+              {t('hero.titleLine2')}
             </span>
           </h1>
 
@@ -168,13 +170,13 @@ const HeroSection = () => {
               className="text-sm md:text-base lg:text-lg font-light"
               style={{ color: 'rgba(245, 243, 240, 0.75)' }}
             >
-              Escale a receita da sua empresa.
+              {t('hero.subtitle1')}
             </p>
             <p
               className="text-sm md:text-base lg:text-lg font-light"
               style={{ color: 'rgba(245, 243, 240, 0.75)' }}
             >
-              Em menos tempo. Com mais retorno.
+              {t('hero.subtitle2')}
             </p>
           </div>
 
@@ -195,7 +197,7 @@ const HeroSection = () => {
                 color: '#000000',
               }}
             >
-              Fale com o Dalton
+              {t('hero.cta')}
               <svg
                 className="w-3.5 h-3.5"
                 viewBox="0 0 24 24"

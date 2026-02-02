@@ -111,6 +111,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
     // Reset form state when closing without submitting
     setFormData({ name: '', email: '', phone: '' });
     setEmailError('');
+    setSubmitError('');
     setIsSubmitted(false);
     onClose();
   };

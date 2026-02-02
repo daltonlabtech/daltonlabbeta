@@ -25,6 +25,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
     name: '',
     email: '',
     phone: '',
+    honeypot: '', // Hidden field to catch bots
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -65,6 +66,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
           phone: formData.phone.trim(),
           product: product,
           source: formLocation,
+          honeypot: formData.honeypot, // Send honeypot for bot detection
         },
       });
 
@@ -90,7 +92,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
       // Reset after showing success
       setTimeout(() => {
         setIsSubmitted(false);
-        setFormData({ name: '', email: '', phone: '' });
+        setFormData({ name: '', email: '', phone: '', honeypot: '' });
         onClose();
       }, 2000);
     } catch (err) {
@@ -109,7 +111,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
 
   const handleClose = () => {
     // Reset form state when closing without submitting
-    setFormData({ name: '', email: '', phone: '' });
+    setFormData({ name: '', email: '', phone: '', honeypot: '' });
     setEmailError('');
     setSubmitError('');
     setIsSubmitted(false);
@@ -138,6 +140,18 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+              {/* Honeypot field - hidden from users, visible to bots */}
+              <input
+                type="text"
+                name="website"
+                value={formData.honeypot}
+                onChange={(e) => handleChange('honeypot', e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                className="absolute -left-[9999px] opacity-0 h-0 w-0"
+                aria-hidden="true"
+              />
+              
               {/* Nome completo */}
               <div className="space-y-1.5 md:space-y-2">
                 <Label htmlFor="name" className="text-xs md:text-sm font-medium text-zinc-700">

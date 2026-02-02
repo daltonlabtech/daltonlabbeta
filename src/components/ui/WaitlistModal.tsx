@@ -140,6 +140,18 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+              {/* Honeypot field - hidden from users, visible to bots */}
+              <input
+                type="text"
+                name="website"
+                value={formData.honeypot}
+                onChange={(e) => handleChange('honeypot', e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                className="absolute -left-[9999px] opacity-0 h-0 w-0"
+                aria-hidden="true"
+              />
+              
               {/* Nome completo */}
               <div className="space-y-1.5 md:space-y-2">
                 <Label htmlFor="name" className="text-xs md:text-sm font-medium text-zinc-700">

@@ -176,6 +176,7 @@ const ProspectionSection = () => {
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
         formLocation={`prospection_${activeTab}`}
+        product={activeTab}
       />
     </section>;
 };

@@ -4,21 +4,23 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { trackWaitlistOpen, trackWaitlistSubmit } from '@/lib/analytics';
+import { supabase } from '@/integrations/supabase/client';
 
 interface WaitlistModalProps {
   isOpen: boolean;
   onClose: () => void;
   formLocation?: string;
+  product?: string;
 }
 
-const BLOCKED_DOMAINS = ['gmail.com', 'hotmail.com', 'outlook.com'];
+const BLOCKED_DOMAINS = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'icloud.com', 'live.com', 'uol.com.br'];
 
 const isPersonalEmail = (email: string): boolean => {
   const emailLower = email.toLowerCase().trim();
   return BLOCKED_DOMAINS.some(domain => emailLower.endsWith(`@${domain}`));
 };
 
-const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown' }: WaitlistModalProps) => {
+const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'unknown' }: WaitlistModalProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,6 +29,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown' }: WaitlistMo
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
+  const [submitError, setSubmitError] = useState('');
 
   // Track modal open
   useEffect(() => {
@@ -50,23 +53,51 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown' }: WaitlistMo
     }
 
     setEmailError('');
+    setSubmitError('');
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Track successful submit
-    trackWaitlistSubmit(formLocation);
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset after showing success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', phone: '' });
-      onClose();
-    }, 2000);
+    try {
+      // Call edge function to submit waitlist
+      const { data, error } = await supabase.functions.invoke('submit-waitlist', {
+        body: {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          product: product,
+          source: formLocation,
+        },
+      });
+
+      if (error) {
+        console.error('Waitlist submission error:', error);
+        setSubmitError('Erro ao enviar. Tente novamente.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (data?.error) {
+        setSubmitError(data.error);
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Track successful submit
+      trackWaitlistSubmit(formLocation);
+      
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      
+      // Reset after showing success
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: '', email: '', phone: '' });
+        onClose();
+      }, 2000);
+    } catch (err) {
+      console.error('Unexpected error:', err);
+      setSubmitError('Erro inesperado. Tente novamente.');
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: keyof typeof formData, value: string) => {
@@ -80,6 +111,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown' }: WaitlistMo
     // Reset form state when closing without submitting
     setFormData({ name: '', email: '', phone: '' });
     setEmailError('');
+    setSubmitError('');
     setIsSubmitted(false);
     onClose();
   };
@@ -156,6 +188,13 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown' }: WaitlistMo
                   className="h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400"
                 />
               </div>
+
+              {/* Submit Error */}
+              {submitError && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                  <p className="text-xs md:text-sm text-red-600">{submitError}</p>
+                </div>
+              )}
 
               {/* Submit Button */}
               <Button

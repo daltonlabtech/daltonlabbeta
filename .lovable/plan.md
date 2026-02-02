@@ -1,123 +1,215 @@
 
-# Plano: Banco de Dados para Lista de Espera
+
+# Plano: Tradução Automática por Idioma do Navegador
 
 ## Resumo
 
-Criar um banco de dados para armazenar os leads da lista de espera, incluindo nome, email, telefone e qual produto/agente o cliente se interessou (Agente de Conteudo ou Agente de Anuncio).
+Implementar um sistema de internacionalização (i18n) que detecta automaticamente o idioma do navegador do usuário e traduz toda a página. O seletor de idioma aparecerá no header apenas quando o site estiver em idiomas diferentes do português.
 
 ---
 
-## Arquitetura
+## Arquitetura da Solução
+
+O sistema utilizará **react-i18next**, a biblioteca mais popular e robusta para internacionalização em React. A detecção será feita via `navigator.language`, que retorna o idioma configurado no navegador do usuário.
 
 ```text
-+------------------+     +------------------+     +------------------+
-|   WaitlistModal  | --> |   Edge Function  | --> |    Supabase      |
-|                  |     |                  |     |                  |
-|  Nome, Email,    |     |  submit-waitlist |     |  waitlist_leads  |
-|  Telefone,       |     |                  |     |                  |
-|  Produto         |     |  Validacao +     |     |  Armazena dados  |
-+------------------+     |  Insercao        |     +------------------+
-                         +------------------+
+Fluxo de Detecção:
+┌─────────────────────────────────────────────────────────┐
+│  Usuário acessa o site                                  │
+│              ↓                                          │
+│  Verifica localStorage (idioma salvo?)                  │
+│              ↓                                          │
+│  Não → Detecta navigator.language                       │
+│              ↓                                          │
+│  Mapeia para idioma suportado (pt, en, es, fr, de, etc) │
+│              ↓                                          │
+│  Carrega traduções e renderiza                          │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Estrutura do Banco de Dados
+## Etapas de Implementação
 
-### Tabela: `waitlist_leads`
+### 1. Instalar Dependências
 
-| Coluna | Tipo | Descricao |
-|--------|------|-----------|
-| `id` | uuid | Chave primaria (gerada automaticamente) |
-| `name` | text | Nome completo do lead |
-| `email` | text | Email corporativo |
-| `phone` | text | Telefone |
-| `product` | text | Produto de interesse: 'conteudo' ou 'anuncio' |
-| `source` | text | Origem completa (ex: 'prospection_conteudo') |
-| `created_at` | timestamp | Data/hora do cadastro |
+- `i18next` - Biblioteca core de internacionalização
+- `react-i18next` - Integração com React
+- `i18next-browser-languagedetector` - Detecção automática do idioma
 
----
+### 2. Criar Estrutura de Traduções
 
-## Arquivos a Criar
+Organizar os textos em arquivos JSON por idioma:
 
-### 1. Migration SQL
-Criar tabela `waitlist_leads` com as colunas necessarias.
+```text
+src/
+└── locales/
+    ├── pt/
+    │   └── translation.json
+    ├── en/
+    │   └── translation.json
+    ├── es/
+    │   └── translation.json
+    ├── fr/
+    │   └── translation.json
+    └── de/
+        └── translation.json
+```
 
-### 2. `supabase/functions/submit-waitlist/index.ts`
-Edge function para receber os dados do formulario e inserir no banco.
+### 3. Configurar i18next
 
-**Funcionalidades:**
-- Recebe: name, email, phone, product, source
-- Valida campos obrigatorios
-- Valida email corporativo (bloqueia Gmail, Hotmail, Outlook)
-- Insere no banco de dados
-- Retorna sucesso ou erro
+Criar arquivo de configuração (`src/lib/i18n.ts`) com:
+- Detecção automática via navegador
+- Fallback para português (pt-BR)
+- Cache do idioma no localStorage
+- Suporte a múltiplos idiomas
 
-### 3. `supabase/config.toml`
-Configuracao do Supabase com a edge function.
+### 4. Extrair Todos os Textos para Tradução
 
----
+Mapear e traduzir textos de todos os componentes:
 
-## Arquivos a Modificar
+| Componente | Textos a Traduzir |
+|------------|-------------------|
+| **HeroSection** | Título, subtítulo, botão CTA |
+| **Header** | Links de navegação, botão CTA |
+| **ClientsSection** | "Empresas que confiam em nós" |
+| **ProspectionSection** | Títulos, descrições, features, botões |
+| **InsightsSection** | Títulos, features, mensagens do chat |
+| **SquadPlansSection** | Nomes dos planos, descrições, itens |
+| **AudioDemoSection** | Título, subtítulo |
+| **FAQSection** | Perguntas e respostas |
+| **Footer** | Links, títulos de seção |
+| **WaitlistModal** | Campos, botão, mensagens |
 
-### 1. `src/components/ui/WaitlistModal.tsx`
+### 5. Adicionar Seletor de Idioma no Header
 
-**Mudancas:**
-- Adicionar prop `product` para identificar qual agente (conteudo ou anuncio)
-- Substituir simulacao por chamada real a edge function
-- Manter validacao client-side + adicionar tratamento de erros da API
+- Criar componente `LanguageSelector`
+- Exibir dropdown com bandeiras/siglas dos idiomas
+- **Condição especial**: Ocultar quando idioma = português
+- Salvar preferência no localStorage
 
-### 2. `src/components/sections/ProspectionSection.tsx`
+### 6. Atualizar Componentes
 
-**Mudancas:**
-- Passar o produto ativo (activeTab) como prop `product` para o WaitlistModal
-- Mapear 'conteudo' e 'anuncio' para nomes amigaveis
+Substituir textos hardcoded por chamadas do hook `useTranslation()`:
 
----
+```typescript
+// Antes
+<h1>Do lead à venda com Agentes de IA</h1>
 
-## Fluxo de Dados
+// Depois  
+const { t } = useTranslation();
+<h1>{t('hero.title')}</h1>
+```
 
-1. Usuario clica em "Lista de espera" no card Conteudo ou Anuncio
-2. Modal abre com `product='conteudo'` ou `product='anuncio'`
-3. Usuario preenche nome, email e telefone
-4. Ao submeter:
-   - Validacao client-side (campos, email corporativo)
-   - Chamada POST para `/functions/v1/submit-waitlist`
-   - Edge function valida e insere no Supabase
-   - Retorna sucesso/erro
-5. Modal exibe feedback (sucesso ou erro)
-6. Tracking GTM continua funcionando normalmente
+### 7. Atualizar Meta Tags
 
----
-
-## Validacao de Email (Duplicada)
-
-A validacao de email corporativo sera feita em **dois lugares** para seguranca:
-
-1. **Client-side** (WaitlistModal.tsx) - Feedback imediato
-2. **Server-side** (Edge Function) - Seguranca contra bypass
-
-Dominios bloqueados:
-- gmail.com
-- hotmail.com
-- outlook.com
-- yahoo.com
-- icloud.com
-- live.com
-- uol.com.br
+Configurar atributo `lang` do HTML dinamicamente e atualizar meta tags de SEO com o idioma correto.
 
 ---
 
-## Consulta de Dados
+## Idiomas Suportados
 
-Apos implementacao, voce podera ver os leads no painel do Supabase:
-- Acessar: Database > Tables > waitlist_leads
-- Ou executar SQL: `SELECT * FROM waitlist_leads ORDER BY created_at DESC`
+| Código | Idioma | Região |
+|--------|--------|--------|
+| `pt-BR` | Português | Brasil (padrão) |
+| `en` | English | Internacional |
+| `es` | Español | América Latina |
+| `fr` | Français | França |
+| `de` | Deutsch | Alemanha |
+| `it` | Italiano | Itália |
+| `zh` | 中文 | China |
+| `ja` | 日本語 | Japão |
 
 ---
 
-## Seguranca
+## Detalhes Técnicos
 
-- RLS (Row Level Security) sera configurado para permitir apenas INSERT publico
-- SELECT/UPDATE/DELETE bloqueados para usuarios anonimos
-- Dados sensiveis protegidos no banco
+### Configuração do i18next
+
+Arquivo: `src/lib/i18n.ts`
+
+- **Detection order**: localStorage → navigator → htmlTag
+- **Fallback language**: pt-BR
+- **Cache**: localStorage com key `i18nextLng`
+- **Load**: Lazy loading por idioma
+
+### Estrutura de Tradução (exemplo en/translation.json)
+
+```json
+{
+  "hero": {
+    "title_line1": "From lead to sale",
+    "title_line2": "with AI Agents",
+    "subtitle1": "Scale your company's revenue.",
+    "subtitle2": "In less time. With more return.",
+    "cta": "Talk to Dalton"
+  },
+  "nav": {
+    "product": "Product",
+    "news": "News",
+    "about": "About us",
+    "comingSoon": "Coming soon"
+  },
+  "clients": {
+    "title": "Companies that trust us"
+  },
+  "prospection": {
+    "title": "AI that sells for you",
+    "subtitle": "Qualifies leads, schedules meetings, closes sales and attracts your ideal customer."
+  }
+}
+```
+
+### Componente LanguageSelector
+
+- Dropdown com ícone de globo
+- Lista de idiomas com códigos
+- Oculto quando `currentLanguage === 'pt'`
+- Estilo consistente com o header
+
+### Persistência
+
+O idioma escolhido é salvo no localStorage. Na próxima visita:
+1. Verifica se há idioma salvo
+2. Se não houver, detecta do navegador
+3. Aplica o idioma e renderiza
+
+---
+
+## Arquivos a Criar/Modificar
+
+### Novos Arquivos
+- `src/lib/i18n.ts` - Configuração do i18next
+- `src/locales/pt/translation.json` - Traduções português
+- `src/locales/en/translation.json` - Traduções inglês
+- `src/locales/es/translation.json` - Traduções espanhol
+- `src/locales/fr/translation.json` - Traduções francês
+- `src/locales/de/translation.json` - Traduções alemão
+- `src/locales/it/translation.json` - Traduções italiano
+- `src/locales/zh/translation.json` - Traduções chinês
+- `src/locales/ja/translation.json` - Traduções japonês
+- `src/components/LanguageSelector.tsx` - Seletor de idioma
+
+### Arquivos Modificados
+- `src/main.tsx` - Importar configuração i18n
+- `src/components/Header.tsx` - Adicionar LanguageSelector
+- `src/components/sections/HeroSection.tsx` - Usar traduções
+- `src/components/sections/ClientsSection.tsx` - Usar traduções
+- `src/components/sections/ProspectionSection.tsx` - Usar traduções
+- `src/components/sections/InsightsSection.tsx` - Usar traduções
+- `src/components/sections/SquadPlansSection.tsx` - Usar traduções
+- `src/components/sections/AudioDemoSection.tsx` - Usar traduções
+- `src/components/sections/FAQSection.tsx` - Usar traduções
+- `src/components/sections/Footer.tsx` - Usar traduções
+- `src/components/ui/WaitlistModal.tsx` - Usar traduções
+- `index.html` - Atualizar lang dinamicamente
+
+---
+
+## Considerações
+
+1. **Performance**: Traduções são carregadas de forma lazy, apenas o idioma ativo
+2. **SEO**: O atributo `lang` do HTML é atualizado dinamicamente
+3. **Experiência**: Transição suave entre idiomas sem reload
+4. **Manutenção**: Fácil adicionar novos idiomas criando novos arquivos JSON
+

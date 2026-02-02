@@ -4,14 +4,16 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { trackWaitlistOpen, trackWaitlistSubmit } from '@/lib/analytics';
+import { supabase } from '@/integrations/supabase/client';
 
 interface WaitlistModalProps {
   isOpen: boolean;
   onClose: () => void;
   formLocation?: string;
+  product?: string;
 }
 
-const BLOCKED_DOMAINS = ['gmail.com', 'hotmail.com', 'outlook.com'];
+const BLOCKED_DOMAINS = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'icloud.com', 'live.com', 'uol.com.br'];
 
 const isPersonalEmail = (email: string): boolean => {
   const emailLower = email.toLowerCase().trim();

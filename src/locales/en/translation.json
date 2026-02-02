@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "product": "Product",
+    "news": "News",
+    "about": "About us",
+    "comingSoon": "Coming soon",
+    "cta": "Talk to Dalton"
+  },
+  "hero": {
+    "poweredBy": "Powered by",
+    "titleLine1": "From lead to sale",
+    "titleLine2": "with AI Agents",
+    "titleLine2Mobile": "with",
+    "titleLine3Mobile": "AI Agents",
+    "subtitle1": "Scale your company's revenue.",
+    "subtitle2": "In less time. With more return.",
+    "cta": "Talk to Dalton"
+  },
+  "clients": {
+    "title": "Companies that trust us"
+  },
+  "prospection": {
+    "title": "AI that sells for you",
+    "subtitle": "Qualifies leads, schedules meetings, closes sales and attracts your ideal customer.",
+    "agentOf": "Agent of",
+    "tabs": {
+      "vendas": "Sales",
+      "conteudo": "Content",
+      "anuncio": "Ads"
+    },
+    "vendas": {
+      "title": "Serve all your leads 24/7",
+      "description": "Dalton automates your sales process, scaling your revenue and ensuring predictable income.",
+      "features": [
+        "Instant responses",
+        "Understands your ideal customer and directs them to meetings",
+        "Guides the customer through the purchase process autonomously"
+      ],
+      "cta": "Talk to Dalton"
+    },
+    "conteudo": {
+      "title": "Generate organic leads at scale",
+      "description": "Dalton studies your brand, absorbs your positioning and produces authentic materials.",
+      "features": [
+        "Analyzes your brand and understands your identity",
+        "Automates content creation for your social networks",
+        "Personalizes content based on your brand and audience profile"
+      ],
+      "cta": "Join waitlist"
+    },
+    "anuncio": {
+      "title": "Maximize your ads ROI",
+      "description": "Dalton learns, tests and optimizes every penny invested to maximize return.",
+      "features": [
+        "Runs mass tests to find your ideal audience",
+        "Analyzes data in real time to identify performance trends",
+        "Applies performance improvements to maximize ROI"
+      ],
+      "cta": "Join waitlist"
+    },
+    "comingSoon": "Coming soon",
+    "leadConversion": "Lead conversion"
+  },
+  "insights": {
+    "title": "The new way to",
+    "titleLine2": "scale revenue",
+    "features": {
+      "automation": {
+        "title": "End-to-end automation",
+        "description": "Generate organic leads, maximize your ads ROI and close sales in a single automated flow."
+      },
+      "scale": {
+        "title": "Infinite scale",
+        "description": "Serve all your leads 24/7 with the same quality and speed standard."
+      },
+      "alerts": {
+        "title": "Real-time alerts",
+        "description": "Track new sales and receive insights and revenue forecasts. All on WhatsApp."
+      }
+    },
+    "callouts": {
+      "metrics": {
+        "title": "Real-time metrics",
+        "description": "Pipeline, leads and revenue updated"
+      },
+      "language": {
+        "title": "Natural language",
+        "description": "Understands context, tone and intent in every conversation"
+      },
+      "growth": "+19% growth"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "leads": "Leads",
+      "conversion": "Conversion",
+      "weeklyPerformance": "Weekly Performance",
+      "channels": "Channels",
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "others": "Others",
+      "insight1": "💡 Conversions +23% in the morning",
+      "insight2": "💡 Enterprise: 2.3x conversion"
+    },
+    "chat": {
+      "online": "online",
+      "message1": "Hi, Rodrigo!",
+      "message2": "Good news: we hit 119% of the goal this month!",
+      "message3": "Great, Dalton!",
+      "message4": "How about we test my content feature next month?",
+      "message5": "Let's do it!"
+    }
+  },
+  "plans": {
+    "vendas": {
+      "name": "Sales Agent",
+      "description": "For companies that want to scale their sales cycle",
+      "listTitle": "Included in Sales Agent:",
+      "items": [
+        "Automatic lead qualification",
+        "24/7 follow-up",
+        "Meeting scheduling",
+        "Automated sales closing"
+      ],
+      "cta": "Talk to Dalton"
+    },
+    "enterprise": {
+      "name": "Enterprise Consulting",
+      "description": "For established companies looking to evolve into an agentic organization.",
+      "listTitle": "Included in consulting:",
+      "items": [
+        "Strategic diagnosis",
+        "Agentic org chart",
+        "Custom AI Agents",
+        "Continuous monitoring"
+      ],
+      "cta": "Schedule a meeting"
+    }
+  },
+  "audio": {
+    "title": "Check out our podcast on Spotify",
+    "subtitle": "Conversations with our founders about AI, entrepreneurship and innovation."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": [
+      {
+        "question": "What is an AI Agent?",
+        "answer": "An AI Agent is autonomous software that executes tasks following defined processes. It behaves like a human.\n\nUnlike chatbots or generic assistants, our Agents are trained specifically on your business to generate measurable results. All without the need to expand your workforce."
+      },
+      {
+        "question": "How long does implementation take?",
+        "answer": "2 to 4 weeks, depending on the complexity of your sales process.\n\nThis timeframe includes integration with your APIs and training with real data from your operation."
+      },
+      {
+        "question": "Do the agents really sell?",
+        "answer": "Yes. Dalton, our Sales Agent, conducts the entire sales process from start to finish: from initial qualification to closing."
+      },
+      {
+        "question": "How does integration with my systems work?",
+        "answer": "Our team performs custom integration with the systems you already use. Additionally, you can monitor the entire operation through our performance dashboard."
+      },
+      {
+        "question": "Will I have contact with humans during the process?",
+        "answer": "Yes. We believe that the combination of AI Agents and human expertise is what generates consistent results.\n\nOnce the contract is signed, our team schedules the Process Survey meeting to start implementation."
+      },
+      {
+        "question": "What if I don't like the result?",
+        "answer": "You can pause the Agent at any time. Our work is based on continuous optimization. Your feedback guides adjustments. And if you decide to cancel, there's no loyalty clause or termination fee."
+      }
+    ]
+  },
+  "footer": {
+    "support": "Support",
+    "about": "About",
+    "socialMedia": "Social Media",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use",
+    "copyright": "© 2026 Dalton Lab. All rights reserved."
+  },
+  "waitlist": {
+    "title": "I want to join the waitlist",
+    "nameLabel": "Full name",
+    "namePlaceholder": "Name",
+    "emailLabel": "Work email",
+    "emailPlaceholder": "name@company.com",
+    "emailError": "Please use a corporate email",
+    "phoneLabel": "Phone",
+    "phonePlaceholder": "+1 (555) 123-4567",
+    "submit": "Join",
+    "submitting": "Processing...",
+    "successTitle": "Registration complete!",
+    "successMessage": "You'll receive news first hand.",
+    "errorGeneric": "Error submitting. Please try again.",
+    "errorUnexpected": "Unexpected error. Please try again."
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "product": "Produkt",
+    "news": "Neuigkeiten",
+    "about": "Über uns",
+    "comingSoon": "Demnächst",
+    "cta": "Mit Dalton sprechen"
+  },
+  "hero": {
+    "poweredBy": "Powered by",
+    "titleLine1": "Vom Lead zum Verkauf",
+    "titleLine2": "mit KI-Agenten",
+    "titleLine2Mobile": "mit",
+    "titleLine3Mobile": "KI-Agenten",
+    "subtitle1": "Skalieren Sie den Umsatz Ihres Unternehmens.",
+    "subtitle2": "In weniger Zeit. Mit mehr Rendite.",
+    "cta": "Mit Dalton sprechen"
+  },
+  "clients": {
+    "title": "Unternehmen, die uns vertrauen"
+  },
+  "prospection": {
+    "title": "KI, die für Sie verkauft",
+    "subtitle": "Qualifiziert Leads, plant Meetings, schließt Verkäufe ab und gewinnt Ihren idealen Kunden.",
+    "agentOf": "Agent für",
+    "tabs": {
+      "vendas": "Vertrieb",
+      "conteudo": "Inhalt",
+      "anuncio": "Werbung"
+    },
+    "vendas": {
+      "title": "Bedienen Sie alle Ihre Leads 24/7",
+      "description": "Dalton automatisiert Ihren Verkaufsprozess, skaliert Ihre Verkäufe und garantiert vorhersehbare Einnahmen.",
+      "features": [
+        "Sofortige Antworten",
+        "Versteht Ihren idealen Kunden und leitet ihn zu Meetings",
+        "Führt den Kunden autonom durch den Kaufprozess"
+      ],
+      "cta": "Mit Dalton sprechen"
+    },
+    "conteudo": {
+      "title": "Generieren Sie organische Leads im großen Maßstab",
+      "description": "Dalton studiert Ihre Marke, absorbiert Ihre Positionierung und produziert authentische Materialien.",
+      "features": [
+        "Analysiert Ihre Marke und versteht Ihre Identität",
+        "Automatisiert die Content-Erstellung für Ihre sozialen Netzwerke",
+        "Personalisiert Inhalte basierend auf Ihrem Marken- und Zielgruppenprofil"
+      ],
+      "cta": "Warteliste"
+    },
+    "anuncio": {
+      "title": "Maximieren Sie den ROI Ihrer Anzeigen",
+      "description": "Dalton lernt, testet und optimiert jeden investierten Cent, um die Rendite zu maximieren.",
+      "features": [
+        "Führt Massentests durch, um Ihr ideales Publikum zu finden",
+        "Analysiert Daten in Echtzeit, um Performance-Trends zu identifizieren",
+        "Wendet Performance-Verbesserungen an, um den ROI zu maximieren"
+      ],
+      "cta": "Warteliste"
+    },
+    "comingSoon": "Demnächst",
+    "leadConversion": "Lead-Konversion"
+  },
+  "insights": {
+    "title": "Die neue Art,",
+    "titleLine2": "Umsatz zu skalieren",
+    "features": {
+      "automation": {
+        "title": "End-to-End-Automatisierung",
+        "description": "Generieren Sie organische Leads, maximieren Sie den ROI Ihrer Anzeigen und schließen Sie Verkäufe in einem einzigen automatisierten Ablauf ab."
+      },
+      "scale": {
+        "title": "Unendliche Skalierung",
+        "description": "Bedienen Sie alle Ihre Leads 24/7 mit dem gleichen Qualitäts- und Geschwindigkeitsstandard."
+      },
+      "alerts": {
+        "title": "Echtzeit-Benachrichtigungen",
+        "description": "Verfolgen Sie neue Verkäufe und erhalten Sie Einblicke und Umsatzprognosen. Alles auf WhatsApp."
+      }
+    },
+    "callouts": {
+      "metrics": {
+        "title": "Echtzeit-Metriken",
+        "description": "Pipeline, Leads und Umsatz aktualisiert"
+      },
+      "language": {
+        "title": "Natürliche Sprache",
+        "description": "Versteht Kontext, Ton und Absicht in jedem Gespräch"
+      },
+      "growth": "+19% Wachstum"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "leads": "Leads",
+      "conversion": "Konversion",
+      "weeklyPerformance": "Wöchentliche Performance",
+      "channels": "Kanäle",
+      "whatsapp": "WhatsApp",
+      "email": "E-Mail",
+      "others": "Andere",
+      "insight1": "💡 Konversionen +23% am Morgen",
+      "insight2": "💡 Enterprise: 2.3x Konversion"
+    },
+    "chat": {
+      "online": "online",
+      "message1": "Hallo, Rodrigo!",
+      "message2": "Gute Nachricht: Wir haben diesen Monat 119% des Ziels erreicht!",
+      "message3": "Super, Dalton!",
+      "message4": "Wie wäre es, wenn wir nächsten Monat meine Content-Funktion testen?",
+      "message5": "Los geht's!"
+    }
+  },
+  "plans": {
+    "vendas": {
+      "name": "Vertriebs-Agent",
+      "description": "Für Unternehmen, die ihren Verkaufszyklus skalieren möchten",
+      "listTitle": "Im Vertriebs-Agent enthalten:",
+      "items": [
+        "Automatische Lead-Qualifizierung",
+        "24/7 Follow-up",
+        "Meeting-Planung",
+        "Automatisierter Verkaufsabschluss"
+      ],
+      "cta": "Mit Dalton sprechen"
+    },
+    "enterprise": {
+      "name": "Enterprise-Beratung",
+      "description": "Für etablierte Unternehmen, die sich zu einer agentischen Organisation entwickeln möchten.",
+      "listTitle": "In der Beratung enthalten:",
+      "items": [
+        "Strategische Diagnose",
+        "Agentisches Organigramm",
+        "Maßgeschneiderte KI-Agenten",
+        "Kontinuierliche Begleitung"
+      ],
+      "cta": "Meeting planen"
+    }
+  },
+  "audio": {
+    "title": "Hören Sie unseren Podcast auf Spotify",
+    "subtitle": "Gespräche mit unseren Gründern über KI, Unternehmertum und Innovation."
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "questions": [
+      {
+        "question": "Was ist ein KI-Agent?",
+        "answer": "Ein KI-Agent ist eine autonome Software, die Aufgaben nach definierten Prozessen ausführt. Er verhält sich wie ein Mensch.\n\nIm Gegensatz zu Chatbots oder generischen Assistenten werden unsere Agenten speziell auf Ihr Unternehmen trainiert, um messbare Ergebnisse zu erzielen. All das ohne die Notwendigkeit, Ihr Team zu erweitern."
+      },
+      {
+        "question": "Wie lange dauert die Implementierung?",
+        "answer": "2 bis 4 Wochen, abhängig von der Komplexität Ihres Verkaufsprozesses.\n\nDieser Zeitrahmen umfasst die Integration mit Ihren APIs und das Training mit echten Daten aus Ihrem Betrieb."
+      },
+      {
+        "question": "Verkaufen die Agenten wirklich?",
+        "answer": "Ja. Dalton, unser Vertriebs-Agent, führt den gesamten Verkaufsprozess von Anfang bis Ende: von der ersten Qualifizierung bis zum Abschluss."
+      },
+      {
+        "question": "Wie funktioniert die Integration mit meinen Systemen?",
+        "answer": "Unser Team führt eine maßgeschneiderte Integration mit den Systemen durch, die Sie bereits verwenden. Außerdem können Sie den gesamten Betrieb über unser Performance-Dashboard verfolgen."
+      },
+      {
+        "question": "Werde ich während des Prozesses Kontakt mit Menschen haben?",
+        "answer": "Ja. Wir glauben, dass die Kombination von KI-Agenten und menschlicher Expertise konsistente Ergebnisse liefert.\n\nSobald der Vertrag unterzeichnet ist, plant unser Team das Prozessanalyse-Meeting, um die Implementierung zu starten."
+      },
+      {
+        "question": "Was ist, wenn mir das Ergebnis nicht gefällt?",
+        "answer": "Sie können den Agenten jederzeit pausieren. Unsere Arbeit basiert auf kontinuierlicher Optimierung. Ihr Feedback leitet die Anpassungen. Und wenn Sie sich entscheiden zu kündigen, gibt es keine Treueklausel oder Kündigungsgebühr."
+      }
+    ]
+  },
+  "footer": {
+    "support": "Support",
+    "about": "Über",
+    "socialMedia": "Soziale Medien",
+    "legal": "Rechtliches",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "termsOfUse": "Nutzungsbedingungen",
+    "copyright": "© 2026 Dalton Lab. Alle Rechte vorbehalten."
+  },
+  "waitlist": {
+    "title": "Ich möchte auf die Warteliste",
+    "nameLabel": "Vollständiger Name",
+    "namePlaceholder": "Name",
+    "emailLabel": "Geschäftliche E-Mail",
+    "emailPlaceholder": "name@unternehmen.de",
+    "emailError": "Bitte verwenden Sie eine geschäftliche E-Mail",
+    "phoneLabel": "Telefon",
+    "phonePlaceholder": "+49 170 1234567",
+    "submit": "Beitreten",
+    "submitting": "Verarbeitung...",
+    "successTitle": "Registrierung erfolgreich!",
+    "successMessage": "Sie erhalten Neuigkeiten aus erster Hand.",
+    "errorGeneric": "Fehler beim Senden. Bitte versuchen Sie es erneut.",
+    "errorUnexpected": "Unerwarteter Fehler. Bitte versuchen Sie es erneut."
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "product": "Produit",
+    "news": "Actualités",
+    "about": "Qui sommes-nous",
+    "comingSoon": "Bientôt",
+    "cta": "Parlez à Dalton"
+  },
+  "hero": {
+    "poweredBy": "Powered by",
+    "titleLine1": "Du lead à la vente",
+    "titleLine2": "avec des Agents IA",
+    "titleLine2Mobile": "avec",
+    "titleLine3Mobile": "des Agents IA",
+    "subtitle1": "Développez le chiffre d'affaires de votre entreprise.",
+    "subtitle2": "En moins de temps. Avec plus de retour.",
+    "cta": "Parlez à Dalton"
+  },
+  "clients": {
+    "title": "Entreprises qui nous font confiance"
+  },
+  "prospection": {
+    "title": "IA qui vend pour vous",
+    "subtitle": "Qualifie les leads, planifie les réunions, conclut les ventes et attire votre client idéal.",
+    "agentOf": "Agent de",
+    "tabs": {
+      "vendas": "Ventes",
+      "conteudo": "Contenu",
+      "anuncio": "Publicité"
+    },
+    "vendas": {
+      "title": "Servez tous vos leads 24/7",
+      "description": "Dalton automatise votre processus commercial, développant vos ventes et garantissant un revenu prévisible.",
+      "features": [
+        "Réponses instantanées",
+        "Comprend votre client idéal et le dirige vers des réunions",
+        "Guide le client dans le processus d'achat de manière autonome"
+      ],
+      "cta": "Parlez à Dalton"
+    },
+    "conteudo": {
+      "title": "Générez des leads organiques à grande échelle",
+      "description": "Dalton étudie votre marque, absorbe votre positionnement et produit des matériaux authentiques.",
+      "features": [
+        "Analyse votre marque et comprend votre identité",
+        "Automatise la création de contenu pour vos réseaux sociaux",
+        "Personnalise les contenus selon le profil de votre marque et de votre public"
+      ],
+      "cta": "Liste d'attente"
+    },
+    "anuncio": {
+      "title": "Maximisez le ROI de vos publicités",
+      "description": "Dalton apprend, teste et optimise chaque centime investi pour maximiser le retour.",
+      "features": [
+        "Effectue des tests massifs pour trouver votre public idéal",
+        "Analyse les données en temps réel pour identifier les tendances de performance",
+        "Applique des améliorations de performance pour maximiser le ROI"
+      ],
+      "cta": "Liste d'attente"
+    },
+    "comingSoon": "Bientôt",
+    "leadConversion": "Conversion des leads"
+  },
+  "insights": {
+    "title": "La nouvelle façon de",
+    "titleLine2": "développer les revenus",
+    "features": {
+      "automation": {
+        "title": "Automatisation de bout en bout",
+        "description": "Générez des leads organiques, maximisez le ROI de vos publicités et concluez des ventes dans un seul flux automatisé."
+      },
+      "scale": {
+        "title": "Échelle infinie",
+        "description": "Servez tous vos leads 24/7 avec le même standard de qualité et de rapidité."
+      },
+      "alerts": {
+        "title": "Alertes en temps réel",
+        "description": "Suivez les nouvelles ventes et recevez des insights et des prévisions de revenus. Tout sur WhatsApp."
+      }
+    },
+    "callouts": {
+      "metrics": {
+        "title": "Métriques en temps réel",
+        "description": "Pipeline, leads et revenus mis à jour"
+      },
+      "language": {
+        "title": "Langage naturel",
+        "description": "Comprend le contexte, le ton et l'intention dans chaque conversation"
+      },
+      "growth": "+19% croissance"
+    },
+    "dashboard": {
+      "title": "Tableau de bord",
+      "leads": "Leads",
+      "conversion": "Conversion",
+      "weeklyPerformance": "Performance Hebdomadaire",
+      "channels": "Canaux",
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "others": "Autres",
+      "insight1": "💡 Conversions +23% le matin",
+      "insight2": "💡 Enterprise: 2.3x conversion"
+    },
+    "chat": {
+      "online": "en ligne",
+      "message1": "Salut, Rodrigo !",
+      "message2": "Bonne nouvelle : on a atteint 119% de l'objectif ce mois-ci !",
+      "message3": "Super, Dalton !",
+      "message4": "Et si on testait ma fonctionnalité de contenu le mois prochain ?",
+      "message5": "C'est parti !"
+    }
+  },
+  "plans": {
+    "vendas": {
+      "name": "Agent Commercial",
+      "description": "Pour les entreprises qui veulent développer leur cycle commercial",
+      "listTitle": "Inclus dans l'Agent Commercial :",
+      "items": [
+        "Qualification automatique des leads",
+        "Suivi 24/7",
+        "Planification des réunions",
+        "Conclusion des ventes automatisée"
+      ],
+      "cta": "Parlez à Dalton"
+    },
+    "enterprise": {
+      "name": "Conseil Enterprise",
+      "description": "Pour les entreprises établies qui veulent évoluer vers une organisation agentique.",
+      "listTitle": "Inclus dans le conseil :",
+      "items": [
+        "Diagnostic stratégique",
+        "Organigramme agentique",
+        "Agents IA personnalisés",
+        "Accompagnement continu"
+      ],
+      "cta": "Planifiez une réunion"
+    }
+  },
+  "audio": {
+    "title": "Découvrez notre podcast sur Spotify",
+    "subtitle": "Conversations avec nos fondateurs sur l'IA, l'entrepreneuriat et l'innovation."
+  },
+  "faq": {
+    "title": "Questions Fréquentes",
+    "questions": [
+      {
+        "question": "Qu'est-ce qu'un Agent IA ?",
+        "answer": "Un Agent IA est un logiciel autonome qui exécute des tâches en suivant des processus définis. Il se comporte comme un être humain.\n\nContrairement aux chatbots ou assistants génériques, nos Agents sont formés spécifiquement sur votre entreprise pour générer des résultats mesurables. Tout cela sans avoir besoin d'agrandir votre équipe."
+      },
+      {
+        "question": "Combien de temps prend l'implémentation ?",
+        "answer": "De 2 à 4 semaines, selon la complexité de votre processus commercial.\n\nCe délai inclut l'intégration avec vos APIs et la formation avec les données réelles de votre opération."
+      },
+      {
+        "question": "Les agents vendent-ils vraiment ?",
+        "answer": "Oui. Dalton, notre Agent Commercial, conduit l'ensemble du processus de vente du début à la fin : de la qualification initiale à la conclusion."
+      },
+      {
+        "question": "Comment fonctionne l'intégration avec mes systèmes ?",
+        "answer": "Notre équipe réalise l'intégration sur mesure avec les systèmes que vous utilisez déjà. De plus, vous pouvez suivre toute l'opération via notre tableau de bord de performance."
+      },
+      {
+        "question": "Aurai-je un contact avec des humains pendant le processus ?",
+        "answer": "Oui. Nous croyons que la combinaison entre Agents IA et expertise humaine est ce qui génère des résultats cohérents.\n\nUne fois le contrat signé, notre équipe planifie la réunion d'Analyse des Processus pour démarrer l'implémentation."
+      },
+      {
+        "question": "Et si je n'aime pas le résultat ?",
+        "answer": "Vous pouvez mettre l'Agent en pause à tout moment. Notre travail est basé sur l'optimisation continue. Vos retours guident les ajustements. Et si vous décidez d'annuler, il n'y a pas de clause de fidélité ni de frais de résiliation."
+      }
+    ]
+  },
+  "footer": {
+    "support": "Support",
+    "about": "À propos",
+    "socialMedia": "Réseaux Sociaux",
+    "legal": "Légal",
+    "privacyPolicy": "Politique de Confidentialité",
+    "termsOfUse": "Conditions d'Utilisation",
+    "copyright": "© 2026 Dalton Lab. Tous droits réservés."
+  },
+  "waitlist": {
+    "title": "Je veux rejoindre la liste d'attente",
+    "nameLabel": "Nom complet",
+    "namePlaceholder": "Nom",
+    "emailLabel": "Email professionnel",
+    "emailPlaceholder": "nom@entreprise.com",
+    "emailError": "Veuillez utiliser un email professionnel",
+    "phoneLabel": "Téléphone",
+    "phonePlaceholder": "+33 6 12 34 56 78",
+    "submit": "Rejoindre",
+    "submitting": "Traitement...",
+    "successTitle": "Inscription réussie !",
+    "successMessage": "Vous recevrez les nouveautés en avant-première.",
+    "errorGeneric": "Erreur lors de l'envoi. Veuillez réessayer.",
+    "errorUnexpected": "Erreur inattendue. Veuillez réessayer."
+  }
+}

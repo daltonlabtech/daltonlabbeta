@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "product": "产品",
+    "news": "新闻",
+    "about": "关于我们",
+    "comingSoon": "即将推出",
+    "cta": "与Dalton交谈"
+  },
+  "hero": {
+    "poweredBy": "技术支持",
+    "titleLine1": "从线索到销售",
+    "titleLine2": "借助AI代理",
+    "titleLine2Mobile": "借助",
+    "titleLine3Mobile": "AI代理",
+    "subtitle1": "扩大您公司的收入。",
+    "subtitle2": "更短时间，更高回报。",
+    "cta": "与Dalton交谈"
+  },
+  "clients": {
+    "title": "信任我们的企业"
+  },
+  "prospection": {
+    "title": "为您销售的AI",
+    "subtitle": "筛选线索，安排会议，完成销售，吸引您的理想客户。",
+    "agentOf": "代理",
+    "tabs": {
+      "vendas": "销售",
+      "conteudo": "内容",
+      "anuncio": "广告"
+    },
+    "vendas": {
+      "title": "全天候服务您的所有线索",
+      "description": "Dalton自动化您的销售流程，扩大您的销售并确保可预测的收入。",
+      "features": [
+        "即时响应",
+        "了解您的理想客户并引导他们参加会议",
+        "自主引导客户完成购买流程"
+      ],
+      "cta": "与Dalton交谈"
+    },
+    "conteudo": {
+      "title": "大规模生成有机线索",
+      "description": "Dalton研究您的品牌，吸收您的定位并制作真实的材料。",
+      "features": [
+        "分析您的品牌并了解您的身份",
+        "为您的社交网络自动创建内容",
+        "根据您的品牌和受众特征个性化内容"
+      ],
+      "cta": "加入等待列表"
+    },
+    "anuncio": {
+      "title": "最大化您的广告投资回报率",
+      "description": "Dalton学习、测试并优化每一分投资以最大化回报。",
+      "features": [
+        "进行大规模测试以找到您的理想受众",
+        "实时分析数据以识别性能趋势",
+        "应用性能改进以最大化投资回报率"
+      ],
+      "cta": "加入等待列表"
+    },
+    "comingSoon": "即将推出",
+    "leadConversion": "线索转化"
+  },
+  "insights": {
+    "title": "扩大收入的",
+    "titleLine2": "新方式",
+    "features": {
+      "automation": {
+        "title": "端到端自动化",
+        "description": "生成有机线索，最大化广告投资回报率，并在单一自动化流程中完成销售。"
+      },
+      "scale": {
+        "title": "无限扩展",
+        "description": "以相同的质量和速度标准全天候服务所有线索。"
+      },
+      "alerts": {
+        "title": "实时警报",
+        "description": "跟踪新销售并接收见解和收入预测。全部在WhatsApp上。"
+      }
+    },
+    "callouts": {
+      "metrics": {
+        "title": "实时指标",
+        "description": "更新的管道、线索和收入"
+      },
+      "language": {
+        "title": "自然语言",
+        "description": "在每次对话中理解上下文、语气和意图"
+      },
+      "growth": "+19% 增长"
+    },
+    "dashboard": {
+      "title": "仪表板",
+      "leads": "线索",
+      "conversion": "转化",
+      "weeklyPerformance": "每周表现",
+      "channels": "渠道",
+      "whatsapp": "WhatsApp",
+      "email": "邮件",
+      "others": "其他",
+      "insight1": "💡 上午转化率+23%",
+      "insight2": "💡 企业级：2.3倍转化"
+    },
+    "chat": {
+      "online": "在线",
+      "message1": "你好，Rodrigo！",
+      "message2": "好消息：这个月我们达到了目标的119%！",
+      "message3": "太棒了，Dalton！",
+      "message4": "下个月我们试试我的内容功能怎么样？",
+      "message5": "走起！"
+    }
+  },
+  "plans": {
+    "vendas": {
+      "name": "销售代理",
+      "description": "适用于希望扩大销售周期的企业",
+      "listTitle": "销售代理包含：",
+      "items": [
+        "自动线索筛选",
+        "24/7跟进",
+        "会议安排",
+        "自动化销售完成"
+      ],
+      "cta": "与Dalton交谈"
+    },
+    "enterprise": {
+      "name": "企业咨询",
+      "description": "适用于希望发展成为代理型组织的成熟企业。",
+      "listTitle": "咨询包含：",
+      "items": [
+        "战略诊断",
+        "代理型组织架构",
+        "定制AI代理",
+        "持续陪伴"
+      ],
+      "cta": "安排会议"
+    }
+  },
+  "audio": {
+    "title": "在Spotify上收听我们的播客",
+    "subtitle": "与我们的创始人讨论AI、创业和创新。"
+  },
+  "faq": {
+    "title": "常见问题",
+    "questions": [
+      {
+        "question": "什么是AI代理？",
+        "answer": "AI代理是一种自主软件，按照定义的流程执行任务。它的行为像人类一样。\n\n与聊天机器人或通用助手不同，我们的代理专门针对您的业务进行培训，以产生可衡量的结果。所有这些都无需扩大您的团队。"
+      },
+      {
+        "question": "实施需要多长时间？",
+        "answer": "2到4周，取决于您销售流程的复杂性。\n\n此时间范围包括与您的API集成以及使用您运营的真实数据进行培训。"
+      },
+      {
+        "question": "代理真的能销售吗？",
+        "answer": "是的。Dalton，我们的销售代理，从头到尾进行整个销售过程：从初始筛选到成交。"
+      },
+      {
+        "question": "与我的系统集成如何运作？",
+        "answer": "我们的团队与您已经使用的系统进行定制集成。此外，您可以通过我们的性能仪表板监控整个运营。"
+      },
+      {
+        "question": "在过程中我会与人接触吗？",
+        "answer": "是的。我们相信AI代理与人类专业知识的结合才能产生一致的结果。\n\n合同签署后，我们的团队会安排流程分析会议以开始实施。"
+      },
+      {
+        "question": "如果我不喜欢结果怎么办？",
+        "answer": "您可以随时暂停代理。我们的工作基于持续优化。您的反馈指导调整。如果您决定取消，没有忠诚条款或终止费。"
+      }
+    ]
+  },
+  "footer": {
+    "support": "支持",
+    "about": "关于",
+    "socialMedia": "社交媒体",
+    "legal": "法律",
+    "privacyPolicy": "隐私政策",
+    "termsOfUse": "使用条款",
+    "copyright": "© 2026 Dalton Lab。保留所有权利。"
+  },
+  "waitlist": {
+    "title": "我想加入等待列表",
+    "nameLabel": "全名",
+    "namePlaceholder": "姓名",
+    "emailLabel": "工作邮箱",
+    "emailPlaceholder": "name@company.com",
+    "emailError": "请使用企业邮箱",
+    "phoneLabel": "电话",
+    "phonePlaceholder": "+86 138 0000 0000",
+    "submit": "加入",
+    "submitting": "处理中...",
+    "successTitle": "注册成功！",
+    "successMessage": "您将第一时间收到新消息。",
+    "errorGeneric": "提交错误。请重试。",
+    "errorUnexpected": "意外错误。请重试。"
+  }
+}

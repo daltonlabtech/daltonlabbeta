@@ -66,6 +66,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
           phone: formData.phone.trim(),
           product: product,
           source: formLocation,
+          honeypot: formData.honeypot, // Send honeypot for bot detection
         },
       });
 

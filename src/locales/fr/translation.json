@@ -186,6 +186,8 @@
     "emailPlaceholder": "nom@entreprise.com",
     "emailError": "Veuillez utiliser un email professionnel",
     "phoneLabel": "Téléphone",
+    "phonePlaceholder": "+33 1 23 45 67 89",
+    "phoneError": "Numéro de téléphone invalide. Incluez l'indicatif.",
     "phonePlaceholder": "+33 6 12 34 56 78",
     "submit": "Rejoindre",
     "submitting": "Traitement...",

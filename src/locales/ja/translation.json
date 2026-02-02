@@ -187,6 +187,7 @@
     "emailError": "企業メールを使用してください",
     "phoneLabel": "電話",
     "phonePlaceholder": "+81 90 1234 5678",
+    "phoneError": "無効な電話番号です。市外局番を含めてください。",
     "submit": "参加",
     "submitting": "処理中...",
     "successTitle": "登録完了！",

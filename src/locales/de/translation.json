@@ -186,6 +186,8 @@
     "emailPlaceholder": "name@unternehmen.de",
     "emailError": "Bitte verwenden Sie eine geschäftliche E-Mail",
     "phoneLabel": "Telefon",
+    "phonePlaceholder": "+49 30 12345678",
+    "phoneError": "Ungültige Telefonnummer. Bitte Vorwahl angeben.",
     "phonePlaceholder": "+49 170 1234567",
     "submit": "Beitreten",
     "submitting": "Verarbeitung...",

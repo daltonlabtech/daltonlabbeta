@@ -187,6 +187,7 @@
     "emailError": "Per favore usa un'email aziendale",
     "phoneLabel": "Telefono",
     "phonePlaceholder": "+39 340 1234567",
+    "phoneError": "Numero di telefono non valido. Includere il prefisso.",
     "submit": "Iscriviti",
     "submitting": "Elaborazione...",
     "successTitle": "Registrazione completata!",

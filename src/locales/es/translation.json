@@ -187,6 +187,7 @@
     "emailError": "Por favor, usa un email corporativo",
     "phoneLabel": "Teléfono",
     "phonePlaceholder": "+34 600 123 456",
+    "phoneError": "Teléfono inválido. Incluya el código de área.",
     "submit": "Unirse",
     "submitting": "Procesando...",
     "successTitle": "¡Registro completado!",

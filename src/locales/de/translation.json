@@ -1,10 +1,28 @@
 {
   "nav": {
     "product": "Produkt",
-    "news": "Neuigkeiten",
-    "about": "Über uns",
-    "comingSoon": "Demnächst",
-    "cta": "Mit Dalton sprechen"
+    "talkToDalton": "Mit Dalton sprechen",
+    "about": "Über uns"
+  },
+  "pages": {
+    "produto": {
+      "title": "Produkt | Dalton Lab – KI-Agenten für den Vertrieb",
+      "description": "Entdecken Sie unsere KI-Agenten für den Vertrieb. Lead-Qualifizierung, 24/7-Follow-up und automatischer Abschluss.",
+      "h1": "Produkt"
+    },
+    "faleComDalton": {
+      "title": "Mit Dalton sprechen | Dalton Lab – KI-Agenten",
+      "description": "Starten Sie ein Gespräch mit unserem KI-Agenten. Stellen Sie Fragen, planen Sie Demos und erfahren Sie, wie Sie Ihren Vertrieb automatisieren.",
+      "h1": "Mit Dalton sprechen",
+      "subtitle": "Verbindung zu unserem KI-Agenten",
+      "redirecting": "Weiterleitung in",
+      "cta": "Jetzt sprechen",
+      "orClickHere": "oder klicken Sie auf die Schaltfläche oben"
+    },
+    "quemSomos": {
+      "title": "Über uns | Dalton Lab – KI-Agenten",
+      "description": "Lernen Sie die Gründer und das Team von Dalton Lab kennen. Brasilianisches Startup, Pionier in Agents-as-a-Service mit Betrieb auf 4 Kontinenten."
+    }
   },
   "hero": {
     "poweredBy": "Powered by",

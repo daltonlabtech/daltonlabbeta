@@ -1,10 +1,28 @@
 {
   "nav": {
     "product": "Product",
-    "news": "News",
-    "about": "About us",
-    "comingSoon": "Coming soon",
-    "cta": "Talk to Dalton"
+    "talkToDalton": "Talk to Dalton",
+    "about": "About us"
+  },
+  "pages": {
+    "produto": {
+      "title": "Product | Dalton Lab – AI Agents for Sales",
+      "description": "Discover our AI Agents for sales. Lead qualification, 24/7 follow-up, and automatic closing.",
+      "h1": "Product"
+    },
+    "faleComDalton": {
+      "title": "Talk to Dalton | Dalton Lab – AI Agents",
+      "description": "Start a conversation with our AI Agent. Ask questions, schedule demos, and discover how to automate your sales.",
+      "h1": "Talk to Dalton",
+      "subtitle": "Connecting you to our AI Agent",
+      "redirecting": "Redirecting in",
+      "cta": "Chat now",
+      "orClickHere": "or click the button above"
+    },
+    "quemSomos": {
+      "title": "About us | Dalton Lab – AI Agents",
+      "description": "Meet the founders and team of Dalton Lab. Brazilian startup pioneering Agents-as-a-Service operating on 4 continents."
+    }
   },
   "hero": {
     "poweredBy": "Powered by",

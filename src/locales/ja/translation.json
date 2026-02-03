@@ -1,10 +1,28 @@
 {
   "nav": {
     "product": "製品",
-    "news": "ニュース",
-    "about": "会社概要",
-    "comingSoon": "近日公開",
-    "cta": "Daltonに相談"
+    "talkToDalton": "Daltonに相談",
+    "about": "会社概要"
+  },
+  "pages": {
+    "produto": {
+      "title": "製品 | Dalton Lab – 営業AIエージェント",
+      "description": "営業AIエージェントをご紹介します。リード選別、24時間365日フォローアップ、自動クロージング。",
+      "h1": "製品"
+    },
+    "faleComDalton": {
+      "title": "Daltonに相談 | Dalton Lab – AIエージェント",
+      "description": "AIエージェントとの会話を始めましょう。質問、デモ予約、営業自動化の方法をご確認ください。",
+      "h1": "Daltonに相談",
+      "subtitle": "AIエージェントに接続中",
+      "redirecting": "リダイレクト中",
+      "cta": "今すぐ相談",
+      "orClickHere": "または上のボタンをクリック"
+    },
+    "quemSomos": {
+      "title": "会社概要 | Dalton Lab – AIエージェント",
+      "description": "Dalton Labの創業者とチームをご紹介します。4大陸で事業を展開するAgents-as-a-Serviceのパイオニア、ブラジルのスタートアップ。"
+    }
   },
   "hero": {
     "poweredBy": "Powered by",

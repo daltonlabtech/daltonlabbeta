@@ -32,15 +32,12 @@ const Footer = () => {
               {t('footer.about')}
             </h4>
             <div className="flex flex-col gap-2">
-              <Link to="/" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
+              <Link to="/produto" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
                 {t('nav.product')}
               </Link>
-              <a href="#noticias" className="font-inter text-sm text-white/50 hover:text-white transition-colors flex items-center gap-1.5">
-                {t('nav.news')}
-                <span className="px-1.5 py-0.5 text-[8px] font-semibold uppercase tracking-wide bg-dalton-blue/20 text-dalton-blue rounded">
-                  {t('nav.comingSoon')}
-                </span>
-              </a>
+              <Link to="/fale-com-o-dalton" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
+                {t('nav.talkToDalton')}
+              </Link>
               <Link to="/quem-somos" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
                 {t('nav.about')}
               </Link>

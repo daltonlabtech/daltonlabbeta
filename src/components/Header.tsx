@@ -24,8 +24,8 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { label: t('nav.product'), href: '/' },
-    { label: t('nav.news'), href: '#noticias', comingSoon: true },
+    { label: t('nav.product'), href: '/produto' },
+    { label: t('nav.talkToDalton'), href: '/fale-com-o-dalton' },
     { label: t('nav.about'), href: '/quem-somos' },
   ];
 
@@ -56,31 +56,16 @@ const Header = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-foreground/70 hover:text-foreground text-sm font-medium transition-colors duration-200 flex items-center gap-2"
+                className="text-foreground/70 hover:text-foreground text-sm font-medium transition-colors duration-200"
               >
                 {link.label}
-                {link.comingSoon && (
-                  <span className="px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide bg-dalton-blue/20 text-dalton-blue rounded">
-                    {t('nav.comingSoon')}
-                  </span>
-                )}
               </a>
             ))}
           </nav>
 
-          {/* Right side - Language Selector + CTA (Desktop) */}
+          {/* Right side - Language Selector (Desktop) */}
           <div className="hidden md:flex items-center gap-4">
             <LanguageSelector />
-            <a 
-              href="https://chat.daltonlab.ai/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackCtaClick(t('nav.cta'), 'header', 'https://chat.daltonlab.ai/')}
-              className="inline-flex items-center justify-center font-medium text-sm px-5 py-2.5 rounded-full hover:opacity-90 transition-all duration-300"
-              style={{ backgroundColor: '#F5F3F0', color: '#000000' }}
-            >
-              {t('nav.cta')}
-            </a>
           </div>
 
           {/* Mobile Hamburger Menu */}
@@ -99,14 +84,9 @@ const Header = () => {
                   <SheetClose asChild key={link.label}>
                     <a
                       href={link.href}
-                      className="text-foreground/70 hover:text-foreground text-lg font-medium transition-colors duration-200 py-2 flex items-center gap-2"
+                      className="text-foreground/70 hover:text-foreground text-lg font-medium transition-colors duration-200 py-2"
                     >
                       {link.label}
-                      {link.comingSoon && (
-                        <span className="px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide bg-dalton-blue/20 text-dalton-blue rounded">
-                          {t('nav.comingSoon')}
-                        </span>
-                      )}
                     </a>
                   </SheetClose>
                 ))}

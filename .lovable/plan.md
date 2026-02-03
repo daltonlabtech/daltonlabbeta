@@ -1,215 +1,192 @@
 
 
-# Plano: Tradução Automática por Idioma do Navegador
+# Plano: Reestruturação SEO para Sitelinks do Google
 
 ## Resumo
 
-Implementar um sistema de internacionalização (i18n) que detecta automaticamente o idioma do navegador do usuário e traduz toda a página. O seletor de idioma aparecerá no header apenas quando o site estiver em idiomas diferentes do português.
+Reestruturar o site para influenciar os sitelinks do Google, criando páginas dedicadas com rotas específicas, atualizando a navegação e aplicando a nova imagem para favicon e Open Graph.
 
 ---
 
-## Arquitetura da Solução
-
-O sistema utilizará **react-i18next**, a biblioteca mais popular e robusta para internacionalização em React. A detecção será feita via `navigator.language`, que retorna o idioma configurado no navegador do usuário.
+## Arquitetura de Rotas
 
 ```text
-Fluxo de Detecção:
-┌─────────────────────────────────────────────────────────┐
-│  Usuário acessa o site                                  │
-│              ↓                                          │
-│  Verifica localStorage (idioma salvo?)                  │
-│              ↓                                          │
-│  Não → Detecta navigator.language                       │
-│              ↓                                          │
-│  Mapeia para idioma suportado (pt, en, es, fr, de, etc) │
-│              ↓                                          │
-│  Carrega traduções e renderiza                          │
-└─────────────────────────────────────────────────────────┘
+Estrutura Atual:
+/ (Index) ─────────────────────────── Home com todo o conteúdo
+/quem-somos ───────────────────────── Página "Quem somos"
+/newton ───────────────────────────── Página Newton (não usada no menu)
+
+Estrutura Nova:
+/ ─────────────────────────────────── Home (SEO atualizado)
+/produto ──────────────────────────── Página Produto (conteúdo da home)
+/fale-com-o-dalton ────────────────── Página CTA (redirecionamento externo)
+/quem-somos ───────────────────────── Página Quem somos (mantida)
 ```
 
 ---
 
 ## Etapas de Implementação
 
-### 1. Instalar Dependências
+### 1. Copiar Nova Imagem para o Projeto
 
-- `i18next` - Biblioteca core de internacionalização
-- `react-i18next` - Integração com React
-- `i18next-browser-languagedetector` - Detecção automática do idioma
+Copiar a imagem fornecida para a pasta `public/` para uso como:
+- Favicon
+- Open Graph image (og:image)
+- Twitter card image
 
-### 2. Criar Estrutura de Traduções
+**Arquivo destino:** `public/dalton-icon.webp`
 
-Organizar os textos em arquivos JSON por idioma:
+### 2. Atualizar SEO da Home (index.html)
+
+Modificar as meta tags conforme especificado:
+
+| Tag | Valor Novo |
+|-----|------------|
+| `<title>` | Dalton Lab – Agentes de IA para Vendas |
+| `<meta name="description">` | Automatize seu processo comercial com Agentes de IA. Qualifique leads, agende reuniões e feche vendas 24/7. |
+| `og:url` | https://daltonlab.ai/ |
+| `og:title` | Dalton Lab – Agentes de IA para Vendas |
+| `og:description` | Automatize seu processo comercial com Agentes de IA. Qualifique leads, agende reuniões e feche vendas 24/7. |
+| `og:image` | https://daltonlab.ai/dalton-icon.webp |
+| `twitter:title` | Dalton Lab – Agentes de IA para Vendas |
+| `twitter:description` | Automatize seu processo comercial com Agentes de IA. Qualifique leads, agende reuniões e feche vendas 24/7. |
+| `twitter:image` | https://daltonlab.ai/dalton-icon.webp |
+| Favicon | /dalton-icon.webp |
+
+### 3. Criar Página /produto
+
+Nova página que replica o conteúdo principal da home com SEO específico.
+
+**Arquivo:** `src/pages/Produto.tsx`
+
+**Estrutura:**
+- `<h1>` visível: "Produto"
+- Meta tags dinâmicas via useEffect
+- Mesmo conteúdo de seções da Index: HeroSection, ProspectionSection, InsightsSection, SquadPlansSection, etc.
+
+**SEO da página:**
+- Title: `Produto | Dalton Lab – Agentes de IA para Vendas`
+- Description: `Conheça nossos Agentes de IA para vendas. Qualificação de leads, follow-up 24/7 e fechamento automático.`
+
+### 4. Criar Página /fale-com-o-dalton
+
+Página dedicada para o CTA principal, melhorando a indexação.
+
+**Arquivo:** `src/pages/FaleComDalton.tsx`
+
+**Comportamento:**
+- Renderiza rapidamente uma landing page
+- Exibe `<h1>Fale com o Dalton</h1>`
+- Redireciona automaticamente para `https://chat.daltonlab.ai/` após 2 segundos
+- Exibe botão de ação manual caso o redirecionamento não ocorra
+
+**SEO da página:**
+- Title: `Fale com o Dalton | Dalton Lab – Agentes de IA`
+- Description: `Inicie uma conversa com nosso Agente de IA. Tire dúvidas, agende demonstrações e descubra como automatizar suas vendas.`
+
+### 5. Atualizar Navegação do Header
+
+Modificar `src/components/Header.tsx` para as novas rotas:
+
+**Antes:**
+```text
+Produto → /
+Notícias → #noticias (com badge "Em breve")
+Quem somos → /quem-somos
+[Botão CTA separado]
+```
+
+**Depois:**
+```text
+Produto → /produto
+Fale com o Dalton → /fale-com-o-dalton
+Quem somos → /quem-somos
+```
+
+**Mudanças:**
+- Remover link "Notícias" e badge "Em breve"
+- Alterar "Produto" de `/` para `/produto`
+- Adicionar "Fale com o Dalton" como link de navegação
+- Remover botão CTA separado no desktop
+
+### 6. Atualizar Rotas no App.tsx
+
+Adicionar as novas rotas com lazy loading:
 
 ```text
-src/
-└── locales/
-    ├── pt/
-    │   └── translation.json
-    ├── en/
-    │   └── translation.json
-    ├── es/
-    │   └── translation.json
-    ├── fr/
-    │   └── translation.json
-    └── de/
-        └── translation.json
+/produto → Produto.tsx
+/fale-com-o-dalton → FaleComDalton.tsx
 ```
 
-### 3. Configurar i18next
+### 7. Atualizar Página QuemSomos
 
-Criar arquivo de configuração (`src/lib/i18n.ts`) com:
-- Detecção automática via navegador
-- Fallback para português (pt-BR)
-- Cache do idioma no localStorage
-- Suporte a múltiplos idiomas
+Adicionar `<h1>` visível e meta tags específicas.
 
-### 4. Extrair Todos os Textos para Tradução
+**SEO:**
+- Title: `Quem somos | Dalton Lab – Agentes de IA`
+- Description: `Conheça os fundadores e a equipe do Dalton Lab. Startup brasileira pioneira em Agents-as-a-Service operando em 4 continentes.`
 
-Mapear e traduzir textos de todos os componentes:
+### 8. Atualizar Footer
 
-| Componente | Textos a Traduzir |
-|------------|-------------------|
-| **HeroSection** | Título, subtítulo, botão CTA |
-| **Header** | Links de navegação, botão CTA |
-| **ClientsSection** | "Empresas que confiam em nós" |
-| **ProspectionSection** | Títulos, descrições, features, botões |
-| **InsightsSection** | Títulos, features, mensagens do chat |
-| **SquadPlansSection** | Nomes dos planos, descrições, itens |
-| **AudioDemoSection** | Título, subtítulo |
-| **FAQSection** | Perguntas e respostas |
-| **Footer** | Links, títulos de seção |
-| **WaitlistModal** | Campos, botão, mensagens |
+Modificar links para as novas rotas e remover link de "Notícias".
 
-### 5. Adicionar Seletor de Idioma no Header
-
-- Criar componente `LanguageSelector`
-- Exibir dropdown com bandeiras/siglas dos idiomas
-- **Condição especial**: Ocultar quando idioma = português
-- Salvar preferência no localStorage
-
-### 6. Atualizar Componentes
-
-Substituir textos hardcoded por chamadas do hook `useTranslation()`:
-
-```typescript
-// Antes
-<h1>Do lead à venda com Agentes de IA</h1>
-
-// Depois  
-const { t } = useTranslation();
-<h1>{t('hero.title')}</h1>
+```text
+Produto → /produto
+Fale com o Dalton → /fale-com-o-dalton
+Quem somos → /quem-somos
 ```
 
-### 7. Atualizar Meta Tags
+### 9. Atualizar Arquivos de Tradução (i18n)
 
-Configurar atributo `lang` do HTML dinamicamente e atualizar meta tags de SEO com o idioma correto.
-
----
-
-## Idiomas Suportados
-
-| Código | Idioma | Região |
-|--------|--------|--------|
-| `pt-BR` | Português | Brasil (padrão) |
-| `en` | English | Internacional |
-| `es` | Español | América Latina |
-| `fr` | Français | França |
-| `de` | Deutsch | Alemanha |
-| `it` | Italiano | Itália |
-| `zh` | 中文 | China |
-| `ja` | 日本語 | Japão |
+Atualizar chaves em todos os 8 idiomas para suportar as novas páginas e navegação.
 
 ---
 
-## Detalhes Técnicos
+## Arquivos a Criar
 
-### Configuração do i18next
+| Arquivo | Descrição |
+|---------|-----------|
+| `src/pages/Produto.tsx` | Página do produto com conteúdo principal |
+| `src/pages/FaleComDalton.tsx` | Página CTA com redirecionamento |
+| `public/dalton-icon.webp` | Nova imagem (favicon + OG) |
 
-Arquivo: `src/lib/i18n.ts`
+## Arquivos a Modificar
 
-- **Detection order**: localStorage → navigator → htmlTag
-- **Fallback language**: pt-BR
-- **Cache**: localStorage com key `i18nextLng`
-- **Load**: Lazy loading por idioma
+| Arquivo | Mudanças |
+|---------|----------|
+| `index.html` | SEO home, favicon, og:image, URLs atualizadas para daltonlab.ai |
+| `src/App.tsx` | Novas rotas |
+| `src/components/Header.tsx` | Novos links de navegação |
+| `src/components/sections/Footer.tsx` | Atualizar links |
+| `src/pages/QuemSomos.tsx` | Adicionar meta tags e h1 |
+| `src/locales/*/translation.json` | Novas chaves (8 arquivos) |
 
-### Estrutura de Tradução (exemplo en/translation.json)
+---
 
-```json
-{
-  "hero": {
-    "title_line1": "From lead to sale",
-    "title_line2": "with AI Agents",
-    "subtitle1": "Scale your company's revenue.",
-    "subtitle2": "In less time. With more return.",
-    "cta": "Talk to Dalton"
-  },
-  "nav": {
-    "product": "Product",
-    "news": "News",
-    "about": "About us",
-    "comingSoon": "Coming soon"
-  },
-  "clients": {
-    "title": "Companies that trust us"
-  },
-  "prospection": {
-    "title": "AI that sells for you",
-    "subtitle": "Qualifies leads, schedules meetings, closes sales and attracts your ideal customer."
-  }
-}
+## Visualização do Snippet Esperado
+
+```text
+Dalton Lab – Agentes de IA para Vendas
+https://daltonlab.ai/
+
+Automatize seu processo comercial com Agentes de IA. 
+Qualifique leads, agende reuniões e feche vendas 24/7.
+
+Sitelinks:
+┌─────────────────┬───────────────────┬──────────────┐
+│ Produto         │ Fale com o Dalton │ Quem somos   │
+└─────────────────┴───────────────────┴──────────────┘
 ```
 
-### Componente LanguageSelector
-
-- Dropdown com ícone de globo
-- Lista de idiomas com códigos
-- Oculto quando `currentLanguage === 'pt'`
-- Estilo consistente com o header
-
-### Persistência
-
-O idioma escolhido é salvo no localStorage. Na próxima visita:
-1. Verifica se há idioma salvo
-2. Se não houver, detecta do navegador
-3. Aplica o idioma e renderiza
-
 ---
 
-## Arquivos a Criar/Modificar
+## Considerações Técnicas
 
-### Novos Arquivos
-- `src/lib/i18n.ts` - Configuração do i18next
-- `src/locales/pt/translation.json` - Traduções português
-- `src/locales/en/translation.json` - Traduções inglês
-- `src/locales/es/translation.json` - Traduções espanhol
-- `src/locales/fr/translation.json` - Traduções francês
-- `src/locales/de/translation.json` - Traduções alemão
-- `src/locales/it/translation.json` - Traduções italiano
-- `src/locales/zh/translation.json` - Traduções chinês
-- `src/locales/ja/translation.json` - Traduções japonês
-- `src/components/LanguageSelector.tsx` - Seletor de idioma
+1. **Meta Tags Dinâmicas**: Usar `useEffect` para atualizar `document.title` e meta description em cada página
 
-### Arquivos Modificados
-- `src/main.tsx` - Importar configuração i18n
-- `src/components/Header.tsx` - Adicionar LanguageSelector
-- `src/components/sections/HeroSection.tsx` - Usar traduções
-- `src/components/sections/ClientsSection.tsx` - Usar traduções
-- `src/components/sections/ProspectionSection.tsx` - Usar traduções
-- `src/components/sections/InsightsSection.tsx` - Usar traduções
-- `src/components/sections/SquadPlansSection.tsx` - Usar traduções
-- `src/components/sections/AudioDemoSection.tsx` - Usar traduções
-- `src/components/sections/FAQSection.tsx` - Usar traduções
-- `src/components/sections/Footer.tsx` - Usar traduções
-- `src/components/ui/WaitlistModal.tsx` - Usar traduções
-- `index.html` - Atualizar lang dinamicamente
+2. **Redirecionamento Seguro**: A página `/fale-com-o-dalton` exibe conteúdo indexável antes de redirecionar, garantindo que o Google possa rastrear
 
----
+3. **Canonical URLs**: A URL base será `https://daltonlab.ai/` em todas as meta tags
 
-## Considerações
-
-1. **Performance**: Traduções são carregadas de forma lazy, apenas o idioma ativo
-2. **SEO**: O atributo `lang` do HTML é atualizado dinamicamente
-3. **Experiência**: Transição suave entre idiomas sem reload
-4. **Manutenção**: Fácil adicionar novos idiomas criando novos arquivos JSON
+4. **Imagem OG**: A nova imagem será usada com URL absoluta `https://daltonlab.ai/dalton-icon.webp`
 

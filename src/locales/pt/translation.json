@@ -1,10 +1,28 @@
 {
   "nav": {
     "product": "Produto",
-    "news": "Notícias",
-    "about": "Quem somos",
-    "comingSoon": "Em breve",
-    "cta": "Fale com o Dalton"
+    "talkToDalton": "Fale com o Dalton",
+    "about": "Quem somos"
+  },
+  "pages": {
+    "produto": {
+      "title": "Produto | Dalton Lab – Agentes de IA para Vendas",
+      "description": "Conheça nossos Agentes de IA para vendas. Qualificação de leads, follow-up 24/7 e fechamento automático.",
+      "h1": "Produto"
+    },
+    "faleComDalton": {
+      "title": "Fale com o Dalton | Dalton Lab – Agentes de IA",
+      "description": "Inicie uma conversa com nosso Agente de IA. Tire dúvidas, agende demonstrações e descubra como automatizar suas vendas.",
+      "h1": "Fale com o Dalton",
+      "subtitle": "Conectando você ao nosso Agente de IA",
+      "redirecting": "Redirecionando em",
+      "cta": "Falar agora",
+      "orClickHere": "ou clique no botão acima"
+    },
+    "quemSomos": {
+      "title": "Quem somos | Dalton Lab – Agentes de IA",
+      "description": "Conheça os fundadores e a equipe do Dalton Lab. Startup brasileira pioneira em Agents-as-a-Service operando em 4 continentes."
+    }
   },
   "hero": {
     "poweredBy": "Powered by",

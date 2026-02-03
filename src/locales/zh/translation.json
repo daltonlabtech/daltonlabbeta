@@ -1,10 +1,28 @@
 {
   "nav": {
     "product": "产品",
-    "news": "新闻",
-    "about": "关于我们",
-    "comingSoon": "即将推出",
-    "cta": "与Dalton交谈"
+    "talkToDalton": "与Dalton交谈",
+    "about": "关于我们"
+  },
+  "pages": {
+    "produto": {
+      "title": "产品 | Dalton Lab – 销售AI代理",
+      "description": "了解我们的销售AI代理。线索筛选、24/7跟进和自动成交。",
+      "h1": "产品"
+    },
+    "faleComDalton": {
+      "title": "与Dalton交谈 | Dalton Lab – AI代理",
+      "description": "与我们的AI代理开始对话。提问、预约演示，了解如何自动化您的销售。",
+      "h1": "与Dalton交谈",
+      "subtitle": "正在连接到我们的AI代理",
+      "redirecting": "正在重定向",
+      "cta": "立即交谈",
+      "orClickHere": "或点击上方按钮"
+    },
+    "quemSomos": {
+      "title": "关于我们 | Dalton Lab – AI代理",
+      "description": "认识Dalton Lab的创始人和团队。巴西初创企业，Agents-as-a-Service的先驱，在4个大洲运营。"
+    }
   },
   "hero": {
     "poweredBy": "技术支持",

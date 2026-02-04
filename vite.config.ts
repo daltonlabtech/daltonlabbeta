@@ -24,6 +24,10 @@ export default defineConfig(({ mode }) => ({
     // Aggressive code splitting for better performance
     rollupOptions: {
       output: {
+        // Content-hash ensures cache invalidation on file changes
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]',
         manualChunks: {
           // Vendor chunks
           'react-vendor': ['react', 'react-dom'],

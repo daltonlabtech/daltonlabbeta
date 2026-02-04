@@ -38,6 +38,10 @@ const LogoMarquee = () => {
             <img 
               src={logo} 
               alt={`Cliente ${(index % clientLogos.length) + 1}`}
+              width={170}
+              height={80}
+              loading="lazy"
+              decoding="async"
               className="max-h-full max-w-[130px] md:max-w-[170px] object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
             />
           </div>

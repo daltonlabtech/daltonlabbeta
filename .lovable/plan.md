@@ -1,51 +1,37 @@
 
 
-# Plano: Adicionar Meta Tags de Cache-Control no index.html
+## Substituir Logos de Clientes Otimizadas
 
-## Problema Identificado
+### Resumo
+Substituir as 9 imagens de logos de clientes atuais (1080x1080px) pelas versões otimizadas enviadas (256x256px), renomeando para remover o sufixo "_1" dos nomes dos arquivos.
 
-O arquivo `index.html` não possui meta tags de controle de cache, fazendo com que o navegador armazene a página por tempo indeterminado. Isso explica por que:
-- Janelas anônimas funcionam (sem cache prévio)
-- Hard refresh funciona (força nova requisição)  
-- Novas abas mostram versão antiga (usam cache existente)
+---
 
-## Solução
+### Mapeamento de Arquivos
 
-Adicionar meta tags HTTP-equiv no `<head>` do `index.html` para instruir o navegador a sempre revalidar o documento com o servidor.
+| Arquivo Enviado | Destino Final |
+|-----------------|---------------|
+| `cliente-1_1.webp` | `src/assets/logos/cliente-1.webp` |
+| `cliente-2_1.webp` | `src/assets/logos/cliente-2.webp` |
+| `cliente-3_1.webp` | `src/assets/logos/cliente-3.webp` |
+| `cliente-4_1.webp` | `src/assets/logos/cliente-4.webp` |
+| `cliente-5_1.webp` | `src/assets/logos/cliente-5.webp` |
+| `cliente-6_1.webp` | `src/assets/logos/cliente-6.webp` |
+| `cliente-7_1.webp` | `src/assets/logos/cliente-7.webp` |
+| `cliente-8_1.webp` | `src/assets/logos/cliente-8.webp` |
+| `cliente-9_1.webp` | `src/assets/logos/cliente-9.webp` |
 
-## Alterações
+---
 
-### Arquivo: `index.html`
+### Impacto
 
-Adicionar após a linha 21 (depois de `theme-color`):
+- **Economia estimada**: ~230 KiB (de ~290 KiB para ~60 KiB total)
+- **Qualidade visual**: Mantida - 256x256px suporta displays Retina 2x
+- **Código**: Nenhuma alteração necessária - os imports já referenciam os mesmos nomes de arquivo
 
-```html
-<!-- Cache Control - Always revalidate HTML document -->
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
-```
+---
 
-## Como Funciona
+### Detalhes Técnicos
 
-| Meta Tag | Função |
-|----------|--------|
-| `no-cache` | Navegador deve revalidar antes de usar cache |
-| `no-store` | Não armazenar cópia em cache |
-| `must-revalidate` | Obrigatório verificar se há versão nova |
-| `Pragma: no-cache` | Compatibilidade com HTTP/1.0 |
-| `Expires: 0` | Marca como expirado imediatamente |
-
-## Observações
-
-- Os assets JS/CSS com hash no nome (`[name]-[hash].js`) continuarão sendo cacheados normalmente pelo navegador, pois mudam de nome quando há alterações
-- Apenas o documento HTML será sempre revalidado
-- O impacto em performance é mínimo pois o HTML é pequeno (~4KB)
-
-## Após Implementação
-
-1. Fazer novo publish
-2. Aguardar 2-3 minutos para propagação
-3. Limpar cache uma última vez
-4. Testar abrindo novas abas - a partir daí, sempre receberão versão atualizada
+Os arquivos serão copiados usando `lov-copy` do namespace `user-uploads://` para `src/assets/logos/`, sobrescrevendo as versões anteriores de alta resolução.
 

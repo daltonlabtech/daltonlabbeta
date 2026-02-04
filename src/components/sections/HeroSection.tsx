@@ -5,8 +5,8 @@ import heroVideoMp4 from '@/assets/hero-background.mp4';
 import { useTrackSection } from '@/hooks/useTrackSection';
 import { trackCtaClick } from '@/lib/analytics';
 
-// Inline poster path for fastest loading
-const heroPoster = '/hero-poster.png';
+// Inline poster path for fastest loading (WebP for better compression)
+const heroPoster = '/hero-poster.webp';
 
 // Lazy load tech logos since they're not critical
 const techLogos = [

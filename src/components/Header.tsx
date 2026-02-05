@@ -25,9 +25,12 @@ const Header = () => {
 
   const navLinks = [
     { label: t('nav.product'), href: '/produto' },
-    { label: t('nav.talkToDalton'), href: '/fale-com-o-dalton' },
     { label: t('nav.about'), href: '/quem-somos' },
   ];
+
+  const handleCtaClick = () => {
+    trackCtaClick('Fale com o Dalton', 'header', 'https://chat.daltonlab.ai/');
+  };
 
   return (
     <header 

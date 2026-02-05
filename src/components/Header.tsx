@@ -102,8 +102,20 @@ const Header = () => {
                     </a>
                   </SheetClose>
                 ))}
-                {/* Language Selector in Mobile Menu */}
+                {/* CTA Button in Mobile Menu */}
                 <div className="pt-4 border-t border-white/10">
+                  <a
+                    href="https://chat.daltonlab.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleCtaClick}
+                    className="block w-full px-4 py-3 rounded-full bg-[#F5F3F0] text-[#101823] text-sm font-medium text-center hover:opacity-90 transition-all"
+                  >
+                    {t('nav.talkToDalton')}
+                  </a>
+                </div>
+                {/* Language Selector in Mobile Menu */}
+                <div className="pt-4">
                   <LanguageSelector />
                 </div>
               </nav>

@@ -25,9 +25,12 @@ const Header = () => {
 
   const navLinks = [
     { label: t('nav.product'), href: '/produto' },
-    { label: t('nav.talkToDalton'), href: '/fale-com-o-dalton' },
     { label: t('nav.about'), href: '/quem-somos' },
   ];
+
+  const handleCtaClick = () => {
+    trackCtaClick('Fale com o Dalton', 'header', 'https://chat.daltonlab.ai/');
+  };
 
   return (
     <header 
@@ -63,8 +66,17 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right side - Language Selector (Desktop) */}
+          {/* Right side - CTA + Language Selector (Desktop) */}
           <div className="hidden md:flex items-center gap-4">
+            <a
+              href="https://chat.daltonlab.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleCtaClick}
+              className="px-4 py-2 rounded-full bg-[#F5F3F0] text-[#101823] text-sm font-medium hover:opacity-90 transition-all"
+            >
+              {t('nav.talkToDalton')}
+            </a>
             <LanguageSelector />
           </div>
 
@@ -90,8 +102,20 @@ const Header = () => {
                     </a>
                   </SheetClose>
                 ))}
-                {/* Language Selector in Mobile Menu */}
+                {/* CTA Button in Mobile Menu */}
                 <div className="pt-4 border-t border-white/10">
+                  <a
+                    href="https://chat.daltonlab.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleCtaClick}
+                    className="block w-full px-4 py-3 rounded-full bg-[#F5F3F0] text-[#101823] text-sm font-medium text-center hover:opacity-90 transition-all"
+                  >
+                    {t('nav.talkToDalton')}
+                  </a>
+                </div>
+                {/* Language Selector in Mobile Menu */}
+                <div className="pt-4">
                   <LanguageSelector />
                 </div>
               </nav>

@@ -66,8 +66,17 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right side - Language Selector (Desktop) */}
+          {/* Right side - CTA + Language Selector (Desktop) */}
           <div className="hidden md:flex items-center gap-4">
+            <a
+              href="https://chat.daltonlab.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleCtaClick}
+              className="px-4 py-2 rounded-full bg-[#F5F3F0] text-[#101823] text-sm font-medium hover:opacity-90 transition-all"
+            >
+              {t('nav.talkToDalton')}
+            </a>
             <LanguageSelector />
           </div>
 

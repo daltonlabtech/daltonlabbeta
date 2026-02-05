@@ -1,37 +1,52 @@
 
-
-## Substituir Logos de Clientes Otimizadas
+## Ajustar Header: Botão CTA + Remover Link de Navegação
 
 ### Resumo
-Substituir as 9 imagens de logos de clientes atuais (1080x1080px) pelas versões otimizadas enviadas (256x256px), renomeando para remover o sufixo "_1" dos nomes dos arquivos.
+Adicionar um botão destacado "Fale com o Dalton" no canto superior direito do header e remover esse item da navegação central.
 
 ---
 
-### Mapeamento de Arquivos
+### Alterações
 
-| Arquivo Enviado | Destino Final |
-|-----------------|---------------|
-| `cliente-1_1.webp` | `src/assets/logos/cliente-1.webp` |
-| `cliente-2_1.webp` | `src/assets/logos/cliente-2.webp` |
-| `cliente-3_1.webp` | `src/assets/logos/cliente-3.webp` |
-| `cliente-4_1.webp` | `src/assets/logos/cliente-4.webp` |
-| `cliente-5_1.webp` | `src/assets/logos/cliente-5.webp` |
-| `cliente-6_1.webp` | `src/assets/logos/cliente-6.webp` |
-| `cliente-7_1.webp` | `src/assets/logos/cliente-7.webp` |
-| `cliente-8_1.webp` | `src/assets/logos/cliente-8.webp` |
-| `cliente-9_1.webp` | `src/assets/logos/cliente-9.webp` |
+**1. Remover link da navegação**
+- Remover `{ label: t('nav.talkToDalton'), href: '/fale-com-o-dalton' }` do array `navLinks`
+- Navegação ficará apenas com: Produto e Quem somos
+
+**2. Adicionar botão CTA no desktop**
+- Posicionar à esquerda do Language Selector
+- Link direto para `https://chat.daltonlab.ai/` (conforme padrão de CTAs do projeto)
+- Estilo: botão com fundo claro (#F5F3F0), texto escuro, bordas arredondadas
+- Incluir tracking de analytics
+
+**3. Adicionar botão CTA no mobile**
+- Adicionar botão destacado no menu hamburguer (antes do Language Selector)
+- Mesmo estilo e comportamento do desktop
 
 ---
 
-### Impacto
+### Estrutura Visual
 
-- **Economia estimada**: ~230 KiB (de ~290 KiB para ~60 KiB total)
-- **Qualidade visual**: Mantida - 256x256px suporta displays Retina 2x
-- **Código**: Nenhuma alteração necessária - os imports já referenciam os mesmos nomes de arquivo
+```text
+Desktop:
+┌─────────────────────────────────────────────────────────┐
+│ [Logo]     Produto | Quem somos     [Fale com Dalton] 🌐│
+└─────────────────────────────────────────────────────────┘
+
+Mobile (menu aberto):
+┌──────────────┐
+│ Produto      │
+│ Quem somos   │
+│──────────────│
+│ [Fale com Dalton] ← botão destacado
+│──────────────│
+│ 🌐 Idioma    │
+└──────────────┘
+```
 
 ---
 
 ### Detalhes Técnicos
 
-Os arquivos serão copiados usando `lov-copy` do namespace `user-uploads://` para `src/assets/logos/`, sobrescrevendo as versões anteriores de alta resolução.
-
+- Importar `trackCtaClick` (já importado)
+- Botão usa `target="_blank"` e `rel="noopener noreferrer"`
+- Classe do botão: `px-4 py-2 rounded-full bg-[#F5F3F0] text-[#101823] text-sm font-medium hover:opacity-90 transition-all`

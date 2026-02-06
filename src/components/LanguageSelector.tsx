@@ -9,12 +9,6 @@ const LanguageSelector = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const currentLanguage = i18n.language?.split('-')[0] as SupportedLanguage || 'pt';
-  
-  // Don't show selector if language is Portuguese
-  if (currentLanguage === 'pt') {
-    return null;
-  }
-
   const currentLangData = supportedLanguages.find(lang => lang.code === currentLanguage) || supportedLanguages[0];
 
   const handleLanguageChange = (langCode: SupportedLanguage) => {
@@ -22,7 +16,7 @@ const LanguageSelector = () => {
     setIsOpen(false);
   };
 
-  // Close dropdown when clicking outside
+  // Close dropdown when clicking outside — must be before any conditional return
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -33,6 +27,11 @@ const LanguageSelector = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Don't show selector if language is Portuguese
+  if (currentLanguage === 'pt') {
+    return null;
+  }
 
   return (
     <div className="relative" ref={dropdownRef}>

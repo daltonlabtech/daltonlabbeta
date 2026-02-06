@@ -1,14 +1,12 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
-import { trackCtaClick } from '@/lib/analytics';
+import WaitlistModal from '@/components/ui/WaitlistModal';
 
 const HomeFinalCTASection = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
-
-  const handleCtaClick = () => {
-    trackCtaClick(t('home.finalCta.cta'), 'final_cta', 'https://chat.daltonlab.ai/');
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section
@@ -41,20 +39,20 @@ const HomeFinalCTASection = () => {
           className={`mt-6 md:mt-8 ${revealClasses(isVisible)}`}
           style={getStaggerDelay(2)}
         >
-          <a
-            href="https://chat.daltonlab.ai/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleCtaClick}
-            className="inline-flex items-center justify-center font-medium text-xs md:text-sm px-5 py-2.5 rounded-full border hover:bg-[#F5F3F0] hover:text-[#101823] transition-all duration-300"
-            style={{
-              borderColor: '#F5F3F0',
-              color: '#F5F3F0',
-            }}
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="inline-flex items-center justify-center font-medium text-xs md:text-sm px-5 py-2.5 rounded-full border border-[#F5F3F0] text-[#F5F3F0] hover:bg-[#F5F3F0]/10 transition-all duration-300"
           >
             {t('home.finalCta.cta')}
-          </a>
+          </button>
         </div>
+
+        <WaitlistModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          formLocation="final_cta_clube"
+          product="Clube Dalton Lab"
+        />
       </div>
     </section>
   );

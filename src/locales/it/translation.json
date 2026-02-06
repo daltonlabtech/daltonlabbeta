@@ -197,7 +197,7 @@
     "copyright": "© 2026 Dalton Lab. Tutti i diritti riservati."
   },
   "waitlist": {
-    "title": "Voglio entrare nella lista d'attesa",
+    "title": "",
     "nameLabel": "Nome completo",
     "namePlaceholder": "Nome",
     "emailLabel": "Email aziendale",
@@ -206,7 +206,7 @@
     "phoneLabel": "Telefono",
     "phonePlaceholder": "+39 340 1234567",
     "phoneError": "Numero di telefono non valido. Includere il prefisso.",
-    "submit": "Iscriviti",
+    "submit": "Invia",
     "submitting": "Elaborazione...",
     "successTitle": "Registrazione completata!",
     "successMessage": "Riceverai le novità in anteprima.",

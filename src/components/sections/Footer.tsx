@@ -35,9 +35,14 @@ const Footer = () => {
               <Link to="/produto" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
                 {t('nav.product')}
               </Link>
-              <Link to="/fale-com-o-dalton" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
-                {t('nav.talkToDalton')}
-              </Link>
+              <a 
+                href="https://chat.daltonlab.ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-inter text-sm text-white/50 hover:text-white transition-colors"
+              >
+                {t('nav.startTransformation')}
+              </a>
               <Link to="/quem-somos" className="font-inter text-sm text-white/50 hover:text-white transition-colors">
                 {t('nav.about')}
               </Link>

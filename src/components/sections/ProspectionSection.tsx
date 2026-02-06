@@ -68,83 +68,86 @@ const ProspectionSection = () => {
           className="rounded-3xl p-6 md:p-10 lg:p-12"
           style={{ backgroundColor: '#F5F3F0' }}
         >
-          {/* Tabs */}
-          <div className={`flex flex-wrap gap-2 md:gap-3 mb-8 md:mb-10 ${revealClasses(isVisible)}`}>
-            {TABS.map(tab => {
-              const isActive = activeTab === tab;
-              return (
-                <button
-                  key={tab}
-                  onClick={() => handleTabChange(tab)}
-                  className={`
-                    px-4 py-2 md:px-5 md:py-2.5 rounded-full text-sm font-medium transition-all duration-300
-                    ${isActive
-                      ? 'text-white'
-                      : 'text-zinc-600 hover:text-zinc-900'
-                    }
-                  `}
-                  style={{
-                    backgroundColor: isActive ? '#101824' : 'transparent',
-                  }}
-                >
-                  {t(`home.prospection.tabs.${tab}`)}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Content */}
-          <div className={`max-w-2xl ${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
-            <h3
-              className="font-inter font-bold text-xl md:text-2xl lg:text-3xl leading-tight mb-4"
-              style={{ color: '#101824' }}
-            >
-              {currentSector.title}
-            </h3>
-
-            <p
-              className="text-sm md:text-base leading-relaxed mb-6"
-              style={{ color: 'rgba(16, 24, 35, 0.6)' }}
-            >
-              {currentSector.description}
-            </p>
-
-            <ul className="space-y-3 mb-8">
-              {currentSector.features.map((feature, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#101824' }} strokeWidth={2.5} />
-                  <span
-                    className="text-sm md:text-base leading-relaxed"
-                    style={{ color: 'rgba(16, 24, 35, 0.7)' }}
-                  >
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <button
-              onClick={handleCtaClick}
-              className="inline-flex items-center justify-center gap-2 font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 hover:opacity-90"
-              style={{
-                backgroundColor: '#101824',
-                color: '#F5F3F0',
-              }}
-            >
-              {t('home.prospection.cta')}
-              <svg
-                className="w-3.5 h-3.5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+          {/* Grid: Content Left + Tabs Right */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr,auto] gap-8 lg:gap-12">
+            {/* Content */}
+            <div className={`${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
+              <h3
+                className="font-inter font-bold text-xl md:text-2xl lg:text-3xl leading-tight mb-4"
+                style={{ color: '#101824' }}
               >
-                <line x1="7" y1="17" x2="17" y2="7" />
-                <polyline points="7 7 17 7 17 17" />
-              </svg>
-            </button>
+                {currentSector.title}
+              </h3>
+
+              <p
+                className="text-sm md:text-base leading-relaxed mb-6"
+                style={{ color: 'rgba(16, 24, 35, 0.6)' }}
+              >
+                {currentSector.description}
+              </p>
+
+              <ul className="space-y-3 mb-8">
+                {currentSector.features.map((feature, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#101824' }} strokeWidth={2.5} />
+                    <span
+                      className="text-sm md:text-base leading-relaxed"
+                      style={{ color: 'rgba(16, 24, 35, 0.7)' }}
+                    >
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <button
+                onClick={handleCtaClick}
+                className="inline-flex items-center justify-center gap-2 font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 hover:opacity-90"
+                style={{
+                  backgroundColor: '#101824',
+                  color: '#F5F3F0',
+                }}
+              >
+                {t('home.prospection.cta')}
+                <svg
+                  className="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Vertical Tabs */}
+            <div className={`flex flex-row lg:flex-col gap-2 md:gap-3 lg:pt-2 overflow-x-auto lg:overflow-visible ${revealClasses(isVisible)}`}>
+              {TABS.map(tab => {
+                const isActive = activeTab === tab;
+                return (
+                  <button
+                    key={tab}
+                    onClick={() => handleTabChange(tab)}
+                    className={`
+                      px-4 py-2 md:px-5 md:py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap
+                      ${isActive
+                        ? 'text-white'
+                        : 'text-zinc-600 hover:text-zinc-900'
+                      }
+                    `}
+                    style={{
+                      backgroundColor: isActive ? '#101824' : 'transparent',
+                    }}
+                  >
+                    {t(`home.prospection.tabs.${tab}`)}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

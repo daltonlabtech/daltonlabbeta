@@ -43,39 +43,39 @@ const ProspectionSection = () => {
           (sectionRef as React.MutableRefObject<HTMLElement | null>).current = el;
         }
       }}
-      className="py-[20px] md:py-[35px]"
+      className="py-4 md:py-[35px]"
       style={{ backgroundColor: '#E8E6E3' }}
     >
       <div className="container-main">
         {/* Content Box */}
         <div
-          className="rounded-3xl p-6 md:p-10 lg:p-12"
+          className="rounded-xl md:rounded-3xl p-4 md:p-10 lg:p-12"
           style={{ backgroundColor: '#F5F3F0' }}
         >
           {/* Grid: Content Left + Tabs Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr,auto] gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr,auto] gap-5 lg:gap-12">
             {/* Content */}
             <div className={`${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
               <h3
-                className="font-inter font-bold text-xl md:text-2xl lg:text-3xl leading-tight mb-4"
+                className="font-inter font-bold text-base md:text-2xl lg:text-3xl leading-tight mb-2 md:mb-4"
                 style={{ color: '#101824' }}
               >
                 {currentSector.title}
               </h3>
 
               <p
-                className="text-sm md:text-base leading-relaxed mb-6"
+                className="text-xs md:text-base leading-relaxed mb-4 md:mb-6"
                 style={{ color: 'rgba(16, 24, 35, 0.6)' }}
               >
                 {currentSector.description}
               </p>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-2 md:space-y-3 mb-5 md:mb-8">
                 {currentSector.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#101824' }} strokeWidth={2.5} />
+                  <li key={index} className="flex items-start gap-2 md:gap-3">
+                    <Check className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0 mt-0.5" style={{ color: '#101824' }} strokeWidth={2.5} />
                     <span
-                      className="text-sm md:text-base leading-relaxed"
+                      className="text-xs md:text-base leading-relaxed"
                       style={{ color: 'rgba(16, 24, 35, 0.7)' }}
                     >
                       {feature}
@@ -86,7 +86,7 @@ const ProspectionSection = () => {
 
               <button
                 onClick={handleCtaClick}
-                className="inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 hover:opacity-90"
+                className="inline-flex items-center justify-center font-medium text-xs md:text-sm px-4 py-2 md:px-6 md:py-3 rounded-full transition-all duration-300 hover:opacity-90"
                 style={{
                   backgroundColor: '#101824',
                   color: '#F5F3F0',

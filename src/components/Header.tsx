@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import logoWhite from '@/assets/logo-dalton-white.png';
 import { trackCtaClick } from '@/lib/analytics';
 import LanguageSelector from '@/components/LanguageSelector';
@@ -13,6 +14,7 @@ import {
 
 const Header = () => {
   const { t } = useTranslation();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -23,28 +25,45 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const isHome = location.pathname === '/';
+
   const navLinks = [
-    { label: t('nav.product'), href: '/produto' },
+    { label: t('nav.home'), href: '/' },
+    { label: t('nav.transformation'), href: isHome ? '#journey' : '/#journey' },
+    { label: t('nav.media'), href: isHome ? '#media' : '/#media' },
     { label: t('nav.about'), href: '/quem-somos' },
   ];
 
   const handleCtaClick = () => {
-    trackCtaClick('Fale com o Dalton', 'header', 'https://chat.daltonlab.ai/');
+    trackCtaClick(t('nav.startTransformation'), 'header', 'https://chat.daltonlab.ai/');
+  };
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-foreground/10' : 'bg-transparent'
-      }`}
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        backgroundColor: isScrolled ? 'rgba(13, 18, 24, 0.85)' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(12px)' : 'none',
+        borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
+      }}
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0" aria-label="Dalton Lab - Página inicial">
-            <img 
-              src={logoWhite} 
-              alt="Dalton Lab - Agentes de IA" 
+            <img
+              src={logoWhite}
+              alt="Dalton Lab - Organizações Agênticas"
               className="h-32 md:h-40 w-auto"
               width={160}
               height={40}
@@ -59,7 +78,11 @@ const Header = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-foreground/70 hover:text-foreground text-sm font-medium transition-colors duration-200"
+                onClick={(e) => handleAnchorClick(e, link.href)}
+                className="text-sm font-medium transition-colors duration-200"
+                style={{ color: 'rgba(245, 243, 240, 0.7)' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#F5F3F0'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(245, 243, 240, 0.7)'; }}
               >
                 {link.label}
               </a>
@@ -73,9 +96,13 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleCtaClick}
-              className="px-4 py-2 rounded-full bg-[#F5F3F0] text-[#101823] text-sm font-medium hover:opacity-90 transition-all"
+              className="px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-all"
+              style={{
+                backgroundColor: '#F5F3F0',
+                color: '#101823',
+              }}
             >
-              {t('nav.talkToDalton')}
+              {t('nav.startTransformation')}
             </a>
             <LanguageSelector />
           </div>
@@ -83,38 +110,52 @@ const Header = () => {
           {/* Mobile Hamburger Menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <button 
-                className="md:hidden p-2 text-foreground/70 hover:text-foreground transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+              <button
+                className="md:hidden p-2 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+                style={{ color: 'rgba(245, 243, 240, 0.7)' }}
                 aria-label="Abrir menu de navegação"
               >
                 <Menu className="w-6 h-6" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-background border-l border-white/10 w-[280px]">
+            <SheetContent
+              side="right"
+              className="w-[280px]"
+              style={{
+                backgroundColor: '#0D1218',
+                borderLeft: '1px solid rgba(255,255,255,0.1)',
+              }}
+            >
               <nav className="flex flex-col gap-4 mt-8">
                 {navLinks.map((link) => (
                   <SheetClose asChild key={link.label}>
                     <a
                       href={link.href}
-                      className="text-foreground/70 hover:text-foreground text-lg font-medium transition-colors duration-200 py-2"
+                      onClick={(e) => handleAnchorClick(e, link.href)}
+                      className="text-lg font-medium transition-colors duration-200 py-2"
+                      style={{ color: 'rgba(245, 243, 240, 0.7)' }}
                     >
                       {link.label}
                     </a>
                   </SheetClose>
                 ))}
-                {/* CTA Button in Mobile Menu */}
-                <div className="pt-4 border-t border-white/10">
+                {/* CTA */}
+                <div className="pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
                   <a
                     href="https://chat.daltonlab.ai/"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={handleCtaClick}
-                    className="block w-full px-4 py-3 rounded-full bg-[#F5F3F0] text-[#101823] text-sm font-medium text-center hover:opacity-90 transition-all"
+                    className="block w-full px-4 py-3 rounded-full text-sm font-medium text-center hover:opacity-90 transition-all"
+                    style={{
+                      backgroundColor: '#F5F3F0',
+                      color: '#101823',
+                    }}
                   >
-                    {t('nav.talkToDalton')}
+                    {t('nav.startTransformation')}
                   </a>
                 </div>
-                {/* Language Selector in Mobile Menu */}
+                {/* Language Selector */}
                 <div className="pt-4">
                   <LanguageSelector />
                 </div>

@@ -1,8 +1,12 @@
 {
   "nav": {
+    "home": "Home",
     "product": "Product",
+    "transformation": "Transformation",
+    "media": "Media",
     "talkToDalton": "Talk to Dalton",
-    "about": "About us"
+    "about": "About us",
+    "startTransformation": "Start Transformation"
   },
   "pages": {
     "produto": {
@@ -26,13 +30,156 @@
   },
   "hero": {
     "poweredBy": "Powered by",
-    "titleLine1": "From lead to sale",
-    "titleLine2": "with AI Agents",
-    "titleLine2Mobile": "with",
-    "titleLine3Mobile": "AI Agents",
-    "subtitle1": "Scale your company's revenue.",
-    "subtitle2": "In less time. With more return.",
-    "cta": "Talk to Dalton"
+    "titleLine1": "The Era of Agentic",
+    "titleLine2": "Organizations Has Arrived",
+    "titleLine2Mobile": "Organizations",
+    "titleLine3Mobile": "Has Arrived",
+    "subtitle1": "Transform your company with Agentic AI.",
+    "subtitle2": "",
+    "cta": "Start Transformation"
+  },
+  "home": {
+    "definition": {
+      "title": "Transform your organization into an agentic one",
+      "paragraph1": "The future of work isn't about replacing people with machines. It's about creating a cooperative model where AI agents and human teams work side by side, each amplifying the other's capabilities.",
+      "paragraph2": "Agentic organizations are those that structurally integrate artificial intelligence — not as a tool, but as part of the org chart. This means redesigned processes, accelerated decisions, and a previously impossible scaling capability.",
+      "paragraph3": "At Dalton Lab, we guide companies through this transformation. From strategic diagnosis to custom agent implementation, we build the infrastructure for your organization to operate at the pace of the agentic era."
+    },
+    "stats": {
+      "items": [
+        {
+          "value": ">30%",
+          "number": 30,
+          "prefix": ">",
+          "suffix": "%",
+          "description": "Reduction in operational costs"
+        },
+        {
+          "value": ">50%",
+          "number": 50,
+          "prefix": ">",
+          "suffix": "%",
+          "description": "Increase in productivity"
+        },
+        {
+          "value": ">80%",
+          "number": 80,
+          "prefix": ">",
+          "suffix": "%",
+          "description": "Automation of repetitive processes"
+        }
+      ]
+    },
+    "journey": {
+      "title": "Your journey to an agentic transformation",
+      "subtitle": "Our holistic approach guides companies through the transformation and ensures scalability of agentic capabilities.",
+      "pillars": [
+        {
+          "number": "01",
+          "title": "AI-first Workflows",
+          "summary": "Redesign processes with artificial intelligence at the center of operations.",
+          "details": "We map your current workflows and identify automation opportunities with AI. Each workflow is redesigned to maximize efficiency, eliminate bottlenecks, and create processes that scale naturally."
+        },
+        {
+          "number": "02",
+          "title": "People and culture",
+          "summary": "Prepare your team to collaborate with AI agents.",
+          "details": "We develop training and cultural change programs so your team adapts to the cooperative model. The goal is for humans and agents to work in synergy, each focused on what they do best."
+        },
+        {
+          "number": "03",
+          "title": "Technology",
+          "summary": "Implement the right agentic infrastructure for your business.",
+          "details": "We select and integrate the right technologies for your operation. From language models to automation platforms, we build the tech stack that supports your agentic transformation."
+        }
+      ],
+      "seeMore": "See more",
+      "seeLess": "See less"
+    },
+    "prospection": {
+      "title": "Reimagine your company",
+      "subtitle": "Our proprietary technology adapts to your business needs.",
+      "tabs": {
+        "vendas": "Sales",
+        "marketing": "Marketing",
+        "financeiro": "Finance",
+        "atendimento": "Support",
+        "operacoes": "Operations"
+      },
+      "vendas": {
+        "title": "Automate your sales cycle",
+        "description": "AI Agents that qualify leads, conduct follow-ups, and close sales autonomously.",
+        "features": [
+          "24/7 automatic lead qualification",
+          "Intelligent and personalized follow-up",
+          "Automated sales closing"
+        ]
+      },
+      "marketing": {
+        "title": "Scale your content production",
+        "description": "Create campaigns, analyze performance, and optimize investments with artificial intelligence.",
+        "features": [
+          "Content creation at scale",
+          "Predictive campaign analysis",
+          "Real-time ROI optimization"
+        ]
+      },
+      "financeiro": {
+        "title": "Automate financial operations",
+        "description": "Reconciliation, reports, and financial forecasts operated by AI agents.",
+        "features": [
+          "Automated bank reconciliation",
+          "Real-time financial reports",
+          "Intelligent cash flow forecasts"
+        ]
+      },
+      "atendimento": {
+        "title": "Transform customer experience",
+        "description": "Humanized and scalable support with specialized AI agents.",
+        "features": [
+          "24/7 multi-channel support",
+          "Autonomous ticket resolution",
+          "Intelligent escalation to humans"
+        ]
+      },
+      "operacoes": {
+        "title": "Optimize operational processes",
+        "description": "Automate complex workflows and eliminate operational bottlenecks.",
+        "features": [
+          "Complex workflow automation",
+          "Proactive process monitoring",
+          "Legacy system integration"
+        ]
+      },
+      "cta": "Start Transformation",
+      "comingSoon": "Coming soon"
+    },
+    "finalCta": {
+      "title": "Lead the Transformation.",
+      "titleLine2": "Join the Club.",
+      "cta": "Start Transformation"
+    },
+    "media": {
+      "label": "News",
+      "title": "In the media",
+      "articles": [
+        {
+          "title": "How agentic AI is transforming Brazilian companies",
+          "source": "Exame",
+          "url": "#"
+        },
+        {
+          "title": "Dalton Lab: the startup putting AI agents in the org chart",
+          "source": "StartSe",
+          "url": "#"
+        },
+        {
+          "title": "The future of work is cooperative: humans and AI agents",
+          "source": "InfoMoney",
+          "url": "#"
+        }
+      ]
+    }
   },
   "clients": {
     "title": "Companies that trust us"

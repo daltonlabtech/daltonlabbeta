@@ -1,8 +1,12 @@
 {
   "nav": {
+    "home": "Home",
     "product": "Produto",
+    "transformation": "Transformação",
+    "media": "Mídia",
     "talkToDalton": "Fale com o Dalton",
-    "about": "Quem somos"
+    "about": "Quem Somos",
+    "startTransformation": "Iniciar Transformação"
   },
   "pages": {
     "produto": {
@@ -26,13 +30,156 @@
   },
   "hero": {
     "poweredBy": "Powered by",
-    "titleLine1": "Do lead à venda",
-    "titleLine2": "com Agentes de IA",
-    "titleLine2Mobile": "com",
-    "titleLine3Mobile": "Agentes de IA",
-    "subtitle1": "Escale a receita da sua empresa.",
-    "subtitle2": "Em menos tempo. Com mais retorno.",
-    "cta": "Fale com o Dalton"
+    "titleLine1": "Chegou a Era das",
+    "titleLine2": "Organizações Agênticas",
+    "titleLine2Mobile": "Organizações",
+    "titleLine3Mobile": "Agênticas",
+    "subtitle1": "Transforme sua empresa com IA Agêntica.",
+    "subtitle2": "",
+    "cta": "Iniciar Transformação"
+  },
+  "home": {
+    "definition": {
+      "title": "Transforme sua organização em agêntica",
+      "paragraph1": "O futuro do trabalho não é sobre substituir pessoas por máquinas. É sobre criar um modelo cooperativo onde agentes de IA e equipes humanas trabalham lado a lado, cada um potencializando as capacidades do outro.",
+      "paragraph2": "Organizações agênticas são aquelas que integram inteligência artificial de forma estrutural — não como ferramenta, mas como parte do organograma. Isso significa processos redesenhados, decisões aceleradas e uma capacidade de escala antes impossível.",
+      "paragraph3": "Na Dalton Lab, guiamos empresas nessa transformação. Do diagnóstico estratégico à implementação de agentes personalizados, construímos a infraestrutura para que sua organização opere no ritmo da era agêntica."
+    },
+    "stats": {
+      "items": [
+        {
+          "value": ">30%",
+          "number": 30,
+          "prefix": ">",
+          "suffix": "%",
+          "description": "Redução de custos operacionais"
+        },
+        {
+          "value": ">50%",
+          "number": 50,
+          "prefix": ">",
+          "suffix": "%",
+          "description": "Aumento de produtividade"
+        },
+        {
+          "value": ">80%",
+          "number": 80,
+          "prefix": ">",
+          "suffix": "%",
+          "description": "Automação de processos repetitivos"
+        }
+      ]
+    },
+    "journey": {
+      "title": "Sua jornada para uma transformação agêntica",
+      "subtitle": "Nossa abordagem holística guia as empresas pela transformação e garante escalabilidade das capacidades agênticas.",
+      "pillars": [
+        {
+          "number": "01",
+          "title": "Workflows AI-first",
+          "summary": "Redesenhe processos com inteligência artificial no centro da operação.",
+          "details": "Mapeamos seus fluxos de trabalho atuais e identificamos oportunidades de automação com IA. Cada workflow é redesenhado para maximizar eficiência, eliminar gargalos e criar processos que escalam naturalmente."
+        },
+        {
+          "number": "02",
+          "title": "Pessoas e cultura",
+          "summary": "Prepare sua equipe para colaborar com agentes de IA.",
+          "details": "Desenvolvemos programas de capacitação e mudança cultural para que sua equipe se adapte ao modelo cooperativo. O objetivo é que humanos e agentes trabalhem em sinergia, cada um focado no que faz melhor."
+        },
+        {
+          "number": "03",
+          "title": "Tecnologia",
+          "summary": "Implemente a infraestrutura agêntica adequada ao seu negócio.",
+          "details": "Selecionamos e integramos as tecnologias certas para sua operação. Desde modelos de linguagem até plataformas de automação, construímos a stack tecnológica que sustenta sua transformação agêntica."
+        }
+      ],
+      "seeMore": "Ver mais",
+      "seeLess": "Ver menos"
+    },
+    "prospection": {
+      "title": "Reimagine sua empresa",
+      "subtitle": "Nossa tecnologia proprietária se adapta às necessidades do seu negócio.",
+      "tabs": {
+        "vendas": "Vendas",
+        "marketing": "Marketing",
+        "financeiro": "Financeiro",
+        "atendimento": "Atendimento",
+        "operacoes": "Operações"
+      },
+      "vendas": {
+        "title": "Automatize seu ciclo comercial",
+        "description": "Agentes de IA que qualificam leads, conduzem follow-ups e fecham vendas de forma autônoma.",
+        "features": [
+          "Qualificação automática de leads 24/7",
+          "Follow-up inteligente e personalizado",
+          "Fechamento de vendas automatizado"
+        ]
+      },
+      "marketing": {
+        "title": "Escale sua produção de conteúdo",
+        "description": "Crie campanhas, analise performance e otimize investimentos com inteligência artificial.",
+        "features": [
+          "Criação de conteúdo em escala",
+          "Análise preditiva de campanhas",
+          "Otimização de ROI em tempo real"
+        ]
+      },
+      "financeiro": {
+        "title": "Automatize operações financeiras",
+        "description": "Conciliação, relatórios e previsões financeiras operados por agentes de IA.",
+        "features": [
+          "Conciliação bancária automatizada",
+          "Relatórios financeiros em tempo real",
+          "Previsões de fluxo de caixa inteligentes"
+        ]
+      },
+      "atendimento": {
+        "title": "Transforme a experiência do cliente",
+        "description": "Atendimento humanizado e escalável com agentes de IA especializados.",
+        "features": [
+          "Atendimento 24/7 em múltiplos canais",
+          "Resolução autônoma de chamados",
+          "Escalação inteligente para humanos"
+        ]
+      },
+      "operacoes": {
+        "title": "Otimize processos operacionais",
+        "description": "Automatize fluxos de trabalho complexos e elimine gargalos operacionais.",
+        "features": [
+          "Automação de workflows complexos",
+          "Monitoramento proativo de processos",
+          "Integração entre sistemas legados"
+        ]
+      },
+      "cta": "Iniciar Transformação",
+      "comingSoon": "Em breve"
+    },
+    "finalCta": {
+      "title": "Lidere a Transformação.",
+      "titleLine2": "Junte-se ao Clube.",
+      "cta": "Iniciar Transformação"
+    },
+    "media": {
+      "label": "Notícia",
+      "title": "Na mídia",
+      "articles": [
+        {
+          "title": "Como a IA agêntica está transformando empresas brasileiras",
+          "source": "Exame",
+          "url": "#"
+        },
+        {
+          "title": "Dalton Lab: a startup que coloca agentes de IA no organograma",
+          "source": "StartSe",
+          "url": "#"
+        },
+        {
+          "title": "O futuro do trabalho é cooperativo: humanos e agentes de IA",
+          "source": "InfoMoney",
+          "url": "#"
+        }
+      ]
+    }
   },
   "clients": {
     "title": "Empresas que confiam em nós"
@@ -206,7 +353,6 @@
     "phoneLabel": "Telefone",
     "phonePlaceholder": "+55 (11) 99999-9999",
     "phoneError": "Telefone inválido. Insira um número com DDD.",
-    "phonePlaceholder": "+55 (11) 9999-999",
     "submit": "Entrar",
     "submitting": "Processando...",
     "successTitle": "Cadastro realizado!",

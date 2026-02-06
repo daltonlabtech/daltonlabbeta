@@ -34,7 +34,7 @@
     "titleLine2": "Organizações Agênticas",
     "titleLine2Mobile": "Organizações",
     "titleLine3Mobile": "Agênticas",
-    "subtitle1": "Transforme sua empresa com IA Agêntica.",
+    "subtitle1": "Transforme sua empresa com IA Agêntica",
     "subtitle2": "",
     "cta": "Iniciar Transformação"
   },
@@ -165,25 +165,24 @@
       "label": "NOTÍCIA",
       "blogLabel": "BLOG POST",
       "featured": {
-        "title": "Entrevista: Dalton Lab e o futuro das organizações agênticas",
+        "title": "O aporte de um sócio do atacadista Mundial Mix em uma startup de IA",
         "source": "Veja Negócios",
         "date": "5 fev 2026",
-        "summary": "Os fundadores do Dalton Lab discutem como a inteligência artificial está redefinindo a estrutura organizacional das empresas.",
-        "url": "#",
-        "image": "/placeholder.svg"
+        "summary": "Fundada em 2023 por três brasileiros, a Dalton Lab quer ajudar empresas com expertise em IA para automatizar processos corporativos.",
+        "url": "https://veja.abril.com.br/coluna/radar-economico/o-aporte-de-um-socio-do-atacadista-mundial-mix-em-uma-startup-de-ia/"
       },
       "blogPosts": [
         {
-          "title": "5 sinais de que sua empresa precisa de agentes de IA",
-          "url": "#"
+          "title": "Organizações Agênticas: 89% ainda está longe disso",
+          "url": "https://www.linkedin.com/pulse/organizacoes-agenticas-89-ainda-esta-longe-disso-rodrigo-sp%C3%ADnola-lmmpf/"
         },
         {
-          "title": "Cultura agêntica: como preparar sua equipe",
-          "url": "#"
+          "title": "O erro de ignorar o cliente mais importante do seu negócio",
+          "url": "https://www.linkedin.com/pulse/o-erro-de-ignorar-cliente-mais-importante-do-seu-neg%C3%B3cio-sp%C3%ADnola-lkezf/"
         },
         {
-          "title": "ROI de IA: métricas que importam",
-          "url": "#"
+          "title": "O erro que empresas estão cometendo com IA",
+          "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
         }
       ]
     }

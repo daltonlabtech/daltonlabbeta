@@ -5,7 +5,6 @@ import SkeletonSection from "@/components/ui/SkeletonSection";
 
 // Lazy load below-the-fold sections
 const DefinitionSection = lazy(() => import("@/components/sections/DefinitionSection"));
-const StatsSection = lazy(() => import("@/components/sections/StatsSection"));
 const JourneySection = lazy(() => import("@/components/sections/JourneySection"));
 const ProspectionSection = lazy(() => import("@/components/sections/ProspectionSection"));
 const HomeFinalCTASection = lazy(() => import("@/components/sections/HomeFinalCTASection"));
@@ -16,7 +15,7 @@ const Footer = lazy(() => import("@/components/sections/Footer"));
 const prefetchSections = () => {
   const prefetchTimeout = setTimeout(() => {
     import("@/components/sections/DefinitionSection");
-    import("@/components/sections/StatsSection");
+    import("@/components/sections/JourneySection");
   }, 1500);
   
   return () => clearTimeout(prefetchTimeout);
@@ -35,10 +34,6 @@ const Index = () => {
       
       <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
         <DefinitionSection />
-      </Suspense>
-      
-      <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
-        <StatsSection />
       </Suspense>
 
       <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>

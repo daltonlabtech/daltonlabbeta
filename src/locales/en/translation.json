@@ -34,7 +34,7 @@
     "titleLine2": "Organizations Has Arrived",
     "titleLine2Mobile": "Organizations",
     "titleLine3Mobile": "Has Arrived",
-    "subtitle1": "Transform your company with Agentic AI.",
+    "subtitle1": "Transform your company with Agentic AI",
     "subtitle2": "",
     "cta": "Start Transformation"
   },
@@ -165,25 +165,24 @@
       "label": "NEWS",
       "blogLabel": "BLOG POST",
       "featured": {
-        "title": "Interview: Dalton Lab and the future of agentic organizations",
+        "title": "The investment of a Mundial Mix partner in an AI startup",
         "source": "Veja Negócios",
         "date": "Feb 5, 2026",
-        "summary": "Dalton Lab's founders discuss how artificial intelligence is redefining companies' organizational structure.",
-        "url": "#",
-        "image": "/placeholder.svg"
+        "summary": "Founded in 2023 by three Brazilians, Dalton Lab aims to help companies with AI expertise to automate corporate processes.",
+        "url": "https://veja.abril.com.br/coluna/radar-economico/o-aporte-de-um-socio-do-atacadista-mundial-mix-em-uma-startup-de-ia/"
       },
       "blogPosts": [
         {
-          "title": "5 signs your company needs AI agents",
-          "url": "#"
+          "title": "Agentic Organizations: 89% are still far from it",
+          "url": "https://www.linkedin.com/pulse/organizacoes-agenticas-89-ainda-esta-longe-disso-rodrigo-sp%C3%ADnola-lmmpf/"
         },
         {
-          "title": "Agentic culture: how to prepare your team",
-          "url": "#"
+          "title": "The mistake of ignoring your most important customer",
+          "url": "https://www.linkedin.com/pulse/o-erro-de-ignorar-cliente-mais-importante-do-seu-neg%C3%B3cio-sp%C3%ADnola-lkezf/"
         },
         {
-          "title": "AI ROI: metrics that matter",
-          "url": "#"
+          "title": "The mistake companies are making with AI",
+          "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
         }
       ]
     }

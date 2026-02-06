@@ -86,20 +86,20 @@ const JourneySection = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="journey"
-      className="py-[60px] md:py-[100px]"
+      className="py-10 md:py-[100px]"
       style={{ backgroundColor: '#E8E6E3' }}
     >
       <div className="container-main">
         {/* Header */}
-        <div className={`text-center mb-10 md:mb-16 ${revealClasses(isVisible)}`}>
+        <div className={`text-center mb-6 md:mb-16 ${revealClasses(isVisible)}`}>
           <h2
-            className="font-inter font-bold text-3xl md:text-4xl lg:text-[48px] leading-tight mb-4"
+            className="font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight mb-2 md:mb-4"
             style={{ color: '#101824' }}
           >
             {t('home.journey.title')}
           </h2>
           <p
-            className="text-base md:text-lg max-w-2xl mx-auto"
+            className="text-sm md:text-lg max-w-2xl mx-auto"
             style={{ color: 'rgba(16, 24, 35, 0.7)' }}
           >
             {t('home.journey.subtitle')}

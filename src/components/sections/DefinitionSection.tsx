@@ -46,13 +46,13 @@ const StatCard = ({ item, isVisible, index }: { item: StatItem; isVisible: boole
       }}
     >
       <p
-        className="font-inter leading-none mb-2"
-        style={{ fontSize: '64px', fontWeight: 800, color: '#101824' }}
+        className="font-inter leading-none mb-1 md:mb-2 text-[40px] md:text-[64px]"
+        style={{ fontWeight: 800, color: '#101824' }}
       >
         {item.prefix}{count}{item.suffix}
       </p>
       <p
-        className="text-sm md:text-base font-medium"
+        className="text-xs md:text-base font-medium"
         style={{ color: 'rgba(16, 24, 35, 0.6)' }}
       >
         {item.description}

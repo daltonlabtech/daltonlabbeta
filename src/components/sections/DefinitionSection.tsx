@@ -69,36 +69,36 @@ const DefinitionSection = () => {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-[60px] md:py-[100px]"
+      className="py-10 md:py-[100px]"
       style={{ backgroundColor: '#F5F3F0' }}
     >
       <div className="container-main">
         {/* Title */}
         <h2
-          className={`font-inter font-bold text-3xl md:text-4xl lg:text-[48px] leading-tight text-center mb-10 md:mb-16 ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-6 md:mb-16 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
         >
           {t('home.definition.title')}
         </h2>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start">
           {/* Left: Text */}
-          <div className={`space-y-6 ${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
+          <div className={`space-y-4 md:space-y-6 ${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
             <p
-              className="text-base md:text-lg leading-relaxed text-justify"
+              className="text-sm md:text-lg leading-relaxed text-justify"
               style={{ color: 'rgba(16, 24, 35, 0.7)' }}
             >
               {t('home.definition.paragraph1')}
             </p>
             <p
-              className="text-base md:text-lg leading-relaxed text-justify"
+              className="text-sm md:text-lg leading-relaxed text-justify"
               style={{ color: 'rgba(16, 24, 35, 0.7)' }}
             >
               {t('home.definition.paragraph2')}
             </p>
             <p
-              className="text-base md:text-lg leading-relaxed text-justify"
+              className="text-sm md:text-lg leading-relaxed text-justify"
               style={{ color: 'rgba(16, 24, 35, 0.7)' }}
             >
               {t('home.definition.paragraph3')}

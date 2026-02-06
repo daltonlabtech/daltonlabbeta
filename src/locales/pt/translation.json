@@ -161,22 +161,28 @@
       "cta": "Tenho Interesse"
     },
     "media": {
-      "label": "Notícia",
-      "title": "Na mídia",
-      "articles": [
+      "sectionTitle": "MÍDIA DESTAQUE",
+      "label": "NOTÍCIA",
+      "blogLabel": "BLOG POST",
+      "featured": {
+        "title": "Entrevista: Dalton Lab e o futuro das organizações agênticas",
+        "source": "Veja Negócios",
+        "date": "5 fev 2026",
+        "summary": "Os fundadores do Dalton Lab discutem como a inteligência artificial está redefinindo a estrutura organizacional das empresas.",
+        "url": "#",
+        "image": "/placeholder.svg"
+      },
+      "blogPosts": [
         {
-          "title": "Como a IA agêntica está transformando empresas brasileiras",
-          "source": "Exame",
+          "title": "5 sinais de que sua empresa precisa de agentes de IA",
           "url": "#"
         },
         {
-          "title": "Dalton Lab: a startup que coloca agentes de IA no organograma",
-          "source": "StartSe",
+          "title": "Cultura agêntica: como preparar sua equipe",
           "url": "#"
         },
         {
-          "title": "O futuro do trabalho é cooperativo: humanos e agentes de IA",
-          "source": "InfoMoney",
+          "title": "ROI de IA: métricas que importam",
           "url": "#"
         }
       ]

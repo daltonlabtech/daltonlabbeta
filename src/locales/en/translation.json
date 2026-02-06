@@ -161,22 +161,28 @@
       "cta": "I'm Interested"
     },
     "media": {
-      "label": "News",
-      "title": "In the media",
-      "articles": [
+      "sectionTitle": "MEDIA HIGHLIGHTS",
+      "label": "NEWS",
+      "blogLabel": "BLOG POST",
+      "featured": {
+        "title": "Interview: Dalton Lab and the future of agentic organizations",
+        "source": "Veja Negócios",
+        "date": "Feb 5, 2026",
+        "summary": "Dalton Lab's founders discuss how artificial intelligence is redefining companies' organizational structure.",
+        "url": "#",
+        "image": "/placeholder.svg"
+      },
+      "blogPosts": [
         {
-          "title": "How agentic AI is transforming Brazilian companies",
-          "source": "Exame",
+          "title": "5 signs your company needs AI agents",
           "url": "#"
         },
         {
-          "title": "Dalton Lab: the startup putting AI agents in the org chart",
-          "source": "StartSe",
+          "title": "Agentic culture: how to prepare your team",
           "url": "#"
         },
         {
-          "title": "The future of work is cooperative: humans and AI agents",
-          "source": "InfoMoney",
+          "title": "AI ROI: metrics that matter",
           "url": "#"
         }
       ]

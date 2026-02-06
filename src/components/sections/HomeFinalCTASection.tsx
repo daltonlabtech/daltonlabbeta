@@ -59,3 +59,7 @@ const HomeFinalCTASection = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+export default HomeFinalCTASection;

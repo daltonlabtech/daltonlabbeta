@@ -16,7 +16,7 @@ const PillarCard = ({ pillar, index, isVisible }: { pillar: Pillar; index: numbe
 
   return (
     <div
-      className={`p-6 md:p-8 rounded-2xl transition-all duration-700 ${revealClasses(isVisible)}`}
+      className={`p-4 md:p-8 rounded-xl md:rounded-2xl transition-all duration-700 ${revealClasses(isVisible)}`}
       style={{ 
         ...getStaggerDelay(index + 1),
         backgroundColor: '#E8E6E3',
@@ -24,7 +24,7 @@ const PillarCard = ({ pillar, index, isVisible }: { pillar: Pillar; index: numbe
     >
       {/* Number */}
       <span
-        className="font-inter text-sm font-medium block mb-4"
+        className="font-inter text-xs md:text-sm font-medium block mb-2 md:mb-4"
         style={{ color: 'rgba(16, 24, 35, 0.4)' }}
       >
         {pillar.number}
@@ -32,7 +32,7 @@ const PillarCard = ({ pillar, index, isVisible }: { pillar: Pillar; index: numbe
 
       {/* Title */}
       <h3
-        className="font-inter font-bold text-xl md:text-2xl mb-3"
+        className="font-inter font-bold text-base md:text-2xl mb-2 md:mb-3"
         style={{ color: '#101824' }}
       >
         {pillar.title}
@@ -40,7 +40,7 @@ const PillarCard = ({ pillar, index, isVisible }: { pillar: Pillar; index: numbe
 
       {/* Summary */}
       <p
-        className="text-base leading-relaxed mb-4"
+        className="text-sm md:text-base leading-relaxed mb-3 md:mb-4"
         style={{ color: 'rgba(16, 24, 35, 0.7)' }}
       >
         {pillar.summary}
@@ -55,7 +55,7 @@ const PillarCard = ({ pillar, index, isVisible }: { pillar: Pillar; index: numbe
         }}
       >
         <p
-          className="text-sm md:text-base leading-relaxed pb-2"
+          className="text-xs md:text-base leading-relaxed pb-2"
           style={{ color: 'rgba(16, 24, 35, 0.6)' }}
         >
           {pillar.details}
@@ -65,12 +65,12 @@ const PillarCard = ({ pillar, index, isVisible }: { pillar: Pillar; index: numbe
       {/* See more/less toggle */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="inline-flex items-center gap-1 text-sm font-medium transition-colors duration-200 mt-2"
+        className="inline-flex items-center gap-1 text-xs md:text-sm font-medium transition-colors duration-200 mt-1 md:mt-2"
         style={{ color: '#101824' }}
       >
         {isExpanded ? t('home.journey.seeLess') : t('home.journey.seeMore')}
         <ChevronDown
-          className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+          className={`w-3 h-3 md:w-4 md:h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
         />
       </button>
     </div>

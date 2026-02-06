@@ -52,21 +52,21 @@
           "number": 30,
           "prefix": ">",
           "suffix": "%",
-          "description": "Reduction in operational costs"
+          "description": "faster decision making"
         },
         {
           "value": ">50%",
           "number": 50,
           "prefix": ">",
           "suffix": "%",
-          "description": "Increase in productivity"
+          "description": "reduction in time and effort"
         },
         {
           "value": ">80%",
           "number": 80,
           "prefix": ">",
           "suffix": "%",
-          "description": "Automation of repetitive processes"
+          "description": "incidents resolved automatically"
         }
       ]
     },

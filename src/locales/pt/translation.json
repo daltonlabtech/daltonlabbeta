@@ -52,21 +52,21 @@
           "number": 30,
           "prefix": ">",
           "suffix": "%",
-          "description": "Redução de custos operacionais"
+          "description": "velocidade na tomada de decisões"
         },
         {
           "value": ">50%",
           "number": 50,
           "prefix": ">",
           "suffix": "%",
-          "description": "Aumento de produtividade"
+          "description": "redução em tempo e esforço"
         },
         {
           "value": ">80%",
           "number": 80,
           "prefix": ">",
           "suffix": "%",
-          "description": "Automação de processos repetitivos"
+          "description": "incidentes resolvidos de forma automática"
         }
       ]
     },

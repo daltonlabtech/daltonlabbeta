@@ -97,7 +97,7 @@ const ProspectionSection = () => {
             </div>
 
             {/* Vertical Tabs */}
-            <div className={`flex flex-row lg:flex-col gap-2 md:gap-3 lg:pt-2 overflow-x-auto lg:overflow-visible ${revealClasses(isVisible)}`}>
+            <div className={`flex flex-row lg:flex-col gap-1.5 md:gap-3 lg:pt-2 overflow-x-auto lg:overflow-visible ${revealClasses(isVisible)}`}>
               {TABS.map(tab => {
                 const isActive = activeTab === tab;
                 return (
@@ -105,7 +105,7 @@ const ProspectionSection = () => {
                     key={tab}
                     onClick={() => handleTabChange(tab)}
                     className={`
-                      px-5 py-2.5 md:px-6 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 whitespace-nowrap
+                      px-3 py-1.5 md:px-6 md:py-3 rounded-full text-xs md:text-lg font-medium transition-all duration-300 whitespace-nowrap
                       ${isActive
                         ? 'text-zinc-900'
                         : 'text-zinc-600 hover:text-zinc-900'

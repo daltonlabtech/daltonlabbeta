@@ -106,7 +106,7 @@ const DefinitionSection = () => {
           </div>
 
           {/* Right: Stats */}
-          <div className="flex flex-col gap-8 lg:gap-10 lg:pl-8">
+          <div className="flex flex-col gap-5 md:gap-10 lg:pl-8 mt-2 md:mt-0">
             {stats.map((item, index) => (
               <StatCard key={index} item={item} isVisible={isVisible} index={index} />
             ))}

@@ -98,12 +98,12 @@ const HomeHeroSection = () => {
 
           {/* Subtitle */}
           <div
-            className={`mt-6 md:mt-8 transition-all duration-700 delay-300 ${
+            className={`mt-4 md:mt-8 transition-all duration-700 delay-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             <p
-              className="text-sm md:text-base lg:text-lg font-light"
+              className="text-xs md:text-base lg:text-lg font-light"
               style={{ 
                 color: 'rgba(245, 243, 240, 0.75)',
                 textShadow: '0 2px 8px rgba(0,0,0,0.3)'
@@ -115,7 +115,7 @@ const HomeHeroSection = () => {
 
           {/* CTA */}
           <div
-            className={`mt-8 md:mt-10 transition-all duration-700 delay-[450ms] ${
+            className={`mt-6 md:mt-10 transition-all duration-700 delay-[450ms] ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
@@ -124,7 +124,7 @@ const HomeHeroSection = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleCtaClick}
-              className="font-medium text-sm px-5 py-2.5 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_6px_25px_rgba(0,0,0,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center"
+              className="font-medium text-xs md:text-sm px-4 py-2 md:px-5 md:py-2.5 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_6px_25px_rgba(0,0,0,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 inline-flex items-center justify-center"
               style={{
                 backgroundColor: '#F5F3F0',
                 color: '#000000',

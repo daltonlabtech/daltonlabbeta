@@ -65,7 +65,7 @@ const HomeHeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex items-center justify-center container mx-auto px-6 md:px-12 lg:px-20 pt-20 md:pt-24">
+      <div className="relative z-10 flex-1 flex items-center justify-center container mx-auto px-5 md:px-12 lg:px-20 pt-16 md:pt-24">
         <div className="text-center max-w-4xl">
           {/* Title */}
           <h1
@@ -78,13 +78,13 @@ const HomeHeroSection = () => {
             }}
           >
             {/* Mobile */}
-            <span className="block sm:hidden text-[48px] font-normal leading-[1.1]">
+            <span className="block sm:hidden text-[32px] font-normal leading-[1.15]">
               {t('hero.titleLine1')}
             </span>
-            <span className="block sm:hidden text-[48px] font-normal leading-[1.1] mt-1">
+            <span className="block sm:hidden text-[32px] font-normal leading-[1.15] mt-0.5">
               {t('hero.titleLine2Mobile')}
             </span>
-            <span className="block sm:hidden text-[48px] font-normal leading-[1.1] mt-1">
+            <span className="block sm:hidden text-[32px] font-normal leading-[1.15] mt-0.5">
               {t('hero.titleLine3Mobile')}
             </span>
             {/* Desktop */}

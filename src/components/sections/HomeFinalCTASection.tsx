@@ -1,14 +1,12 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
-import { trackCtaClick } from '@/lib/analytics';
+import WaitlistModal from '@/components/ui/WaitlistModal';
 
 const HomeFinalCTASection = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
-
-  const handleCtaClick = () => {
-    trackCtaClick(t('home.finalCta.cta'), 'final_cta', 'https://chat.daltonlab.ai/');
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section

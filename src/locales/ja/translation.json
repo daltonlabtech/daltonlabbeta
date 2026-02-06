@@ -197,7 +197,7 @@
     "copyright": "© 2026 Dalton Lab. 全著作権所有。"
   },
   "waitlist": {
-    "title": "ウェイトリストに参加したい",
+    "title": "",
     "nameLabel": "フルネーム",
     "namePlaceholder": "名前",
     "emailLabel": "仕事用メール",
@@ -206,7 +206,7 @@
     "phoneLabel": "電話",
     "phonePlaceholder": "+81 90 1234 5678",
     "phoneError": "無効な電話番号です。市外局番を含めてください。",
-    "submit": "参加",
+    "submit": "送信",
     "submitting": "処理中...",
     "successTitle": "登録完了！",
     "successMessage": "最新情報をいち早くお届けします。",

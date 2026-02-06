@@ -19,12 +19,10 @@ const HomeFinalCTASection = () => {
       <div className="container-main text-center">
         {/* Title */}
         <h2
-          className={`font-inter font-bold text-xl md:text-2xl lg:text-[32px] leading-tight ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-lg md:text-xl lg:text-2xl leading-tight ${revealClasses(isVisible)}`}
           style={{ color: '#F5F3F0' }}
         >
-          {t('home.finalCta.title')}
-          <br />
-          {t('home.finalCta.titleLine2')}
+          {t('home.finalCta.title')} {t('home.finalCta.titleLine2')}
         </h2>
 
         {/* Subtitle */}

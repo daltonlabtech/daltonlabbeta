@@ -11,13 +11,13 @@ const HomeFinalCTASection = () => {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-[30px] md:py-[40px]"
+      className="py-6 md:py-[40px]"
       style={{ backgroundColor: '#121823' }}
     >
       <div className="container-main text-center">
         {/* Title */}
         <h2
-          className={`font-inter font-bold text-lg md:text-xl lg:text-2xl leading-tight ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-base md:text-xl lg:text-2xl leading-tight ${revealClasses(isVisible)}`}
           style={{ color: '#F5F3F0' }}
         >
           {t('home.finalCta.title')} {t('home.finalCta.titleLine2')}
@@ -25,7 +25,7 @@ const HomeFinalCTASection = () => {
 
         {/* Subtitle */}
         <p
-          className={`mt-4 text-sm md:text-base max-w-xl mx-auto ${revealClasses(isVisible)}`}
+          className={`mt-2 md:mt-4 text-xs md:text-base max-w-xl mx-auto ${revealClasses(isVisible)}`}
           style={{ 
             color: 'rgba(245, 243, 240, 0.7)',
             ...getStaggerDelay(1)
@@ -36,12 +36,12 @@ const HomeFinalCTASection = () => {
 
         {/* CTA Button - Outline Style */}
         <div
-          className={`mt-6 md:mt-8 ${revealClasses(isVisible)}`}
+          className={`mt-4 md:mt-8 ${revealClasses(isVisible)}`}
           style={getStaggerDelay(2)}
         >
           <button
             onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center justify-center font-medium text-xs md:text-sm px-5 py-2.5 rounded-full border border-[#F5F3F0] text-[#F5F3F0] hover:bg-[#F5F3F0]/10 transition-all duration-300"
+            className="inline-flex items-center justify-center font-medium text-xs md:text-sm px-4 py-2 md:px-5 md:py-2.5 rounded-full border border-[#F5F3F0] text-[#F5F3F0] hover:bg-[#F5F3F0]/10 transition-all duration-300"
           >
             {t('home.finalCta.cta')}
           </button>

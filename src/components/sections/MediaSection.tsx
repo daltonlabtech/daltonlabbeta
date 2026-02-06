@@ -101,14 +101,14 @@ const MediaSection = () => {
         </div>
 
         {/* Blog Posts Grid - 3 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
           {blogPosts.map((post, index) => (
             <a
               key={index}
               href={post.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group p-6 md:p-8 rounded-2xl transition-all duration-500 hover:shadow-lg ${revealClasses(isVisible)}`}
+              className={`group p-4 md:p-8 rounded-xl md:rounded-2xl transition-all duration-500 hover:shadow-lg ${revealClasses(isVisible)}`}
               style={{
                 ...getStaggerDelay(index + 2),
                 backgroundColor: '#E8E6E3',
@@ -116,7 +116,7 @@ const MediaSection = () => {
             >
               {/* Label */}
               <span
-                className="inline-block text-xs font-semibold tracking-[0.15em] uppercase mb-4"
+                className="inline-block text-[10px] md:text-xs font-semibold tracking-[0.15em] uppercase mb-2 md:mb-4"
                 style={{ color: 'rgba(16, 24, 35, 0.5)' }}
               >
                 {t('home.media.blogLabel')}
@@ -124,7 +124,7 @@ const MediaSection = () => {
 
               {/* Title */}
               <h4
-                className="font-inter font-semibold text-base md:text-lg leading-snug group-hover:underline"
+                className="font-inter font-semibold text-sm md:text-lg leading-snug group-hover:underline"
                 style={{ color: '#101824' }}
               >
                 {post.title}
@@ -132,7 +132,7 @@ const MediaSection = () => {
 
               {/* Arrow */}
               <ArrowUpRight
-                className="w-4 h-4 mt-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="w-3 h-3 md:w-4 md:h-4 mt-3 md:mt-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
                 style={{ color: '#101824' }}
               />
             </a>

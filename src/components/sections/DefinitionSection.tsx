@@ -46,13 +46,13 @@ const StatCard = ({ item, isVisible, index }: { item: StatItem; isVisible: boole
       }}
     >
       <p
-        className="font-inter leading-none mb-2"
-        style={{ fontSize: '64px', fontWeight: 800, color: '#101824' }}
+        className="font-inter leading-none mb-1 md:mb-2 text-[40px] md:text-[64px]"
+        style={{ fontWeight: 800, color: '#101824' }}
       >
         {item.prefix}{count}{item.suffix}
       </p>
       <p
-        className="text-sm md:text-base font-medium"
+        className="text-xs md:text-base font-medium"
         style={{ color: 'rgba(16, 24, 35, 0.6)' }}
       >
         {item.description}
@@ -69,36 +69,36 @@ const DefinitionSection = () => {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-[60px] md:py-[100px]"
+      className="py-10 md:py-[100px]"
       style={{ backgroundColor: '#F5F3F0' }}
     >
       <div className="container-main">
         {/* Title */}
         <h2
-          className={`font-inter font-bold text-3xl md:text-4xl lg:text-[48px] leading-tight text-center mb-10 md:mb-16 ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-6 md:mb-16 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
         >
           {t('home.definition.title')}
         </h2>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start">
           {/* Left: Text */}
-          <div className={`space-y-6 ${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
+          <div className={`space-y-4 md:space-y-6 ${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
             <p
-              className="text-base md:text-lg leading-relaxed text-justify"
+              className="text-sm md:text-lg leading-relaxed text-justify"
               style={{ color: 'rgba(16, 24, 35, 0.7)' }}
             >
               {t('home.definition.paragraph1')}
             </p>
             <p
-              className="text-base md:text-lg leading-relaxed text-justify"
+              className="text-sm md:text-lg leading-relaxed text-justify"
               style={{ color: 'rgba(16, 24, 35, 0.7)' }}
             >
               {t('home.definition.paragraph2')}
             </p>
             <p
-              className="text-base md:text-lg leading-relaxed text-justify"
+              className="text-sm md:text-lg leading-relaxed text-justify"
               style={{ color: 'rgba(16, 24, 35, 0.7)' }}
             >
               {t('home.definition.paragraph3')}
@@ -106,7 +106,7 @@ const DefinitionSection = () => {
           </div>
 
           {/* Right: Stats */}
-          <div className="flex flex-col gap-8 lg:gap-10 lg:pl-8">
+          <div className="flex flex-col gap-5 md:gap-10 lg:pl-8 mt-2 md:mt-0">
             {stats.map((item, index) => (
               <StatCard key={index} item={item} isVisible={isVisible} index={index} />
             ))}

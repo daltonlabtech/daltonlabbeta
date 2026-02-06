@@ -57,14 +57,14 @@ const Header = () => {
         borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
       }}
     >
-      <div className="container mx-auto px-6 md:px-12 lg:px-20">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="container mx-auto px-5 md:px-12 lg:px-20">
+        <div className="flex items-center justify-between h-14 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0" aria-label="Dalton Lab - Página inicial">
             <img
               src={logoWhite}
               alt="Dalton Lab - Organizações Agênticas"
-              className="h-32 md:h-40 w-auto"
+              className="h-24 md:h-40 w-auto"
               width={160}
               height={40}
               loading="eager"

@@ -1,57 +1,59 @@
 
 
-# Plano: Ajustes na Dobra "Lidere a Transformacao"
+# Plano: Ajustes no Modal e Tabs de Prospeccao
 
 ## Resumo
 
-Duas alteracoes na secao final de CTA:
-1. Atualizar o texto do subtitulo
-2. Corrigir o estilo do botao no hover e adicionar modal de captura de leads
+Duas alteracoes:
+1. No pop-up da secao "Lidere a Transformacao" - remover titulo e alterar texto do botao
+2. Na secao de Prospection - alterar cor da aba selecionada
 
 ---
 
 ## Alteracoes
 
-### 1. Atualizar Texto do Subtitulo
+### 1. Modal de Waitlist - Remover Titulo e Alterar CTA
 
-**Arquivo:** `src/locales/pt/translation.json`
+**Arquivos:** `src/locales/pt/translation.json` e `src/locales/en/translation.json`
 
-| Campo | Valor Atual | Novo Valor |
-|-------|-------------|------------|
-| `home.finalCta.subtitle` | "O Clube Dalton Lab e o ponto de encontro..." | "O Clube e o ponto de encontro para lideres visionarios que querem ser a vanguarda da era agentica." |
+| Campo | Valor Atual (PT) | Novo Valor (PT) |
+|-------|------------------|-----------------|
+| `waitlist.title` | "Quero entrar para a lista de espera" | "" (string vazia) |
+| `waitlist.submit` | "Entrar" | "Enviar" |
 
-**Arquivo:** `src/locales/en/translation.json`
+| Campo | Valor Atual (EN) | Novo Valor (EN) |
+|-------|------------------|-----------------|
+| `waitlist.title` | "I want to join the waitlist" | "" (string vazia) |
+| `waitlist.submit` | "Join" | "Send" |
 
-| Campo | Valor Atual | Novo Valor |
-|-------|-------------|------------|
-| `home.finalCta.subtitle` | (equivalente em ingles) | "The Club is the meeting point for visionary leaders who want to be at the forefront of the agentic era." |
+**Arquivo:** `src/components/ui/WaitlistModal.tsx`
+
+O componente precisa ser ajustado para ocultar o `DialogTitle` quando o titulo estiver vazio, mantendo acessibilidade.
 
 ---
 
-### 2. Corrigir Botao e Adicionar Modal
+### 2. ProspectionSection - Cor da Aba Selecionada
 
-**Arquivo:** `src/components/sections/HomeFinalCTASection.tsx`
+**Arquivo:** `src/components/sections/ProspectionSection.tsx`
 
-**Problema atual:** O botao tem `hover:bg-[#F5F3F0] hover:text-[#101823]` que faz o fundo ficar branco, mas o texto pode perder contraste.
+**Mudanca na linha 115:**
 
-**Solucao:**
-- Remover o link externo (`<a href="...">`)
-- Transformar em `<button>` que abre um modal
-- Ajustar estilo de hover para manter legibilidade
-- Adicionar estado para controlar abertura do modal
+| Estado | Cor Atual | Nova Cor |
+|--------|-----------|----------|
+| Aba selecionada (isActive) | `#101824` (escuro) | `#E8E6E3` (bege claro) |
 
-**Logica do Modal:**
-- Reutilizar o componente `WaitlistModal` existente
-- O modal ja possui:
-  - Validacao de email corporativo (bloqueia gmail, hotmail, outlook, yahoo, icloud, live, uol)
-  - Campo de nome obrigatorio
-  - Campo de email obrigatorio
-  - Campo de telefone (sera mantido como opcional ou removido conforme solicitado)
-  - Integracao com Supabase para salvar leads
+**Ajuste adicional necessario:**
+- Cor do texto quando ativo: mudar de `text-white` para `text-zinc-900` (ou `#101824`) para garantir contraste sobre fundo claro
 
-**Ajuste no WaitlistModal:**
-- Criar uma versao simplificada ou prop para mostrar apenas nome + email (sem telefone)
-- OU usar o modal existente que ja pede nome, email e telefone
+```tsx
+// Antes:
+${isActive ? 'text-white' : 'text-zinc-600 hover:text-zinc-900'}
+style={{ backgroundColor: isActive ? '#101824' : 'transparent' }}
+
+// Depois:
+${isActive ? 'text-zinc-900' : 'text-zinc-600 hover:text-zinc-900'}
+style={{ backgroundColor: isActive ? '#E8E6E3' : 'transparent' }}
+```
 
 ---
 
@@ -59,50 +61,41 @@ Duas alteracoes na secao final de CTA:
 
 | Arquivo | Alteracao |
 |---------|-----------|
-| `src/locales/pt/translation.json` | Atualizar subtitulo |
-| `src/locales/en/translation.json` | Atualizar subtitulo |
-| `src/components/sections/HomeFinalCTASection.tsx` | Adicionar estado do modal, trocar `<a>` por `<button>`, importar WaitlistModal |
+| `src/locales/pt/translation.json` | Limpar `waitlist.title`, alterar `waitlist.submit` para "Enviar" |
+| `src/locales/en/translation.json` | Limpar `waitlist.title`, alterar `waitlist.submit` para "Send" |
+| `src/components/ui/WaitlistModal.tsx` | Condicional para ocultar titulo vazio |
+| `src/components/sections/ProspectionSection.tsx` | Alterar cor de fundo e texto da aba ativa |
 
 ---
 
-## Codigo Resultante (HomeFinalCTASection)
+## Resultado Visual Esperado
 
-O botao sera alterado de:
-```tsx
-<a href="https://chat.daltonlab.ai/" ...>
-  {t('home.finalCta.cta')}
-</a>
+### Modal (sem titulo):
+```
++--------------------------------+
+|                                |
+|  Nome completo *               |
+|  [________________]            |
+|                                |
+|  E-mail de trabalho *          |
+|  [________________]            |
+|                                |
+|  Telefone *                    |
+|  [________________]            |
+|                                |
+|  [ Enviar ]                    |
+|                                |
++--------------------------------+
 ```
 
-Para:
-```tsx
-<button
-  onClick={() => setIsModalOpen(true)}
-  className="inline-flex items-center justify-center font-medium text-xs md:text-sm px-5 py-2.5 rounded-full border border-[#F5F3F0] text-[#F5F3F0] hover:bg-[#F5F3F0]/10 transition-all duration-300"
->
-  {t('home.finalCta.cta')}
-</button>
-
-<WaitlistModal
-  isOpen={isModalOpen}
-  onClose={() => setIsModalOpen(false)}
-  formLocation="final_cta_clube"
-  product="Clube Dalton Lab"
-/>
+### Tabs de Prospeccao:
 ```
-
-**Nota sobre hover:** Alterado de `hover:bg-[#F5F3F0]` (fundo branco solido) para `hover:bg-[#F5F3F0]/10` (fundo branco com 10% de opacidade) para manter a legibilidade do texto.
-
----
-
-## Validacao de Email (ja implementada)
-
-O `WaitlistModal` ja bloqueia os seguintes dominios:
-- gmail.com
-- hotmail.com
-- outlook.com
-- yahoo.com
-- icloud.com
-- live.com
-- uol.com.br
++------------------+
+| [Vendas]  <- fundo #E8E6E3, texto escuro
+| Marketing
+| Financeiro
+| Atendimento
+| Operacoes
++------------------+
+```
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, memo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import heroVideoWebm from '@/assets/hero-background.webm';
 import heroVideoMp4 from '@/assets/hero-background.mp4';
@@ -7,68 +7,15 @@ import { trackCtaClick } from '@/lib/analytics';
 
 const heroPoster = '/hero-poster.webp';
 
-const techLogos = [
-  { name: 'OpenAI', src: () => import('@/assets/tech/openai.webp') },
-  { name: 'Claude', src: () => import('@/assets/tech/claude-logo.png') },
-  { name: 'Manus', src: () => import('@/assets/tech/manus-logo.png') },
-];
-
-const TechLogoBadge = memo(({ currentIndex }: { currentIndex: number }) => {
-  const [logos, setLogos] = useState<{ name: string; src: string }[]>([]);
-
-  useEffect(() => {
-    Promise.all(
-      techLogos.map(async (logo) => ({
-        name: logo.name,
-        src: (await logo.src()).default,
-      }))
-    ).then(setLogos);
-  }, []);
-
-  if (logos.length === 0) return null;
-
-  return (
-    <div className="relative w-12 h-4 overflow-hidden">
-      {logos.map((logo, index) => (
-        <img
-          key={logo.name}
-          src={logo.src}
-          alt={`Powered by ${logo.name}`}
-          width={48}
-          height={16}
-          loading="lazy"
-          decoding="async"
-          className={`absolute inset-0 w-full h-full object-contain transition-all duration-500 ${
-            index === currentIndex
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-4'
-          }`}
-          style={{ filter: 'brightness(0)' }}
-        />
-      ))}
-    </div>
-  );
-});
-
-TechLogoBadge.displayName = 'TechLogoBadge';
-
 const HomeHeroSection = () => {
   const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
-  const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useTrackSection('hero');
 
   useEffect(() => {
     requestAnimationFrame(() => setIsVisible(true));
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentLogoIndex((prev) => (prev + 1) % techLogos.length);
-    }, 2000);
-    return () => clearInterval(interval);
   }, []);
 
   const handleCtaClick = () => {
@@ -120,17 +67,6 @@ const HomeHeroSection = () => {
       {/* Content */}
       <div className="relative z-10 flex-1 flex items-center justify-center container mx-auto px-6 md:px-12 lg:px-20 pt-20 md:pt-24">
         <div className="text-center max-w-4xl">
-          {/* Powered By Badge */}
-          <div
-            className={`inline-flex items-center gap-1.5 backdrop-blur-sm border border-zinc-700/50 rounded-full px-2.5 py-1 mb-6 transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-            style={{ backgroundColor: 'rgba(245, 243, 240, 0.7)' }}
-          >
-            <span className="text-zinc-900/70 text-[10px] font-medium">{t('hero.poweredBy')}</span>
-            <TechLogoBadge currentIndex={currentLogoIndex} />
-          </div>
-
           {/* Title */}
           <h1
             className={`font-inter tracking-tight leading-[1.1] transition-all duration-700 delay-100 ${

@@ -1,10 +1,70 @@
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
-import teamPhoto from '@/assets/team/dalton-team.webp';
+
+interface StatItem {
+  number: number;
+  prefix: string;
+  suffix: string;
+  description: string;
+}
+
+const useCountUp = (target: number, isVisible: boolean, duration = 1500) => {
+  const [count, setCount] = useState(0);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (!isVisible || hasAnimated.current) return;
+    hasAnimated.current = true;
+
+    const startTime = performance.now();
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    requestAnimationFrame(animate);
+  }, [isVisible, target, duration]);
+
+  return count;
+};
+
+const StatCard = ({ item, isVisible, index }: { item: StatItem; isVisible: boolean; index: number }) => {
+  const count = useCountUp(item.number, isVisible);
+
+  return (
+    <div
+      className="text-left transition-all duration-700"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(32px)',
+        transitionDelay: `${(index + 2) * 200}ms`,
+      }}
+    >
+      <p
+        className="font-inter leading-none mb-2"
+        style={{ fontSize: '64px', fontWeight: 800, color: '#101824' }}
+      >
+        {item.prefix}{count}{item.suffix}
+      </p>
+      <p
+        className="text-sm md:text-base font-medium"
+        style={{ color: 'rgba(16, 24, 35, 0.6)' }}
+      >
+        {item.description}
+      </p>
+    </div>
+  );
+};
 
 const DefinitionSection = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
+  const stats = t('home.stats.items', { returnObjects: true }) as StatItem[];
 
   return (
     <section
@@ -22,7 +82,7 @@ const DefinitionSection = () => {
         </h2>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left: Text */}
           <div className={`space-y-6 ${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
             <p
@@ -45,15 +105,11 @@ const DefinitionSection = () => {
             </p>
           </div>
 
-          {/* Right: Image */}
-          <div className={`${revealClasses(isVisible, 'right')}`} style={getStaggerDelay(2)}>
-            <img
-              src={teamPhoto}
-              alt="Organograma agêntico - Dalton Lab"
-              className="w-full rounded-2xl object-cover"
-              loading="lazy"
-              decoding="async"
-            />
+          {/* Right: Stats */}
+          <div className="flex flex-col gap-8 lg:gap-10 lg:pl-8">
+            {stats.map((item, index) => (
+              <StatCard key={index} item={item} isVisible={isVisible} index={index} />
+            ))}
           </div>
         </div>
       </div>

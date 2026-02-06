@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
+import vejaImage from '@/assets/media/veja-negocios.png';
 
 interface FeaturedArticle {
   title: string;
@@ -8,7 +9,6 @@ interface FeaturedArticle {
   date: string;
   summary: string;
   url: string;
-  image: string;
 }
 
 interface BlogPost {
@@ -53,7 +53,7 @@ const MediaSection = () => {
             className="group block rounded-2xl overflow-hidden aspect-[4/3] bg-zinc-200"
           >
             <img
-              src={featured.image}
+              src={vejaImage}
               alt={featured.title}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"

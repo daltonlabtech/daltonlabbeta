@@ -43,26 +43,10 @@ const ProspectionSection = () => {
           (sectionRef as React.MutableRefObject<HTMLElement | null>).current = el;
         }
       }}
-      className="py-[60px] md:py-[100px]"
+      className="py-[20px] md:py-[35px]"
       style={{ backgroundColor: '#E8E6E3' }}
     >
       <div className="container-main">
-        {/* Header */}
-        <div className={`text-center mb-8 md:mb-10 ${revealClasses(isVisible)}`}>
-          <h2
-            className="font-inter font-bold text-3xl md:text-4xl lg:text-[48px] leading-tight mb-3"
-            style={{ color: '#101824' }}
-          >
-            {t('home.prospection.title')}
-          </h2>
-          <p
-            className="text-base md:text-lg max-w-2xl mx-auto"
-            style={{ color: 'rgba(16, 24, 35, 0.7)' }}
-          >
-            {t('home.prospection.subtitle')}
-          </p>
-        </div>
-
         {/* Content Box */}
         <div
           className="rounded-3xl p-6 md:p-10 lg:p-12"
@@ -102,25 +86,13 @@ const ProspectionSection = () => {
 
               <button
                 onClick={handleCtaClick}
-                className="inline-flex items-center justify-center gap-2 font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 hover:opacity-90"
+                className="inline-flex items-center justify-center font-medium text-sm px-6 py-3 rounded-full transition-all duration-300 hover:opacity-90"
                 style={{
                   backgroundColor: '#101824',
                   color: '#F5F3F0',
                 }}
               >
                 {t('home.prospection.cta')}
-                <svg
-                  className="w-3.5 h-3.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
               </button>
             </div>
 
@@ -133,7 +105,7 @@ const ProspectionSection = () => {
                     key={tab}
                     onClick={() => handleTabChange(tab)}
                     className={`
-                      px-4 py-2 md:px-5 md:py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap
+                      px-5 py-2.5 md:px-6 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 whitespace-nowrap
                       ${isActive
                         ? 'text-white'
                         : 'text-zinc-600 hover:text-zinc-900'

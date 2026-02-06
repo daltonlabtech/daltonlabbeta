@@ -107,12 +107,12 @@ const ProspectionSection = () => {
                     className={`
                       px-5 py-2.5 md:px-6 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 whitespace-nowrap
                       ${isActive
-                        ? 'text-white'
+                        ? 'text-zinc-900'
                         : 'text-zinc-600 hover:text-zinc-900'
                       }
                     `}
                     style={{
-                      backgroundColor: isActive ? '#101824' : 'transparent',
+                      backgroundColor: isActive ? '#E8E6E3' : 'transparent',
                     }}
                   >
                     {t(`home.prospection.tabs.${tab}`)}

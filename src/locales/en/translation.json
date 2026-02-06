@@ -350,7 +350,7 @@
     "copyright": "© 2026 Dalton Lab. All rights reserved."
   },
   "waitlist": {
-    "title": "I want to join the waitlist",
+    "title": "",
     "nameLabel": "Full name",
     "namePlaceholder": "Name",
     "emailLabel": "Work email",
@@ -359,7 +359,7 @@
     "phoneLabel": "Phone",
     "phonePlaceholder": "+1 (555) 123-4567",
     "phoneError": "Invalid phone number. Please include area code.",
-    "submit": "Join",
+    "submit": "Send",
     "submitting": "Processing...",
     "successTitle": "Registration complete!",
     "successMessage": "You'll receive news first hand.",

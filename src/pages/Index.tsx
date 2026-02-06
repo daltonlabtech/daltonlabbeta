@@ -1,64 +1,60 @@
 import { lazy, Suspense, useEffect } from "react";
 import Header from "@/components/Header";
-import HeroSection from "@/components/sections/HeroSection";
+import HomeHeroSection from "@/components/sections/HomeHeroSection";
 import SkeletonSection from "@/components/ui/SkeletonSection";
 
-// Lazy load ALL below-the-fold sections for aggressive code splitting
-const ClientsSection = lazy(() => import("@/components/sections/ClientsSection"));
+// Lazy load below-the-fold sections
+const DefinitionSection = lazy(() => import("@/components/sections/DefinitionSection"));
+const StatsSection = lazy(() => import("@/components/sections/StatsSection"));
+const JourneySection = lazy(() => import("@/components/sections/JourneySection"));
 const ProspectionSection = lazy(() => import("@/components/sections/ProspectionSection"));
-const InsightsSection = lazy(() => import("@/components/sections/InsightsSection"));
-const SquadPlansSection = lazy(() => import("@/components/sections/SquadPlansSection"));
-const AudioDemoSection = lazy(() => import("@/components/sections/AudioDemoSection"));
-const FAQSection = lazy(() => import("@/components/sections/FAQSection"));
+const HomeFinalCTASection = lazy(() => import("@/components/sections/HomeFinalCTASection"));
+const MediaSection = lazy(() => import("@/components/sections/MediaSection"));
 const Footer = lazy(() => import("@/components/sections/Footer"));
 
 // Prefetch next sections after initial load
 const prefetchSections = () => {
-  // Prefetch after hero is visible and interactive
   const prefetchTimeout = setTimeout(() => {
-    // Trigger chunk loading for next visible sections
-    import("@/components/sections/ClientsSection");
-    import("@/components/sections/ProspectionSection");
+    import("@/components/sections/DefinitionSection");
+    import("@/components/sections/StatsSection");
   }, 1500);
   
   return () => clearTimeout(prefetchTimeout);
 };
 
 const Index = () => {
-  // Prefetch below-fold content after initial paint
   useEffect(() => {
     const cleanup = prefetchSections();
     return cleanup;
   }, []);
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
       <Header />
-      <HeroSection />
+      <HomeHeroSection />
       
-      {/* Lazy-loaded sections with skeleton placeholders */}
+      <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
+        <DefinitionSection />
+      </Suspense>
+      
       <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
-        <ClientsSection />
-      </Suspense>
-      
-      <Suspense fallback={<SkeletonSection height="min-h-[600px]" showCards />}>
-        <ProspectionSection />
-      </Suspense>
-      
-      <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
-        <InsightsSection />
+        <StatsSection />
       </Suspense>
 
       <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
-        <SquadPlansSection />
+        <JourneySection />
       </Suspense>
-      
-      <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
-        <AudioDemoSection />
+
+      <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
+        <ProspectionSection />
       </Suspense>
-      
-      <Suspense fallback={<SkeletonSection height="min-h-[500px]" />}>
-        <FAQSection />
+
+      <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
+        <HomeFinalCTASection />
+      </Suspense>
+
+      <Suspense fallback={<SkeletonSection height="min-h-[300px]" showCards />}>
+        <MediaSection />
       </Suspense>
       
       <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>

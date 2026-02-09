@@ -30,17 +30,17 @@
   },
   "hero": {
     "poweredBy": "Powered by",
-    "titleLine1": "The Era of Agentic",
-    "titleLine2": "Organizations Has Arrived",
-    "titleLine2Mobile": "Organizations",
-    "titleLine3Mobile": "Has Arrived",
-    "subtitle1": "Transform your company with Agentic AI",
+    "titleLine1": "Transform your company",
+    "titleLine2": "into an Agentic Organization",
+    "titleLine2Mobile": "into an Agentic",
+    "titleLine3Mobile": "Organization",
+    "subtitle1": "Turn the potential of AI into real results for your business",
     "subtitle2": "",
     "cta": "Start Transformation"
   },
   "home": {
     "definition": {
-      "title": "Transform your organization into an agentic one",
+      "title": "Is your company ready for the Agentic Era?",
       "paragraph1": "The future of work isn't about replacing people with machines. It's about creating a cooperative model where AI agents and human teams work side by side, each amplifying the other's capabilities.",
       "paragraph2": "Agentic organizations are those that structurally integrate artificial intelligence — not as a tool, but as part of the org chart. This means redesigned processes, accelerated decisions, and a previously impossible scaling capability.",
       "paragraph3": "At Dalton Lab, we guide companies through this transformation. From strategic diagnosis to custom agent implementation, we build the infrastructure for your organization to operate at the pace of the agentic era."

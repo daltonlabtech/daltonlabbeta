@@ -73,44 +73,44 @@ const DefinitionSection = () => {
       style={{ backgroundColor: '#F5F3F0' }}
     >
       <div className="container-main">
-        {/* Title */}
-        <h2
-          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-6 md:mb-16 ${revealClasses(isVisible)}`}
-          style={{ color: '#101824' }}
-        >
-          {t('home.definition.title')}
-        </h2>
+        {/* Top row: Title left + Text right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start mb-10 md:mb-16">
+          {/* Left: Title */}
+          <h2
+            className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-left ${revealClasses(isVisible)}`}
+            style={{ color: '#101824' }}
+          >
+            {t('home.definition.title')}
+          </h2>
 
-        {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start">
-          {/* Left: Text */}
+          {/* Right: Paragraphs */}
           <div className={`space-y-4 md:space-y-6 ${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
             <p
-              className="text-sm md:text-lg leading-relaxed text-justify"
+              className="text-sm md:text-lg leading-relaxed text-left"
               style={{ color: 'rgba(16, 24, 35, 0.7)' }}
             >
               {t('home.definition.paragraph1')}
             </p>
             <p
-              className="text-sm md:text-lg leading-relaxed text-justify"
+              className="text-sm md:text-lg leading-relaxed text-left"
               style={{ color: 'rgba(16, 24, 35, 0.7)' }}
             >
               {t('home.definition.paragraph2')}
             </p>
             <p
-              className="text-sm md:text-lg leading-relaxed text-justify"
+              className="text-sm md:text-lg leading-relaxed text-left"
               style={{ color: 'rgba(16, 24, 35, 0.7)' }}
             >
               {t('home.definition.paragraph3')}
             </p>
           </div>
+        </div>
 
-          {/* Right: Stats */}
-          <div className="flex flex-col gap-5 md:gap-10 lg:pl-8 mt-2 md:mt-0">
-            {stats.map((item, index) => (
-              <StatCard key={index} item={item} isVisible={isVisible} index={index} />
-            ))}
-          </div>
+        {/* Bottom row: Stats horizontal */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+          {stats.map((item, index) => (
+            <StatCard key={index} item={item} isVisible={isVisible} index={index} />
+          ))}
         </div>
       </div>
     </section>

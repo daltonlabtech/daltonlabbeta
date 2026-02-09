@@ -1,59 +1,70 @@
 
 
-# Plano: Ajustes no Modal e Tabs de Prospeccao
+# Plano: Ajustes de Texto e Layout da DefinitionSection
 
-## Resumo
+## 1. Textos do Hero
 
-Duas alteracoes:
-1. No pop-up da secao "Lidere a Transformacao" - remover titulo e alterar texto do botao
-2. Na secao de Prospection - alterar cor da aba selecionada
+**Arquivo:** `src/locales/pt/translation.json`
 
----
+| Campo | Atual | Novo |
+|-------|-------|------|
+| `hero.titleLine1` | "Chegou a Era das" | "Transforme sua empresa" |
+| `hero.titleLine2` | "Organizacoes Agenticas" | "em uma Organizacao Agentica" |
+| `hero.subtitle1` | "Transforme sua empresa com IA Agentica" | "Transforme o potencial da IA em resultados reais para o seu negocio" |
 
-## Alteracoes
+**Arquivo:** `src/locales/en/translation.json`
 
-### 1. Modal de Waitlist - Remover Titulo e Alterar CTA
-
-**Arquivos:** `src/locales/pt/translation.json` e `src/locales/en/translation.json`
-
-| Campo | Valor Atual (PT) | Novo Valor (PT) |
-|-------|------------------|-----------------|
-| `waitlist.title` | "Quero entrar para a lista de espera" | "" (string vazia) |
-| `waitlist.submit` | "Entrar" | "Enviar" |
-
-| Campo | Valor Atual (EN) | Novo Valor (EN) |
-|-------|------------------|-----------------|
-| `waitlist.title` | "I want to join the waitlist" | "" (string vazia) |
-| `waitlist.submit` | "Join" | "Send" |
-
-**Arquivo:** `src/components/ui/WaitlistModal.tsx`
-
-O componente precisa ser ajustado para ocultar o `DialogTitle` quando o titulo estiver vazio, mantendo acessibilidade.
+| Campo | Atual | Novo |
+|-------|-------|------|
+| `hero.titleLine1` | "The Era of Agentic" | "Transform your company" |
+| `hero.titleLine2` | "Organizations Has Arrived" | "into an Agentic Organization" |
+| `hero.subtitle1` | "Transform your company with Agentic AI" | "Turn the potential of AI into real results for your business" |
 
 ---
 
-### 2. ProspectionSection - Cor da Aba Selecionada
+## 2. Titulo da DefinitionSection
 
-**Arquivo:** `src/components/sections/ProspectionSection.tsx`
+**Arquivo:** `src/locales/pt/translation.json`
 
-**Mudanca na linha 115:**
+| Campo | Atual | Novo |
+|-------|-------|------|
+| `home.definition.title` | "Transforme sua organizacao em agentica" | "Sua empresa esta pronta para a Era Agentica?" |
 
-| Estado | Cor Atual | Nova Cor |
-|--------|-----------|----------|
-| Aba selecionada (isActive) | `#101824` (escuro) | `#E8E6E3` (bege claro) |
+**Arquivo:** `src/locales/en/translation.json`
 
-**Ajuste adicional necessario:**
-- Cor do texto quando ativo: mudar de `text-white` para `text-zinc-900` (ou `#101824`) para garantir contraste sobre fundo claro
+| Campo | Atual | Novo |
+|-------|-------|------|
+| `home.definition.title` | "Transform your organization into an agentic one" | "Is your company ready for the Agentic Era?" |
 
-```tsx
-// Antes:
-${isActive ? 'text-white' : 'text-zinc-600 hover:text-zinc-900'}
-style={{ backgroundColor: isActive ? '#101824' : 'transparent' }}
+---
 
-// Depois:
-${isActive ? 'text-zinc-900' : 'text-zinc-600 hover:text-zinc-900'}
-style={{ backgroundColor: isActive ? '#E8E6E3' : 'transparent' }}
+## 3. Novo Layout da DefinitionSection
+
+**Arquivo:** `src/components/sections/DefinitionSection.tsx`
+
+Reestruturacao do layout:
+
+**Linha superior:** Titulo a esquerda + Texto (paragrafos) a direita, lado a lado em 2 colunas
+
+**Linha inferior:** Stats em grid horizontal de 3 colunas, abaixo de tudo
+
+```text
++--------------------+---------------------------+
+| Sua empresa esta   | Lideres visionarios ja... |
+| pronta para a Era  |                           |
+| Agentica?          | Na Dalton Lab, eliminamos |
+|                    | essa incerteza...         |
++--------------------+---------------------------+
+|  >30%        |   >50%        |   >80%         |
+|  decisoes    |   tempo       |   incidentes   |
++--------------+---------------+----------------+
 ```
+
+Mudancas tecnicas:
+- Titulo: `text-left` (remover `text-center`), ocupa coluna esquerda
+- Paragrafos: movidos para coluna direita do titulo
+- Stats: movidos para fora do grid principal, em `grid-cols-1 md:grid-cols-3` abaixo
+- Remover `text-justify` dos paragrafos, usar `text-left`
 
 ---
 
@@ -61,41 +72,7 @@ style={{ backgroundColor: isActive ? '#E8E6E3' : 'transparent' }}
 
 | Arquivo | Alteracao |
 |---------|-----------|
-| `src/locales/pt/translation.json` | Limpar `waitlist.title`, alterar `waitlist.submit` para "Enviar" |
-| `src/locales/en/translation.json` | Limpar `waitlist.title`, alterar `waitlist.submit` para "Send" |
-| `src/components/ui/WaitlistModal.tsx` | Condicional para ocultar titulo vazio |
-| `src/components/sections/ProspectionSection.tsx` | Alterar cor de fundo e texto da aba ativa |
-
----
-
-## Resultado Visual Esperado
-
-### Modal (sem titulo):
-```
-+--------------------------------+
-|                                |
-|  Nome completo *               |
-|  [________________]            |
-|                                |
-|  E-mail de trabalho *          |
-|  [________________]            |
-|                                |
-|  Telefone *                    |
-|  [________________]            |
-|                                |
-|  [ Enviar ]                    |
-|                                |
-+--------------------------------+
-```
-
-### Tabs de Prospeccao:
-```
-+------------------+
-| [Vendas]  <- fundo #E8E6E3, texto escuro
-| Marketing
-| Financeiro
-| Atendimento
-| Operacoes
-+------------------+
-```
+| `src/locales/pt/translation.json` | Hero texts, definition title |
+| `src/locales/en/translation.json` | Hero texts, definition title |
+| `src/components/sections/DefinitionSection.tsx` | Layout: titulo esquerda + texto direita, stats abaixo |
 

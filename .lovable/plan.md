@@ -1,86 +1,75 @@
 
 
-# Plano: Journey + CTAs + Layout da DefinitionSection
+# Plano: Textos da Definition, Subtítulo do Hero e Tamanho do Título
 
-## 1. JourneySection - Adicionar pilar "Diagnostico" (01)
+## 1. Texto da DefinitionSection (PT)
 
-**Arquivos:** `src/locales/pt/translation.json` e `src/locales/en/translation.json`
+**Arquivo:** `src/locales/pt/translation.json`
 
-Alterar o array `home.journey.pillars` de 3 para 4 itens, inserindo "Diagnostico" como primeiro:
+Substituir os 3 parágrafos atuais por 2 novos:
 
-| Pilar | Titulo (PT) | Titulo (EN) |
-|-------|-------------|-------------|
-| 01 | Diagnostico | Diagnosis |
-| 02 | Workflows AI-first | AI-first Workflows |
-| 03 | Pessoas e cultura | People and culture |
-| 04 | Tecnologia | Technology |
+| Campo | Novo texto |
+|-------|-----------|
+| `paragraph1` | "Líderes visionários já entenderam que a IA não é mais uma tendência, e sim o novo motor de crescimento e eficiência. No entanto, a clareza sobre o potencial da IA muitas vezes vem acompanhada de uma grande incerteza: qual é o primeiro passo a ser dado?" |
+| `paragraph2` | "Na Dalton Lab, eliminamos essa incerteza. Transformamos o potencial da IA em um plano claro, estruturado e executável para que você possa liderar essa transformação com confiança." |
+| `paragraph3` | Remover (string vazia ou não renderizar) |
 
-O novo pilar 01 tera:
-- Summary PT: "Mapeamos sua operacao e identificamos oportunidades de transformacao com IA."
-- Summary EN: "We map your operation and identify opportunities for transformation with AI."
-- Details PT: "Realizamos uma analise profunda dos seus processos, tecnologias e equipe para criar um plano estrategico personalizado de transformacao agentica."
-- Details EN: "We perform a deep analysis of your processes, technologies and team to create a personalized strategic plan for agentic transformation."
+**Arquivo:** `src/locales/en/translation.json`
 
-**Arquivo:** `src/components/sections/JourneySection.tsx`
+| Campo | Novo texto |
+|-------|-----------|
+| `paragraph1` | "Visionary leaders already understand that AI is no longer a trend, but the new engine of growth and efficiency. However, clarity about AI's potential often comes with great uncertainty: what is the first step to take?" |
+| `paragraph2` | "At Dalton Lab, we eliminate that uncertainty. We transform AI's potential into a clear, structured, and actionable plan so you can lead this transformation with confidence." |
+| `paragraph3` | Remover (string vazia) |
 
-- Alterar grid de `md:grid-cols-3` para `md:grid-cols-2 lg:grid-cols-4`
+**Arquivo:** `src/components/sections/DefinitionSection.tsx`
+- Garantir `text-center` nos parágrafos e distribuição uniforme entre margens (`max-w-3xl mx-auto`)
+- Não renderizar `paragraph3` se estiver vazio
 
 ---
 
-## 2. CTAs: "Iniciar Transformacao" para "Agendar Diagnostico"
+## 2. Subtítulo do Hero
 
 **Arquivo:** `src/locales/pt/translation.json`
 
 | Campo | Antigo | Novo |
 |-------|--------|------|
-| `nav.startTransformation` | "Iniciar Transformacao" | "Agendar Diagnostico" |
-| `hero.cta` | "Iniciar Transformacao" | "Agendar Diagnostico" |
-| `home.prospection.cta` | "Iniciar Transformacao" | "Agendar Diagnostico" |
+| `hero.subtitle1` | "Transforme o potencial da IA em resultados reais para o seu negócio" | "Traduza o potencial da IA em resultados reais para o seu negócio" |
 
 **Arquivo:** `src/locales/en/translation.json`
 
 | Campo | Antigo | Novo |
 |-------|--------|------|
-| `nav.startTransformation` | "Start Transformation" | "Schedule Diagnosis" |
-| `hero.cta` | "Start Transformation" | "Schedule Diagnosis" |
-| `home.prospection.cta` | "Start Transformation" | "Schedule Diagnosis" |
+| `hero.subtitle1` | "Turn the potential of AI into real results for your business" | "Translate AI's potential into real results for your business" |
 
 ---
 
-## 3. DefinitionSection - Layout em 1 coluna centralizada
+## 3. Reduzir tamanho do título do Hero
 
-**Arquivo:** `src/components/sections/DefinitionSection.tsx`
+**Arquivo:** `src/components/sections/HomeHeroSection.tsx`
 
-Mudar de grid 2 colunas (titulo esquerda + texto direita) para layout de 1 coluna empilhado:
+Reduzir o tamanho do título desktop para caber em 2 linhas:
 
-```text
-+------------------------------------------+
-|   Sua empresa esta pronta para a         |
-|        Era Agentica?                     |
-|                                          |
-|   Lideres visionarios ja entenderam...   |
-|                                          |
-|   Na Dalton Lab, eliminamos essa...      |
-|                                          |
-|   >30%         >50%         >80%         |
-|   decisoes     tempo        incidentes   |
-+------------------------------------------+
-```
+| Elemento | Atual | Novo |
+|----------|-------|------|
+| Desktop title spans | `text-5xl md:text-[64px]` | `text-4xl md:text-[52px]` |
+| Mobile title spans | `text-[32px]` | `text-[28px]` |
 
-Mudancas tecnicas:
-- Remover o grid 2 colunas (`lg:grid-cols-2`)
-- Titulo: `text-center` no topo, sem grid
-- Paragrafos: `text-center`, com `max-w-3xl mx-auto` para largura controlada
-- Stats: mantidos em `grid-cols-1 md:grid-cols-3` abaixo
+Atualizar também as linhas mobile para refletir o texto completo em 2 linhas:
+
+| Campo PT | Novo |
+|----------|------|
+| `hero.titleLine2Mobile` | "em uma Organização" |
+| `hero.titleLine3Mobile` | "Agêntica" |
 
 ---
 
 ## Arquivos Afetados
 
-| Arquivo | Alteracao |
+| Arquivo | Alteração |
 |---------|-----------|
-| `src/locales/pt/translation.json` | CTAs, Journey pillars |
-| `src/locales/en/translation.json` | CTAs, Journey pillars |
-| `src/components/sections/DefinitionSection.tsx` | Layout 1 coluna centralizado |
-| `src/components/sections/JourneySection.tsx` | Grid 3 para 4 colunas |
+| `src/locales/pt/translation.json` | Parágrafos definition, subtítulo hero, mobile title lines |
+| `src/locales/en/translation.json` | Parágrafos definition, subtítulo hero |
+| `src/components/sections/HomeHeroSection.tsx` | Reduzir font-size do título |
+| `src/components/sections/DefinitionSection.tsx` | Ajuste para 2 parágrafos, centralizado |
 

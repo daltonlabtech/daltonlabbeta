@@ -30,11 +30,11 @@
   },
   "hero": {
     "poweredBy": "Powered by",
-    "titleLine1": "The Era of Agentic",
-    "titleLine2": "Organizations Has Arrived",
-    "titleLine2Mobile": "Organizations",
-    "titleLine3Mobile": "Has Arrived",
-    "subtitle1": "Transform your company with Agentic AI",
+    "titleLine1": "Transform your company",
+    "titleLine2": "into an Agentic Organization",
+    "titleLine2Mobile": "into an Agentic",
+    "titleLine3Mobile": "Organization",
+    "subtitle1": "Turn the potential of AI into real results for your business",
     "subtitle2": "",
     "cta": "Start Transformation"
   },

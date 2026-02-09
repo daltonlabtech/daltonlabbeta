@@ -95,12 +95,14 @@ const DefinitionSection = () => {
           >
             {t('home.definition.paragraph2')}
           </p>
-          <p
-            className="text-sm md:text-lg leading-relaxed text-center"
-            style={{ color: 'rgba(16, 24, 35, 0.7)' }}
-          >
-            {t('home.definition.paragraph3')}
-          </p>
+          {t('home.definition.paragraph3') && (
+            <p
+              className="text-sm md:text-lg leading-relaxed text-center"
+              style={{ color: 'rgba(16, 24, 35, 0.7)' }}
+            >
+              {t('home.definition.paragraph3')}
+            </p>
+          )}
         </div>
 
         {/* Bottom row: Stats horizontal */}

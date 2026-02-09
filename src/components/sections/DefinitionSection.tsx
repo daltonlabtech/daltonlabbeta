@@ -73,37 +73,34 @@ const DefinitionSection = () => {
       style={{ backgroundColor: '#F5F3F0' }}
     >
       <div className="container-main">
-        {/* Top row: Title left + Text right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start mb-10 md:mb-16">
-          {/* Left: Title */}
-          <h2
-            className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-left ${revealClasses(isVisible)}`}
-            style={{ color: '#101824' }}
-          >
-            {t('home.definition.title')}
-          </h2>
+        {/* Title */}
+        <h2
+          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-6 md:mb-10 ${revealClasses(isVisible)}`}
+          style={{ color: '#101824' }}
+        >
+          {t('home.definition.title')}
+        </h2>
 
-          {/* Right: Paragraphs */}
-          <div className={`space-y-4 md:space-y-6 ${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
-            <p
-              className="text-sm md:text-lg leading-relaxed text-left"
-              style={{ color: 'rgba(16, 24, 35, 0.7)' }}
-            >
-              {t('home.definition.paragraph1')}
-            </p>
-            <p
-              className="text-sm md:text-lg leading-relaxed text-left"
-              style={{ color: 'rgba(16, 24, 35, 0.7)' }}
-            >
-              {t('home.definition.paragraph2')}
-            </p>
-            <p
-              className="text-sm md:text-lg leading-relaxed text-left"
-              style={{ color: 'rgba(16, 24, 35, 0.7)' }}
-            >
-              {t('home.definition.paragraph3')}
-            </p>
-          </div>
+        {/* Paragraphs */}
+        <div className={`space-y-4 md:space-y-6 max-w-3xl mx-auto mb-10 md:mb-16 ${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
+          <p
+            className="text-sm md:text-lg leading-relaxed text-center"
+            style={{ color: 'rgba(16, 24, 35, 0.7)' }}
+          >
+            {t('home.definition.paragraph1')}
+          </p>
+          <p
+            className="text-sm md:text-lg leading-relaxed text-center"
+            style={{ color: 'rgba(16, 24, 35, 0.7)' }}
+          >
+            {t('home.definition.paragraph2')}
+          </p>
+          <p
+            className="text-sm md:text-lg leading-relaxed text-center"
+            style={{ color: 'rgba(16, 24, 35, 0.7)' }}
+          >
+            {t('home.definition.paragraph3')}
+          </p>
         </div>
 
         {/* Bottom row: Stats horizontal */}

@@ -1,70 +1,77 @@
 
 
-# Plano: Ajustes de Texto e Layout da DefinitionSection
+# Plano: Journey + CTAs + Layout da DefinitionSection
 
-## 1. Textos do Hero
+## 1. JourneySection - Adicionar pilar "Diagnostico" (01)
 
-**Arquivo:** `src/locales/pt/translation.json`
+**Arquivos:** `src/locales/pt/translation.json` e `src/locales/en/translation.json`
 
-| Campo | Atual | Novo |
-|-------|-------|------|
-| `hero.titleLine1` | "Chegou a Era das" | "Transforme sua empresa" |
-| `hero.titleLine2` | "Organizacoes Agenticas" | "em uma Organizacao Agentica" |
-| `hero.subtitle1` | "Transforme sua empresa com IA Agentica" | "Transforme o potencial da IA em resultados reais para o seu negocio" |
+Alterar o array `home.journey.pillars` de 3 para 4 itens, inserindo "Diagnostico" como primeiro:
 
-**Arquivo:** `src/locales/en/translation.json`
+| Pilar | Titulo (PT) | Titulo (EN) |
+|-------|-------------|-------------|
+| 01 | Diagnostico | Diagnosis |
+| 02 | Workflows AI-first | AI-first Workflows |
+| 03 | Pessoas e cultura | People and culture |
+| 04 | Tecnologia | Technology |
 
-| Campo | Atual | Novo |
-|-------|-------|------|
-| `hero.titleLine1` | "The Era of Agentic" | "Transform your company" |
-| `hero.titleLine2` | "Organizations Has Arrived" | "into an Agentic Organization" |
-| `hero.subtitle1` | "Transform your company with Agentic AI" | "Turn the potential of AI into real results for your business" |
+O novo pilar 01 tera:
+- Summary PT: "Mapeamos sua operacao e identificamos oportunidades de transformacao com IA."
+- Summary EN: "We map your operation and identify opportunities for transformation with AI."
+- Details PT: "Realizamos uma analise profunda dos seus processos, tecnologias e equipe para criar um plano estrategico personalizado de transformacao agentica."
+- Details EN: "We perform a deep analysis of your processes, technologies and team to create a personalized strategic plan for agentic transformation."
 
----
+**Arquivo:** `src/components/sections/JourneySection.tsx`
 
-## 2. Titulo da DefinitionSection
-
-**Arquivo:** `src/locales/pt/translation.json`
-
-| Campo | Atual | Novo |
-|-------|-------|------|
-| `home.definition.title` | "Transforme sua organizacao em agentica" | "Sua empresa esta pronta para a Era Agentica?" |
-
-**Arquivo:** `src/locales/en/translation.json`
-
-| Campo | Atual | Novo |
-|-------|-------|------|
-| `home.definition.title` | "Transform your organization into an agentic one" | "Is your company ready for the Agentic Era?" |
+- Alterar grid de `md:grid-cols-3` para `md:grid-cols-2 lg:grid-cols-4`
 
 ---
 
-## 3. Novo Layout da DefinitionSection
+## 2. CTAs: "Iniciar Transformacao" para "Agendar Diagnostico"
+
+**Arquivo:** `src/locales/pt/translation.json`
+
+| Campo | Antigo | Novo |
+|-------|--------|------|
+| `nav.startTransformation` | "Iniciar Transformacao" | "Agendar Diagnostico" |
+| `hero.cta` | "Iniciar Transformacao" | "Agendar Diagnostico" |
+| `home.prospection.cta` | "Iniciar Transformacao" | "Agendar Diagnostico" |
+
+**Arquivo:** `src/locales/en/translation.json`
+
+| Campo | Antigo | Novo |
+|-------|--------|------|
+| `nav.startTransformation` | "Start Transformation" | "Schedule Diagnosis" |
+| `hero.cta` | "Start Transformation" | "Schedule Diagnosis" |
+| `home.prospection.cta` | "Start Transformation" | "Schedule Diagnosis" |
+
+---
+
+## 3. DefinitionSection - Layout em 1 coluna centralizada
 
 **Arquivo:** `src/components/sections/DefinitionSection.tsx`
 
-Reestruturacao do layout:
-
-**Linha superior:** Titulo a esquerda + Texto (paragrafos) a direita, lado a lado em 2 colunas
-
-**Linha inferior:** Stats em grid horizontal de 3 colunas, abaixo de tudo
+Mudar de grid 2 colunas (titulo esquerda + texto direita) para layout de 1 coluna empilhado:
 
 ```text
-+--------------------+---------------------------+
-| Sua empresa esta   | Lideres visionarios ja... |
-| pronta para a Era  |                           |
-| Agentica?          | Na Dalton Lab, eliminamos |
-|                    | essa incerteza...         |
-+--------------------+---------------------------+
-|  >30%        |   >50%        |   >80%         |
-|  decisoes    |   tempo       |   incidentes   |
-+--------------+---------------+----------------+
++------------------------------------------+
+|   Sua empresa esta pronta para a         |
+|        Era Agentica?                     |
+|                                          |
+|   Lideres visionarios ja entenderam...   |
+|                                          |
+|   Na Dalton Lab, eliminamos essa...      |
+|                                          |
+|   >30%         >50%         >80%         |
+|   decisoes     tempo        incidentes   |
++------------------------------------------+
 ```
 
 Mudancas tecnicas:
-- Titulo: `text-left` (remover `text-center`), ocupa coluna esquerda
-- Paragrafos: movidos para coluna direita do titulo
-- Stats: movidos para fora do grid principal, em `grid-cols-1 md:grid-cols-3` abaixo
-- Remover `text-justify` dos paragrafos, usar `text-left`
+- Remover o grid 2 colunas (`lg:grid-cols-2`)
+- Titulo: `text-center` no topo, sem grid
+- Paragrafos: `text-center`, com `max-w-3xl mx-auto` para largura controlada
+- Stats: mantidos em `grid-cols-1 md:grid-cols-3` abaixo
 
 ---
 
@@ -72,7 +79,8 @@ Mudancas tecnicas:
 
 | Arquivo | Alteracao |
 |---------|-----------|
-| `src/locales/pt/translation.json` | Hero texts, definition title |
-| `src/locales/en/translation.json` | Hero texts, definition title |
-| `src/components/sections/DefinitionSection.tsx` | Layout: titulo esquerda + texto direita, stats abaixo |
+| `src/locales/pt/translation.json` | CTAs, Journey pillars |
+| `src/locales/en/translation.json` | CTAs, Journey pillars |
+| `src/components/sections/DefinitionSection.tsx` | Layout 1 coluna centralizado |
+| `src/components/sections/JourneySection.tsx` | Grid 3 para 4 colunas |
 

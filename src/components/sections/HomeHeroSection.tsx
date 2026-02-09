@@ -78,20 +78,20 @@ const HomeHeroSection = () => {
             }}
           >
             {/* Mobile */}
-            <span className="block sm:hidden text-[32px] font-normal leading-[1.15]">
+            <span className="block sm:hidden text-[28px] font-normal leading-[1.15]">
               {t('hero.titleLine1')}
             </span>
-            <span className="block sm:hidden text-[32px] font-normal leading-[1.15] mt-0.5">
+            <span className="block sm:hidden text-[28px] font-normal leading-[1.15] mt-0.5">
               {t('hero.titleLine2Mobile')}
             </span>
-            <span className="block sm:hidden text-[32px] font-normal leading-[1.15] mt-0.5">
+            <span className="block sm:hidden text-[28px] font-normal leading-[1.15] mt-0.5">
               {t('hero.titleLine3Mobile')}
             </span>
             {/* Desktop */}
-            <span className="hidden sm:block text-5xl md:text-[64px] font-normal leading-[1.1]">
+            <span className="hidden sm:block text-4xl md:text-[52px] font-normal leading-[1.1]">
               {t('hero.titleLine1')}
             </span>
-            <span className="hidden sm:block text-5xl md:text-[64px] font-normal leading-[1.1] mt-1">
+            <span className="hidden sm:block text-4xl md:text-[52px] font-normal leading-[1.1] mt-1">
               {t('hero.titleLine2')}
             </span>
           </h1>

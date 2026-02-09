@@ -6,7 +6,7 @@
     "media": "Media",
     "talkToDalton": "Talk to Dalton",
     "about": "About us",
-    "startTransformation": "Start Transformation"
+    "startTransformation": "Schedule Diagnosis"
   },
   "pages": {
     "produto": {
@@ -36,7 +36,7 @@
     "titleLine3Mobile": "Organization",
     "subtitle1": "Turn the potential of AI into real results for your business",
     "subtitle2": "",
-    "cta": "Start Transformation"
+    "cta": "Schedule Diagnosis"
   },
   "home": {
     "definition": {
@@ -76,18 +76,24 @@
       "pillars": [
         {
           "number": "01",
+          "title": "Diagnosis",
+          "summary": "We map your operation and identify opportunities for transformation with AI.",
+          "details": "We perform a deep analysis of your processes, technologies and team to create a personalized strategic plan for agentic transformation."
+        },
+        {
+          "number": "02",
           "title": "AI-first Workflows",
           "summary": "Redesign processes with artificial intelligence at the center of operations.",
           "details": "We map your current workflows and identify automation opportunities with AI. Each workflow is redesigned to maximize efficiency, eliminate bottlenecks, and create processes that scale naturally."
         },
         {
-          "number": "02",
+          "number": "03",
           "title": "People and culture",
           "summary": "Prepare your team to collaborate with AI agents.",
           "details": "We develop training and cultural change programs so your team adapts to the cooperative model. The goal is for humans and agents to work in synergy, each focused on what they do best."
         },
         {
-          "number": "03",
+          "number": "04",
           "title": "Technology",
           "summary": "Implement the right agentic infrastructure for your business.",
           "details": "We select and integrate the right technologies for your operation. From language models to automation platforms, we build the tech stack that supports your agentic transformation."
@@ -151,7 +157,7 @@
           "Legacy system integration"
         ]
       },
-      "cta": "Start Transformation",
+      "cta": "Schedule Diagnosis",
       "comingSoon": "Coming soon"
     },
     "finalCta": {

@@ -1,0 +1,1 @@
+DROP POLICY "Anyone can insert waitlist leads" ON public.waitlist_leads;

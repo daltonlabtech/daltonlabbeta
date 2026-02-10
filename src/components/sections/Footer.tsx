@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import dBranco from '@/assets/d-branco.png';
+import dBranco from '@/assets/d-branco.webp';
 import { trackOutboundLink } from '@/lib/analytics';
 
 const Footer = () => {

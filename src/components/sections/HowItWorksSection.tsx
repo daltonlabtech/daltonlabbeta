@@ -1,13 +1,13 @@
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
 
 // Import tech logos
-import openaiLogo from '@/assets/tech/openai-round.png';
-import claudeLogo from '@/assets/tech/claude.png';
-import geminiLogo from '@/assets/tech/gemini-round.png';
-import n8nLogo from '@/assets/tech/n8n-round.png';
-import grokLogo from '@/assets/tech/grok.png';
-import metaLogo from '@/assets/tech/meta.png';
-import manusLogo from '@/assets/tech/manus-round.png';
+import openaiLogo from '@/assets/tech/openai-round.webp';
+import claudeLogo from '@/assets/tech/claude.webp';
+import geminiLogo from '@/assets/tech/gemini-round.webp';
+import n8nLogo from '@/assets/tech/n8n-round.webp';
+import grokLogo from '@/assets/tech/grok.webp';
+import metaLogo from '@/assets/tech/meta.webp';
+import manusLogo from '@/assets/tech/manus-round.webp';
 
 // Tool logos with their images
 const tools = [

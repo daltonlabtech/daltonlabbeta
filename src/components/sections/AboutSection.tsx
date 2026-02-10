@@ -4,9 +4,9 @@ import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScro
 // Lazy load images with proper imports
 const rodrigoPhoto = new URL('@/assets/founders/rodrigo.webp', import.meta.url).href;
 const marceloPhoto = new URL('@/assets/founders/marcelo.webp', import.meta.url).href;
-const julioPhoto = new URL('@/assets/founders/julio.png', import.meta.url).href;
-const foundersPhoto = new URL('@/assets/about/founders-photo.jpg', import.meta.url).href;
-const teamFullPhoto = new URL('@/assets/about/team-photo.jpg', import.meta.url).href;
+const julioPhoto = new URL('@/assets/founders/julio.webp', import.meta.url).href;
+const foundersPhoto = new URL('@/assets/about/founders-photo.webp', import.meta.url).href;
+const teamFullPhoto = new URL('@/assets/about/team-photo.webp', import.meta.url).href;
 
 const founders = [
   {

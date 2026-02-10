@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/sections/Footer";
-import dBranco from "@/assets/d-branco.png";
+import dBranco from "@/assets/d-branco.webp";
 
 const FaleComDalton = () => {
   const { t } = useTranslation();

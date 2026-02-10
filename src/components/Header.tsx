@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import logoWhite from '@/assets/logo-dalton-white.png';
+import logoWhite from '@/assets/logo-dalton-white.webp';
 import { trackCtaClick } from '@/lib/analytics';
 import LanguageSelector from '@/components/LanguageSelector';
 import {

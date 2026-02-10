@@ -16,6 +16,13 @@ const HomeHeroSection = () => {
 
   useEffect(() => {
     requestAnimationFrame(() => setIsVisible(true));
+    // Delay video play to avoid blocking LCP
+    const timer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.play().catch(() => {});
+      }
+    }, 1500);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleCtaClick = () => {
@@ -43,11 +50,10 @@ const HomeHeroSection = () => {
         />
         <video
           ref={videoRef}
-          autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="none"
           poster={heroPoster}
           onLoadedData={() => setVideoLoaded(true)}
           className={`w-full h-full object-cover transition-opacity duration-700 ${
@@ -69,8 +75,8 @@ const HomeHeroSection = () => {
         <div className="text-center max-w-4xl">
           {/* Title */}
           <h1
-            className={`font-inter tracking-tight leading-[1.1] transition-all duration-700 delay-100 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`font-inter tracking-tight leading-[1.1] transition-transform duration-700 delay-100 opacity-100 ${
+              isVisible ? 'translate-y-0' : 'translate-y-8'
             }`}
             style={{ 
               color: '#F5F3F0',

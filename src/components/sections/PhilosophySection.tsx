@@ -3,10 +3,10 @@ import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScro
 
 // Tech logos
 import anthropicLogo from '@/assets/tech/anthropic.webp';
-import manusLogo from '@/assets/tech/manus.png';
-import n8nLogo from '@/assets/tech/n8n.png';
+import manusLogo from '@/assets/tech/manus.webp';
+import n8nLogo from '@/assets/tech/n8n.webp';
 import openaiLogo from '@/assets/tech/openai.webp';
-import geminiLogo from '@/assets/tech/gemini.png';
+import geminiLogo from '@/assets/tech/gemini.webp';
 
 const techLogos = [
   { src: openaiLogo, alt: 'OpenAI' },

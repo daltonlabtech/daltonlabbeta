@@ -16,7 +16,7 @@ const prefetchSections = () => {
   const prefetchTimeout = setTimeout(() => {
     import("@/components/sections/DefinitionSection");
     import("@/components/sections/JourneySection");
-  }, 1500);
+  }, 5000);
   
   return () => clearTimeout(prefetchTimeout);
 };

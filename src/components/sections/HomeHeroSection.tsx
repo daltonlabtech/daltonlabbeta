@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import heroVideoWebm from '@/assets/hero-background.webm';
-import heroVideoMp4 from '@/assets/hero-background.mp4';
+// Videos served from /public to avoid bundler processing
+const heroVideoWebm = '/hero-background.webm';
+const heroVideoMp4 = '/hero-background.mp4';
 import { useTrackSection } from '@/hooks/useTrackSection';
 import { trackCtaClick } from '@/lib/analytics';
 

@@ -1,26 +1,31 @@
 
 
-# Fix: Logo do Header aparecendo como quadrado branco
+# Plano: Corrigir Politica RLS da tabela waitlist_leads
 
 ## Problema
 
-A conversao automatica de `logo-dalton-white.png` para `logo-dalton-white.webp` gerou um arquivo corrompido/branco. O Header importa o `.webp` e exibe um retangulo branco.
+A tabela `waitlist_leads` possui uma politica de INSERT publica com `WITH CHECK (true)`, permitindo que qualquer pessoa com a chave anonima insira registros diretamente no banco, bypassando as validacoes da edge function (honeypot, rate limiting, sanitizacao).
 
 ## Solucao
 
-Reverter o import no Header para usar o PNG original que ainda existe no projeto:
+Remover a politica publica de INSERT. Somente a edge function (que usa Service Role) conseguira inserir registros.
 
-**Arquivo:** `src/components/Header.tsx`
+### Migracao SQL
 
-| Linha | Antes | Depois |
-|-------|-------|--------|
-| 5 | `import logoWhite from '@/assets/logo-dalton-white.webp';` | `import logoWhite from '@/assets/logo-dalton-white.png';` |
+```sql
+DROP POLICY "Anyone can insert waitlist leads" ON public.waitlist_leads;
+```
 
-Tambem verificar e corrigir outros arquivos que possam estar usando WebPs corrompidos da mesma conversao (ex: `d-branco.webp`, logos de tech, fotos de fundadores). Vou checar cada um no preview apos a correcao do header.
+Nenhuma outra alteracao e necessaria -- a edge function `submit-waitlist` ja usa o client com Service Role, que ignora RLS. O frontend ja chama `supabase.functions.invoke('submit-waitlist')`, entao o fluxo continua funcionando normalmente.
+
+## Validacao
+
+1. Testar o formulario de waitlist no preview para confirmar que a submissao via edge function continua funcionando
+2. Confirmar que uma chamada direta via `supabase.from('waitlist_leads').insert(...)` com a chave anonima retorna erro de permissao
 
 ## Arquivos Afetados
 
-| Arquivo | Alteracao |
+| Recurso | Alteracao |
 |---------|-----------|
-| `src/components/Header.tsx` | Reverter import para `.png` |
+| Migracao SQL | `DROP POLICY` na politica de INSERT publico |
 

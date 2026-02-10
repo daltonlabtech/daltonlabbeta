@@ -2,15 +2,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-// Import translation files
+// Only PT is bundled; other languages are lazy-loaded on demand
 import ptTranslation from '@/locales/pt/translation.json';
-import enTranslation from '@/locales/en/translation.json';
-import esTranslation from '@/locales/es/translation.json';
-import frTranslation from '@/locales/fr/translation.json';
-import deTranslation from '@/locales/de/translation.json';
-import itTranslation from '@/locales/it/translation.json';
-import zhTranslation from '@/locales/zh/translation.json';
-import jaTranslation from '@/locales/ja/translation.json';
 
 export const supportedLanguages = [
   { code: 'pt', name: 'Português', flag: '🇧🇷' },
@@ -25,15 +18,18 @@ export const supportedLanguages = [
 
 export type SupportedLanguage = typeof supportedLanguages[number]['code'];
 
+const lazyLanguageLoaders: Record<string, () => Promise<{ default: Record<string, unknown> }>> = {
+  en: () => import('@/locales/en/translation.json'),
+  es: () => import('@/locales/es/translation.json'),
+  fr: () => import('@/locales/fr/translation.json'),
+  de: () => import('@/locales/de/translation.json'),
+  it: () => import('@/locales/it/translation.json'),
+  zh: () => import('@/locales/zh/translation.json'),
+  ja: () => import('@/locales/ja/translation.json'),
+};
+
 const resources = {
   pt: { translation: ptTranslation },
-  en: { translation: enTranslation },
-  es: { translation: esTranslation },
-  fr: { translation: frTranslation },
-  de: { translation: deTranslation },
-  it: { translation: itTranslation },
-  zh: { translation: zhTranslation },
-  ja: { translation: jaTranslation },
 };
 
 i18n
@@ -59,10 +55,30 @@ i18n
     },
   });
 
-// Update HTML lang attribute when language changes
-i18n.on('languageChanged', (lng) => {
+// Lazy-load non-PT languages on demand
+i18n.on('languageChanged', async (lng) => {
   document.documentElement.lang = lng;
+  
+  if (lng !== 'pt' && !i18n.hasResourceBundle(lng, 'translation')) {
+    const loader = lazyLanguageLoaders[lng];
+    if (loader) {
+      const module = await loader();
+      i18n.addResourceBundle(lng, 'translation', module.default, true, true);
+    }
+  }
 });
+
+// If browser detected a non-PT language, load it now
+const detectedLng = i18n.language;
+if (detectedLng && detectedLng !== 'pt' && !i18n.hasResourceBundle(detectedLng, 'translation')) {
+  const loader = lazyLanguageLoaders[detectedLng];
+  if (loader) {
+    loader().then((module) => {
+      i18n.addResourceBundle(detectedLng, 'translation', module.default, true, true);
+      i18n.changeLanguage(detectedLng);
+    });
+  }
+}
 
 // Set initial lang attribute
 if (typeof document !== 'undefined') {

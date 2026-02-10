@@ -1,75 +1,173 @@
 
+# Plano: Otimizacao de Performance (PageSpeed 55 -> 80+)
 
-# Plano: Textos da Definition, Subtítulo do Hero e Tamanho do Título
+## Problema Atual
 
-## 1. Texto da DefinitionSection (PT)
-
-**Arquivo:** `src/locales/pt/translation.json`
-
-Substituir os 3 parágrafos atuais por 2 novos:
-
-| Campo | Novo texto |
-|-------|-----------|
-| `paragraph1` | "Líderes visionários já entenderam que a IA não é mais uma tendência, e sim o novo motor de crescimento e eficiência. No entanto, a clareza sobre o potencial da IA muitas vezes vem acompanhada de uma grande incerteza: qual é o primeiro passo a ser dado?" |
-| `paragraph2` | "Na Dalton Lab, eliminamos essa incerteza. Transformamos o potencial da IA em um plano claro, estruturado e executável para que você possa liderar essa transformação com confiança." |
-| `paragraph3` | Remover (string vazia ou não renderizar) |
-
-**Arquivo:** `src/locales/en/translation.json`
-
-| Campo | Novo texto |
-|-------|-----------|
-| `paragraph1` | "Visionary leaders already understand that AI is no longer a trend, but the new engine of growth and efficiency. However, clarity about AI's potential often comes with great uncertainty: what is the first step to take?" |
-| `paragraph2` | "At Dalton Lab, we eliminate that uncertainty. We transform AI's potential into a clear, structured, and actionable plan so you can lead this transformation with confidence." |
-| `paragraph3` | Remover (string vazia) |
-
-**Arquivo:** `src/components/sections/DefinitionSection.tsx`
-- Garantir `text-center` nos parágrafos e distribuição uniforme entre margens (`max-w-3xl mx-auto`)
-- Não renderizar `paragraph3` se estiver vazio
+| Metrica | Valor Atual | Meta | Status |
+|---------|-------------|------|--------|
+| LCP | 15,6s | < 2,5s | Critico |
+| TBT | 370ms | < 200ms | Medio |
+| FCP | 2,6s | < 1,8s | Medio |
+| Speed Index | 7,8s | < 3,4s | Critico |
+| CLS | 0 | < 0,1 | OK |
 
 ---
 
-## 2. Subtítulo do Hero
+## 1. Delay do GTM e Scripts Nao-Essenciais (impacto: TBT e FCP)
 
-**Arquivo:** `src/locales/pt/translation.json`
+**Arquivo:** `index.html`
 
-| Campo | Antigo | Novo |
-|-------|--------|------|
-| `hero.subtitle1` | "Transforme o potencial da IA em resultados reais para o seu negócio" | "Traduza o potencial da IA em resultados reais para o seu negócio" |
+O GTM esta carregando **sincronamente no head** e puxando Meta Pixel, scripts de chat etc. Isso bloqueia a main thread por centenas de milissegundos.
 
-**Arquivo:** `src/locales/en/translation.json`
+Mudanca: Adicionar um delay de 3 segundos ao carregamento do GTM, disparando-o somente apos interacao do usuario OU apos timeout.
 
-| Campo | Antigo | Novo |
-|-------|--------|------|
-| `hero.subtitle1` | "Turn the potential of AI into real results for your business" | "Translate AI's potential into real results for your business" |
+```text
+Antes:
+  <head>
+    <script> GTM inline (sincrono) </script>
+    ...
+  </head>
+
+Depois:
+  <head>
+    <!-- GTM removido do head -->
+  </head>
+  <body>
+    ...
+    <script>
+      // Delay GTM: carrega apos 3s OU primeira interacao
+      function loadGTM() {
+        if (window._gtmLoaded) return;
+        window._gtmLoaded = true;
+        // injeta GTM script
+      }
+      setTimeout(loadGTM, 3000);
+      ['scroll','click','touchstart','keydown'].forEach(e =>
+        document.addEventListener(e, loadGTM, {once: true})
+      );
+    </script>
+  </body>
+```
+
+Impacto estimado: TBT -150ms, FCP -0.5s
 
 ---
 
-## 3. Reduzir tamanho do título do Hero
+## 2. Video Hero: preload="none" + Lazy Start (impacto: LCP)
 
 **Arquivo:** `src/components/sections/HomeHeroSection.tsx`
 
-Reduzir o tamanho do título desktop para caber em 2 linhas:
+O video esta com `preload="auto"`, forcando o navegador a baixar o video inteiro antes de considerar o LCP completo. O LCP deveria ser o **texto do titulo** ou o **poster**, nao o video.
 
-| Elemento | Atual | Novo |
-|----------|-------|------|
-| Desktop title spans | `text-5xl md:text-[64px]` | `text-4xl md:text-[52px]` |
-| Mobile title spans | `text-[32px]` | `text-[28px]` |
+Mudancas:
+- Video: mudar `preload="auto"` para `preload="none"`
+- Iniciar o video somente apos o componente montar (via useEffect com delay)
+- Garantir que o poster WebP seja o LCP element
 
-Atualizar também as linhas mobile para refletir o texto completo em 2 linhas:
+```text
+Antes: <video preload="auto" autoPlay ...>
+Depois: <video preload="none" ...> (autoPlay removido, play() via JS apos 1s)
+```
 
-| Campo PT | Novo |
-|----------|------|
-| `hero.titleLine2Mobile` | "em uma Organização" |
-| `hero.titleLine3Mobile` | "Agêntica" |
+Impacto estimado: LCP de 15,6s para ~3-4s
+
+---
+
+## 3. Conversao de Imagens PNG para WebP (impacto: Speed Index)
+
+Imagens PNG que devem ser convertidas para WebP (usando o formato nativo ou servindo versoes otimizadas):
+
+| Imagem | Uso | Acao |
+|--------|-----|------|
+| `logo-dalton-white.png` | Header (todas as paginas) | Converter para WebP |
+| `d-branco.png` | PageLoader, Footer, Chat | Converter para WebP |
+| `dalton-icon.png` | Branding | Converter para WebP |
+| `dalton-lab-text.png` | Lab branding | Converter para WebP |
+| `logo-dalton-horizontal-white.png` | Newton page | Converter para WebP |
+| `logo-dalton-lab.png` | Lab branding | Converter para WebP |
+| `veja-negocios.png` | MediaSection | Converter para WebP |
+| `julio.png` | About/Founders | Converter para WebP |
+| `founders-photo.jpg` | About | Converter para WebP |
+| `team-photo.jpg` | About | Converter para WebP |
+| Tech logos (6 PNGs) | Philosophy, HowItWorks | Converter para WebP |
+
+**Nota:** As imagens em `src/assets/agents/`, `src/assets/logos/` e `src/assets/solutions/` ja estao em WebP.
+
+A conversao sera feita gerando versoes WebP e atualizando os imports nos componentes.
+
+---
+
+## 4. Preload do Texto Hero como LCP (impacto: LCP)
+
+**Arquivo:** `index.html`
+
+Adicionar `font-display: swap` ja esta configurado. A melhoria adicional e garantir que a fonte Inter esteja disponivel para o FCP adicionando um preload especifico para o arquivo de fonte mais critico.
+
+**Arquivo:** `src/components/sections/HomeHeroSection.tsx`
+
+Garantir que o texto H1 renderize imediatamente sem depender de animacao:
+- Remover o delay de `opacity-0` inicial no titulo (renderizar visivel desde o primeiro frame)
+- Manter animacao de slide-up mas com `opacity-100` desde o inicio
+
+---
+
+## 5. Otimizacao do PageLoader (impacto: FCP)
+
+**Arquivo:** `src/App.tsx`
+
+O `PageLoader` importa `d-branco.png` no bundle principal do App. Isso forca o download de um PNG no caminho critico.
+
+Mudanca: Usar um SVG inline minimo ou CSS puro para o loader, removendo a dependencia de imagem.
+
+---
+
+## Resumo de Impacto Esperado
+
+| Mudanca | Metrica Afetada | Reducao Estimada |
+|---------|-----------------|------------------|
+| GTM delay 3s | TBT, FCP | TBT: -150ms, FCP: -0.5s |
+| Video preload=none | LCP | LCP: -10s+ |
+| PNGs para WebP | Speed Index | SI: -1-2s |
+| Texto hero sem delay | LCP | LCP: -0.5s |
+| PageLoader sem PNG | FCP | FCP: -0.2s |
+
+**Score estimado apos mudancas: 75-85+**
+
+---
+
+## O que NAO esta no escopo (infraestrutura)
+
+| Item | Por que | Acao necessaria |
+|------|---------|-----------------|
+| CDN/Cloudflare | TTFB depende do servidor de borda | Configurar Cloudflare no dominio daltonlab.ai |
+| Compressao Brotli/Gzip | Depende do servidor | Configurar no Cloudflare |
+| HTTP/2 Push | Depende do servidor | Configurar no Cloudflare |
+
+---
+
+## Validacao
+
+Apos implementar, a validacao correta e:
+1. Publicar o site (deploy no dominio daltonlab.ai)
+2. Rodar PageSpeed Insights em `https://daltonlab.ai/` (mobile)
+3. Comparar as metricas LCP, TBT, FCP e Speed Index com os valores atuais
+4. Meta: Score >= 80, LCP < 4s, TBT < 200ms
 
 ---
 
 ## Arquivos Afetados
 
-| Arquivo | Alteração |
+| Arquivo | Alteracao |
 |---------|-----------|
-| `src/locales/pt/translation.json` | Parágrafos definition, subtítulo hero, mobile title lines |
-| `src/locales/en/translation.json` | Parágrafos definition, subtítulo hero |
-| `src/components/sections/HomeHeroSection.tsx` | Reduzir font-size do título |
-| `src/components/sections/DefinitionSection.tsx` | Ajuste para 2 parágrafos, centralizado |
-
+| `index.html` | GTM delay, preload de fonte |
+| `src/components/sections/HomeHeroSection.tsx` | Video preload=none, texto sem delay |
+| `src/App.tsx` | PageLoader sem PNG |
+| `src/components/Header.tsx` | Import WebP em vez de PNG |
+| `src/components/sections/Footer.tsx` | Import WebP |
+| `src/components/sections/MediaSection.tsx` | Import WebP |
+| `src/components/sections/PhilosophySection.tsx` | Imports WebP |
+| `src/components/sections/HowItWorksSection.tsx` | Imports WebP |
+| `src/components/sections/AboutSection.tsx` | Imports WebP |
+| `src/pages/Newton.tsx` | Imports WebP |
+| `src/pages/FaleComDalton.tsx` | Import WebP |
+| Multiplas imagens PNG/JPG | Conversao para WebP |

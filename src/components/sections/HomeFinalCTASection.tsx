@@ -45,6 +45,12 @@ const HomeFinalCTASection = () => {
           >
             {t('home.finalCta.cta')}
           </button>
+          <p
+            className="mt-3 text-[10px] md:text-xs"
+            style={{ color: 'rgba(245, 243, 240, 0.5)' }}
+          >
+            {t('home.finalCta.disclaimer')}
+          </p>
         </div>
 
         <WaitlistModal

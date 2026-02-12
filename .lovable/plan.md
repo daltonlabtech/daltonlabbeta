@@ -1,92 +1,78 @@
 
-# Plano: Otimizacao Agressiva de Performance (PageSpeed)
 
-## Situacao Atual
+# Plano: Atualizacoes de conteudo e layout da homepage
 
-Os numeros sao preocupantes:
-- **FCP: 3.1s** (deveria ser < 1.8s)
-- **LCP: 7.8s** (deveria ser < 2.5s)
-- **Speed Index: 6.7s** (deveria ser < 3.4s)
+## Resumo
+
+Alteracoes de texto, layout e comportamento em diversas secoes da homepage conforme solicitado.
 
 ---
 
-## 1. Imagens grandes demais (~1,997 KiB de economia)
+## 1. Traducoes (PT) - `src/locales/pt/translation.json`
 
-Voce tem razao que isso e muito. Tres imagens estao sendo servidas com tamanho absurdamente maior do que o necessario:
-
-| Imagem | Tamanho atual | Display | Acao |
-|--------|--------------|---------|------|
-| `d-branco.webp` | 108 KiB (1024x1024) | 32px no footer | Redimensionar para 128x128 (~3 KiB) |
-| `veja-negocios.webp` | 1,152 KiB (1023x768) | ~420x315 no mobile | Redimensionar para 840x630 (~300 KiB) |
-| `hero-poster.webp` | 836 KiB | fullscreen poster | Recomprimir qualidade 70 (~400 KiB) |
-
-**O que voce precisa fazer:** Usar qualquer ferramenta de compressao de imagem (ex: squoosh.app, tinypng.com, ou Photoshop) para redimensionar e recomprimir esses 3 arquivos e depois fazer upload deles de volta no projeto substituindo os atuais. Eu nao consigo processar/redimensionar imagens dentro do Lovable.
-
-**O que eu farei no codigo:** Adicionar `width` e `height` explicitos no `img` da MediaSection para evitar layout shift.
-
----
-
-## 2. Cache Lifetime do HTML (~9,236 KiB)
-
-Voce tem razao em questionar. Reanalisando: o PageSpeed reclama que o **documento HTML** (9 KiB) nao tem cache eficiente. Porem, o peso real do aviso e de apenas ~9 KiB -- nao sao 2,000 KiB de economia como parecia. O valor alto que o PageSpeed mostra e o tamanho total dos recursos sem cache, nao a economia potencial.
-
-O HTML do site precisa ser servido sem cache (`no-cache`) para garantir que atualizacoes de deploy sejam refletidas imediatamente. Se cachearmos o HTML, usuarios verao versoes antigas do site apos cada deploy. Isso e um tradeoff consciente e correto para um SPA.
-
-**Porem, ha algo que podemos fazer:** Os meta tags de cache no HTML sao ignorados pela maioria dos CDNs modernos -- o que realmente importa sao os headers HTTP do servidor. Como o Lovable controla isso, nao ha acao nossa. Podemos remover as meta tags de cache do HTML para reduzir o tamanho do documento (economizando ~200 bytes), mas o comportamento real nao mudara.
+| Chave | De | Para |
+|-------|-----|------|
+| `hero.subtitle1` | "Traduza o potencial da IA..." | "Implementamos Agentes de IA sob medida para o seu negocio, analisando suas necessidades e preparando seu time para a nova era da produtividade." |
+| `hero.cta` | "Agendar Diagnostico" | "Falar com Especialista" |
+| `nav.startTransformation` | "Agendar Diagnostico" | "Falar com Especialista" |
+| `home.prospection.cta` | "Agendar Diagnostico" | "Falar com Especialista" |
+| `home.definition.title` | "Sua empresa esta pronta para a Era Agentica?" | "A primeira startup do Brasil especializada em Transformacao Agentica: reimagine sua empresa AI-first" |
+| `home.definition.paragraph1` | (texto atual) | "" (vazio - sera removido) |
+| `home.definition.paragraph2` | (texto atual) | "" (vazio - sera removido) |
+| `home.stats.items[0]` | number: 30, prefix: ">", suffix: "%", desc: "velocidade na tomada de decisoes" | number: 300, prefix: "+", suffix: "", desc: "profissionais capacitados em IA agentica" |
+| `home.stats.items[1]` | number: 50, prefix: ">", suffix: "%", desc: "reducao em tempo e esforco" | number: 50, prefix: "+", suffix: "", desc: "agentes de IA implementados" |
+| `home.stats.items[2]` | number: 80, prefix: ">", suffix: "%", desc: "incidentes resolvidos..." | number: 50, prefix: ">", suffix: "%", desc: "reducao em tempo e esforco" |
+| `home.journey.subtitle` | "...abordagem holistica..." | "...abordagem end-to-end..." |
+| `home.journey.pillars[1].title` | "Workflows AI-first" | "Processos\nAI-first" |
+| `home.finalCta.title` | "Lidere a Transformacao." | "Quer entender antes de agir?" |
+| `home.finalCta.titleLine2` | "Junte-se ao Clube." | "Comece pelo AI Sprint." |
+| `home.finalCta.subtitle` | "O Clube e o ponto de encontro..." | "Em poucos dias, ao vivo, voce recebe um diagnostico personalizado da sua empresa e sai com um roadmap que ja pode aplicar na segunda-feira." |
+| `home.finalCta.cta` | "Tenho Interesse" | "Entrar na lista de espera" |
+| `home.finalCta.disclaimer` | (novo) | "Vagas limitadas. Primeira turma em breve." |
 
 ---
 
-## 3. Bundle de traducoes bloqueando o render
+## 2. DefinitionSection - `src/components/sections/DefinitionSection.tsx`
 
-Achei um problema real: **8 arquivos de traducao (pt, en, es, fr, de, it, zh, ja) estao todos importados estaticamente no bundle principal**. Se cada um tem ~375 linhas de JSON, sao ~3,000 linhas de JSON carregadas no bundle inicial, sendo que o usuario so precisa de 1 idioma.
-
-**Solucao:** Carregar apenas o idioma PT no bundle inicial (fallback) e fazer lazy-load dos outros 7 idiomas apenas quando o usuario trocar o idioma. Isso reduz o bundle principal significativamente.
-
----
-
-## 4. Vídeos do Hero bloqueando LCP
-
-O hero carrega 2 fontes de video (WebM + MP4) que sao importadas estaticamente via `import`. Apesar de `preload="none"`, o **import** faz o bundler processar esses arquivos. O video so toca apos 1.5s, mas o import pode estar atrasando o bundle.
-
-**Solucao:** Mover os videos para `/public` e referenciar por URL string, eliminando o import do bundle.
+- **Remover paragrafos**: Eliminar o bloco de paragrafos (paragraph1, paragraph2, paragraph3)
+- **Adicionar placeholder de video**: Abaixo do titulo, inserir um placeholder retangular (16:9) com icone de play e texto "Video em breve", com fundo escuro e bordas arredondadas
+- **Centralizar stats**: Alterar `text-left` para `text-center` no StatCard
 
 ---
 
-## 5. Prefetch desnecessario atrasando interatividade
+## 3. JourneySection - `src/components/sections/JourneySection.tsx`
 
-O `Index.tsx` faz prefetch de `DefinitionSection` e `JourneySection` apos 1.5s. Isso compete com recursos criticos durante o carregamento inicial.
-
-**Solucao:** Aumentar o delay do prefetch para 3-5s, ou remover e confiar no lazy-load natural via Suspense.
+- **Remover botao "Ver mais/Ver menos"**: Eliminar o botao expandir/colapsar e o bloco de detalhes expandiveis do PillarCard. Manter apenas number, title e summary.
+- **Titulo do pilar 02**: O titulo "Processos\nAI-first" sera tratado com `whitespace-pre-line` no h3 para quebrar em 2 linhas
 
 ---
 
-## Resumo de Acoes
+## 4. ProspectionSection - `src/components/sections/ProspectionSection.tsx`
 
-### Acoes no codigo (eu faco):
+- **Cores diferentes por tab ativa**: Cada tab tera uma cor de fundo unica quando selecionada:
+  - Vendas: `#D4E8D0` (verde claro)
+  - Marketing: `#D0D8E8` (azul claro)
+  - Financeiro: `#E8E0D0` (dourado claro)
+  - Atendimento: `#E0D0E8` (roxo claro)
+  - Operacoes: `#E8D0D0` (rosa claro)
+
+- **Reposicionar layout**: Inverter o grid para que os tabs fiquem a direita e o conteudo textual a esquerda. Adicionar titulo fixo "Reimagine seus setores AI-first" acima do conteudo no lado esquerdo.
+
+---
+
+## 5. HomeFinalCTASection - `src/components/sections/HomeFinalCTASection.tsx`
+
+- Adicionar texto disclaimer "Vagas limitadas. Primeira turma em breve." abaixo do botao CTA, com fonte pequena e cor clara/opaca
+
+---
+
+## Arquivos afetados
 
 | Arquivo | Alteracao |
 |---------|-----------|
-| `src/lib/i18n.ts` | Lazy-load de traducoes: so PT no bundle, outros sob demanda |
-| `src/components/sections/HomeHeroSection.tsx` | Mover videos para `/public` (string path em vez de import) |
-| `src/components/sections/MediaSection.tsx` | Adicionar width/height explicitos na imagem |
-| `src/pages/Index.tsx` | Aumentar delay do prefetch para 5s |
-| `index.html` | Remover meta tags de cache redundantes (~200 bytes) |
+| `src/locales/pt/translation.json` | Todas as alteracoes de texto |
+| `src/components/sections/DefinitionSection.tsx` | Remover paragrafos, adicionar placeholder video, centralizar stats |
+| `src/components/sections/JourneySection.tsx` | Remover expandir/colapsar, suportar quebra de linha no titulo |
+| `src/components/sections/ProspectionSection.tsx` | Cores por tab, reposicionar layout com titulo fixo |
+| `src/components/sections/HomeFinalCTASection.tsx` | Adicionar disclaimer abaixo do CTA |
 
-### Acoes suas (upload de imagens otimizadas):
-
-1. **`src/assets/d-branco.webp`** -- Redimensionar de 1024x1024 para 128x128 pixels. Use squoosh.app: abra a imagem, resize para 128x128, exporte como WebP qualidade 80.
-2. **`src/assets/media/veja-negocios.webp`** -- Redimensionar de 1023x768 para 840x630 pixels. WebP qualidade 80.
-3. **`public/hero-poster.webp`** -- Manter dimensoes, recomprimir com WebP qualidade 65-70. Use squoosh.app: abra, so mude a qualidade.
-
-### Acoes para os videos:
-
-Os arquivos `hero-background.webm` e `hero-background.mp4` precisam ser movidos de `src/assets/` para `public/`. Eu farei a copia e atualizacao dos imports no codigo.
-
----
-
-## Impacto Esperado
-
-- **Reducao de bundle:** ~30-50 KiB (traducoes removidas do bundle inicial)
-- **Reducao de imagens:** ~1,500 KiB (redimensionamento + recompressao)
-- **LCP mais rapido:** Video nao bloqueia mais o bundler; hero poster mais leve
-- **FCP mais rapido:** Bundle principal menor sem traducoes extras

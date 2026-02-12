@@ -36,9 +36,7 @@ const PageViewTracker = () => {
 const PageLoader = () => (
   <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-6 animate-fade-in">
     {/* CSS-only "D" logo to avoid PNG in critical path */}
-    <div className="h-16 w-16 md:h-24 md:w-24 rounded-full border-2 border-[#F5F3F0]/30 flex items-center justify-center animate-pulse">
-      <span className="font-inter font-bold text-2xl md:text-4xl text-[#F5F3F0]/60">D</span>
-    </div>
+    <img src="/d-branco-loader.png" alt="Dalton Lab" className="h-16 w-16 md:h-24 md:w-24 animate-pulse" />
     <div className="w-8 h-8 border-2 border-dalton-blue border-t-transparent rounded-full animate-spin" />
   </div>
 );

@@ -1,32 +1,19 @@
 
-# Plano: Ajustes de texto, layout e cor
 
-## 1. Textos - `src/locales/pt/translation.json`
+# Plano: Ajuste de proporção das colunas na ProspectionSection
 
-| Campo | Valor atual | Novo valor |
-|-------|------------|------------|
-| `home.definition.title` | "A primeira startup do Brasil especializada em Transformacao Agentica: reimagine sua empresa AI-first" | "A primeira startup do Brasil especializada em transformar empresas em organizacoes AI-first" |
-| `home.finalCta.title` | "Quer entender antes de agir?" | "Quer saber onde aplicar IA no seu negocio?" |
-| `home.finalCta.subtitle` | "Em poucos dias, ao vivo, voce recebe um diagnostico personalizado da sua empresa e sai com um roadmap que ja pode aplicar na segunda-feira." | "Programa online ao vivo onde voce sai com roadmap pratico de onde implementar IA na sua empresa e onde gera mais resultado" |
+## Alteração
 
-## 2. ProspectionSection - Layout dividido em 2
+No arquivo `src/components/sections/ProspectionSection.tsx`, trocar o grid de colunas iguais para proporção 30/70:
 
-Reestruturar `src/components/sections/ProspectionSection.tsx`:
+- **De**: `lg:grid-cols-2` (50/50)
+- **Para**: `lg:grid-cols-[3fr_7fr]` (30/70)
 
-- Criar um grid externo de 2 colunas (`lg:grid-cols-2`) **fora do card**
-- **Coluna esquerda**: Titulo grande "Reimagine seus setores AI-first" centralizado verticalmente
-- **Coluna direita**: O card branco (`#F5F3F0`) com as tabs, conteudo dinamico (titulo do setor, descricao, features, CTA) -- tudo dentro do card
-- No mobile, o titulo aparece acima do card em coluna unica
+Isso fará o título à esquerda ocupar 30% e o card à direita ocupar 70%, exatamente como na imagem de referência.
 
-## 3. Cor do AI Sprint - `src/components/sections/HomeFinalCTASection.tsx`
+## Arquivo afetado
 
-- Alterar `backgroundColor` de `#121823` para `#6A1FB0` (versao escura de `#8A2BE2`, ~25% mais escura)
-- Manter textos claros para contraste adequado
-
-## Arquivos afetados
-
-| Arquivo | Alteracao |
+| Arquivo | Alteração |
 |---------|-----------|
-| `src/locales/pt/translation.json` | 3 textos atualizados |
-| `src/components/sections/ProspectionSection.tsx` | Layout: titulo fora do card a esquerda, card a direita |
-| `src/components/sections/HomeFinalCTASection.tsx` | backgroundColor para roxo escuro |
+| `src/components/sections/ProspectionSection.tsx` | `grid-cols-2` → `grid-cols-[3fr_7fr]` |
+

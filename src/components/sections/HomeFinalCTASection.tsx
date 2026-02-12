@@ -12,7 +12,11 @@ const HomeFinalCTASection = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="py-6 md:py-[40px]"
-      style={{ backgroundColor: '#6A1FB0' }}
+      style={{
+        backgroundColor: '#121823',
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
+        backgroundSize: '120px 120px'
+      }}
     >
       <div className="container-main text-center">
         {/* Title */}

@@ -12,7 +12,7 @@ const HomeFinalCTASection = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="py-6 md:py-[40px]"
-      style={{ backgroundColor: '#121823' }}
+      style={{ backgroundColor: '#6A1FB0' }}
     >
       <div className="container-main text-center">
         {/* Title */}

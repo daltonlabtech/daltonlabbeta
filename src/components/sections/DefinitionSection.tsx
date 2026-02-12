@@ -79,7 +79,8 @@ const DefinitionSection = () => {
           className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-6 md:mb-10 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
         >
-          {t('home.definition.title')}
+          <span className="block mb-2 md:mb-4">{t('home.definition.titleLine1')}</span>
+          <span className="block">{t('home.definition.titleLine2')}</span>
         </h2>
 
         {/* Video Placeholder */}

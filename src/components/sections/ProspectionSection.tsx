@@ -59,7 +59,7 @@ const ProspectionSection = () => {
           {/* Left: Fixed title */}
           <div className={`${revealClasses(isVisible)}`}>
             <h2
-              className="font-inter font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight"
+              className="font-inter font-normal text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight"
               style={{ color: '#101824' }}
             >
               Reimagine seus setores AI-first

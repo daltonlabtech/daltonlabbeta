@@ -6,7 +6,7 @@
     "media": "Mídia",
     "talkToDalton": "Fale com o Dalton",
     "about": "Quem Somos",
-    "startTransformation": "Agendar Diagnóstico"
+    "startTransformation": "Falar com Especialista"
   },
   "pages": {
     "produto": {
@@ -34,25 +34,32 @@
     "titleLine2": "em uma Organização Agêntica",
     "titleLine2Mobile": "em uma Organização",
     "titleLine3Mobile": "Agêntica",
-    "subtitle1": "Traduza o potencial da IA em resultados reais para o seu negócio",
+    "subtitle1": "Implementamos Agentes de IA sob medida para o seu negócio, analisando suas necessidades e preparando seu time para a nova era da produtividade.",
     "subtitle2": "",
-    "cta": "Agendar Diagnóstico"
+    "cta": "Falar com Especialista"
   },
   "home": {
     "definition": {
-      "title": "Sua empresa está pronta para a Era Agêntica?",
-      "paragraph1": "Líderes visionários já entenderam que a IA não é mais uma tendência, e sim o novo motor de crescimento e eficiência. No entanto, a clareza sobre o potencial da IA muitas vezes vem acompanhada de uma grande incerteza: qual é o primeiro passo a ser dado?",
-      "paragraph2": "Na Dalton Lab, eliminamos essa incerteza. Transformamos o potencial da IA em um plano claro, estruturado e executável para que você possa liderar essa transformação com confiança.",
+      "title": "A primeira startup do Brasil especializada em Transformação Agêntica: reimagine sua empresa AI-first",
+      "paragraph1": "",
+      "paragraph2": "",
       "paragraph3": ""
     },
     "stats": {
       "items": [
         {
-          "value": ">30%",
-          "number": 30,
-          "prefix": ">",
-          "suffix": "%",
-          "description": "velocidade na tomada de decisões"
+          "value": "+300",
+          "number": 300,
+          "prefix": "+",
+          "suffix": "",
+          "description": "profissionais capacitados em IA agêntica"
+        },
+        {
+          "value": "+50",
+          "number": 50,
+          "prefix": "+",
+          "suffix": "",
+          "description": "agentes de IA implementados"
         },
         {
           "value": ">50%",
@@ -60,19 +67,12 @@
           "prefix": ">",
           "suffix": "%",
           "description": "redução em tempo e esforço"
-        },
-        {
-          "value": ">80%",
-          "number": 80,
-          "prefix": ">",
-          "suffix": "%",
-          "description": "incidentes resolvidos de forma automática"
         }
       ]
     },
     "journey": {
       "title": "Sua jornada para uma transformação agêntica",
-      "subtitle": "Nossa abordagem holística guia as empresas pela transformação e garante escalabilidade das capacidades agênticas.",
+      "subtitle": "Nossa abordagem end-to-end guia as empresas pela transformação e garante escalabilidade das capacidades agênticas.",
       "pillars": [
         {
           "number": "01",
@@ -82,7 +82,7 @@
         },
         {
           "number": "02",
-          "title": "Workflows AI-first",
+          "title": "Processos\nAI-first",
           "summary": "Redesenhe processos com inteligência artificial no centro da operação.",
           "details": "Mapeamos seus fluxos de trabalho atuais e identificamos oportunidades de automação com IA. Cada workflow é redesenhado para maximizar eficiência, eliminar gargalos e criar processos que escalam naturalmente."
         },
@@ -157,14 +157,15 @@
           "Integração entre sistemas legados"
         ]
       },
-      "cta": "Agendar Diagnóstico",
+      "cta": "Falar com Especialista",
       "comingSoon": "Em breve"
     },
     "finalCta": {
-      "title": "Lidere a Transformação.",
-      "titleLine2": "Junte-se ao Clube.",
-      "subtitle": "O Clube é o ponto de encontro para líderes visionários que querem ser a vanguarda da era agêntica.",
-      "cta": "Tenho Interesse"
+      "title": "Quer entender antes de agir?",
+      "titleLine2": "Comece pelo AI Sprint.",
+      "subtitle": "Em poucos dias, ao vivo, você recebe um diagnóstico personalizado da sua empresa e sai com um roadmap que já pode aplicar na segunda-feira.",
+      "cta": "Entrar na lista de espera",
+      "disclaimer": "Vagas limitadas. Primeira turma em breve."
     },
     "media": {
       "sectionTitle": "MÍDIA DESTAQUE",

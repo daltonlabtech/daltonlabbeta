@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Play } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
 interface StatItem {
@@ -38,7 +39,7 @@ const StatCard = ({ item, isVisible, index }: { item: StatItem; isVisible: boole
 
   return (
     <div
-      className="text-left transition-all duration-700"
+      className="text-center transition-all duration-700"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(32px)',
@@ -81,31 +82,28 @@ const DefinitionSection = () => {
           {t('home.definition.title')}
         </h2>
 
-        {/* Paragraphs */}
-        <div className={`space-y-4 md:space-y-6 max-w-3xl mx-auto mb-10 md:mb-16 ${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
-          <p
-            className="text-sm md:text-lg leading-relaxed text-center"
-            style={{ color: 'rgba(16, 24, 35, 0.7)' }}
-          >
-            {t('home.definition.paragraph1')}
-          </p>
-          <p
-            className="text-sm md:text-lg leading-relaxed text-center"
-            style={{ color: 'rgba(16, 24, 35, 0.7)' }}
-          >
-            {t('home.definition.paragraph2')}
-          </p>
-          {t('home.definition.paragraph3') && (
-            <p
-              className="text-sm md:text-lg leading-relaxed text-center"
-              style={{ color: 'rgba(16, 24, 35, 0.7)' }}
+        {/* Video Placeholder */}
+        <div
+          className={`relative w-full max-w-4xl mx-auto mb-10 md:mb-16 rounded-xl md:rounded-2xl overflow-hidden ${revealClasses(isVisible)}`}
+          style={{ ...getStaggerDelay(1), aspectRatio: '16/9', backgroundColor: '#1a1f2e' }}
+        >
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+            <div
+              className="w-14 h-14 md:w-20 md:h-20 rounded-full flex items-center justify-center"
+              style={{ backgroundColor: 'rgba(245, 243, 240, 0.15)' }}
             >
-              {t('home.definition.paragraph3')}
-            </p>
-          )}
+              <Play className="w-6 h-6 md:w-8 md:h-8 ml-1" style={{ color: 'rgba(245, 243, 240, 0.7)' }} />
+            </div>
+            <span
+              className="text-xs md:text-sm font-medium"
+              style={{ color: 'rgba(245, 243, 240, 0.5)' }}
+            >
+              Vídeo em breve
+            </span>
+          </div>
         </div>
 
-        {/* Bottom row: Stats horizontal */}
+        {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
           {stats.map((item, index) => (
             <StatCard key={index} item={item} isVisible={isVisible} index={index} />

@@ -9,6 +9,14 @@ type SectorTab = 'vendas' | 'marketing' | 'financeiro' | 'atendimento' | 'operac
 
 const TABS: SectorTab[] = ['vendas', 'marketing', 'financeiro', 'atendimento', 'operacoes'];
 
+const TAB_COLORS: Record<SectorTab, string> = {
+  vendas: '#D4E8D0',
+  marketing: '#D0D8E8',
+  financeiro: '#E8E0D0',
+  atendimento: '#E0D0E8',
+  operacoes: '#E8D0D0',
+};
+
 const ProspectionSection = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
@@ -47,17 +55,22 @@ const ProspectionSection = () => {
       style={{ backgroundColor: '#E8E6E3' }}
     >
       <div className="container-main">
-        {/* Content Box */}
         <div
           className="rounded-xl md:rounded-3xl p-4 md:p-10 lg:p-12"
           style={{ backgroundColor: '#F5F3F0' }}
         >
-          {/* Grid: Content Left + Tabs Right */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr,auto] gap-5 lg:gap-12">
-            {/* Content */}
+            {/* Left: Fixed title + dynamic content */}
             <div className={`${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
+              <h2
+                className="font-inter font-bold text-lg md:text-2xl lg:text-3xl leading-tight mb-4 md:mb-6"
+                style={{ color: '#101824' }}
+              >
+                Reimagine seus setores AI-first
+              </h2>
+
               <h3
-                className="font-inter font-bold text-base md:text-2xl lg:text-3xl leading-tight mb-2 md:mb-4"
+                className="font-inter font-bold text-base md:text-xl lg:text-2xl leading-tight mb-2 md:mb-4"
                 style={{ color: '#101824' }}
               >
                 {currentSector.title}
@@ -96,7 +109,7 @@ const ProspectionSection = () => {
               </button>
             </div>
 
-            {/* Vertical Tabs */}
+            {/* Right: Tabs */}
             <div className={`flex flex-row lg:flex-col gap-1.5 md:gap-3 lg:pt-2 overflow-x-auto lg:overflow-visible ${revealClasses(isVisible)}`}>
               {TABS.map(tab => {
                 const isActive = activeTab === tab;
@@ -112,7 +125,7 @@ const ProspectionSection = () => {
                       }
                     `}
                     style={{
-                      backgroundColor: isActive ? '#E8E6E3' : 'transparent',
+                      backgroundColor: isActive ? TAB_COLORS[tab] : 'transparent',
                     }}
                   >
                     {t(`home.prospection.tabs.${tab}`)}

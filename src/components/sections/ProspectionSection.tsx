@@ -55,7 +55,7 @@ const ProspectionSection = () => {
       style={{ backgroundColor: '#E8E6E3' }}
     >
       <div className="container-main">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] gap-6 lg:gap-12 items-center">
           {/* Left: Fixed title */}
           <div className={`${revealClasses(isVisible)}`}>
             <h2

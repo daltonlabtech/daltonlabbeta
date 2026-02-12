@@ -55,62 +55,24 @@ const ProspectionSection = () => {
       style={{ backgroundColor: '#E8E6E3' }}
     >
       <div className="container-main">
-        <div
-          className="rounded-xl md:rounded-3xl p-4 md:p-10 lg:p-12"
-          style={{ backgroundColor: '#F5F3F0' }}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr,auto] gap-5 lg:gap-12">
-            {/* Left: Fixed title + dynamic content */}
-            <div className={`${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
-              <h2
-                className="font-inter font-bold text-lg md:text-2xl lg:text-3xl leading-tight mb-4 md:mb-6"
-                style={{ color: '#101824' }}
-              >
-                Reimagine seus setores AI-first
-              </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+          {/* Left: Fixed title */}
+          <div className={`${revealClasses(isVisible)}`}>
+            <h2
+              className="font-inter font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight"
+              style={{ color: '#101824' }}
+            >
+              Reimagine seus setores AI-first
+            </h2>
+          </div>
 
-              <h3
-                className="font-inter font-bold text-base md:text-xl lg:text-2xl leading-tight mb-2 md:mb-4"
-                style={{ color: '#101824' }}
-              >
-                {currentSector.title}
-              </h3>
-
-              <p
-                className="text-xs md:text-base leading-relaxed mb-4 md:mb-6"
-                style={{ color: 'rgba(16, 24, 35, 0.6)' }}
-              >
-                {currentSector.description}
-              </p>
-
-              <ul className="space-y-2 md:space-y-3 mb-5 md:mb-8">
-                {currentSector.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-2 md:gap-3">
-                    <Check className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0 mt-0.5" style={{ color: '#101824' }} strokeWidth={2.5} />
-                    <span
-                      className="text-xs md:text-base leading-relaxed"
-                      style={{ color: 'rgba(16, 24, 35, 0.7)' }}
-                    >
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                onClick={handleCtaClick}
-                className="inline-flex items-center justify-center font-medium text-xs md:text-sm px-4 py-2 md:px-6 md:py-3 rounded-full transition-all duration-300 hover:opacity-90"
-                style={{
-                  backgroundColor: '#101824',
-                  color: '#F5F3F0',
-                }}
-              >
-                {t('home.prospection.cta')}
-              </button>
-            </div>
-
-            {/* Right: Tabs */}
-            <div className={`flex flex-row lg:flex-col gap-1.5 md:gap-3 lg:pt-2 overflow-x-auto lg:overflow-visible ${revealClasses(isVisible)}`}>
+          {/* Right: Card with tabs + content */}
+          <div
+            className={`rounded-xl md:rounded-3xl p-4 md:p-8 lg:p-10 ${revealClasses(isVisible)}`}
+            style={{ backgroundColor: '#F5F3F0', ...getStaggerDelay(1) }}
+          >
+            {/* Tabs */}
+            <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6">
               {TABS.map(tab => {
                 const isActive = activeTab === tab;
                 return (
@@ -118,11 +80,8 @@ const ProspectionSection = () => {
                     key={tab}
                     onClick={() => handleTabChange(tab)}
                     className={`
-                      px-3 py-1.5 md:px-6 md:py-3 rounded-full text-xs md:text-lg font-medium transition-all duration-300 whitespace-nowrap
-                      ${isActive
-                        ? 'text-zinc-900'
-                        : 'text-zinc-600 hover:text-zinc-900'
-                      }
+                      px-3 py-1.5 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300 whitespace-nowrap
+                      ${isActive ? 'text-zinc-900' : 'text-zinc-500 hover:text-zinc-900'}
                     `}
                     style={{
                       backgroundColor: isActive ? TAB_COLORS[tab] : 'transparent',
@@ -133,6 +92,46 @@ const ProspectionSection = () => {
                 );
               })}
             </div>
+
+            {/* Sector content */}
+            <h3
+              className="font-inter font-bold text-base md:text-xl lg:text-2xl leading-tight mb-2 md:mb-3"
+              style={{ color: '#101824' }}
+            >
+              {currentSector.title}
+            </h3>
+
+            <p
+              className="text-xs md:text-sm leading-relaxed mb-4 md:mb-5"
+              style={{ color: 'rgba(16, 24, 35, 0.6)' }}
+            >
+              {currentSector.description}
+            </p>
+
+            <ul className="space-y-2 md:space-y-3 mb-5 md:mb-6">
+              {currentSector.features.map((feature, index) => (
+                <li key={index} className="flex items-start gap-2 md:gap-3">
+                  <Check className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0 mt-0.5" style={{ color: '#101824' }} strokeWidth={2.5} />
+                  <span
+                    className="text-xs md:text-sm leading-relaxed"
+                    style={{ color: 'rgba(16, 24, 35, 0.7)' }}
+                  >
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <button
+              onClick={handleCtaClick}
+              className="inline-flex items-center justify-center font-medium text-xs md:text-sm px-4 py-2 md:px-6 md:py-3 rounded-full transition-all duration-300 hover:opacity-90"
+              style={{
+                backgroundColor: '#101824',
+                color: '#F5F3F0',
+              }}
+            >
+              {t('home.prospection.cta')}
+            </button>
           </div>
         </div>
       </div>

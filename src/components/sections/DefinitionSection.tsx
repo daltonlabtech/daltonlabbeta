@@ -9,7 +9,7 @@ interface StatItem {
   description: string;
 }
 
-const useCountUp = (target: number, isVisible: boolean, duration = 2500) => {
+const useCountUp = (target: number, isVisible: boolean, duration = 5000) => {
   const [count, setCount] = useState(0);
   const hasAnimated = useRef(false);
 

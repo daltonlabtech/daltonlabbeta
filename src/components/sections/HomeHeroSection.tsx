@@ -7,7 +7,7 @@ import { trackCtaClick } from '@/lib/analytics';
 
 const heroPoster = '/hero-poster.webp';
 
-const REGIONS = ['Europa', 'Ásia', 'África', 'América'];
+const REGIONS = ['Varejo', 'Agro', 'Atacado', 'Saúde', 'Advocacia'];
 
 const HomeHeroSection = () => {
   const { t } = useTranslation();

@@ -84,26 +84,20 @@ const DefinitionSection = () => {
 
         {/* Text content replacing video */}
         <div
-          className={`w-full max-w-4xl mx-auto mb-10 md:mb-16 space-y-4 md:space-y-6 text-justify ${revealClasses(isVisible)}`}
+          className={`w-full max-w-4xl mx-auto mb-10 md:mb-16 space-y-4 md:space-y-6 text-left ${revealClasses(isVisible)}`}
           style={getStaggerDelay(1)}
         >
           <p
             className="text-sm md:text-base lg:text-lg leading-relaxed"
             style={{ color: 'rgba(16, 24, 35, 0.75)' }}
           >
-            A inteligência artificial está provocando a maior reestruturação organizacional desde a revolução digital. Não se trata mais de uma ferramenta, mas de uma nova arquitetura de negócios onde humanos e agentes de IA trabalham em conjunto, em escala. Chamamos isso de organização agêntica.
+            A inteligência artificial está redefinindo arquiteturas organizacionais globalmente. Empresas estão construindo capacidade operacional exponencial através de uma nova estrutura: a organização agêntica. O verdadeiro desafio, no entanto, não é a falta de conhecimento sobre IA. É a paralisia que existe entre saber que é preciso agir e não saber como começar.
           </p>
           <p
             className="text-sm md:text-base lg:text-lg leading-relaxed"
             style={{ color: 'rgba(16, 24, 35, 0.75)' }}
           >
-            O verdadeiro desafio, no entanto, não é a falta de conhecimento sobre IA. É a paralisia que existe entre saber que é preciso agir e não saber como começar. Essa incerteza não é apenas estratégica; ela se traduz em perda de eficiência, tempo e vantagem competitiva todos os dias.
-          </p>
-          <p
-            className="text-sm md:text-base lg:text-lg leading-relaxed"
-            style={{ color: 'rgba(16, 24, 35, 0.75)' }}
-          >
-            No Dalton Lab, eliminamos essa lacuna começando pelo processo, não pela tecnologia. Convertemos a incerteza em um plano de transformação claro, redesenhando seu modelo operacional para uma simbiose real entre humanos e agentes. Lideramos a construção de um sistema robusto, projetado para gerar valor exponencial e posicionar sua empresa à frente da concorrência.
+            No Dalton Lab, eliminamos essa lacuna começando pelo processo, não pela tecnologia. Convertemos a incerteza em estratégia de transformação, redesenhando seu modelo operacional para uma cooperação real entre humanos e agentes. Lideramos a construção de tecnologias robustas, projetadas para gerar valor exponencial e posicionar sua empresa à frente da concorrência.
           </p>
         </div>
 

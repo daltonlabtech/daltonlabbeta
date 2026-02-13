@@ -50,7 +50,7 @@ const JourneySection = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="journey"
-      className="py-10 md:py-[100px]"
+      className="py-10 md:pt-[100px] md:pb-[50px]"
       style={{ backgroundColor: '#E8E6E3' }}
     >
       <div className="container-main">

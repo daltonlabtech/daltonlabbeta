@@ -34,8 +34,7 @@ const useCountUp = (target: number, isVisible: boolean, duration = 5000) => {
 };
 
 const StatCard = ({ item, isVisible, index }: { item: StatItem; isVisible: boolean; index: number }) => {
-  const duration = item.number === 300 ? 2500 : 5000;
-  const count = useCountUp(item.number, isVisible, duration);
+  const count = useCountUp(item.number, isVisible, 4000);
 
   return (
     <div

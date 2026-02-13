@@ -51,7 +51,7 @@ const ProspectionSection = () => {
           (sectionRef as React.MutableRefObject<HTMLElement | null>).current = el;
         }
       }}
-      className="py-4 md:py-[35px]"
+      className="py-2 md:py-[35px]"
       style={{ backgroundColor: '#E8E6E3' }}
     >
       <div className="container-main">
@@ -59,7 +59,7 @@ const ProspectionSection = () => {
           {/* Left: Fixed title */}
           <div className={`${revealClasses(isVisible)}`}>
             <h2
-              className="font-inter font-normal text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight"
+              className="font-inter font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-snug lg:leading-[1.3]"
               style={{ color: '#101824' }}
             >
               Reimagine seus setores AI-first

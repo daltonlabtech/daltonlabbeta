@@ -84,7 +84,7 @@ const DefinitionSection = () => {
 
         {/* Text content replacing video */}
         <div
-          className={`w-full max-w-4xl mx-auto mb-10 md:mb-16 space-y-4 md:space-y-6 ${revealClasses(isVisible)}`}
+          className={`w-full max-w-4xl mx-auto mb-10 md:mb-16 space-y-4 md:space-y-6 text-justify ${revealClasses(isVisible)}`}
           style={getStaggerDelay(1)}
         >
           <p

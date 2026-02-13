@@ -29,7 +29,7 @@
     }
   },
   "hero": {
-    "poweredBy": "Presente em",
+    "poweredBy": "Presente na",
     "titleLine1": "Transforme sua empresa",
     "titleLine2": "em uma Organização Agêntica",
     "titleLine2Mobile": "em uma Organização",
@@ -57,8 +57,8 @@
           "description": "profissionais capacitados em IA agêntica"
         },
         {
-          "value": "+50",
-          "number": 50,
+          "value": "+60",
+          "number": 60,
           "prefix": "+",
           "suffix": "",
           "description": "agentes de IA implementados"

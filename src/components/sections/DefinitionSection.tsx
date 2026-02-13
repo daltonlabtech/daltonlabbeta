@@ -91,13 +91,19 @@ const DefinitionSection = () => {
             className="text-sm md:text-base lg:text-lg leading-relaxed"
             style={{ color: 'rgba(16, 24, 35, 0.75)' }}
           >
-            A inteligência artificial está redefinindo arquiteturas organizacionais globalmente. Empresas estão construindo capacidade operacional exponencial através de uma nova estrutura: a organização agêntica. O verdadeiro desafio, no entanto, não é a falta de conhecimento sobre IA. É a paralisia que existe entre saber que é preciso agir e não saber como começar.
+            Empresas no mundo inteiro investiram bilhões em IA. A maioria não viu retorno. O motivo é simples: tentaram substituir pessoas, jogaram tecnologia em cima de processos desorganizados e esperaram resultados automáticos. Mas os que tiveram resultado fizeram diferente.
           </p>
           <p
             className="text-sm md:text-base lg:text-lg leading-relaxed"
             style={{ color: 'rgba(16, 24, 35, 0.75)' }}
           >
-            No Dalton Lab, eliminamos essa lacuna começando pelo processo, não pela tecnologia. Convertemos a incerteza em estratégia de transformação, redesenhando seu modelo operacional para uma cooperação real entre humanos e agentes. Lideramos a construção de tecnologias robustas, projetadas para gerar valor exponencial e posicionar sua empresa à frente da concorrência.
+            No Dalton Lab, identificamos o processo certo, colocamos IA para trabalhar nele, e liberamos as pessoas para fazer o que só gente faz: estratégia, relacionamento, decisão. Atuamos no tripé completo: IA, processos e pessoas.
+          </p>
+          <p
+            className="text-sm md:text-base lg:text-lg leading-relaxed"
+            style={{ color: 'rgba(16, 24, 35, 0.75)' }}
+          >
+            Construímos organizações agênticas onde humanos fazem trabalho humano e agentes fazem trabalho operacional. Operações mais eficientes, times em alta performance e ROI concreto.
           </p>
         </div>
 

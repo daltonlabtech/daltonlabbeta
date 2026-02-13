@@ -2,12 +2,14 @@ import { trackCtaClick } from '@/lib/analytics';
 
 const NewtonChatButton = () => {
   const handleClick = () => {
-    trackCtaClick('Fale conosco', 'floating_button', 'mailto:administrativo@daltonlab.ai');
+    trackCtaClick('Fale conosco', 'floating_button', 'https://formulario.daltonlab.ai/');
   };
 
   return (
     <a 
-      href="mailto:administrativo@daltonlab.ai"
+      href="https://formulario.daltonlab.ai/"
+      target="_blank"
+      rel="noopener noreferrer"
       onClick={handleClick}
       className="fixed bottom-6 right-6 z-50 px-6 py-3 bg-[#101823] border-2 border-[#F5F3F0]/20 rounded-full shadow-2xl hover:border-[#F5F3F0]/40 hover:scale-105 transition-all duration-300"
     >

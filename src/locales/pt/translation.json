@@ -10,13 +10,13 @@
   },
   "pages": {
     "produto": {
-      "title": "Produto | Dalton Lab – Agentes de IA para Vendas",
-      "description": "Conheça nossos Agentes de IA para vendas. Qualificação de leads, follow-up 24/7 e fechamento automático.",
-      "h1": "Produto"
+      "title": "Agentes de IA para Vendas | Dalton Lab – Organização Agêntica",
+      "description": "Conheça os Agentes de IA da Dalton Lab. Qualificação de leads, follow-up 24/7, fechamento automático e transformação agêntica para sua empresa.",
+      "h1": "Agentes de IA para Vendas"
     },
     "faleComDalton": {
-      "title": "Fale com o Dalton | Dalton Lab – Agentes de IA",
-      "description": "Inicie uma conversa com nosso Agente de IA. Tire dúvidas, agende demonstrações e descubra como automatizar suas vendas.",
+      "title": "Fale com o Dalton | Dalton Lab – Agentes de IA Agêntica",
+      "description": "Converse com nosso Agente de IA. Tire dúvidas sobre organização agêntica, agende demonstrações e descubra como automatizar seus processos com IA.",
       "h1": "Fale com o Dalton",
       "subtitle": "Conectando você ao nosso Agente de IA",
       "redirecting": "Redirecionando em",
@@ -24,8 +24,8 @@
       "orClickHere": "ou clique no botão acima"
     },
     "quemSomos": {
-      "title": "Quem somos | Dalton Lab – Agentes de IA",
-      "description": "Conheça os fundadores e a equipe do Dalton Lab. Startup brasileira pioneira em Agents-as-a-Service operando em 4 continentes."
+      "title": "Quem Somos | Dalton Lab – Pioneira em Organizações Agênticas",
+      "description": "Conheça os fundadores e a equipe do Dalton Lab. Startup brasileira pioneira em transformação agêntica, operando em 4 continentes com Agents-as-a-Service."
     }
   },
   "hero": {

@@ -40,7 +40,7 @@ const HomeHeroSection = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroPoster}
-          alt="Dalton Lab - Organizações Agênticas"
+          alt="Dalton Lab – Transformação Agêntica com IA"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
             videoLoaded ? 'opacity-0' : 'opacity-60'
           }`}

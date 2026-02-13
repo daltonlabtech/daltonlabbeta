@@ -92,9 +92,7 @@ const Header = () => {
           {/* Right side - CTA + Language Selector (Desktop) */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="https://chat.daltonlab.ai/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:administrativo@daltonlab.ai"
               onClick={handleCtaClick}
               className="px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-all"
               style={{
@@ -142,9 +140,7 @@ const Header = () => {
                 {/* CTA */}
                 <div className="pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
                   <a
-                    href="https://chat.daltonlab.ai/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="mailto:administrativo@daltonlab.ai"
                     onClick={handleCtaClick}
                     className="block w-full px-4 py-3 rounded-full text-sm font-medium text-center hover:opacity-90 transition-all"
                     style={{

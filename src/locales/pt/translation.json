@@ -6,7 +6,7 @@
     "media": "Mídia",
     "talkToDalton": "Fale com o Dalton",
     "about": "Quem Somos",
-    "startTransformation": "Falar com Especialista"
+    "startTransformation": "Fale conosco"
   },
   "pages": {
     "produto": {
@@ -29,20 +29,20 @@
     }
   },
   "hero": {
-    "poweredBy": "Powered by",
+    "poweredBy": "Presente em",
     "titleLine1": "Transforme sua empresa",
     "titleLine2": "em uma Organização Agêntica",
     "titleLine2Mobile": "em uma Organização",
     "titleLine3Mobile": "Agêntica",
-    "subtitle1": "Implementamos Agentes de IA sob medida para o seu negócio, analisando suas necessidades e preparando seu time para a nova era da produtividade.",
+    "subtitle1": "",
     "subtitle2": "",
-    "cta": "Falar com Especialista"
+    "cta": "Fale conosco"
   },
   "home": {
     "definition": {
-      "title": "A primeira startup do Brasil especializada em transformar empresas em organizações AI-first",
-      "titleLine1": "A primeira startup do Brasil especializada em",
-      "titleLine2": "transformar empresas em organizações AI-first",
+      "title": "A primeira empresa do Brasil especializada em transformação agêntica",
+      "titleLine1": "A primeira empresa do Brasil",
+      "titleLine2": "especializada em transformação agêntica",
       "paragraph1": "",
       "paragraph2": "",
       "paragraph3": ""
@@ -78,26 +78,20 @@
       "pillars": [
         {
           "number": "01",
-          "title": "Diagnóstico",
-          "summary": "Mapeamos sua operação e identificamos oportunidades de transformação com IA.",
-          "details": "Realizamos uma análise profunda dos seus processos, tecnologias e equipe para criar um plano estratégico personalizado de transformação agêntica."
-        },
-        {
-          "number": "02",
           "title": "Processos\nAI-first",
-          "summary": "Redesenhe processos com inteligência artificial no centro da operação.",
+          "summary": "Redesenhamos seus processos colocando a inteligência artificial no centro da operação",
           "details": "Mapeamos seus fluxos de trabalho atuais e identificamos oportunidades de automação com IA. Cada workflow é redesenhado para maximizar eficiência, eliminar gargalos e criar processos que escalam naturalmente."
         },
         {
-          "number": "03",
+          "number": "02",
           "title": "Pessoas e cultura",
-          "summary": "Prepare sua equipe para colaborar com agentes de IA.",
+          "summary": "Capacitamos suas equipes para colaborar efetivamente com agentes de IA",
           "details": "Desenvolvemos programas de capacitação e mudança cultural para que sua equipe se adapte ao modelo cooperativo. O objetivo é que humanos e agentes trabalhem em sinergia, cada um focado no que faz melhor."
         },
         {
-          "number": "04",
+          "number": "03",
           "title": "Tecnologia",
-          "summary": "Implemente a infraestrutura agêntica adequada ao seu negócio.",
+          "summary": "Construímos e implementamos a infraestrutura agêntica ideal para seu negócio",
           "details": "Selecionamos e integramos as tecnologias certas para sua operação. Desde modelos de linguagem até plataformas de automação, construímos a stack tecnológica que sustenta sua transformação agêntica."
         }
       ],
@@ -159,7 +153,7 @@
           "Integração entre sistemas legados"
         ]
       },
-      "cta": "Falar com Especialista",
+      "cta": "Fale conosco",
       "comingSoon": "Em breve"
     },
     "finalCta": {
@@ -173,6 +167,7 @@
       "sectionTitle": "MÍDIA DESTAQUE",
       "label": "NOTÍCIA",
       "blogLabel": "BLOG POST",
+      "podcastLabel": "PODCAST",
       "featured": {
         "title": "O aporte de um sócio do atacadista Mundial Mix em uma startup de IA",
         "source": "Veja Negócios",

@@ -37,8 +37,8 @@ const ProspectionSection = () => {
   };
 
   const handleCtaClick = () => {
-    trackCtaClick(t('home.prospection.cta'), `prospection_${activeTab}`, 'https://chat.daltonlab.ai/');
-    window.open('https://chat.daltonlab.ai/', '_blank', 'noopener,noreferrer');
+    trackCtaClick(t('home.prospection.cta'), `prospection_${activeTab}`, 'mailto:administrativo@daltonlab.ai');
+    window.location.href = 'mailto:administrativo@daltonlab.ai';
   };
 
   return (

@@ -141,6 +141,29 @@ const MediaSection = () => {
             </a>
           ))}
         </div>
+
+        {/* Podcast Embed */}
+        <div
+          className={`mt-6 md:mt-12 ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(5)}
+        >
+          <span
+            className="inline-block text-[10px] md:text-xs font-semibold tracking-[0.15em] uppercase mb-3 md:mb-4"
+            style={{ color: 'rgba(16, 24, 35, 0.5)' }}
+          >
+            {t('home.media.podcastLabel')}
+          </span>
+          <iframe
+            style={{ borderRadius: '12px' }}
+            src="https://open.spotify.com/embed/episode/6VzyyF8zIzsB5oecGUjWIY?utm_source=generator&theme=0"
+            width="100%"
+            height="152"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Podcast Dalton Lab"
+          />
+        </div>
       </div>
     </section>
   );

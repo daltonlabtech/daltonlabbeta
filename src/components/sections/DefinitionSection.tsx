@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Play } from 'lucide-react';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 
 interface StatItem {
@@ -83,25 +82,29 @@ const DefinitionSection = () => {
           <span className="block">{t('home.definition.titleLine2')}</span>
         </h2>
 
-        {/* Video Placeholder */}
+        {/* Text content replacing video */}
         <div
-          className={`relative w-full max-w-4xl mx-auto mb-10 md:mb-16 rounded-xl md:rounded-2xl overflow-hidden ${revealClasses(isVisible)}`}
-          style={{ ...getStaggerDelay(1), aspectRatio: '16/9', backgroundColor: '#1a1f2e' }}
+          className={`w-full max-w-4xl mx-auto mb-10 md:mb-16 space-y-4 md:space-y-6 ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(1)}
         >
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-            <div
-              className="w-14 h-14 md:w-20 md:h-20 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: 'rgba(245, 243, 240, 0.15)' }}
-            >
-              <Play className="w-6 h-6 md:w-8 md:h-8 ml-1" style={{ color: 'rgba(245, 243, 240, 0.7)' }} />
-            </div>
-            <span
-              className="text-xs md:text-sm font-medium"
-              style={{ color: 'rgba(245, 243, 240, 0.5)' }}
-            >
-              Vídeo em breve
-            </span>
-          </div>
+          <p
+            className="text-sm md:text-base lg:text-lg leading-relaxed"
+            style={{ color: 'rgba(16, 24, 35, 0.75)' }}
+          >
+            A inteligência artificial está provocando a maior reestruturação organizacional desde a revolução digital. Não se trata mais de uma ferramenta, mas de uma nova arquitetura de negócios onde humanos e agentes de IA trabalham em conjunto, em escala. Chamamos isso de organização agêntica.
+          </p>
+          <p
+            className="text-sm md:text-base lg:text-lg leading-relaxed"
+            style={{ color: 'rgba(16, 24, 35, 0.75)' }}
+          >
+            O verdadeiro desafio, no entanto, não é a falta de conhecimento sobre IA. É a paralisia que existe entre saber que é preciso agir e não saber como começar. Essa incerteza não é apenas estratégica; ela se traduz em perda de eficiência, tempo e vantagem competitiva todos os dias.
+          </p>
+          <p
+            className="text-sm md:text-base lg:text-lg leading-relaxed"
+            style={{ color: 'rgba(16, 24, 35, 0.75)' }}
+          >
+            No Dalton Lab, eliminamos essa lacuna começando pelo processo, não pela tecnologia. Convertemos a incerteza em um plano de transformação claro, redesenhando seu modelo operacional para uma simbiose real entre humanos e agentes. Lideramos a construção de um sistema robusto, projetado para gerar valor exponencial e posicionar sua empresa à frente da concorrência.
+          </p>
         </div>
 
         {/* Stats */}

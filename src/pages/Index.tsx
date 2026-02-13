@@ -23,6 +23,11 @@ const prefetchSections = () => {
 
 const Index = () => {
   useEffect(() => {
+    document.title = 'Dalton Lab – Transforme sua Empresa em uma Organização Agêntica';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'A Dalton Lab transforma empresas em organizações agênticas com agentes de IA sob medida. Diagnóstico, processos AI-first, capacitação e tecnologia para escalar resultados.');
+    }
     const cleanup = prefetchSections();
     return cleanup;
   }, []);

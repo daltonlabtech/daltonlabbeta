@@ -28,107 +28,148 @@ const VennDiagram = ({ isVisible }: VennDiagramProps) => {
   return (
     <div className="flex justify-center items-center py-6 md:py-12">
       <svg
-        viewBox="0 0 500 440"
-        className="w-full max-w-[320px] md:max-w-[460px]"
+        viewBox="0 0 520 500"
+        className="w-full max-w-[320px] md:max-w-[480px]"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <linearGradient id="grad-pessoas" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#6366f1" />
-            <stop offset="100%" stopColor="#8b5cf6" />
-          </linearGradient>
-          <linearGradient id="grad-ia" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ec4899" />
-            <stop offset="100%" stopColor="#f43f5e" />
-          </linearGradient>
-          <linearGradient id="grad-processos" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#14b8a6" />
-            <stop offset="100%" stopColor="#06b6d4" />
-          </linearGradient>
+          {/* Pessoas - dark navy blue */}
+          <radialGradient id="grad-pessoas" cx="50%" cy="40%" r="50%">
+            <stop offset="0%" stopColor="#2a4a7f" />
+            <stop offset="100%" stopColor="#1a2d52" />
+          </radialGradient>
+          {/* IA - purple */}
+          <radialGradient id="grad-ia" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#7b5ea7" />
+            <stop offset="100%" stopColor="#5a3d82" />
+          </radialGradient>
+          {/* Processos - teal */}
+          <radialGradient id="grad-processos" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#3dbdb2" />
+            <stop offset="100%" stopColor="#2a9d93" />
+          </radialGradient>
         </defs>
 
-        {/* Circles */}
+        {/* IA circle - bottom left */}
         <motion.circle
-          cx="200" cy="170" r="140"
-          fill="url(#grad-pessoas)" opacity="0.35"
-          custom={0} variants={circleVariants}
-          initial="hidden" animate={isVisible ? 'visible' : 'hidden'}
-        />
-        <motion.circle
-          cx="300" cy="170" r="140"
-          fill="url(#grad-ia)" opacity="0.35"
-          custom={1} variants={circleVariants}
-          initial="hidden" animate={isVisible ? 'visible' : 'hidden'}
-        />
-        <motion.circle
-          cx="250" cy="270" r="140"
-          fill="url(#grad-processos)" opacity="0.35"
-          custom={2} variants={circleVariants}
-          initial="hidden" animate={isVisible ? 'visible' : 'hidden'}
+          cx="185" cy="310" r="150"
+          fill="url(#grad-ia)"
+          style={{ mixBlendMode: 'multiply' }}
+          custom={1}
+          variants={circleVariants}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
         />
 
-        {/* Main circle labels */}
+        {/* Processos circle - bottom right */}
+        <motion.circle
+          cx="335" cy="310" r="150"
+          fill="url(#grad-processos)"
+          style={{ mixBlendMode: 'multiply' }}
+          custom={2}
+          variants={circleVariants}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
+        />
+
+        {/* Pessoas circle - top center */}
+        <motion.circle
+          cx="260" cy="180" r="150"
+          fill="url(#grad-pessoas)"
+          style={{ mixBlendMode: 'multiply' }}
+          custom={0}
+          variants={circleVariants}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
+        />
+
+        {/* Main circle labels - white, bold */}
         <motion.text
-          x="145" y="120" textAnchor="middle"
-          className="fill-[#101824] font-inter font-bold text-[15px] md:text-[16px]"
-          custom={0} variants={labelVariants}
-          initial="hidden" animate={isVisible ? 'visible' : 'hidden'}
+          x="260" y="120" textAnchor="middle"
+          className="font-inter font-bold text-[22px] md:text-[24px]"
+          fill="white"
+          custom={0}
+          variants={labelVariants}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
         >
           Pessoas
         </motion.text>
 
         <motion.text
-          x="355" y="120" textAnchor="middle"
-          className="fill-[#101824] font-inter font-bold text-[15px] md:text-[16px]"
-          custom={1} variants={labelVariants}
-          initial="hidden" animate={isVisible ? 'visible' : 'hidden'}
+          x="130" y="380" textAnchor="middle"
+          className="font-inter font-bold text-[18px] md:text-[20px]"
+          fill="white"
+          custom={1}
+          variants={labelVariants}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
         >
-          IA
+          <tspan x="130" dy="0">Inteligência</tspan>
+          <tspan x="130" dy="24">Artificial</tspan>
         </motion.text>
 
         <motion.text
-          x="250" y="390" textAnchor="middle"
-          className="fill-[#101824] font-inter font-bold text-[15px] md:text-[16px]"
-          custom={2} variants={labelVariants}
-          initial="hidden" animate={isVisible ? 'visible' : 'hidden'}
+          x="390" y="380" textAnchor="middle"
+          className="font-inter font-bold text-[22px] md:text-[24px]"
+          fill="white"
+          custom={2}
+          variants={labelVariants}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
         >
           Processos
         </motion.text>
 
-        {/* Intersection labels */}
+        {/* Intersection labels - white */}
+        {/* Produtividade: Pessoas + IA (top-left intersection) */}
         <motion.text
-          x="250" y="145" textAnchor="middle"
-          className="fill-[#101824] font-inter font-semibold text-[13px]"
-          custom={3} variants={labelVariants}
-          initial="hidden" animate={isVisible ? 'visible' : 'hidden'}
+          x="200" y="245" textAnchor="middle"
+          className="font-inter font-semibold text-[14px]"
+          fill="white"
+          custom={3}
+          variants={labelVariants}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
         >
           Produtividade
         </motion.text>
 
+        {/* Organização: Pessoas + Processos (top-right intersection) */}
         <motion.text
-          x="310" y="255" textAnchor="middle"
-          className="fill-[#101824] font-inter font-semibold text-[13px]"
-          custom={4} variants={labelVariants}
-          initial="hidden" animate={isVisible ? 'visible' : 'hidden'}
-        >
-          Automação
-        </motion.text>
-
-        <motion.text
-          x="190" y="255" textAnchor="middle"
-          className="fill-[#101824] font-inter font-semibold text-[13px]"
-          custom={5} variants={labelVariants}
-          initial="hidden" animate={isVisible ? 'visible' : 'hidden'}
+          x="320" y="245" textAnchor="middle"
+          className="font-inter font-semibold text-[14px]"
+          fill="white"
+          custom={4}
+          variants={labelVariants}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
         >
           Organização
         </motion.text>
 
-        {/* Center label */}
+        {/* Automação: IA + Processos (bottom intersection) */}
         <motion.text
-          x="250" y="215" textAnchor="middle"
-          className="fill-[#101824] font-inter font-extrabold text-[15px]"
-          custom={6} variants={labelVariants}
-          initial="hidden" animate={isVisible ? 'visible' : 'hidden'}
+          x="260" y="370" textAnchor="middle"
+          className="font-inter font-semibold text-[14px]"
+          fill="white"
+          custom={5}
+          variants={labelVariants}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
+        >
+          Automação
+        </motion.text>
+
+        {/* Center label - Resultados */}
+        <motion.text
+          x="260" y="295" textAnchor="middle"
+          className="font-inter font-extrabold text-[16px]"
+          fill="white"
+          custom={6}
+          variants={labelVariants}
+          initial="hidden"
+          animate={isVisible ? 'visible' : 'hidden'}
         >
           Resultados
         </motion.text>

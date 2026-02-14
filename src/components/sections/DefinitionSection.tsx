@@ -92,6 +92,13 @@ const DefinitionSection = () => {
             style={{ color: 'rgba(16, 24, 35, 0.75)' }}
           >
             Empresas no mundo inteiro investiram bilhões em IA. A maioria não viu retorno. O motivo é simples: tentaram substituir pessoas, jogaram tecnologia em cima de processos desorganizados e esperaram resultados automáticos. As empresas que tem resultado precisam pensar e fazer diferente.
+            <sup
+              className="ml-1 text-[10px] md:text-xs font-medium cursor-default"
+              style={{ color: 'rgba(16, 24, 35, 0.4)' }}
+              title="MIT Technology Review Brasil"
+            >
+              ¹
+            </sup>
           </p>
           <p
             className="text-sm md:text-base lg:text-lg leading-relaxed"
@@ -105,13 +112,36 @@ const DefinitionSection = () => {
           >
             Construímos organizações agênticas onde humanos fazem trabalho humano e agentes fazem trabalho operacional. Operações mais eficientes, times em alta performance e ROI concreto.
           </p>
+          <p
+            className="text-[10px] md:text-xs italic"
+            style={{ color: 'rgba(16, 24, 35, 0.35)' }}
+          >
+            ¹ Estudo publicado pelo MIT Technology Review Brasil
+          </p>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mb-8 md:mb-12">
           {stats.map((item, index) => (
             <StatCard key={index} item={item} isVisible={isVisible} index={index} />
           ))}
+        </div>
+
+        {/* CTA */}
+        <div
+          className={`text-center ${revealClasses(isVisible)}`}
+          style={getStaggerDelay(3)}
+        >
+          <a
+            href="https://formulario.daltonlab.ai/"
+            className="inline-flex items-center justify-center font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+            style={{
+              backgroundColor: '#101824',
+              color: '#F5F3F0',
+            }}
+          >
+            Fale conosco
+          </a>
         </div>
       </div>
     </section>

@@ -132,7 +132,7 @@ const VennDiagram = ({ isVisible }: VennDiagramProps) => {
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
         >
-          Produtividade
+          Output
         </motion.text>
 
         {/* Organização: Pessoas + Processos (top-right intersection) */}
@@ -145,7 +145,7 @@ const VennDiagram = ({ isVisible }: VennDiagramProps) => {
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
         >
-          Organização
+          Gestão
         </motion.text>
 
         {/* Automação: IA + Processos (bottom intersection) */}

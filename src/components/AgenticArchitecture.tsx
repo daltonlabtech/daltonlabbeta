@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
 import { User, Bot, Database, ChevronDown } from 'lucide-react';
 
-/* ── Floating animation presets ── */
-const float = (delay: number, dx = 0, dy = 6) => ({
-  y: [0, -dy, 0, dy * 0.5, 0],
-  x: [0, dx, 0, -dx * 0.5, 0],
-  transition: { duration: 12 + delay * 2, repeat: Infinity, ease: 'easeInOut' as const, delay: delay * 0.8 },
-});
+/* ── Pulse dot: simulates data flowing ── */
+const PulseDot = ({ delay = 0 }: { delay?: number }) => (
+  <motion.div
+    className="w-1.5 h-1.5 rounded-full bg-emerald-400"
+    animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.1, 0.8] }}
+    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay }}
+  />
+);
 
 /* ── Node card ── */
 const NodeCard = ({
@@ -16,8 +18,6 @@ const NodeCard = ({
   badge,
   badgeColor = 'bg-blue-100 text-blue-600',
   details,
-  floatDelay,
-  className = '',
 }: {
   label: string;
   sub: string;
@@ -25,12 +25,9 @@ const NodeCard = ({
   badge?: string;
   badgeColor?: string;
   details?: { key: string; value: string }[];
-  floatDelay: number;
-  className?: string;
 }) => (
-  <motion.div
-    animate={float(floatDelay, 2)}
-    className={`rounded-xl border border-black/[0.07] p-3 md:p-4 shadow-sm ${className}`}
+  <div
+    className="rounded-xl border border-black/[0.07] p-3 md:p-4 shadow-sm"
     style={{ backgroundColor: '#FAFAF8' }}
   >
     {badge && (
@@ -58,36 +55,33 @@ const NodeCard = ({
         ))}
       </div>
     )}
-  </motion.div>
+  </div>
 );
 
-/* ── Link pill ── */
-const LinkPill = ({ label, floatDelay }: { label: string; floatDelay: number }) => (
-  <motion.div
-    animate={float(floatDelay, 1, 3)}
+/* ── Flow connector: animated dashes traveling downward ── */
+const FlowConnector = ({ delay = 0 }: { delay?: number }) => (
+  <div className="flex justify-center h-6 md:h-7 overflow-hidden">
+    <div className="relative w-px h-full" style={{ backgroundColor: 'rgba(16,24,35,0.08)' }}>
+      <motion.div
+        className="absolute w-px"
+        style={{ height: 6, backgroundColor: 'rgba(16,24,35,0.3)', top: -6 }}
+        animate={{ top: [-6, 28] }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: 'linear', delay }}
+      />
+    </div>
+  </div>
+);
+
+/* ── Link pill with flowing dot ── */
+const LinkPill = ({ label, delay = 0 }: { label: string; delay?: number }) => (
+  <div
     className="inline-flex items-center px-3 py-1 rounded-full border border-black/[0.07] shadow-sm"
     style={{ backgroundColor: '#FAFAF8' }}
   >
-    <motion.div
-      className="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-2"
-      animate={{ opacity: [0.4, 1, 0.4] }}
-      transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: floatDelay * 0.3 }}
-    />
-    <span className="font-inter font-medium text-[9px] md:text-[10px]" style={{ color: 'rgba(16,24,35,0.5)' }}>
+    <PulseDot delay={delay} />
+    <span className="ml-2 font-inter font-medium text-[9px] md:text-[10px]" style={{ color: 'rgba(16,24,35,0.5)' }}>
       {label}
     </span>
-  </motion.div>
-);
-
-/* ── Connector line (vertical dashed) ── */
-const Connector = ({ h = 24 }: { h?: number }) => (
-  <div className="flex justify-center" style={{ height: h }}>
-    <motion.div
-      className="w-px h-full"
-      style={{ backgroundImage: 'repeating-linear-gradient(180deg, rgba(16,24,35,0.12) 0, rgba(16,24,35,0.12) 4px, transparent 4px, transparent 8px)' }}
-      animate={{ opacity: [0.5, 1, 0.5] }}
-      transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-    />
   </div>
 );
 
@@ -97,12 +91,11 @@ const AgenticArchitecture = () => {
       className="w-full rounded-2xl md:rounded-3xl p-5 md:p-8 lg:p-10 overflow-hidden border border-black/[0.04]"
       style={{ backgroundColor: '#F0EEEB' }}
     >
-      {/* Header badges - like the reference top row */}
+      {/* Header badges */}
       <div className="flex flex-wrap justify-center gap-3 md:gap-5 mb-5 md:mb-8">
         {['Liderança', 'Controle', 'Agentes IA', 'Dados'].map((label, i) => (
-          <motion.span
+          <span
             key={label}
-            animate={float(i, 1, 2)}
             className="font-inter font-medium text-[10px] md:text-[11px] tracking-wide flex items-center gap-1.5"
             style={{ color: 'rgba(16,24,35,0.45)' }}
           >
@@ -111,73 +104,88 @@ const AgenticArchitecture = () => {
               opacity: 0.6,
             }} />
             {label}
-          </motion.span>
+          </span>
         ))}
       </div>
 
-      {/* Main grid - organic node layout */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-3">
-        <NodeCard label="CEO" sub="estratégia.geral" icon={User} badge="Liderança" badgeColor="bg-blue-50 text-blue-500" floatDelay={0} />
-        <NodeCard label="Dir. Comercial" sub="vendas.pipeline" icon={User} badge="Liderança" badgeColor="bg-blue-50 text-blue-500" floatDelay={1}
-          details={[
-            { key: 'Agentes', value: '3 ativos' },
-            { key: 'Pipeline', value: 'R$ 2.4M' },
-          ]}
+      {/* Layer 1: Leaders — 4 on desktop, 2 on mobile */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-2">
+        <NodeCard label="CEO" sub="estratégia.geral" icon={User} badge="Liderança" badgeColor="bg-blue-50 text-blue-500" />
+        <NodeCard label="Dir. Comercial" sub="vendas.pipeline" icon={User} badge="Liderança" badgeColor="bg-blue-50 text-blue-500"
+          details={[{ key: 'Agentes', value: '3 ativos' }, { key: 'Pipeline', value: 'R$ 2.4M' }]}
         />
-        <NodeCard label="Dir. Marketing" sub="marketing.growth" icon={User} badge="Liderança" badgeColor="bg-blue-50 text-blue-500" floatDelay={2} />
-        <NodeCard label="CFO" sub="financeiro.core" icon={User} badge="Liderança" badgeColor="bg-blue-50 text-blue-500" floatDelay={3} />
+        {/* Hidden on mobile */}
+        <div className="hidden md:block">
+          <NodeCard label="Dir. Marketing" sub="marketing.growth" icon={User} badge="Liderança" badgeColor="bg-blue-50 text-blue-500" />
+        </div>
+        <div className="hidden md:block">
+          <NodeCard label="CFO" sub="financeiro.core" icon={User} badge="Liderança" badgeColor="bg-blue-50 text-blue-500" />
+        </div>
+      </div>
+
+      {/* Flow connectors */}
+      <div className="flex justify-around px-8 md:px-16">
+        <FlowConnector delay={0} />
+        <FlowConnector delay={0.8} />
+        <FlowConnector delay={1.6} />
       </div>
 
       {/* Links row */}
       <div className="flex justify-around px-4 md:px-12 mb-1">
-        <LinkPill label="Briefing" floatDelay={0} />
-        <LinkPill label="Aprovação" floatDelay={1.5} />
-        <LinkPill label="Review" floatDelay={3} />
+        <LinkPill label="Briefing" delay={0} />
+        <LinkPill label="Aprovação" delay={1} />
+        <span className="hidden md:inline-flex"><LinkPill label="Review" delay={2} /></span>
       </div>
 
-      <Connector h={20} />
+      <div className="flex justify-around px-8 md:px-16">
+        <FlowConnector delay={0.4} />
+        <FlowConnector delay={1.2} />
+        <FlowConnector delay={2} />
+      </div>
 
-      {/* Agents row */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-3">
-        <NodeCard label="Agente SDR" sub="prospecção.outbound" icon={Bot} badge="Comercial" badgeColor="bg-emerald-50 text-emerald-600" floatDelay={1}
-          details={[
-            { key: 'Status', value: 'Ativo' },
-            { key: 'Owner', value: 'Squad Vendas' },
-            { key: 'Output', value: '50 msgs/dia' },
-            { key: 'Resposta', value: '18%' },
-          ]}
+      {/* Layer 3: Agents — 4 on mobile, 6 on desktop */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 mb-2">
+        <NodeCard label="Agente SDR" sub="prospecção.outbound" icon={Bot} badge="Comercial" badgeColor="bg-emerald-50 text-emerald-600"
+          details={[{ key: 'Status', value: 'Ativo' }, { key: 'Output', value: '50 msgs/dia' }, { key: 'Resposta', value: '18%' }]}
         />
-        <NodeCard label="Agente Conteúdo" sub="marketing.content" icon={Bot} badge="Marketing" badgeColor="bg-purple-50 text-purple-600" floatDelay={2} />
-        <NodeCard label="Agente Cobrança" sub="financeiro.billing" icon={Bot} badge="Financeiro" badgeColor="bg-amber-50 text-amber-600" floatDelay={3}
-          details={[
-            { key: 'Status', value: 'Ativo' },
-            { key: 'Recuperação', value: '32%' },
-          ]}
+        <NodeCard label="Agente Conteúdo" sub="marketing.content" icon={Bot} badge="Marketing" badgeColor="bg-purple-50 text-purple-600" />
+        <NodeCard label="Agente Cobrança" sub="financeiro.billing" icon={Bot} badge="Financeiro" badgeColor="bg-amber-50 text-amber-600"
+          details={[{ key: 'Status', value: 'Ativo' }, { key: 'Recuperação', value: '32%' }]}
         />
-        <NodeCard label="Agente Follow-up" sub="vendas.nurturing" icon={Bot} badge="Comercial" badgeColor="bg-emerald-50 text-emerald-600" floatDelay={4} />
-        <NodeCard label="Agente Anúncios" sub="marketing.ads" icon={Bot} badge="Marketing" badgeColor="bg-purple-50 text-purple-600" floatDelay={5}
-          details={[
-            { key: 'Status', value: 'Em Treinamento' },
-            { key: 'ROAS', value: '4.2x' },
-          ]}
-        />
-        <NodeCard label="Agente Forecast" sub="financeiro.predict" icon={Bot} badge="Financeiro" badgeColor="bg-amber-50 text-amber-600" floatDelay={6} />
+        <NodeCard label="Agente Follow-up" sub="vendas.nurturing" icon={Bot} badge="Comercial" badgeColor="bg-emerald-50 text-emerald-600" />
+        {/* Hidden on mobile */}
+        <div className="hidden md:block">
+          <NodeCard label="Agente Anúncios" sub="marketing.ads" icon={Bot} badge="Marketing" badgeColor="bg-purple-50 text-purple-600"
+            details={[{ key: 'Status', value: 'Em Treinamento' }, { key: 'ROAS', value: '4.2x' }]}
+          />
+        </div>
+        <div className="hidden md:block">
+          <NodeCard label="Agente Forecast" sub="financeiro.predict" icon={Bot} badge="Financeiro" badgeColor="bg-amber-50 text-amber-600" />
+        </div>
+      </div>
+
+      {/* Flow connectors */}
+      <div className="flex justify-around px-8 md:px-16">
+        <FlowConnector delay={0.6} />
+        <FlowConnector delay={1.4} />
       </div>
 
       {/* Links row */}
       <div className="flex justify-around px-4 md:px-16 mb-1">
-        <LinkPill label="Dados" floatDelay={2} />
-        <LinkPill label="Sync" floatDelay={4} />
+        <LinkPill label="Dados" delay={1.5} />
+        <LinkPill label="Sync" delay={2.5} />
       </div>
 
-      <Connector h={20} />
+      <div className="flex justify-around px-8 md:px-16">
+        <FlowConnector delay={1} />
+        <FlowConnector delay={1.8} />
+      </div>
 
-      {/* Data sources */}
-      <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 max-w-md mx-auto">
-        {['CRM', 'ERP', 'APIs'].map((label, i) => (
-          <motion.div
+      {/* Layer 4: Data sources */}
+      <div className="grid grid-cols-3 gap-2 md:gap-3 max-w-xs md:max-w-md mx-auto">
+        {['CRM', 'ERP', 'APIs'].map((label) => (
+          <div
             key={label}
-            animate={float(i + 5, 1, 3)}
             className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg border border-black/[0.06]"
             style={{ backgroundColor: '#FAFAF8' }}
           >
@@ -185,7 +193,7 @@ const AgenticArchitecture = () => {
             <span className="font-inter font-medium text-[10px] md:text-[11px]" style={{ color: 'rgba(16,24,35,0.45)' }}>
               {label}
             </span>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

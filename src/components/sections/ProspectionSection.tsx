@@ -61,7 +61,7 @@ const ProspectionSection = () => {
           <AgenticArchitecture />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] gap-6 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] gap-6 lg:gap-12 items-center">
           {/* Left: Title */}
           <div className={`${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
             <h2

@@ -51,7 +51,7 @@ const ProspectionSection = () => {
           (sectionRef as React.MutableRefObject<HTMLElement | null>).current = el;
         }
       }}
-      className="py-2 md:py-[35px]"
+      className="py-10 md:py-[100px]"
       style={{ backgroundColor: '#E8E6E3' }}
     >
       <div className="container-main">

@@ -78,7 +78,7 @@ const DefinitionSection = () => {
           className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-6 md:mb-10 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
         >
-          <span className="block mb-2 md:mb-4">{t('home.definition.titleLine1')}</span>
+          <span className="block">{t('home.definition.titleLine1')}</span>
           <span className="block">{t('home.definition.titleLine2')}</span>
         </h2>
 
@@ -91,7 +91,7 @@ const DefinitionSection = () => {
             className="text-sm md:text-base lg:text-lg leading-relaxed"
             style={{ color: 'rgba(16, 24, 35, 0.75)' }}
           >
-            Empresas no mundo inteiro investiram bilhões em IA. A maioria não viu retorno. O motivo é simples: tentaram substituir pessoas, jogaram tecnologia em cima de processos desorganizados e esperaram resultados automáticos. Mas os que tiveram resultado fizeram diferente.
+            Empresas no mundo inteiro investiram bilhões em IA. A maioria não viu retorno. O motivo é simples: tentaram substituir pessoas, jogaram tecnologia em cima de processos desorganizados e esperaram resultados automáticos. As empresas que tem resultado precisam pensar e fazer diferente.
           </p>
           <p
             className="text-sm md:text-base lg:text-lg leading-relaxed"

@@ -50,18 +50,18 @@
     "stats": {
       "items": [
         {
-          "value": "+300",
-          "number": 300,
+          "value": "+584",
+          "number": 584,
           "prefix": "+",
           "suffix": "",
-          "description": "profissionais capacitados em IA agêntica"
+          "description": "profissionais impactados diretamente"
         },
         {
-          "value": "+60",
-          "number": 60,
+          "value": "+63",
+          "number": 63,
           "prefix": "+",
           "suffix": "",
-          "description": "agentes de IA implementados"
+          "description": "IAs implementadas"
         },
         {
           "value": ">50%",

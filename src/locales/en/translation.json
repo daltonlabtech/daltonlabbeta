@@ -50,11 +50,18 @@
     "stats": {
       "items": [
         {
-          "value": ">30%",
-          "number": 30,
-          "prefix": ">",
-          "suffix": "%",
-          "description": "faster decision making"
+          "value": "+584",
+          "number": 584,
+          "prefix": "+",
+          "suffix": "",
+          "description": "professionals directly impacted"
+        },
+        {
+          "value": "+63",
+          "number": 63,
+          "prefix": "+",
+          "suffix": "",
+          "description": "AIs implemented"
         },
         {
           "value": ">50%",
@@ -62,13 +69,6 @@
           "prefix": ">",
           "suffix": "%",
           "description": "reduction in time and effort"
-        },
-        {
-          "value": ">80%",
-          "number": 80,
-          "prefix": ">",
-          "suffix": "%",
-          "description": "incidents resolved automatically"
         }
       ]
     },

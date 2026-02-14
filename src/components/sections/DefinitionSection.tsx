@@ -75,7 +75,7 @@ const DefinitionSection = () => {
       <div className="container-main">
         {/* Title */}
         <h2
-          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-6 md:mb-10 ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight md:leading-snug text-center mb-6 md:mb-10 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
         >
           <span className="block">{t('home.definition.titleLine1')}</span>

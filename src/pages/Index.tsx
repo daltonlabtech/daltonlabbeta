@@ -37,12 +37,12 @@ const Index = () => {
       <Header />
       <HomeHeroSection />
       
-      <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
-        <DefinitionSection />
-      </Suspense>
-
       <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
         <JourneySection />
+      </Suspense>
+
+      <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
+        <DefinitionSection />
       </Suspense>
 
       <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>

@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
+import VennDiagram from '@/components/VennDiagram';
 
 interface Pillar {
   number: string;
@@ -68,6 +69,7 @@ const JourneySection = () => {
             {t('home.journey.subtitle')}
           </p>
         </div>
+        <VennDiagram isVisible={isVisible} />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
           {pillars.map((pillar, index) => (

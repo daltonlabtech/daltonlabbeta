@@ -56,22 +56,17 @@ const ProspectionSection = () => {
       style={{ backgroundColor: '#E8E6E3' }}
     >
       <div className="container-main">
-        {/* Title */}
-        <div className={`mb-8 md:mb-12 ${revealClasses(isVisible)}`}>
-          <h2
-            className="font-inter font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-snug lg:leading-[1.3]"
-            style={{ color: '#101824' }}
-          >
-            Reimagine seus setores AI-first
-          </h2>
-        </div>
-
-        {/* Architecture Diagram */}
-        <div className={`mb-10 md:mb-16 ${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
-          <AgenticArchitecture />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] gap-6 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] gap-6 lg:gap-12 items-start">
+          {/* Left: Title + Diagram */}
+          <div className={`${revealClasses(isVisible)}`}>
+            <h2
+              className="font-inter font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-snug lg:leading-[1.3] mb-6 md:mb-8"
+              style={{ color: '#101824' }}
+            >
+              Reimagine seus setores AI-first
+            </h2>
+            <AgenticArchitecture />
+          </div>
 
           {/* Right: Card with tabs + content */}
           <div

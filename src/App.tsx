@@ -10,7 +10,7 @@ import { UpdateNotification } from "@/components/ui/UpdateNotification";
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
 const Produto = lazy(() => import("./pages/Produto"));
-const FaleComDalton = lazy(() => import("./pages/FaleComDalton"));
+
 const Newton = lazy(() => import("./pages/Newton"));
 const QuemSomos = lazy(() => import("./pages/QuemSomos"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
@@ -108,7 +108,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/produto" element={<Produto />} />
-              <Route path="/fale-com-o-dalton" element={<FaleComDalton />} />
+              
               <Route path="/newton" element={<Newton />} />
               <Route path="/quem-somos" element={<QuemSomos />} />
               <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />

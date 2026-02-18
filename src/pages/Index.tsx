@@ -8,6 +8,7 @@ const DefinitionSection = lazy(() => import("@/components/sections/DefinitionSec
 const JourneySection = lazy(() => import("@/components/sections/JourneySection"));
 const ProspectionSection = lazy(() => import("@/components/sections/ProspectionSection"));
 const HomeFinalCTASection = lazy(() => import("@/components/sections/HomeFinalCTASection"));
+const GlobalMapSection = lazy(() => import("@/components/sections/GlobalMapSection"));
 const MediaSection = lazy(() => import("@/components/sections/MediaSection"));
 const Footer = lazy(() => import("@/components/sections/Footer"));
 
@@ -51,6 +52,10 @@ const Index = () => {
 
       <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
         <HomeFinalCTASection />
+      </Suspense>
+
+      <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
+        <GlobalMapSection />
       </Suspense>
 
       <Suspense fallback={<SkeletonSection height="min-h-[300px]" showCards />}>

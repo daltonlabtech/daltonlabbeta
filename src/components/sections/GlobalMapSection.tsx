@@ -11,23 +11,23 @@ const INDUSTRIES: { label: string; bg: string; text: string; border: string }[] 
 ];
 
 const PULSE_POINTS = [
-  { name: 'Manaus', left: '27%', top: '48%', size: 8, delay: 0 },
-  { name: 'Fortaleza', left: '33%', top: '50%', size: 8, delay: 0.3 },
-  { name: 'Recife', left: '34%', top: '53%', size: 8, delay: 0.6 },
-  { name: 'Salvador', left: '33%', top: '56%', size: 8, delay: 0.9 },
-  { name: 'Belo Horizonte', left: '31%', top: '59%', size: 8, delay: 1.2 },
-  { name: 'São Paulo', left: '30%', top: '63%', size: 11, delay: 1.5 },
-  { name: 'Rio de Janeiro', left: '31%', top: '61%', size: 8, delay: 1.8 },
-  { name: 'Portugal', left: '45%', top: '32%', size: 8, delay: 0.4 },
-  { name: 'Coreia do Sul', left: '83%', top: '30%', size: 8, delay: 0.7 },
-  { name: 'Angola', left: '54%', top: '58%', size: 8, delay: 1.0 },
+  { name: 'Manaus', left: '22%', top: '55%', size: 8, delay: 0 },
+  { name: 'Fortaleza', left: '27.5%', top: '56%', size: 8, delay: 0.3 },
+  { name: 'Recife', left: '28%', top: '59%', size: 8, delay: 0.6 },
+  { name: 'Salvador', left: '27%', top: '62%', size: 8, delay: 0.9 },
+  { name: 'Belo Horizonte', left: '26%', top: '65%', size: 8, delay: 1.2 },
+  { name: 'São Paulo', left: '25%', top: '68%', size: 11, delay: 1.5 },
+  { name: 'Rio de Janeiro', left: '26%', top: '67%', size: 8, delay: 1.8 },
+  { name: 'Portugal', left: '45%', top: '33%', size: 8, delay: 0.4 },
+  { name: 'Coreia do Sul', left: '83%', top: '31%', size: 8, delay: 0.7 },
+  { name: 'Angola', left: '50%', top: '62%', size: 8, delay: 1.0 },
 ];
 
 const REGION_LABELS = [
-  { label: 'América do Sul', left: '24%', top: '50%' },
-  { label: 'Europa', left: '48%', top: '20%' },
-  { label: 'África', left: '55%', top: '46%' },
-  { label: 'Ásia', left: '78%', top: '18%' },
+  { label: 'América do Sul', left: '20%', top: '62%' },
+  { label: 'Europa', left: '48%', top: '25%' },
+  { label: 'África', left: '52%', top: '52%' },
+  { label: 'Ásia', left: '75%', top: '25%' },
 ];
 
 const PulsePoint = ({ left, top, size, delay }: { left: string; top: string; size: number; delay: number }) => (

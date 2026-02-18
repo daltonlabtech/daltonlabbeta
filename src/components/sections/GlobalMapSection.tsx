@@ -1,13 +1,13 @@
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
+import { useTypewriter } from '@/hooks/useTypewriter';
 import worldMapSolid from '@/assets/world-map-solid.png';
 
-
-const INDUSTRIES: { label: string; bg: string; text: string; border: string }[] = [
-  { label: 'Agro', bg: 'rgba(34,197,94,0.12)', text: '#15803d', border: 'rgba(34,197,94,0.25)' },
-  { label: 'Tecnologia', bg: 'rgba(245,158,11,0.12)', text: '#b45309', border: 'rgba(245,158,11,0.25)' },
-  { label: 'Saúde', bg: 'rgba(239,68,68,0.12)', text: '#b91c1c', border: 'rgba(239,68,68,0.25)' },
-  { label: 'Varejo', bg: 'rgba(245,158,11,0.12)', text: '#b45309', border: 'rgba(245,158,11,0.25)' },
-  { label: 'Advocacia', bg: 'rgba(139,92,246,0.12)', text: '#6d28d9', border: 'rgba(139,92,246,0.25)' },
+const SECTORS = [
+  { word: 'Agro', color: '#15803d' },
+  { word: 'Tecnologia', color: '#b45309' },
+  { word: 'Saúde', color: '#b91c1c' },
+  { word: 'Varejo', color: '#b45309' },
+  { word: 'Advocacia', color: '#6d28d9' },
 ];
 
 const PULSE_POINTS = [
@@ -49,6 +49,9 @@ const StaticPoint = ({ left, top, size }: { left: string; top: string; size: num
 
 const GlobalMapSection = () => {
   const { ref, isVisible } = useScrollReveal();
+  const { displayText, wordIndex } = useTypewriter({
+    words: SECTORS.map((s) => s.word),
+  });
 
   return (
     <section
@@ -58,27 +61,13 @@ const GlobalMapSection = () => {
     >
       <div className="container-main">
         <h2
-          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-4 md:mb-6 ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-8 md:mb-10 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
         >
-          O Dalton Lab é global. E está crescendo.
+          Atuação global nos setores de{' '}
+          <span style={{ color: SECTORS[wordIndex].color }}>{displayText}</span>
+          <span className="animate-pulse" style={{ color: SECTORS[wordIndex].color }}>|</span>
         </h2>
-
-        <div className={`flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-10 ${revealClasses(isVisible)}`}>
-          {INDUSTRIES.map((industry) => (
-            <span
-              key={industry.label}
-              className="font-inter text-xs md:text-sm font-medium px-4 py-1.5 rounded-full border"
-              style={{
-                color: industry.text,
-                borderColor: industry.border,
-                backgroundColor: industry.bg,
-              }}
-            >
-              {industry.label}
-            </span>
-          ))}
-        </div>
       </div>
 
       <div className={`w-full max-w-7xl mx-auto px-4 ${revealClasses(isVisible)}`}>

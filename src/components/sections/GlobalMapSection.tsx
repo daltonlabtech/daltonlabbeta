@@ -114,10 +114,10 @@ const GlobalMapSection = () => {
           projection="geoMercator"
           projectionConfig={{
             scale: 130,
-            center: [10, 30],
+            center: [10, 20],
           }}
           style={{ width: '100%', height: 'auto' }}
-          viewBox="0 0 800 450"
+          viewBox="0 0 800 480"
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>

@@ -1,10 +1,10 @@
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
 import worldMapSolid from '@/assets/world-map-solid.png';
-import { motion } from 'framer-motion';
+
 
 const INDUSTRIES: { label: string; bg: string; text: string; border: string }[] = [
   { label: 'Agro', bg: 'rgba(34,197,94,0.12)', text: '#15803d', border: 'rgba(34,197,94,0.25)' },
-  { label: 'Tecnologia', bg: 'rgba(59,130,246,0.12)', text: '#1d4ed8', border: 'rgba(59,130,246,0.25)' },
+  { label: 'Tecnologia', bg: 'rgba(245,158,11,0.12)', text: '#b45309', border: 'rgba(245,158,11,0.25)' },
   { label: 'Saúde', bg: 'rgba(239,68,68,0.12)', text: '#b91c1c', border: 'rgba(239,68,68,0.25)' },
   { label: 'Varejo', bg: 'rgba(245,158,11,0.12)', text: '#b45309', border: 'rgba(245,158,11,0.25)' },
   { label: 'Advocacia', bg: 'rgba(139,92,246,0.12)', text: '#6d28d9', border: 'rgba(139,92,246,0.25)' },
@@ -26,33 +26,17 @@ const PULSE_POINTS = [
 const REGION_LABELS = [
   { label: 'América do Sul', left: '25%', top: '64%' },
   { label: 'Europa', left: '48%', top: '25%' },
-  { label: 'África', left: '52%', top: '52%' },
-  { label: 'Ásia', left: '75%', top: '25%' },
+  { label: 'África', left: '52%', top: '54%' },
+  { label: 'Ásia', left: '77%', top: '25%' },
 ];
 
-const PulsePoint = ({ left, top, size, delay }: { left: string; top: string; size: number; delay: number }) => (
+const StaticPoint = ({ left, top, size }: { left: string; top: string; size: number }) => (
   <div
     className="absolute"
     style={{ left, top, transform: 'translate(-50%, -50%)' }}
   >
-    {/* Pulse ring */}
-    <motion.div
-      className="absolute rounded-full"
-      style={{
-        width: size * 2.5,
-        height: size * 2.5,
-        top: '50%',
-        left: '50%',
-        x: '-50%',
-        y: '-50%',
-        border: '2px solid #3B82F6',
-      }}
-      animate={{ opacity: [0.6, 0], scale: [1, 2.5] }}
-      transition={{ duration: 5, repeat: Infinity, delay, ease: 'easeOut' }}
-    />
-    {/* Solid dot */}
     <div
-      className="rounded-full relative"
+      className="rounded-full"
       style={{
         width: size,
         height: size,
@@ -126,12 +110,11 @@ const GlobalMapSection = () => {
 
           {/* Pulse points */}
           {PULSE_POINTS.map((point) => (
-            <PulsePoint
+            <StaticPoint
               key={point.name}
               left={point.left}
               top={point.top}
               size={point.size}
-              delay={point.delay}
             />
           ))}
         </div>

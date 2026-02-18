@@ -129,7 +129,9 @@ const GlobalMapSection = () => {
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
-              geographies.map((geo) => {
+              geographies
+                .filter((geo) => geo.properties.name !== 'Norway' && geo.properties.name !== 'Greenland')
+                .map((geo) => {
                 const name = geo.properties.name;
                 const fillColor = HIGHLIGHTED_COUNTRIES[name] || DEFAULT_COLOR;
                 const continent = CONTINENT_MAP[name];

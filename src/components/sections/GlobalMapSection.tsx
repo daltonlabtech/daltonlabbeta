@@ -85,7 +85,7 @@ const GlobalMapSection = () => {
     >
       <div className="container-main">
         <h2
-          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-4 md:mb-6 ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-8 md:mb-12 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
         >
           Atuação global nos setores de{' '}

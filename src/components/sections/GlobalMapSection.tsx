@@ -1,6 +1,9 @@
+import { useState } from 'react';
+import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
 import { useTypewriter } from '@/hooks/useTypewriter';
-import worldMapHighlighted from '@/assets/world-map-highlighted.png';
+
+const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
 const SECTORS = [
   { word: 'Agro', color: '#15803d' },
@@ -10,18 +13,70 @@ const SECTORS = [
   { word: 'Advocacia', color: '#6d28d9' },
 ];
 
-const REGION_LABELS = [
-  { label: 'América do Sul', left: '25%', top: '64%' },
-  { label: 'Europa', left: '48%', top: '25%' },
-  { label: 'África', left: '52%', top: '54%' },
-  { label: 'Ásia', left: '77%', top: '25%' },
-];
+const HIGHLIGHTED_COUNTRIES: Record<string, string> = {
+  Brazil: '#999999',
+  Angola: '#999999',
+  Portugal: '#999999',
+  Spain: '#999999',
+  France: '#999999',
+  'South Korea': '#999999',
+  'North Korea': '#999999',
+  Japan: '#999999',
+  China: '#999999',
+  Mongolia: '#999999',
+  Myanmar: '#999999',
+  Thailand: '#999999',
+  Laos: '#999999',
+  Vietnam: '#999999',
+  Taiwan: '#999999',
+  Philippines: '#999999',
+  Malaysia: '#999999',
+  Cambodia: '#999999',
+  Indonesia: '#999999',
+  'Papua New Guinea': '#999999',
+  'Dem. Rep. Congo': '#999999',
+  Chad: '#999999',
+  'Central African Rep.': '#999999',
+  Cameroon: '#999999',
+  Congo: '#999999',
+  Gabon: '#999999',
+  'Eq. Guinea': '#999999',
+  Germany: '#999999',
+  Italy: '#999999',
+  Netherlands: '#999999',
+  Belgium: '#999999',
+  'United Kingdom': '#999999',
+  Ireland: '#999999',
+  Denmark: '#999999',
+  Norway: '#999999',
+  Sweden: '#999999',
+  Austria: '#999999',
+};
+
+const CONTINENT_MAP: Record<string, string> = {
+  Brazil: 'América do Sul',
+  Angola: 'África', 'Dem. Rep. Congo': 'África', Chad: 'África',
+  'Central African Rep.': 'África', Cameroon: 'África', Congo: 'África',
+  Gabon: 'África', 'Eq. Guinea': 'África',
+  Portugal: 'Europa', Spain: 'Europa', France: 'Europa', Germany: 'Europa',
+  Italy: 'Europa', Netherlands: 'Europa', Belgium: 'Europa',
+  'United Kingdom': 'Europa', Ireland: 'Europa', Denmark: 'Europa',
+  Norway: 'Europa', Sweden: 'Europa', Austria: 'Europa',
+  'South Korea': 'Ásia', 'North Korea': 'Ásia', Japan: 'Ásia',
+  China: 'Ásia', Mongolia: 'Ásia', Myanmar: 'Ásia', Thailand: 'Ásia',
+  Laos: 'Ásia', Vietnam: 'Ásia', Taiwan: 'Ásia', Philippines: 'Ásia',
+  Malaysia: 'Ásia', Cambodia: 'Ásia', Indonesia: 'Ásia',
+  'Papua New Guinea': 'Ásia',
+};
+
+const DEFAULT_COLOR = '#ECEFF1';
 
 const GlobalMapSection = () => {
   const { ref, isVisible } = useScrollReveal();
   const { displayText, wordIndex } = useTypewriter({
     words: SECTORS.map((s) => s.word),
   });
+  const [tooltip, setTooltip] = useState('');
 
   return (
     <section
@@ -40,33 +95,66 @@ const GlobalMapSection = () => {
         </h2>
       </div>
 
-      <div className={`w-full max-w-7xl mx-auto px-4 ${revealClasses(isVisible)}`}>
-        <div className="relative">
-          <img
-            src={worldMapHighlighted}
-            alt="Mapa mundi mostrando presença global do Dalton Lab"
-            className="w-full h-auto"
-          />
+      <div className={`w-full max-w-7xl mx-auto px-4 relative ${revealClasses(isVisible)}`}>
+        {tooltip && (
+          <div
+            className="absolute top-4 left-1/2 -translate-x-1/2 z-10 font-inter text-xs md:text-sm font-medium px-3 py-1.5 rounded-full pointer-events-none"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.85)',
+              color: '#374151',
+              border: '1px solid rgba(0,0,0,0.08)',
+              backdropFilter: 'blur(4px)',
+            }}
+          >
+            {tooltip}
+          </div>
+        )}
 
-          {/* Continent labels */}
-          {REGION_LABELS.map((label) => (
-            <span
-              key={label.label}
-              className="absolute font-inter text-[10px] md:text-xs font-medium px-2 py-0.5 md:px-3 md:py-1 rounded-full pointer-events-none"
-              style={{
-                left: label.left,
-                top: label.top,
-                transform: 'translate(-50%, -50%)',
-                backgroundColor: 'rgba(255,255,255,0.7)',
-                color: '#374151',
-                border: '1px solid rgba(0,0,0,0.08)',
-                backdropFilter: 'blur(4px)',
-              }}
-            >
-              {label.label}
-            </span>
-          ))}
-        </div>
+        <ComposableMap
+          projection="geoMercator"
+          projectionConfig={{
+            scale: 130,
+            center: [10, 30],
+          }}
+          style={{ width: '100%', height: 'auto' }}
+          viewBox="0 0 800 450"
+        >
+          <Geographies geography={GEO_URL}>
+            {({ geographies }) =>
+              geographies.map((geo) => {
+                const name = geo.properties.name;
+                const fillColor = HIGHLIGHTED_COUNTRIES[name] || DEFAULT_COLOR;
+                const continent = CONTINENT_MAP[name];
+                const isHighlighted = !!HIGHLIGHTED_COUNTRIES[name];
+
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill={fillColor}
+                    stroke="#F5F3F0"
+                    strokeWidth={0.5}
+                    onMouseEnter={() => {
+                      if (isHighlighted && continent) {
+                        setTooltip(continent);
+                      }
+                    }}
+                    onMouseLeave={() => setTooltip('')}
+                    style={{
+                      default: { outline: 'none' },
+                      hover: {
+                        fill: isHighlighted ? '#777777' : DEFAULT_COLOR,
+                        outline: 'none',
+                        cursor: isHighlighted ? 'pointer' : 'default',
+                      },
+                      pressed: { outline: 'none' },
+                    }}
+                  />
+                );
+              })
+            }
+          </Geographies>
+        </ComposableMap>
       </div>
 
       <div className="container-main">

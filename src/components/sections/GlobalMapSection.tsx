@@ -48,8 +48,6 @@ const HIGHLIGHTED_COUNTRIES: Record<string, string> = {
   'United Kingdom': '#999999',
   Ireland: '#999999',
   Denmark: '#999999',
-  Norway: '#999999',
-  Sweden: '#999999',
   Austria: '#999999',
 };
 
@@ -61,7 +59,7 @@ const CONTINENT_MAP: Record<string, string> = {
   Portugal: 'Europa', Spain: 'Europa', France: 'Europa', Germany: 'Europa',
   Italy: 'Europa', Netherlands: 'Europa', Belgium: 'Europa',
   'United Kingdom': 'Europa', Ireland: 'Europa', Denmark: 'Europa',
-  Norway: 'Europa', Sweden: 'Europa', Austria: 'Europa',
+  Austria: 'Europa',
   'South Korea': 'Ásia', 'North Korea': 'Ásia', Japan: 'Ásia',
   China: 'Ásia', Mongolia: 'Ásia', Myanmar: 'Ásia', Thailand: 'Ásia',
   Laos: 'Ásia', Vietnam: 'Ásia', Taiwan: 'Ásia', Philippines: 'Ásia',
@@ -131,7 +129,9 @@ const GlobalMapSection = () => {
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
-              geographies.map((geo) => {
+              geographies
+                .filter((geo) => geo.properties.name !== 'Norway' && geo.properties.name !== 'Greenland')
+                .map((geo) => {
                 const name = geo.properties.name;
                 const fillColor = HIGHLIGHTED_COUNTRIES[name] || DEFAULT_COLOR;
                 const continent = CONTINENT_MAP[name];

@@ -81,7 +81,7 @@ const GlobalMapSection = () => {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-10 md:py-14"
+      className="py-6 md:py-8"
       style={{ backgroundColor: '#F5F3F0' }}
     >
       <div className="container-main">

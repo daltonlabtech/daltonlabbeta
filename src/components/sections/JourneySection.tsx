@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
+import AgenticArchitecture from '@/components/AgenticArchitecture';
 
 interface Pillar {
   number: string;
@@ -68,7 +69,10 @@ const JourneySection = () => {
             {t('home.journey.subtitle')}
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mt-6 md:mt-0">
+        <div className={`mb-6 md:mb-12 ${revealClasses(isVisible)}`}>
+          <AgenticArchitecture />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
           {pillars.map((pillar, index) => (
             <PillarCard
               key={pillar.number}

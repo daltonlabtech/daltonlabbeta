@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 import { useTrackSection } from '@/hooks/useTrackSection';
 import { trackCtaClick, trackTabChange } from '@/lib/analytics';
-import AgenticArchitecture from '@/components/AgenticArchitecture';
+
 
 type SectorTab = 'vendas' | 'marketing' | 'financeiro' | 'atendimento' | 'operacoes';
 
@@ -56,10 +56,6 @@ const ProspectionSection = () => {
       style={{ backgroundColor: '#E8E6E3' }}
     >
       <div className="container-main">
-        {/* Architecture Diagram - Full width above */}
-        <div className={`mb-8 md:mb-12 ${revealClasses(isVisible)}`}>
-          <AgenticArchitecture />
-        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] gap-6 lg:gap-12 items-center">
           {/* Left: Title */}

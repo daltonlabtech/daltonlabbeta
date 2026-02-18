@@ -110,12 +110,11 @@ const GlobalMapSection = () => {
 
           {/* Pulse points */}
           {PULSE_POINTS.map((point) => (
-            <PulsePoint
+            <StaticPoint
               key={point.name}
               left={point.left}
               top={point.top}
               size={point.size}
-              delay={point.delay}
             />
           ))}
         </div>

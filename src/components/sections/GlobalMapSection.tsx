@@ -1,13 +1,13 @@
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
+import { useTypewriter } from '@/hooks/useTypewriter';
 import worldMapSolid from '@/assets/world-map-solid.png';
 
-
-const INDUSTRIES: { label: string; bg: string; text: string; border: string }[] = [
-  { label: 'Agro', bg: 'rgba(34,197,94,0.12)', text: '#15803d', border: 'rgba(34,197,94,0.25)' },
-  { label: 'Tecnologia', bg: 'rgba(245,158,11,0.12)', text: '#b45309', border: 'rgba(245,158,11,0.25)' },
-  { label: 'Saúde', bg: 'rgba(239,68,68,0.12)', text: '#b91c1c', border: 'rgba(239,68,68,0.25)' },
-  { label: 'Varejo', bg: 'rgba(245,158,11,0.12)', text: '#b45309', border: 'rgba(245,158,11,0.25)' },
-  { label: 'Advocacia', bg: 'rgba(139,92,246,0.12)', text: '#6d28d9', border: 'rgba(139,92,246,0.25)' },
+const SECTORS = [
+  { word: 'Agro', color: '#15803d' },
+  { word: 'Tecnologia', color: '#b45309' },
+  { word: 'Saúde', color: '#b91c1c' },
+  { word: 'Varejo', color: '#b45309' },
+  { word: 'Advocacia', color: '#6d28d9' },
 ];
 
 const PULSE_POINTS = [

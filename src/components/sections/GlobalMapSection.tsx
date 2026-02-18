@@ -1,136 +1,67 @@
 import { motion } from 'framer-motion';
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
 
-// Dot-based world map coordinates (col, row) on a 72x36 grid
-// Each dot = ~5° of longitude/latitude
-const BASE_DOTS: [number, number][] = [];
+const INDUSTRIES = ['Agro', 'Tecnologia', 'Saúde', 'Varejo', 'Advocacia'];
 
-// Helper to define continent shapes as ranges
-const continentRanges: { rows: [number, number]; cols: (row: number) => [number, number][] }[] = [
+// Simplified continent SVG paths (viewBox 1000x500)
+const CONTINENTS = [
   // North America
-  {
-    rows: [3, 14],
-    cols: (r) => {
-      if (r <= 4) return [[8, 18]];
-      if (r <= 6) return [[5, 20]];
-      if (r <= 8) return [[4, 21]];
-      if (r <= 10) return [[5, 22]];
-      if (r <= 12) return [[7, 20]];
-      return [[8, 18]];
-    },
-  },
+  'M 60 60 L 120 40 L 180 50 L 220 70 L 240 100 L 230 130 L 200 150 L 170 160 L 140 170 L 120 180 L 100 170 L 80 140 L 60 120 Z',
   // Central America
-  {
-    rows: [14, 17],
-    cols: (r) => {
-      if (r <= 15) return [[9, 15]];
-      return [[10, 14]];
-    },
-  },
+  'M 120 180 L 140 170 L 155 185 L 150 200 L 140 210 L 130 205 L 120 195 Z',
   // South America
-  {
-    rows: [17, 30],
-    cols: (r) => {
-      if (r <= 18) return [[13, 20]];
-      if (r <= 20) return [[13, 22]];
-      if (r <= 22) return [[12, 22]];
-      if (r <= 24) return [[13, 21]];
-      if (r <= 26) return [[14, 20]];
-      if (r <= 28) return [[15, 19]];
-      return [[16, 18]];
-    },
-  },
+  'M 150 210 L 180 200 L 210 210 L 230 230 L 240 260 L 245 290 L 240 320 L 230 350 L 210 380 L 195 395 L 185 390 L 175 370 L 170 340 L 165 310 L 160 280 L 155 250 L 150 230 Z',
   // Europe
-  {
-    rows: [3, 13],
-    cols: (r) => {
-      if (r <= 4) return [[34, 40]];
-      if (r <= 6) return [[32, 42]];
-      if (r <= 8) return [[33, 43]];
-      if (r <= 10) return [[34, 42]];
-      return [[35, 41]];
-    },
-  },
+  'M 440 50 L 470 40 L 510 45 L 530 60 L 540 80 L 535 100 L 520 115 L 500 120 L 480 125 L 460 120 L 445 105 L 440 80 Z',
   // Africa
-  {
-    rows: [12, 28],
-    cols: (r) => {
-      if (r <= 14) return [[33, 42]];
-      if (r <= 16) return [[33, 43]];
-      if (r <= 18) return [[34, 44]];
-      if (r <= 20) return [[34, 43]];
-      if (r <= 22) return [[35, 42]];
-      if (r <= 24) return [[36, 41]];
-      if (r <= 26) return [[37, 40]];
-      return [[38, 39]];
-    },
-  },
-  // Asia
-  {
-    rows: [3, 18],
-    cols: (r) => {
-      if (r <= 4) return [[42, 68]];
-      if (r <= 6) return [[40, 70]];
-      if (r <= 8) return [[42, 70]];
-      if (r <= 10) return [[44, 68]];
-      if (r <= 12) return [[45, 66]];
-      if (r <= 14) return [[48, 64]];
-      if (r <= 16) return [[50, 62]];
-      return [[52, 60]];
-    },
-  },
+  'M 450 140 L 480 130 L 520 135 L 550 150 L 560 180 L 565 210 L 560 250 L 550 280 L 535 310 L 515 330 L 500 335 L 485 325 L 470 300 L 460 270 L 455 240 L 450 210 L 445 180 Z',
+  // Middle East
+  'M 540 100 L 580 90 L 610 100 L 620 120 L 615 140 L 600 150 L 575 145 L 555 135 L 545 120 Z',
+  // Asia (main)
+  'M 530 40 L 600 30 L 680 35 L 750 45 L 800 55 L 830 70 L 840 90 L 835 110 L 820 130 L 790 145 L 760 150 L 730 148 L 700 140 L 670 135 L 640 130 L 620 120 L 610 100 L 580 90 L 550 70 Z',
+  // Southeast Asia / Indonesia
+  'M 730 160 L 760 155 L 790 160 L 810 170 L 800 185 L 780 190 L 755 185 L 735 175 Z',
+  'M 790 190 L 820 185 L 845 195 L 840 210 L 820 215 L 800 208 Z',
+  // Japan / Korea
+  'M 820 70 L 840 65 L 855 75 L 850 95 L 840 105 L 825 100 Z',
   // Australia
-  {
-    rows: [22, 29],
-    cols: (r) => {
-      if (r <= 24) return [[58, 66]];
-      if (r <= 26) return [[57, 66]];
-      if (r <= 28) return [[58, 64]];
-      return [[60, 62]];
-    },
-  },
+  'M 760 270 L 810 260 L 860 270 L 880 290 L 875 320 L 855 345 L 830 355 L 800 350 L 775 335 L 760 310 L 755 290 Z',
 ];
 
-// Build base dots
-continentRanges.forEach(({ rows, cols }) => {
-  for (let r = rows[0]; r <= rows[1]; r++) {
-    const ranges = cols(r);
-    ranges.forEach(([cStart, cEnd]) => {
-      for (let c = cStart; c <= cEnd; c++) {
-        BASE_DOTS.push([c, r]);
-      }
-    });
-  }
-});
-
-// Highlighted locations (col, row) — approximate positions on the 72x36 grid
-const HIGHLIGHTS: { cx: number; cy: number; label: string }[] = [
-  // Brazil cities
-  { cx: 18, cy: 21, label: 'São Paulo' },
-  { cx: 19, cy: 20, label: 'Rio de Janeiro' },
-  { cx: 18, cy: 19, label: 'Belo Horizonte' },
-  { cx: 17, cy: 20, label: 'Brasília' },
-  { cx: 15, cy: 18, label: 'Manaus' },
-  { cx: 18, cy: 18, label: 'Recife' },
-  { cx: 17, cy: 22, label: 'Curitiba' },
-  { cx: 19, cy: 19, label: 'Salvador' },
-  { cx: 16, cy: 19, label: 'Goiânia' },
-  { cx: 16, cy: 23, label: 'Porto Alegre' },
+// Highlight points with region colors
+const HIGHLIGHTS: { cx: number; cy: number; label: string; region: string }[] = [
+  // Brazil
+  { cx: 210, cy: 250, label: 'São Paulo', region: 'south-america' },
+  { cx: 220, cy: 240, label: 'Rio de Janeiro', region: 'south-america' },
+  { cx: 205, cy: 235, label: 'Belo Horizonte', region: 'south-america' },
+  { cx: 195, cy: 240, label: 'Brasília', region: 'south-america' },
+  { cx: 175, cy: 220, label: 'Manaus', region: 'south-america' },
+  { cx: 220, cy: 225, label: 'Recife', region: 'south-america' },
+  { cx: 205, cy: 260, label: 'Curitiba', region: 'south-america' },
+  { cx: 215, cy: 230, label: 'Salvador', region: 'south-america' },
+  { cx: 190, cy: 245, label: 'Goiânia', region: 'south-america' },
+  { cx: 195, cy: 270, label: 'Porto Alegre', region: 'south-america' },
   // Portugal
-  { cx: 33, cy: 10, label: 'Portugal' },
+  { cx: 440, cy: 105, label: 'Portugal', region: 'europe' },
   // South Korea
-  { cx: 61, cy: 10, label: 'Coreia do Sul' },
+  { cx: 830, cy: 90, label: 'Coreia do Sul', region: 'asia' },
   // Angola
-  { cx: 37, cy: 21, label: 'Angola' },
+  { cx: 475, cy: 270, label: 'Angola', region: 'africa' },
 ];
 
-const GRID_SPACING = 12;
-const DOT_R = 1.8;
-const HIGHLIGHT_R = 3.5;
-const SVG_W = 72 * GRID_SPACING;
-const SVG_H = 36 * GRID_SPACING;
+const REGION_COLORS: Record<string, string> = {
+  'south-america': '#10B981',
+  'europe': '#8B5CF6',
+  'africa': '#EC4899',
+  'asia': '#EF4444',
+};
 
-const highlightSet = new Set(HIGHLIGHTS.map((h) => `${h.cx},${h.cy}`));
+const REGION_LABELS: { label: string; region: string; x: number; y: number }[] = [
+  { label: 'América do Sul', region: 'south-america', x: 160, y: 200 },
+  { label: 'Europa', region: 'europe', x: 455, y: 55 },
+  { label: 'África', region: 'africa', x: 490, y: 170 },
+  { label: 'Ásia', region: 'asia', x: 780, y: 60 },
+];
 
 const GlobalMapSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -144,75 +75,109 @@ const GlobalMapSection = () => {
       <div className="container-main">
         {/* Title */}
         <h2
-          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-8 md:mb-14 ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-4 md:mb-6 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
         >
           Dalton Lab é global. E está crescendo.
         </h2>
 
-        {/* Dotted World Map */}
-        <div className={`w-full max-w-5xl mx-auto mb-8 md:mb-12 ${revealClasses(isVisible)}`}>
+        {/* Industry Tags */}
+        <div className={`flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-14 ${revealClasses(isVisible)}`}>
+          {INDUSTRIES.map((industry) => (
+            <span
+              key={industry}
+              className="font-inter text-xs md:text-sm px-4 py-1.5 rounded-full border"
+              style={{
+                color: 'rgba(16,24,35,0.6)',
+                borderColor: 'rgba(16,24,35,0.12)',
+                backgroundColor: 'rgba(16,24,35,0.03)',
+              }}
+            >
+              {industry}
+            </span>
+          ))}
+        </div>
+
+        {/* Map Container */}
+        <div
+          className={`w-full max-w-5xl mx-auto mb-8 md:mb-12 rounded-2xl overflow-hidden ${revealClasses(isVisible)}`}
+          style={{ backgroundColor: '#0F1729' }}
+        >
           <svg
-            viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+            viewBox="0 0 1000 500"
             className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >
-            {/* Base continent dots */}
-            {BASE_DOTS.map(([c, r]) => {
-              const key = `${c},${r}`;
-              if (highlightSet.has(key)) return null;
-              return (
-                <circle
-                  key={key}
-                  cx={c * GRID_SPACING}
-                  cy={r * GRID_SPACING}
-                  r={DOT_R}
-                  fill="rgba(16,24,35,0.13)"
-                />
-              );
-            })}
+            {/* Continent shapes */}
+            {CONTINENTS.map((d, i) => (
+              <path key={i} d={d} fill="#1E293B" />
+            ))}
 
-            {/* Highlight dots with pulse */}
-            {HIGHLIGHTS.map((h, i) => (
-              <g key={h.label}>
-                {/* Pulse ring */}
-                <motion.circle
-                  cx={h.cx * GRID_SPACING}
-                  cy={h.cy * GRID_SPACING}
-                  r={HIGHLIGHT_R}
-                  fill="none"
-                  stroke="#3B82F6"
+            {/* Region labels */}
+            {REGION_LABELS.map((rl) => (
+              <g key={rl.label}>
+                <rect
+                  x={rl.x - 2}
+                  y={rl.y - 10}
+                  width={rl.label.length * 7.5 + 12}
+                  height={18}
+                  rx={9}
+                  fill="rgba(15,23,41,0.7)"
+                  stroke={REGION_COLORS[rl.region]}
                   strokeWidth={1}
-                  initial={{ opacity: 0, scale: 1 }}
-                  animate={
-                    isVisible
-                      ? {
-                          opacity: [0.6, 0],
-                          scale: [1, 3],
-                        }
-                      : {}
-                  }
-                  transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    delay: i * 0.3,
-                    ease: 'easeOut',
-                  }}
-                  style={{ transformOrigin: `${h.cx * GRID_SPACING}px ${h.cy * GRID_SPACING}px` }}
                 />
-                {/* Solid dot */}
-                <motion.circle
-                  cx={h.cx * GRID_SPACING}
-                  cy={h.cy * GRID_SPACING}
-                  r={HIGHLIGHT_R}
-                  fill="#3B82F6"
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
-                  style={{ transformOrigin: `${h.cx * GRID_SPACING}px ${h.cy * GRID_SPACING}px` }}
-                />
+                <text
+                  x={rl.x + 4}
+                  y={rl.y + 2}
+                  fill="white"
+                  fontSize="9"
+                  fontFamily="Inter, sans-serif"
+                  fontWeight="500"
+                >
+                  {rl.label}
+                </text>
               </g>
             ))}
+
+            {/* Highlight dots with pulse */}
+            {HIGHLIGHTS.map((h, i) => {
+              const color = REGION_COLORS[h.region];
+              return (
+                <g key={`${h.label}-${i}`}>
+                  <motion.circle
+                    cx={h.cx}
+                    cy={h.cy}
+                    r={5}
+                    fill="none"
+                    stroke={color}
+                    strokeWidth={1}
+                    initial={{ opacity: 0, scale: 1 }}
+                    animate={
+                      isVisible
+                        ? { opacity: [0.6, 0], scale: [1, 3] }
+                        : {}
+                    }
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                      ease: 'easeOut',
+                    }}
+                    style={{ transformOrigin: `${h.cx}px ${h.cy}px` }}
+                  />
+                  <motion.circle
+                    cx={h.cx}
+                    cy={h.cy}
+                    r={4}
+                    fill={color}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.5, delay: 0.3 + i * 0.06 }}
+                    style={{ transformOrigin: `${h.cx}px ${h.cy}px` }}
+                  />
+                </g>
+              );
+            })}
           </svg>
         </div>
 

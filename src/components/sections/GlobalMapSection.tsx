@@ -49,6 +49,9 @@ const StaticPoint = ({ left, top, size }: { left: string; top: string; size: num
 
 const GlobalMapSection = () => {
   const { ref, isVisible } = useScrollReveal();
+  const { displayText, wordIndex } = useTypewriter({
+    words: SECTORS.map((s) => s.word),
+  });
 
   return (
     <section
@@ -58,27 +61,13 @@ const GlobalMapSection = () => {
     >
       <div className="container-main">
         <h2
-          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-4 md:mb-6 ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-8 md:mb-10 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
         >
-          O Dalton Lab é global. E está crescendo.
+          Atuação global nos setores de{' '}
+          <span style={{ color: SECTORS[wordIndex].color }}>{displayText}</span>
+          <span className="animate-pulse" style={{ color: SECTORS[wordIndex].color }}>|</span>
         </h2>
-
-        <div className={`flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-10 ${revealClasses(isVisible)}`}>
-          {INDUSTRIES.map((industry) => (
-            <span
-              key={industry.label}
-              className="font-inter text-xs md:text-sm font-medium px-4 py-1.5 rounded-full border"
-              style={{
-                color: industry.text,
-                borderColor: industry.border,
-                backgroundColor: industry.bg,
-              }}
-            >
-              {industry.label}
-            </span>
-          ))}
-        </div>
       </div>
 
       <div className={`w-full max-w-7xl mx-auto px-4 ${revealClasses(isVisible)}`}>

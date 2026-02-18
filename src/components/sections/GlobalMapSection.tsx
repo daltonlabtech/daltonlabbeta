@@ -77,6 +77,7 @@ const GlobalMapSection = () => {
     words: SECTORS.map((s) => s.word),
   });
   const [tooltip, setTooltip] = useState('');
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   return (
     <section
@@ -95,11 +96,20 @@ const GlobalMapSection = () => {
         </h2>
       </div>
 
-      <div className={`w-full max-w-7xl mx-auto px-4 relative ${revealClasses(isVisible)}`}>
+      <div
+        className={`w-full max-w-7xl mx-auto px-4 relative ${revealClasses(isVisible)}`}
+        onMouseMove={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        }}
+      >
         {tooltip && (
           <div
-            className="absolute top-4 left-1/2 -translate-x-1/2 z-10 font-inter text-xs md:text-sm font-medium px-3 py-1.5 rounded-full pointer-events-none"
+            className="absolute z-10 font-inter text-xs md:text-sm font-medium px-3 py-1.5 rounded-full pointer-events-none"
             style={{
+              left: mousePos.x,
+              top: mousePos.y - 36,
+              transform: 'translateX(-50%)',
               backgroundColor: 'rgba(255,255,255,0.85)',
               color: '#374151',
               border: '1px solid rgba(0,0,0,0.08)',

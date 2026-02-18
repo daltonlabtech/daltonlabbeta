@@ -69,7 +69,7 @@ const CONTINENT_MAP: Record<string, string> = {
   'Papua New Guinea': 'Ásia',
 };
 
-const DEFAULT_COLOR = '#ECEFF1';
+const DEFAULT_COLOR = '#E8E6E3';
 
 const GlobalMapSection = () => {
   const { ref, isVisible } = useScrollReveal();

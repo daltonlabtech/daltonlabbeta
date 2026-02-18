@@ -121,11 +121,11 @@ const GlobalMapSection = () => {
         <ComposableMap
           projection="geoMercator"
           projectionConfig={{
-            scale: 120,
-            center: [10, 15],
+            scale: 115,
+            center: [10, 20],
           }}
           style={{ width: '100%', height: 'auto' }}
-          viewBox="0 0 800 500"
+          viewBox="0 0 800 520"
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>

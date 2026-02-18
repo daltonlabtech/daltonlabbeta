@@ -1,59 +1,70 @@
 
-# Plano de Alteracoes
+# Plano: Atualizar Mapa Mundi na secao Global
 
-## Alteracao 1: Remover AgenticArchitecture da JourneySection
-
-**Arquivo:** `src/components/sections/JourneySection.tsx`
-- Remover o import do `AgenticArchitecture`
-- Remover a linha `<AgenticArchitecture />` (linha 72)
-- Adicionar um espacamento adequado (`mt-6 md:mt-0`) antes do grid de pilares para compensar a remocao
+## Resumo
+Substituir a imagem do mapa atual pela imagem fornecida pelo usuario, adicionar pontos azuis animados (com framer-motion) sobre cidades/paises especificos, e labels de continentes flutuantes.
 
 ---
 
-## Alteracao 2: Redesign completo do GlobalMapSection
+## Alteracao 1: Substituir imagem do mapa
+- Copiar a imagem enviada (`Design_sem_nome_5.png`) para `src/assets/world-map-solid.png`
+- Atualizar o import no `GlobalMapSection.tsx` para usar a nova imagem
 
+## Alteracao 2: Adicionar pontos azuis com motion
 **Arquivo:** `src/components/sections/GlobalMapSection.tsx`
 
-### Visual do mapa
-- Manter o fundo claro (#F5F3F0) da secao, mas o container do mapa tera fundo escuro (#0F1729) seguindo a referencia
-- Substituir os pontos (dots) de continentes por formas solidas (SVG paths) representando os continentes em cinza escuro (#1E293B) sobre o fundo escuro
-- Manter os pontos de destaque com animacao de pulso (framer-motion), mas com cores diferentes por regiao:
-  - America do Sul (Brasil): verde (#10B981)
-  - Europa (Portugal): roxo (#8B5CF6)
-  - Africa (Angola): rosa (#EC4899)
-  - Asia (Coreia do Sul): vermelho (#EF4444)
+Adicionar framer-motion com pontos pulsantes (azul `#3B82F6`) posicionados por porcentagem sobre o mapa. Cada ponto tera:
+- Um circulo solido pequeno (8px)
+- Um anel de pulso animado expandindo e desaparecendo (loop infinito)
+- Um leve glow ao redor
 
-### Labels dos continentes
-- Adicionar labels flutuantes com borda colorida (matching a cor da regiao) sobre o mapa, posicionados proximo aos pontos de destaque:
-  - "America do Sul" - borda verde
-  - "Europa" - borda roxa
-  - "Africa" - borda rosa
-  - "Asia" - borda vermelha
+**Pontos de destaque (posicoes aproximadas em % do mapa):**
 
-### Tags de industrias
-- Abaixo do titulo "Dalton Lab e global. E esta crescendo." e antes do mapa, adicionar uma linha de tags/pills com as industrias:
-  - Agro, Tecnologia, Saude, Varejo, Advocacia
-- Estilo: pills com borda sutil, fundo transparente ou levemente opaco, texto em cinza medio, centralizados
+Brasil:
+- Manaus (AM) - norte/noroeste (~27%, ~48%)
+- Fortaleza (CE) - nordeste (~33%, ~50%)
+- Recife (PE) - litoral nordeste (~34%, ~53%)
+- Salvador (BA) - litoral leste (~33%, ~56%)
+- Belo Horizonte (MG) - central-leste (~31%, ~59%)
+- Sao Paulo (SP) - destaque maior (~30%, ~63%)
+- Rio de Janeiro (RJ) - proximo a SP (~31%, ~61%)
 
-### Estrutura final da secao
-```
-Titulo: "Dalton Lab e global. E esta crescendo."
-Tags: [Agro] [Tecnologia] [Saude] [Varejo] [Advocacia]
-Mapa SVG (fundo escuro, continentes solidos, pontos animados, labels)
-Subtitulo CTA: "Seu pais ainda nao esta no mapa?..."
-```
+Internacional:
+- Portugal (~45%, ~32%)
+- Coreia do Sul (~83%, ~30%)
+- Angola (~54%, ~58%)
+
+Sao Paulo tera um ponto ligeiramente maior para destaque.
+
+## Alteracao 3: Adicionar tags de continentes
+Labels flutuantes posicionados sobre os respectivos continentes no mapa:
+- "America do Sul" - sobre a America do Sul (~24%, ~50%)
+- "Europa" - sobre a Europa (~48%, ~20%)
+- "Africa" - sobre a Africa (~55%, ~46%)
+- "Asia" - sobre a Asia (~78%, ~18%)
+
+Estilo: pill com fundo semi-transparente claro, texto cinza escuro, borda sutil, fonte pequena.
 
 ---
 
 ## Detalhes Tecnicos
 
-### SVG do mapa
-- Usar SVG paths reais para desenhar os continentes como formas solidas (em vez do grid de pontos atual)
-- Os paths serao simplificados mas reconheciveis, preenchidos com cor cinza (#1E293B) sobre fundo escuro (#0F1729)
-- Os pontos de destaque continuam como circulos com animacao de pulso via framer-motion
-- O container do mapa tera border-radius arredondado (rounded-2xl) para integrar com o design
+### Dependencias
+- `framer-motion` (ja instalado) para animacoes de pulso nos pontos
 
-### Tags de industria
-- Renderizadas como `<span>` com classes de pill/badge
-- Layout flex com gap, centralizados
-- Estilo consistente com o design system existente (font-inter, cores neutras)
+### Estrutura do componente
+O container do mapa sera `relative` para permitir posicionamento absoluto dos pontos e labels. A estrutura:
+
+```text
+<div relative>
+  <img src={worldMapSolid} />     -- mapa full-width
+  {REGION_LABELS.map(...)}         -- labels absolutos
+  {PULSE_POINTS.map(...)}          -- pontos com motion
+</div>
+```
+
+### Animacao dos pontos
+Cada ponto usa `motion.div` com:
+- `animate={{ opacity: [0.6, 0], scale: [1, 2.5] }}` para o anel de pulso
+- `transition={{ duration: 2.5, repeat: Infinity, delay: staggered }}`
+- Delay escalonado entre pontos para efeito visual mais organico

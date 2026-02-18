@@ -143,7 +143,7 @@ const GlobalMapSection = () => {
                     style={{
                       default: { outline: 'none' },
                       hover: {
-                        fill: isHighlighted ? '#777777' : DEFAULT_COLOR,
+                        fill: isHighlighted ? '#777777' : '#E8E6E3',
                         outline: 'none',
                         cursor: isHighlighted ? 'pointer' : 'default',
                       },

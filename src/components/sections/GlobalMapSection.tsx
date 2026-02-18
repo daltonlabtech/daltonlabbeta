@@ -1,5 +1,6 @@
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
-import worldMapDots from '@/assets/world-map-dots.png';
+import worldMapSolid from '@/assets/world-map-solid.png';
+import { motion } from 'framer-motion';
 
 const INDUSTRIES: { label: string; bg: string; text: string; border: string }[] = [
   { label: 'Agro', bg: 'rgba(34,197,94,0.12)', text: '#15803d', border: 'rgba(34,197,94,0.25)' },
@@ -8,6 +9,59 @@ const INDUSTRIES: { label: string; bg: string; text: string; border: string }[] 
   { label: 'Varejo', bg: 'rgba(245,158,11,0.12)', text: '#b45309', border: 'rgba(245,158,11,0.25)' },
   { label: 'Advocacia', bg: 'rgba(139,92,246,0.12)', text: '#6d28d9', border: 'rgba(139,92,246,0.25)' },
 ];
+
+const PULSE_POINTS = [
+  { name: 'Manaus', left: '27%', top: '48%', size: 8, delay: 0 },
+  { name: 'Fortaleza', left: '33%', top: '50%', size: 8, delay: 0.3 },
+  { name: 'Recife', left: '34%', top: '53%', size: 8, delay: 0.6 },
+  { name: 'Salvador', left: '33%', top: '56%', size: 8, delay: 0.9 },
+  { name: 'Belo Horizonte', left: '31%', top: '59%', size: 8, delay: 1.2 },
+  { name: 'São Paulo', left: '30%', top: '63%', size: 11, delay: 1.5 },
+  { name: 'Rio de Janeiro', left: '31%', top: '61%', size: 8, delay: 1.8 },
+  { name: 'Portugal', left: '45%', top: '32%', size: 8, delay: 0.4 },
+  { name: 'Coreia do Sul', left: '83%', top: '30%', size: 8, delay: 0.7 },
+  { name: 'Angola', left: '54%', top: '58%', size: 8, delay: 1.0 },
+];
+
+const REGION_LABELS = [
+  { label: 'América do Sul', left: '24%', top: '50%' },
+  { label: 'Europa', left: '48%', top: '20%' },
+  { label: 'África', left: '55%', top: '46%' },
+  { label: 'Ásia', left: '78%', top: '18%' },
+];
+
+const PulsePoint = ({ left, top, size, delay }: { left: string; top: string; size: number; delay: number }) => (
+  <div
+    className="absolute"
+    style={{ left, top, transform: 'translate(-50%, -50%)' }}
+  >
+    {/* Pulse ring */}
+    <motion.div
+      className="absolute rounded-full"
+      style={{
+        width: size * 2.5,
+        height: size * 2.5,
+        top: '50%',
+        left: '50%',
+        x: '-50%',
+        y: '-50%',
+        border: '2px solid #3B82F6',
+      }}
+      animate={{ opacity: [0.6, 0], scale: [1, 2.5] }}
+      transition={{ duration: 2.5, repeat: Infinity, delay, ease: 'easeOut' }}
+    />
+    {/* Solid dot */}
+    <div
+      className="rounded-full relative"
+      style={{
+        width: size,
+        height: size,
+        backgroundColor: '#3B82F6',
+        boxShadow: '0 0 8px rgba(59,130,246,0.5)',
+      }}
+    />
+  </div>
+);
 
 const GlobalMapSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -44,11 +98,43 @@ const GlobalMapSection = () => {
       </div>
 
       <div className={`w-full max-w-7xl mx-auto px-4 ${revealClasses(isVisible)}`}>
-        <img
-          src={worldMapDots}
-          alt="Mapa mundi pontilhado mostrando presença global do Dalton Lab"
-          className="w-full h-auto"
-        />
+        <div className="relative">
+          <img
+            src={worldMapSolid}
+            alt="Mapa mundi mostrando presença global do Dalton Lab"
+            className="w-full h-auto"
+          />
+
+          {/* Continent labels */}
+          {REGION_LABELS.map((label) => (
+            <span
+              key={label.label}
+              className="absolute font-inter text-[10px] md:text-xs font-medium px-2 py-0.5 md:px-3 md:py-1 rounded-full pointer-events-none"
+              style={{
+                left: label.left,
+                top: label.top,
+                transform: 'translate(-50%, -50%)',
+                backgroundColor: 'rgba(255,255,255,0.7)',
+                color: '#374151',
+                border: '1px solid rgba(0,0,0,0.08)',
+                backdropFilter: 'blur(4px)',
+              }}
+            >
+              {label.label}
+            </span>
+          ))}
+
+          {/* Pulse points */}
+          {PULSE_POINTS.map((point) => (
+            <PulsePoint
+              key={point.name}
+              left={point.left}
+              top={point.top}
+              size={point.size}
+              delay={point.delay}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="container-main">

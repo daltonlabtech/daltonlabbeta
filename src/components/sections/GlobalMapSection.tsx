@@ -89,6 +89,7 @@ const GlobalMapSection = () => {
           style={{ color: '#101824' }}
         >
           Atuação global nos setores de{' '}
+          <br className="block md:hidden" />
           <span style={{ color: SECTORS[wordIndex].color }}>{displayText}</span>
           <span className="animate-pulse" style={{ color: SECTORS[wordIndex].color }}>|</span>
         </h2>

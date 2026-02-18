@@ -130,7 +130,7 @@ const GlobalMapSection = () => {
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies
-                .filter((geo) => geo.properties.name !== 'Norway' && geo.properties.name !== 'Greenland' && geo.properties.name !== 'Canada')
+                .filter((geo) => geo.properties.name !== 'Norway' && geo.properties.name !== 'Greenland')
                 .map((geo) => {
                 const name = geo.properties.name;
                 const fillColor = HIGHLIGHTED_COUNTRIES[name] || DEFAULT_COLOR;

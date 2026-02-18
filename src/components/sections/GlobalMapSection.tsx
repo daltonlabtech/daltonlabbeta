@@ -19,8 +19,8 @@ const PULSE_POINTS = [
   { name: 'São Paulo', left: '29%', top: '74%', size: 11, delay: 1.5 },
   { name: 'Rio de Janeiro', left: '30.5%', top: '73%', size: 8, delay: 1.8 },
   { name: 'Portugal', left: '45%', top: '33%', size: 8, delay: 0.4 },
-  { name: 'Coreia do Sul', left: '83%', top: '31%', size: 8, delay: 0.7 },
-  { name: 'Angola', left: '50%', top: '62%', size: 8, delay: 1.0 },
+  { name: 'Coreia do Sul', left: '83%', top: '29%', size: 8, delay: 0.7 },
+  { name: 'Angola', left: '53%', top: '62%', size: 8, delay: 1.0 },
 ];
 
 const REGION_LABELS = [
@@ -48,7 +48,7 @@ const PulsePoint = ({ left, top, size, delay }: { left: string; top: string; siz
         border: '2px solid #3B82F6',
       }}
       animate={{ opacity: [0.6, 0], scale: [1, 2.5] }}
-      transition={{ duration: 2.5, repeat: Infinity, delay, ease: 'easeOut' }}
+      transition={{ duration: 5, repeat: Infinity, delay, ease: 'easeOut' }}
     />
     {/* Solid dot */}
     <div

@@ -159,7 +159,7 @@ const GlobalMapSection = () => {
 
       <div className="container-main">
         <p
-          className={`text-center text-sm md:text-lg mt-6 md:mt-10 ${revealClasses(isVisible)}`}
+          className={`text-center text-sm md:text-lg mt-4 md:mt-6 ${revealClasses(isVisible)}`}
           style={{ color: 'rgba(16,24,35,0.7)' }}
         >
           Seu país ainda não está no mapa? Você pode{' '}

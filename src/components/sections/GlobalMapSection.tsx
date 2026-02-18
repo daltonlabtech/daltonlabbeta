@@ -48,8 +48,6 @@ const HIGHLIGHTED_COUNTRIES: Record<string, string> = {
   'United Kingdom': '#999999',
   Ireland: '#999999',
   Denmark: '#999999',
-  Norway: '#999999',
-  Sweden: '#999999',
   Austria: '#999999',
 };
 

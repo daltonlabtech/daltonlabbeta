@@ -1,6 +1,6 @@
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
 import { useTypewriter } from '@/hooks/useTypewriter';
-import worldMapSolid from '@/assets/world-map-solid.png';
+import worldMapHighlighted from '@/assets/world-map-highlighted.png';
 
 const SECTORS = [
   { word: 'Agro', color: '#15803d' },
@@ -10,42 +10,12 @@ const SECTORS = [
   { word: 'Advocacia', color: '#6d28d9' },
 ];
 
-const PULSE_POINTS = [
-  { name: 'Manaus', left: '26%', top: '60%', size: 8, delay: 0 },
-  { name: 'Fortaleza', left: '31%', top: '62%', size: 8, delay: 0.3 },
-  { name: 'Recife', left: '32%', top: '65%', size: 8, delay: 0.6 },
-  { name: 'Salvador', left: '31%', top: '68%', size: 8, delay: 0.9 },
-  { name: 'Belo Horizonte', left: '30%', top: '71%', size: 8, delay: 1.2 },
-  { name: 'São Paulo', left: '29%', top: '74%', size: 11, delay: 1.5 },
-  { name: 'Rio de Janeiro', left: '30.5%', top: '73%', size: 8, delay: 1.8 },
-  { name: 'Portugal', left: '45%', top: '33%', size: 8, delay: 0.4 },
-  { name: 'Coreia do Sul', left: '83%', top: '29%', size: 8, delay: 0.7 },
-  { name: 'Angola', left: '53%', top: '62%', size: 8, delay: 1.0 },
-];
-
 const REGION_LABELS = [
   { label: 'América do Sul', left: '25%', top: '64%' },
   { label: 'Europa', left: '48%', top: '25%' },
   { label: 'África', left: '52%', top: '54%' },
   { label: 'Ásia', left: '77%', top: '25%' },
 ];
-
-const StaticPoint = ({ left, top, size }: { left: string; top: string; size: number }) => (
-  <div
-    className="absolute"
-    style={{ left, top, transform: 'translate(-50%, -50%)' }}
-  >
-    <div
-      className="rounded-full"
-      style={{
-        width: size,
-        height: size,
-        backgroundColor: '#3B82F6',
-        boxShadow: '0 0 8px rgba(59,130,246,0.5)',
-      }}
-    />
-  </div>
-);
 
 const GlobalMapSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -73,7 +43,7 @@ const GlobalMapSection = () => {
       <div className={`w-full max-w-7xl mx-auto px-4 ${revealClasses(isVisible)}`}>
         <div className="relative">
           <img
-            src={worldMapSolid}
+            src={worldMapHighlighted}
             alt="Mapa mundi mostrando presença global do Dalton Lab"
             className="w-full h-auto"
           />
@@ -95,16 +65,6 @@ const GlobalMapSection = () => {
             >
               {label.label}
             </span>
-          ))}
-
-          {/* Pulse points */}
-          {PULSE_POINTS.map((point) => (
-            <StaticPoint
-              key={point.name}
-              left={point.left}
-              top={point.top}
-              size={point.size}
-            />
           ))}
         </div>
       </div>

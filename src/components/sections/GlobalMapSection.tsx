@@ -69,7 +69,7 @@ const CONTINENT_MAP: Record<string, string> = {
   'Papua New Guinea': 'Ásia',
 };
 
-const DEFAULT_COLOR = '#ECEFF1';
+const DEFAULT_COLOR = '#E8E6E3';
 
 const GlobalMapSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -81,12 +81,12 @@ const GlobalMapSection = () => {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-10 md:py-14"
+      className="py-6 md:py-8"
       style={{ backgroundColor: '#F5F3F0' }}
     >
       <div className="container-main">
         <h2
-          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-8 md:mb-10 ${revealClasses(isVisible)}`}
+          className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-4 md:mb-6 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
         >
           Atuação global nos setores de{' '}
@@ -114,10 +114,10 @@ const GlobalMapSection = () => {
           projection="geoMercator"
           projectionConfig={{
             scale: 130,
-            center: [10, 30],
+            center: [10, 20],
           }}
           style={{ width: '100%', height: 'auto' }}
-          viewBox="0 0 800 450"
+          viewBox="0 0 800 480"
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
@@ -143,7 +143,7 @@ const GlobalMapSection = () => {
                     style={{
                       default: { outline: 'none' },
                       hover: {
-                        fill: isHighlighted ? '#777777' : DEFAULT_COLOR,
+                        fill: isHighlighted ? '#777777' : '#E8E6E3',
                         outline: 'none',
                         cursor: isHighlighted ? 'pointer' : 'default',
                       },
@@ -159,7 +159,7 @@ const GlobalMapSection = () => {
 
       <div className="container-main">
         <p
-          className={`text-center text-sm md:text-lg mt-6 md:mt-10 ${revealClasses(isVisible)}`}
+          className={`text-center text-sm md:text-lg mt-4 md:mt-6 ${revealClasses(isVisible)}`}
           style={{ color: 'rgba(16,24,35,0.7)' }}
         >
           Seu país ainda não está no mapa? Você pode{' '}

@@ -59,7 +59,7 @@ const CONTINENT_MAP: Record<string, string> = {
   Portugal: 'Europa', Spain: 'Europa', France: 'Europa', Germany: 'Europa',
   Italy: 'Europa', Netherlands: 'Europa', Belgium: 'Europa',
   'United Kingdom': 'Europa', Ireland: 'Europa', Denmark: 'Europa',
-  Norway: 'Europa', Sweden: 'Europa', Austria: 'Europa',
+  Austria: 'Europa',
   'South Korea': 'Ásia', 'North Korea': 'Ásia', Japan: 'Ásia',
   China: 'Ásia', Mongolia: 'Ásia', Myanmar: 'Ásia', Thailand: 'Ásia',
   Laos: 'Ásia', Vietnam: 'Ásia', Taiwan: 'Ásia', Philippines: 'Ásia',

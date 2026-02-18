@@ -124,7 +124,7 @@ const GlobalMapSection = () => {
           projection="geoMercator"
           projectionConfig={{
             scale: 130,
-            center: [10, 20],
+            center: [10, 10],
           }}
           style={{ width: '100%', height: 'auto' }}
           viewBox="0 0 800 480"

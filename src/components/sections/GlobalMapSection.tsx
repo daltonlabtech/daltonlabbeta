@@ -130,7 +130,7 @@ const GlobalMapSection = () => {
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies
-                .filter((geo) => geo.properties.name !== 'Norway' && geo.properties.name !== 'Greenland')
+                .filter((geo) => geo.properties.name !== 'Norway' && geo.properties.name !== 'Greenland' && geo.properties.name !== 'Canada')
                 .map((geo) => {
                 const name = geo.properties.name;
                 const fillColor = HIGHLIGHTED_COUNTRIES[name] || DEFAULT_COLOR;
@@ -167,7 +167,7 @@ const GlobalMapSection = () => {
         </ComposableMap>
       </div>
 
-      <div className="container-main">
+      <div className="container-main flex flex-col items-center">
         <p
           className={`text-center text-sm md:text-lg mt-4 md:mt-6 ${revealClasses(isVisible)}`}
           style={{ color: 'rgba(16,24,35,0.7)' }}
@@ -181,6 +181,13 @@ const GlobalMapSection = () => {
             liderar o caminho.
           </a>
         </p>
+        <a
+          href="https://formulario.daltonlab.ai/"
+          className={`mt-4 inline-flex items-center justify-center rounded-full px-8 py-3 font-inter font-semibold text-sm md:text-base text-white transition-opacity hover:opacity-90 ${revealClasses(isVisible)}`}
+          style={{ backgroundColor: '#101824' }}
+        >
+          Fale conosco
+        </a>
       </div>
     </section>
   );

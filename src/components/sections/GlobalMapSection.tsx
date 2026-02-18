@@ -2,29 +2,20 @@ import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
 import { useTypewriter } from '@/hooks/useTypewriter';
 import worldMapHighlighted from '@/assets/world-map-highlighted.png';
 
+const SECTORS = [
+  { word: 'Agro', color: '#15803d' },
+  { word: 'Tecnologia', color: '#b45309' },
+  { word: 'Saúde', color: '#b91c1c' },
+  { word: 'Varejo', color: '#b45309' },
+  { word: 'Advocacia', color: '#6d28d9' },
+];
+
 const REGION_LABELS = [
   { label: 'América do Sul', left: '25%', top: '64%' },
   { label: 'Europa', left: '48%', top: '25%' },
   { label: 'África', left: '52%', top: '54%' },
   { label: 'Ásia', left: '77%', top: '25%' },
 ];
-
-const StaticPoint = ({ left, top, size }: { left: string; top: string; size: number }) => (
-  <div
-    className="absolute"
-    style={{ left, top, transform: 'translate(-50%, -50%)' }}
-  >
-    <div
-      className="rounded-full"
-      style={{
-        width: size,
-        height: size,
-        backgroundColor: '#3B82F6',
-        boxShadow: '0 0 8px rgba(59,130,246,0.5)',
-      }}
-    />
-  </div>
-);
 
 const GlobalMapSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -52,7 +43,7 @@ const GlobalMapSection = () => {
       <div className={`w-full max-w-7xl mx-auto px-4 ${revealClasses(isVisible)}`}>
         <div className="relative">
           <img
-            src={worldMapSolid}
+            src={worldMapHighlighted}
             alt="Mapa mundi mostrando presença global do Dalton Lab"
             className="w-full h-auto"
           />
@@ -74,16 +65,6 @@ const GlobalMapSection = () => {
             >
               {label.label}
             </span>
-          ))}
-
-          {/* Pulse points */}
-          {PULSE_POINTS.map((point) => (
-            <StaticPoint
-              key={point.name}
-              left={point.left}
-              top={point.top}
-              size={point.size}
-            />
           ))}
         </div>
       </div>

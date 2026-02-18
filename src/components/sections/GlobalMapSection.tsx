@@ -1,27 +1,6 @@
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
 import { useTypewriter } from '@/hooks/useTypewriter';
-import worldMapSolid from '@/assets/world-map-solid.png';
-
-const SECTORS = [
-  { word: 'Agro', color: '#15803d' },
-  { word: 'Tecnologia', color: '#b45309' },
-  { word: 'Saúde', color: '#b91c1c' },
-  { word: 'Varejo', color: '#b45309' },
-  { word: 'Advocacia', color: '#6d28d9' },
-];
-
-const PULSE_POINTS = [
-  { name: 'Manaus', left: '26%', top: '60%', size: 8, delay: 0 },
-  { name: 'Fortaleza', left: '31%', top: '62%', size: 8, delay: 0.3 },
-  { name: 'Recife', left: '32%', top: '65%', size: 8, delay: 0.6 },
-  { name: 'Salvador', left: '31%', top: '68%', size: 8, delay: 0.9 },
-  { name: 'Belo Horizonte', left: '30%', top: '71%', size: 8, delay: 1.2 },
-  { name: 'São Paulo', left: '29%', top: '74%', size: 11, delay: 1.5 },
-  { name: 'Rio de Janeiro', left: '30.5%', top: '73%', size: 8, delay: 1.8 },
-  { name: 'Portugal', left: '45%', top: '33%', size: 8, delay: 0.4 },
-  { name: 'Coreia do Sul', left: '83%', top: '29%', size: 8, delay: 0.7 },
-  { name: 'Angola', left: '53%', top: '62%', size: 8, delay: 1.0 },
-];
+import worldMapHighlighted from '@/assets/world-map-highlighted.png';
 
 const REGION_LABELS = [
   { label: 'América do Sul', left: '25%', top: '64%' },

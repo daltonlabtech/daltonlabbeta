@@ -48,6 +48,7 @@ export default defineConfig(({ mode }) => ({
           'react-vendor': ['react', 'react-dom'],
           'router': ['react-router-dom'],
           'query': ['@tanstack/react-query'],
+          'framer-motion': ['framer-motion'],
           // UI library chunks
           'radix-core': [
             '@radix-ui/react-dialog',

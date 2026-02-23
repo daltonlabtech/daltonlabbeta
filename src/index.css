@@ -808,3 +808,26 @@
   animation: fade-in-up 0.5s ease-out forwards;
   opacity: 0;
 }
+
+/* AgenticArchitecture CSS animations (replaces framer-motion) */
+@keyframes agentic-pulse-dot {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+.pulse-dot { animation: agentic-pulse-dot 3s ease-in-out infinite; }
+
+@keyframes flow-drop {
+  from { top: -6px; }
+  to { top: 24px; }
+}
+.flow-drop { animation: flow-drop 2.5s linear infinite; }
+
+/* VennDiagram CSS animations (replaces framer-motion) */
+@keyframes venn-circle-in {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes venn-label-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

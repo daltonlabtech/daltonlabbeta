@@ -1,23 +1,18 @@
-import { motion } from 'framer-motion';
 import { User, Bot, Database } from 'lucide-react';
 
 const PulseDot = ({ delay = 0 }: { delay?: number }) => (
-  <motion.div
-    className="w-1.5 h-1.5 rounded-full"
-    style={{ backgroundColor: 'rgba(16,24,35,0.25)' }}
-    animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.1, 0.8] }}
-    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay }}
+  <div
+    className="w-1.5 h-1.5 rounded-full pulse-dot"
+    style={{ backgroundColor: 'rgba(16,24,35,0.25)', animationDelay: `${delay}s` }}
   />
 );
 
 const FlowConnector = ({ delay = 0 }: { delay?: number }) => (
   <div className="flex justify-center h-5 md:h-6 overflow-hidden">
     <div className="relative w-px h-full" style={{ backgroundColor: 'rgba(16,24,35,0.08)' }}>
-      <motion.div
-        className="absolute w-px"
-        style={{ height: 6, backgroundColor: 'rgba(16,24,35,0.25)', top: -6 }}
-        animate={{ top: [-6, 24] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: 'linear', delay }}
+      <div
+        className="absolute w-px flow-drop"
+        style={{ height: 6, backgroundColor: 'rgba(16,24,35,0.25)', animationDelay: `${delay}s` }}
       />
     </div>
   </div>

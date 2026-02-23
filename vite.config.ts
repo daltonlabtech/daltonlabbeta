@@ -4,6 +4,25 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { execSync } from "child_process";
 
+// Defer render-blocking CSS: transforms Vite's injected <link rel="stylesheet">
+// into a non-blocking load using the media="print" + onload pattern.
+// Safe because React (navbar, all components) only renders after JS loads (~500ms+),
+// by which time the CSS (17 KiB) has already finished downloading (~200ms).
+function deferCssPlugin() {
+  return {
+    name: 'defer-css',
+    apply: 'build' as const,
+    transformIndexHtml(html: string) {
+      return html.replace(
+        /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g,
+        (_, href) =>
+          `<link rel="preload" as="style" href="${href}" onload="this.onload=null;this.rel='stylesheet'">` +
+          `<noscript><link rel="stylesheet" href="${href}"></noscript>`
+      );
+    },
+  };
+}
+
 // Generate version.json before build
 function generateVersionPlugin() {
   return {
@@ -27,7 +46,7 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), generateVersionPlugin(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [react(), generateVersionPlugin(), deferCssPlugin(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

@@ -60,8 +60,8 @@ const HomeFinalCTASection = () => {
         <WaitlistModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          formLocation="final_cta_clube"
-          product="Clube Dalton Lab"
+          formLocation="final_cta_meetup_sp"
+          product="Meetup SP"
         />
       </div>
     </section>

@@ -1,7 +1,15 @@
+import { useEffect } from "react";
+import { trackPageView } from "@/lib/analytics";
 import Header from "@/components/Header";
 import Footer from "@/components/sections/Footer";
 
 const TermosDeUso = () => {
+  useEffect(() => {
+    const pageTitle = 'Termos de Uso | Dalton Lab';
+    document.title = pageTitle;
+    trackPageView('/termos-de-uso', 'Termos de Uso');
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#101823]">
       <Header />

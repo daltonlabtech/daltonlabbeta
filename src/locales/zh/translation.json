@@ -2,6 +2,7 @@
   "nav": {
     "product": "产品",
     "talkToDalton": "与Dalton交谈",
+    "articles": "Insights",
     "about": "关于我们"
   },
   "pages": {
@@ -186,6 +187,17 @@
         "answer": "您可以随时暂停代理。我们的工作基于持续优化。您的反馈指导调整。如果您决定取消，没有忠诚条款或终止费。"
       }
     ]
+  },
+  "articles": {
+    "pageTitle": "洞察与发布",
+    "pageSubtitle": "探索我们关于智能体经济、AI转型战略和未来工作的最新思考。",
+    "featuredLabel": "精选",
+    "readArticle": "阅读文章",
+    "latestThinking": "最新文章",
+    "publishedAt": "发布于",
+    "readTime": "分钟阅读",
+    "relatedArticles": "推荐阅读",
+    "backToArticles": "返回洞察"
   },
   "footer": {
     "support": "支持",

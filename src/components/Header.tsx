@@ -31,6 +31,7 @@ const Header = () => {
     { label: t('nav.home'), href: '/' },
     { label: t('nav.transformation'), href: isHome ? '#journey' : '/#journey' },
     { label: t('nav.media'), href: isHome ? '#media' : '/#media' },
+    { label: t('nav.articles'), href: '/artigos' },
     { label: t('nav.about'), href: '/quem-somos' },
   ];
 

@@ -4,13 +4,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { trackPageView } from "@/lib/analytics";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UpdateNotification } from "@/components/ui/UpdateNotification";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
 const Produto = lazy(() => import("./pages/Produto"));
+const Artigos = lazy(() => import("./pages/Artigos"));
+const Artigo = lazy(() => import("./pages/Artigo"));
 
 const Newton = lazy(() => import("./pages/Newton"));
 const QuemSomos = lazy(() => import("./pages/QuemSomos"));
@@ -75,20 +76,6 @@ class ChunkErrorBoundary extends Component<
   }
 }
 
-// Component to track page views on route change
-const PageViewTracker = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    const pageTitle = document.title || location.pathname;
-    trackPageView(location.pathname, pageTitle);
-    // Clear chunk reload counter on successful navigation
-    sessionStorage.removeItem(RELOAD_KEY);
-  }, [location.pathname]);
-
-  return null;
-};
-
 // Page loader with logo and smooth animation
 const PageLoader = () => (
   <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-6 animate-fade-in">
@@ -103,7 +90,6 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <PageViewTracker />
         <ChunkErrorBoundary>
           <Suspense fallback={<PageLoader />}>
             <Routes>
@@ -114,6 +100,8 @@ const App = () => (
               <Route path="/quem-somos" element={<QuemSomos />} />
               <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
               <Route path="/termos-de-uso" element={<TermosDeUso />} />
+              <Route path="/artigos" element={<Artigos />} />
+              <Route path="/artigos/:slug" element={<Artigo />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

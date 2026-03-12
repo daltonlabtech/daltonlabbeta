@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
+import { trackPageView } from "@/lib/analytics";
 import Header from "@/components/Header";
 import HomeHeroSection from "@/components/sections/HomeHeroSection";
 import SkeletonSection from "@/components/ui/SkeletonSection";
@@ -24,7 +25,9 @@ const prefetchSections = () => {
 
 const Index = () => {
   useEffect(() => {
-    document.title = 'Dalton Lab – Transforme sua Empresa em uma Organização Agêntica';
+    const pageTitle = 'Dalton Lab – Transforme sua Empresa em uma Organização Agêntica';
+    document.title = pageTitle;
+    trackPageView('/', pageTitle);
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'A Dalton Lab transforma empresas em organizações agênticas com agentes de IA sob medida. Diagnóstico, processos AI-first, capacitação e tecnologia para escalar resultados.');

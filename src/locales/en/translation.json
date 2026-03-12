@@ -5,6 +5,7 @@
     "transformation": "Transformation",
     "media": "Media",
     "talkToDalton": "Talk to Dalton",
+    "articles": "Insights",
     "about": "About us",
     "startTransformation": "Contact us"
   },
@@ -342,6 +343,17 @@
         "answer": "You can pause the Agent at any time. Our work is based on continuous optimization. Your feedback guides adjustments. And if you decide to cancel, there's no loyalty clause or termination fee."
       }
     ]
+  },
+  "articles": {
+    "pageTitle": "Insights & Publications",
+    "pageSubtitle": "Explore our latest thinking on agentic economics, AI transformation strategies, and the future of work.",
+    "featuredLabel": "Featured",
+    "readArticle": "Read article",
+    "latestThinking": "Latest Articles",
+    "publishedAt": "Published on",
+    "readTime": "min read",
+    "relatedArticles": "Recommended Reading",
+    "backToArticles": "Back to Insights"
   },
   "footer": {
     "support": "Support",

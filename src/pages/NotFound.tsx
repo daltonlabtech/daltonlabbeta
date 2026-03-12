@@ -1,10 +1,13 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { trackPageView } from "@/lib/analytics";
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
+    document.title = '404 - Página não encontrada | Dalton Lab';
+    trackPageView(location.pathname, '404 - Página não encontrada');
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
   }, [location.pathname]);
 

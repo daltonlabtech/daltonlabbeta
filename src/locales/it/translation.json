@@ -2,6 +2,7 @@
   "nav": {
     "product": "Prodotto",
     "talkToDalton": "Parla con Dalton",
+    "articles": "Insights",
     "about": "Chi siamo"
   },
   "pages": {
@@ -186,6 +187,17 @@
         "answer": "Puoi mettere in pausa l'Agente in qualsiasi momento. Il nostro lavoro si basa sull'ottimizzazione continua. Il tuo feedback guida gli aggiustamenti. E se decidi di annullare, non c'è clausola di fedeltà né penale di recesso."
       }
     ]
+  },
+  "articles": {
+    "pageTitle": "Insights & Pubblicazioni",
+    "pageSubtitle": "Esplora il nostro pensiero più recente sull'economia agentiva, le strategie di trasformazione AI e il futuro del lavoro.",
+    "featuredLabel": "In evidenza",
+    "readArticle": "Leggi l'articolo",
+    "latestThinking": "Ultimi Articoli",
+    "publishedAt": "Pubblicato il",
+    "readTime": "min di lettura",
+    "relatedArticles": "Lettura Consigliata",
+    "backToArticles": "Torna agli Insights"
   },
   "footer": {
     "support": "Supporto",

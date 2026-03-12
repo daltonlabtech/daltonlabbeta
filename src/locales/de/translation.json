@@ -2,6 +2,7 @@
   "nav": {
     "product": "Produkt",
     "talkToDalton": "Mit Dalton sprechen",
+    "articles": "Insights",
     "about": "Über uns"
   },
   "pages": {
@@ -186,6 +187,17 @@
         "answer": "Sie können den Agenten jederzeit pausieren. Unsere Arbeit basiert auf kontinuierlicher Optimierung. Ihr Feedback leitet die Anpassungen. Und wenn Sie sich entscheiden zu kündigen, gibt es keine Treueklausel oder Kündigungsgebühr."
       }
     ]
+  },
+  "articles": {
+    "pageTitle": "Insights & Publikationen",
+    "pageSubtitle": "Entdecken Sie unsere neuesten Gedanken zur agentischen Wirtschaft, KI-Transformationsstrategien und der Zukunft der Arbeit.",
+    "featuredLabel": "Highlight",
+    "readArticle": "Artikel lesen",
+    "latestThinking": "Neueste Artikel",
+    "publishedAt": "Veröffentlicht am",
+    "readTime": "Min. Lesezeit",
+    "relatedArticles": "Empfohlene Lektüre",
+    "backToArticles": "Zurück zu Insights"
   },
   "footer": {
     "support": "Support",

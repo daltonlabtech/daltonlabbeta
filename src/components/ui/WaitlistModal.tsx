@@ -110,11 +110,12 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
     
     try {
       // Call edge function to submit waitlist
+      const fullPhone = `${selectedCountryCode.code} ${formData.phone.trim()}`;
       const { data, error } = await supabase.functions.invoke('submit-waitlist', {
         body: {
           name: formData.name.trim(),
           email: formData.email.trim(),
-          phone: formData.phone.trim(),
+          phone: fullPhone,
           product: product,
           source: formLocation,
           honeypot: formData.honeypot, // Send honeypot for bot detection

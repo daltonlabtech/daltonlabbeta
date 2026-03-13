@@ -70,6 +70,19 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
     }
   }, [isOpen, formLocation]);
 
+  // Close country dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (countryDropdownRef.current && !countryDropdownRef.current.contains(event.target as Node)) {
+        setIsCountryDropdownOpen(false);
+      }
+    };
+    if (isCountryDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isCountryDropdownOpen]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     

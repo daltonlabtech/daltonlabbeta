@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
@@ -6,6 +6,26 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { trackWaitlistOpen, trackWaitlistSubmit } from '@/lib/analytics';
 import { supabase } from '@/integrations/supabase/client';
+import { ChevronDown } from 'lucide-react';
+
+const COUNTRY_CODES = [
+  { code: '+55', country: 'BR', flag: '🇧🇷' },
+  { code: '+1', country: 'US', flag: '🇺🇸' },
+  { code: '+351', country: 'PT', flag: '🇵🇹' },
+  { code: '+44', country: 'GB', flag: '🇬🇧' },
+  { code: '+34', country: 'ES', flag: '🇪🇸' },
+  { code: '+33', country: 'FR', flag: '🇫🇷' },
+  { code: '+49', country: 'DE', flag: '🇩🇪' },
+  { code: '+39', country: 'IT', flag: '🇮🇹' },
+  { code: '+81', country: 'JP', flag: '🇯🇵' },
+  { code: '+86', country: 'CN', flag: '🇨🇳' },
+  { code: '+54', country: 'AR', flag: '🇦🇷' },
+  { code: '+56', country: 'CL', flag: '🇨🇱' },
+  { code: '+57', country: 'CO', flag: '🇨🇴' },
+  { code: '+52', country: 'MX', flag: '🇲🇽' },
+  { code: '+598', country: 'UY', flag: '🇺🇾' },
+  { code: '+595', country: 'PY', flag: '🇵🇾' },
+];
 
 interface WaitlistModalProps {
   isOpen: boolean;

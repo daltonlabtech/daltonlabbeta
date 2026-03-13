@@ -361,7 +361,7 @@
     "emailPlaceholder": "nome@empresa.com",
     "emailError": "Por favor, use um e-mail corporativo",
     "phoneLabel": "Telefone",
-    "phonePlaceholder": "+55 (11) 99999-9999",
+    "phonePlaceholder": "(11) 99999-9999",
     "phoneError": "Telefone inválido. Insira um número com DDD.",
     "submit": "Enviar",
     "submitting": "Processando...",

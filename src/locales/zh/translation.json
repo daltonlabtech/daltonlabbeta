@@ -9,6 +9,10 @@
     "startTransformation": "联系我们"
   },
   "pages": {
+    "index": {
+      "title": "Dalton Lab – 将您的企业转型为代理型组织",
+      "description": "Dalton Lab通过定制AI代理将企业转型为代理型组织。诊断、AI优先流程、培训和技术助力规模化成果。"
+    },
     "produto": {
       "title": "产品 | Dalton Lab – 销售AI代理",
       "description": "了解我们的销售AI代理。线索筛选、24/7跟进和自动成交。",
@@ -29,14 +33,214 @@
     }
   },
   "hero": {
-    "poweredBy": "技术支持",
-    "titleLine1": "从线索到销售",
-    "titleLine2": "借助AI代理",
-    "titleLine2Mobile": "借助",
-    "titleLine3Mobile": "AI代理",
-    "subtitle1": "扩大您公司的收入。",
-    "subtitle2": "更短时间，更高回报。",
-    "cta": "与Dalton交谈"
+    "poweredBy": "业务覆盖",
+    "titleLine1": "将您的企业转型",
+    "titleLine2": "为代理型组织",
+    "titleLine2Mobile": "为代理型",
+    "titleLine3Mobile": "组织",
+    "subtitle1": "",
+    "subtitle2": "",
+    "cta": "联系我们",
+    "regions": ["零售", "农业", "批发", "医疗", "法律"]
+  },
+  "home": {
+    "definition": {
+      "title": "巴西首家专注于代理型转型的企业",
+      "titleLine1": "巴西首家",
+      "titleLine2": "专注于代理型转型的企业",
+      "paragraph1": "全球企业在AI上投资了数十亿。大多数没有看到回报。原因很简单：他们试图取代人，把技术堆在混乱的流程上，期待自动化的结果。获得成果的企业需要用不同的方式思考和行动。",
+      "paragraph2": "在Dalton Lab，我们找到正确的流程，让AI去执行，解放人去做只有人才能做的事：战略、关系、决策。我们在完整的三角上工作：AI、流程和人。",
+      "paragraph3": "我们构建代理型组织，人做人的工作，代理做运营工作。更高效的运营、高绩效团队和具体的投资回报。",
+      "footnote": "¹ MIT Technology Review Brasil发表的研究",
+      "footnoteRef": "¹"
+    },
+    "stats": {
+      "items": [
+        {
+          "value": "+584",
+          "number": 584,
+          "prefix": "+",
+          "suffix": "",
+          "description": "直接影响的流程"
+        },
+        {
+          "value": "+63",
+          "number": 63,
+          "prefix": "+",
+          "suffix": "",
+          "description": "已实施的AI"
+        },
+        {
+          "value": ">50%",
+          "number": 50,
+          "prefix": ">",
+          "suffix": "%",
+          "description": "时间和精力的减少"
+        }
+      ]
+    },
+    "journey": {
+      "title": "您的代理型转型之旅",
+      "subtitle": "我们的全方位方法引导企业完成转型，确保代理型能力的可扩展性。",
+      "pillars": [
+        {
+          "number": "01",
+          "title": "AI优先\n流程",
+          "summary": "我们重新设计您的流程，将人工智能置于运营的核心",
+          "details": "我们映射您当前的工作流程，识别AI自动化机会。每个工作流都经过重新设计，以最大化效率、消除瓶颈并创建自然扩展的流程。"
+        },
+        {
+          "number": "02",
+          "title": "人员与文化",
+          "summary": "我们赋能您的团队与AI代理有效协作",
+          "details": "我们开发培训和文化变革计划，使您的团队适应协作模式。目标是让人和代理协同工作，各自专注于自己最擅长的领域。"
+        },
+        {
+          "number": "03",
+          "title": "技术",
+          "summary": "我们为您的业务构建并实施理想的代理型基础设施",
+          "details": "我们为您的运营选择和集成正确的技术。从语言模型到自动化平台，我们构建支撑您代理型转型的技术栈。"
+        }
+      ],
+      "seeMore": "查看更多",
+      "seeLess": "收起"
+    },
+    "prospection": {
+      "sectionTitle": "用AI优先重新构想您的业务部门",
+      "title": "重新构想您的企业",
+      "subtitle": "我们的专有技术适应您的业务需求。",
+      "tabs": {
+        "vendas": "销售",
+        "marketing": "市场营销",
+        "financeiro": "财务",
+        "atendimento": "客服",
+        "operacoes": "运营"
+      },
+      "vendas": {
+        "title": "自动化您的销售周期",
+        "description": "AI代理自主筛选潜在客户、进行跟进并完成销售。",
+        "features": [
+          "24/7自动潜在客户筛选",
+          "智能个性化跟进",
+          "自动化销售完成"
+        ]
+      },
+      "marketing": {
+        "title": "规模化您的内容生产",
+        "description": "利用人工智能创建活动、分析表现并优化投资。",
+        "features": [
+          "规模化内容创作",
+          "预测性活动分析",
+          "实时ROI优化"
+        ]
+      },
+      "financeiro": {
+        "title": "自动化财务运营",
+        "description": "由AI代理运营的对账、报告和财务预测。",
+        "features": [
+          "自动化银行对账",
+          "实时财务报告",
+          "智能现金流预测"
+        ]
+      },
+      "atendimento": {
+        "title": "转变客户体验",
+        "description": "由专业AI代理提供的人性化且可扩展的客户服务。",
+        "features": [
+          "24/7多渠道客户服务",
+          "自主工单解决",
+          "智能升级至人工"
+        ]
+      },
+      "operacoes": {
+        "title": "优化运营流程",
+        "description": "自动化复杂工作流程，消除运营瓶颈。",
+        "features": [
+          "复杂工作流自动化",
+          "主动流程监控",
+          "遗留系统集成"
+        ]
+      },
+      "cta": "联系我们",
+      "comingSoon": "即将推出"
+    },
+    "finalCta": {
+      "title": "即将推出：São Paulo聚会",
+      "titleLine2": "",
+      "subtitle": "加入正在为AI代理时代做准备的领导者社区",
+      "cta": "我感兴趣",
+      "disclaimer": "线下活动。即将推出。"
+    },
+    "media": {
+      "sectionTitle": "媒体亮点",
+      "label": "新闻",
+      "blogLabel": "博客文章",
+      "podcastLabel": "播客",
+      "featured": {
+        "title": "Mundial Mix合伙人对AI初创企业的投资",
+        "source": "Veja Negócios",
+        "date": "2026年2月5日",
+        "summary": "Dalton Lab由三位巴西人于2023年创立，旨在帮助企业利用AI专业知识实现企业流程自动化。",
+        "url": "https://veja.abril.com.br/coluna/radar-economico/o-aporte-de-um-socio-do-atacadista-mundial-mix-em-uma-startup-de-ia/"
+      },
+      "blogPosts": [
+        {
+          "title": "代理型组织：89%的企业仍然相距甚远",
+          "url": "https://www.linkedin.com/pulse/organizacoes-agenticas-89-ainda-esta-longe-disso-rodrigo-sp%C3%ADnola-lmmpf/"
+        },
+        {
+          "title": "忽视最重要客户的错误",
+          "url": "https://www.linkedin.com/pulse/o-erro-de-ignorar-cliente-mais-importante-do-seu-neg%C3%B3cio-sp%C3%ADnola-lkezf/"
+        },
+        {
+          "title": "企业在AI方面犯的错误",
+          "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
+        }
+      ]
+    },
+    "globalMap": {
+      "title": "在以下领域的全球业务",
+      "continents": {
+        "southAmerica": "南美洲",
+        "africa": "非洲",
+        "europe": "欧洲",
+        "asia": "亚洲"
+      },
+      "notOnMap": "您的国家还不在地图上？您可以",
+      "leadTheWay": "率先开拓。"
+    },
+    "architecture": {
+      "title": "代理型架构",
+      "ceo": "CEO",
+      "ceoSub": "战略",
+      "salesDir": "销售总监",
+      "salesDirSub": "收入",
+      "marketingDir": "市场总监",
+      "marketingDirSub": "增长",
+      "cfo": "CFO",
+      "cfoSub": "财务",
+      "briefings": "简报",
+      "approvals": "审批",
+      "reviews": "评审",
+      "sdr": "SDR",
+      "sdrSub": "获客",
+      "followUp": "跟进",
+      "followUpSub": "互动",
+      "content": "内容",
+      "contentSub": "创作",
+      "ads": "广告",
+      "adsSub": "付费媒体",
+      "billing": "账单",
+      "billingSub": "财务",
+      "forecast": "预测",
+      "forecastSub": "预测",
+      "crm": "CRM",
+      "crmSub": "Hubspot",
+      "erp": "ERP",
+      "erpSub": "SAP",
+      "apis": "APIs",
+      "apisSub": "集成"
+    }
   },
   "clients": {
     "title": "信任我们的企业"
@@ -208,7 +412,7 @@
     "emailPlaceholder": "name@company.com",
     "emailError": "请使用企业邮箱",
     "phoneLabel": "电话",
-    "phonePlaceholder": "+86 138 0000 0000",
+    "phonePlaceholder": "(138) 0000 0000",
     "phoneError": "电话号码无效。请包含区号。",
     "submit": "发送",
     "submitting": "处理中...",
@@ -216,5 +420,34 @@
     "successMessage": "您将第一时间收到新消息。",
     "errorGeneric": "提交错误。请重试。",
     "errorUnexpected": "意外错误。请重试。"
+  },
+  "about": {
+    "pageTitle": "创始人与团队",
+    "companyTitle": "公司",
+    "companyParagraphs": [
+      "我们是一家巴西初创企业，是Agents-as-a-Service (AaaS) 的先驱，在全球四大洲运营。我们的使命很明确：将传统企业转型为代理型组织，让AI代理执行复杂的运营任务，人类专注于战略决策。",
+      "当市场还在争论AI的潜力时，我们已经活在这个现实中。我们是11位专业人士与30多个专有AI代理并肩工作——这种混合模式定义了工作的新时代。",
+      "在这个模型中，代理大规模运营并维持24/7运营，而人类专注于他们最擅长的事情：战略、关系和领导力。",
+      "我们践行我们所销售的：通过代理型组织实现无限规模。"
+    ],
+    "foundersTitle": "创始人",
+    "founders": [
+      {
+        "role": "创始人兼CEO",
+        "description": "曾任Serasa巴西中小企业最大商业运营的CEO。领导并培训了500多名高绩效销售人员。获得多项国内外大奖（巴黎2018、夏威夷2019、蒙得维的亚2019和美国2020）。如今领导Dalton Lab将企业转型为代理型组织。PUC/PR AI学院大使。执着于文化、成果和增长。"
+      },
+      {
+        "role": "创始人兼COO",
+        "description": "管理了120多个医疗和教育领域的数字化项目，21岁时在首次创业中获得了7000多名客户。在德勤等跨国公司有工作经验，如今在Dalton Lab设计将战略转化为执行的运营架构。"
+      },
+      {
+        "role": "顾问合伙人",
+        "description": "Grupo Mundial Mix商业和营销总监，该集团控制着Brasil Atacadista和Supermercados Imperatriz，是圣卡塔琳娜州最大的食品零售连锁之一。Rede Brasil - RBSM理事会主席。13年以上领导商业战略和行业创新。"
+      }
+    ]
+  },
+  "update": {
+    "newVersion": "新版本可用",
+    "updateNow": "立即更新"
   }
 }

@@ -250,15 +250,50 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
                 <Label htmlFor="phone" className="text-xs md:text-sm font-medium text-zinc-700">
                   {t('waitlist.phoneLabel')} <span className="text-red-500">*</span>
                 </Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => handleChange('phone', e.target.value)}
-                  placeholder={t('waitlist.phonePlaceholder')}
-                  required
-                  className={`h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400 ${phoneError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
-                />
+                <div className="flex gap-2">
+                  {/* Country Code Selector */}
+                  <div className="relative" ref={countryDropdownRef}>
+                    <button
+                      type="button"
+                      onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
+                      className="h-10 md:h-11 px-2.5 flex items-center gap-1 rounded-md border border-zinc-200 bg-zinc-50 text-sm text-zinc-900 hover:bg-zinc-100 transition-colors whitespace-nowrap"
+                    >
+                      <span>{selectedCountryCode.flag}</span>
+                      <span className="text-xs text-zinc-600">{selectedCountryCode.code}</span>
+                      <ChevronDown className="w-3 h-3 text-zinc-400" />
+                    </button>
+                    {isCountryDropdownOpen && (
+                      <div className="absolute top-full left-0 mt-1 w-48 bg-white border border-zinc-200 rounded-lg shadow-lg z-50 max-h-48 overflow-y-auto">
+                        {COUNTRY_CODES.map((cc) => (
+                          <button
+                            key={cc.code + cc.country}
+                            type="button"
+                            onClick={() => {
+                              setSelectedCountryCode(cc);
+                              setIsCountryDropdownOpen(false);
+                            }}
+                            className={`w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-zinc-50 transition-colors ${
+                              selectedCountryCode.code === cc.code ? 'bg-zinc-100 font-medium' : ''
+                            }`}
+                          >
+                            <span>{cc.flag}</span>
+                            <span className="text-zinc-900">{cc.country}</span>
+                            <span className="text-zinc-500 ml-auto">{cc.code}</span>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => handleChange('phone', e.target.value)}
+                    placeholder={t('waitlist.phonePlaceholder')}
+                    required
+                    className={`h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400 flex-1 ${phoneError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                  />
+                </div>
                 {phoneError && (
                   <p className="text-xs md:text-sm text-red-500">{phoneError}</p>
                 )}

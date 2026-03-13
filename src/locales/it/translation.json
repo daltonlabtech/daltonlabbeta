@@ -9,6 +9,10 @@
     "startTransformation": "Contattaci"
   },
   "pages": {
+    "index": {
+      "title": "Dalton Lab – Trasforma la tua Azienda in un'Organizzazione Agentica",
+      "description": "Dalton Lab trasforma le aziende in organizzazioni agentiche con agenti IA su misura. Diagnosi, processi AI-first, formazione e tecnologia per scalare i risultati."
+    },
     "produto": {
       "title": "Prodotto | Dalton Lab – Agenti IA per le Vendite",
       "description": "Scopri i nostri Agenti IA per le vendite. Qualificazione lead, follow-up 24/7 e chiusura automatica.",
@@ -29,14 +33,214 @@
     }
   },
   "hero": {
-    "poweredBy": "Powered by",
-    "titleLine1": "Dal lead alla vendita",
-    "titleLine2": "con Agenti IA",
-    "titleLine2Mobile": "con",
-    "titleLine3Mobile": "Agenti IA",
-    "subtitle1": "Scala i ricavi della tua azienda.",
-    "subtitle2": "In meno tempo. Con più ritorno.",
-    "cta": "Parla con Dalton"
+    "poweredBy": "Presente in",
+    "titleLine1": "Trasforma la tua azienda",
+    "titleLine2": "in un'Organizzazione Agentica",
+    "titleLine2Mobile": "in un'Organizzazione",
+    "titleLine3Mobile": "Agentica",
+    "subtitle1": "",
+    "subtitle2": "",
+    "cta": "Contattaci",
+    "regions": ["Retail", "Agro", "Ingrosso", "Sanità", "Legale"]
+  },
+  "home": {
+    "definition": {
+      "title": "La prima azienda in Brasile specializzata in trasformazione agentica",
+      "titleLine1": "La prima azienda in Brasile",
+      "titleLine2": "specializzata in trasformazione agentica",
+      "paragraph1": "Le aziende di tutto il mondo hanno investito miliardi nell'IA. La maggior parte non ha visto ritorno. Il motivo è semplice: hanno cercato di sostituire le persone, hanno gettato tecnologia su processi disorganizzati e hanno aspettato risultati automatici. Le aziende che ottengono risultati devono pensare e agire diversamente.",
+      "paragraph2": "In Dalton Lab, identifichiamo il processo giusto, mettiamo l'IA al lavoro e liberiamo le persone per fare ciò che solo le persone possono fare: strategia, relazioni, decisioni. Lavoriamo sul tripode completo: IA, processi e persone.",
+      "paragraph3": "Costruiamo organizzazioni agentiche dove gli umani fanno lavoro umano e gli agenti fanno lavoro operativo. Operazioni più efficienti, team ad alte prestazioni e ROI concreto.",
+      "footnote": "¹ Studio pubblicato da MIT Technology Review Brasil",
+      "footnoteRef": "¹"
+    },
+    "stats": {
+      "items": [
+        {
+          "value": "+584",
+          "number": 584,
+          "prefix": "+",
+          "suffix": "",
+          "description": "processi direttamente impattati"
+        },
+        {
+          "value": "+63",
+          "number": 63,
+          "prefix": "+",
+          "suffix": "",
+          "description": "IA implementate"
+        },
+        {
+          "value": ">50%",
+          "number": 50,
+          "prefix": ">",
+          "suffix": "%",
+          "description": "riduzione di tempo e sforzo"
+        }
+      ]
+    },
+    "journey": {
+      "title": "Il tuo percorso verso una trasformazione agentica",
+      "subtitle": "Il nostro approccio olistico guida le aziende attraverso la trasformazione e garantisce la scalabilità delle capacità agentiche.",
+      "pillars": [
+        {
+          "number": "01",
+          "title": "Processi\nAI-first",
+          "summary": "Riprogetttiamo i tuoi processi mettendo l'intelligenza artificiale al centro delle operazioni",
+          "details": "Mappiamo i tuoi flussi di lavoro attuali e identifichiamo le opportunità di automazione con l'IA. Ogni workflow viene riprogettato per massimizzare l'efficienza, eliminare i colli di bottiglia e creare processi che scalano naturalmente."
+        },
+        {
+          "number": "02",
+          "title": "Persone e cultura",
+          "summary": "Formiamo i tuoi team per collaborare efficacemente con gli agenti IA",
+          "details": "Sviluppiamo programmi di formazione e cambiamento culturale affinché il tuo team si adatti al modello cooperativo. L'obiettivo è che umani e agenti lavorino in sinergia, ognuno concentrato su ciò che sa fare meglio."
+        },
+        {
+          "number": "03",
+          "title": "Tecnologia",
+          "summary": "Costruiamo e implementiamo l'infrastruttura agentica ideale per il tuo business",
+          "details": "Selezioniamo e integriamo le tecnologie giuste per la tua operazione. Dai modelli di linguaggio alle piattaforme di automazione, costruiamo lo stack tecnologico che sostiene la tua trasformazione agentica."
+        }
+      ],
+      "seeMore": "Vedi di più",
+      "seeLess": "Vedi meno"
+    },
+    "prospection": {
+      "sectionTitle": "Reimmagina i tuoi settori AI-first",
+      "title": "Reimmagina la tua azienda",
+      "subtitle": "La nostra tecnologia proprietaria si adatta alle esigenze del tuo business.",
+      "tabs": {
+        "vendas": "Vendite",
+        "marketing": "Marketing",
+        "financeiro": "Finanza",
+        "atendimento": "Assistenza",
+        "operacoes": "Operazioni"
+      },
+      "vendas": {
+        "title": "Automatizza il tuo ciclo commerciale",
+        "description": "Agenti IA che qualificano lead, effettuano follow-up e chiudono vendite in modo autonomo.",
+        "features": [
+          "Qualificazione automatica dei lead 24/7",
+          "Follow-up intelligente e personalizzato",
+          "Chiusura vendite automatizzata"
+        ]
+      },
+      "marketing": {
+        "title": "Scala la tua produzione di contenuti",
+        "description": "Crea campagne, analizza le performance e ottimizza gli investimenti con l'intelligenza artificiale.",
+        "features": [
+          "Creazione di contenuti su larga scala",
+          "Analisi predittiva delle campagne",
+          "Ottimizzazione del ROI in tempo reale"
+        ]
+      },
+      "financeiro": {
+        "title": "Automatizza le operazioni finanziarie",
+        "description": "Riconciliazione, report e previsioni finanziarie gestiti da agenti IA.",
+        "features": [
+          "Riconciliazione bancaria automatizzata",
+          "Report finanziari in tempo reale",
+          "Previsioni di cash flow intelligenti"
+        ]
+      },
+      "atendimento": {
+        "title": "Trasforma l'esperienza del cliente",
+        "description": "Assistenza umanizzata e scalabile con agenti IA specializzati.",
+        "features": [
+          "Assistenza 24/7 multi-canale",
+          "Risoluzione autonoma dei ticket",
+          "Escalation intelligente verso gli umani"
+        ]
+      },
+      "operacoes": {
+        "title": "Ottimizza i processi operativi",
+        "description": "Automatizza workflow complessi ed elimina i colli di bottiglia operativi.",
+        "features": [
+          "Automazione di workflow complessi",
+          "Monitoraggio proattivo dei processi",
+          "Integrazione tra sistemi legacy"
+        ]
+      },
+      "cta": "Contattaci",
+      "comingSoon": "Prossimamente"
+    },
+    "finalCta": {
+      "title": "Prossimamente: Meetup São Paulo",
+      "titleLine2": "",
+      "subtitle": "Unisciti alla community di leader che stanno preparando le loro aziende per l'Era degli Agenti IA",
+      "cta": "Sono interessato",
+      "disclaimer": "In presenza. Prossimamente."
+    },
+    "media": {
+      "sectionTitle": "MEDIA IN EVIDENZA",
+      "label": "NOTIZIA",
+      "blogLabel": "ARTICOLO DEL BLOG",
+      "podcastLabel": "PODCAST",
+      "featured": {
+        "title": "L'investimento di un partner di Mundial Mix in una startup di IA",
+        "source": "Veja Negócios",
+        "date": "5 feb 2026",
+        "summary": "Fondata nel 2023 da tre brasiliani, Dalton Lab vuole aiutare le aziende con expertise in IA per automatizzare i processi aziendali.",
+        "url": "https://veja.abril.com.br/coluna/radar-economico/o-aporte-de-um-socio-do-atacadista-mundial-mix-em-uma-startup-de-ia/"
+      },
+      "blogPosts": [
+        {
+          "title": "Organizzazioni Agentiche: l'89% ne è ancora lontano",
+          "url": "https://www.linkedin.com/pulse/organizacoes-agenticas-89-ainda-esta-longe-disso-rodrigo-sp%C3%ADnola-lmmpf/"
+        },
+        {
+          "title": "L'errore di ignorare il cliente più importante del tuo business",
+          "url": "https://www.linkedin.com/pulse/o-erro-de-ignorar-cliente-mais-importante-do-seu-neg%C3%B3cio-sp%C3%ADnola-lkezf/"
+        },
+        {
+          "title": "L'errore che le aziende stanno commettendo con l'IA",
+          "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
+        }
+      ]
+    },
+    "globalMap": {
+      "title": "Presenza globale nei settori di",
+      "continents": {
+        "southAmerica": "America del Sud",
+        "africa": "Africa",
+        "europe": "Europa",
+        "asia": "Asia"
+      },
+      "notOnMap": "Il tuo paese non è ancora sulla mappa? Puoi",
+      "leadTheWay": "aprire la strada."
+    },
+    "architecture": {
+      "title": "Architettura Agentica",
+      "ceo": "CEO",
+      "ceoSub": "Strategia",
+      "salesDir": "Dir. Commerciale",
+      "salesDirSub": "Revenue",
+      "marketingDir": "Dir. Marketing",
+      "marketingDirSub": "Growth",
+      "cfo": "CFO",
+      "cfoSub": "Finanza",
+      "briefings": "Briefing",
+      "approvals": "Approvazioni",
+      "reviews": "Revisioni",
+      "sdr": "SDR",
+      "sdrSub": "Prospecting",
+      "followUp": "Follow-up",
+      "followUpSub": "Engagement",
+      "content": "Contenuti",
+      "contentSub": "Creazione",
+      "ads": "Annunci",
+      "adsSub": "Media a pagamento",
+      "billing": "Fatturazione",
+      "billingSub": "Finanza",
+      "forecast": "Forecast",
+      "forecastSub": "Previsione",
+      "crm": "CRM",
+      "crmSub": "Hubspot",
+      "erp": "ERP",
+      "erpSub": "SAP",
+      "apis": "API",
+      "apisSub": "Integrazioni"
+    }
   },
   "clients": {
     "title": "Aziende che si fidano di noi"
@@ -208,7 +412,7 @@
     "emailPlaceholder": "nome@azienda.com",
     "emailError": "Per favore usa un'email aziendale",
     "phoneLabel": "Telefono",
-    "phonePlaceholder": "+39 340 1234567",
+    "phonePlaceholder": "(340) 1234567",
     "phoneError": "Numero di telefono non valido. Includere il prefisso.",
     "submit": "Invia",
     "submitting": "Elaborazione...",
@@ -216,5 +420,34 @@
     "successMessage": "Riceverai le novità in anteprima.",
     "errorGeneric": "Errore nell'invio. Riprova.",
     "errorUnexpected": "Errore imprevisto. Riprova."
+  },
+  "about": {
+    "pageTitle": "Fondatori e team",
+    "companyTitle": "Azienda",
+    "companyParagraphs": [
+      "Siamo una startup brasiliana pioniera in Agents-as-a-Service (AaaS), operante a livello globale su quattro continenti. La nostra missione è chiara: trasformare le aziende convenzionali in organizzazioni agentiche, dove gli agenti IA eseguono compiti operativi complessi e gli umani si concentrano sulle decisioni strategiche.",
+      "Mentre il mercato dibatte ancora il potenziale dell'IA, noi viviamo già questa realtà. Siamo 11 professionisti che lavorano fianco a fianco con più di 30 agenti IA proprietari – una configurazione ibrida che definisce la nuova era del lavoro.",
+      "In questo modello, gli agenti operano su larga scala e mantengono operazioni 24/7, mentre gli umani si concentrano su ciò che sanno fare meglio: strategia, relazioni e leadership.",
+      "Pratichiamo ciò che vendiamo: scala infinita attraverso organizzazioni agentiche."
+    ],
+    "foundersTitle": "Fondatori",
+    "founders": [
+      {
+        "role": "Fondatore e CEO",
+        "description": "È stato CEO della più grande operazione commerciale di Serasa per le PMI in Brasile. Ha guidato e formato +500 venditori ad alte prestazioni. Ha ricevuto numerosi premi nazionali e internazionali (Parigi 2018, Hawaii 2019, Montevideo 2019 e USA 2020). Oggi guida Dalton Lab nella trasformazione delle aziende in Organizzazioni Agentiche. Ambasciatore della Scuola di IA della PUC/PR. Ossessionato da cultura, risultati e crescita."
+      },
+      {
+        "role": "Fondatore e COO",
+        "description": "Ha gestito oltre 120 progetti di iniziative digitali nella Sanità e nell'Istruzione, generando +7.000 clienti nella sua prima impresa a 21 anni. Con esperienza in multinazionali come Deloitte, oggi progetta l'architettura operativa che trasforma la strategia in esecuzione in Dalton Lab."
+      },
+      {
+        "role": "Partner Consulente",
+        "description": "Direttore Commerciale e Marketing del Grupo Mundial Mix, che controlla Brasil Atacadista e Supermercados Imperatriz, una delle più grandi catene di distribuzione alimentare di Santa Catarina. Presidente del Consiglio di Rede Brasil - RBSM. +13 anni alla guida di strategia commerciale e innovazione nel settore."
+      }
+    ]
+  },
+  "update": {
+    "newVersion": "Nuova versione disponibile",
+    "updateNow": "Aggiorna ora"
   }
 }

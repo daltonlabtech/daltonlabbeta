@@ -168,6 +168,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
   const handleClose = () => {
     // Reset form state when closing without submitting
     setFormData({ name: '', email: '', phone: '', honeypot: '' });
+    setSelectedCountryCode(COUNTRY_CODES[0]);
     setEmailError('');
     setPhoneError('');
     setSubmitError('');

@@ -52,8 +52,11 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
     name: '',
     email: '',
     phone: '',
-    honeypot: '', // Hidden field to catch bots
+    honeypot: '',
   });
+  const [selectedCountryCode, setSelectedCountryCode] = useState(COUNTRY_CODES[0]); // +55 BR
+  const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
+  const countryDropdownRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');

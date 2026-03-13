@@ -9,6 +9,10 @@
     "startTransformation": "Contact us"
   },
   "pages": {
+    "index": {
+      "title": "Dalton Lab – Transform Your Company into an Agentic Organization",
+      "description": "Dalton Lab transforms companies into agentic organizations with custom AI agents. Diagnostics, AI-first processes, training, and technology to scale results."
+    },
     "produto": {
       "title": "Product | Dalton Lab – AI Agents for Sales",
       "description": "Discover our AI Agents for sales. Lead qualification, 24/7 follow-up, and automatic closing.",
@@ -36,16 +40,19 @@
     "titleLine3Mobile": "Organization",
     "subtitle1": "",
     "subtitle2": "",
-    "cta": "Contact us"
+    "cta": "Contact us",
+    "regions": ["Retail", "Agribusiness", "Wholesale", "Healthcare", "Legal"]
   },
   "home": {
     "definition": {
       "title": "The first company in Brazil specialized in agentic transformation",
       "titleLine1": "The first company in Brazil",
       "titleLine2": "specialized in agentic transformation",
-      "paragraph1": "",
-      "paragraph2": "",
-      "paragraph3": ""
+      "paragraph1": "Companies worldwide invested billions in AI. Most saw no return. The reason is simple: they tried to replace people, threw technology on top of disorganized processes, and expected automatic results. Companies that get results need to think and act differently.",
+      "paragraph2": "At Dalton Lab, we identify the right process, put AI to work on it, and free people to do what only people can do: strategy, relationships, decisions. We work on the complete tripod: AI, processes, and people.",
+      "paragraph3": "We build agentic organizations where humans do human work and agents do operational work. More efficient operations, high-performing teams, and concrete ROI.",
+      "footnote": "¹ Study published by MIT Technology Review Brazil",
+      "footnoteRef": "¹"
     },
     "stats": {
       "items": [
@@ -99,6 +106,7 @@
       "seeLess": "See less"
     },
     "prospection": {
+      "sectionTitle": "Reimagine your sectors AI-first",
       "title": "Reimagine your company",
       "subtitle": "Our proprietary technology adapts to your business needs.",
       "tabs": {
@@ -189,6 +197,49 @@
           "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
         }
       ]
+    },
+    "globalMap": {
+      "title": "Global presence in the sectors of",
+      "continents": {
+        "southAmerica": "South America",
+        "africa": "Africa",
+        "europe": "Europe",
+        "asia": "Asia"
+      },
+      "notOnMap": "Your country is not on the map yet? You can",
+      "leadTheWay": "lead the way."
+    },
+    "architecture": {
+      "title": "Agentic Architecture",
+      "ceo": "CEO",
+      "ceoSub": "Strategy",
+      "salesDir": "Sales Dir.",
+      "salesDirSub": "Revenue",
+      "marketingDir": "Marketing Dir.",
+      "marketingDirSub": "Growth",
+      "cfo": "CFO",
+      "cfoSub": "Finance",
+      "briefings": "Briefings",
+      "approvals": "Approvals",
+      "reviews": "Reviews",
+      "sdr": "SDR",
+      "sdrSub": "Prospecting",
+      "followUp": "Follow-up",
+      "followUpSub": "Engagement",
+      "content": "Content",
+      "contentSub": "Creation",
+      "ads": "Ads",
+      "adsSub": "Paid Media",
+      "billing": "Billing",
+      "billingSub": "Finance",
+      "forecast": "Forecast",
+      "forecastSub": "Prediction",
+      "crm": "CRM",
+      "crmSub": "Hubspot",
+      "erp": "ERP",
+      "erpSub": "SAP",
+      "apis": "APIs",
+      "apisSub": "Integrations"
     }
   },
   "clients": {
@@ -369,5 +420,34 @@
     "successMessage": "You'll receive news first hand.",
     "errorGeneric": "Error submitting. Please try again.",
     "errorUnexpected": "Unexpected error. Please try again."
+  },
+  "about": {
+    "pageTitle": "Founders and team",
+    "companyTitle": "Company",
+    "companyParagraphs": [
+      "We are a Brazilian startup pioneering Agents-as-a-Service (AaaS), operating globally across four continents. Our mission is clear: transform conventional companies into agentic organizations, where AI agents execute complex operational tasks and humans focus on strategic decisions.",
+      "While the market still debates AI's potential, we already live this reality. We are 11 professionals working side by side with more than 30 proprietary AI agents—a hybrid setup that defines the new era of work.",
+      "In this model, agents operate at scale and maintain 24/7 operations, while humans focus on what they do best: strategy, relationships, and leadership.",
+      "We practice what we sell: infinite scale through agentic organizations."
+    ],
+    "foundersTitle": "Founders",
+    "founders": [
+      {
+        "role": "Founder and CEO",
+        "description": "Was CEO of Serasa's largest commercial operation for SMBs in Brazil. Led and trained +500 high-performance salespeople. Received multiple national and international awards (Paris 2018, Hawaii 2019, Montevideo 2019, and USA 2020). Today leads Dalton Lab in transforming companies into Agentic Organizations. Ambassador of the AI School at PUC/PR. Obsessed with culture, results, and growth."
+      },
+      {
+        "role": "Founder and COO",
+        "description": "Managed over 120 digital initiative projects in Healthcare and Education, generating +7,000 clients in his first venture at age 21. With experience at multinationals like Deloitte, today designs the operational architecture that transforms strategy into execution at Dalton Lab."
+      },
+      {
+        "role": "Advisory Partner",
+        "description": "Commercial and Marketing Director of Grupo Mundial Mix, which controls Brasil Atacadista and Supermercados Imperatriz, one of the largest food retail chains in Santa Catarina. Chairman of Rede Brasil - RBSM. +13 years leading commercial strategy and innovation in the sector."
+      }
+    ]
+  },
+  "update": {
+    "newVersion": "New version available",
+    "updateNow": "Update now"
   }
 }

@@ -1,17 +1,10 @@
 import { useState } from 'react';
-import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
+import { useTranslation } from 'react-i18next';
+import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 import { useScrollReveal, revealClasses } from '@/hooks/useScrollReveal';
 import { useTypewriter } from '@/hooks/useTypewriter';
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
-
-const SECTORS = [
-  { word: 'Agro', color: '#15803d' },
-  { word: 'Tecnologia', color: '#b45309' },
-  { word: 'Saúde', color: '#b91c1c' },
-  { word: 'Varejo', color: '#b45309' },
-  { word: 'Advocacia', color: '#6d28d9' },
-];
 
 const HIGHLIGHTED_COUNTRIES: Record<string, string> = {
   Brazil: '#999999',
@@ -51,28 +44,32 @@ const HIGHLIGHTED_COUNTRIES: Record<string, string> = {
   Austria: '#999999',
 };
 
-const CONTINENT_MAP: Record<string, string> = {
-  Brazil: 'América do Sul',
-  Angola: 'África', 'Dem. Rep. Congo': 'África', Chad: 'África',
-  'Central African Rep.': 'África', Cameroon: 'África', Congo: 'África',
-  Gabon: 'África', 'Eq. Guinea': 'África',
-  Portugal: 'Europa', Spain: 'Europa', France: 'Europa', Germany: 'Europa',
-  Italy: 'Europa', Netherlands: 'Europa', Belgium: 'Europa',
-  'United Kingdom': 'Europa', Ireland: 'Europa', Denmark: 'Europa',
-  Austria: 'Europa',
-  'South Korea': 'Ásia', 'North Korea': 'Ásia', Japan: 'Ásia',
-  China: 'Ásia', Mongolia: 'Ásia', Myanmar: 'Ásia', Thailand: 'Ásia',
-  Laos: 'Ásia', Vietnam: 'Ásia', Taiwan: 'Ásia', Philippines: 'Ásia',
-  Malaysia: 'Ásia', Cambodia: 'Ásia', Indonesia: 'Ásia',
-  'Papua New Guinea': 'Ásia',
+const CONTINENT_KEYS: Record<string, string> = {
+  Brazil: 'southAmerica',
+  Angola: 'africa', 'Dem. Rep. Congo': 'africa', Chad: 'africa',
+  'Central African Rep.': 'africa', Cameroon: 'africa', Congo: 'africa',
+  Gabon: 'africa', 'Eq. Guinea': 'africa',
+  Portugal: 'europe', Spain: 'europe', France: 'europe', Germany: 'europe',
+  Italy: 'europe', Netherlands: 'europe', Belgium: 'europe',
+  'United Kingdom': 'europe', Ireland: 'europe', Denmark: 'europe',
+  Austria: 'europe',
+  'South Korea': 'asia', 'North Korea': 'asia', Japan: 'asia',
+  China: 'asia', Mongolia: 'asia', Myanmar: 'asia', Thailand: 'asia',
+  Laos: 'asia', Vietnam: 'asia', Taiwan: 'asia', Philippines: 'asia',
+  Malaysia: 'asia', Cambodia: 'asia', Indonesia: 'asia',
+  'Papua New Guinea': 'asia',
 };
+
+const SECTOR_COLORS = ['#15803d', '#b45309', '#b91c1c', '#b45309', '#6d28d9'];
 
 const DEFAULT_COLOR = '#E8E6E3';
 
 const GlobalMapSection = () => {
+  const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
+  const sectors = t('hero.regions', { returnObjects: true }) as string[];
   const { displayText, wordIndex } = useTypewriter({
-    words: SECTORS.map((s) => s.word),
+    words: sectors,
   });
   const [tooltip, setTooltip] = useState('');
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -88,10 +85,10 @@ const GlobalMapSection = () => {
           className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight text-center mb-8 md:mb-12 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
         >
-          Atuação global nos setores de{' '}
+          {t('home.globalMap.title')}{' '}
           <br className="block md:hidden" />
-          <span style={{ color: SECTORS[wordIndex].color }}>{displayText}</span>
-          <span className="animate-pulse" style={{ color: SECTORS[wordIndex].color }}>|</span>
+          <span style={{ color: SECTOR_COLORS[wordIndex] }}>{displayText}</span>
+          <span className="animate-pulse" style={{ color: SECTOR_COLORS[wordIndex] }}>|</span>
         </h2>
       </div>
 
@@ -121,10 +118,7 @@ const GlobalMapSection = () => {
 
         <ComposableMap
           projection="geoMercator"
-          projectionConfig={{
-            scale: 115,
-            center: [10, 20],
-          }}
+          projectionConfig={{ scale: 115, center: [10, 20] }}
           style={{ width: '100%', height: 'auto' }}
           viewBox="0 0 800 520"
         >
@@ -133,36 +127,36 @@ const GlobalMapSection = () => {
               geographies
                 .filter((geo) => geo.properties.name !== 'Norway' && geo.properties.name !== 'Greenland')
                 .map((geo) => {
-                const name = geo.properties.name;
-                const fillColor = HIGHLIGHTED_COUNTRIES[name] || DEFAULT_COLOR;
-                const continent = CONTINENT_MAP[name];
-                const isHighlighted = !!HIGHLIGHTED_COUNTRIES[name];
+                  const name = geo.properties.name;
+                  const fillColor = HIGHLIGHTED_COUNTRIES[name] || DEFAULT_COLOR;
+                  const continentKey = CONTINENT_KEYS[name];
+                  const isHighlighted = !!HIGHLIGHTED_COUNTRIES[name];
 
-                return (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill={fillColor}
-                    stroke="#F5F3F0"
-                    strokeWidth={0.5}
-                    onMouseEnter={() => {
-                      if (isHighlighted && continent) {
-                        setTooltip(continent);
-                      }
-                    }}
-                    onMouseLeave={() => setTooltip('')}
-                    style={{
-                      default: { outline: 'none' },
-                      hover: {
-                        fill: isHighlighted ? '#777777' : '#E8E6E3',
-                        outline: 'none',
-                        cursor: isHighlighted ? 'pointer' : 'default',
-                      },
-                      pressed: { outline: 'none' },
-                    }}
-                  />
-                );
-              })
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      fill={fillColor}
+                      stroke="#F5F3F0"
+                      strokeWidth={0.5}
+                      onMouseEnter={() => {
+                        if (isHighlighted && continentKey) {
+                          setTooltip(t(`home.globalMap.continents.${continentKey}`));
+                        }
+                      }}
+                      onMouseLeave={() => setTooltip('')}
+                      style={{
+                        default: { outline: 'none' },
+                        hover: {
+                          fill: isHighlighted ? '#777777' : '#E8E6E3',
+                          outline: 'none',
+                          cursor: isHighlighted ? 'pointer' : 'default',
+                        },
+                        pressed: { outline: 'none' },
+                      }}
+                    />
+                  );
+                })
             }
           </Geographies>
         </ComposableMap>
@@ -173,13 +167,13 @@ const GlobalMapSection = () => {
           className={`text-center text-sm md:text-lg mt-4 md:mt-6 ${revealClasses(isVisible)}`}
           style={{ color: 'rgba(16,24,35,0.7)' }}
         >
-          Seu país ainda não está no mapa? Você pode{' '}
+          {t('home.globalMap.notOnMap')}{' '}
           <a
             href="https://formulario.daltonlab.ai/"
             className="font-semibold underline underline-offset-4 transition-colors duration-200"
             style={{ color: '#101824' }}
           >
-            liderar o caminho.
+            {t('home.globalMap.leadTheWay')}
           </a>
         </p>
         <a
@@ -187,7 +181,7 @@ const GlobalMapSection = () => {
           className={`mt-4 inline-flex items-center justify-center rounded-full px-8 py-3 font-inter font-semibold text-sm md:text-base text-white transition-opacity hover:opacity-90 ${revealClasses(isVisible)}`}
           style={{ backgroundColor: '#101824' }}
         >
-          Fale conosco
+          {t('nav.startTransformation')}
         </a>
       </div>
     </section>

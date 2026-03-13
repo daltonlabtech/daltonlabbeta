@@ -1,8 +1,12 @@
 {
   "nav": {
+    "home": "Inicio",
     "product": "Producto",
+    "transformation": "Transformación",
+    "media": "Medios",
     "talkToDalton": "Habla con Dalton",
-    "about": "Quiénes somos"
+    "about": "Quiénes somos",
+    "startTransformation": "Contáctenos"
   },
   "pages": {
     "produto": {

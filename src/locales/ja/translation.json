@@ -1,8 +1,12 @@
 {
   "nav": {
+    "home": "ホーム",
     "product": "製品",
+    "transformation": "トランスフォーメーション",
+    "media": "メディア",
     "talkToDalton": "Daltonに相談",
-    "about": "会社概要"
+    "about": "会社概要",
+    "startTransformation": "お問い合わせ"
   },
   "pages": {
     "produto": {

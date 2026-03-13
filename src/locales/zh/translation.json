@@ -1,8 +1,12 @@
 {
   "nav": {
+    "home": "首页",
     "product": "产品",
+    "transformation": "转型",
+    "media": "媒体",
     "talkToDalton": "与Dalton交谈",
-    "about": "关于我们"
+    "about": "关于我们",
+    "startTransformation": "联系我们"
   },
   "pages": {
     "produto": {

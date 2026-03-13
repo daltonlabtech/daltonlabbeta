@@ -64,8 +64,8 @@ const ProspectionSection = () => {
               className="font-inter font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-snug lg:leading-[1.3]"
               style={{ color: '#101824' }}
             >
-              Reimagine seus setores AI-first
-            </h2>
+            {t('home.prospection.sectionTitle')}
+          </h2>
           </div>
 
           {/* Right: Card with tabs + content */}

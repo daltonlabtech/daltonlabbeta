@@ -1,4 +1,5 @@
 import { User, Bot, Database } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const PulseDot = ({ delay = 0 }: { delay?: number }) => (
   <div
@@ -72,77 +73,81 @@ const LinkPill = ({ label, delay = 0 }: { label: string; delay?: number }) => (
   </div>
 );
 
-const AgenticArchitecture = () => (
-  <div
-    className="w-full rounded-2xl md:rounded-3xl p-5 md:p-8 lg:p-10 overflow-hidden border border-black/[0.04]"
-    style={{ backgroundColor: '#F0EEEB' }}
-  >
-    <p
-      className="font-inter font-semibold text-[9px] md:text-[10px] tracking-widest uppercase text-center mb-5 md:mb-6"
-      style={{ color: 'rgba(16,24,35,0.35)' }}
+const AgenticArchitecture = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div
+      className="w-full rounded-2xl md:rounded-3xl p-5 md:p-8 lg:p-10 overflow-hidden border border-black/[0.04]"
+      style={{ backgroundColor: '#F0EEEB' }}
     >
-      Arquitetura Agêntica
-    </p>
+      <p
+        className="font-inter font-semibold text-[9px] md:text-[10px] tracking-widest uppercase text-center mb-5 md:mb-6"
+        style={{ color: 'rgba(16,24,35,0.35)' }}
+      >
+        {t('home.architecture.title')}
+      </p>
 
-    {/* Layer 1 — Liderança */}
-    <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-1">
-      <NodeCard label="CEO" sub="Estratégia" icon={User} accent="#3B82F6" />
-      <NodeCard label="Dir. Comercial" sub="Revenue" icon={User} accent="#3B82F6" />
-      <span className="hidden md:inline-flex">
-        <NodeCard label="Dir. Marketing" sub="Growth" icon={User} accent="#3B82F6" />
-      </span>
-      <span className="hidden md:inline-flex">
-        <NodeCard label="CFO" sub="Finanças" icon={User} accent="#3B82F6" />
-      </span>
-    </div>
+      {/* Layer 1 — Leadership */}
+      <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-1">
+        <NodeCard label={t('home.architecture.ceo')} sub={t('home.architecture.ceoSub')} icon={User} accent="#3B82F6" />
+        <NodeCard label={t('home.architecture.salesDir')} sub={t('home.architecture.salesDirSub')} icon={User} accent="#3B82F6" />
+        <span className="hidden md:inline-flex">
+          <NodeCard label={t('home.architecture.marketingDir')} sub={t('home.architecture.marketingDirSub')} icon={User} accent="#3B82F6" />
+        </span>
+        <span className="hidden md:inline-flex">
+          <NodeCard label={t('home.architecture.cfo')} sub={t('home.architecture.cfoSub')} icon={User} accent="#3B82F6" />
+        </span>
+      </div>
 
-    <div className="flex justify-around px-16 md:px-32">
-      <FlowConnector delay={0} />
-      <FlowConnector delay={0.6} />
-    </div>
+      <div className="flex justify-around px-16 md:px-32">
+        <FlowConnector delay={0} />
+        <FlowConnector delay={0.6} />
+      </div>
 
-    {/* Layer 2 — Controle */}
-    <div className="flex justify-center gap-2 md:gap-3 mb-1">
-      <LinkPill label="Briefings" delay={0} />
-      <LinkPill label="Aprovações" delay={1} />
-      <span className="hidden md:inline-flex">
-        <LinkPill label="Reviews" delay={2} />
-      </span>
-    </div>
+      {/* Layer 2 — Control */}
+      <div className="flex justify-center gap-2 md:gap-3 mb-1">
+        <LinkPill label={t('home.architecture.briefings')} delay={0} />
+        <LinkPill label={t('home.architecture.approvals')} delay={1} />
+        <span className="hidden md:inline-flex">
+          <LinkPill label={t('home.architecture.reviews')} delay={2} />
+        </span>
+      </div>
 
-    <div className="flex justify-around px-16 md:px-32">
-      <FlowConnector delay={0.3} />
-      <FlowConnector delay={1} />
-    </div>
+      <div className="flex justify-around px-16 md:px-32">
+        <FlowConnector delay={0.3} />
+        <FlowConnector delay={1} />
+      </div>
 
-    {/* Layer 3 — Agentes */}
-    <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-1">
-      <NodeCard label="SDR" sub="Prospecção" icon={Bot} accent="#10B981" />
-      <NodeCard label="Follow-up" sub="Engajamento" icon={Bot} accent="#10B981" />
-      <span className="hidden md:inline-flex">
-        <NodeCard label="Conteúdo" sub="Criação" icon={Bot} accent="#8B5CF6" />
-      </span>
-      <NodeCard label="Anúncios" sub="Mídia paga" icon={Bot} accent="#8B5CF6" />
-      <span className="hidden md:inline-flex">
-        <NodeCard label="Cobrança" sub="Financeiro" icon={Bot} accent="#F59E0B" />
-      </span>
-      <NodeCard label="Forecast" sub="Previsão" icon={Bot} accent="#F59E0B" />
-    </div>
+      {/* Layer 3 — Agents */}
+      <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-1">
+        <NodeCard label={t('home.architecture.sdr')} sub={t('home.architecture.sdrSub')} icon={Bot} accent="#10B981" />
+        <NodeCard label={t('home.architecture.followUp')} sub={t('home.architecture.followUpSub')} icon={Bot} accent="#10B981" />
+        <span className="hidden md:inline-flex">
+          <NodeCard label={t('home.architecture.content')} sub={t('home.architecture.contentSub')} icon={Bot} accent="#8B5CF6" />
+        </span>
+        <NodeCard label={t('home.architecture.ads')} sub={t('home.architecture.adsSub')} icon={Bot} accent="#8B5CF6" />
+        <span className="hidden md:inline-flex">
+          <NodeCard label={t('home.architecture.billing')} sub={t('home.architecture.billingSub')} icon={Bot} accent="#F59E0B" />
+        </span>
+        <NodeCard label={t('home.architecture.forecast')} sub={t('home.architecture.forecastSub')} icon={Bot} accent="#F59E0B" />
+      </div>
 
-    <div className="flex justify-around px-16 md:px-32">
-      <FlowConnector delay={0.5} />
-      <FlowConnector delay={1.2} />
-    </div>
+      <div className="flex justify-around px-16 md:px-32">
+        <FlowConnector delay={0.5} />
+        <FlowConnector delay={1.2} />
+      </div>
 
-    {/* Layer 4 — Dados */}
-    <div className="flex justify-center gap-2 md:gap-3">
-      <NodeCard label="CRM" sub="Hubspot" icon={Database} />
-      <NodeCard label="ERP" sub="SAP" icon={Database} />
-      <span className="hidden md:inline-flex">
-        <NodeCard label="APIs" sub="Integrações" icon={Database} />
-      </span>
+      {/* Layer 4 — Data */}
+      <div className="flex justify-center gap-2 md:gap-3">
+        <NodeCard label={t('home.architecture.crm')} sub={t('home.architecture.crmSub')} icon={Database} />
+        <NodeCard label={t('home.architecture.erp')} sub={t('home.architecture.erpSub')} icon={Database} />
+        <span className="hidden md:inline-flex">
+          <NodeCard label={t('home.architecture.apis')} sub={t('home.architecture.apisSub')} icon={Database} />
+        </span>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default AgenticArchitecture;

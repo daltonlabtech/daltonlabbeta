@@ -73,7 +73,6 @@ const DefinitionSection = () => {
       style={{ backgroundColor: '#F5F3F0' }}
     >
       <div className="container-main">
-        {/* Title */}
         <h2
           className={`font-inter font-bold text-xl md:text-4xl lg:text-[48px] leading-tight md:leading-snug text-center mb-6 md:mb-10 ${revealClasses(isVisible)}`}
           style={{ color: '#101824' }}
@@ -82,7 +81,6 @@ const DefinitionSection = () => {
           <span className="block">{t('home.definition.titleLine2')}</span>
         </h2>
 
-        {/* Text content replacing video */}
         <div
           className={`w-full max-w-4xl mx-auto mb-10 md:mb-16 space-y-4 md:space-y-6 text-left ${revealClasses(isVisible)}`}
           style={getStaggerDelay(1)}
@@ -91,43 +89,41 @@ const DefinitionSection = () => {
             className="text-sm md:text-base lg:text-lg leading-relaxed"
             style={{ color: 'rgba(16, 24, 35, 0.75)' }}
           >
-            Empresas no mundo inteiro investiram bilhões em IA. A maioria não viu retorno. O motivo é simples: tentaram substituir pessoas, jogaram tecnologia em cima de processos desorganizados e esperaram resultados automáticos. As empresas que tem resultado precisam pensar e fazer diferente.
+            {t('home.definition.paragraph1')}
             <sup
               className="ml-1 text-[10px] md:text-xs font-medium cursor-default"
               style={{ color: 'rgba(16, 24, 35, 0.4)' }}
               title="MIT Technology Review Brasil"
             >
-              ¹
+              {t('home.definition.footnoteRef')}
             </sup>
           </p>
           <p
             className="text-sm md:text-base lg:text-lg leading-relaxed"
             style={{ color: 'rgba(16, 24, 35, 0.75)' }}
           >
-            No Dalton Lab, identificamos o processo certo, colocamos IA para trabalhar nele, e liberamos as pessoas para fazer o que só gente faz: estratégia, relacionamento, decisão. Atuamos no tripé completo: IA, processos e pessoas.
+            {t('home.definition.paragraph2')}
           </p>
           <p
             className="text-sm md:text-base lg:text-lg leading-relaxed"
             style={{ color: 'rgba(16, 24, 35, 0.75)' }}
           >
-            Construímos organizações agênticas onde humanos fazem trabalho humano e agentes fazem trabalho operacional. Operações mais eficientes, times em alta performance e ROI concreto.
+            {t('home.definition.paragraph3')}
           </p>
           <p
             className="text-[10px] md:text-xs italic"
             style={{ color: 'rgba(16, 24, 35, 0.35)' }}
           >
-            ¹ Estudo publicado pelo MIT Technology Review Brasil
+            {t('home.definition.footnote')}
           </p>
         </div>
 
-        {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mb-8 md:mb-12">
           {stats.map((item, index) => (
             <StatCard key={index} item={item} isVisible={isVisible} index={index} />
           ))}
         </div>
 
-        {/* CTA */}
         <div
           className={`text-center ${revealClasses(isVisible)}`}
           style={getStaggerDelay(3)}
@@ -135,12 +131,9 @@ const DefinitionSection = () => {
           <a
             href="https://formulario.daltonlab.ai/"
             className="inline-flex items-center justify-center font-medium text-sm md:text-base px-6 py-3 md:px-8 md:py-3.5 rounded-full transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
-            style={{
-              backgroundColor: '#101824',
-              color: '#F5F3F0',
-            }}
+            style={{ backgroundColor: '#101824', color: '#F5F3F0' }}
           >
-            Fale conosco
+            {t('nav.startTransformation')}
           </a>
         </div>
       </div>

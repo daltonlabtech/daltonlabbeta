@@ -145,6 +145,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({ name: '', email: '', phone: '', honeypot: '' });
+        setSelectedCountryCode(COUNTRY_CODES[0]);
         onClose();
       }, 2000);
     } catch (err) {

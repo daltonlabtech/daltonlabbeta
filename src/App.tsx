@@ -119,7 +119,7 @@ const App = () => (
             </Routes>
           </Suspense>
         </ChunkErrorBoundary>
-        <UpdateNotification />
+        
         <SpeedInsights />
       </BrowserRouter>
     </TooltipProvider>

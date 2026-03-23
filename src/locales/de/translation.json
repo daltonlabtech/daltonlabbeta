@@ -1,11 +1,19 @@
 {
   "nav": {
+    "home": "Startseite",
     "product": "Produkt",
+    "transformation": "Transformation",
+    "media": "Medien",
     "talkToDalton": "Mit Dalton sprechen",
     "articles": "Insights",
-    "about": "Über uns"
+    "about": "Über uns",
+    "startTransformation": "Kontaktieren Sie uns"
   },
   "pages": {
+    "index": {
+      "title": "Dalton Lab – Transformieren Sie Ihr Unternehmen in eine Agentische Organisation",
+      "description": "Dalton Lab verwandelt Unternehmen in agentische Organisationen mit maßgeschneiderten KI-Agenten. Diagnose, AI-first-Prozesse, Schulung und Technologie zur Skalierung von Ergebnissen."
+    },
     "produto": {
       "title": "Produkt | Dalton Lab – KI-Agenten für den Vertrieb",
       "description": "Entdecken Sie unsere KI-Agenten für den Vertrieb. Lead-Qualifizierung, 24/7-Follow-up und automatischer Abschluss.",
@@ -26,14 +34,214 @@
     }
   },
   "hero": {
-    "poweredBy": "Powered by",
-    "titleLine1": "Vom Lead zum Verkauf",
-    "titleLine2": "mit KI-Agenten",
-    "titleLine2Mobile": "mit",
-    "titleLine3Mobile": "KI-Agenten",
-    "subtitle1": "Skalieren Sie den Umsatz Ihres Unternehmens.",
-    "subtitle2": "In weniger Zeit. Mit mehr Rendite.",
-    "cta": "Mit Dalton sprechen"
+    "poweredBy": "Präsent in",
+    "titleLine1": "Transformieren Sie Ihr Unternehmen",
+    "titleLine2": "in eine Agentische Organisation",
+    "titleLine2Mobile": "in eine Agentische",
+    "titleLine3Mobile": "Organisation",
+    "subtitle1": "",
+    "subtitle2": "",
+    "cta": "Kontaktieren Sie uns",
+    "regions": ["Einzelhandel", "Agrar", "Großhandel", "Gesundheit", "Recht"]
+  },
+  "home": {
+    "definition": {
+      "title": "Das erste Unternehmen Brasiliens, das auf agentische Transformation spezialisiert ist",
+      "titleLine1": "Das erste Unternehmen Brasiliens",
+      "titleLine2": "spezialisiert auf agentische Transformation",
+      "paragraph1": "Unternehmen weltweit investierten Milliarden in KI. Die meisten sahen keinen Ertrag. Der Grund ist einfach: Sie versuchten, Menschen zu ersetzen, warfen Technologie auf desorganisierte Prozesse und erwarteten automatische Ergebnisse. Unternehmen, die Ergebnisse erzielen, müssen anders denken und handeln.",
+      "paragraph2": "Bei Dalton Lab identifizieren wir den richtigen Prozess, setzen KI daran und befreien Menschen, um das zu tun, was nur Menschen können: Strategie, Beziehungen, Entscheidungen. Wir arbeiten am vollständigen Dreiklang: KI, Prozesse und Menschen.",
+      "paragraph3": "Wir bauen agentische Organisationen, in denen Menschen menschliche Arbeit leisten und Agenten operative Arbeit übernehmen. Effizientere Abläufe, leistungsstarke Teams und konkreter ROI.",
+      "footnote": "¹ Studie veröffentlicht von MIT Technology Review Brasil",
+      "footnoteRef": "¹"
+    },
+    "stats": {
+      "items": [
+        {
+          "value": "+584",
+          "number": 584,
+          "prefix": "+",
+          "suffix": "",
+          "description": "direkt beeinflusste Prozesse"
+        },
+        {
+          "value": "+63",
+          "number": 63,
+          "prefix": "+",
+          "suffix": "",
+          "description": "implementierte KIs"
+        },
+        {
+          "value": ">50%",
+          "number": 50,
+          "prefix": ">",
+          "suffix": "%",
+          "description": "Reduktion von Zeit und Aufwand"
+        }
+      ]
+    },
+    "journey": {
+      "title": "Ihr Weg zur agentischen Transformation",
+      "subtitle": "Unser ganzheitlicher Ansatz führt Unternehmen durch die Transformation und gewährleistet die Skalierbarkeit agentischer Fähigkeiten.",
+      "pillars": [
+        {
+          "number": "01",
+          "title": "AI-first\nProzesse",
+          "summary": "Wir gestalten Ihre Prozesse neu mit künstlicher Intelligenz im Zentrum der Abläufe",
+          "details": "Wir kartieren Ihre aktuellen Workflows und identifizieren Automatisierungsmöglichkeiten mit KI. Jeder Workflow wird neu gestaltet, um Effizienz zu maximieren, Engpässe zu beseitigen und Prozesse zu schaffen, die natürlich skalieren."
+        },
+        {
+          "number": "02",
+          "title": "Menschen und Kultur",
+          "summary": "Wir befähigen Ihre Teams zur effektiven Zusammenarbeit mit KI-Agenten",
+          "details": "Wir entwickeln Schulungs- und Kulturwandelprogramme, damit sich Ihr Team an das kooperative Modell anpasst. Das Ziel ist, dass Menschen und Agenten in Synergie arbeiten, jeder auf das konzentriert, was er am besten kann."
+        },
+        {
+          "number": "03",
+          "title": "Technologie",
+          "summary": "Wir bauen und implementieren die ideale agentische Infrastruktur für Ihr Unternehmen",
+          "details": "Wir wählen und integrieren die richtigen Technologien für Ihren Betrieb. Von Sprachmodellen bis zu Automatisierungsplattformen – wir bauen den Tech-Stack, der Ihre agentische Transformation trägt."
+        }
+      ],
+      "seeMore": "Mehr sehen",
+      "seeLess": "Weniger sehen"
+    },
+    "prospection": {
+      "sectionTitle": "Gestalten Sie Ihre Bereiche AI-first neu",
+      "title": "Gestalten Sie Ihr Unternehmen neu",
+      "subtitle": "Unsere proprietäre Technologie passt sich an die Bedürfnisse Ihres Unternehmens an.",
+      "tabs": {
+        "vendas": "Vertrieb",
+        "marketing": "Marketing",
+        "financeiro": "Finanzen",
+        "atendimento": "Kundenservice",
+        "operacoes": "Betrieb"
+      },
+      "vendas": {
+        "title": "Automatisieren Sie Ihren Vertriebszyklus",
+        "description": "KI-Agenten, die Leads qualifizieren, Follow-ups durchführen und Verkäufe autonom abschließen.",
+        "features": [
+          "Automatische Lead-Qualifizierung 24/7",
+          "Intelligentes und personalisiertes Follow-up",
+          "Automatisierter Verkaufsabschluss"
+        ]
+      },
+      "marketing": {
+        "title": "Skalieren Sie Ihre Content-Produktion",
+        "description": "Erstellen Sie Kampagnen, analysieren Sie Performance und optimieren Sie Investitionen mit künstlicher Intelligenz.",
+        "features": [
+          "Content-Erstellung in großem Maßstab",
+          "Prädiktive Kampagnenanalyse",
+          "Echtzeit-ROI-Optimierung"
+        ]
+      },
+      "financeiro": {
+        "title": "Automatisieren Sie Finanzoperationen",
+        "description": "Abstimmung, Berichte und Finanzprognosen durch KI-Agenten betrieben.",
+        "features": [
+          "Automatisierte Bankabstimmung",
+          "Finanzberichte in Echtzeit",
+          "Intelligente Cashflow-Prognosen"
+        ]
+      },
+      "atendimento": {
+        "title": "Transformieren Sie das Kundenerlebnis",
+        "description": "Menschlicher und skalierbarer Support mit spezialisierten KI-Agenten.",
+        "features": [
+          "24/7 Multi-Channel-Support",
+          "Autonome Ticket-Lösung",
+          "Intelligente Eskalation an Menschen"
+        ]
+      },
+      "operacoes": {
+        "title": "Optimieren Sie operative Prozesse",
+        "description": "Automatisieren Sie komplexe Workflows und beseitigen Sie operative Engpässe.",
+        "features": [
+          "Automatisierung komplexer Workflows",
+          "Proaktive Prozessüberwachung",
+          "Integration von Legacy-Systemen"
+        ]
+      },
+      "cta": "Kontaktieren Sie uns",
+      "comingSoon": "Demnächst"
+    },
+    "finalCta": {
+      "title": "Demnächst: Meetup São Paulo",
+      "titleLine2": "",
+      "subtitle": "Werden Sie Teil der Community von Führungskräften, die ihre Unternehmen auf das Zeitalter der KI-Agenten vorbereiten",
+      "cta": "Ich bin interessiert",
+      "disclaimer": "Persönlich. Demnächst."
+    },
+    "media": {
+      "sectionTitle": "MEDIEN-HIGHLIGHTS",
+      "label": "NACHRICHT",
+      "blogLabel": "BLOG-BEITRAG",
+      "podcastLabel": "PODCAST",
+      "featured": {
+        "title": "Die Investition eines Mundial Mix-Partners in ein KI-Startup",
+        "source": "Veja Negócios",
+        "date": "5. Feb. 2026",
+        "summary": "2023 von drei Brasilianern gegründet, will Dalton Lab Unternehmen mit KI-Expertise bei der Automatisierung von Unternehmensprozessen unterstützen.",
+        "url": "https://veja.abril.com.br/coluna/radar-economico/o-aporte-de-um-socio-do-atacadista-mundial-mix-em-uma-startup-de-ia/"
+      },
+      "blogPosts": [
+        {
+          "title": "Agentische Organisationen: 89% sind noch weit davon entfernt",
+          "url": "https://www.linkedin.com/pulse/organizacoes-agenticas-89-ainda-esta-longe-disso-rodrigo-sp%C3%ADnola-lmmpf/"
+        },
+        {
+          "title": "Der Fehler, den wichtigsten Kunden zu ignorieren",
+          "url": "https://www.linkedin.com/pulse/o-erro-de-ignorar-cliente-mais-importante-do-seu-neg%C3%B3cio-sp%C3%ADnola-lkezf/"
+        },
+        {
+          "title": "Der Fehler, den Unternehmen mit KI machen",
+          "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
+        }
+      ]
+    },
+    "globalMap": {
+      "title": "Globale Präsenz in den Bereichen",
+      "continents": {
+        "southAmerica": "Südamerika",
+        "africa": "Afrika",
+        "europe": "Europa",
+        "asia": "Asien"
+      },
+      "notOnMap": "Ihr Land ist noch nicht auf der Karte? Sie können",
+      "leadTheWay": "den Weg ebnen."
+    },
+    "architecture": {
+      "title": "Agentische Architektur",
+      "ceo": "CEO",
+      "ceoSub": "Strategie",
+      "salesDir": "Vertriebsleiter",
+      "salesDirSub": "Revenue",
+      "marketingDir": "Marketingleiter",
+      "marketingDirSub": "Growth",
+      "cfo": "CFO",
+      "cfoSub": "Finanzen",
+      "briefings": "Briefings",
+      "approvals": "Genehmigungen",
+      "reviews": "Reviews",
+      "sdr": "SDR",
+      "sdrSub": "Akquise",
+      "followUp": "Follow-up",
+      "followUpSub": "Engagement",
+      "content": "Content",
+      "contentSub": "Erstellung",
+      "ads": "Anzeigen",
+      "adsSub": "Bezahlte Medien",
+      "billing": "Fakturierung",
+      "billingSub": "Finanzen",
+      "forecast": "Forecast",
+      "forecastSub": "Prognose",
+      "crm": "CRM",
+      "crmSub": "Hubspot",
+      "erp": "ERP",
+      "erpSub": "SAP",
+      "apis": "APIs",
+      "apisSub": "Integrationen"
+    }
   },
   "clients": {
     "title": "Unternehmen, die uns vertrauen"
@@ -216,7 +424,7 @@
     "emailPlaceholder": "name@unternehmen.de",
     "emailError": "Bitte verwenden Sie eine geschäftliche E-Mail",
     "phoneLabel": "Telefon",
-    "phonePlaceholder": "+49 170 1234567",
+    "phonePlaceholder": "(170) 1234567",
     "phoneError": "Ungültige Telefonnummer. Bitte Vorwahl angeben.",
     "submit": "Senden",
     "submitting": "Verarbeitung...",
@@ -224,5 +432,34 @@
     "successMessage": "Sie erhalten Neuigkeiten aus erster Hand.",
     "errorGeneric": "Fehler beim Senden. Bitte versuchen Sie es erneut.",
     "errorUnexpected": "Unerwarteter Fehler. Bitte versuchen Sie es erneut."
+  },
+  "about": {
+    "pageTitle": "Gründer und Team",
+    "companyTitle": "Unternehmen",
+    "companyParagraphs": [
+      "Wir sind ein brasilianisches Startup und Pionier in Agents-as-a-Service (AaaS), das weltweit auf vier Kontinenten operiert. Unsere Mission ist klar: konventionelle Unternehmen in agentische Organisationen zu verwandeln, in denen KI-Agenten komplexe operative Aufgaben ausführen und Menschen sich auf strategische Entscheidungen konzentrieren.",
+      "Während der Markt noch über das Potenzial von KI debattiert, leben wir diese Realität bereits. Wir sind 11 Fachleute, die Seite an Seite mit mehr als 30 proprietären KI-Agenten arbeiten – eine hybride Aufstellung, die die neue Ära der Arbeit definiert.",
+      "In diesem Modell operieren Agenten in großem Maßstab und halten den 24/7-Betrieb aufrecht, während sich Menschen auf das konzentrieren, was sie am besten können: Strategie, Beziehungen und Führung.",
+      "Wir praktizieren, was wir verkaufen: unendliche Skalierung durch agentische Organisationen."
+    ],
+    "foundersTitle": "Gründer",
+    "founders": [
+      {
+        "role": "Gründer und CEO",
+        "description": "War CEO der größten kommerziellen Operation von Serasa für KMUs in Brasilien. Hat +500 leistungsstarke Vertriebsmitarbeiter geführt und ausgebildet. Erhielt zahlreiche nationale und internationale Auszeichnungen (Paris 2018, Hawaii 2019, Montevideo 2019 und USA 2020). Leitet heute Dalton Lab bei der Transformation von Unternehmen in Agentische Organisationen. Botschafter der KI-Schule der PUC/PR. Besessen von Kultur, Ergebnissen und Wachstum."
+      },
+      {
+        "role": "Gründer und COO",
+        "description": "Hat über 120 Projekte digitaler Initiativen im Gesundheits- und Bildungswesen geleitet und +7.000 Kunden in seinem ersten Unternehmen mit 21 Jahren gewonnen. Mit Erfahrung in multinationalen Unternehmen wie Deloitte gestaltet er heute die operative Architektur, die Strategie in Umsetzung bei Dalton Lab verwandelt."
+      },
+      {
+        "role": "Beratender Partner",
+        "description": "Handels- und Marketingdirektor der Grupo Mundial Mix, die Brasil Atacadista und Supermercados Imperatriz kontrolliert, eine der größten Lebensmitteleinzelhandelsketten in Santa Catarina. Vorstandsvorsitzender von Rede Brasil - RBSM. +13 Jahre Führung von Handelsstrategie und Innovation in der Branche."
+      }
+    ]
+  },
+  "update": {
+    "newVersion": "Neue Version verfügbar",
+    "updateNow": "Jetzt aktualisieren"
   }
 }

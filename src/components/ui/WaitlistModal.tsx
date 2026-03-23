@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
@@ -6,6 +6,26 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { trackWaitlistOpen, trackWaitlistSubmit } from '@/lib/analytics';
 import { supabase } from '@/integrations/supabase/client';
+import { ChevronDown } from 'lucide-react';
+
+const COUNTRY_CODES = [
+  { code: '+55', country: 'BR', flag: '🇧🇷' },
+  { code: '+1', country: 'US', flag: '🇺🇸' },
+  { code: '+351', country: 'PT', flag: '🇵🇹' },
+  { code: '+44', country: 'GB', flag: '🇬🇧' },
+  { code: '+34', country: 'ES', flag: '🇪🇸' },
+  { code: '+33', country: 'FR', flag: '🇫🇷' },
+  { code: '+49', country: 'DE', flag: '🇩🇪' },
+  { code: '+39', country: 'IT', flag: '🇮🇹' },
+  { code: '+81', country: 'JP', flag: '🇯🇵' },
+  { code: '+86', country: 'CN', flag: '🇨🇳' },
+  { code: '+54', country: 'AR', flag: '🇦🇷' },
+  { code: '+56', country: 'CL', flag: '🇨🇱' },
+  { code: '+57', country: 'CO', flag: '🇨🇴' },
+  { code: '+52', country: 'MX', flag: '🇲🇽' },
+  { code: '+598', country: 'UY', flag: '🇺🇾' },
+  { code: '+595', country: 'PY', flag: '🇵🇾' },
+];
 
 interface WaitlistModalProps {
   isOpen: boolean;
@@ -32,8 +52,11 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
     name: '',
     email: '',
     phone: '',
-    honeypot: '', // Hidden field to catch bots
+    honeypot: '',
   });
+  const [selectedCountryCode, setSelectedCountryCode] = useState(COUNTRY_CODES[0]); // +55 BR
+  const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
+  const countryDropdownRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
@@ -46,6 +69,19 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
       trackWaitlistOpen(formLocation);
     }
   }, [isOpen, formLocation]);
+
+  // Close country dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (countryDropdownRef.current && !countryDropdownRef.current.contains(event.target as Node)) {
+        setIsCountryDropdownOpen(false);
+      }
+    };
+    if (isCountryDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isCountryDropdownOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,11 +110,12 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
     
     try {
       // Call edge function to submit waitlist
+      const fullPhone = `${selectedCountryCode.code} ${formData.phone.trim()}`;
       const { data, error } = await supabase.functions.invoke('submit-waitlist', {
         body: {
           name: formData.name.trim(),
           email: formData.email.trim(),
-          phone: formData.phone.trim(),
+          phone: fullPhone,
           product: product,
           source: formLocation,
           honeypot: formData.honeypot, // Send honeypot for bot detection
@@ -108,6 +145,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({ name: '', email: '', phone: '', honeypot: '' });
+        setSelectedCountryCode(COUNTRY_CODES[0]);
         onClose();
       }, 2000);
     } catch (err) {
@@ -130,6 +168,7 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
   const handleClose = () => {
     // Reset form state when closing without submitting
     setFormData({ name: '', email: '', phone: '', honeypot: '' });
+    setSelectedCountryCode(COUNTRY_CODES[0]);
     setEmailError('');
     setPhoneError('');
     setSubmitError('');
@@ -213,15 +252,50 @@ const WaitlistModal = ({ isOpen, onClose, formLocation = 'unknown', product = 'u
                 <Label htmlFor="phone" className="text-xs md:text-sm font-medium text-zinc-700">
                   {t('waitlist.phoneLabel')} <span className="text-red-500">*</span>
                 </Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => handleChange('phone', e.target.value)}
-                  placeholder={t('waitlist.phonePlaceholder')}
-                  required
-                  className={`h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400 ${phoneError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
-                />
+                <div className="flex gap-2">
+                  {/* Country Code Selector */}
+                  <div className="relative" ref={countryDropdownRef}>
+                    <button
+                      type="button"
+                      onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
+                      className="h-10 md:h-11 px-2.5 flex items-center gap-1 rounded-md border border-zinc-200 bg-zinc-50 text-sm text-zinc-900 hover:bg-zinc-100 transition-colors whitespace-nowrap"
+                    >
+                      <span>{selectedCountryCode.flag}</span>
+                      <span className="text-xs text-zinc-600">{selectedCountryCode.code}</span>
+                      <ChevronDown className="w-3 h-3 text-zinc-400" />
+                    </button>
+                    {isCountryDropdownOpen && (
+                      <div className="absolute top-full left-0 mt-1 w-48 bg-white border border-zinc-200 rounded-lg shadow-lg z-50 max-h-48 overflow-y-auto">
+                        {COUNTRY_CODES.map((cc) => (
+                          <button
+                            key={cc.code + cc.country}
+                            type="button"
+                            onClick={() => {
+                              setSelectedCountryCode(cc);
+                              setIsCountryDropdownOpen(false);
+                            }}
+                            className={`w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-zinc-50 transition-colors ${
+                              selectedCountryCode.code === cc.code ? 'bg-zinc-100 font-medium' : ''
+                            }`}
+                          >
+                            <span>{cc.flag}</span>
+                            <span className="text-zinc-900">{cc.country}</span>
+                            <span className="text-zinc-500 ml-auto">{cc.code}</span>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => handleChange('phone', e.target.value)}
+                    placeholder={t('waitlist.phonePlaceholder')}
+                    required
+                    className={`h-10 md:h-11 text-sm bg-zinc-50 border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400 text-zinc-900 placeholder:text-zinc-400 flex-1 ${phoneError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                  />
+                </div>
                 {phoneError && (
                   <p className="text-xs md:text-sm text-red-500">{phoneError}</p>
                 )}

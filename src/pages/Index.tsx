@@ -1,10 +1,9 @@
 import { lazy, Suspense, useEffect } from "react";
-import { trackPageView } from "@/lib/analytics";
+import { useTranslation } from "react-i18next";
 import Header from "@/components/Header";
 import HomeHeroSection from "@/components/sections/HomeHeroSection";
 import SkeletonSection from "@/components/ui/SkeletonSection";
 
-// Lazy load below-the-fold sections
 const DefinitionSection = lazy(() => import("@/components/sections/DefinitionSection"));
 const JourneySection = lazy(() => import("@/components/sections/JourneySection"));
 const ProspectionSection = lazy(() => import("@/components/sections/ProspectionSection"));
@@ -13,58 +12,49 @@ const GlobalMapSection = lazy(() => import("@/components/sections/GlobalMapSecti
 const MediaSection = lazy(() => import("@/components/sections/MediaSection"));
 const Footer = lazy(() => import("@/components/sections/Footer"));
 
-// Prefetch next sections after initial load
 const prefetchSections = () => {
   const prefetchTimeout = setTimeout(() => {
     import("@/components/sections/DefinitionSection");
     import("@/components/sections/JourneySection");
   }, 5000);
-  
   return () => clearTimeout(prefetchTimeout);
 };
 
 const Index = () => {
+  const { t } = useTranslation();
+
   useEffect(() => {
-    const pageTitle = 'Dalton Lab – Transforme sua Empresa em uma Organização Agêntica';
-    document.title = pageTitle;
-    trackPageView('/', pageTitle);
+    document.title = t('pages.index.title');
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'A Dalton Lab transforma empresas em organizações agênticas com agentes de IA sob medida. Diagnóstico, processos AI-first, capacitação e tecnologia para escalar resultados.');
+      metaDescription.setAttribute('content', t('pages.index.description'));
     }
     const cleanup = prefetchSections();
     return cleanup;
-  }, []);
+  }, [t]);
 
   return (
     <main className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
       <Header />
       <HomeHeroSection />
-      
       <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
         <JourneySection />
       </Suspense>
-
       <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
         <DefinitionSection />
       </Suspense>
-
       <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
         <ProspectionSection />
       </Suspense>
-
       <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
         <HomeFinalCTASection />
       </Suspense>
-
       <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
         <GlobalMapSection />
       </Suspense>
-
       <Suspense fallback={<SkeletonSection height="min-h-[300px]" showCards />}>
         <MediaSection />
       </Suspense>
-      
       <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
         <Footer />
       </Suspense>

@@ -1,11 +1,19 @@
 {
   "nav": {
+    "home": "ホーム",
     "product": "製品",
+    "transformation": "トランスフォーメーション",
+    "media": "メディア",
     "talkToDalton": "Daltonに相談",
     "articles": "Insights",
-    "about": "会社概要"
+    "about": "会社概要",
+    "startTransformation": "お問い合わせ"
   },
   "pages": {
+    "index": {
+      "title": "Dalton Lab – 企業をエージェント型組織に変革",
+      "description": "Dalton LabはカスタムのAIエージェントで企業をエージェント型組織に変革します。診断、AI優先プロセス、トレーニング、成果を拡大する技術。"
+    },
     "produto": {
       "title": "製品 | Dalton Lab – 営業AIエージェント",
       "description": "営業AIエージェントをご紹介します。リード選別、24時間365日フォローアップ、自動クロージング。",
@@ -26,14 +34,214 @@
     }
   },
   "hero": {
-    "poweredBy": "Powered by",
-    "titleLine1": "リードから販売まで",
-    "titleLine2": "AIエージェントと共に",
-    "titleLine2Mobile": "と共に",
-    "titleLine3Mobile": "AIエージェント",
-    "subtitle1": "会社の収益を拡大します。",
-    "subtitle2": "より短い時間で。より高いリターンで。",
-    "cta": "Daltonに相談"
+    "poweredBy": "展開地域",
+    "titleLine1": "企業を変革し",
+    "titleLine2": "エージェント型組織へ",
+    "titleLine2Mobile": "エージェント型",
+    "titleLine3Mobile": "組織へ",
+    "subtitle1": "",
+    "subtitle2": "",
+    "cta": "お問い合わせ",
+    "regions": ["小売", "農業", "卸売", "医療", "法律"]
+  },
+  "home": {
+    "definition": {
+      "title": "ブラジル初のエージェント型変革に特化した企業",
+      "titleLine1": "ブラジル初の",
+      "titleLine2": "エージェント型変革に特化した企業",
+      "paragraph1": "世界中の企業がAIに何十億も投資しました。大半はリターンを得られませんでした。理由は単純です：人を置き換えようとし、混乱したプロセスに技術を投入し、自動的な結果を期待したのです。成果を出す企業は、異なる考え方と行動が必要です。",
+      "paragraph2": "Dalton Labでは、正しいプロセスを特定し、AIをそこで働かせ、人を解放して人にしかできないことに集中させます：戦略、関係、意思決定。AI、プロセス、人の完全な三本柱で取り組みます。",
+      "paragraph3": "人は人の仕事を、エージェントはオペレーション業務を行うエージェント型組織を構築します。より効率的な運営、高パフォーマンスチーム、具体的なROI。",
+      "footnote": "¹ MIT Technology Review Brasil掲載の研究",
+      "footnoteRef": "¹"
+    },
+    "stats": {
+      "items": [
+        {
+          "value": "+584",
+          "number": 584,
+          "prefix": "+",
+          "suffix": "",
+          "description": "直接影響を受けたプロセス"
+        },
+        {
+          "value": "+63",
+          "number": 63,
+          "prefix": "+",
+          "suffix": "",
+          "description": "実装されたAI"
+        },
+        {
+          "value": ">50%",
+          "number": 50,
+          "prefix": ">",
+          "suffix": "%",
+          "description": "時間と労力の削減"
+        }
+      ]
+    },
+    "journey": {
+      "title": "エージェント型変革への道",
+      "subtitle": "当社の包括的なアプローチが企業の変革を導き、エージェント型能力のスケーラビリティを保証します。",
+      "pillars": [
+        {
+          "number": "01",
+          "title": "AI優先\nプロセス",
+          "summary": "人工知能をオペレーションの中心に据え、プロセスを再設計します",
+          "details": "現在のワークフローをマッピングし、AIによる自動化の機会を特定します。各ワークフローは効率を最大化し、ボトルネックを排除し、自然にスケールするプロセスを作り出すよう再設計されます。"
+        },
+        {
+          "number": "02",
+          "title": "人材と文化",
+          "summary": "チームがAIエージェントと効果的に協働できるよう支援します",
+          "details": "チームが協力モデルに適応できるよう、トレーニングと文化変革プログラムを開発します。目標は、人とエージェントがシナジーを持って働き、それぞれが得意なことに集中することです。"
+        },
+        {
+          "number": "03",
+          "title": "テクノロジー",
+          "summary": "ビジネスに最適なエージェント型インフラを構築・実装します",
+          "details": "運営に適した技術を選択し統合します。言語モデルから自動化プラットフォームまで、エージェント型変革を支えるテックスタックを構築します。"
+        }
+      ],
+      "seeMore": "もっと見る",
+      "seeLess": "閉じる"
+    },
+    "prospection": {
+      "sectionTitle": "部門をAI優先で再構想",
+      "title": "企業を再構想",
+      "subtitle": "当社の独自技術がビジネスニーズに適応します。",
+      "tabs": {
+        "vendas": "営業",
+        "marketing": "マーケティング",
+        "financeiro": "財務",
+        "atendimento": "カスタマーサポート",
+        "operacoes": "オペレーション"
+      },
+      "vendas": {
+        "title": "営業サイクルを自動化",
+        "description": "リードを選別し、フォローアップを行い、自律的に販売を完了するAIエージェント。",
+        "features": [
+          "24/7自動リード選別",
+          "インテリジェントでパーソナライズされたフォローアップ",
+          "自動化された販売完了"
+        ]
+      },
+      "marketing": {
+        "title": "コンテンツ制作をスケール",
+        "description": "人工知能でキャンペーンを作成し、パフォーマンスを分析し、投資を最適化します。",
+        "features": [
+          "大規模なコンテンツ作成",
+          "予測的キャンペーン分析",
+          "リアルタイムROI最適化"
+        ]
+      },
+      "financeiro": {
+        "title": "財務オペレーションを自動化",
+        "description": "AIエージェントが運営する照合、レポート、財務予測。",
+        "features": [
+          "自動化された銀行照合",
+          "リアルタイム財務レポート",
+          "インテリジェントなキャッシュフロー予測"
+        ]
+      },
+      "atendimento": {
+        "title": "顧客体験を変革",
+        "description": "専門AIエージェントによる人間味のあるスケーラブルなサポート。",
+        "features": [
+          "24/7マルチチャネルサポート",
+          "自律的チケット解決",
+          "人間へのインテリジェントなエスカレーション"
+        ]
+      },
+      "operacoes": {
+        "title": "運用プロセスを最適化",
+        "description": "複雑なワークフローを自動化し、運用上のボトルネックを排除します。",
+        "features": [
+          "複雑なワークフローの自動化",
+          "プロアクティブなプロセス監視",
+          "レガシーシステム統合"
+        ]
+      },
+      "cta": "お問い合わせ",
+      "comingSoon": "近日公開"
+    },
+    "finalCta": {
+      "title": "近日開催：Meetup São Paulo",
+      "titleLine2": "",
+      "subtitle": "AIエージェント時代に向けて企業を準備しているリーダーのコミュニティに参加しましょう",
+      "cta": "興味があります",
+      "disclaimer": "対面イベント。近日公開。"
+    },
+    "media": {
+      "sectionTitle": "メディアハイライト",
+      "label": "ニュース",
+      "blogLabel": "ブログ記事",
+      "podcastLabel": "ポッドキャスト",
+      "featured": {
+        "title": "Mundial Mixパートナーによるaiスタートアップへの投資",
+        "source": "Veja Negócios",
+        "date": "2026年2月5日",
+        "summary": "2023年にブラジル人3名により設立されたDalton Labは、AI専門知識で企業の業務プロセス自動化を支援することを目指しています。",
+        "url": "https://veja.abril.com.br/coluna/radar-economico/o-aporte-de-um-socio-do-atacadista-mundial-mix-em-uma-startup-de-ia/"
+      },
+      "blogPosts": [
+        {
+          "title": "エージェント型組織：89%はまだ遠い",
+          "url": "https://www.linkedin.com/pulse/organizacoes-agenticas-89-ainda-esta-longe-disso-rodrigo-sp%C3%ADnola-lmmpf/"
+        },
+        {
+          "title": "最も重要な顧客を無視するという過ち",
+          "url": "https://www.linkedin.com/pulse/o-erro-de-ignorar-cliente-mais-importante-do-seu-neg%C3%B3cio-sp%C3%ADnola-lkezf/"
+        },
+        {
+          "title": "企業がAIで犯している過ち",
+          "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
+        }
+      ]
+    },
+    "globalMap": {
+      "title": "以下の分野でのグローバル展開",
+      "continents": {
+        "southAmerica": "南米",
+        "africa": "アフリカ",
+        "europe": "ヨーロッパ",
+        "asia": "アジア"
+      },
+      "notOnMap": "お住まいの国がまだ地図にない場合は",
+      "leadTheWay": "先駆者になれます。"
+    },
+    "architecture": {
+      "title": "エージェント型アーキテクチャ",
+      "ceo": "CEO",
+      "ceoSub": "戦略",
+      "salesDir": "営業部長",
+      "salesDirSub": "収益",
+      "marketingDir": "マーケティング部長",
+      "marketingDirSub": "成長",
+      "cfo": "CFO",
+      "cfoSub": "財務",
+      "briefings": "ブリーフィング",
+      "approvals": "承認",
+      "reviews": "レビュー",
+      "sdr": "SDR",
+      "sdrSub": "新規開拓",
+      "followUp": "フォローアップ",
+      "followUpSub": "エンゲージメント",
+      "content": "コンテンツ",
+      "contentSub": "制作",
+      "ads": "広告",
+      "adsSub": "有料メディア",
+      "billing": "請求",
+      "billingSub": "財務",
+      "forecast": "フォーキャスト",
+      "forecastSub": "予測",
+      "crm": "CRM",
+      "crmSub": "Hubspot",
+      "erp": "ERP",
+      "erpSub": "SAP",
+      "apis": "APIs",
+      "apisSub": "統合"
+    }
   },
   "clients": {
     "title": "私たちを信頼する企業"
@@ -216,7 +424,7 @@
     "emailPlaceholder": "name@company.com",
     "emailError": "企業メールを使用してください",
     "phoneLabel": "電話",
-    "phonePlaceholder": "+81 90 1234 5678",
+    "phonePlaceholder": "(90) 1234 5678",
     "phoneError": "無効な電話番号です。市外局番を含めてください。",
     "submit": "送信",
     "submitting": "処理中...",
@@ -224,5 +432,34 @@
     "successMessage": "最新情報をいち早くお届けします。",
     "errorGeneric": "送信エラー。再試行してください。",
     "errorUnexpected": "予期しないエラー。再試行してください。"
+  },
+  "about": {
+    "pageTitle": "創業者とチーム",
+    "companyTitle": "会社",
+    "companyParagraphs": [
+      "私たちはAgents-as-a-Service (AaaS) のパイオニアであるブラジルのスタートアップで、4大陸でグローバルに事業を展開しています。私たちの使命は明確です：従来の企業をエージェント型組織に変革すること。AIエージェントが複雑なオペレーション業務を実行し、人間は戦略的意思決定に集中します。",
+      "市場がまだAIの可能性を議論している中、私たちはすでにこの現実を生きています。11名のプロフェッショナルが30以上の自社AIエージェントと並んで働いています。この ハイブリッドな体制が仕事の新時代を定義しています。",
+      "このモデルでは、エージェントが大規模に運営し24/7のオペレーションを維持する一方、人間は最も得意なことに集中します：戦略、人間関係、リーダーシップ。",
+      "私たちは販売しているものを実践しています：エージェント型組織による無限のスケール。"
+    ],
+    "foundersTitle": "創業者",
+    "founders": [
+      {
+        "role": "創業者兼CEO",
+        "description": "ブラジルにおけるSerasa最大の中小企業向け営業部門のCEOを務めました。500名以上の高パフォーマンス営業担当者を指導・育成。複数の国内外の賞を受賞（パリ2018、ハワイ2019、モンテビデオ2019、米国2020）。現在はDalton Labを率い、企業のエージェント型組織への変革を推進。PUC/PR AI学校アンバサダー。文化、成果、成長に情熱を注ぐ。"
+      },
+      {
+        "role": "創業者兼COO",
+        "description": "医療・教育分野で120以上のデジタルイニシアティブプロジェクトを管理し、21歳の初起業で7,000以上の顧客を獲得。デロイトなどの多国籍企業での経験を持ち、現在はDalton Labで戦略を実行に変えるオペレーションアーキテクチャを設計しています。"
+      },
+      {
+        "role": "アドバイザリーパートナー",
+        "description": "Grupo Mundial Mixの商業・マーケティングディレクター。同グループはBrasil AtacadistaとSupermercados Imperatrizを運営し、サンタカタリーナ州最大級の食品小売チェーンの一つ。Rede Brasil - RBSM理事会長。13年以上にわたり商業戦略とセクターイノベーションをリード。"
+      }
+    ]
+  },
+  "update": {
+    "newVersion": "新しいバージョンが利用可能です",
+    "updateNow": "今すぐ更新"
   }
 }

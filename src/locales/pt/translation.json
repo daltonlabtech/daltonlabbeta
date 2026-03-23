@@ -10,6 +10,10 @@
     "startTransformation": "Fale conosco"
   },
   "pages": {
+    "index": {
+      "title": "Dalton Lab – Transforme sua Empresa em uma Organização Agêntica",
+      "description": "A Dalton Lab transforma empresas em organizações agênticas com agentes de IA sob medida. Diagnóstico, processos AI-first, capacitação e tecnologia para escalar resultados."
+    },
     "produto": {
       "title": "Agentes de IA para Vendas | Dalton Lab – Organização Agêntica",
       "description": "Conheça os Agentes de IA da Dalton Lab. Qualificação de leads, follow-up 24/7, fechamento automático e transformação agêntica para sua empresa.",
@@ -37,16 +41,19 @@
     "titleLine3Mobile": "Agêntica",
     "subtitle1": "",
     "subtitle2": "",
-    "cta": "Fale conosco"
+    "cta": "Fale conosco",
+    "regions": ["Varejo", "Agro", "Atacado", "Saúde", "Advocacia"]
   },
   "home": {
     "definition": {
       "title": "A primeira empresa do Brasil especializada em transformação agêntica",
       "titleLine1": "A primeira empresa do Brasil",
       "titleLine2": "especializada em transformação agêntica",
-      "paragraph1": "",
-      "paragraph2": "",
-      "paragraph3": ""
+      "paragraph1": "Empresas no mundo inteiro investiram bilhões em IA. A maioria não viu retorno. O motivo é simples: tentaram substituir pessoas, jogaram tecnologia em cima de processos desorganizados e esperaram resultados automáticos. As empresas que tem resultado precisam pensar e fazer diferente.",
+      "paragraph2": "No Dalton Lab, identificamos o processo certo, colocamos IA para trabalhar nele, e liberamos as pessoas para fazer o que só gente faz: estratégia, relacionamento, decisão. Atuamos no tripé completo: IA, processos e pessoas.",
+      "paragraph3": "Construímos organizações agênticas onde humanos fazem trabalho humano e agentes fazem trabalho operacional. Operações mais eficientes, times em alta performance e ROI concreto.",
+      "footnote": "¹ Estudo publicado pelo MIT Technology Review Brasil",
+      "footnoteRef": "¹"
     },
     "stats": {
       "items": [
@@ -100,6 +107,7 @@
       "seeLess": "Ver menos"
     },
     "prospection": {
+      "sectionTitle": "Reimagine seus setores AI-first",
       "title": "Reimagine sua empresa",
       "subtitle": "Nossa tecnologia proprietária se adapta às necessidades do seu negócio.",
       "tabs": {
@@ -158,11 +166,11 @@
       "comingSoon": "Em breve"
     },
     "finalCta": {
-      "title": "Quer saber onde aplicar IA no seu negócio?",
-      "titleLine2": "Comece pelo AI Sprint.",
-      "subtitle": "Programa online e ao vivo para definir, na prática, onde aplicar IA na sua empresa e gerar mais resultado",
-      "cta": "Entrar na lista de espera",
-      "disclaimer": "Vagas limitadas. Primeira turma em breve."
+      "title": "Em breve: Meetup São Paulo",
+      "titleLine2": "",
+      "subtitle": "Faça parte da comunidade de líderes que estão preparando suas empresas para a Era dos Agentes de IA",
+      "cta": "Tenho interesse",
+      "disclaimer": "Presencial. Em breve."
     },
     "media": {
       "sectionTitle": "MÍDIA DESTAQUE",
@@ -190,6 +198,49 @@
           "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
         }
       ]
+    },
+    "globalMap": {
+      "title": "Atuação global nos setores de",
+      "continents": {
+        "southAmerica": "América do Sul",
+        "africa": "África",
+        "europe": "Europa",
+        "asia": "Ásia"
+      },
+      "notOnMap": "Seu país ainda não está no mapa? Você pode",
+      "leadTheWay": "liderar o caminho."
+    },
+    "architecture": {
+      "title": "Arquitetura Agêntica",
+      "ceo": "CEO",
+      "ceoSub": "Estratégia",
+      "salesDir": "Dir. Comercial",
+      "salesDirSub": "Revenue",
+      "marketingDir": "Dir. Marketing",
+      "marketingDirSub": "Growth",
+      "cfo": "CFO",
+      "cfoSub": "Finanças",
+      "briefings": "Briefings",
+      "approvals": "Aprovações",
+      "reviews": "Reviews",
+      "sdr": "SDR",
+      "sdrSub": "Prospecção",
+      "followUp": "Follow-up",
+      "followUpSub": "Engajamento",
+      "content": "Conteúdo",
+      "contentSub": "Criação",
+      "ads": "Anúncios",
+      "adsSub": "Mídia paga",
+      "billing": "Cobrança",
+      "billingSub": "Financeiro",
+      "forecast": "Forecast",
+      "forecastSub": "Previsão",
+      "crm": "CRM",
+      "crmSub": "Hubspot",
+      "erp": "ERP",
+      "erpSub": "SAP",
+      "apis": "APIs",
+      "apisSub": "Integrações"
     }
   },
   "clients": {
@@ -373,7 +424,7 @@
     "emailPlaceholder": "nome@empresa.com",
     "emailError": "Por favor, use um e-mail corporativo",
     "phoneLabel": "Telefone",
-    "phonePlaceholder": "+55 (11) 99999-9999",
+    "phonePlaceholder": "(11) 99999-9999",
     "phoneError": "Telefone inválido. Insira um número com DDD.",
     "submit": "Enviar",
     "submitting": "Processando...",
@@ -381,5 +432,34 @@
     "successMessage": "Você receberá novidades em primeira mão.",
     "errorGeneric": "Erro ao enviar. Tente novamente.",
     "errorUnexpected": "Erro inesperado. Tente novamente."
+  },
+  "about": {
+    "pageTitle": "Fundadores e equipe",
+    "companyTitle": "Empresa",
+    "companyParagraphs": [
+      "Somos uma startup brasileira pioneira em Agents-as-a-Service (AaaS), operando globalmente em quatro continentes. Nossa missão é clara: transformar empresas convencionais em organizações agênticas, onde agentes de IA executam tarefas operacionais complexas e humanos se concentram em decisões estratégicas.",
+      "Enquanto o mercado ainda debate o potencial da IA, nós já vivemos essa realidade. Somos 11 profissionais trabalhando lado a lado com mais de 30 agentes de IA proprietários, uma configuração híbrida que define a nova era do trabalho.",
+      "Nesse modelo, agentes operam em escala e mantêm operações 24/7, enquanto humanos focam no que fazem de melhor: estratégia, relacionamentos e liderança.",
+      "Praticamos o que vendemos: escala infinita através de organizações agênticas."
+    ],
+    "foundersTitle": "Fundadores",
+    "founders": [
+      {
+        "role": "Fundador e CEO",
+        "description": "Foi CEO da maior operação comercial da Serasa para PMEs no Brasil. Liderou e formou +500 vendedores de alta performance. Recebeu diversos prêmios nacionais e internacionais (Paris 2018, Hawaii 2019, Montevideo 2019 e USA 2020). Hoje lidera o Dalton Lab na transformação de empresas em Organizações Agênticas. Embaixador da Escola de IA da Pós PUC/PR. Obcecado por cultura, resultado e crescimento."
+      },
+      {
+        "role": "Fundador e COO",
+        "description": "Gerenciou mais de 120 projetos de iniciativas digitais no mercado de Saúde e Educação, gerando +7000 clientes em seu primeiro empreendimento, aos 21 anos. Tendo experiência em multinacionais como Deloitte, hoje desenha a arquitetura operacional que transforma estratégia em execução no Dalton Lab."
+      },
+      {
+        "role": "Sócio-conselheiro",
+        "description": "Diretor Comercial e Marketing do Grupo Mundial Mix, que controla Brasil Atacadista e Supermercados Imperatriz, uma das maiores redes do varejo alimentar de Santa Catarina. Presidente do Conselho da Rede Brasil - RBSM. +13 anos liderando estratégia comercial e inovação no setor."
+      }
+    ]
+  },
+  "update": {
+    "newVersion": "Nova versão disponível",
+    "updateNow": "Atualizar agora"
   }
 }

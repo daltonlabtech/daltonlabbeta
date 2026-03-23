@@ -24,7 +24,7 @@ const HomeFinalCTASection = () => {
           className={`font-inter font-bold text-base md:text-xl lg:text-2xl leading-tight ${revealClasses(isVisible)}`}
           style={{ color: '#F5F3F0' }}
         >
-          {t('home.finalCta.title')} {t('home.finalCta.titleLine2')}
+          {t('home.finalCta.title')}{t('home.finalCta.titleLine2') ? ` ${t('home.finalCta.titleLine2')}` : ''}
         </h2>
 
         {/* Subtitle */}
@@ -60,8 +60,8 @@ const HomeFinalCTASection = () => {
         <WaitlistModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          formLocation="final_cta_clube"
-          product="Clube Dalton Lab"
+          formLocation="final_cta_meetup_sp"
+          product="Meetup SP"
         />
       </div>
     </section>

@@ -123,7 +123,7 @@ const MediaSection = () => {
                 className="inline-block text-[10px] md:text-xs font-semibold tracking-[0.15em] uppercase mb-2 md:mb-4"
                 style={{ color: 'rgba(16, 24, 35, 0.5)' }}
               >
-                {t('home.media.blogLabel')}
+                {post.label || t('home.media.blogLabel')}
               </span>
 
               {/* Title */}

@@ -82,40 +82,19 @@ const DefinitionSection = () => {
         </h2>
 
         <div
-          className={`w-full max-w-4xl mx-auto mb-10 md:mb-16 space-y-4 md:space-y-6 text-left ${revealClasses(isVisible)}`}
+          className={`w-full max-w-4xl mx-auto mb-10 md:mb-16 ${revealClasses(isVisible)}`}
           style={getStaggerDelay(1)}
         >
-          <p
-            className="text-sm md:text-base lg:text-lg leading-relaxed"
-            style={{ color: 'rgba(16, 24, 35, 0.75)' }}
-          >
-            {t('home.definition.paragraph1')}
-            <sup
-              className="ml-1 text-[10px] md:text-xs font-medium cursor-default"
-              style={{ color: 'rgba(16, 24, 35, 0.4)' }}
-              title="MIT Technology Review Brasil"
-            >
-              {t('home.definition.footnoteRef')}
-            </sup>
-          </p>
-          <p
-            className="text-sm md:text-base lg:text-lg leading-relaxed"
-            style={{ color: 'rgba(16, 24, 35, 0.75)' }}
-          >
-            {t('home.definition.paragraph2')}
-          </p>
-          <p
-            className="text-sm md:text-base lg:text-lg leading-relaxed"
-            style={{ color: 'rgba(16, 24, 35, 0.75)' }}
-          >
-            {t('home.definition.paragraph3')}
-          </p>
-          <p
-            className="text-[10px] md:text-xs italic"
-            style={{ color: 'rgba(16, 24, 35, 0.35)' }}
-          >
-            {t('home.definition.footnote')}
-          </p>
+          <div className="relative w-full aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.youtube.com/embed/Xo4xvR7v0l4"
+              title="Dalton Lab - Transformação Agêntica"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mb-8 md:mb-12">

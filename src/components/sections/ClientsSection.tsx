@@ -27,7 +27,7 @@ const ClientsSection = () => {
   return (
     <section
       className="pt-4 pb-8 md:py-12 overflow-hidden"
-      style={{ backgroundColor: '#101823' }}
+      style={{ backgroundColor: '#0B0E14' }}
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <h2

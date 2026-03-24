@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import HomeHeroSection from "@/components/sections/HomeHeroSection";
 import SkeletonSection from "@/components/ui/SkeletonSection";
 
+const ClientsSection = lazy(() => import("@/components/sections/ClientsSection"));
+
 const DefinitionSection = lazy(() => import("@/components/sections/DefinitionSection"));
 const JourneySection = lazy(() => import("@/components/sections/JourneySection"));
 const ProspectionSection = lazy(() => import("@/components/sections/ProspectionSection"));

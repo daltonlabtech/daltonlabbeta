@@ -29,14 +29,6 @@ const ClientsSection = () => {
       className="pt-4 pb-8 md:py-12 overflow-hidden"
       style={{ backgroundColor: '#0B0E14' }}
     >
-      <div className="container mx-auto px-6 md:px-12 lg:px-20">
-        <h2
-          className="text-center text-sm md:text-base lg:text-lg font-extralight tracking-wide uppercase mb-6"
-          style={{ color: 'rgba(245, 243, 240, 0.7)' }}
-        >
-          {t('clients.title')}
-        </h2>
-      </div>
 
       {/* Marquee Container */}
       <div className="relative">

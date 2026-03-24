@@ -117,11 +117,11 @@ const MediaSection = () => {
               backgroundColor: '#E8E6E3',
             }}
           >
-            <div className="aspect-[16/9] overflow-hidden">
+            <div className="aspect-[16/9] overflow-hidden flex items-center justify-center" style={{ backgroundColor: '#D4D2CF' }}>
               <img
                 src={cnnImage}
                 alt={blogPosts[0].title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-3/4 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />

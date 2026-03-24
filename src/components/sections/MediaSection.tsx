@@ -14,6 +14,7 @@ interface FeaturedArticle {
 interface BlogPost {
   title: string;
   url: string;
+  label?: string;
 }
 
 const MediaSection = () => {

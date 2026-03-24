@@ -2,6 +2,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 import vejaImage from '@/assets/media/veja-negocios.webp';
+import cnnImage from '@/assets/media/cnn-preview.png';
 
 interface FeaturedArticle {
   title: string;

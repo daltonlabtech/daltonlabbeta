@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import HomeHeroSection from "@/components/sections/HomeHeroSection";
 import SkeletonSection from "@/components/ui/SkeletonSection";
 
+const ClientsSection = lazy(() => import("@/components/sections/ClientsSection"));
+
 const DefinitionSection = lazy(() => import("@/components/sections/DefinitionSection"));
 const JourneySection = lazy(() => import("@/components/sections/JourneySection"));
 const ProspectionSection = lazy(() => import("@/components/sections/ProspectionSection"));
@@ -37,6 +39,9 @@ const Index = () => {
     <main className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
       <Header />
       <HomeHeroSection />
+      <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
+        <ClientsSection />
+      </Suspense>
       <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
         <JourneySection />
       </Suspense>

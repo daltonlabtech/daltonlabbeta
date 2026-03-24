@@ -53,7 +53,7 @@ const ProspectionSection = () => {
         }
       }}
       className="py-10 md:py-[100px]"
-      style={{ backgroundColor: '#E8E6E3' }}
+      style={{ backgroundColor: '#0C0E14' }}
     >
       <div className="container-main">
 

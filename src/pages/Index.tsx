@@ -37,6 +37,9 @@ const Index = () => {
     <main className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
       <Header />
       <HomeHeroSection />
+      <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
+        <ClientsSection />
+      </Suspense>
       <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
         <DefinitionSection />
       </Suspense>
@@ -48,9 +51,6 @@ const Index = () => {
       </Suspense>
       <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
         <GlobalMapSection />
-      </Suspense>
-      <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
-        <ClientsSection />
       </Suspense>
       <Suspense fallback={<SkeletonSection height="min-h-[300px]" showCards />}>
         <MediaSection />

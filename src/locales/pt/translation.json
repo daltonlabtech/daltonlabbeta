@@ -33,7 +33,8 @@
     }
   },
   "hero": {
-    "poweredBy": "Transformando empresas de",
+    "poweredBy": "ESCALANDO EMPRESAS DE",
+    "poweredBySuffix": "COM AGENTES DE IA",
     "titleLine1": "Transforme sua empresa",
     "titleLine2": "em uma Organização Agêntica",
     "titleLine2Mobile": "em uma Organização",
@@ -106,7 +107,7 @@
       "seeLess": "Ver menos"
     },
     "prospection": {
-      "sectionTitle": "Reimagine seus setores AI-first",
+      "sectionTitle": "Reimagine seus setores com IA",
       "title": "Reimagine sua empresa",
       "subtitle": "Nossa tecnologia proprietária se adapta às necessidades do seu negócio.",
       "tabs": {

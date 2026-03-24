@@ -93,6 +93,7 @@ const HomeHeroSection = () => {
               >
                 {regions[regionIndex]}
               </span>
+              {t('hero.poweredBySuffix')}
             </span>
           </div>
 

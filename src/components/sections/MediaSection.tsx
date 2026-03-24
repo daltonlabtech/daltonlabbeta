@@ -121,7 +121,7 @@ const MediaSection = () => {
               <img
                 src={cnnImage}
                 alt={blogPosts[0].title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover object-left-top transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />

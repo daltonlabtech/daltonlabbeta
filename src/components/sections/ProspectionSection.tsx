@@ -62,7 +62,7 @@ const ProspectionSection = () => {
           <div className={`${revealClasses(isVisible)}`} style={getStaggerDelay(1)}>
             <h2
               className="font-inter font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-snug lg:leading-[1.3]"
-              style={{ color: '#101824' }}
+              style={{ color: '#FFFFFF' }}
             >
             {t('home.prospection.sectionTitle')}
           </h2>

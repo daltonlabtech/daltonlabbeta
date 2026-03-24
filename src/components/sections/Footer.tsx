@@ -32,9 +32,6 @@ const Footer = () => {
               {t('footer.about')}
             </h4>
             <div className="flex flex-col gap-1.5 md:gap-2">
-              <Link to="/produto" className="font-inter text-xs md:text-sm text-white/50 hover:text-white transition-colors">
-                {t('nav.product')}
-              </Link>
               <a 
                 href="https://chat.daltonlab.ai/"
                 target="_blank"

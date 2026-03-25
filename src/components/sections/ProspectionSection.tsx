@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 import { useTrackSection } from '@/hooks/useTrackSection';
 import { trackCtaClick, trackTabChange } from '@/lib/analytics';
-
+import { appendUtms } from '@/lib/utm';
 
 type SectorTab = 'vendas' | 'marketing' | 'financeiro' | 'atendimento' | 'operacoes';
 

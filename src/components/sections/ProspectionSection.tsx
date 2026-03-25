@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useScrollReveal, revealClasses, getStaggerDelay } from '@/hooks/useScrollReveal';
 import { useTrackSection } from '@/hooks/useTrackSection';
 import { trackCtaClick, trackTabChange } from '@/lib/analytics';
-
+import { appendUtms } from '@/lib/utm';
 
 type SectorTab = 'vendas' | 'marketing' | 'financeiro' | 'atendimento' | 'operacoes';
 
@@ -38,8 +38,9 @@ const ProspectionSection = () => {
   };
 
   const handleCtaClick = () => {
-    trackCtaClick(t('home.prospection.cta'), `prospection_${activeTab}`, 'https://formulario.daltonlab.ai/');
-    window.open('https://formulario.daltonlab.ai/', '_blank', 'noopener,noreferrer');
+    const url = appendUtms('https://formulario.daltonlab.ai/');
+    trackCtaClick(t('home.prospection.cta'), `prospection_${activeTab}`, url);
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (

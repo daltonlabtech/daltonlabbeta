@@ -38,8 +38,9 @@ const ProspectionSection = () => {
   };
 
   const handleCtaClick = () => {
-    trackCtaClick(t('home.prospection.cta'), `prospection_${activeTab}`, 'https://formulario.daltonlab.ai/');
-    window.open('https://formulario.daltonlab.ai/', '_blank', 'noopener,noreferrer');
+    const url = appendUtms('https://formulario.daltonlab.ai/');
+    trackCtaClick(t('home.prospection.cta'), `prospection_${activeTab}`, url);
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (

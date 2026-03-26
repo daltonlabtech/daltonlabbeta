@@ -81,8 +81,16 @@ const HomeHeroSection = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
+            {/* Mobile: static text without rotating regions */}
             <span
-              className="inline-flex items-center gap-2 text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase"
+              className="inline-flex sm:hidden items-center gap-2 text-[10px] font-medium tracking-[0.2em] uppercase"
+              style={{ color: 'rgba(245, 243, 240, 0.5)' }}
+            >
+              ESCALANDO EMPRESAS COM AGENTES DE IA
+            </span>
+            {/* Desktop: rotating regions */}
+            <span
+              className="hidden sm:inline-flex items-center gap-2 text-xs font-medium tracking-[0.2em] uppercase"
               style={{ color: 'rgba(245, 243, 240, 0.5)' }}
             >
               {t('hero.poweredBy')}

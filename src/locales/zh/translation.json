@@ -42,7 +42,7 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "联系我们",
-    "regions": ["零售", "农业", "批发", "医疗"]
+    "regions": ["零售", "农业", "批发", "医疗", "制造业"]
   },
   "home": {
     "definition": {

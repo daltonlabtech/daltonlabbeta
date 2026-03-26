@@ -42,7 +42,7 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "Contattaci",
-    "regions": ["Retail", "Agro", "Ingrosso", "Sanità"]
+    "regions": ["Retail", "Agro", "Ingrosso", "Sanità", "Manifattura"]
   },
   "home": {
     "definition": {

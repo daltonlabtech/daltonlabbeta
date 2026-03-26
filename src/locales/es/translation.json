@@ -42,7 +42,7 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "Contáctenos",
-    "regions": ["Retail", "Agro", "Mayorista", "Salud"]
+    "regions": ["Retail", "Agro", "Mayorista", "Salud", "Manufactura"]
   },
   "home": {
     "definition": {

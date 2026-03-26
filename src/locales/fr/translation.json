@@ -42,7 +42,7 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "Contactez-nous",
-    "regions": ["Commerce", "Agro", "Grossiste", "Santé"]
+    "regions": ["Commerce", "Agro", "Grossiste", "Santé", "Manufacture"]
   },
   "home": {
     "definition": {

@@ -103,10 +103,10 @@ const HomeHeroSection = () => {
             }`}
             style={{ color: '#F5F3F0', textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}
           >
-            <span className="block sm:hidden text-[22px] font-bold leading-[1.15]">
+            <span className="block sm:hidden text-[22px] font-bold leading-[1.2]">
               {t('hero.titleLine1')}
             </span>
-            <span className="block sm:hidden text-[22px] font-bold leading-[1.15] mt-0.5">
+            <span className="block sm:hidden text-[22px] font-bold leading-[1.2] mt-1">
               {t('hero.titleLine2')}
             </span>
             <span className="hidden sm:block text-4xl md:text-[52px] font-bold leading-[1.1]">

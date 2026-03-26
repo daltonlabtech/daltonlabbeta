@@ -33,7 +33,8 @@
     }
   },
   "hero": {
-    "poweredBy": "Present in",
+    "poweredBy": "SCALING COMPANIES IN",
+    "poweredBySuffix": "WITH AI AGENTS",
     "titleLine1": "Transform your company",
     "titleLine2": "into an Agentic Organization",
     "titleLine2Mobile": "into an Agentic",

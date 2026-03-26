@@ -33,7 +33,8 @@
     }
   },
   "hero": {
-    "poweredBy": "展開地域",
+    "poweredBy": "AIエージェントで",
+    "poweredBySuffix": "企業をスケール",
     "titleLine1": "企業を変革し",
     "titleLine2": "エージェント型組織へ",
     "titleLine2Mobile": "エージェント型",

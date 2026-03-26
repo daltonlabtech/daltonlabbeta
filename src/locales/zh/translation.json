@@ -215,7 +215,8 @@
         "asia": "亚洲"
       },
       "notOnMap": "您的国家还不在地图上？您可以",
-      "leadTheWay": "率先开拓。"
+      "leadTheWay": "率先开拓。",
+      "sectors": ["零售", "农业", "批发", "医疗"]
     },
     "architecture": {
       "title": "代理型架构",

@@ -215,7 +215,8 @@
         "asia": "Asie"
       },
       "notOnMap": "Votre pays n'est pas encore sur la carte ? Vous pouvez",
-      "leadTheWay": "ouvrir la voie."
+      "leadTheWay": "ouvrir la voie.",
+      "sectors": ["Commerce", "Agro", "Grossiste", "Santé"]
     },
     "architecture": {
       "title": "Architecture Agentique",

@@ -215,7 +215,8 @@
         "asia": "Asien"
       },
       "notOnMap": "Ihr Land ist noch nicht auf der Karte? Sie können",
-      "leadTheWay": "den Weg ebnen."
+      "leadTheWay": "den Weg ebnen.",
+      "sectors": ["Einzelhandel", "Agrar", "Großhandel", "Gesundheit"]
     },
     "architecture": {
       "title": "Agentische Architektur",

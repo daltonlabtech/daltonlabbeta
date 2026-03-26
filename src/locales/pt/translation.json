@@ -216,7 +216,7 @@
       },
       "notOnMap": "Seu país ainda não está no mapa? Você pode",
       "leadTheWay": "liderar o caminho.",
-      "sectors": ["Varejo", "Agro", "Atacado", "Saúde"]
+      "sectors": ["Varejo", "Agro", "Atacado", "Saúde", "Manufatura"]
     },
     "architecture": {
       "title": "Arquitetura Agêntica",

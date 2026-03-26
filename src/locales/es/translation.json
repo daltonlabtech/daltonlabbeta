@@ -42,7 +42,7 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "Contáctenos",
-    "regions": ["Retail", "Agro", "Mayorista", "Salud"]
+    "regions": ["Retail", "Agro", "Mayorista", "Salud", "Manufactura"]
   },
   "home": {
     "definition": {
@@ -215,7 +215,8 @@
         "asia": "Asia"
       },
       "notOnMap": "¿Tu país aún no está en el mapa? Puedes",
-      "leadTheWay": "liderar el camino."
+      "leadTheWay": "liderar el camino.",
+      "sectors": ["Retail", "Agro", "Mayorista", "Salud"]
     },
     "architecture": {
       "title": "Arquitectura Agéntica",

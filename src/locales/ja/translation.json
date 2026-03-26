@@ -42,7 +42,7 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "お問い合わせ",
-    "regions": ["小売", "農業", "卸売", "医療"]
+    "regions": ["小売", "農業", "卸売", "医療", "製造"]
   },
   "home": {
     "definition": {
@@ -215,7 +215,8 @@
         "asia": "アジア"
       },
       "notOnMap": "お住まいの国がまだ地図にない場合は",
-      "leadTheWay": "先駆者になれます。"
+      "leadTheWay": "先駆者になれます。",
+      "sectors": ["小売", "農業", "卸売", "医療"]
     },
     "architecture": {
       "title": "エージェント型アーキテクチャ",

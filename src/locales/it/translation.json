@@ -42,7 +42,7 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "Contattaci",
-    "regions": ["Retail", "Agro", "Ingrosso", "Sanità"]
+    "regions": ["Retail", "Agro", "Ingrosso", "Sanità", "Manifattura"]
   },
   "home": {
     "definition": {
@@ -215,7 +215,8 @@
         "asia": "Asia"
       },
       "notOnMap": "Il tuo paese non è ancora sulla mappa? Puoi",
-      "leadTheWay": "aprire la strada."
+      "leadTheWay": "aprire la strada.",
+      "sectors": ["Retail", "Agro", "Ingrosso", "Sanità"]
     },
     "architecture": {
       "title": "Architettura Agentica",

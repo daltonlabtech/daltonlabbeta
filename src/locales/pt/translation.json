@@ -42,7 +42,7 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "Fale conosco",
-    "regions": ["Varejo", "Agro", "Atacado", "Saúde"]
+    "regions": ["Varejo", "Agro", "Atacado", "Saúde", "Manufatura"]
   },
   "home": {
     "definition": {
@@ -215,7 +215,8 @@
         "asia": "Ásia"
       },
       "notOnMap": "Seu país ainda não está no mapa? Você pode",
-      "leadTheWay": "liderar o caminho."
+      "leadTheWay": "liderar o caminho.",
+      "sectors": ["Varejo", "Agro", "Atacado", "Saúde"]
     },
     "architecture": {
       "title": "Arquitetura Agêntica",

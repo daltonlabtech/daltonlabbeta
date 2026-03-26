@@ -42,7 +42,7 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "Contact us",
-    "regions": ["Retail", "Agribusiness", "Wholesale", "Healthcare"]
+    "regions": ["Retail", "Agribusiness", "Wholesale", "Healthcare", "Manufacturing"]
   },
   "home": {
     "definition": {
@@ -215,7 +215,8 @@
         "asia": "Asia"
       },
       "notOnMap": "Your country is not on the map yet? You can",
-      "leadTheWay": "lead the way."
+      "leadTheWay": "lead the way.",
+      "sectors": ["Retail", "Agribusiness", "Wholesale", "Healthcare"]
     },
     "architecture": {
       "title": "Agentic Architecture",

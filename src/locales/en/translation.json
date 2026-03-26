@@ -216,7 +216,7 @@
       },
       "notOnMap": "Your country is not on the map yet? You can",
       "leadTheWay": "lead the way.",
-      "sectors": ["Retail", "Agribusiness", "Wholesale", "Healthcare"]
+      "sectors": ["Retail", "Agribusiness", "Wholesale", "Healthcare", "Manufacturing"]
     },
     "architecture": {
       "title": "Agentic Architecture",

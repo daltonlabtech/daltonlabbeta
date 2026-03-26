@@ -216,7 +216,7 @@
       },
       "notOnMap": "Il tuo paese non è ancora sulla mappa? Puoi",
       "leadTheWay": "aprire la strada.",
-      "sectors": ["Retail", "Agro", "Ingrosso", "Sanità"]
+      "sectors": ["Retail", "Agro", "Ingrosso", "Sanità", "Manifattura"]
     },
     "architecture": {
       "title": "Architettura Agentica",

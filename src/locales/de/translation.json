@@ -216,7 +216,7 @@
       },
       "notOnMap": "Ihr Land ist noch nicht auf der Karte? Sie können",
       "leadTheWay": "den Weg ebnen.",
-      "sectors": ["Einzelhandel", "Agrar", "Großhandel", "Gesundheit"]
+      "sectors": ["Einzelhandel", "Agrar", "Großhandel", "Gesundheit", "Fertigung"]
     },
     "architecture": {
       "title": "Agentische Architektur",

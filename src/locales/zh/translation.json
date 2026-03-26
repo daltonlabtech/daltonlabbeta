@@ -33,7 +33,8 @@
     }
   },
   "hero": {
-    "poweredBy": "业务覆盖",
+    "poweredBy": "用AI代理扩展",
+    "poweredBySuffix": "企业规模",
     "titleLine1": "将您的企业转型",
     "titleLine2": "为代理型组织",
     "titleLine2Mobile": "为代理型",

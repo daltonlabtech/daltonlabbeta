@@ -186,16 +186,19 @@
       },
       "blogPosts": [
         {
-          "title": "エージェント型組織：89%はまだ遠い",
-          "url": "https://www.linkedin.com/pulse/organizacoes-agenticas-89-ainda-esta-longe-disso-rodrigo-sp%C3%ADnola-lmmpf/"
+          "title": "AIはインフラプロジェクトのコスト削減と加速を約束",
+          "url": "https://www.cnnbrasil.com.br/infra/ia-promete-reduzir-custos-e-acelerar-projetos-em-infraestrutura/",
+          "label": "CNN"
         },
         {
-          "title": "最も重要な顧客を無視するという過ち",
-          "url": "https://www.linkedin.com/pulse/o-erro-de-ignorar-cliente-mais-importante-do-seu-neg%C3%B3cio-sp%C3%ADnola-lkezf/"
+          "title": "AI議論は進むが、企業はまだ導入で誤りを犯している、とDalton Lab",
+          "url": "https://jornalncnews.com.br/debate-sobre-governanca-da-ia-avanca-aponta-especialista/",
+          "label": "NC NEWS"
         },
         {
-          "title": "企業がAIで犯している過ち",
-          "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
+          "title": "Dalton LabがAI自動化を使う7つの理由を紹介",
+          "url": "https://controleremoto.tech/danton-lab-7-motivos-automacao-com-ia/",
+          "label": "TOUR NEGÓCIOS"
         }
       ]
     },

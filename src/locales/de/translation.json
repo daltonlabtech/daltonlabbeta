@@ -186,16 +186,19 @@
       },
       "blogPosts": [
         {
-          "title": "Agentische Organisationen: 89% sind noch weit davon entfernt",
-          "url": "https://www.linkedin.com/pulse/organizacoes-agenticas-89-ainda-esta-longe-disso-rodrigo-sp%C3%ADnola-lmmpf/"
+          "title": "KI verspricht Kostensenkung und Beschleunigung von Infrastrukturprojekten",
+          "url": "https://www.cnnbrasil.com.br/infra/ia-promete-reduzir-custos-e-acelerar-projetos-em-infraestrutura/",
+          "label": "CNN"
         },
         {
-          "title": "Der Fehler, den wichtigsten Kunden zu ignorieren",
-          "url": "https://www.linkedin.com/pulse/o-erro-de-ignorar-cliente-mais-importante-do-seu-neg%C3%B3cio-sp%C3%ADnola-lkezf/"
+          "title": "KI-Debatte schreitet voran, aber Unternehmen machen bei der Einführung noch Fehler, sagt Dalton Lab",
+          "url": "https://jornalncnews.com.br/debate-sobre-governanca-da-ia-avanca-aponta-especialista/",
+          "label": "NC NEWS"
         },
         {
-          "title": "Der Fehler, den Unternehmen mit KI machen",
-          "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
+          "title": "Dalton Lab zeigt 7 Gründe für KI-Automatisierung",
+          "url": "https://controleremoto.tech/danton-lab-7-motivos-automacao-com-ia/",
+          "label": "TOUR NEGÓCIOS"
         }
       ]
     },

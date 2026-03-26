@@ -186,16 +186,19 @@
       },
       "blogPosts": [
         {
-          "title": "Agentic Organizations: 89% are still far from it",
-          "url": "https://www.linkedin.com/pulse/organizacoes-agenticas-89-ainda-esta-longe-disso-rodrigo-sp%C3%ADnola-lmmpf/"
+          "title": "AI promises to reduce costs and accelerate infrastructure projects",
+          "url": "https://www.cnnbrasil.com.br/infra/ia-promete-reduzir-custos-e-acelerar-projetos-em-infraestrutura/",
+          "label": "CNN"
         },
         {
-          "title": "The mistake of ignoring your most important customer",
-          "url": "https://www.linkedin.com/pulse/o-erro-de-ignorar-cliente-mais-importante-do-seu-neg%C3%B3cio-sp%C3%ADnola-lkezf/"
+          "title": "AI debate advances, but companies still make mistakes in adoption, says Dalton Lab",
+          "url": "https://jornalncnews.com.br/debate-sobre-governanca-da-ia-avanca-aponta-especialista/",
+          "label": "NC NEWS"
         },
         {
-          "title": "The mistake companies are making with AI",
-          "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
+          "title": "Dalton Lab shows 7 reasons to use AI automation",
+          "url": "https://controleremoto.tech/danton-lab-7-motivos-automacao-com-ia/",
+          "label": "TOUR NEGÓCIOS"
         }
       ]
     },

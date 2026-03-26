@@ -186,16 +186,19 @@
       },
       "blogPosts": [
         {
-          "title": "代理型组织：89%的企业仍然相距甚远",
-          "url": "https://www.linkedin.com/pulse/organizacoes-agenticas-89-ainda-esta-longe-disso-rodrigo-sp%C3%ADnola-lmmpf/"
+          "title": "AI有望降低成本并加速基础设施项目",
+          "url": "https://www.cnnbrasil.com.br/infra/ia-promete-reduzir-custos-e-acelerar-projetos-em-infraestrutura/",
+          "label": "CNN"
         },
         {
-          "title": "忽视最重要客户的错误",
-          "url": "https://www.linkedin.com/pulse/o-erro-de-ignorar-cliente-mais-importante-do-seu-neg%C3%B3cio-sp%C3%ADnola-lkezf/"
+          "title": "AI辩论推进，但企业在采用方面仍犯错误，Dalton Lab指出",
+          "url": "https://jornalncnews.com.br/debate-sobre-governanca-da-ia-avanca-aponta-especialista/",
+          "label": "NC NEWS"
         },
         {
-          "title": "企业在AI方面犯的错误",
-          "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
+          "title": "Dalton Lab展示使用AI自动化的7个理由",
+          "url": "https://controleremoto.tech/danton-lab-7-motivos-automacao-com-ia/",
+          "label": "TOUR NEGÓCIOS"
         }
       ]
     },

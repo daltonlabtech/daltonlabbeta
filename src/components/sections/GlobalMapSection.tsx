@@ -67,7 +67,7 @@ const DEFAULT_COLOR = '#E8E6E3';
 const GlobalMapSection = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
-  const sectors = t('hero.regions', { returnObjects: true }) as string[];
+  const sectors = t('home.globalMap.sectors', { returnObjects: true }) as string[];
   const { displayText, wordIndex } = useTypewriter({
     words: sectors,
   });

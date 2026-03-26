@@ -33,7 +33,8 @@
     }
   },
   "hero": {
-    "poweredBy": "Presente en",
+    "poweredBy": "ESCALANDO EMPRESAS DE",
+    "poweredBySuffix": "CON AGENTES DE IA",
     "titleLine1": "Transforma tu empresa",
     "titleLine2": "en una Organización Agéntica",
     "titleLine2Mobile": "en una Organización",

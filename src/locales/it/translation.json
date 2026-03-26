@@ -33,7 +33,8 @@
     }
   },
   "hero": {
-    "poweredBy": "Presente in",
+    "poweredBy": "SCALANDO AZIENDE DI",
+    "poweredBySuffix": "CON AGENTI IA",
     "titleLine1": "Trasforma la tua azienda",
     "titleLine2": "in un'Organizzazione Agentica",
     "titleLine2Mobile": "in un'Organizzazione",
@@ -173,7 +174,7 @@
     },
     "media": {
       "sectionTitle": "MEDIA IN EVIDENZA",
-      "label": "NOTIZIA",
+      "label": "VEJA NEGÓCIOS",
       "blogLabel": "ARTICOLO DEL BLOG",
       "podcastLabel": "PODCAST",
       "featured": {
@@ -183,18 +184,25 @@
         "summary": "Fondata nel 2023 da tre brasiliani, Dalton Lab vuole aiutare le aziende con expertise in IA per automatizzare i processi aziendali.",
         "url": "https://veja.abril.com.br/coluna/radar-economico/o-aporte-de-um-socio-do-atacadista-mundial-mix-em-uma-startup-de-ia/"
       },
+      "cnnSubtitle": {
+        "date": "16 mar 2026",
+        "text": "Su CNN, dirigente di Dalton Lab sostiene che la trasformazione è operativa, non tecnologica"
+      },
       "blogPosts": [
         {
-          "title": "Organizzazioni Agentiche: l'89% ne è ancora lontano",
-          "url": "https://www.linkedin.com/pulse/organizacoes-agenticas-89-ainda-esta-longe-disso-rodrigo-sp%C3%ADnola-lmmpf/"
+          "title": "L'IA promette di ridurre i costi e accelerare i progetti infrastrutturali",
+          "url": "https://www.cnnbrasil.com.br/infra/ia-promete-reduzir-custos-e-acelerar-projetos-em-infraestrutura/",
+          "label": "CNN"
         },
         {
-          "title": "L'errore di ignorare il cliente più importante del tuo business",
-          "url": "https://www.linkedin.com/pulse/o-erro-de-ignorar-cliente-mais-importante-do-seu-neg%C3%B3cio-sp%C3%ADnola-lkezf/"
+          "title": "Il dibattito sull'IA avanza, ma le aziende sbagliano ancora nell'adozione, afferma Dalton Lab",
+          "url": "https://jornalncnews.com.br/debate-sobre-governanca-da-ia-avanca-aponta-especialista/",
+          "label": "NC NEWS"
         },
         {
-          "title": "L'errore che le aziende stanno commettendo con l'IA",
-          "url": "https://www.linkedin.com/pulse/o-erro-que-empresas-estao-cometendo-com-ia-rodrigo-sp%C3%ADnola-ibwrf/"
+          "title": "Dalton Lab mostra 7 motivi per usare l'automazione con IA",
+          "url": "https://controleremoto.tech/danton-lab-7-motivos-automacao-com-ia/",
+          "label": "TOUR NEGÓCIOS"
         }
       ]
     },

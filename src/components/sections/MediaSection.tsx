@@ -143,7 +143,7 @@ const MediaSection = () => {
                 className="text-xs md:text-sm leading-relaxed mt-2 md:mt-3"
                 style={{ color: 'rgba(16, 24, 35, 0.6)' }}
               >
-                <span className="font-medium">16 de mar 2026</span> — À CNN, executivo do Dalton Lab defende que a transformação é operacional, e não tecnológica
+                <span className="font-medium">{t('home.media.cnnSubtitle.date')}</span> — {t('home.media.cnnSubtitle.text')}
               </p>
               <ArrowUpRight
                 className="w-3 h-3 md:w-4 md:h-4 mt-3 md:mt-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"

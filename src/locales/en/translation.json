@@ -215,7 +215,8 @@
         "asia": "Asia"
       },
       "notOnMap": "Your country is not on the map yet? You can",
-      "leadTheWay": "lead the way."
+      "leadTheWay": "lead the way.",
+      "sectors": ["Retail", "Agribusiness", "Wholesale", "Healthcare"]
     },
     "architecture": {
       "title": "Agentic Architecture",

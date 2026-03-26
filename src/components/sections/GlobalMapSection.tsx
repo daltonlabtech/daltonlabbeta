@@ -60,7 +60,7 @@ const CONTINENT_KEYS: Record<string, string> = {
   'Papua New Guinea': 'asia',
 };
 
-const SECTOR_COLORS = ['#15803d', '#b45309', '#b91c1c', '#b45309', '#6d28d9'];
+const SECTOR_COLORS = ['#15803d', '#b45309', '#b91c1c', '#b45309'];
 
 const DEFAULT_COLOR = '#E8E6E3';
 

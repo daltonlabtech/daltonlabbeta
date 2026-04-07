@@ -1,5 +1,6 @@
 // Google Tag Manager DataLayer utilities
 // GTM Container ID: GTM-PPF26W8Q
+import posthog from "posthog-js";
 
 declare global {
   interface Window {
@@ -16,10 +17,15 @@ const getDataLayer = (): Record<string, unknown>[] => {
   return [];
 };
 
-// Push event to dataLayer
+// Push event to GTM dataLayer and PostHog
 const pushEvent = (event: Record<string, unknown>) => {
   const dataLayer = getDataLayer();
   dataLayer.push(event);
+
+  const { event: eventName, ...properties } = event;
+  if (typeof eventName === "string") {
+    posthog.capture(eventName, properties);
+  }
 };
 
 // ============================================
@@ -32,6 +38,7 @@ export const trackPageView = (pagePath: string, pageTitle: string) => {
     page_path: pagePath,
     page_title: pageTitle,
   });
+  posthog.capture("$pageview", { $current_url: window.location.href });
 };
 
 export const trackSectionView = (sectionName: string) => {

@@ -5,6 +5,7 @@
     "transformation": "Transformación",
     "media": "Medios",
     "talkToDalton": "Habla con Dalton",
+    "articles": "Insights",
     "about": "Quiénes somos",
     "startTransformation": "Contáctenos"
   },
@@ -403,6 +404,17 @@
         "answer": "Puedes pausar el Agente en cualquier momento. Nuestro trabajo se basa en optimización continua. Tu feedback guía los ajustes. Y si decides cancelar, no hay cláusula de fidelidad ni multa por rescisión."
       }
     ]
+  },
+  "articles": {
+    "pageTitle": "Insights & Publicaciones",
+    "pageSubtitle": "Explore nuestro pensamiento más reciente sobre economía agéntica, estrategias de transformación con IA y el futuro del trabajo.",
+    "featuredLabel": "Destacado",
+    "readArticle": "Leer artículo",
+    "latestThinking": "Últimos Artículos",
+    "publishedAt": "Publicado el",
+    "readTime": "min de lectura",
+    "relatedArticles": "Lectura Recomendada",
+    "backToArticles": "Volver a Insights"
   },
   "footer": {
     "support": "Soporte",

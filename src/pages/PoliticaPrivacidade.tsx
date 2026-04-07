@@ -1,7 +1,15 @@
+import { useEffect } from "react";
+import { trackPageView } from "@/lib/analytics";
 import Header from "@/components/Header";
 import Footer from "@/components/sections/Footer";
 
 const PoliticaPrivacidade = () => {
+  useEffect(() => {
+    const pageTitle = 'Política de Privacidade | Dalton Lab';
+    document.title = pageTitle;
+    trackPageView('/politica-de-privacidade', 'Política de Privacidade');
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#101823]">
       <Header />

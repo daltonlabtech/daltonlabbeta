@@ -5,6 +5,7 @@
     "transformation": "トランスフォーメーション",
     "media": "メディア",
     "talkToDalton": "Daltonに相談",
+    "articles": "Insights",
     "about": "会社概要",
     "startTransformation": "お問い合わせ"
   },
@@ -403,6 +404,17 @@
         "answer": "いつでもエージェントを一時停止できます。私たちの仕事は継続的な最適化に基づいています。お客様のフィードバックが調整を導きます。キャンセルを決定しても、忠誠条項や解約料はありません。"
       }
     ]
+  },
+  "articles": {
+    "pageTitle": "インサイト＆パブリケーション",
+    "pageSubtitle": "エージェント経済、AI変革戦略、そして仕事の未来についての最新の考えをご覧ください。",
+    "featuredLabel": "注目",
+    "readArticle": "記事を読む",
+    "latestThinking": "最新記事",
+    "publishedAt": "公開日",
+    "readTime": "分で読める",
+    "relatedArticles": "おすすめの記事",
+    "backToArticles": "インサイトへ戻る"
   },
   "footer": {
     "support": "サポート",

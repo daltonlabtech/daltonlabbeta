@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { ArrowUp, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { trackPageView } from '@/lib/analytics';
 import logo from '@/assets/logo-dalton-horizontal-white.webp';
 import chatAvatar from '@/assets/d-branco.webp';
 
@@ -28,6 +29,11 @@ const Newton = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    document.title = 'Newton | Dalton Lab';
+    trackPageView('/newton', 'Newton');
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

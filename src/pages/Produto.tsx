@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
+import { trackPageView } from "@/lib/analytics";
 import Header from "@/components/Header";
 import HeroSection from "@/components/sections/HeroSection";
 import SkeletonSection from "@/components/ui/SkeletonSection";
@@ -17,7 +18,9 @@ const Produto = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    document.title = t('pages.produto.title');
+    const pageTitle = t('pages.produto.title');
+    document.title = pageTitle;
+    trackPageView('/produto', pageTitle);
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', t('pages.produto.description'));

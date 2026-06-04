@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { ArrowUp, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowUp } from 'lucide-react';
 import { trackPageView } from '@/lib/analytics';
-import logo from '@/assets/logo-dalton-horizontal-white.webp';
+import SiteHeader from '@/components/redesign/shell/SiteHeader';
+import SiteFooter from '@/components/redesign/shell/SiteFooter';
 import chatAvatar from '@/assets/d-branco.webp';
 
 interface Message {
@@ -70,41 +70,51 @@ const Newton = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#101823] flex flex-col">
-      {/* Header */}
-      <header className="bg-[#101823]">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 text-dalton-gray-light hover:text-white transition-colors">
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-inter text-sm">Voltar</span>
-          </Link>
-          
-          <Link to="/">
-            <img src={logo} alt="Dalton Lab" className="h-32 md:h-40 w-auto" />
-          </Link>
-          
-          <div className="w-24" /> {/* Spacer for centering */}
-        </div>
-      </header>
+    <div
+      className="redesign-scope flex flex-col"
+      style={{ background: 'var(--bg)', minHeight: '100vh', color: 'var(--text)' }}
+    >
+      <SiteHeader />
 
       {/* Chat Area */}
-      <main className="flex-1 overflow-y-auto py-8">
-        <div className="container mx-auto px-6 max-w-3xl">
+      <main className="flex-1 overflow-y-auto" style={{ paddingTop: 'clamp(96px, 14vh, 140px)', paddingBottom: 24 }}>
+        <div className="mx-auto px-6" style={{ maxWidth: 768, width: '100%', boxSizing: 'border-box' }}>
           <div className="space-y-6">
             {messages.map((message) => (
               <div key={message.id} className="flex gap-4">
-              {message.role === 'assistant' && (
-                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden bg-transparent">
-                    <img src={chatAvatar} alt="Dalton AI" className="w-full h-full object-cover scale-110" />
+                {message.role === 'assistant' && (
+                  <div
+                    className="flex-shrink-0 overflow-hidden"
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: '50%',
+                      border: '1px solid var(--border-navy)',
+                      background: 'var(--surface)',
+                    }}
+                  >
+                    <img src={chatAvatar} alt="Newton" className="w-full h-full object-cover scale-110" />
                   </div>
                 )}
-                
+
                 <div className={`flex-1 ${message.role === 'user' ? 'text-right' : ''}`}>
-                  <p className={`inline-block font-inter text-base leading-relaxed ${
-                    message.role === 'assistant' 
-                      ? 'text-[#F5F3F0]' 
-                      : 'bg-[#F5F3F0]/10 text-[#F5F3F0] px-4 py-3 rounded-2xl rounded-tr-sm'
-                  }`}>
+                  <p
+                    className="inline-block"
+                    style={{
+                      fontSize: '1rem',
+                      lineHeight: 1.6,
+                      ...(message.role === 'assistant'
+                        ? { color: 'var(--text)' }
+                        : {
+                            background: 'var(--surface-2)',
+                            color: 'var(--text)',
+                            border: '1px solid var(--border-navy)',
+                            padding: '12px 16px',
+                            borderRadius: 16,
+                            borderTopRightRadius: 4,
+                          }),
+                    }}
+                  >
                     {message.content}
                   </p>
                 </div>
@@ -113,13 +123,22 @@ const Newton = () => {
 
             {isLoading && (
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full overflow-hidden bg-transparent">
-                  <img src={chatAvatar} alt="Dalton AI" className="w-full h-full object-cover scale-110" />
+                <div
+                  className="flex-shrink-0 overflow-hidden"
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: '50%',
+                    border: '1px solid var(--border-navy)',
+                    background: 'var(--surface)',
+                  }}
+                >
+                  <img src={chatAvatar} alt="Newton" className="w-full h-full object-cover scale-110" />
                 </div>
                 <div className="flex items-center gap-1 py-3">
-                  <span className="w-2 h-2 bg-[#F5F3F0] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                  <span className="w-2 h-2 bg-[#F5F3F0] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                  <span className="w-2 h-2 bg-[#F5F3F0] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                  <span className="rounded-full animate-bounce" style={{ width: 8, height: 8, background: 'var(--cyan)', animationDelay: '0ms' }} />
+                  <span className="rounded-full animate-bounce" style={{ width: 8, height: 8, background: 'var(--cyan)', animationDelay: '150ms' }} />
+                  <span className="rounded-full animate-bounce" style={{ width: 8, height: 8, background: 'var(--cyan)', animationDelay: '300ms' }} />
                 </div>
               </div>
             )}
@@ -130,37 +149,61 @@ const Newton = () => {
       </main>
 
       {/* Input Area */}
-      <div className="bg-[#101823]">
-        <div className="container mx-auto px-6 py-4 max-w-3xl">
+      <div style={{ borderTop: '1px solid var(--border-navy)', background: 'var(--bg-deep)' }}>
+        <div className="mx-auto px-6 py-4" style={{ maxWidth: 768, width: '100%', boxSizing: 'border-box' }}>
           <form onSubmit={handleSubmit} className="relative">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Digite aqui o seu nome..."
-              className="w-full px-6 py-4 pr-14 bg-white/10 border border-[#F5F3F0]/40 rounded-2xl text-white placeholder-[#F5F3F0]/60 font-inter focus:outline-none focus:border-[#F5F3F0]/70 transition-colors"
+              className="w-full focus:outline-none"
+              style={{
+                padding: '16px 56px 16px 24px',
+                background: 'var(--surface)',
+                border: '1px solid var(--border-navy)',
+                borderRadius: 16,
+                color: 'var(--text)',
+                fontSize: '1rem',
+                transition: 'border-color .3s',
+              }}
+              onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--cyan)')}
+              onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--border-navy)')}
               disabled={isLoading}
             />
             <button
               type="submit"
               disabled={!input.trim() || isLoading}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-[#F5F3F0] flex items-center justify-center hover:bg-[#F5F3F0]/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{
+                right: 10,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: 40,
+                height: 40,
+                borderRadius: 12,
+                background: 'var(--cyan)',
+                color: 'var(--accent-ink)',
+                transition: 'opacity .3s',
+              }}
             >
-              <ArrowUp className="w-5 h-5 text-[#101823]" />
+              <ArrowUp className="w-5 h-5" />
             </button>
           </form>
-          
+
           {/* Disclaimer */}
           <div className="mt-4 text-center">
-            <p className="font-inter text-xs text-[#F5F3F0]/70 leading-relaxed">
+            <p style={{ fontSize: 12, lineHeight: 1.6, color: 'var(--text-dim)' }}>
               O Dalton pode cometer erros. Considere verificar informações importantes.
             </p>
-            <p className="font-inter text-xs text-[#F5F3F0]/50 mt-2">
+            <p style={{ fontSize: 12, marginTop: 8, color: 'var(--muted-navy)' }}>
               ©2026 | Powered by Dalton Lab
             </p>
           </div>
         </div>
       </div>
+
+      <SiteFooter />
     </div>
   );
 };

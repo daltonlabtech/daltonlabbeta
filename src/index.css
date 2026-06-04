@@ -2,6 +2,136 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   NOVO DESIGN SYSTEM (redesign) — tokens navy/ciano
+   Portado de ~/Downloads/Novo Site - Mobile + Desktop/css/styles.css (:root)
+   Os tokens antigos abaixo permanecem por enquanto (removidos na Fase 6).
+   ============================================================ */
+:root {
+  /* ---- Backgrounds (deep navy system) ---- */
+  --bg:        #0A1628;   /* base navy */
+  --bg-deep:   #060D1A;   /* header / footer floor */
+  --bg-navy:   #0E1E36;   /* default dark */
+  --bg-soft:   #0F2440;   /* lifted dark for stages */
+  --surface:   rgba(26,58,92,0.18);  /* translucent elevated */
+  --surface-2: rgba(26,58,92,0.28);  /* lifted */
+  --ink-glow:  #1A3A5C;   /* gradient peak + glow tint */
+
+  /* ---- Text ---- */
+  --text:      #FFFFFF;
+  --text-dim:  #8EB4D4;   /* secondary */
+  --muted-navy:#5d7da3;   /* tertiary */
+  --label:     #5EC8F0;   /* labels / tags */
+  --border-navy:   rgba(100,160,210,0.15);
+  --border-navy-2: rgba(100,160,210,0.08);
+  --overlay-navy:  rgba(8,14,28,0.40);   /* photo overlay */
+
+  /* ---- Brand accents (electric cyan family) ---- */
+  --cyan:      #4CB8E8;   /* electric cyan — primary accent */
+  --cyan-soft: #5EC8F0;   /* label cyan */
+  --cyan-deep: #3A9FD5;   /* decorative line / deep accent */
+  --blue-navy: #38BDFA;
+  --orange-navy: #F0A04C; /* attention (warm) */
+
+  --accent-navy:     var(--cyan);
+  --accent-ink:      #06121a;
+  --offline:         #4a607d;
+
+  --grad-hero: linear-gradient(135deg, #5EC8F0, #3A9FD5);
+  --grad-cta:  linear-gradient(135deg, #4CB8E8, #2f87bd);
+
+  /* Glow */
+  --glow-cyan:   0 0 40px rgba(76,184,232,0.40);
+  --glow-purple: 0 0 40px rgba(76,184,232,0.30);
+
+  /* ---- Type ---- */
+  --font-sans:    "DM Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "DM Sans", "Inter", sans-serif;   /* ExtraBold headlines */
+  --font-serif:   "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  /* ---- Rhythm ---- */
+  --navy-maxw: 1200px;
+  --navy-gutter: 24px;
+  --navy-section-y: 64px;
+  --navy-radius: 16px;
+  --navy-radius-sm: 12px;
+
+  --ease: cubic-bezier(.16,1,.3,1);
+}
+
+/* ---- Visual treatments (redesign) ---- */
+
+/* Scrollbar — dark navy, matches the theme */
+.redesign-scope ::-webkit-scrollbar { width: 12px; height: 12px; }
+.redesign-scope ::-webkit-scrollbar-track { background: #060D1A; }
+.redesign-scope ::-webkit-scrollbar-thumb { background: #1A3A5C; border-radius: 8px; border: 3px solid #060D1A; }
+.redesign-scope ::-webkit-scrollbar-thumb:hover { background: #244a73; }
+
+/* Eyebrow label + dot */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--label);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+.eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--cyan-soft);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+/* Strikethrough highlight — cyan line drawn through a word, with glow */
+.strike {
+  position: relative;
+  white-space: nowrap;
+  color: var(--text-dim);
+}
+.strike::after {
+  content: "";
+  position: absolute;
+  left: -3%; right: -3%;
+  top: 54%;
+  height: 0.09em;
+  min-height: 3px;
+  border-radius: 4px;
+  background: var(--cyan);
+  box-shadow: 0 0 12px rgba(76,184,232,0.85), 0 0 26px rgba(76,184,232,0.45);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.reveal.in .strike::after { animation: strike-in 0.85s var(--ease) 0.25s forwards; }
+@keyframes strike-in { to { transform: scaleX(1); } }
+body.no-motion .strike::after { animation: none; transform: scaleX(1); }
+
+/* Hero grid backdrop */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border-navy-2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-navy-2) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(120% 90% at 70% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(120% 90% at 70% 0%, #000 0%, transparent 72%);
+  opacity: .6;
+}
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease-out, transform .6s ease-out; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
 /* Dalton Lab Design System */
 
 @layer base {

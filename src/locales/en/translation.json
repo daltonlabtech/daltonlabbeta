@@ -7,7 +7,162 @@
     "talkToDalton": "Talk to Dalton",
     "articles": "Insights",
     "about": "About us",
-    "startTransformation": "Contact us"
+    "startTransformation": "Contact us",
+    "solutions": "Methodology",
+    "cases": "Cases",
+    "insights": "Insights"
+  },
+  "cta": {
+    "contact": "Get in touch"
+  },
+  "pos": {
+    "line": "We're a <b>Service-as-a-Software</b> startup that turns your operation into an <b>Agentic Organization</b>"
+  },
+  "org": {
+    "tag": "Agentic Org Chart",
+    "title": "Your <s>bigger</s> <b>agentic</b> operational structure"
+  },
+  "sol": {
+    "tag": "Our Methodology",
+    "title": "The <b>agentic</b> journey",
+    "1": {
+      "name": "Agentic Immersion",
+      "desc": "Executive view of where AI creates value. Opportunity mapping and implementation roadmap for your business."
+    },
+    "2": {
+      "name": "Agentic Sprint",
+      "desc": "AI agents built for competitive advantage and operational cost reduction — built securely."
+    },
+    "3": {
+      "name": "Agentic Operation",
+      "desc": "Architecture, governance and expansion to scale AI across your entire company with autonomy."
+    },
+    "4": {
+      "name": "Agentic Culture",
+      "desc": "Training and enablement that turn AI into real, lasting value for the organization."
+    }
+  },
+  "cases": {
+    "tag": "Cases",
+    "title": "Who already operates with an <b>agentic</b> structure",
+    "1": {
+      "sector": "Global Industry",
+      "metric": "49 processes",
+      "metric.sub": "redesigned with AI"
+    }
+  },
+  "final": {
+    "tag": "The next level",
+    "title": "Become an <b>Agentic Organization</b>",
+    "sub": "Trust those who guide you the right way through transformation.",
+    "cta1": "Talk to a specialist"
+  },
+  "ins": {
+    "tag": "Content",
+    "all": "View all",
+    "1": {
+      "type": "Article"
+    }
+  },
+  "insp": {
+    "eyebrow": "Content",
+    "title": "Media, articles and insights",
+    "lede": "Ideas, articles and points of view on agentic transformation.",
+    "loading": "Loading…",
+    "empty": "Nothing found.",
+    "notfound": "Article not found.",
+    "back": "Back",
+    "readtime": "min read",
+    "byteam": "Dalton Lab",
+    "readmore": "Read",
+    "related": "Keep reading",
+    "search": "Search by title or topic…",
+    "tab": {
+      "media": "Media",
+      "articles": "Articles",
+      "team": "Insights"
+    }
+  },
+  "qs": {
+    "eyebrow": "About Us",
+    "title": {
+      "pre": "Humans and agents, ",
+      "em": "side by side"
+    },
+    "lede": "We're a Brazilian startup pioneering Agents-as-a-Service (AaaS), operating globally across four continents.",
+    "photo": {
+      "alt": "Dalton Lab team",
+      "badge": "24/7 operation · 4 continents"
+    },
+    "tab": {
+      "company": "Company",
+      "founders": "Founders"
+    },
+    "co": {
+      "kicker": "The company",
+      "p1": "Our mission is clear: turn conventional companies into agentic organizations, where AI agents run complex operational tasks and humans focus on strategic decisions.",
+      "p2": "While the market still debates AI's potential, we already live it. We're 11 professionals working side by side with more than 30 proprietary AI agents — a hybrid setup that defines the new era of work.",
+      "p3": "In this model, agents operate at scale and keep operations running 24/7, while humans focus on what they do best: strategy, relationships and leadership.",
+      "quote": {
+        "pre": "We practice what we sell: ",
+        "em": "infinite scale",
+        "post": " through agentic organizations."
+      }
+    },
+    "stat1": { "l": "professionals" },
+    "stat2": { "l": "proprietary AI agents" },
+    "stat3": { "l": "continents" },
+    "stat4": { "l": "continuous operation" },
+    "fo": {
+      "kicker": "Leadership",
+      "title": "The founders",
+      "1": {
+        "role": "Founder & CEO",
+        "bio": "Former CEO of Serasa's largest SMB commercial operation in Brazil. Led and trained 500+ high-performance salespeople. Won several national and international awards (Paris 2018, Hawaii 2019, Montevideo 2019 and USA 2020). Today he leads Dalton Lab in transforming companies into Agentic Organizations. Ambassador of the AI School at PUC/PR. Obsessed with culture, results and growth."
+      },
+      "2": {
+        "role": "Founder & COO",
+        "bio": "Managed over 120 digital initiative projects in the Health and Education markets, generating 7,000+ clients in his first venture at age 21. With experience at multinationals such as Deloitte, he now designs the operational architecture that turns strategy into execution at Dalton Lab."
+      },
+      "3": {
+        "role": "Partner & Advisor",
+        "bio": "Commercial and Marketing Director of Grupo Mundial Mix, which controls Brasil Atacadista and Supermercados Imperatriz, one of the largest food retail chains in Santa Catarina. Chairman of the Board of Rede Brasil - RBSM. 13+ years leading commercial strategy and innovation in the sector."
+      }
+    }
+  },
+  "produto": {
+    "hero": {
+      "tag": "AI Agents for Sales",
+      "title": "Turn your company into an <b>Agentic Organization</b>",
+      "sub": "AI agents that qualify leads, follow up 24/7 and drive the close — scaling your sales operation without growing the team.",
+      "cta": "Get in touch"
+    },
+    "cap": {
+      "tag": "What we automate",
+      "title": "Agents for every area of your <b>sales operation</b>",
+      "items": {
+        "vendas": {
+          "title": "Sales",
+          "desc": "Lead qualification, automatic follow-up and driving the close — your team focuses only on hot opportunities."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "desc": "Demand generation and nurturing with agents that personalize each lead's journey at scale."
+        },
+        "financeiro": {
+          "title": "Finance",
+          "desc": "Smart collections, reconciliation and automatic reports that cut delinquency and manual work."
+        },
+        "atendimento": {
+          "title": "Support",
+          "desc": "24/7 support with agents that answer questions, open tickets and escalate only what needs a human."
+        },
+        "operacoes": {
+          "title": "Operations",
+          "desc": "Automation of repetitive processes and system integration for a truly AI-first operation."
+        }
+      }
+    }
   },
   "pages": {
     "index": {
@@ -15,9 +170,9 @@
       "description": "Dalton Lab transforms companies into agentic organizations with custom AI agents. Diagnostics, AI-first processes, training, and technology to scale results."
     },
     "produto": {
-      "title": "Product | Dalton Lab – AI Agents for Sales",
-      "description": "Discover our AI Agents for sales. Lead qualification, 24/7 follow-up, and automatic closing.",
-      "h1": "Product"
+      "title": "AI Agents for Sales | Dalton Lab – Agentic Organization",
+      "description": "Meet Dalton Lab's AI Agents. Lead qualification, 24/7 follow-up, automatic closing, and agentic transformation for your company.",
+      "h1": "AI Agents for Sales"
     },
     "faleComDalton": {
       "title": "Talk to Dalton | Dalton Lab – AI Agents",
@@ -29,8 +184,8 @@
       "orClickHere": "or click the button above"
     },
     "quemSomos": {
-      "title": "About us | Dalton Lab – AI Agents",
-      "description": "Meet the founders and team of Dalton Lab. Brazilian startup pioneering Agents-as-a-Service operating on 4 continents."
+      "title": "About Us | Dalton Lab – Pioneer in Agentic Organizations",
+      "description": "Meet the founders and team of Dalton Lab. A Brazilian startup pioneering agentic transformation, operating across 4 continents with Agents-as-a-Service."
     }
   },
   "hero": {
@@ -43,7 +198,10 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "Contact us",
-    "regions": ["Retail", "Agribusiness", "Wholesale", "Healthcare", "Manufacturing"]
+    "regions": ["Retail", "Agribusiness", "Wholesale", "Healthcare", "Manufacturing"],
+    "title": "Turning companies into <b>Agentic Organizations</b>",
+    "cta1": "Talk to a specialist",
+    "cta2": "Explore our methodology"
   },
   "home": {
     "definition": {
@@ -253,7 +411,7 @@
     }
   },
   "clients": {
-    "title": "Companies that trust us"
+    "title": "Some of our clients"
   },
   "prospection": {
     "title": "AI that sells for you",
@@ -423,7 +581,10 @@
     "legal": "Legal",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
-    "copyright": "© 2026 Dalton Lab. All rights reserved."
+    "copyright": "© 2026 Dalton Lab. All rights reserved.",
+    "rights": "© 2026 Dalton Lab. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "cookies": "Terms of Use"
   },
   "waitlist": {
     "title": "",

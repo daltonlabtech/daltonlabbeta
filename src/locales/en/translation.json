@@ -5,51 +5,92 @@
     "transformation": "Transformation",
     "media": "Media",
     "talkToDalton": "Talk to Dalton",
-    "articles": "Insights",
+    "articles": "Content",
     "about": "About us",
     "startTransformation": "Contact us",
     "solutions": "Methodology",
     "cases": "Cases",
-    "insights": "Insights"
+    "insights": "Content"
   },
   "cta": {
     "contact": "Get in touch"
   },
   "pos": {
-    "line": "We're a <b>Service-as-a-Software</b> startup that turns your operation into an <b>Agentic Organization</b>"
+    "line": "We transform your company into an Agentic Organization, where <b>AI agents work side by side with your team</b>"
   },
   "org": {
     "tag": "Agentic Org Chart",
     "title": "Your <s>bigger</s> <b>agentic</b> operational structure"
   },
   "sol": {
-    "tag": "Our Methodology",
+    "tag": "Methodology",
     "title": "The <b>agentic</b> journey",
     "1": {
       "name": "Agentic Immersion",
-      "desc": "Executive view of where AI creates value. Opportunity mapping and implementation roadmap for your business."
+      "desc": "We map where AI creates value and the implementation roadmap for your business."
     },
     "2": {
       "name": "Agentic Sprint",
-      "desc": "AI agents built for competitive advantage and operational cost reduction — built securely."
+      "desc": "We develop and deploy AI agents to drive competitive advantage and reduce costs."
     },
     "3": {
       "name": "Agentic Operation",
-      "desc": "Architecture, governance and expansion to scale AI across your entire company with autonomy."
+      "desc": "We scale AI across your entire company with architecture, governance and autonomy."
     },
     "4": {
       "name": "Agentic Culture",
-      "desc": "Training and enablement that turn AI into real, lasting value for the organization."
+      "desc": "We train your team to use AI autonomously and gain productivity."
     }
   },
   "cases": {
     "tag": "Cases",
     "title": "Who already operates with an <b>agentic</b> structure",
+    "all": "See all",
     "1": {
       "sector": "Global Industry",
       "metric": "49 processes",
-      "metric.sub": "redesigned with AI"
+      "metric.sub": "agentic support & marketing"
     }
+  },
+  "casos": {
+    "title": "Who already operates with an <b>agentic</b> structure",
+    "lede": "Real operations redesigned with AI agents — from design to production execution.",
+    "read": "Read the case",
+    "allcases": "All cases",
+    "tagcase": "Case",
+    "resumo": "Summary",
+    "back": "Back to home",
+    "highlights": "Highlights",
+    "challenge": "The challenge",
+    "solution": "The solution",
+    "how": "How it works in practice"
+  },
+  "legalPage": {
+    "eyebrow": "Legal",
+    "back": "Back to home"
+  },
+  "pp": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: January 2026",
+    "1": { "t": "1. Introduction", "b": "Dalton Lab values the privacy of its users. This Privacy Policy describes how we collect, use, store and protect your personal information when you use our services." },
+    "2": { "t": "2. Information We Collect", "b": "We collect information you provide directly, such as name, email, phone and company data when you fill out forms or contact us. We may also automatically collect usage data, such as IP address, browser type and pages visited." },
+    "3": { "t": "3. Use of Information", "b": "We use your information to: provide and improve our services; personalize your experience; send relevant communications about our products; respond to your requests; and comply with legal obligations." },
+    "4": { "t": "4. Data Sharing", "b": "We do not sell your personal information. We may share data with trusted partners who assist us in operating the business, always under confidentiality agreements, or when required by law." },
+    "5": { "t": "5. Security", "b": "We implement technical and organizational measures to protect your information against unauthorized access, alteration, disclosure or destruction." },
+    "6": { "t": "6. Your Rights", "b": "You have the right to access, correct, delete or port your personal data. To exercise these rights, contact us at administrativo@daltonlab.ai." },
+    "7": { "t": "7. Contact", "b": "If you have questions about this Privacy Policy, contact us at: administrativo@daltonlab.ai" }
+  },
+  "tu": {
+    "title": "Terms of Use",
+    "updated": "Last updated: January 2026",
+    "1": { "t": "1. Acceptance of Terms", "b": "By accessing and using Dalton Lab's services, you agree to comply with these Terms of Use. If you do not agree with any part of these terms, do not use our services." },
+    "2": { "t": "2. Description of Services", "b": "Dalton Lab provides AI-based commercial automation solutions, including AI agents for prospecting, lead qualification, follow-up and commercial management." },
+    "3": { "t": "3. Acceptable Use", "b": "You agree to use our services only for lawful purposes and in accordance with these Terms. It is prohibited to: use the services for illegal activities; attempt to access unauthorized areas of the system; interfere with the operation of the services; or violate third-party rights." },
+    "4": { "t": "4. Intellectual Property", "b": "All content, trademarks, logos and technology of Dalton Lab are our property or licensed to us. No intellectual property rights are transferred to you through use of the services." },
+    "5": { "t": "5. Limitation of Liability", "b": "Dalton Lab is not liable for indirect, incidental or consequential damages arising from the use of our services. Our services are provided \"as is\", without express or implied warranties." },
+    "6": { "t": "6. Modifications", "b": "We reserve the right to modify these Terms at any time. Significant changes will be communicated through the site or by email." },
+    "7": { "t": "7. Governing Law", "b": "These Terms are governed by the laws of the Federative Republic of Brazil. Any dispute will be resolved in the competent courts of Brazil." },
+    "8": { "t": "8. Contact", "b": "For questions about these Terms of Use, contact us at: administrativo@daltonlab.ai" }
   },
   "final": {
     "tag": "The next level",

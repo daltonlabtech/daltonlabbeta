@@ -5,51 +5,92 @@
     "transformation": "Transformação",
     "media": "Mídia",
     "talkToDalton": "Fale com o Dalton",
-    "articles": "Insights",
+    "articles": "Conteúdos",
     "about": "Quem Somos",
     "startTransformation": "Fale conosco",
     "solutions": "Metodologia",
     "cases": "Casos",
-    "insights": "Insights"
+    "insights": "Conteúdos"
   },
   "cta": {
     "contact": "Fale conosco"
   },
   "pos": {
-    "line": "Somos a startup <b>Service-as-a-Software</b> que transforma sua operação em uma <b>Organização Agêntica</b>"
+    "line": "Transformamos sua empresa em uma Organização Agêntica, onde <b>agentes de IA trabalham lado a lado com o seu time</b>"
   },
   "org": {
     "tag": "Organograma Agêntico",
     "title": "Sua estrutura operacional <s>maior</s> <b>agêntica</b>"
   },
   "sol": {
-    "tag": "Nossa Metodologia",
+    "tag": "Metodologia",
     "title": "A jornada <b>agêntica</b>",
     "1": {
       "name": "Imersão Agêntica",
-      "desc": "Visão executiva de onde a IA gera valor. Mapeamento de oportunidades e roteiro de implementação para o seu negócio."
+      "desc": "Mapeamos onde a IA gera valor e o roteiro de implementação para o seu negócio."
     },
     "2": {
       "name": "Sprint Agêntico",
-      "desc": "Agentes de IA desenvolvidos para gerar vantagem competitiva e reduzir custos operacionais com segurança."
+      "desc": "Desenvolvemos e implementamos agentes de IA para gerar vantagem competitiva e reduzir custos."
     },
     "3": {
       "name": "Operação Agêntica",
-      "desc": "Arquitetura, governança e expansão para escalar IA em toda a empresa com autonomia."
+      "desc": "Escalamos IA em toda a empresa com arquitetura, governança e autonomia."
     },
     "4": {
       "name": "Cultura Agêntica",
-      "desc": "Capacitação e treinamento que transformam IA em valor real e duradouro para a organização."
+      "desc": "Treinamos seu time para usar IA com autonomia e ganhar produtividade."
     }
   },
   "cases": {
     "tag": "Casos",
     "title": "Quem já opera com estrutura <b>agêntica</b>",
+    "all": "Ver todos",
     "1": {
       "sector": "Indústria Global",
       "metric": "49 processos",
-      "metric.sub": "redesenhados com IA"
+      "metric.sub": "suporte e marketing agênticos"
     }
+  },
+  "casos": {
+    "title": "Quem já opera com estrutura <b>agêntica</b>",
+    "lede": "Operações reais redesenhadas com agentes de IA — do desenho à execução em produção.",
+    "read": "Ler o caso",
+    "allcases": "Todos os casos",
+    "tagcase": "Caso",
+    "resumo": "Resumo",
+    "back": "Voltar ao início",
+    "highlights": "Destaques",
+    "challenge": "O desafio",
+    "solution": "A solução",
+    "how": "Como funciona na prática"
+  },
+  "legalPage": {
+    "eyebrow": "Legal",
+    "back": "Voltar ao início"
+  },
+  "pp": {
+    "title": "Política de Privacidade",
+    "updated": "Última atualização: Janeiro de 2026",
+    "1": { "t": "1. Introdução", "b": "O Dalton Lab valoriza a privacidade de seus usuários. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais quando você utiliza nossos serviços." },
+    "2": { "t": "2. Informações Coletadas", "b": "Coletamos informações que você nos fornece diretamente, como nome, e-mail, telefone e dados da empresa ao preencher formulários ou entrar em contato conosco. Também podemos coletar dados de uso automaticamente, como endereço IP, tipo de navegador e páginas visitadas." },
+    "3": { "t": "3. Uso das Informações", "b": "Utilizamos suas informações para: fornecer e melhorar nossos serviços; personalizar sua experiência; enviar comunicações relevantes sobre nossos produtos; responder a suas solicitações; e cumprir obrigações legais." },
+    "4": { "t": "4. Compartilhamento de Dados", "b": "Não vendemos suas informações pessoais. Podemos compartilhar dados com parceiros de confiança que nos auxiliam na operação do negócio, sempre sob acordos de confidencialidade, ou quando exigido por lei." },
+    "5": { "t": "5. Segurança", "b": "Implementamos medidas técnicas e organizacionais para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição." },
+    "6": { "t": "6. Seus Direitos", "b": "Você tem direito a acessar, corrigir, excluir ou portar seus dados pessoais. Para exercer esses direitos, entre em contato conosco pelo e-mail administrativo@daltonlab.ai." },
+    "7": { "t": "7. Contato", "b": "Se tiver dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail: administrativo@daltonlab.ai" }
+  },
+  "tu": {
+    "title": "Termos de Uso",
+    "updated": "Última atualização: Janeiro de 2026",
+    "1": { "t": "1. Aceitação dos Termos", "b": "Ao acessar e utilizar os serviços do Dalton Lab, você concorda em cumprir estes Termos de Uso. Se não concordar com qualquer parte destes termos, não utilize nossos serviços." },
+    "2": { "t": "2. Descrição dos Serviços", "b": "O Dalton Lab oferece soluções de automação comercial baseadas em Inteligência Artificial, incluindo agentes de IA para prospecção, qualificação de leads, follow-up e gestão comercial." },
+    "3": { "t": "3. Uso Aceitável", "b": "Você concorda em usar nossos serviços apenas para fins legais e de acordo com estes Termos. É proibido: usar os serviços para atividades ilegais; tentar acessar áreas não autorizadas do sistema; interferir na operação dos serviços; ou violar direitos de terceiros." },
+    "4": { "t": "4. Propriedade Intelectual", "b": "Todo o conteúdo, marcas, logotipos e tecnologia do Dalton Lab são de nossa propriedade ou licenciados para nós. Nenhum direito de propriedade intelectual é transferido a você pelo uso dos serviços." },
+    "5": { "t": "5. Limitação de Responsabilidade", "b": "O Dalton Lab não se responsabiliza por danos indiretos, incidentais ou consequenciais decorrentes do uso de nossos serviços. Nossos serviços são fornecidos \"como estão\", sem garantias expressas ou implícitas." },
+    "6": { "t": "6. Modificações", "b": "Reservamo-nos o direito de modificar estes Termos a qualquer momento. Alterações significativas serão comunicadas através do site ou por e-mail." },
+    "7": { "t": "7. Lei Aplicável", "b": "Estes Termos são regidos pelas leis da República Federativa do Brasil. Qualquer disputa será resolvida nos tribunais competentes do Brasil." },
+    "8": { "t": "8. Contato", "b": "Para dúvidas sobre estes Termos de Uso, entre em contato pelo e-mail: administrativo@daltonlab.ai" }
   },
   "final": {
     "tag": "O próximo nível",

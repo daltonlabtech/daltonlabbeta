@@ -25,7 +25,7 @@ export default function SiteHeader() {
 
   const navLinks = [
     { label: t('nav.solutions', 'Metodologia'), href: '/#solutions' },
-    { label: t('nav.cases', 'Casos'), href: '/#cases' },
+    { label: t('nav.cases', 'Casos'), href: '/casos' },
     { label: t('nav.insights', 'Insights'), href: '/artigos' },
     { label: t('nav.about', 'Sobre'), href: '/quem-somos' },
   ];

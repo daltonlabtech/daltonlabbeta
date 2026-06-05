@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { trackPageView } from "@/lib/analytics";
 import SiteHeader from "@/components/redesign/shell/SiteHeader";
 import SiteFooter from "@/components/redesign/shell/SiteFooter";
@@ -19,11 +20,12 @@ const pStyle: React.CSSProperties = {
 };
 
 const PoliticaPrivacidade = () => {
+  const { t } = useTranslation();
+
   useEffect(() => {
-    const pageTitle = 'Política de Privacidade | Dalton Lab';
-    document.title = pageTitle;
+    document.title = `${t('pp.title')} | Dalton Lab`;
     trackPageView('/politica-de-privacidade', 'Política de Privacidade');
-  }, []);
+  }, [t]);
 
   return (
     <div
@@ -42,7 +44,7 @@ const PoliticaPrivacidade = () => {
           paddingBottom: "clamp(64px, 10vw, 120px)",
         }}
       >
-        <span className="eyebrow">Legal</span>
+        <span className="eyebrow">{t('legalPage.eyebrow')}</span>
         <h1
           style={{
             fontFamily: "var(--font-display)",
@@ -54,7 +56,7 @@ const PoliticaPrivacidade = () => {
             marginBottom: 8,
           }}
         >
-          Política de Privacidade
+          {t('pp.title')}
         </h1>
         <span
           aria-hidden="true"
@@ -62,56 +64,12 @@ const PoliticaPrivacidade = () => {
           style={{ width: 60, height: 2, marginTop: 22, marginBottom: 8, background: "var(--cyan-deep)", borderRadius: 2 }}
         />
 
-        <section style={sectionStyle}>
-          <h2 style={h2Style}>1. Introdução</h2>
-          <p style={pStyle}>
-            O Dalton Lab valoriza a privacidade de seus usuários. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais quando você utiliza nossos serviços.
-          </p>
-        </section>
-
-        <section style={sectionStyle}>
-          <h2 style={h2Style}>2. Informações Coletadas</h2>
-          <p style={pStyle}>
-            Coletamos informações que você nos fornece diretamente, como nome, e-mail, telefone e dados da empresa ao preencher formulários ou entrar em contato conosco. Também podemos coletar dados de uso automaticamente, como endereço IP, tipo de navegador e páginas visitadas.
-          </p>
-        </section>
-
-        <section style={sectionStyle}>
-          <h2 style={h2Style}>3. Uso das Informações</h2>
-          <p style={pStyle}>
-            Utilizamos suas informações para: fornecer e melhorar nossos serviços; personalizar sua experiência; enviar comunicações relevantes sobre nossos produtos; responder a suas solicitações; e cumprir obrigações legais.
-          </p>
-        </section>
-
-        <section style={sectionStyle}>
-          <h2 style={h2Style}>4. Compartilhamento de Dados</h2>
-          <p style={pStyle}>
-            Não vendemos suas informações pessoais. Podemos compartilhar dados com parceiros de confiança que nos auxiliam na operação do negócio, sempre sob acordos de confidencialidade, ou quando exigido por lei.
-          </p>
-        </section>
-
-        <section style={sectionStyle}>
-          <h2 style={h2Style}>5. Segurança</h2>
-          <p style={pStyle}>
-            Implementamos medidas técnicas e organizacionais para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição.
-          </p>
-        </section>
-
-        <section style={sectionStyle}>
-          <h2 style={h2Style}>6. Seus Direitos</h2>
-          <p style={pStyle}>
-            Você tem direito a acessar, corrigir, excluir ou portar seus dados pessoais. Para exercer esses direitos, entre em contato conosco pelo e-mail{" "}
-            <a href="mailto:administrativo@daltonlab.ai" style={linkStyle}>administrativo@daltonlab.ai</a>.
-          </p>
-        </section>
-
-        <section style={sectionStyle}>
-          <h2 style={h2Style}>7. Contato</h2>
-          <p style={pStyle}>
-            Se tiver dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail:{" "}
-            <a href="mailto:administrativo@daltonlab.ai" style={linkStyle}>administrativo@daltonlab.ai</a>
-          </p>
-        </section>
+        {[1, 2, 3, 4, 5, 6, 7].map((n) => (
+          <section key={n} style={sectionStyle}>
+            <h2 style={h2Style}>{t(`pp.${n}.t`)}</h2>
+            <p style={pStyle}>{t(`pp.${n}.b`)}</p>
+          </section>
+        ))}
 
         <p
           style={{
@@ -123,20 +81,13 @@ const PoliticaPrivacidade = () => {
             marginTop: 48,
           }}
         >
-          Última atualização: Janeiro de 2026
+          {t('pp.updated')}
         </p>
       </main>
 
       <SiteFooter />
     </div>
   );
-};
-
-const linkStyle: React.CSSProperties = {
-  color: "var(--cyan)",
-  textDecoration: "underline",
-  textUnderlineOffset: 3,
-  textDecorationColor: "rgba(76,184,232,0.45)",
 };
 
 export default PoliticaPrivacidade;

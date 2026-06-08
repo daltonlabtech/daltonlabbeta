@@ -4,6 +4,15 @@ import { trackCtaClick } from '@/lib/analytics';
 
 const CONTACT_URL = 'https://formulario.daltonlab.ai/';
 
+/** Destaque cyan/serif para palavras em <b> — mesmo tratamento do FinalCTASection. */
+const serifStrong: React.CSSProperties = {
+  fontFamily: 'var(--font-serif)',
+  fontWeight: 500,
+  fontStyle: 'italic',
+  color: 'var(--cyan)',
+  WebkitTextFillColor: 'var(--cyan)',
+};
+
 /** Logos do marquee — porta a ordem do `.hero-logos` do index.html original. */
 const MARQUEE_LOGOS: { src: string; alt: string; height: number; maxWidth: number }[] = [
   { src: 'jeisys.png', alt: 'Jeisys', height: 44, maxWidth: 120 },
@@ -92,7 +101,7 @@ export default function HeroSection() {
             marginTop: 22,
           }}
         >
-          <Trans i18nKey="hero.title" components={{ b: <b /> }}>
+          <Trans i18nKey="hero.title" components={{ b: <b style={serifStrong} /> }}>
             {'Transformando empresas em <b>Organizações Agênticas</b>'}
           </Trans>
         </h1>

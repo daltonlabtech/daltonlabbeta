@@ -1,4 +1,66 @@
 {
+  "manifesto": {
+    "tag": "Manifesto",
+    "quote": "Em 5 anos toda empresa será <b>agêntica</b>. Algumas decidirão antes.",
+    "source": "Dalton Lab, 2026"
+  },
+  "market": {
+    "tag": "Contexto de mercado",
+    "title": "Software as a Service está morrendo. <b>Service as a Software</b> está nascendo.",
+    "body": "O modelo SaaS foi construído para escalar software. O próximo ciclo escala serviço — entregue por agentes de IA que operam 24/7, aprendem com o contexto da empresa e executam com a precisão de um sistema e o julgamento de uma equipe.",
+    "quote": "the biggest shift in how value is delivered since the cloud.",
+    "quoteSource": "Sequoia Capital, 2024"
+  },
+  "ailast": {
+    "tag": "Metodologia",
+    "title": "<b>AI Last</b>, not AI First.",
+    "1": {
+      "name": "Processos primeiro",
+      "desc": "Processos precisam ser estruturados antes de serem automatizados. IA amplifica o que existe, boa ou má gestão."
+    },
+    "2": {
+      "name": "Pessoas depois",
+      "desc": "Pessoas precisam incorporar antes de operar. Tecnologia sem adoção é custo, não transformação."
+    },
+    "3": {
+      "name": "Ferramentas por último",
+      "desc": "Ferramentas de IA vêm por último. Escolhidas para o processo, não para impressionar o conselho."
+    }
+  },
+  "os": {
+    "tag": "Propriedade intelectual",
+    "title": "Dalton Lab OS",
+    "sub": "O sistema operacional da transformação agêntica.",
+    "body": "Infraestrutura proprietária que orquestra agentes, processos e pessoas dentro da operação do cliente. Não é um software genérico — é construído sobre a metodologia da Dalton Lab.",
+    "1": {
+      "name": "Gestão",
+      "desc": "Visibilidade em tempo real de todos os agentes, suas ações e impacto no negócio."
+    },
+    "2": {
+      "name": "Governança",
+      "desc": "Controle de permissões, auditorias e logs por agente e área da organização."
+    },
+    "3": {
+      "name": "Segurança",
+      "desc": "Isolamento de dados, acesso por role e compliance integrado ao fluxo operacional."
+    },
+    "4": {
+      "name": "Produtividade",
+      "desc": "KPIs agênticos que conectam cada operação a um resultado mensurável de negócio."
+    }
+  },
+  "compass": {
+    "tag": "Diagnóstico de maturidade",
+    "title": "Dalton Compass",
+    "sub": "O instrumento que mapeia onde a IA pode operar na sua empresa.",
+    "body": "Framework de diagnóstico de maturidade agêntica. Identifica processos prontos para agentes, lacunas de adoção e prioridades de implementação."
+  },
+  "practice": {
+    "line": "Praticamos o que vendemos: <b>escala infinita</b> através de organizações agênticas."
+  },
+  "closing": {
+    "quote": "Organização Agêntica não é destino. <b>É decisão.</b>"
+  },
   "nav": {
     "home": "Home",
     "product": "Produto",

@@ -7,13 +7,18 @@ import SkeletonSection from "@/components/ui/SkeletonSection";
 
 // Abaixo da dobra → lazy + Suspense
 const VideoBand = lazy(() => import("@/components/redesign/home/VideoBand"));
+const ManifestoSection = lazy(() => import("@/components/redesign/home/ManifestoSection"));
+const MarketSection = lazy(() => import("@/components/redesign/home/MarketSection"));
 const PositioningSection = lazy(() => import("@/components/redesign/home/PositioningSection"));
 const ClientsSection = lazy(() => import("@/components/redesign/home/ClientsSection"));
 const OrgChartSection = lazy(() => import("@/components/redesign/home/OrgChartSection"));
+const MethodologySection = lazy(() => import("@/components/redesign/home/MethodologySection"));
 const SolutionsCarousel = lazy(() => import("@/components/redesign/home/SolutionsCarousel"));
+const PlatformSection = lazy(() => import("@/components/redesign/home/PlatformSection"));
 const CasesSection = lazy(() => import("@/components/redesign/home/CasesSection"));
 const FinalCTASection = lazy(() => import("@/components/redesign/home/FinalCTASection"));
 const InsightsPreviewSection = lazy(() => import("@/components/redesign/home/InsightsPreviewSection"));
+const ClosingSection = lazy(() => import("@/components/redesign/home/ClosingSection"));
 const SiteFooter = lazy(() => import("@/components/redesign/shell/SiteFooter"));
 
 const prefetchSections = () => {
@@ -51,6 +56,12 @@ const Index = () => {
           <VideoBand />
         </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
+          <ManifestoSection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
+          <MarketSection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
           <PositioningSection />
         </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
@@ -59,8 +70,14 @@ const Index = () => {
         <Suspense fallback={<SkeletonSection height="min-h-[500px]" />}>
           <OrgChartSection />
         </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
+          <MethodologySection />
+        </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
           <SolutionsCarousel />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
+          <PlatformSection />
         </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
           <CasesSection />
@@ -70,6 +87,9 @@ const Index = () => {
         </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
           <InsightsPreviewSection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
+          <ClosingSection />
         </Suspense>
       </main>
       <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>

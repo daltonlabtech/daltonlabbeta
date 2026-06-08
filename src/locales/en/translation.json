@@ -1,4 +1,66 @@
 {
+  "manifesto": {
+    "tag": "Manifesto",
+    "quote": "In 5 years every company will be <b>agentic</b>. Some will decide sooner.",
+    "source": "Dalton Lab, 2026"
+  },
+  "market": {
+    "tag": "Market context",
+    "title": "Software as a Service is dying. <b>Service as a Software</b> is being born.",
+    "body": "The SaaS model was built to scale software. The next cycle scales service — delivered by AI agents that operate 24/7, learn from the company's context, and execute with the precision of a system and the judgment of a team.",
+    "quote": "the biggest shift in how value is delivered since the cloud.",
+    "quoteSource": "Sequoia Capital, 2024"
+  },
+  "ailast": {
+    "tag": "Methodology",
+    "title": "<b>AI Last</b>, not AI First.",
+    "1": {
+      "name": "Processes first",
+      "desc": "Processes must be structured before they can be automated. AI amplifies what already exists — good or bad management."
+    },
+    "2": {
+      "name": "People next",
+      "desc": "People must adopt before they operate. Technology without adoption is cost, not transformation."
+    },
+    "3": {
+      "name": "Tools last",
+      "desc": "AI tools come last. Chosen for the process, not to impress the board."
+    }
+  },
+  "os": {
+    "tag": "Intellectual property",
+    "title": "Dalton Lab OS",
+    "sub": "The operating system of agentic transformation.",
+    "body": "Proprietary infrastructure that orchestrates agents, processes and people inside the client's operation. Not generic software — built on Dalton Lab's methodology.",
+    "1": {
+      "name": "Management",
+      "desc": "Real-time visibility into every agent, its actions and its impact on the business."
+    },
+    "2": {
+      "name": "Governance",
+      "desc": "Permission control, audits and logs per agent and per area of the organization."
+    },
+    "3": {
+      "name": "Security",
+      "desc": "Data isolation, role-based access and compliance built into the operational flow."
+    },
+    "4": {
+      "name": "Productivity",
+      "desc": "Agentic KPIs that connect every operation to a measurable business result."
+    }
+  },
+  "compass": {
+    "tag": "Maturity diagnostic",
+    "title": "Dalton Compass",
+    "sub": "The instrument that maps where AI can operate in your company.",
+    "body": "An agentic maturity diagnostic framework. It identifies processes ready for agents, adoption gaps and implementation priorities."
+  },
+  "practice": {
+    "line": "We practice what we sell: <b>infinite scale</b> through agentic organizations."
+  },
+  "closing": {
+    "quote": "Becoming an Agentic Organization isn't a destination. <b>It's a decision.</b>"
+  },
   "nav": {
     "home": "Home",
     "product": "Product",

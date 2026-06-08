@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dalton Lab — Quem Somos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/novo/css/styles.css" />
+<style>
+  /* ===== Quem Somos — page-specific ===== */
+  .qs-hero {
+    position: relative;
+    padding-top: 116px;
+    padding-bottom: 8px;
+  }
+  .qs-hero .eyebrow { margin-bottom: 18px; }
+  .qs-hero h1 { line-height: 1.02; margin-bottom: 20px; }
+  .qs-hero .lede { max-width: 32ch; }
+
+  .qs-photo {
+    position: relative;
+    margin-top: 34px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 26px 60px rgba(0,0,0,0.42);
+  }
+  .qs-photo img { display: block; width: 100%; height: auto; }
+  .qs-photo::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(6,13,26,0) 55%, rgba(6,13,26,0.55) 100%);
+    pointer-events: none;
+  }
+  .qs-photo .badge {
+    position: absolute; left: 14px; bottom: 14px;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 13px;
+    border-radius: var(--r-pill, 999px);
+    background: rgba(6,13,26,0.62);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text);
+  }
+  .qs-photo .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+
+  /* ===== Tabs ===== */
+  .qs-tabs {
+    display: flex;
+    gap: 6px;
+    padding: 5px;
+    margin: 30px auto 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-pill, 999px);
+    width: max-content;
+    max-width: 100%;
+  }
+  .qs-tab {
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: transparent;
+    padding: 11px 22px;
+    border-radius: var(--r-pill, 999px);
+    transition: color .3s, background .3s;
+    white-space: nowrap;
+  }
+  .qs-tab.active { color: var(--accent-ink, #06121a); background: var(--cyan); }
+  .qs-tab:not(.active):hover { color: var(--text); }
+
+  .qs-panel { display: none; animation: qsFade .45s ease both; }
+  .qs-panel.active { display: block; }
+  @keyframes qsFade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .qs-panel { animation: none; } }
+
+  /* ===== Company panel ===== */
+  .qs-co-text p {
+    color: var(--text-dim);
+    font-size: clamp(1.04rem, 2.6vw, 1.2rem);
+    line-height: 1.62;
+    margin-bottom: 20px;
+    max-width: 60ch;
+  }
+  .qs-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 34px 0 36px;
+  }
+  .qs-stat {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm, 12px);
+    background: var(--surface);
+    padding: 20px 18px;
+  }
+  .qs-stat .n {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    font-size: clamp(1.9rem, 9vw, 2.6rem);
+    line-height: 1;
+    color: var(--text);
+  }
+  .qs-stat .n b { font-family: var(--font-serif); font-weight: 500; font-style: italic; color: var(--cyan); }
+  .qs-stat .l {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.35;
+  }
+  .qs-quote {
+    position: relative;
+    border-top: 1px solid var(--border);
+    padding-top: 28px;
+  }
+  .qs-quote p {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    font-size: clamp(1.5rem, 6.5vw, 2.2rem);
+    line-height: 1.16;
+    color: var(--text);
+    max-width: 18ch;
+  }
+  .qs-quote p b { font-family: var(--font-serif); font-weight: 500; font-style: italic; color: var(--cyan); }
+
+  /* ===== Founders panel ===== */
+  .qs-founders { display: flex; flex-direction: column; gap: 20px; }
+  .founder {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    overflow: hidden;
+    transition: border-color .4s, transform .4s, box-shadow .4s;
+  }
+  .founder:hover { border-color: rgba(76,184,232,0.4); transform: translateY(-3px); box-shadow: 0 22px 48px rgba(0,0,0,0.34); }
+  .founder-photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; }
+  .founder-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 22%;
+    filter: saturate(0.92);
+    transition: transform .6s var(--ease, ease);
+  }
+  .founder:hover .founder-photo img { transform: scale(1.04); }
+  .founder-photo::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(6,13,26,0) 50%, rgba(6,13,26,0.72) 100%);
+  }
+  .founder-photo .idx {
+    position: absolute; top: 14px; right: 16px;
+    font-family: var(--font-mono);
+    font-size: 12px; letter-spacing: 0.08em;
+    color: var(--text);
+    opacity: 0.7;
+  }
+  .founder-body { padding: 22px 22px 26px; }
+  .founder-body .name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    font-size: 1.5rem;
+    color: var(--text);
+    line-height: 1.05;
+  }
+  .founder-body .role {
+    font-family: var(--font-mono);
+    font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--cyan);
+    margin-top: 7px;
+  }
+  .founder-body .bio {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+
+  @media (min-width: 720px) {
+    .qs-stats { grid-template-columns: repeat(4, 1fr); }
+    .qs-founders { display: grid; grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================ HEADER ============================ -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Dalton Lab">
+      <img src="assets/dalton-lab-logo.png" alt="Dalton Lab" class="brand-logo" />
+    </a>
+
+    <nav class="nav-desk">
+      <a href="index.html#solutions" data-i18n="nav.solutions">Soluções</a>
+      <a href="index.html#cases" data-i18n="nav.cases">Casos</a>
+      <a href="index.html#insights" data-i18n="nav.insights">Insights</a>
+      <a href="/quem-somos" class="active" data-i18n="nav.about">Quem Somos</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="pt" class="active">PT</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="index.html#final" class="btn btn-primary cta-head" data-i18n="cta.contact">Fale conosco</a>
+      <button class="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile sheet -->
+<div class="sheet">
+  <a href="index.html#solutions"><span data-i18n="nav.solutions">Soluções</span><span class="idx">01</span></a>
+  <a href="index.html#cases"><span data-i18n="nav.cases">Casos</span><span class="idx">02</span></a>
+  <a href="index.html#insights"><span data-i18n="nav.insights">Insights</span><span class="idx">03</span></a>
+  <a href="/quem-somos"><span data-i18n="nav.about">Quem Somos</span><span class="idx">04</span></a>
+  <a href="index.html#final" class="btn btn-primary" data-i18n="cta.contact">Fale conosco</a>
+</div>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="qs-hero wrap section">
+    <span class="eyebrow reveal" data-i18n="qs.eyebrow">Quem Somos</span>
+    <h1 class="headline h-xl reveal" data-i18n="qs.title">Humanos e agentes, <b>lado a lado</b></h1>
+    <p class="lede reveal" data-i18n="qs.lede">Somos uma startup brasileira pioneira em Agents-as-a-Service (AaaS), operando globalmente em quatro continentes.</p>
+
+    <div class="qs-photo reveal">
+      <img src="assets/team/equipe.jpg" alt="Equipe Dalton Lab" loading="lazy" />
+    </div>
+
+    <!-- Tabs -->
+    <div class="qs-tabs reveal" role="tablist">
+      <button class="qs-tab active" data-tab="company" role="tab" data-i18n="qs.tab.company">Empresa</button>
+      <button class="qs-tab" data-tab="founders" role="tab" data-i18n="qs.tab.founders">Fundadores</button>
+    </div>
+  </section>
+
+  <!-- ===================== PANELS ===================== -->
+  <section class="wrap section" style="padding-top: 8px;">
+
+    <!-- Company -->
+    <div class="qs-panel active" id="panel-company" role="tabpanel">
+      <span class="eyebrow reveal" data-i18n="qs.co.kicker">A empresa</span>
+      <div class="qs-co-text reveal" style="margin-top:18px;">
+        <p data-i18n="qs.co.p1">Nossa missão é clara: transformar empresas convencionais em organizações agênticas, onde agentes de IA executam tarefas operacionais complexas e humanos se concentram em decisões estratégicas.</p>
+        <p data-i18n="qs.co.p2">Enquanto o mercado ainda debate o potencial da IA, nós já vivemos essa realidade. Somos 11 profissionais trabalhando lado a lado com mais de 30 agentes de IA proprietários — uma configuração híbrida que define a nova era do trabalho.</p>
+        <p data-i18n="qs.co.p3">Nesse modelo, agentes operam em escala e mantêm operações 24/7, enquanto humanos focam no que fazem de melhor: estratégia, relacionamentos e liderança.</p>
+      </div>
+
+      <div class="qs-stats reveal">
+        <div class="qs-stat"><div class="n">11</div><div class="l" data-i18n="qs.stat1.l">profissionais</div></div>
+        <div class="qs-stat"><div class="n">30<b>+</b></div><div class="l" data-i18n="qs.stat2.l">agentes de IA proprietários</div></div>
+        <div class="qs-stat"><div class="n">4</div><div class="l" data-i18n="qs.stat3.l">continentes</div></div>
+        <div class="qs-stat"><div class="n">24/7</div><div class="l" data-i18n="qs.stat4.l">operação contínua</div></div>
+      </div>
+
+      <div class="qs-quote reveal">
+        <span class="deco-line left" style="margin-bottom:18px;"></span>
+        <p data-i18n="qs.co.quote">Praticamos o que vendemos: <b>escala infinita</b> através de organizações agênticas.</p>
+      </div>
+    </div>
+
+    <!-- Founders -->
+    <div class="qs-panel" id="panel-founders" role="tabpanel">
+      <span class="eyebrow reveal" data-i18n="qs.fo.kicker">Liderança</span>
+      <h2 class="headline h-lg reveal" data-i18n="qs.fo.title" style="margin:14px 0 28px;">Os fundadores</h2>
+
+      <div class="qs-founders">
+        <article class="founder reveal">
+          <div class="founder-photo">
+            <img src="assets/team/rodrigo-sm.jpg" alt="Rodrigo Spínola" loading="lazy" />
+            <span class="idx">01</span>
+          </div>
+          <div class="founder-body">
+            <div class="name">Rodrigo Spínola</div>
+            <div class="role" data-i18n="qs.fo.1.role">Fundador e CEO</div>
+            <p class="bio" data-i18n="qs.fo.1.bio">Foi CEO da maior operação comercial da Serasa para PMEs no Brasil. Liderou e formou +500 vendedores de alta performance. Recebeu diversos prêmios nacionais e internacionais (Paris 2018, Hawaii 2019, Montevideo 2019 e USA 2020). Hoje lidera o Dalton Lab na transformação de empresas em Organizações Agênticas. Embaixador da Escola de IA da Pós PUC/PR. Obcecado por cultura, resultado e crescimento.</p>
+          </div>
+        </article>
+
+        <article class="founder reveal">
+          <div class="founder-photo">
+            <img src="assets/team/marcelo-sm.jpg" alt="Marcelo Ramos" loading="lazy" />
+            <span class="idx">02</span>
+          </div>
+          <div class="founder-body">
+            <div class="name">Marcelo Ramos</div>
+            <div class="role" data-i18n="qs.fo.2.role">Fundador e COO</div>
+            <p class="bio" data-i18n="qs.fo.2.bio">Gerenciou mais de 120 projetos de iniciativas digitais no mercado de Saúde e Educação, gerando +7000 clientes em seu primeiro empreendimento, aos 21 anos. Tendo experiência em multinacionais como Deloitte, hoje desenha a arquitetura operacional que transforma estratégia em execução no Dalton Lab.</p>
+          </div>
+        </article>
+
+        <article class="founder reveal">
+          <div class="founder-photo">
+            <img src="assets/team/julio-sm.jpg" alt="Julio Lohn" loading="lazy" />
+            <span class="idx">03</span>
+          </div>
+          <div class="founder-body">
+            <div class="name">Julio Lohn</div>
+            <div class="role" data-i18n="qs.fo.3.role">Sócio-conselheiro</div>
+            <p class="bio" data-i18n="qs.fo.3.bio">Diretor Comercial e Marketing do Grupo Mundial Mix, que controla Brasil Atacadista e Supermercados Imperatriz, uma das maiores redes do varejo alimentar de Santa Catarina. Presidente do Conselho da Rede Brasil - RBSM. +13 anos liderando estratégia comercial e inovação no setor.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" id="about">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="assets/dalton-lab-logo.png" alt="Dalton Lab" class="brand-logo" /></a>
+    <p class="footer-copy" data-i18n="footer.rights">© 2026 Dalton Lab. Todos os direitos reservados.</p>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/company/dalton-lab/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a href="https://youtube.com/@dalton_lab?si=mOfQCKAmASA4TKYB" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      </a>
+      <a href="https://open.spotify.com/show/4fnDNmjCB0EQzT7HlmCUr4?si=932194c816404620" target="_blank" rel="noopener" aria-label="Spotify">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.32a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.59 11.66 1.34.36.22.47.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 0 1-.55-1.8c4.37-1.33 9.79-.68 13.5 1.6.44.27.58.85.31 1.29zm.13-3.4C15.73 8.4 8.86 8.18 5.16 9.3a1.12 1.12 0 1 1-.65-2.15c4.25-1.29 11.83-1.04 16.5 1.73a1.12 1.12 0 1 1-1.15 1.93l.24-.05z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/daltonlab.ai?igsh=MW84MHo5dW91ZDA1ag==" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.73 3.73 0 0 1-1.38-.9c-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.95c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.17.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.17 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.17-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.41-2.19a3.63 3.63 0 0 0-.88-1.35 3.63 3.63 0 0 0-1.35-.88c-.42-.17-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 3.32a4.57 4.57 0 1 1 0 9.14 4.57 4.57 0 0 1 0-9.14zm0 7.54a2.97 2.97 0 1 0 0-5.94 2.97 2.97 0 0 0 0 5.94zm5.82-7.74a1.07 1.07 0 1 1-2.14 0 1.07 1.07 0 0 1 2.14 0z"/></svg>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      <nav class="footer-legal">
+        <a href="#" data-i18n="footer.privacy">Política de Privacidade</a>
+        <a href="#" data-i18n="footer.cookies">Termos de Uso</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="/novo/js/i18n.js"></script>
+<script src="/novo/js/main.js"></script>
+<script>
+  // Tabs (Empresa / Fundadores)
+  (function () {
+    const tabs = [...document.querySelectorAll(".qs-tab")];
+    const panels = {
+      company: document.getElementById("panel-company"),
+      founders: document.getElementById("panel-founders"),
+    };
+    tabs.forEach((t) => {
+      t.addEventListener("click", () => {
+        tabs.forEach((x) => x.classList.toggle("active", x === t));
+        const key = t.dataset.tab;
+        Object.entries(panels).forEach(([k, p]) => p.classList.toggle("active", k === key));
+        // reveal any not-yet-revealed elements in the newly shown panel
+        panels[key].querySelectorAll(".reveal:not(.in)").forEach((el) => el.classList.add("in"));
+      });
+    });
+  })();
+</script>
+</body>
+</html>

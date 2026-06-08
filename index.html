@@ -1,201 +1,683 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- GTM loaded with delay for performance -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <title>Dalton Lab – Transforme sua Empresa em uma Organização Agêntica</title>
-    <meta
-      name="description"
-      content="A Dalton Lab transforma empresas em organizações agênticas com agentes de IA sob medida. Diagnóstico, processos AI-first, capacitação e tecnologia para escalar resultados."
-    />
-    <meta name="keywords" content="organização agêntica, agentes de IA, IA agêntica, transformação digital, automação com IA, agentes inteligentes, AI-first, Dalton Lab, inteligência artificial para empresas" />
-    <meta name="author" content="Dalton Lab" />
-    <meta name="theme-color" content="#101823" />
-    <link rel="canonical" href="https://daltonlab.ai/" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dalton Lab — Organização Agêntica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a1628;--navy2:#0f1d35;--navy3:#142849;
+  --card:#0c1c33;--border:#1a3a5c;
+  --cyan:#33ADE5;--purple:#A855F7;
+  --white:#f4f7fb;--gray:#8a9bb4;--gray2:#5b6a82;
+  --warn:#ffb946;--green:#33d9a8;
+}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Inter',sans-serif}
+#app{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#pres{position:absolute;width:1600px;height:900px;transform-origin:top left;background:var(--navy);overflow:hidden}
 
-    <!-- Critical CSS Inline - Above the fold rendering -->
-    <style>
-      /* Critical CSS for immediate first paint */
-      *,*::before,*::after{box-sizing:border-box}
-      body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;background:#101823;color:#F5F3F0;-webkit-font-smoothing:antialiased}
-      #root{min-height:100vh}
-      .hero-critical{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#101823}
-      .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-      .hero-content{position:relative;z-index:10;flex:1;display:flex;align-items:center;justify-content:center;padding:5rem 1.5rem}
-      .hero-text{text-align:center;max-width:56rem}
-      .hero-h1{font-size:clamp(2.25rem,5vw,4.5rem);font-weight:400;line-height:1.1;color:#F5F3F0;margin:0}
-      .hero-sub{margin-top:1.5rem;font-size:clamp(0.875rem,2vw,1.125rem);color:rgba(245,243,240,0.75);font-weight:300}
-      .hero-cta{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2rem;padding:0.625rem 1.25rem;background:#F5F3F0;color:#000;border-radius:9999px;font-weight:500;font-size:0.875rem;text-decoration:none}
-      @media(min-width:640px){.hero-content{padding:6rem 3rem}}
-    </style>
+/* SLIDE BASE */
+.slide{position:absolute;inset:0;display:none;background:var(--navy)}
+.slide.active{display:block}
 
-    <!-- DNS Prefetch & Preconnect for Performance -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-    <link rel="dns-prefetch" href="//connect.facebook.net" />
-    <link rel="dns-prefetch" href="//www.facebook.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://content.hotjar.io" />
+/* BOTTOM BAR */
+.bb{
+  position:absolute;bottom:0;left:0;right:0;height:52px;
+  background:var(--navy2);display:flex;align-items:center;
+  padding:0 56px;font-family:'Space Mono',monospace;font-size:13px;
+  letter-spacing:2px;color:var(--gray2);z-index:10;
+}
+.bb-brand{margin-right:auto}
+.bb-brand b{color:var(--white)}
+.bb-brand span{color:var(--cyan)}
+.bb-section{position:absolute;left:50%;transform:translateX(-50%);text-transform:uppercase;letter-spacing:2px}
+.bb-count{margin-left:auto}
 
-    <!-- Preload Critical Assets - Hero poster -->
-    <link rel="preload" as="image" href="/hero-poster.webp" type="image/webp" fetchpriority="high" />
+/* NAV ARROWS */
+#nav{position:absolute;bottom:10px;right:48px;display:flex;gap:8px;z-index:20}
+#nav button{
+  background:transparent;border:1px solid var(--border);
+  color:var(--gray);padding:4px 14px;cursor:pointer;
+  font-size:15px;border-radius:4px;transition:.2s;font-family:'Space Mono',monospace;
+}
+#nav button:hover{border-color:var(--cyan);color:var(--cyan)}
 
-    <!-- Google Fonts with display=swap - loaded async -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript
-      ><link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
-        rel="stylesheet"
-    /></noscript>
+/* TOP LINE */
+.topline{position:absolute;top:0;left:0;right:0;height:4px;background:var(--cyan)}
 
-    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://daltonlab.ai/" />
-    <meta property="og:title" content="Dalton Lab – Transforme sua Empresa em uma Organização Agêntica" />
-    <meta
-      property="og:description"
-      content="A primeira empresa do Brasil especializada em transformação agêntica. Construímos organizações agênticas onde humanos e agentes trabalham em sintonia. Operações mais eficientes, times em alta performance e ROI concreto."
-    />
-    <meta property="og:image" content="https://daltonlab.ai/og-preview.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Dalton Lab – Organização Agêntica com Agentes de IA" />
-    <meta property="og:site_name" content="Dalton Lab" />
-    <meta property="og:locale" content="pt_BR" />
+/* EYEBROW */
+.ew{
+  display:flex;align-items:center;gap:14px;
+  font-family:'Space Mono',monospace;font-size:13px;
+  letter-spacing:4px;color:var(--gray);text-transform:uppercase;
+}
+.ew::before{content:'';display:block;width:28px;height:2px;background:var(--cyan);flex-shrink:0}
 
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@DaltonLab" />
-    <meta name="twitter:title" content="Dalton Lab – Transforme sua Empresa em uma Organização Agêntica" />
-    <meta
-      name="twitter:description"
-      content="A primeira empresa do Brasil especializada em transformação agêntica. Construímos organizações agênticas onde humanos e agentes trabalham em sintonia. Operações mais eficientes, times em alta performance e ROI concreto."
-    />
-    <meta name="twitter:image" content="https://daltonlab.ai/og-preview.png" />
-    <meta name="twitter:image:alt" content="Dalton Lab – Transforme sua Empresa em uma Organização Agêntica" />
+/* COLORS */
+.c-cyan{color:var(--cyan)}.c-purple{color:var(--purple)}
+.c-gray{color:var(--gray)}.c-green{color:var(--green)}
+.c-warn{color:var(--warn)}.c-white{color:var(--white)}
 
-    <!-- Favicon - Multiple formats for compatibility -->
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="icon" type="image/webp" sizes="32x32" href="/favicon.webp" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+/* CARD */
+.card{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.card-top::before{content:'';display:block;height:4px;background:var(--cyan)}
+.card-left{border-left:5px solid var(--cyan)}
+.card-top-cyan::before{background:var(--cyan)}
+.card-top-purple::before{background:var(--purple)}
+.card-top-green::before{background:var(--green)}
+.card-top-warn::before{background:var(--warn)}
+.card-top-gray::before{background:var(--gray2)}
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Dalton Lab",
-      "url": "https://daltonlab.ai",
-      "logo": "https://daltonlab.ai/dalton-icon.webp",
-      "description": "A Dalton Lab transforma empresas em organizações agênticas com agentes de IA sob medida.",
-      "foundingDate": "2023",
-      "sameAs": [
-        "https://www.linkedin.com/company/dalton-lab/",
-        "https://youtube.com/@dalton_lab",
-        "https://www.instagram.com/daltonlab.ai",
-        "https://open.spotify.com/show/4fnDNmjCB0EQzT7HlmCUr4"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "administrativo@daltonlab.ai",
-        "contactType": "customer service",
-        "availableLanguage": ["Portuguese", "English", "Spanish"]
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Dalton Lab",
-      "url": "https://daltonlab.ai",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://daltonlab.ai/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-  </head>
+/* DIVIDER */
+.div{height:1px;background:var(--border);margin:20px 0}
 
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-PPF26W8Q"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div id="root"><section class="hero-critical" aria-label="Hero">
-      <img class="hero-bg" src="/hero-poster.webp" alt="" aria-hidden="true" fetchpriority="high" />
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.4);z-index:1"></div>
-      <div class="hero-content" style="z-index:2">
-        <div class="hero-text">
-          <h1 style="margin:0;color:#F5F3F0;text-shadow:0 2px 8px rgba(0,0,0,0.3);font-weight:700;line-height:1.15;font-size:22px">
-            <span style="display:block">Transforme sua empresa</span>
-            <span style="display:block;margin-top:2px">em uma Organização Agêntica</span>
-          </h1>
-          <div style="margin-top:24px">
-            <a href="https://formulario.daltonlab.ai/" class="hero-cta">Fale conosco</a>
-          </div>
+/* TAG LINE */
+.tag-line{
+  font-family:'Space Mono',monospace;font-size:13px;
+  letter-spacing:3px;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;
+}
+
+/* HIGHLIGHT BOX */
+.hl-box{
+  background:var(--navy3);border:1px solid var(--border);
+  border-left:4px solid var(--cyan);border-radius:0 4px 4px 0;
+  padding:16px 20px;
+}
+
+/* METRIC CARD */
+.metric-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:6px;padding:28px 32px;
+}
+.metric-num{
+  font-size:88px;font-weight:800;line-height:1;
+  color:var(--cyan);letter-spacing:-2px;
+}
+.metric-num.purple{color:var(--purple)}
+.metric-label{font-size:20px;font-weight:700;color:var(--white);margin-top:8px}
+.metric-sub{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--cyan);margin-top:6px;text-transform:uppercase}
+.metric-sub.purple{color:var(--purple)}
+</style>
+</head>
+<body>
+<div id="app"><div id="pres">
+
+<!-- ═══════════════════ SLIDE 1 — CAPA ═══════════════════ -->
+<div class="slide active" data-section="Dalton Lab — Organização Agêntica">
+  <div style="position:absolute;top:48px;left:72px;display:flex;align-items:center;gap:14px">
+    <div style="width:42px;height:42px;border:2px solid var(--cyan);border-radius:6px;display:flex;align-items:center;justify-content:center">
+      <span style="color:var(--cyan);font-weight:800;font-size:22px">D</span>
+    </div>
+    <span style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--white)">DALTON <span style="color:var(--cyan)">LAB</span></span>
+  </div>
+
+  <div style="position:absolute;top:50%;left:72px;right:72px;transform:translateY(-54%);max-width:960px">
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:5px;color:var(--cyan);margin-bottom:20px">TRANSFORMAÇÃO AGÊNTICA</div>
+    <div style="width:52px;height:4px;background:var(--cyan);margin-bottom:36px"></div>
+    <div style="font-size:108px;font-weight:800;line-height:1.0;color:var(--white);letter-spacing:-3px">
+      Organização<br><span style="color:var(--cyan)">Agêntica</span>
+    </div>
+    <p style="margin-top:32px;font-size:22px;color:var(--gray);max-width:680px;line-height:1.65">
+      Consultoria de IA que transforma empresas em Organizações Agênticas.
+    </p>
+  </div>
+
+  <div style="position:absolute;bottom:72px;left:72px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--gray2)">
+    2026 &nbsp;·&nbsp; CONFIDENCIAL &nbsp;·&nbsp; DALTONLAB.AI
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Dalton Lab — Organização Agêntica</span><span class="bb-count">01 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 2 — MANIFESTO ═══════════════════ -->
+<div class="slide" data-section="Manifesto">
+  <div class="topline"></div>
+  <div style="position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);padding:0 120px">
+    <div style="display:flex;gap:32px;align-items:stretch">
+      <div style="width:5px;background:var(--cyan);border-radius:3px;flex-shrink:0"></div>
+      <div>
+        <blockquote style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;line-height:1.25;color:var(--white);font-style:italic">
+          "Em 5 anos toda empresa será <span style="color:var(--cyan)">agêntica</span>.<br>Algumas decidirão antes."
+        </blockquote>
+        <div style="margin-top:32px;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--gray)">
+          DALTON LAB, 2026
         </div>
       </div>
-    </section></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <!-- GTM: delayed load after 3s or first user interaction -->
-    <script>
-      (function(){
-        var loaded=false;
-        function loadGTM(){
-          if(loaded)return;loaded=true;
-          window.dataLayer=window.dataLayer||[];
-          window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-          var j=document.createElement('script');j.async=true;
-          j.src='https://www.googletagmanager.com/gtm.js?id=GTM-PPF26W8Q';
-          document.head.appendChild(j);
-        }
-        setTimeout(loadGTM,3000);
-        ['scroll','click','touchstart','keydown'].forEach(function(e){
-          document.addEventListener(e,loadGTM,{once:true,passive:true});
-        });
-      })();
-    </script>
-    <!-- Hotjar: delayed load after 3s or first user interaction -->
-    <script>
-      (function(){
-        var loaded=false;
-        function loadHotjar(){
-          if(loaded)return;loaded=true;
-          (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:6541641,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-        }
-        setTimeout(loadHotjar,3000);
-        ['scroll','click','touchstart','keydown'].forEach(function(e){
-          document.addEventListener(e,loadHotjar,{once:true,passive:true});
-        });
-      })();
-    </script>
-  </body>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Manifesto</span><span class="bb-count">02 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 3 — SERVICE AS A SOFTWARE ═══════════════════ -->
+<div class="slide" data-section="Contexto de Mercado">
+  <div style="padding:52px 72px 90px;height:100%">
+    <div class="ew" style="margin-bottom:14px">CONTEXTO DE MERCADO</div>
+    <div style="width:48px;height:4px;background:var(--cyan);margin-bottom:20px"></div>
+    <div style="font-size:44px;font-weight:800;line-height:1.1;color:var(--white);margin-bottom:36px">
+      <span style="color:var(--gray)">Software as a Service</span> está morrendo.<br>
+      <span style="color:var(--white)">Service as a Software</span> está nascendo.
+    </div>
+    <div style="display:flex;gap:28px;height:340px">
+      <div class="card" style="flex:1;padding:36px 40px;border-left:5px solid var(--cyan)">
+        <p style="font-size:19px;line-height:1.7;color:var(--gray);margin-bottom:24px">
+          O modelo SaaS foi construído para escalar software. O próximo ciclo escala serviço — entregue por agentes de IA que operam 24/7, aprendem com o contexto da empresa e executam com a precisão de um sistema e o julgamento de uma equipe.
+        </p>
+        <div class="div"></div>
+        <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--white);font-style:italic;margin-bottom:10px">
+          "the biggest shift in how value is delivered since the cloud."
+        </div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--cyan)">SEQUOIA CAPITAL, 2024</div>
+      </div>
+      <div class="card" style="width:360px;padding:32px 36px;border-top:4px solid var(--purple);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+        <div style="font-size:64px;font-weight:800;color:var(--gray2);line-height:1">SaaS</div>
+        <div style="width:3px;height:48px;background:var(--cyan);margin:20px auto"></div>
+        <div style="font-size:32px;font-weight:800;color:var(--cyan);line-height:1.2">Service as<br>a Software</div>
+        <div class="div" style="width:80%"></div>
+        <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--gray)">O PRÓXIMO PARADIGMA</div>
+      </div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Contexto de Mercado</span><span class="bb-count">03 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 4 — AI LAST ═══════════════════ -->
+<div class="slide" data-section="Metodologia">
+  <div style="padding:52px 72px 90px;height:100%">
+    <div class="ew" style="margin-bottom:14px">METODOLOGIA</div>
+    <div style="width:48px;height:4px;background:var(--cyan);margin-bottom:20px"></div>
+    <div style="font-size:52px;font-weight:800;color:var(--white);margin-bottom:40px;line-height:1.1">
+      <span style="color:var(--cyan)">AI Last,</span> not AI First.
+    </div>
+    <div style="display:flex;gap:24px;height:336px">
+      <div class="card card-top card-top-cyan" style="flex:1;padding:32px 36px">
+        <div style="font-family:'Space Mono',monospace;font-size:36px;font-weight:700;color:var(--cyan);margin-bottom:20px">01</div>
+        <div style="font-size:26px;font-weight:700;color:var(--white);margin-bottom:16px">Processos primeiro.</div>
+        <div class="div"></div>
+        <p style="font-size:17px;line-height:1.65;color:var(--gray)">Processos precisam ser estruturados antes de serem automatizados. IA amplifica o que existe, boa ou má gestão.</p>
+      </div>
+      <div class="card card-top card-top-purple" style="flex:1;padding:32px 36px">
+        <div style="font-family:'Space Mono',monospace;font-size:36px;font-weight:700;color:var(--purple);margin-bottom:20px">02</div>
+        <div style="font-size:26px;font-weight:700;color:var(--white);margin-bottom:16px">Pessoas depois.</div>
+        <div class="div"></div>
+        <p style="font-size:17px;line-height:1.65;color:var(--gray)">Pessoas precisam incorporar antes de operar. Tecnologia sem adoção é custo, não transformação.</p>
+      </div>
+      <div class="card card-top card-top-warn" style="flex:1;padding:32px 36px">
+        <div style="font-family:'Space Mono',monospace;font-size:36px;font-weight:700;color:var(--warn);margin-bottom:20px">03</div>
+        <div style="font-size:26px;font-weight:700;color:var(--white);margin-bottom:16px">Ferramentas por último.</div>
+        <div class="div"></div>
+        <p style="font-size:17px;line-height:1.65;color:var(--gray)">Ferramentas de IA vêm por último. Escolhidas para o processo, não para impressionar o conselho.</p>
+      </div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Metodologia</span><span class="bb-count">04 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 5 — HIC ═══════════════════ -->
+<div class="slide" data-section="O Novo Executivo de Impacto">
+  <div style="padding:52px 72px 90px;height:100%;display:flex;flex-direction:column">
+    <div class="ew" style="margin-bottom:14px">O NOVO EXECUTIVO DE IMPACTO</div>
+    <div style="width:48px;height:4px;background:var(--cyan);margin-bottom:32px"></div>
+    <div style="display:flex;gap:48px;flex:1;align-items:center">
+      <!-- LEFT -->
+      <div style="flex:1">
+        <div style="font-size:72px;font-weight:800;line-height:1.05;color:var(--white);margin-bottom:16px">
+          Uma pessoa.<br><span style="color:var(--cyan)">Um time de agentes.</span>
+        </div>
+        <p style="font-size:20px;line-height:1.65;color:var(--gray);max-width:580px;margin-bottom:28px">
+          O HIC — High-Impact Individual Contributor — é o profissional que chegou ao topo sem construir equipe. Com agentes de IA, essa alavancagem está disponível para toda a organização.
+        </p>
+        <div style="font-family:'Space Mono',monospace;font-size:14px;letter-spacing:1px;color:var(--cyan)">
+          É exatamente isso que construímos.
+        </div>
+      </div>
+      <!-- RIGHT — VISUAL CARD -->
+      <div class="card" style="width:440px;border-top:4px solid var(--cyan);padding:48px 40px;text-align:center;flex-shrink:0">
+        <div style="font-size:144px;font-weight:900;color:var(--cyan);line-height:1;letter-spacing:-6px">1</div>
+        <div style="font-size:24px;font-weight:700;color:var(--white);margin-top:4px">profissional</div>
+        <div style="font-family:'Space Mono',monospace;font-size:14px;letter-spacing:2px;color:var(--cyan);margin-top:8px">+ AGENTES DE IA</div>
+        <div class="div"></div>
+        <div style="font-size:18px;color:var(--gray);line-height:1.5">= resultado de uma equipe inteira</div>
+        <div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--border);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--cyan)">HIGH-IMPACT INDIVIDUAL CONTRIBUTOR</div>
+      </div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">O Novo Executivo de Impacto</span><span class="bb-count">05 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 6 — MAPA DA EMPRESA ═══════════════════ -->
+<div class="slide" data-section="Governança — Dalton Lab OS">
+  <div class="topline"></div>
+  <div style="padding:24px 72px 90px;height:100%">
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:4px;color:var(--cyan);margin-bottom:6px">GOVERNANÇA — DALTON LAB OS</div>
+    <div style="font-size:38px;font-weight:800;color:var(--white);margin-bottom:4px">Mapa da <span style="color:var(--cyan)">Empresa</span></div>
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--gray);margin-bottom:24px">23 agentes &nbsp;·&nbsp; 9 áreas &nbsp;·&nbsp; 10 ativos agora</div>
+    <!-- AGENT MAP -->
+    <div style="position:relative;height:560px">
+      <svg id="agent-svg" width="1456" height="560" style="position:absolute;top:0;left:0;pointer-events:none;overflow:visible"></svg>
+      <div id="agent-map" style="position:relative;width:100%;height:100%"></div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Governança — Dalton Lab OS</span><span class="bb-count">06 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 7 — PROPRIEDADE INTELECTUAL ═══════════════════ -->
+<div class="slide" data-section="Propriedade Intelectual">
+  <div style="padding:52px 72px 90px;height:100%">
+    <div class="ew" style="margin-bottom:14px">PROPRIEDADE INTELECTUAL</div>
+    <div style="width:48px;height:4px;background:var(--cyan);margin-bottom:20px"></div>
+    <div style="font-size:44px;font-weight:800;color:var(--white);margin-bottom:40px">Propriedade intelectual</div>
+    <div style="display:flex;gap:28px;height:370px">
+      <div class="card" style="flex:1;padding:36px 40px;border-left:5px solid var(--cyan)">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--cyan);margin-bottom:16px">SISTEMA OPERACIONAL</div>
+        <div style="font-size:36px;font-weight:800;color:var(--white);margin-bottom:12px">Dalton Lab OS</div>
+        <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--cyan);font-style:italic;margin-bottom:20px">O sistema operacional da transformação agêntica.</div>
+        <div class="div"></div>
+        <p style="font-size:17px;line-height:1.65;color:var(--gray)">Infraestrutura proprietária que orquestra agentes, processos e pessoas dentro da operação do cliente. Não é um software genérico — é construído sobre a metodologia da Dalton Lab.</p>
+      </div>
+      <div class="card" style="flex:1;padding:36px 40px;border-left:5px solid var(--purple)">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--purple);margin-bottom:16px">DIAGNÓSTICO DE MATURIDADE</div>
+        <div style="font-size:36px;font-weight:800;color:var(--white);margin-bottom:12px">Dalton Compass</div>
+        <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--purple);font-style:italic;margin-bottom:20px">O instrumento que mapeia onde a IA pode operar na sua empresa.</div>
+        <div class="div"></div>
+        <p style="font-size:17px;line-height:1.65;color:var(--gray)">Framework de diagnóstico de maturidade agêntica. Identifica processos prontos para agentes, lacunas de adoção e prioridades de implementação.</p>
+      </div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Propriedade Intelectual</span><span class="bb-count">07 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 8 — DALTON LAB OS ═══════════════════ -->
+<div class="slide" data-section="Governança — Dalton Lab OS">
+  <div class="topline"></div>
+  <div style="padding:28px 72px 90px;height:100%">
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:4px;color:var(--cyan);margin-bottom:6px">GOVERNANÇA — DALTON LAB OS</div>
+    <div style="font-size:48px;font-weight:800;margin-bottom:36px">Dalton Lab <span style="color:var(--cyan)">OS.</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:480px">
+      <div class="card" style="padding:36px 40px;border-left:5px solid var(--cyan);display:flex;flex-direction:column;justify-content:center">
+        <div style="font-size:48px;font-weight:800;color:var(--cyan);line-height:1;margin-bottom:4px">Gestão</div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gray2);margin-bottom:16px">01</div>
+        <p style="font-size:17px;line-height:1.6;color:var(--gray)">Visibilidade em tempo real de todos os agentes, suas ações e impacto no negócio.</p>
+      </div>
+      <div class="card" style="padding:36px 40px;border-left:5px solid var(--purple);display:flex;flex-direction:column;justify-content:center">
+        <div style="font-size:48px;font-weight:800;color:var(--purple);line-height:1;margin-bottom:4px">Governança</div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gray2);margin-bottom:16px">02</div>
+        <p style="font-size:17px;line-height:1.6;color:var(--gray)">Controle de permissões, auditorias e logs por agente e área da organização.</p>
+      </div>
+      <div class="card" style="padding:36px 40px;border-left:5px solid var(--green);display:flex;flex-direction:column;justify-content:center">
+        <div style="font-size:48px;font-weight:800;color:var(--green);line-height:1;margin-bottom:4px">Segurança</div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gray2);margin-bottom:16px">03</div>
+        <p style="font-size:17px;line-height:1.6;color:var(--gray)">Isolamento de dados, acesso por role e compliance integrado ao fluxo operacional.</p>
+      </div>
+      <div class="card" style="padding:36px 40px;border-left:5px solid var(--warn);display:flex;flex-direction:column;justify-content:center">
+        <div style="font-size:48px;font-weight:800;color:var(--warn);line-height:1;margin-bottom:4px">Produtividade</div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gray2);margin-bottom:16px">04</div>
+        <p style="font-size:17px;line-height:1.6;color:var(--gray)">KPIs agênticos que conectam cada operação a um resultado mensurável de negócio.</p>
+      </div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Governança — Dalton Lab OS</span><span class="bb-count">08 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 9 — COMO TRABALHAMOS ═══════════════════ -->
+<div class="slide" data-section="Jornada">
+  <div style="padding:52px 72px 90px;height:100%">
+    <div class="ew" style="margin-bottom:14px">JORNADA</div>
+    <div style="width:48px;height:4px;background:var(--cyan);margin-bottom:20px"></div>
+    <div style="font-size:52px;font-weight:800;color:var(--white);margin-bottom:40px">
+      Como <span style="color:var(--cyan)">trabalhamos</span>
+    </div>
+    <div style="display:flex;gap:16px;height:336px;align-items:stretch">
+      <div class="card card-top card-top-cyan" style="flex:1;padding:28px 30px">
+        <div style="font-family:'Space Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);margin-bottom:14px">01</div>
+        <div style="font-size:22px;font-weight:700;color:var(--white);margin-bottom:12px">Imersão Agêntica</div>
+        <div class="div"></div>
+        <p style="font-size:16px;line-height:1.6;color:var(--gray)">Mapeamos onde a IA pode operar, não onde pode ajudar.</p>
+      </div>
+      <div style="width:16px;display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:20px">→</div>
+      <div class="card card-top card-top-purple" style="flex:1;padding:28px 30px">
+        <div style="font-family:'Space Mono',monospace;font-size:28px;font-weight:700;color:var(--purple);margin-bottom:14px">02</div>
+        <div style="font-size:22px;font-weight:700;color:var(--white);margin-bottom:12px">Sprint Agêntico</div>
+        <div class="div"></div>
+        <p style="font-size:16px;line-height:1.6;color:var(--gray)">Construímos e validamos os primeiros agentes em campo real.</p>
+      </div>
+      <div style="width:16px;display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:20px">→</div>
+      <div class="card card-top card-top-green" style="flex:1;padding:28px 30px">
+        <div style="font-family:'Space Mono',monospace;font-size:28px;font-weight:700;color:var(--green);margin-bottom:14px">03</div>
+        <div style="font-size:22px;font-weight:700;color:var(--white);margin-bottom:12px">Operação Agêntica</div>
+        <div class="div"></div>
+        <p style="font-size:16px;line-height:1.6;color:var(--gray)">Os agentes entram em produção e o time aprende a operar com eles.</p>
+      </div>
+      <div style="width:16px;display:flex;align-items:center;justify-content:center;color:var(--gray2);font-size:20px">→</div>
+      <div class="card card-top card-top-warn" style="flex:1;padding:28px 30px">
+        <div style="font-family:'Space Mono',monospace;font-size:28px;font-weight:700;color:var(--warn);margin-bottom:14px">04</div>
+        <div style="font-size:22px;font-weight:700;color:var(--white);margin-bottom:12px">Cultura Agêntica</div>
+        <div class="div"></div>
+        <p style="font-size:16px;line-height:1.6;color:var(--gray)">IA deixa de ser projeto e vira rotina dentro da organização.</p>
+      </div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Jornada</span><span class="bb-count">09 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 10 — CASE JEISYS ═══════════════════ -->
+<div class="slide" data-section="Case em Destaque · 01">
+  <div style="padding:52px 72px 90px;height:100%;display:flex;gap:48px">
+    <!-- LEFT -->
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+      <div class="ew" style="margin-bottom:16px">CASE EM DESTAQUE · 01</div>
+      <div class="tag-line">MEDTECH · GRUPO SUL-COREANO · 50+ PAÍSES</div>
+      <div style="font-size:60px;font-weight:800;color:var(--white);line-height:1.05;margin-bottom:20px">Jeisys Medical<br>Brasil.</div>
+      <p style="font-size:18px;line-height:1.65;color:var(--gray);margin-bottom:24px">Squad agêntico de suporte para operação B2B2C completa: vendas para distribuidores, suporte técnico, atendimento a clínicas e consumidor final.</p>
+      <div class="hl-box">
+        <span style="color:var(--gray);font-size:17px;line-height:1.6">Consideram o Dalton Lab <strong style="color:var(--cyan)">parceiro estratégico</strong> da transformação agêntica.</span>
+      </div>
+    </div>
+    <!-- RIGHT -->
+    <div style="width:420px;flex-shrink:0;display:flex;flex-direction:column;gap:16px;justify-content:center">
+      <div class="metric-card">
+        <div class="metric-num">49</div>
+        <div class="metric-label">Agentes digitais ativos</div>
+        <div class="metric-sub">B2B2C — END-TO-END</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num purple">5×</div>
+        <div class="metric-label">Retorno sobre o investimento</div>
+        <div class="metric-sub purple">RESULTADO VERIFICADO</div>
+      </div>
+      <div style="display:flex;gap:12px">
+        <div class="card" style="flex:1;padding:16px 20px;text-align:center">
+          <div style="font-size:28px;font-weight:800;color:var(--cyan)">50+</div>
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gray);margin-top:4px">PAÍSES ATIVOS</div>
+        </div>
+        <div class="card" style="flex:1;padding:16px 20px;text-align:center">
+          <div style="font-size:28px;font-weight:800;color:var(--green)">90d</div>
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gray);margin-top:4px">DA IMERSÃO AO RESULTADO</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Case em Destaque · 01</span><span class="bb-count">10 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 11 — CASE PREVIDÊNCIA ═══════════════════ -->
+<div class="slide" data-section="Case em Destaque · 02">
+  <div style="padding:52px 72px 90px;height:100%;display:flex;gap:48px">
+    <!-- LEFT -->
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+      <div class="ew" style="margin-bottom:16px">CASE EM DESTAQUE · 02</div>
+      <div class="tag-line">FINANÇAS · PREVIDÊNCIA PRIVADA</div>
+      <div style="font-size:60px;font-weight:800;color:var(--white);line-height:1.05;margin-bottom:20px">Agente de<br>cobrança.</div>
+      <p style="font-size:18px;line-height:1.65;color:var(--gray);margin-bottom:24px">Agente assumiu toda a régua de cobrança ativa, com escalonamento humano só nos casos em que faz diferença. Operação contínua, 24/7.</p>
+      <div class="hl-box">
+        <span style="color:var(--cyan);font-weight:600;font-size:17px">Operação no primeiro mês de mensuração,</span>
+        <span style="color:var(--gray);font-size:17px"> mas já com pedido de expansão para outras 3 BUs.</span>
+      </div>
+    </div>
+    <!-- RIGHT -->
+    <div style="width:420px;flex-shrink:0;display:flex;flex-direction:column;gap:16px;justify-content:center">
+      <div class="metric-card">
+        <div class="metric-num" style="font-size:72px">300mil</div>
+        <div class="metric-label">CPFs sob gestão</div>
+        <div class="metric-sub">UM ÚNICO AGENTE</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num purple" style="font-size:72px">3mil</div>
+        <div class="metric-label">cobranças por dia</div>
+        <div class="metric-sub purple">EM MÉDIA, CRESCENTE</div>
+      </div>
+      <div style="display:flex;gap:12px">
+        <div class="card" style="flex:1;padding:16px 20px;text-align:center">
+          <div style="font-size:28px;font-weight:800;color:var(--cyan)">24/7</div>
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gray);margin-top:4px">OPERAÇÃO CONTÍNUA</div>
+        </div>
+        <div class="card" style="flex:1;padding:16px 20px;text-align:center">
+          <div style="font-size:28px;font-weight:800;color:var(--green)">3 BUs</div>
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gray);margin-top:4px">EM EXPANSÃO</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Case em Destaque · 02</span><span class="bb-count">11 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 12 — QUEM CONFIA ═══════════════════ -->
+<div class="slide" data-section="Prova Social">
+  <div style="padding:52px 72px 90px;height:100%">
+    <div class="ew" style="margin-bottom:14px">PROVA SOCIAL</div>
+    <div style="width:48px;height:4px;background:var(--cyan);margin-bottom:20px"></div>
+    <div style="font-size:52px;font-weight:800;color:var(--white);margin-bottom:36px">Quem <span style="color:var(--cyan)">confia</span></div>
+    <div class="card" style="border-top:4px solid var(--cyan);height:430px;display:flex;align-items:center;justify-content:center">
+      <div style="font-family:'Space Mono',monospace;font-size:14px;letter-spacing:3px;color:var(--gray2);text-align:center">
+        [ LOGOS DE CLIENTES — A CONFIRMAR ]
+      </div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Prova Social</span><span class="bb-count">12 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 13 — FOUNDERS ═══════════════════ -->
+<div class="slide" data-section="Time">
+  <div style="padding:52px 72px 90px;height:100%">
+    <div class="ew" style="margin-bottom:14px">TIME</div>
+    <div style="width:48px;height:4px;background:var(--cyan);margin-bottom:20px"></div>
+    <div style="font-size:44px;font-weight:800;color:var(--white);margin-bottom:32px">
+      Founders <span style="color:var(--cyan)">na linha de frente.</span>
+    </div>
+    <div style="display:flex;gap:24px;height:446px">
+      <!-- Rodrigo -->
+      <div class="card" style="flex:1;overflow:hidden;border-top:3px solid var(--cyan)">
+        <div style="height:280px;background:var(--navy3);overflow:hidden;position:relative">
+          <img src="rodrigo (2).jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top" onerror="this.style.display='none'">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--cyan)">RODRIGO SPÍNOLA</div>
+        </div>
+        <div style="padding:20px 24px">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--cyan);margin-bottom:8px">CEO · CO-FOUNDER</div>
+          <div style="font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px">Rodrigo Spínola</div>
+          <div style="height:1px;background:var(--border);margin-bottom:10px"></div>
+          <p style="font-size:14px;line-height:1.55;color:var(--gray)">Autor de "Organizações Agênticas" (2026). Embaixador da Escola de IA da PUC/PR.</p>
+        </div>
+      </div>
+      <!-- Marcelo -->
+      <div class="card" style="flex:1;overflow:hidden;border-top:3px solid var(--purple)">
+        <div style="height:280px;background:var(--navy3);overflow:hidden;position:relative">
+          <img src="marcelo (2).jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top" onerror="this.style.display='none'">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--purple)">MARCELO RAMOS</div>
+        </div>
+        <div style="padding:20px 24px">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--purple);margin-bottom:8px">COO · CO-FOUNDER</div>
+          <div style="font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px">Marcelo Ramos</div>
+          <div style="height:1px;background:var(--border);margin-bottom:10px"></div>
+          <p style="font-size:14px;line-height:1.55;color:var(--gray)">Ex-Deloitte. +120 projetos digitais em Saúde e Educação. Opera a metodologia em campo.</p>
+        </div>
+      </div>
+      <!-- Julio -->
+      <div class="card" style="flex:1;overflow:hidden;border-top:3px solid var(--green)">
+        <div style="height:280px;background:var(--navy3);overflow:hidden;position:relative">
+          <img src="julio.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top" onerror="this.style.display='none'">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--green)">JÚLIO LOHN</div>
+        </div>
+        <div style="padding:20px 24px">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--green);margin-bottom:8px">SÓCIO · CONSELHEIRO</div>
+          <div style="font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px">Júlio Lohn</div>
+          <div style="height:1px;background:var(--border);margin-bottom:10px"></div>
+          <p style="font-size:14px;line-height:1.55;color:var(--gray)">Presidente do Conselho da Rede Brasil RBSM. +13 anos em C-level.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Time</span><span class="bb-count">13 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 14 — O CONVITE ═══════════════════ -->
+<div class="slide" data-section="Próximo Passo">
+  <div class="topline"></div>
+  <div style="position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);padding:0 120px;display:flex;gap:80px;align-items:center">
+    <div style="flex:1">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:5px;color:var(--cyan);margin-bottom:20px">PRÓXIMO PASSO</div>
+      <div style="width:52px;height:4px;background:var(--cyan);margin-bottom:28px"></div>
+      <div style="font-size:52px;font-weight:800;color:var(--white);line-height:1.1;margin-bottom:48px">
+        "Sua transformação agêntica <span style="color:var(--cyan)">começa com uma conversa."</span>
+      </div>
+      <a href="mailto:conversar@daltonlab.ai" style="display:inline-block;background:var(--cyan);color:var(--navy);text-decoration:none;padding:20px 48px;font-family:'Space Mono',monospace;font-size:14px;font-weight:700;letter-spacing:2px;border-radius:4px">
+        conversar@daltonlab.ai
+      </a>
+      <p style="margin-top:28px;font-size:17px;color:var(--gray)">Em São Paulo · Atendemos remoto em todo o Brasil</p>
+    </div>
+    <div style="text-align:center;flex-shrink:0">
+      <div style="font-family:'Space Mono',monospace;font-size:28px;font-weight:700;letter-spacing:6px;color:var(--white)">DALTON</div>
+      <div style="font-family:'Space Mono',monospace;font-size:28px;font-weight:700;letter-spacing:6px;color:var(--purple)">LAB</div>
+    </div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Próximo Passo</span><span class="bb-count">14 / 15</span></div>
+</div>
+
+<!-- ═══════════════════ SLIDE 15 — FECHO ═══════════════════ -->
+<div class="slide" data-section="Dalton Lab">
+  <div class="topline"></div>
+  <div style="position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);text-align:center;padding:0 120px">
+    <div style="width:96px;height:96px;border-radius:50%;background:rgba(51,173,229,0.08);border:1px solid rgba(51,173,229,0.2);margin:0 auto 48px"></div>
+    <div style="font-size:56px;font-weight:800;line-height:1.2;color:var(--white)">
+      "Organização Agêntica não é destino.<br><span style="color:var(--cyan)">É decisão."</span>
+    </div>
+    <div style="width:96px;height:3px;background:var(--cyan);margin:40px auto 0"></div>
+  </div>
+  <div class="bb"><span class="bb-brand"><b>DALTON</b> <span>LAB</span></span><span class="bb-section">Dalton Lab</span><span class="bb-count">15 / 15</span></div>
+</div>
+
+</div><!-- #pres -->
+</div><!-- #app -->
+
+<!-- NAV -->
+<div id="nav">
+  <button id="prev">←</button>
+  <button id="next">→</button>
+</div>
+
+<script>
+const pres = document.getElementById('pres');
+const slides = [...document.querySelectorAll('.slide')];
+let cur = 0;
+
+function scale() {
+  const s = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
+  pres.style.transform = `scale(${s})`;
+  pres.style.left = (window.innerWidth  - 1600 * s) / 2 + 'px';
+  pres.style.top  = (window.innerHeight - 900  * s) / 2 + 'px';
+}
+window.addEventListener('resize', scale);
+scale();
+
+function goTo(n) {
+  slides[cur].classList.remove('active');
+  cur = Math.max(0, Math.min(n, slides.length - 1));
+  slides[cur].classList.add('active');
+}
+
+document.getElementById('prev').onclick = () => goTo(cur - 1);
+document.getElementById('next').onclick = () => goTo(cur + 1);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo(cur + 1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   goTo(cur - 1);
+});
+
+let tx = 0;
+document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; });
+document.addEventListener('touchend',   e => {
+  const d = tx - e.changedTouches[0].clientX;
+  if (Math.abs(d) > 50) goTo(cur + (d > 0 ? 1 : -1));
+});
+
+// ─── AGENT MAP ────────────────────────────────────────────────────────────────
+(function buildAgentMap() {
+  const areas = [
+    { abbr:'CEO',    col:'#33ADE5', mgr:'RS', agents:['NEO','AGENDA'] },
+    { abbr:'VENDAS', col:'#4ade80', mgr:'AC', agents:['SDR','CRM','PROP'] },
+    { abbr:'MKT',    col:'#22d3ee', mgr:'LP', agents:['CONT','BENCH','SOC'] },
+    { abbr:'PEOPLE', col:'#f472b6', mgr:'JR', agents:['REC','ONB'] },
+    { abbr:'CS',     col:'#A855F7', mgr:'RT', agents:['HEALTH','NPS'] },
+    { abbr:'OPS',    col:'#10b981', mgr:'MS', agents:['TRANS','TRACK'] },
+    { abbr:'FIN',    col:'#ffb946', mgr:'PL', agents:['FIN','INV'] },
+    { abbr:'LEGAL',  col:'#f87171', mgr:'BA', agents:['CONT','DPD'] },
+    { abbr:'TECH',   col:'#fb923c', mgr:'DM', agents:['QA'] },
+  ];
+
+  const svg   = document.getElementById('agent-svg');
+  const map   = document.getElementById('agent-map');
+  const W     = 1456, H = 560;
+  const cols  = areas.length;
+  const colW  = W / cols;
+  const CEO_Y = 30, BAR_Y = 110, MGR_Y = 160, A1_Y = 240, A2_Y = 320, A3_Y = 400;
+  const R_CEO = 28, R_MGR = 18, R_AG = 14;
+
+  function cx(i) { return colW * i + colW / 2; }
+
+  // CEO circle (center col = 4)
+  const ceoCX = cx(4);
+  addCircle(svg, ceoCX, CEO_Y + R_CEO, R_CEO, '#1a7ba8', '#33ADE5', 2);
+  addText(svg, ceoCX, CEO_Y + R_CEO, 'RS', '#f4f7fb', 13, 'bold');
+  addText(svg, ceoCX, CEO_Y + R_CEO * 2 + 12, 'CEO', '#33ADE5', 9, 'normal', 2);
+  // Trunk line CEO → bar
+  addLine(svg, ceoCX, CEO_Y + R_CEO * 2, ceoCX, BAR_Y, '#33ADE5', 2);
+  // Horizontal bar
+  addRect(svg, 0, BAR_Y - 1, W, 2, '#5b6a82');
+
+  areas.forEach((a, i) => {
+    const x = cx(i);
+    const na = a.agents.length;
+    const trunkEnd = na === 0 ? MGR_Y + R_MGR * 2 : na === 1 ? A1_Y + R_AG * 2 : na === 2 ? A2_Y + R_AG * 2 : A3_Y + R_AG * 2;
+
+    // Vertical trunk
+    addLine(svg, x, BAR_Y, x, trunkEnd, a.col, 2);
+    // Column label
+    addText(svg, x, BAR_Y - 10, a.abbr, a.col, 10, 'bold', 1.5);
+
+    // Manager
+    if (i > 0) {
+      addCircle(svg, x, MGR_Y + R_MGR, R_MGR, a.col, a.col, 0);
+      addText(svg, x, MGR_Y + R_MGR, a.mgr, '#0a1628', 9, 'bold');
+    }
+    // Agents
+    const agYs = [A1_Y, A2_Y, A3_Y];
+    a.agents.forEach((ag, j) => {
+      const ay = agYs[j];
+      addCircle(svg, x, ay + R_AG, R_AG, a.col + '55', a.col, 1);
+      addText(svg, x, ay + R_AG, ag.substring(0, 3), '#f4f7fb', 7, 'normal');
+      addText(svg, x, ay + R_AG * 2 + 12, ag, '#8a9bb4', 8, 'normal', 0);
+    });
+  });
+
+  function addCircle(svg, cx, cy, r, fill, stroke, sw) {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    el.setAttribute('cx', cx); el.setAttribute('cy', cy); el.setAttribute('r', r);
+    el.setAttribute('fill', fill); el.setAttribute('stroke', stroke); el.setAttribute('stroke-width', sw);
+    svg.appendChild(el);
+  }
+  function addLine(svg, x1, y1, x2, y2, stroke, sw) {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    el.setAttribute('x1', x1); el.setAttribute('y1', y1);
+    el.setAttribute('x2', x2); el.setAttribute('y2', y2);
+    el.setAttribute('stroke', stroke); el.setAttribute('stroke-width', sw);
+    svg.appendChild(el);
+  }
+  function addRect(svg, x, y, w, h, fill) {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    el.setAttribute('x', x); el.setAttribute('y', y);
+    el.setAttribute('width', w); el.setAttribute('height', h);
+    el.setAttribute('fill', fill); svg.appendChild(el);
+  }
+  function addText(svg, x, y, txt, fill, fs, fw, ls = 0) {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    el.setAttribute('x', x); el.setAttribute('y', y + 4);
+    el.setAttribute('fill', fill); el.setAttribute('font-size', fs);
+    el.setAttribute('font-weight', fw); el.setAttribute('font-family', 'Space Mono, monospace');
+    el.setAttribute('text-anchor', 'middle'); el.setAttribute('letter-spacing', ls);
+    el.textContent = txt; svg.appendChild(el);
+  }
+})();
+</script>
+</body>
 </html>

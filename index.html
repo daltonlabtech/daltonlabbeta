@@ -11,23 +11,26 @@
     />
     <meta name="keywords" content="organização agêntica, agentes de IA, IA agêntica, transformação digital, automação com IA, agentes inteligentes, AI-first, Dalton Lab, inteligência artificial para empresas" />
     <meta name="author" content="Dalton Lab" />
-    <meta name="theme-color" content="#101823" />
+    <meta name="theme-color" content="#0A1628" />
     <link rel="canonical" href="https://daltonlab.ai/" />
 
     <!-- Critical CSS Inline - Above the fold rendering -->
     <style>
-      /* Critical CSS for immediate first paint */
+      /* Critical CSS for immediate first paint — espelha o HeroSection do novo design */
       *,*::before,*::after{box-sizing:border-box}
-      body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;background:#101823;color:#F5F3F0;-webkit-font-smoothing:antialiased}
+      body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;background:#0A1628;color:#FFFFFF;-webkit-font-smoothing:antialiased}
       #root{min-height:100vh}
-      .hero-critical{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#101823}
-      .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-      .hero-content{position:relative;z-index:10;flex:1;display:flex;align-items:center;justify-content:center;padding:5rem 1.5rem}
-      .hero-text{text-align:center;max-width:56rem}
-      .hero-h1{font-size:clamp(2.25rem,5vw,4.5rem);font-weight:400;line-height:1.1;color:#F5F3F0;margin:0}
-      .hero-sub{margin-top:1.5rem;font-size:clamp(0.875rem,2vw,1.125rem);color:rgba(245,243,240,0.75);font-weight:300}
-      .hero-cta{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2rem;padding:0.625rem 1.25rem;background:#F5F3F0;color:#000;border-radius:9999px;font-weight:500;font-size:0.875rem;text-decoration:none}
-      @media(min-width:640px){.hero-content{padding:6rem 3rem}}
+      .hero-critical{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:#0A1628;padding:80px 24px 170px}
+      .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(100,160,210,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(100,160,210,0.08) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 70% 0%,#000 0%,transparent 72%);mask-image:radial-gradient(120% 90% at 70% 0%,#000 0%,transparent 72%);opacity:.6}
+      .hero-glow{pointer-events:none;position:absolute;top:-18%;right:0;width:70vw;height:70vw;max-width:720px;max-height:720px;background:radial-gradient(circle at 50% 42%,rgba(76,184,232,0.26) 0%,rgba(76,184,232,0.12) 32%,rgba(76,184,232,0.04) 52%,transparent 72%);filter:blur(80px);opacity:.8}
+      .hero-content{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto}
+      .hero-h1{font-family:"DM Sans","Inter",sans-serif;font-weight:800;letter-spacing:-0.03em;line-height:1.04;font-size:clamp(2.2rem,8vw,5rem);max-width:16ch;color:#FFFFFF;margin:0}
+      .hero-serif{font-family:"Playfair Display",Georgia,serif;font-weight:500;font-style:italic;color:#4CB8E8}
+      .hero-actions{display:flex;flex-direction:column;align-items:stretch;gap:8px;margin-top:24px}
+      .hero-cta,.hero-ghost{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:11px 24px;border-radius:100px;font-size:14px;font-weight:600;letter-spacing:-0.01em;min-height:42px;text-decoration:none;white-space:nowrap}
+      .hero-cta{background:#4CB8E8;color:#06121a}
+      .hero-ghost{background:transparent;color:#FFFFFF;border:1px solid rgba(100,160,210,0.15)}
+      @media(min-width:640px){.hero-actions{flex-direction:row;align-items:center}}
     </style>
 
     <!-- DNS Prefetch & Preconnect for Performance -->
@@ -38,9 +41,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://content.hotjar.io" />
-
-    <!-- Preload Critical Assets - Hero poster -->
-    <link rel="preload" as="image" href="/hero-poster.webp" type="image/webp" fetchpriority="high" />
 
     <!-- Google Fonts with display=swap - loaded async -->
     <link
@@ -149,17 +149,13 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="root"><section class="hero-critical" aria-label="Hero">
-      <img class="hero-bg" src="/hero-poster.webp" alt="" aria-hidden="true" fetchpriority="high" />
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.4);z-index:1"></div>
-      <div class="hero-content" style="z-index:2">
-        <div class="hero-text">
-          <h1 style="margin:0;color:#F5F3F0;text-shadow:0 2px 8px rgba(0,0,0,0.3);font-weight:700;line-height:1.15;font-size:22px">
-            <span style="display:block">Transforme sua empresa</span>
-            <span style="display:block;margin-top:2px">em uma Organização Agêntica</span>
-          </h1>
-          <div style="margin-top:24px">
-            <a href="https://formulario.daltonlab.ai/" class="hero-cta">Fale conosco</a>
-          </div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-content">
+        <h1 class="hero-h1">Transformando empresas em <span class="hero-serif">Organizações Agênticas</span></h1>
+        <div class="hero-actions">
+          <a href="https://formulario.daltonlab.ai/" class="hero-cta">Fale com um especialista</a>
+          <a href="#solutions" class="hero-ghost">Explore nossa metodologia</a>
         </div>
       </div>
     </section></div>

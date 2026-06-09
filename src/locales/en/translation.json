@@ -134,25 +134,70 @@
   "pp": {
     "title": "Privacy Policy",
     "updated": "Last updated: January 2026",
-    "1": { "t": "1. Introduction", "b": "Dalton Lab values the privacy of its users. This Privacy Policy describes how we collect, use, store and protect your personal information when you use our services." },
-    "2": { "t": "2. Information We Collect", "b": "We collect information you provide directly, such as name, email, phone and company data when you fill out forms or contact us. We may also automatically collect usage data, such as IP address, browser type and pages visited." },
-    "3": { "t": "3. Use of Information", "b": "We use your information to: provide and improve our services; personalize your experience; send relevant communications about our products; respond to your requests; and comply with legal obligations." },
-    "4": { "t": "4. Data Sharing", "b": "We do not sell your personal information. We may share data with trusted partners who assist us in operating the business, always under confidentiality agreements, or when required by law." },
-    "5": { "t": "5. Security", "b": "We implement technical and organizational measures to protect your information against unauthorized access, alteration, disclosure or destruction." },
-    "6": { "t": "6. Your Rights", "b": "You have the right to access, correct, delete or port your personal data. To exercise these rights, contact us at administrativo@daltonlab.ai." },
-    "7": { "t": "7. Contact", "b": "If you have questions about this Privacy Policy, contact us at: administrativo@daltonlab.ai" }
+    "1": {
+      "t": "1. Introduction",
+      "b": "Dalton Lab values the privacy of its users. This Privacy Policy describes how we collect, use, store and protect your personal information when you use our services."
+    },
+    "2": {
+      "t": "2. Information We Collect",
+      "b": "We collect information you provide directly, such as name, email, phone and company data when you fill out forms or contact us. We may also automatically collect usage data, such as IP address, browser type and pages visited."
+    },
+    "3": {
+      "t": "3. Use of Information",
+      "b": "We use your information to: provide and improve our services; personalize your experience; send relevant communications about our products; respond to your requests; and comply with legal obligations."
+    },
+    "4": {
+      "t": "4. Data Sharing",
+      "b": "We do not sell your personal information. We may share data with trusted partners who assist us in operating the business, always under confidentiality agreements, or when required by law."
+    },
+    "5": {
+      "t": "5. Security",
+      "b": "We implement technical and organizational measures to protect your information against unauthorized access, alteration, disclosure or destruction."
+    },
+    "6": {
+      "t": "6. Your Rights",
+      "b": "You have the right to access, correct, delete or port your personal data. To exercise these rights, contact us at administrativo@daltonlab.ai."
+    },
+    "7": {
+      "t": "7. Contact",
+      "b": "If you have questions about this Privacy Policy, contact us at: administrativo@daltonlab.ai"
+    }
   },
   "tu": {
     "title": "Terms of Use",
     "updated": "Last updated: January 2026",
-    "1": { "t": "1. Acceptance of Terms", "b": "By accessing and using Dalton Lab's services, you agree to comply with these Terms of Use. If you do not agree with any part of these terms, do not use our services." },
-    "2": { "t": "2. Description of Services", "b": "Dalton Lab provides AI-based commercial automation solutions, including AI agents for prospecting, lead qualification, follow-up and commercial management." },
-    "3": { "t": "3. Acceptable Use", "b": "You agree to use our services only for lawful purposes and in accordance with these Terms. It is prohibited to: use the services for illegal activities; attempt to access unauthorized areas of the system; interfere with the operation of the services; or violate third-party rights." },
-    "4": { "t": "4. Intellectual Property", "b": "All content, trademarks, logos and technology of Dalton Lab are our property or licensed to us. No intellectual property rights are transferred to you through use of the services." },
-    "5": { "t": "5. Limitation of Liability", "b": "Dalton Lab is not liable for indirect, incidental or consequential damages arising from the use of our services. Our services are provided \"as is\", without express or implied warranties." },
-    "6": { "t": "6. Modifications", "b": "We reserve the right to modify these Terms at any time. Significant changes will be communicated through the site or by email." },
-    "7": { "t": "7. Governing Law", "b": "These Terms are governed by the laws of the Federative Republic of Brazil. Any dispute will be resolved in the competent courts of Brazil." },
-    "8": { "t": "8. Contact", "b": "For questions about these Terms of Use, contact us at: administrativo@daltonlab.ai" }
+    "1": {
+      "t": "1. Acceptance of Terms",
+      "b": "By accessing and using Dalton Lab's services, you agree to comply with these Terms of Use. If you do not agree with any part of these terms, do not use our services."
+    },
+    "2": {
+      "t": "2. Description of Services",
+      "b": "Dalton Lab provides AI-based commercial automation solutions, including AI agents for prospecting, lead qualification, follow-up and commercial management."
+    },
+    "3": {
+      "t": "3. Acceptable Use",
+      "b": "You agree to use our services only for lawful purposes and in accordance with these Terms. It is prohibited to: use the services for illegal activities; attempt to access unauthorized areas of the system; interfere with the operation of the services; or violate third-party rights."
+    },
+    "4": {
+      "t": "4. Intellectual Property",
+      "b": "All content, trademarks, logos and technology of Dalton Lab are our property or licensed to us. No intellectual property rights are transferred to you through use of the services."
+    },
+    "5": {
+      "t": "5. Limitation of Liability",
+      "b": "Dalton Lab is not liable for indirect, incidental or consequential damages arising from the use of our services. Our services are provided \"as is\", without express or implied warranties."
+    },
+    "6": {
+      "t": "6. Modifications",
+      "b": "We reserve the right to modify these Terms at any time. Significant changes will be communicated through the site or by email."
+    },
+    "7": {
+      "t": "7. Governing Law",
+      "b": "These Terms are governed by the laws of the Federative Republic of Brazil. Any dispute will be resolved in the competent courts of Brazil."
+    },
+    "8": {
+      "t": "8. Contact",
+      "b": "For questions about these Terms of Use, contact us at: administrativo@daltonlab.ai"
+    }
   },
   "final": {
     "tag": "The next level",
@@ -212,10 +257,18 @@
         "post": " through agentic organizations."
       }
     },
-    "stat1": { "l": "professionals" },
-    "stat2": { "l": "proprietary AI agents" },
-    "stat3": { "l": "continents" },
-    "stat4": { "l": "continuous operation" },
+    "stat1": {
+      "l": "professionals"
+    },
+    "stat2": {
+      "l": "proprietary AI agents"
+    },
+    "stat3": {
+      "l": "continents"
+    },
+    "stat4": {
+      "l": "continuous operation"
+    },
     "fo": {
       "kicker": "Leadership",
       "title": "The founders",
@@ -301,7 +354,13 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "Contact us",
-    "regions": ["Retail", "Agribusiness", "Wholesale", "Healthcare", "Manufacturing"],
+    "regions": [
+      "Retail",
+      "Agribusiness",
+      "Wholesale",
+      "Healthcare",
+      "Manufacturing"
+    ],
     "title": "Turning companies into <b>Agentic Organizations</b>",
     "cta1": "Talk to a specialist",
     "cta2": "Explore our methodology"
@@ -478,7 +537,13 @@
       },
       "notOnMap": "Your country is not on the map yet? You can",
       "leadTheWay": "lead the way.",
-      "sectors": ["Retail", "Agribusiness", "Wholesale", "Healthcare", "Manufacturing"]
+      "sectors": [
+        "Retail",
+        "Agribusiness",
+        "Wholesale",
+        "Healthcare",
+        "Manufacturing"
+      ]
     },
     "architecture": {
       "title": "Agentic Architecture",
@@ -734,5 +799,51 @@
   "update": {
     "newVersion": "New version available",
     "updateNow": "Update now"
+  },
+  "platform": {
+    "tag": "Agentic Platform",
+    "sub": "23 autonomous agents coordinated by the Central Orchestrator — making real-time decisions across 6 departments.",
+    "dept": {
+      "vendas": "Sales",
+      "marketing": "Marketing",
+      "cs": "Customer Success",
+      "people": "People",
+      "financeiro": "Finance",
+      "ceo": "CEO Office"
+    },
+    "stats": {
+      "agents": "Agents",
+      "active": "Active now",
+      "depts": "Departments",
+      "ops": "Operation"
+    },
+    "status": {
+      "ativo": "Active",
+      "atencao": "Attention",
+      "inativo": "Inactive"
+    },
+    "accuracy": "Accuracy",
+    "actions": "Actions today",
+    "statusLabel": "Status",
+    "close": "Close"
+  },
+  "setores": {
+    "tag": "Sectors",
+    "title": "Operating across the main sectors of"
+  },
+  "trust": {
+    "tag": "Platform",
+    "title": "Enterprise security, auditable results",
+    "sub": "Full compliance with LGPD and global privacy standards — every decision traceable.",
+    "sec": {
+      "crypto": "End-to-End Encryption",
+      "lgpd": "LGPD Compliance",
+      "uptime": "Guaranteed Uptime"
+    },
+    "res": {
+      "companies": "companies",
+      "saved": "saved",
+      "roi": "avg. ROI"
+    }
   }
 }

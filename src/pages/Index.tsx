@@ -15,6 +15,8 @@ const OrgChartSection = lazy(() => import("@/components/redesign/home/OrgChartSe
 const MethodologySection = lazy(() => import("@/components/redesign/home/MethodologySection"));
 const SolutionsCarousel = lazy(() => import("@/components/redesign/home/SolutionsCarousel"));
 const PlatformSection = lazy(() => import("@/components/redesign/home/PlatformSection"));
+const SetoresSection = lazy(() => import("@/components/redesign/home/SetoresSection"));
+const TrustSection = lazy(() => import("@/components/redesign/home/TrustSection"));
 const CasesSection = lazy(() => import("@/components/redesign/home/CasesSection"));
 const FinalCTASection = lazy(() => import("@/components/redesign/home/FinalCTASection"));
 const InsightsPreviewSection = lazy(() => import("@/components/redesign/home/InsightsPreviewSection"));
@@ -78,6 +80,12 @@ const Index = () => {
         </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
           <PlatformSection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
+          <SetoresSection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[300px]" showCards />}>
+          <TrustSection />
         </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
           <CasesSection />

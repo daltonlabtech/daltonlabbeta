@@ -134,25 +134,70 @@
   "pp": {
     "title": "Política de Privacidade",
     "updated": "Última atualização: Janeiro de 2026",
-    "1": { "t": "1. Introdução", "b": "O Dalton Lab valoriza a privacidade de seus usuários. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais quando você utiliza nossos serviços." },
-    "2": { "t": "2. Informações Coletadas", "b": "Coletamos informações que você nos fornece diretamente, como nome, e-mail, telefone e dados da empresa ao preencher formulários ou entrar em contato conosco. Também podemos coletar dados de uso automaticamente, como endereço IP, tipo de navegador e páginas visitadas." },
-    "3": { "t": "3. Uso das Informações", "b": "Utilizamos suas informações para: fornecer e melhorar nossos serviços; personalizar sua experiência; enviar comunicações relevantes sobre nossos produtos; responder a suas solicitações; e cumprir obrigações legais." },
-    "4": { "t": "4. Compartilhamento de Dados", "b": "Não vendemos suas informações pessoais. Podemos compartilhar dados com parceiros de confiança que nos auxiliam na operação do negócio, sempre sob acordos de confidencialidade, ou quando exigido por lei." },
-    "5": { "t": "5. Segurança", "b": "Implementamos medidas técnicas e organizacionais para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição." },
-    "6": { "t": "6. Seus Direitos", "b": "Você tem direito a acessar, corrigir, excluir ou portar seus dados pessoais. Para exercer esses direitos, entre em contato conosco pelo e-mail administrativo@daltonlab.ai." },
-    "7": { "t": "7. Contato", "b": "Se tiver dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail: administrativo@daltonlab.ai" }
+    "1": {
+      "t": "1. Introdução",
+      "b": "O Dalton Lab valoriza a privacidade de seus usuários. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais quando você utiliza nossos serviços."
+    },
+    "2": {
+      "t": "2. Informações Coletadas",
+      "b": "Coletamos informações que você nos fornece diretamente, como nome, e-mail, telefone e dados da empresa ao preencher formulários ou entrar em contato conosco. Também podemos coletar dados de uso automaticamente, como endereço IP, tipo de navegador e páginas visitadas."
+    },
+    "3": {
+      "t": "3. Uso das Informações",
+      "b": "Utilizamos suas informações para: fornecer e melhorar nossos serviços; personalizar sua experiência; enviar comunicações relevantes sobre nossos produtos; responder a suas solicitações; e cumprir obrigações legais."
+    },
+    "4": {
+      "t": "4. Compartilhamento de Dados",
+      "b": "Não vendemos suas informações pessoais. Podemos compartilhar dados com parceiros de confiança que nos auxiliam na operação do negócio, sempre sob acordos de confidencialidade, ou quando exigido por lei."
+    },
+    "5": {
+      "t": "5. Segurança",
+      "b": "Implementamos medidas técnicas e organizacionais para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição."
+    },
+    "6": {
+      "t": "6. Seus Direitos",
+      "b": "Você tem direito a acessar, corrigir, excluir ou portar seus dados pessoais. Para exercer esses direitos, entre em contato conosco pelo e-mail administrativo@daltonlab.ai."
+    },
+    "7": {
+      "t": "7. Contato",
+      "b": "Se tiver dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail: administrativo@daltonlab.ai"
+    }
   },
   "tu": {
     "title": "Termos de Uso",
     "updated": "Última atualização: Janeiro de 2026",
-    "1": { "t": "1. Aceitação dos Termos", "b": "Ao acessar e utilizar os serviços do Dalton Lab, você concorda em cumprir estes Termos de Uso. Se não concordar com qualquer parte destes termos, não utilize nossos serviços." },
-    "2": { "t": "2. Descrição dos Serviços", "b": "O Dalton Lab oferece soluções de automação comercial baseadas em Inteligência Artificial, incluindo agentes de IA para prospecção, qualificação de leads, follow-up e gestão comercial." },
-    "3": { "t": "3. Uso Aceitável", "b": "Você concorda em usar nossos serviços apenas para fins legais e de acordo com estes Termos. É proibido: usar os serviços para atividades ilegais; tentar acessar áreas não autorizadas do sistema; interferir na operação dos serviços; ou violar direitos de terceiros." },
-    "4": { "t": "4. Propriedade Intelectual", "b": "Todo o conteúdo, marcas, logotipos e tecnologia do Dalton Lab são de nossa propriedade ou licenciados para nós. Nenhum direito de propriedade intelectual é transferido a você pelo uso dos serviços." },
-    "5": { "t": "5. Limitação de Responsabilidade", "b": "O Dalton Lab não se responsabiliza por danos indiretos, incidentais ou consequenciais decorrentes do uso de nossos serviços. Nossos serviços são fornecidos \"como estão\", sem garantias expressas ou implícitas." },
-    "6": { "t": "6. Modificações", "b": "Reservamo-nos o direito de modificar estes Termos a qualquer momento. Alterações significativas serão comunicadas através do site ou por e-mail." },
-    "7": { "t": "7. Lei Aplicável", "b": "Estes Termos são regidos pelas leis da República Federativa do Brasil. Qualquer disputa será resolvida nos tribunais competentes do Brasil." },
-    "8": { "t": "8. Contato", "b": "Para dúvidas sobre estes Termos de Uso, entre em contato pelo e-mail: administrativo@daltonlab.ai" }
+    "1": {
+      "t": "1. Aceitação dos Termos",
+      "b": "Ao acessar e utilizar os serviços do Dalton Lab, você concorda em cumprir estes Termos de Uso. Se não concordar com qualquer parte destes termos, não utilize nossos serviços."
+    },
+    "2": {
+      "t": "2. Descrição dos Serviços",
+      "b": "O Dalton Lab oferece soluções de automação comercial baseadas em Inteligência Artificial, incluindo agentes de IA para prospecção, qualificação de leads, follow-up e gestão comercial."
+    },
+    "3": {
+      "t": "3. Uso Aceitável",
+      "b": "Você concorda em usar nossos serviços apenas para fins legais e de acordo com estes Termos. É proibido: usar os serviços para atividades ilegais; tentar acessar áreas não autorizadas do sistema; interferir na operação dos serviços; ou violar direitos de terceiros."
+    },
+    "4": {
+      "t": "4. Propriedade Intelectual",
+      "b": "Todo o conteúdo, marcas, logotipos e tecnologia do Dalton Lab são de nossa propriedade ou licenciados para nós. Nenhum direito de propriedade intelectual é transferido a você pelo uso dos serviços."
+    },
+    "5": {
+      "t": "5. Limitação de Responsabilidade",
+      "b": "O Dalton Lab não se responsabiliza por danos indiretos, incidentais ou consequenciais decorrentes do uso de nossos serviços. Nossos serviços são fornecidos \"como estão\", sem garantias expressas ou implícitas."
+    },
+    "6": {
+      "t": "6. Modificações",
+      "b": "Reservamo-nos o direito de modificar estes Termos a qualquer momento. Alterações significativas serão comunicadas através do site ou por e-mail."
+    },
+    "7": {
+      "t": "7. Lei Aplicável",
+      "b": "Estes Termos são regidos pelas leis da República Federativa do Brasil. Qualquer disputa será resolvida nos tribunais competentes do Brasil."
+    },
+    "8": {
+      "t": "8. Contato",
+      "b": "Para dúvidas sobre estes Termos de Uso, entre em contato pelo e-mail: administrativo@daltonlab.ai"
+    }
   },
   "final": {
     "tag": "O próximo nível",
@@ -212,10 +257,18 @@
         "post": " através de organizações agênticas."
       }
     },
-    "stat1": { "l": "profissionais" },
-    "stat2": { "l": "agentes de IA proprietários" },
-    "stat3": { "l": "continentes" },
-    "stat4": { "l": "operação contínua" },
+    "stat1": {
+      "l": "profissionais"
+    },
+    "stat2": {
+      "l": "agentes de IA proprietários"
+    },
+    "stat3": {
+      "l": "continentes"
+    },
+    "stat4": {
+      "l": "operação contínua"
+    },
     "fo": {
       "kicker": "Liderança",
       "title": "Os fundadores",
@@ -301,7 +354,13 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "Fale conosco",
-    "regions": ["Varejo", "Agro", "Atacado", "Saúde", "Manufatura"],
+    "regions": [
+      "Varejo",
+      "Agro",
+      "Atacado",
+      "Saúde",
+      "Manufatura"
+    ],
     "title": "Transformando empresas em <b>Organizações Agênticas</b>",
     "cta1": "Fale com um especialista",
     "cta2": "Explore nossa metodologia"
@@ -478,7 +537,13 @@
       },
       "notOnMap": "Seu país ainda não está no mapa? Você pode",
       "leadTheWay": "liderar o caminho.",
-      "sectors": ["Varejo", "Agro", "Atacado", "Saúde", "Manufatura"]
+      "sectors": [
+        "Varejo",
+        "Agro",
+        "Atacado",
+        "Saúde",
+        "Manufatura"
+      ]
     },
     "architecture": {
       "title": "Arquitetura Agêntica",
@@ -734,5 +799,51 @@
   "update": {
     "newVersion": "Nova versão disponível",
     "updateNow": "Atualizar agora"
+  },
+  "platform": {
+    "tag": "Plataforma Agêntica",
+    "sub": "23 agentes autônomos coordenados pelo Orquestrador Central — executando decisões em tempo real em 6 departamentos.",
+    "dept": {
+      "vendas": "Vendas",
+      "marketing": "Marketing",
+      "cs": "Customer Success",
+      "people": "People",
+      "financeiro": "Financeiro",
+      "ceo": "CEO Office"
+    },
+    "stats": {
+      "agents": "Agentes",
+      "active": "Ativos agora",
+      "depts": "Departamentos",
+      "ops": "Operação"
+    },
+    "status": {
+      "ativo": "Ativo",
+      "atencao": "Atenção",
+      "inativo": "Inativo"
+    },
+    "accuracy": "Acurácia",
+    "actions": "Ações hoje",
+    "statusLabel": "Status",
+    "close": "Fechar"
+  },
+  "setores": {
+    "tag": "Setores",
+    "title": "Atuação nos principais setores da"
+  },
+  "trust": {
+    "tag": "Plataforma",
+    "title": "Segurança enterprise, resultados auditáveis",
+    "sub": "Conformidade total com LGPD e padrões globais de privacidade — cada decisão rastreável.",
+    "sec": {
+      "crypto": "Criptografia End-to-End",
+      "lgpd": "Conformidade LGPD",
+      "uptime": "Uptime Garantido"
+    },
+    "res": {
+      "companies": "empresas",
+      "saved": "economizados",
+      "roi": "ROI médio"
+    }
   }
 }

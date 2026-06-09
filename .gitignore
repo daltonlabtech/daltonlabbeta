@@ -25,3 +25,8 @@ dist-ssr
 
 # Internal planning docs
 docs/
+
+# Local agent tooling (não versionar)
+.claude/
+.playwright-cli/
+.superpowers/

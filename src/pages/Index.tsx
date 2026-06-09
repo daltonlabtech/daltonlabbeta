@@ -1,27 +1,35 @@
 import { lazy, Suspense, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import Header from "@/components/Header";
-import HomeHeroSection from "@/components/sections/HomeHeroSection";
+import { trackPageView } from "@/lib/analytics";
+import SiteHeader from "@/components/redesign/shell/SiteHeader";
+import HeroSection from "@/components/redesign/home/HeroSection";
 import SkeletonSection from "@/components/ui/SkeletonSection";
 
-const DefinitionSection = lazy(() => import("@/components/sections/DefinitionSection"));
-const ProspectionSection = lazy(() => import("@/components/sections/ProspectionSection"));
-const JourneySection = lazy(() => import("@/components/sections/JourneySection"));
-const GlobalMapSection = lazy(() => import("@/components/sections/GlobalMapSection"));
-const ClientsSection = lazy(() => import("@/components/sections/ClientsSection"));
-const MediaSection = lazy(() => import("@/components/sections/MediaSection"));
-const Footer = lazy(() => import("@/components/sections/Footer"));
+// Abaixo da dobra → lazy + Suspense
+// Estrutura espelha exatamente as 9 dobras do index.html de referência.
+const VideoBand = lazy(() => import("@/components/redesign/home/VideoBand"));
+const PositioningSection = lazy(() => import("@/components/redesign/home/PositioningSection"));
+const ClientsSection = lazy(() => import("@/components/redesign/home/ClientsSection"));
+const OrgChartSection = lazy(() => import("@/components/redesign/home/OrgChartSection"));
+const SolutionsCarousel = lazy(() => import("@/components/redesign/home/SolutionsCarousel"));
+const CasesSection = lazy(() => import("@/components/redesign/home/CasesSection"));
+const FinalCTASection = lazy(() => import("@/components/redesign/home/FinalCTASection"));
+const InsightsPreviewSection = lazy(() => import("@/components/redesign/home/InsightsPreviewSection"));
+const SiteFooter = lazy(() => import("@/components/redesign/shell/SiteFooter"));
 
 const prefetchSections = () => {
   const prefetchTimeout = setTimeout(() => {
-    import("@/components/sections/DefinitionSection");
-    import("@/components/sections/ProspectionSection");
+    import("@/components/redesign/home/VideoBand");
+    import("@/components/redesign/home/PositioningSection");
+    import("@/components/redesign/home/OrgChartSection");
   }, 5000);
   return () => clearTimeout(prefetchTimeout);
 };
 
 const Index = () => {
   const { t } = useTranslation();
+  const location = useLocation();
 
   useEffect(() => {
     document.title = t('pages.index.title');
@@ -29,36 +37,66 @@ const Index = () => {
     if (metaDescription) {
       metaDescription.setAttribute('content', t('pages.index.description'));
     }
+    trackPageView(window.location.pathname, document.title);
     const cleanup = prefetchSections();
     return cleanup;
   }, [t]);
 
+  // Rola até a seção do hash (ex.: "#solutions") ao chegar de outra página.
+  // Faz polling porque as seções são lazy e podem montar depois da navegação.
+  useEffect(() => {
+    if (!location.hash) return;
+    const selector = location.hash;
+    let elapsed = 0;
+    const interval = window.setInterval(() => {
+      const el = document.querySelector(selector);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        window.clearInterval(interval);
+      } else if ((elapsed += 100) >= 3000) {
+        window.clearInterval(interval);
+      }
+    }, 100);
+    return () => window.clearInterval(interval);
+  }, [location.hash, location.key]);
+
   return (
-    <main className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
-      <Header />
-      <HomeHeroSection />
-      <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
-        <ClientsSection />
-      </Suspense>
-      <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
-        <DefinitionSection />
-      </Suspense>
-      <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
-        <ProspectionSection />
-      </Suspense>
-      <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
-        <JourneySection />
-      </Suspense>
-      <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
-        <GlobalMapSection />
-      </Suspense>
-      <Suspense fallback={<SkeletonSection height="min-h-[300px]" showCards />}>
-        <MediaSection />
-      </Suspense>
+    <div
+      className="redesign-scope min-h-screen"
+      style={{ background: 'var(--bg, #0A1628)', color: 'var(--text, #FFFFFF)' }}
+    >
+      <SiteHeader />
+      <main id="top" style={{ overflowX: 'hidden', maxWidth: '100vw', width: '100%' }}>
+        <HeroSection />
+        <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
+          <VideoBand />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
+          <PositioningSection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
+          <ClientsSection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[500px]" />}>
+          <OrgChartSection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
+          <SolutionsCarousel />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
+          <CasesSection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
+          <FinalCTASection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
+          <InsightsPreviewSection />
+        </Suspense>
+      </main>
       <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
-        <Footer />
+        <SiteFooter />
       </Suspense>
-    </main>
+    </div>
   );
 };
 

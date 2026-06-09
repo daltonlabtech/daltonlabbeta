@@ -2,30 +2,19 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-// Only PT is bundled; other languages are lazy-loaded on demand
+// Only PT and EN are supported. PT is bundled (fallback/default);
+// EN is lazy-loaded on demand.
 import ptTranslation from '@/locales/pt/translation.json';
 
 export const supportedLanguages = [
   { code: 'pt', name: 'Português', flag: '🇧🇷' },
   { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'it', name: 'Italiano', flag: '🇮🇹' },
-  { code: 'zh', name: '中文', flag: '🇨🇳' },
-  { code: 'ja', name: '日本語', flag: '🇯🇵' },
 ] as const;
 
 export type SupportedLanguage = typeof supportedLanguages[number]['code'];
 
 const lazyLanguageLoaders: Record<string, () => Promise<{ default: Record<string, unknown> }>> = {
   en: () => import('@/locales/en/translation.json'),
-  es: () => import('@/locales/es/translation.json'),
-  fr: () => import('@/locales/fr/translation.json'),
-  de: () => import('@/locales/de/translation.json'),
-  it: () => import('@/locales/it/translation.json'),
-  zh: () => import('@/locales/zh/translation.json'),
-  ja: () => import('@/locales/ja/translation.json'),
 };
 
 const resources = {
@@ -39,17 +28,17 @@ i18n
     resources,
     fallbackLng: 'pt',
     supportedLngs: supportedLanguages.map(lang => lang.code),
-    
+
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
       lookupLocalStorage: 'i18nextLng',
     },
-    
+
     interpolation: {
       escapeValue: false,
     },
-    
+
     react: {
       useSuspense: false,
     },
@@ -58,7 +47,7 @@ i18n
 // Lazy-load non-PT languages on demand
 i18n.on('languageChanged', async (lng) => {
   document.documentElement.lang = lng;
-  
+
   if (lng !== 'pt' && !i18n.hasResourceBundle(lng, 'translation')) {
     const loader = lazyLanguageLoaders[lng];
     if (loader) {

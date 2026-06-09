@@ -1,13 +1,324 @@
 {
+  "manifesto": {
+    "tag": "Manifesto",
+    "quote": "In 5 years every company will be <b>agentic</b>. Some will decide sooner.",
+    "source": "Dalton Lab, 2026"
+  },
+  "market": {
+    "tag": "Market context",
+    "title": "Software as a Service is dying. <b>Service as a Software</b> is being born.",
+    "body": "The SaaS model was built to scale software. The next cycle scales service — delivered by AI agents that operate 24/7, learn from the company's context, and execute with the precision of a system and the judgment of a team.",
+    "quote": "the biggest shift in how value is delivered since the cloud.",
+    "quoteSource": "Sequoia Capital, 2024"
+  },
+  "ailast": {
+    "tag": "Methodology",
+    "title": "<b>AI Last</b>, not AI First.",
+    "1": {
+      "name": "Processes first",
+      "desc": "Processes must be structured before they can be automated. AI amplifies what already exists — good or bad management."
+    },
+    "2": {
+      "name": "People next",
+      "desc": "People must adopt before they operate. Technology without adoption is cost, not transformation."
+    },
+    "3": {
+      "name": "Tools last",
+      "desc": "AI tools come last. Chosen for the process, not to impress the board."
+    }
+  },
+  "os": {
+    "tag": "Intellectual property",
+    "title": "Dalton Lab OS",
+    "sub": "The operating system of agentic transformation.",
+    "body": "Proprietary infrastructure that orchestrates agents, processes and people inside the client's operation. Not generic software — built on Dalton Lab's methodology.",
+    "1": {
+      "name": "Management",
+      "desc": "Real-time visibility into every agent, its actions and its impact on the business."
+    },
+    "2": {
+      "name": "Governance",
+      "desc": "Permission control, audits and logs per agent and per area of the organization."
+    },
+    "3": {
+      "name": "Security",
+      "desc": "Data isolation, role-based access and compliance built into the operational flow."
+    },
+    "4": {
+      "name": "Productivity",
+      "desc": "Agentic KPIs that connect every operation to a measurable business result."
+    }
+  },
+  "compass": {
+    "tag": "Maturity diagnostic",
+    "title": "Dalton Compass",
+    "sub": "The instrument that maps where AI can operate in your company.",
+    "body": "An agentic maturity diagnostic framework. It identifies processes ready for agents, adoption gaps and implementation priorities."
+  },
+  "practice": {
+    "line": "We practice what we sell: <b>infinite scale</b> through agentic organizations."
+  },
+  "closing": {
+    "quote": "Becoming an Agentic Organization isn't a destination. <b>It's a decision.</b>"
+  },
   "nav": {
     "home": "Home",
     "product": "Product",
     "transformation": "Transformation",
     "media": "Media",
     "talkToDalton": "Talk to Dalton",
-    "articles": "Insights",
+    "articles": "Content",
     "about": "About us",
-    "startTransformation": "Contact us"
+    "startTransformation": "Contact us",
+    "solutions": "Methodology",
+    "cases": "Cases",
+    "insights": "Content"
+  },
+  "cta": {
+    "contact": "Get in touch"
+  },
+  "pos": {
+    "line": "We transform your company into an Agentic Organization, where <b>AI agents work side by side with your team</b>"
+  },
+  "org": {
+    "tag": "Agentic Org Chart",
+    "title": "Your <s>bigger</s> <b>agentic</b> operational structure"
+  },
+  "sol": {
+    "tag": "Methodology",
+    "title": "The <b>agentic</b> journey",
+    "1": {
+      "name": "Agentic Immersion",
+      "desc": "We map where AI creates value and the implementation roadmap for your business."
+    },
+    "2": {
+      "name": "Agentic Sprint",
+      "desc": "We develop and deploy AI agents to drive competitive advantage and reduce costs."
+    },
+    "3": {
+      "name": "Agentic Operation",
+      "desc": "We scale AI across your entire company with architecture, governance and autonomy."
+    },
+    "4": {
+      "name": "Agentic Culture",
+      "desc": "We train your team to use AI autonomously and gain productivity."
+    }
+  },
+  "cases": {
+    "tag": "Cases",
+    "title": "Who already operates with an <b>agentic</b> structure",
+    "all": "See all",
+    "1": {
+      "sector": "Global Industry",
+      "metric": "49 processes",
+      "metric.sub": "agentic support & marketing"
+    }
+  },
+  "casos": {
+    "title": "Who already operates with an <b>agentic</b> structure",
+    "lede": "Real operations redesigned with AI agents — from design to production execution.",
+    "read": "Read the case",
+    "allcases": "All cases",
+    "tagcase": "Case",
+    "resumo": "Summary",
+    "back": "Back to home",
+    "highlights": "Highlights",
+    "challenge": "The challenge",
+    "solution": "The solution",
+    "how": "How it works in practice"
+  },
+  "legalPage": {
+    "eyebrow": "Legal",
+    "back": "Back to home"
+  },
+  "pp": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: January 2026",
+    "1": {
+      "t": "1. Introduction",
+      "b": "Dalton Lab values the privacy of its users. This Privacy Policy describes how we collect, use, store and protect your personal information when you use our services."
+    },
+    "2": {
+      "t": "2. Information We Collect",
+      "b": "We collect information you provide directly, such as name, email, phone and company data when you fill out forms or contact us. We may also automatically collect usage data, such as IP address, browser type and pages visited."
+    },
+    "3": {
+      "t": "3. Use of Information",
+      "b": "We use your information to: provide and improve our services; personalize your experience; send relevant communications about our products; respond to your requests; and comply with legal obligations."
+    },
+    "4": {
+      "t": "4. Data Sharing",
+      "b": "We do not sell your personal information. We may share data with trusted partners who assist us in operating the business, always under confidentiality agreements, or when required by law."
+    },
+    "5": {
+      "t": "5. Security",
+      "b": "We implement technical and organizational measures to protect your information against unauthorized access, alteration, disclosure or destruction."
+    },
+    "6": {
+      "t": "6. Your Rights",
+      "b": "You have the right to access, correct, delete or port your personal data. To exercise these rights, contact us at administrativo@daltonlab.ai."
+    },
+    "7": {
+      "t": "7. Contact",
+      "b": "If you have questions about this Privacy Policy, contact us at: administrativo@daltonlab.ai"
+    }
+  },
+  "tu": {
+    "title": "Terms of Use",
+    "updated": "Last updated: January 2026",
+    "1": {
+      "t": "1. Acceptance of Terms",
+      "b": "By accessing and using Dalton Lab's services, you agree to comply with these Terms of Use. If you do not agree with any part of these terms, do not use our services."
+    },
+    "2": {
+      "t": "2. Description of Services",
+      "b": "Dalton Lab provides AI-based commercial automation solutions, including AI agents for prospecting, lead qualification, follow-up and commercial management."
+    },
+    "3": {
+      "t": "3. Acceptable Use",
+      "b": "You agree to use our services only for lawful purposes and in accordance with these Terms. It is prohibited to: use the services for illegal activities; attempt to access unauthorized areas of the system; interfere with the operation of the services; or violate third-party rights."
+    },
+    "4": {
+      "t": "4. Intellectual Property",
+      "b": "All content, trademarks, logos and technology of Dalton Lab are our property or licensed to us. No intellectual property rights are transferred to you through use of the services."
+    },
+    "5": {
+      "t": "5. Limitation of Liability",
+      "b": "Dalton Lab is not liable for indirect, incidental or consequential damages arising from the use of our services. Our services are provided \"as is\", without express or implied warranties."
+    },
+    "6": {
+      "t": "6. Modifications",
+      "b": "We reserve the right to modify these Terms at any time. Significant changes will be communicated through the site or by email."
+    },
+    "7": {
+      "t": "7. Governing Law",
+      "b": "These Terms are governed by the laws of the Federative Republic of Brazil. Any dispute will be resolved in the competent courts of Brazil."
+    },
+    "8": {
+      "t": "8. Contact",
+      "b": "For questions about these Terms of Use, contact us at: administrativo@daltonlab.ai"
+    }
+  },
+  "final": {
+    "tag": "The next level",
+    "title": "Become an <b>Agentic Organization</b>",
+    "sub": "Trust those who guide you the right way through transformation.",
+    "cta1": "Talk to a specialist"
+  },
+  "ins": {
+    "tag": "Content",
+    "all": "View all",
+    "1": {
+      "type": "Article"
+    }
+  },
+  "insp": {
+    "eyebrow": "Content",
+    "title": "Media, articles and <b>insights</b>",
+    "lede": "Publications from Dalton Lab and what our team is thinking about the agentic era.",
+    "loading": "Loading…",
+    "empty": "Nothing found.",
+    "notfound": "Article not found.",
+    "back": "Back",
+    "readtime": "min read",
+    "byteam": "Dalton Lab",
+    "readmore": "Read",
+    "related": "Keep reading",
+    "search": "Search by title or topic…",
+    "tab": {
+      "media": "Media",
+      "articles": "Articles",
+      "team": "Insights"
+    }
+  },
+  "qs": {
+    "eyebrow": "About Us",
+    "title": {
+      "pre": "Humans and agents, ",
+      "em": "side by side"
+    },
+    "lede": "We're the first company in Brazil specialized in agentic transformation, operating globally across four continents.",
+    "photo": {
+      "alt": "Dalton Lab team",
+      "badge": "24/7 operation · 4 continents"
+    },
+    "tab": {
+      "company": "Company",
+      "founders": "Founders"
+    },
+    "co": {
+      "kicker": "The company",
+      "p1": "Our mission is clear: turn conventional companies into agentic organizations, where AI agents run complex operational tasks and humans focus on strategic decisions.",
+      "p2": "While the market still debates AI's potential, we already live it. We're 11 professionals working side by side with more than 30 proprietary AI agents — a hybrid setup that defines the new era of work.",
+      "p3": "In this model, agents operate at scale and keep operations running 24/7, while humans focus on what they do best: strategy, relationships and leadership.",
+      "quote": {
+        "pre": "We practice what we sell: ",
+        "em": "infinite scale",
+        "post": " through agentic organizations."
+      }
+    },
+    "stat1": {
+      "l": "professionals"
+    },
+    "stat2": {
+      "l": "proprietary AI agents"
+    },
+    "stat3": {
+      "l": "continents"
+    },
+    "stat4": {
+      "l": "continuous operation"
+    },
+    "fo": {
+      "kicker": "Leadership",
+      "title": "The founders",
+      "1": {
+        "role": "Founder & CEO",
+        "bio": "Former CEO of Serasa's largest SMB commercial operation in Brazil. Led and trained 500+ high-performance salespeople. Won several national and international awards (Paris 2018, Hawaii 2019, Montevideo 2019 and USA 2020). Today he leads Dalton Lab in transforming companies into Agentic Organizations. Ambassador of the AI School at PUC/PR. Obsessed with culture, results and growth."
+      },
+      "2": {
+        "role": "Founder & COO",
+        "bio": "Managed over 120 digital initiative projects in the Health and Education markets, generating 7,000+ clients in his first venture at age 21. With experience at multinationals such as Deloitte, he now designs the operational architecture that turns strategy into execution at Dalton Lab."
+      },
+      "3": {
+        "role": "Partner & Advisor",
+        "bio": "Commercial and Marketing Director of Grupo Mundial Mix, which controls Brasil Atacadista and Supermercados Imperatriz, one of the largest food retail chains in Santa Catarina. Chairman of the Board of Rede Brasil - RBSM. 13+ years leading commercial strategy and innovation in the sector."
+      }
+    }
+  },
+  "produto": {
+    "hero": {
+      "tag": "AI Agents for Sales",
+      "title": "Turn your company into an <b>Agentic Organization</b>",
+      "sub": "AI agents that qualify leads, follow up 24/7 and drive the close — scaling your sales operation without growing the team.",
+      "cta": "Get in touch"
+    },
+    "cap": {
+      "tag": "What we automate",
+      "title": "Agents for every area of your <b>sales operation</b>",
+      "items": {
+        "vendas": {
+          "title": "Sales",
+          "desc": "Lead qualification, automatic follow-up and driving the close — your team focuses only on hot opportunities."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "desc": "Demand generation and nurturing with agents that personalize each lead's journey at scale."
+        },
+        "financeiro": {
+          "title": "Finance",
+          "desc": "Smart collections, reconciliation and automatic reports that cut delinquency and manual work."
+        },
+        "atendimento": {
+          "title": "Support",
+          "desc": "24/7 support with agents that answer questions, open tickets and escalate only what needs a human."
+        },
+        "operacoes": {
+          "title": "Operations",
+          "desc": "Automation of repetitive processes and system integration for a truly AI-first operation."
+        }
+      }
+    }
   },
   "pages": {
     "index": {
@@ -15,9 +326,9 @@
       "description": "Dalton Lab transforms companies into agentic organizations with custom AI agents. Diagnostics, AI-first processes, training, and technology to scale results."
     },
     "produto": {
-      "title": "Product | Dalton Lab – AI Agents for Sales",
-      "description": "Discover our AI Agents for sales. Lead qualification, 24/7 follow-up, and automatic closing.",
-      "h1": "Product"
+      "title": "AI Agents for Sales | Dalton Lab – Agentic Organization",
+      "description": "Meet Dalton Lab's AI Agents. Lead qualification, 24/7 follow-up, automatic closing, and agentic transformation for your company.",
+      "h1": "AI Agents for Sales"
     },
     "faleComDalton": {
       "title": "Talk to Dalton | Dalton Lab – AI Agents",
@@ -29,8 +340,8 @@
       "orClickHere": "or click the button above"
     },
     "quemSomos": {
-      "title": "About us | Dalton Lab – AI Agents",
-      "description": "Meet the founders and team of Dalton Lab. Brazilian startup pioneering Agents-as-a-Service operating on 4 continents."
+      "title": "About Us | Dalton Lab – Pioneer in Agentic Organizations",
+      "description": "Meet the founders and team of Dalton Lab. A Brazilian startup pioneering agentic transformation, operating across 4 continents with Agents-as-a-Service."
     }
   },
   "hero": {
@@ -43,7 +354,16 @@
     "subtitle1": "",
     "subtitle2": "",
     "cta": "Contact us",
-    "regions": ["Retail", "Agribusiness", "Wholesale", "Healthcare", "Manufacturing"]
+    "regions": [
+      "Retail",
+      "Agribusiness",
+      "Wholesale",
+      "Healthcare",
+      "Manufacturing"
+    ],
+    "title": "Turning companies into <b>Agentic Organizations</b>",
+    "cta1": "Talk to a specialist",
+    "cta2": "Explore our methodology"
   },
   "home": {
     "definition": {
@@ -217,7 +537,13 @@
       },
       "notOnMap": "Your country is not on the map yet? You can",
       "leadTheWay": "lead the way.",
-      "sectors": ["Retail", "Agribusiness", "Wholesale", "Healthcare", "Manufacturing"]
+      "sectors": [
+        "Retail",
+        "Agribusiness",
+        "Wholesale",
+        "Healthcare",
+        "Manufacturing"
+      ]
     },
     "architecture": {
       "title": "Agentic Architecture",
@@ -253,7 +579,7 @@
     }
   },
   "clients": {
-    "title": "Companies that trust us"
+    "title": "Some of our clients"
   },
   "prospection": {
     "title": "AI that sells for you",
@@ -423,7 +749,10 @@
     "legal": "Legal",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
-    "copyright": "© 2026 Dalton Lab. All rights reserved."
+    "copyright": "© 2026 Dalton Lab. All rights reserved.",
+    "rights": "© 2026 Dalton Lab. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "cookies": "Terms of Use"
   },
   "waitlist": {
     "title": "",
@@ -470,5 +799,51 @@
   "update": {
     "newVersion": "New version available",
     "updateNow": "Update now"
+  },
+  "platform": {
+    "tag": "Agentic Platform",
+    "sub": "23 autonomous agents coordinated by the Central Orchestrator — making real-time decisions across 6 departments.",
+    "dept": {
+      "vendas": "Sales",
+      "marketing": "Marketing",
+      "cs": "Customer Success",
+      "people": "People",
+      "financeiro": "Finance",
+      "ceo": "CEO Office"
+    },
+    "stats": {
+      "agents": "Agents",
+      "active": "Active now",
+      "depts": "Departments",
+      "ops": "Operation"
+    },
+    "status": {
+      "ativo": "Active",
+      "atencao": "Attention",
+      "inativo": "Inactive"
+    },
+    "accuracy": "Accuracy",
+    "actions": "Actions today",
+    "statusLabel": "Status",
+    "close": "Close"
+  },
+  "setores": {
+    "tag": "Sectors",
+    "title": "Operating across the main sectors of"
+  },
+  "trust": {
+    "tag": "Platform",
+    "title": "Enterprise security, auditable results",
+    "sub": "Full compliance with LGPD and global privacy standards — every decision traceable.",
+    "sec": {
+      "crypto": "End-to-End Encryption",
+      "lgpd": "LGPD Compliance",
+      "uptime": "Guaranteed Uptime"
+    },
+    "res": {
+      "companies": "companies",
+      "saved": "saved",
+      "roi": "avg. ROI"
+    }
   }
 }

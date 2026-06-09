@@ -16,6 +16,11 @@ export default {
       fontFamily: {
         'space-grotesk': ['Space Grotesk', 'ui-sans-serif', 'system-ui'],
         'inter': ['Inter', 'ui-sans-serif', 'system-ui'],
+        // Redesign (novo design system)
+        sans: ['DM Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['DM Sans', 'Inter', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'Times New Roman', 'serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'SF Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,6 +65,23 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        // Redesign — navy/ciano palette (novo design system)
+        navy: {
+          bg: "#0A1628",
+          deep: "#060D1A",
+          navy: "#0E1E36",
+          soft: "#0F2440",
+          ink: "#1A3A5C",
+          text: "#FFFFFF",
+          dim: "#8EB4D4",
+          muted: "#5d7da3",
+          label: "#5EC8F0",
+          cyan: "#4CB8E8",
+          "cyan-soft": "#5EC8F0",
+          "cyan-deep": "#3A9FD5",
+          blue: "#38BDFA",
+          orange: "#F0A04C",
         },
         // Dalton Lab Brand Colors
         dalton: {

@@ -184,7 +184,7 @@ export default function InsightsPreviewSection() {
         {/* head */}
         <div className="flex items-center justify-between" style={{ gap: 20, marginBottom: 28 }}>
           <div className="flex flex-col items-start" style={{ gap: 12 }}>
-            <span className="eyebrow">{t('ins.tag', 'Conteúdo')}</span>
+            <span className="eyebrow">{t('ins.tag', 'Conteúdos')}</span>
             <Link
               to="/artigos"
               className="inline-flex items-center"

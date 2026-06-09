@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
-import OutlierCanvas from '@/components/redesign/canvas/OutlierCanvas';
 import { trackCtaClick } from '@/lib/analytics';
 
 const CONTACT_URL = 'https://formulario.daltonlab.ai/';
@@ -30,9 +29,8 @@ function useReveal<T extends HTMLElement>() {
 }
 
 /**
- * Dobra 8 — CTA final. "Seja uma Organização Agêntica" + CTA (trackCtaClick) sobre
- * o OutlierCanvas (curva de sino + outlier). Porta `.final`/`.final-outlier` do original.
- * O canvas é absolute inset:0 → o container `.dl-final-outlier` é relative e tem altura mínima.
+ * Dobra 8 — CTA final. "Seja uma Organização Agêntica" + CTA (trackCtaClick).
+ * Porta `.final`/`.final-outlier` do original (sem a arte de fundo).
  */
 export default function FinalCTASection() {
   const { t } = useTranslation();
@@ -50,9 +48,6 @@ export default function FinalCTASection() {
         style={{ maxWidth: 'var(--navy-maxw, 1200px)', boxSizing: 'border-box' }}
       >
         <div className="dl-final-outlier">
-          {/* canvas full-bleed atrás do conteúdo */}
-          <OutlierCanvas className="dl-outlier-canvas" />
-
           <div className="dl-final-copy">
             <span className="eyebrow" style={{ marginBottom: 16 }}>
               {t('final.tag', 'O próximo nível')}
@@ -119,11 +114,6 @@ export default function FinalCTASection() {
           align-items: flex-start;
           isolation: isolate;
           min-height: 360px;
-        }
-        .dl-outlier-canvas {
-          position: absolute; inset: 0;
-          width: 100%; height: 100%;
-          z-index: 0;
         }
         .dl-final-copy { position: relative; z-index: 2; max-width: 100%; }
         .dl-final-ctas {

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { trackCtaClick } from '@/lib/analytics';
 
@@ -14,6 +14,18 @@ interface MobileNavProps {
  */
 export default function MobileNav({ open, onClose }: MobileNavProps) {
   const { t } = useTranslation();
+  const location = useLocation();
+
+  // Link com hash para a home: se já na home, rola suave; senão o <Link> navega
+  // e o efeito da Index rola até a seção. Sempre fecha o menu.
+  const handleItemClick = (e: React.MouseEvent, href: string) => {
+    const i = href.indexOf('#');
+    if (i !== -1 && location.pathname === '/') {
+      e.preventDefault();
+      document.querySelector(href.slice(i))?.scrollIntoView({ behavior: 'smooth' });
+    }
+    onClose();
+  };
 
   // Trava o scroll do body enquanto aberto (equivalente ao document.body.style.overflow)
   useEffect(() => {
@@ -28,7 +40,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
 
   const items: Array<{ label: string; href: string; idx: string; external?: boolean }> = [
     { label: t('nav.solutions', 'Metodologia'), href: '/#solutions', idx: '01' },
-    { label: t('nav.cases', 'Casos'), href: '/#cases', idx: '02' },
+    { label: t('nav.cases', 'Casos'), href: '/casos', idx: '02' },
     { label: t('nav.insights', 'Insights'), href: '/artigos', idx: '03' },
     { label: t('nav.about', 'Sobre'), href: '/quem-somos', idx: '04' },
   ];
@@ -45,7 +57,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
 
   return (
     <div
-      className="fixed left-0 right-0 z-[99] flex flex-col gap-[2px] px-6 pt-3 pb-6 md:hidden"
+      className="fixed left-0 right-0 z-[99] flex flex-col gap-[2px] px-6 pt-3 pb-6 lg:hidden"
       style={{
         top: 'calc(56px + var(--safe-top, 16px))',
         background: 'color-mix(in oklab, var(--bg-deep) 95%, transparent)',
@@ -65,7 +77,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
         <Link
           key={item.href}
           to={item.href}
-          onClick={onClose}
+          onClick={(e) => handleItemClick(e, item.href)}
           className="flex items-center justify-between"
           style={linkStyle}
         >

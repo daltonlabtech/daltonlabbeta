@@ -214,8 +214,8 @@
   },
   "insp": {
     "eyebrow": "Content",
-    "title": "Media, articles and insights",
-    "lede": "Ideas, articles and points of view on agentic transformation.",
+    "title": "Media, articles and <b>insights</b>",
+    "lede": "Publications from Dalton Lab and what our team is thinking about the agentic era.",
     "loading": "Loading…",
     "empty": "Nothing found.",
     "notfound": "Article not found.",
@@ -237,7 +237,7 @@
       "pre": "Humans and agents, ",
       "em": "side by side"
     },
-    "lede": "We're a Brazilian startup pioneering Agents-as-a-Service (AaaS), operating globally across four continents.",
+    "lede": "We're the first company in Brazil specialized in agentic transformation, operating globally across four continents.",
     "photo": {
       "alt": "Dalton Lab team",
       "badge": "24/7 operation · 4 continents"

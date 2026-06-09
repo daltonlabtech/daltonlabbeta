@@ -6,6 +6,12 @@ import SiteHeader from "@/components/redesign/shell/SiteHeader";
 import SiteFooter from "@/components/redesign/shell/SiteFooter";
 import { CASES } from "@/data/cases";
 
+// Ordem da grade /casos (independente da home) — espelha o site de referência v3.
+const CASOS_ORDER = ["smartrisk", "jeisys", "fialdini", "uny"];
+const orderedCases = CASOS_ORDER
+  .map((slug) => CASES.find((c) => c.slug === slug))
+  .filter((c): c is (typeof CASES)[number] => Boolean(c));
+
 const Casos = () => {
   const { t, i18n } = useTranslation();
   const lang = (i18n.language || "pt").startsWith("en") ? "en" : "pt";
@@ -25,77 +31,108 @@ const Casos = () => {
         .cases-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 20px;
+          gap: 16px;
           margin-top: 48px;
         }
-        @media (min-width: 760px) {
-          .redesign-scope .cases-grid { grid-template-columns: repeat(2, 1fr); }
+        @media (min-width: 680px) {
+          .redesign-scope .cases-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
         }
         .redesign-scope .case-prev {
+          border: 1px solid var(--border-navy);
+          border-radius: var(--navy-radius, 16px);
+          background:
+            radial-gradient(120% 90% at 0% 0%, rgba(76,184,232,0.07), transparent 52%),
+            var(--surface);
+          padding: clamp(22px, 4vw, 30px);
           display: flex;
           flex-direction: column;
-          gap: 18px;
-          border: 1px solid var(--border-navy);
-          background: var(--surface);
-          border-radius: 20px;
-          padding: 30px;
+          gap: 20px;
+          min-height: 220px;
           text-decoration: none;
           color: inherit;
-          transition: transform .25s ease, border-color .25s ease;
+          transition: border-color .3s, transform .3s, box-shadow .3s;
         }
         .redesign-scope .case-prev:hover {
+          border-color: rgba(76,184,232,0.42);
           transform: translateY(-3px);
-          border-color: var(--cyan);
+          box-shadow: 0 22px 48px rgba(0,0,0,0.36);
         }
         .redesign-scope .cp-top {
           display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 16px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 11px;
+        }
+        @media (min-width: 600px) {
+          .redesign-scope .cp-top {
+            flex-direction: row;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+          }
+          .redesign-scope .cp-sector {
+            padding-left: 14px;
+            border-left: 1px solid var(--border-navy);
+          }
         }
         .redesign-scope .cp-logo {
-          height: 30px;
+          height: 24px;
           width: auto;
+          object-fit: contain;
           filter: brightness(0) invert(1);
+          opacity: .95;
         }
-        .redesign-scope .cp-logo--sq { height: 44px; }
+        .redesign-scope .cp-logo--sq { height: 32px; }
         .redesign-scope .cp-sector {
           font-family: var(--font-mono);
+          font-size: 10.5px;
+          font-weight: 500;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
-          letter-spacing: .08em;
-          font-size: .72rem;
-          color: var(--text-dim);
+          color: var(--cyan);
         }
         .redesign-scope .cp-title {
           font-family: var(--font-display);
-          font-size: 1.5rem;
-          line-height: 1.2;
-          font-weight: 800;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          font-size: clamp(1.22rem, 2.7vw, 1.55rem);
+          line-height: 1.18;
           color: var(--text);
+          text-wrap: pretty;
+          flex: 1;
           margin: 0;
         }
         .redesign-scope .cp-go {
+          margin-top: auto;
+          font-family: var(--font-mono);
+          font-size: 12px;
+          letter-spacing: 0.03em;
+          color: var(--cyan);
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          margin-top: auto;
-          color: var(--cyan);
-          font-family: var(--font-mono);
-          font-size: .82rem;
-          text-transform: uppercase;
-          letter-spacing: .06em;
+          text-transform: none;
         }
+        .redesign-scope .cp-go svg {
+          width: 15px;
+          height: 15px;
+          transition: transform .3s;
+        }
+        .redesign-scope .case-prev:hover .cp-go svg { transform: translateX(4px); }
         .redesign-scope .casos-back {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          margin-top: 56px;
-          color: var(--text-dim);
+          margin-top: 44px;
+          color: var(--cyan);
           text-decoration: none;
           font-family: var(--font-mono);
-          font-size: .82rem;
+          font-size: 12px;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          transition: gap .25s ease, opacity .25s ease;
         }
-        .redesign-scope .casos-back:hover { color: var(--text); }
+        .redesign-scope .casos-back:hover { gap: 12px; opacity: .85; }
       `}</style>
 
       <SiteHeader />
@@ -115,19 +152,9 @@ const Casos = () => {
         <h1 className="headline" style={{ marginTop: 12 }}>
           <Trans i18nKey="casos.title" components={{ b: <b /> }} />
         </h1>
-        <p
-          style={{
-            marginTop: 18,
-            maxWidth: 640,
-            color: "var(--text-dim)",
-            lineHeight: 1.7,
-          }}
-        >
-          {t("casos.lede")}
-        </p>
 
         <div className="cases-grid">
-          {CASES.map((c) => (
+          {orderedCases.map((c) => (
             <Link key={c.slug} to={`/casos/${c.slug}`} className="case-prev">
               <div className="cp-top">
                 <img

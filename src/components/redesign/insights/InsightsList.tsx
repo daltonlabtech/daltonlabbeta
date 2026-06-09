@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useArticles } from '@/hooks/useSanity';
 import SearchBar from './SearchBar';
 import Tabs, { InsightKind } from './Tabs';
@@ -43,7 +43,7 @@ export default function InsightsList() {
       >
         <div style={{ maxWidth: 720 }}>
           <span className="eyebrow" style={{ marginBottom: 16 }}>
-            {t('insp.eyebrow', 'Conteúdo')}
+            {t('insp.eyebrow', 'Conteúdos')}
           </span>
           <h1
             style={{
@@ -57,18 +57,10 @@ export default function InsightsList() {
               textWrap: 'balance',
             }}
           >
-            {t('insp.title', 'Mídia, artigos e insights')}
+            <Trans i18nKey="insp.title" components={{ b: <b style={serifStrong} /> }}>
+              {'Mídia, artigos e <b>insights</b>'}
+            </Trans>
           </h1>
-          <p
-            style={{
-              color: 'var(--text-dim)',
-              fontSize: 'clamp(1.05rem, 3vw, 1.2rem)',
-              lineHeight: 1.5,
-              maxWidth: '34ch',
-            }}
-          >
-            {t('insp.lede', 'Ideias, artigos e pontos de vista sobre transformação agêntica.')}
-          </p>
 
           <SearchBar onChange={setTerm} />
 
@@ -122,3 +114,11 @@ export default function InsightsList() {
     </div>
   );
 }
+
+const serifStrong: React.CSSProperties = {
+  fontFamily: 'var(--font-serif)',
+  fontWeight: 500,
+  fontStyle: 'italic',
+  color: 'var(--cyan)',
+  WebkitTextFillColor: 'var(--cyan)',
+};

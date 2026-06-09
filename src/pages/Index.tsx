@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { trackPageView } from "@/lib/analytics";
 import SiteHeader from "@/components/redesign/shell/SiteHeader";
@@ -6,21 +7,15 @@ import HeroSection from "@/components/redesign/home/HeroSection";
 import SkeletonSection from "@/components/ui/SkeletonSection";
 
 // Abaixo da dobra → lazy + Suspense
+// Estrutura espelha exatamente as 9 dobras do index.html de referência.
 const VideoBand = lazy(() => import("@/components/redesign/home/VideoBand"));
-const ManifestoSection = lazy(() => import("@/components/redesign/home/ManifestoSection"));
-const MarketSection = lazy(() => import("@/components/redesign/home/MarketSection"));
 const PositioningSection = lazy(() => import("@/components/redesign/home/PositioningSection"));
 const ClientsSection = lazy(() => import("@/components/redesign/home/ClientsSection"));
 const OrgChartSection = lazy(() => import("@/components/redesign/home/OrgChartSection"));
-const MethodologySection = lazy(() => import("@/components/redesign/home/MethodologySection"));
 const SolutionsCarousel = lazy(() => import("@/components/redesign/home/SolutionsCarousel"));
-const PlatformSection = lazy(() => import("@/components/redesign/home/PlatformSection"));
-const SetoresSection = lazy(() => import("@/components/redesign/home/SetoresSection"));
-const TrustSection = lazy(() => import("@/components/redesign/home/TrustSection"));
 const CasesSection = lazy(() => import("@/components/redesign/home/CasesSection"));
 const FinalCTASection = lazy(() => import("@/components/redesign/home/FinalCTASection"));
 const InsightsPreviewSection = lazy(() => import("@/components/redesign/home/InsightsPreviewSection"));
-const ClosingSection = lazy(() => import("@/components/redesign/home/ClosingSection"));
 const SiteFooter = lazy(() => import("@/components/redesign/shell/SiteFooter"));
 
 const prefetchSections = () => {
@@ -34,6 +29,7 @@ const prefetchSections = () => {
 
 const Index = () => {
   const { t } = useTranslation();
+  const location = useLocation();
 
   useEffect(() => {
     document.title = t('pages.index.title');
@@ -45,6 +41,24 @@ const Index = () => {
     const cleanup = prefetchSections();
     return cleanup;
   }, [t]);
+
+  // Rola até a seção do hash (ex.: "#solutions") ao chegar de outra página.
+  // Faz polling porque as seções são lazy e podem montar depois da navegação.
+  useEffect(() => {
+    if (!location.hash) return;
+    const selector = location.hash;
+    let elapsed = 0;
+    const interval = window.setInterval(() => {
+      const el = document.querySelector(selector);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        window.clearInterval(interval);
+      } else if ((elapsed += 100) >= 3000) {
+        window.clearInterval(interval);
+      }
+    }, 100);
+    return () => window.clearInterval(interval);
+  }, [location.hash, location.key]);
 
   return (
     <div
@@ -58,12 +72,6 @@ const Index = () => {
           <VideoBand />
         </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
-          <ManifestoSection />
-        </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
-          <MarketSection />
-        </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
           <PositioningSection />
         </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
@@ -72,20 +80,8 @@ const Index = () => {
         <Suspense fallback={<SkeletonSection height="min-h-[500px]" />}>
           <OrgChartSection />
         </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
-          <MethodologySection />
-        </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
           <SolutionsCarousel />
-        </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
-          <PlatformSection />
-        </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
-          <SetoresSection />
-        </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[300px]" showCards />}>
-          <TrustSection />
         </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
           <CasesSection />
@@ -95,9 +91,6 @@ const Index = () => {
         </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
           <InsightsPreviewSection />
-        </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
-          <ClosingSection />
         </Suspense>
       </main>
       <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>

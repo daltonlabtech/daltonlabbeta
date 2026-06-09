@@ -68,10 +68,11 @@ export default function HeroSection() {
         }}
       />
 
-      {/* canvas — wrapper posicionado/dimensionado para o canvas (que é absolute inset:0) */}
+      {/* canvas — wrapper posicionado/dimensionado para o canvas (que é absolute inset:0).
+          lg:hidden → removido no desktop/web; mantido em tablet e mobile (< 1024px). */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute"
+        className="pointer-events-none absolute lg:hidden"
         style={{
           top: 'calc(56px + var(--safe-top, 16px))',
           right: 0,

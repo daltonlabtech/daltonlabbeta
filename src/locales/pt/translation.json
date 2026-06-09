@@ -206,16 +206,16 @@
     "cta1": "Fale com um especialista"
   },
   "ins": {
-    "tag": "Conteúdo",
+    "tag": "Conteúdos",
     "all": "Ver todos",
     "1": {
       "type": "Artigo"
     }
   },
   "insp": {
-    "eyebrow": "Conteúdo",
-    "title": "Mídia, artigos e insights",
-    "lede": "Ideias, artigos e pontos de vista sobre transformação agêntica.",
+    "eyebrow": "Conteúdos",
+    "title": "Mídia, artigos e <b>insights</b>",
+    "lede": "Publicações do Dalton Lab e o que nosso time está pensando sobre a era agêntica.",
     "loading": "Carregando…",
     "empty": "Nada encontrado.",
     "notfound": "Artigo não encontrado.",
@@ -237,7 +237,7 @@
       "pre": "Humanos e agentes, ",
       "em": "lado a lado"
     },
-    "lede": "Somos uma startup brasileira pioneira em Agents-as-a-Service (AaaS), operando globalmente em quatro continentes.",
+    "lede": "Somos a primeira empresa do Brasil especializada em transformação agêntica, operando globalmente em quatro continentes.",
     "photo": {
       "alt": "Equipe Dalton Lab",
       "badge": "Operação 24/7 · 4 continentes"

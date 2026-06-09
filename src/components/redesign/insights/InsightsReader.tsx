@@ -258,29 +258,6 @@ export default function InsightsReader({ slug }: { slug: string }) {
           <AuthorCard name={article.author} role={t('insp.byteam', 'Dalton Lab')} />
         )}
 
-        {/* Hero illustration — grid pattern placeholder (porta `.ir-hero`) */}
-        <div
-          style={{
-            height: 200,
-            margin: '30px 0 34px',
-            borderRadius: 'var(--navy-radius)',
-            border: '1px solid var(--border-navy)',
-            position: 'relative',
-            overflow: 'hidden',
-            background: 'var(--surface)',
-          }}
-        >
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)',
-              backgroundSize: '22px 22px',
-              opacity: 0.5,
-            }}
-          />
-        </div>
-
         {/* Body */}
         <div style={{ maxWidth: '64ch', marginTop: 32 }}>
           {Array.isArray(article.body) && article.body.length > 0 && (

@@ -25,6 +25,8 @@ export interface CaseStudy {
   /** Card da home: métrica grande + sub. */
   metric: Bi;
   metricSub: Bi;
+  /** Índice do destaque usado como pull-quote no leitor (entre "A solução" e "Como funciona"). Default 0. */
+  pullQuoteIndex?: number;
 }
 
 export const CASES: CaseStudy[] = [
@@ -165,6 +167,7 @@ export const CASES: CaseStudy[] = [
     },
     metric: { pt: 'Classificação autônoma', en: 'Autonomous classification' },
     metricSub: { pt: 'triagem e distribuição de processos jurídicos', en: 'legal-case triage & distribution' },
+    pullQuoteIndex: 3,
   },
 ];
 

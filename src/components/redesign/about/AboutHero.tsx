@@ -65,7 +65,7 @@ export default function AboutHero({ activeTab, onTabChange }: AboutHeroProps) {
       >
         {t(
           'qs.lede',
-          'Somos uma startup brasileira pioneira em Agents-as-a-Service (AaaS), operando globalmente em quatro continentes.',
+          'Somos a primeira empresa do Brasil especializada em transformação agêntica, operando globalmente em quatro continentes.',
         )}
       </p>
 

@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import AgenticOrgChart from '@/components/redesign/canvas/AgenticOrgChart';
-import AgentPlatform from '@/components/redesign/home/AgentPlatform';
 
 function useReveal<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
@@ -74,15 +73,9 @@ export default function OrgChartSection() {
         </div>
 
         {/* AgenticOrgChart é self-contained: renderiza seu próprio org-stage (aspect-ratio)
-            e ticker ao vivo. Não precisa de wrapper dimensionado.
-            Canvas só no desktop (≥1000px) — no mobile a Plataforma Agêntica abaixo
-            substitui o organograma, espelhando o mobile.html. */}
-        <div className="hidden lg:block">
-          <AgenticOrgChart lang={i18n.language} />
-        </div>
-
-        {/* Plataforma Agêntica — catálogo de 17 agentes por departamento (mobile + desktop). */}
-        <AgentPlatform />
+            e ticker ao vivo. O canvas é responsivo (densidade dobrada < 640px),
+            espelhando o organograma do index.html em todos os viewports. */}
+        <AgenticOrgChart lang={i18n.language} />
       </div>
     </section>
   );

@@ -66,7 +66,10 @@ const Index = () => {
       style={{ background: 'var(--bg, #0A1628)', color: 'var(--text, #FFFFFF)' }}
     >
       <SiteHeader />
-      <main id="top" style={{ overflowX: 'hidden', maxWidth: '100vw', width: '100%' }}>
+      {/* overflow-x: clip (não 'hidden') — 'hidden' força overflow-y a computar como
+          'auto', criando um scroll container aninhado (segundo scrollbar). 'clip' corta
+          o overflow horizontal sem virar scroller nem afetar o eixo vertical. */}
+      <main id="top" style={{ overflowX: 'clip', maxWidth: '100vw', width: '100%' }}>
         <HeroSection />
         <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
           <VideoBand />

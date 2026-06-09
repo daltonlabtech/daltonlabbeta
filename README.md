@@ -1,73 +1,84 @@
-# Welcome to your Lovable project
+# Dalton Lab — Site
 
-## Project info
+Site institucional do **Dalton Lab** (Organizações Agênticas). Site estático,
+bilíngue (PT/EN), sem build step — HTML, CSS e JavaScript puro.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Como rodar
 
-## How can I edit this code?
+Por usar `fetch`/módulos e caminhos relativos, sirva a pasta por um servidor
+estático (abrir o arquivo direto via `file://` pode bloquear alguns recursos):
 
-There are several ways of editing your application.
+```bash
+# Python 3
+python3 -m http.server 8000
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# ou Node
+npx serve .
 ```
 
-**Edit a file directly in GitHub**
+Depois acesse `http://localhost:8000/index.html`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Para publicar no **GitHub Pages**, basta subir esta pasta e apontar o Pages para
+a raiz (`/`). O `index.html` é a página inicial.
 
-**Use GitHub Codespaces**
+## Estrutura
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+.
+├── index.html                 # Home (hero, vídeo, posicionamento, clientes,
+│                              #   organograma, metodologia, casos, CTA, conteúdos)
+├── casos.html                 # Casos — grade de prévias + leitor em formato artigo
+├── insights.html              # Conteúdos — Mídia / Artigos / Insights (com leitor)
+├── quem-somos.html            # Quem Somos (empresa + fundadores)
+├── privacidade.html           # Política de Privacidade
+├── termos.html                # Termos de Uso
+│
+├── Dalton Lab - Desktop.html  # Moldura de preview (navegador) — embute index.html
+├── Dalton Lab - Mobile.html   # Moldura de preview (iPhone)    — embute index.html
+│
+├── css/
+│   └── styles.css             # Todos os estilos do site
+│
+├── js/
+│   ├── i18n.js                # Dicionário PT/EN + troca de idioma
+│   ├── main.js                # Header, menu mobile, carrosséis, scroll-reveal
+│   ├── image-slot.js          # Web component <image-slot> (foto arrastável)
+│   ├── orgchart.js            # Animação do organograma agêntico (canvas)
+│   ├── hero-merge.js          # Animação do hero (canvas)
+│   ├── sol-motion.js          # Animações dos cards de metodologia
+│   ├── cta-outlier.js         # Animação do CTA final (canvas)
+│   ├── insights.js            # Render da página de Conteúdos + leitor de artigos
+│   ├── articles-data.js       # Artigos, insights e mídia (lote inicial)
+│   └── articles-extra.js      # Artigos adicionais (lote novo)
+│
+└── assets/
+    ├── dalton-lab-logo.png    # Logo (cabeçalho/rodapé)
+    ├── foto-jeisys.jpg        # Foto do card Jeisys (home)
+    ├── logos/                 # Logos de clientes (marquee + cards)
+    ├── team/                  # Fotos da equipe / fundadores
+    ├── media/                 # Thumbs das matérias de imprensa
+    └── papers/                # Paper "Framework Agêntico" (PDF)
+```
 
-## What technologies are used for this project?
+## Idiomas (i18n)
 
-This project is built with:
+Os textos vêm de `js/i18n.js` (objeto `window.I18N` com `pt` e `en`). Elementos
+no HTML usam `data-i18n="chave"`; o conteúdo da página de Conteúdos é definido em
+`js/articles-data.js` e `js/articles-extra.js` com pares `{ pt, en }`.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+> Observação: os 9 artigos mais recentes (em `articles-extra.js`) estão em
+> Português; no modo EN exibem o texto em PT até serem traduzidos.
 
-## How can I deploy this project?
+## Notas
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- **Tweaks panel** (`tweaks.jsx`, `tweaks-panel.jsx`): painel de ajustes usado em
+  tempo de design. Fica oculto em produção (só aparece quando habilitado pelo
+  editor), então não afeta o site publicado.
+- **Fontes**: carregadas via Google Fonts (Bricolage/DM Sans, JetBrains Mono,
+  Playfair Display) — requer conexão.
+- **Sem dependências de build**: nada de npm install para o site; o React/Babel
+  usados pelas molduras de preview e pelo painel de Tweaks vêm de CDN.
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2026 Dalton Lab. Todos os direitos reservados.

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dalton Lab — Protótipo Mobile</title>
+<style>
+  :root {
+    --safe: #060D1A;          /* matches site bg-deep */
+    --bezel: #0b0b0d;
+    --stage-1: #14181f;
+    --stage-2: #0a0c10;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background:
+      radial-gradient(120% 90% at 50% -10%, #1a2740 0%, transparent 55%),
+      radial-gradient(100% 80% at 50% 120%, #0e1626 0%, transparent 60%),
+      linear-gradient(160deg, var(--stage-1), var(--stage-2));
+    font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    color: #cdd9e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* faint dotted texture behind the device */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background-image: radial-gradient(rgba(120,160,210,0.06) 1px, transparent 1px);
+    background-size: 26px 26px;
+    -webkit-mask-image: radial-gradient(70% 60% at 50% 45%, #000, transparent 80%);
+            mask-image: radial-gradient(70% 60% at 50% 45%, #000, transparent 80%);
+    pointer-events: none;
+  }
+
+  .stage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ---- scaled wrapper ---- */
+  .device-scaler {
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  /* ---- iPhone bezel ---- */
+  .device {
+    position: relative;
+    width: 402px;
+    height: 874px;
+    background: var(--bezel);
+    border-radius: 58px;
+    padding: 13px;
+    box-shadow:
+      0 0 0 2px #2a2c31,
+      0 0 0 3px #050507,
+      0 50px 90px -20px rgba(0,0,0,0.7),
+      0 20px 50px -10px rgba(0,0,0,0.55);
+  }
+  /* subtle inner rim highlight */
+  .device::after {
+    content: "";
+    position: absolute; inset: 4px;
+    border-radius: 52px;
+    box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.05);
+    pointer-events: none;
+    z-index: 60;
+  }
+
+  /* side buttons */
+  .btn-side {
+    position: absolute;
+    background: linear-gradient(180deg, #25272c, #141519);
+    border-radius: 3px;
+  }
+  .btn-side.power  { right: -3px; top: 210px; width: 3px; height: 92px; border-radius: 0 3px 3px 0; }
+  .btn-side.vol-up { left: -3px; top: 188px; width: 3px; height: 56px; border-radius: 3px 0 0 3px; }
+  .btn-side.vol-dn { left: -3px; top: 256px; width: 3px; height: 56px; border-radius: 3px 0 0 3px; }
+  .btn-side.silent { left: -3px; top: 132px; width: 3px; height: 32px; border-radius: 3px 0 0 3px; }
+
+  /* ---- screen ---- */
+  .screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 46px;
+    overflow: hidden;
+    background: var(--safe);
+    position: relative;
+  }
+
+  /* status bar — overlays the edge-to-edge site, transparent so the
+     header/hero background runs continuously to the very top (no seam) */
+  .statusbar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 30;
+    height: 50px;
+    background: transparent;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px 0 34px;
+    color: #fff;
+  }
+  .statusbar .time {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    font-variant-numeric: tabular-nums;
+    margin-top: 2px;
+  }
+  .statusbar .icons {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 2px;
+  }
+
+  /* dynamic island */
+  .island {
+    position: absolute;
+    top: 11px; left: 50%;
+    transform: translateX(-50%);
+    width: 116px; height: 33px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 40;
+    pointer-events: none;
+  }
+
+  /* the live site — full-bleed under the status bar (edge-to-edge) */
+  .screen iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    background: var(--safe);
+    z-index: 1;
+  }
+
+  /* home indicator */
+  .home-ind {
+    position: absolute;
+    bottom: 9px; left: 50%;
+    transform: translateX(-50%);
+    width: 138px; height: 5px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.85);
+    z-index: 45;
+    pointer-events: none;
+  }
+
+  /* hint chip (auto-fades) */
+  .hint {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 16px;
+    border-radius: 100px;
+    background: rgba(10,16,28,0.7);
+    border: 1px solid rgba(120,170,220,0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #9fb6cd;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: opacity .6s ease, transform .6s ease;
+    z-index: 100;
+  }
+  .hint.hide { opacity: 0; transform: translateX(-50%) translateY(8px); pointer-events: none; }
+  .hint .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #4CB8E8;
+    box-shadow: 0 0 10px #4CB8E8;
+    animation: pulse 1.8s cubic-bezier(.16,1,.3,1) infinite;
+    flex: none;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hint .dot { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="device-scaler" id="scaler">
+      <div class="device">
+        <span class="btn-side silent"></span>
+        <span class="btn-side vol-up"></span>
+        <span class="btn-side vol-dn"></span>
+        <span class="btn-side power"></span>
+
+        <div class="screen">
+          <div class="island"></div>
+          <div class="statusbar">
+            <span class="time">9:41</span>
+            <span class="icons">
+              <!-- cellular -->
+              <svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true">
+                <rect x="0" y="7.5" width="3" height="4.5" rx="0.7" fill="#fff"/>
+                <rect x="4.5" y="5" width="3" height="7" rx="0.7" fill="#fff"/>
+                <rect x="9" y="2.5" width="3" height="9.5" rx="0.7" fill="#fff"/>
+                <rect x="13.5" y="0" width="3" height="12" rx="0.7" fill="#fff"/>
+              </svg>
+              <!-- wifi -->
+              <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+                <path d="M8 3C10.2 3 12.2 3.85 13.65 5.25L14.7 4.2C13 2.5 10.6 1.4 8 1.4C5.4 1.4 3 2.5 1.3 4.2L2.35 5.25C3.8 3.85 5.8 3 8 3Z" fill="#fff"/>
+                <path d="M8 6.4C9.3 6.4 10.5 6.9 11.35 7.75L12.4 6.7C11.2 5.5 9.7 4.8 8 4.8C6.3 4.8 4.8 5.5 3.6 6.7L4.65 7.75C5.5 6.9 6.7 6.4 8 6.4Z" fill="#fff"/>
+                <circle cx="8" cy="10" r="1.4" fill="#fff"/>
+              </svg>
+              <!-- battery -->
+              <svg width="26" height="13" viewBox="0 0 26 13" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="22" height="12" rx="3.5" stroke="#fff" stroke-opacity="0.4" fill="none"/>
+                <rect x="2" y="2" width="18" height="9" rx="2" fill="#fff"/>
+                <path d="M24 4.3V8.7C24.8 8.4 25.4 7.5 25.4 6.5C25.4 5.5 24.8 4.6 24 4.3Z" fill="#fff" fill-opacity="0.5"/>
+              </svg>
+            </span>
+          </div>
+
+          <iframe id="site" src="index.html" title="Dalton Lab — site mobile"
+                  scrolling="yes" allow="autoplay; encrypted-media; fullscreen"></iframe>
+
+          <div class="home-ind"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hint" id="hint">
+    <span class="dot"></span>
+    <span>Role dentro do iPhone · PT / EN e menu no topo</span>
+  </div>
+
+  <script>
+    // Fit the device to the viewport
+    var FRAME_W = 402, FRAME_H = 874, MARGIN = 36;
+    var scaler = document.getElementById('scaler');
+    function fit() {
+      var vw = window.innerWidth, vh = window.innerHeight;
+      var s = Math.min((vw - MARGIN) / FRAME_W, (vh - MARGIN) / FRAME_H);
+      s = Math.min(s, 1.15);
+      scaler.style.transform = 'scale(' + s + ')';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+
+    // Edge-to-edge: the iframe runs under the overlaid status bar, so tell the
+    // site to reserve the status-bar height above its fixed header (overrides
+    // the site's own --safe-top only inside this device frame).
+    var STATUS_BAR = 50;
+    var siteFrame = document.getElementById('site');
+    function applySafeTop() {
+      try {
+        var doc = siteFrame.contentDocument;
+        if (doc && doc.documentElement) {
+          doc.documentElement.style.setProperty('--safe-top', (STATUS_BAR + 4) + 'px');
+        }
+      } catch (e) {}
+    }
+    siteFrame.addEventListener('load', applySafeTop);
+    applySafeTop();
+
+    // Auto-fade the hint
+    var hint = document.getElementById('hint');
+    setTimeout(function () { hint.classList.add('hide'); }, 5200);
+  </script>
+</body>
+</html>

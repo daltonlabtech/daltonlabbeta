@@ -1,201 +1,418 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- GTM loaded with delay for performance -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <title>Dalton Lab – Transforme sua Empresa em uma Organização Agêntica</title>
-    <meta
-      name="description"
-      content="A Dalton Lab transforma empresas em organizações agênticas com agentes de IA sob medida. Diagnóstico, processos AI-first, capacitação e tecnologia para escalar resultados."
-    />
-    <meta name="keywords" content="organização agêntica, agentes de IA, IA agêntica, transformação digital, automação com IA, agentes inteligentes, AI-first, Dalton Lab, inteligência artificial para empresas" />
-    <meta name="author" content="Dalton Lab" />
-    <meta name="theme-color" content="#101823" />
-    <link rel="canonical" href="https://daltonlab.ai/" />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dalton Lab — Organizações Agênticas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
 
-    <!-- Critical CSS Inline - Above the fold rendering -->
-    <style>
-      /* Critical CSS for immediate first paint */
-      *,*::before,*::after{box-sizing:border-box}
-      body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;background:#101823;color:#F5F3F0;-webkit-font-smoothing:antialiased}
-      #root{min-height:100vh}
-      .hero-critical{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#101823}
-      .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-      .hero-content{position:relative;z-index:10;flex:1;display:flex;align-items:center;justify-content:center;padding:5rem 1.5rem}
-      .hero-text{text-align:center;max-width:56rem}
-      .hero-h1{font-size:clamp(2.25rem,5vw,4.5rem);font-weight:400;line-height:1.1;color:#F5F3F0;margin:0}
-      .hero-sub{margin-top:1.5rem;font-size:clamp(0.875rem,2vw,1.125rem);color:rgba(245,243,240,0.75);font-weight:300}
-      .hero-cta{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2rem;padding:0.625rem 1.25rem;background:#F5F3F0;color:#000;border-radius:9999px;font-weight:500;font-size:0.875rem;text-decoration:none}
-      @media(min-width:640px){.hero-content{padding:6rem 3rem}}
-    </style>
+<!-- ============================ HEADER ============================ -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Dalton Lab">
+      <img src="assets/dalton-lab-logo.png" alt="Dalton Lab" class="brand-logo" />
+    </a>
 
-    <!-- DNS Prefetch & Preconnect for Performance -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-    <link rel="dns-prefetch" href="//connect.facebook.net" />
-    <link rel="dns-prefetch" href="//www.facebook.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://content.hotjar.io" />
+    <nav class="nav-desk">
+      <a href="#solutions" data-i18n="nav.solutions">Metodologia</a>
+      <a href="casos.html" data-i18n="nav.cases">Casos</a>
+      <a href="insights.html" data-i18n="nav.insights">Insights</a>
+      <a href="quem-somos.html" data-i18n="nav.about">Sobre</a>
+    </nav>
 
-    <!-- Preload Critical Assets - Hero poster -->
-    <link rel="preload" as="image" href="/hero-poster.webp" type="image/webp" fetchpriority="high" />
+    <div class="nav-actions">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="pt" class="active">PT</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="#final" class="btn btn-primary cta-head" data-i18n="cta.contact">Fale conosco</a>
+      <button class="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-    <!-- Google Fonts with display=swap - loaded async -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript
-      ><link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
-        rel="stylesheet"
-    /></noscript>
+<!-- Mobile sheet -->
+<div class="sheet">
+  <a href="#solutions"><span data-i18n="nav.solutions">Metodologia</span><span class="idx">01</span></a>
+  <a href="casos.html"><span data-i18n="nav.cases">Casos</span><span class="idx">02</span></a>
+  <a href="insights.html"><span data-i18n="nav.insights">Insights</span><span class="idx">03</span></a>
+  <a href="quem-somos.html"><span data-i18n="nav.about">Sobre</span><span class="idx">04</span></a>
+  <a href="#final" class="btn btn-primary" data-i18n="cta.contact">Fale conosco</a>
+</div>
 
-    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://daltonlab.ai/" />
-    <meta property="og:title" content="Dalton Lab – Transforme sua Empresa em uma Organização Agêntica" />
-    <meta
-      property="og:description"
-      content="A primeira empresa do Brasil especializada em transformação agêntica. Construímos organizações agênticas onde humanos e agentes trabalham em sintonia. Operações mais eficientes, times em alta performance e ROI concreto."
-    />
-    <meta property="og:image" content="https://daltonlab.ai/og-preview.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Dalton Lab – Organização Agêntica com Agentes de IA" />
-    <meta property="og:site_name" content="Dalton Lab" />
-    <meta property="og:locale" content="pt_BR" />
+<main id="top" style="overflow-x:hidden;max-width:100vw;width:100%;">
 
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@DaltonLab" />
-    <meta name="twitter:title" content="Dalton Lab – Transforme sua Empresa em uma Organização Agêntica" />
-    <meta
-      name="twitter:description"
-      content="A primeira empresa do Brasil especializada em transformação agêntica. Construímos organizações agênticas onde humanos e agentes trabalham em sintonia. Operações mais eficientes, times em alta performance e ROI concreto."
-    />
-    <meta name="twitter:image" content="https://daltonlab.ai/og-preview.png" />
-    <meta name="twitter:image:alt" content="Dalton Lab – Transforme sua Empresa em uma Organização Agêntica" />
+  <!-- ===================== DOBRA 1 — HERO ===================== -->
+  <section class="hero wrap">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <canvas class="hero-viz" id="heroViz" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <h1 class="headline h-xl" data-i18n="hero.title">Transformando empresas em Organizações Agênticas</h1>
+      <div class="hero-ctas">
+        <a href="#final" class="btn btn-primary" data-i18n="hero.cta1">Fale com um especialista</a>
+        <a href="#solutions" class="btn btn-ghost btn-arrow" data-i18n="hero.cta2">Explore nossa metodologia</a>
+      </div>
+    </div>
+    <!-- logos ancoradas no fundo do hero -->
+    <div class="hero-logos">
+      <div class="marquee">
+      <div class="marquee-track">
+        <img class="logo-item" src="assets/logos/jeisys.png" alt="Jeisys" />
+        <img class="logo-item" src="assets/logos/rumo.png" alt="Rumo" />
+        <img class="logo-item" src="assets/logos/mundial-mix.png" alt="Grupo Mundial Mix" />
+        <img class="logo-item" src="assets/logos/neogrid.png" alt="Neogrid" />
+        <img class="logo-item" src="assets/logos/imperatriz.png" alt="Supermercados Imperatriz" />
+        <img class="logo-item" src="assets/logos/accesstage.png" alt="Accesstage" />
+        <img class="logo-item" src="assets/logos/billion-dollar-boy.png" alt="Billion Dollar Boy" />
+        <img class="logo-item" src="assets/logos/fialdini.png" alt="Fialdini" />
+        <img class="logo-item" src="assets/logos/practical-center.png" alt="Practical Center" />
+        <img class="logo-item" src="assets/logos/smartrisk.png" alt="SmartRisk" />
+        <img class="logo-item" src="assets/logos/umuprev.png" alt="Umuprev" />
+        <img class="logo-item" src="assets/logos/uny.png" alt="Uny" />
+        <img class="logo-item" src="assets/logos/vero.png" alt="Vero" />
+        <img class="logo-item" src="assets/logos/jeisys.png" alt="Jeisys" />
+        <img class="logo-item" src="assets/logos/rumo.png" alt="Rumo" />
+        <img class="logo-item" src="assets/logos/mundial-mix.png" alt="Grupo Mundial Mix" />
+        <img class="logo-item" src="assets/logos/neogrid.png" alt="Neogrid" />
+        <img class="logo-item" src="assets/logos/imperatriz.png" alt="Supermercados Imperatriz" />
+        <img class="logo-item" src="assets/logos/accesstage.png" alt="Accesstage" />
+        <img class="logo-item" src="assets/logos/billion-dollar-boy.png" alt="Billion Dollar Boy" />
+        <img class="logo-item" src="assets/logos/fialdini.png" alt="Fialdini" />
+        <img class="logo-item" src="assets/logos/practical-center.png" alt="Practical Center" />
+        <img class="logo-item" src="assets/logos/smartrisk.png" alt="SmartRisk" />
+        <img class="logo-item" src="assets/logos/umuprev.png" alt="Umuprev" />
+        <img class="logo-item" src="assets/logos/uny.png" alt="Uny" />
+        <img class="logo-item" src="assets/logos/vero.png" alt="Vero" />
+      </div>
+    </div>
+    </div><!-- /hero-logos -->
+  </section>
 
-    <!-- Favicon - Multiple formats for compatibility -->
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="icon" type="image/webp" sizes="32x32" href="/favicon.webp" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+  <!-- ===================== DOBRA 3 — VIDEO ===================== -->
+  <section class="video-band wrap reveal">
+    <div class="video-frame" id="instVideo" data-yt="Xo4xvR7v0l4">
+      <img class="poster" src="https://i.ytimg.com/vi/Xo4xvR7v0l4/maxresdefault.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Xo4xvR7v0l4/hqdefault.jpg';" />
+      <button class="ph" aria-label="Reproduzir vídeo institucional">
+        <span class="play">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+      </button>
+    </div>
+  </section>
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Dalton Lab",
-      "url": "https://daltonlab.ai",
-      "logo": "https://daltonlab.ai/dalton-icon.webp",
-      "description": "A Dalton Lab transforma empresas em organizações agênticas com agentes de IA sob medida.",
-      "foundingDate": "2023",
-      "sameAs": [
-        "https://www.linkedin.com/company/dalton-lab/",
-        "https://youtube.com/@dalton_lab",
-        "https://www.instagram.com/daltonlab.ai",
-        "https://open.spotify.com/show/4fnDNmjCB0EQzT7HlmCUr4"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "administrativo@daltonlab.ai",
-        "contactType": "customer service",
-        "availableLanguage": ["Portuguese", "English", "Spanish"]
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Dalton Lab",
-      "url": "https://daltonlab.ai",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://daltonlab.ai/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-  </head>
+  <!-- ===================== DOBRA 4 — POSITIONING ===================== -->
+  <section class="positioning wrap reveal glow-tl">
+    <span class="deco-line deco-top"></span>
+    <h2 class="big" data-i18n="pos.line">Transformamos sua empresa em uma Organização Agêntica, onde <b>agentes de IA trabalham lado a lado com o seu time</b></h2>
+    <span class="deco-line"></span>
+  </section>
 
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-PPF26W8Q"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div id="root"><section class="hero-critical" aria-label="Hero">
-      <img class="hero-bg" src="/hero-poster.webp" alt="" aria-hidden="true" fetchpriority="high" />
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.4);z-index:1"></div>
-      <div class="hero-content" style="z-index:2">
-        <div class="hero-text">
-          <h1 style="margin:0;color:#F5F3F0;text-shadow:0 2px 8px rgba(0,0,0,0.3);font-weight:700;line-height:1.15;font-size:22px">
-            <span style="display:block">Transforme sua empresa</span>
-            <span style="display:block;margin-top:2px">em uma Organização Agêntica</span>
-          </h1>
-          <div style="margin-top:24px">
-            <a href="https://formulario.daltonlab.ai/" class="hero-cta">Fale conosco</a>
+  <!-- ===================== DOBRA 4B — CLIENTES ===================== -->
+  <section class="clients wrap reveal">
+    <h2 class="clients-title" data-i18n="clients.title">Alguns de nossos clientes</h2>
+    <div class="clients-grid">
+      <div class="client-logo-wrap"><img src="assets/logos/rumo.png" alt="Rumo" class="client-logo" /></div>
+      <div class="client-logo-wrap"><img src="assets/logos/mundial-mix.png" alt="Grupo Mundial Mix" class="client-logo" /></div>
+      <div class="client-logo-wrap"><img src="assets/logos/imperatriz.png" alt="Supermercados Imperatriz" class="client-logo" /></div>
+      <div class="client-logo-wrap"><img src="assets/logos/neogrid.png" alt="Neogrid" class="client-logo" /></div>
+      <div class="client-logo-wrap"><img src="assets/logos/accesstage.png" alt="Accesstage" class="client-logo" /></div>
+      <div class="client-logo-wrap"><img src="assets/logos/jeisys.png" alt="Jeisys" class="client-logo" /></div>
+    </div>
+  </section>
+
+  <!-- ===================== DOBRA 5 — ORG CHART ===================== -->
+  <section class="org wrap reveal" id="org">
+    <div class="org-head">
+      <span class="eyebrow" data-i18n="org.tag">Organograma Agêntico</span>
+      <h2 class="headline h-lg" data-i18n="org.title">Sua estrutura operacional <span class="strike">maior</span> <b>agêntica</b></h2>
+      <span class="deco-line"></span>
+    </div>
+
+    <div class="org-stage" id="orgStage">
+      <canvas class="org-canvas" id="orgCanvas"></canvas>
+    </div>
+
+    <div class="org-ticker">
+      <span class="pulse"></span>
+      <span data-i18n="org.ticker.pre">Operação ao vivo —</span>
+      <b id="orgTickerVal">0</b>
+      <span data-i18n="org.ticker.post">tarefas processadas hoje</span>
+    </div>
+  </section>
+
+  <!-- ===================== DOBRA 6 — SOLUTIONS ===================== -->
+  <section class="solutions section wrap reveal glow-tl" id="solutions">
+    <div class="sol-head">
+      <div class="sol-head-l">
+        <span class="eyebrow" data-i18n="sol.tag">Metodologia</span>
+        <h2 class="headline h-lg" data-i18n="sol.title">A jornada <b>agêntica</b></h2>
+        <span class="deco-line left"></span>
+      </div>
+      <div class="sol-controls" aria-hidden="false">
+        <button class="sol-arrow" data-dir="-1" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <button class="sol-arrow" data-dir="1" aria-label="Próximo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="sol-carousel">
+      <div class="sol-track" id="solTrack">
+        <article class="sol-card" data-motion="immersion">
+          <div class="sol-viz"><canvas class="sol-canvas"></canvas></div>
+          <div class="sol-card-body">
+            <div class="sol-top"><span class="num">01</span></div>
+            <h3 data-i18n="sol.1.name">Imersão Agêntica</h3>
+            <p data-i18n="sol.1.desc">Mapeamos onde a IA gera valor e o roteiro de implementação para o seu negócio.</p>
           </div>
+        </article>
+        <article class="sol-card" data-motion="sprint">
+          <div class="sol-viz"><canvas class="sol-canvas"></canvas></div>
+          <div class="sol-card-body">
+            <div class="sol-top"><span class="num">02</span></div>
+            <h3 data-i18n="sol.2.name">Sprint Agêntico</h3>
+            <p data-i18n="sol.2.desc">Desenvolvemos e implementamos agentes de IA para gerar vantagem competitiva e reduzir custos.</p>
+          </div>
+        </article>
+        <article class="sol-card" data-motion="operation">
+          <div class="sol-viz"><canvas class="sol-canvas"></canvas></div>
+          <div class="sol-card-body">
+            <div class="sol-top"><span class="num">03</span></div>
+            <h3 data-i18n="sol.3.name">Operação Agêntica</h3>
+            <p data-i18n="sol.3.desc">Escalamos IA em toda a empresa com arquitetura, governança e autonomia.</p>
+          </div>
+        </article>
+        <article class="sol-card" data-motion="culture">
+          <div class="sol-viz"><canvas class="sol-canvas"></canvas></div>
+          <div class="sol-card-body">
+            <div class="sol-top"><span class="num">04</span></div>
+            <h3 data-i18n="sol.4.name">Cultura Agêntica</h3>
+            <p data-i18n="sol.4.desc">Treinamos seu time para usar IA com autonomia e ganhar produtividade.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DOBRA 7 — CASES ===================== -->
+  <section class="cases section wrap reveal" id="cases">
+    <div class="sol-head cases-head">
+      <div class="cases-head-l">
+        <span class="eyebrow" data-i18n="cases.tag">Casos</span>
+        <h2 class="headline h-lg" data-i18n="cases.title">Quem já opera com estrutura <b>agêntica</b></h2>
+        <span class="deco-line left"></span>
+      </div>
+      <div class="cases-head-r">
+        <a href="casos.html" class="ins-all cases-all"><span data-i18n="cases.all">Ver todos</span><span class="ins-all-arrow" aria-hidden="true">→</span></a>
+        <div class="ins-controls cases-controls">
+          <button class="sol-arrow cases-arrow" data-dir="-1" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <button class="sol-arrow cases-arrow" data-dir="1" aria-label="Próximo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
         </div>
       </div>
-    </section></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <!-- GTM: delayed load after 3s or first user interaction -->
-    <script>
-      (function(){
-        var loaded=false;
-        function loadGTM(){
-          if(loaded)return;loaded=true;
-          window.dataLayer=window.dataLayer||[];
-          window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-          var j=document.createElement('script');j.async=true;
-          j.src='https://www.googletagmanager.com/gtm.js?id=GTM-PPF26W8Q';
-          document.head.appendChild(j);
-        }
-        setTimeout(loadGTM,3000);
-        ['scroll','click','touchstart','keydown'].forEach(function(e){
-          document.addEventListener(e,loadGTM,{once:true,passive:true});
-        });
-      })();
-    </script>
-    <!-- Hotjar: delayed load after 3s or first user interaction -->
-    <script>
-      (function(){
-        var loaded=false;
-        function loadHotjar(){
-          if(loaded)return;loaded=true;
-          (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:6541641,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-        }
-        setTimeout(loadHotjar,3000);
-        ['scroll','click','touchstart','keydown'].forEach(function(e){
-          document.addEventListener(e,loadHotjar,{once:true,passive:true});
-        });
-      })();
-    </script>
-  </body>
+    </div>
+    <div class="case-cards">
+      <a class="ccard" href="casos.html#jeisys">
+        <div class="ccard-img">
+          <image-slot id="jeisys-photo" class="ccard-slot" shape="rect" src="assets/foto-jeisys.jpg" placeholder="Arraste uma foto da Jeisys"></image-slot>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-name">Jeisys</div>
+          <div class="ccard-tag" data-i18n="cases.1.sector">Indústria Global</div>
+          <div class="ccard-metric" data-i18n="je.metric">49 processos automatizados</div>
+          <div class="ccard-metric-sub" data-i18n="cases.1.metric.sub">suporte e marketing agênticos</div>
+        </div>
+      </a>
+      <a class="ccard" href="casos.html#smartrisk">
+        <div class="ccard-img ccard-img--logo">
+          <img class="ccard-logo" src="assets/logos/smartrisk-trim.png" alt="SmartRisk" />
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-name">SmartRisk</div>
+          <div class="ccard-tag" data-i18n="sr.sector">Logística</div>
+          <div class="ccard-metric" data-i18n="sr.metric">Monitoramento 24/7</div>
+          <div class="ccard-metric-sub" data-i18n="sr.metric.sub">Triagem autônoma de frota</div>
+        </div>
+      </a>
+      <a class="ccard" href="casos.html#uny">
+        <div class="ccard-img ccard-img--logo">
+          <img class="ccard-logo" src="assets/logos/uny-trim.png" alt="Unymus" />
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-name">Unymus</div>
+          <div class="ccard-tag" data-i18n="un.sector">Serviços Financeiros</div>
+          <div class="ccard-metric" data-i18n="un.metric">Cobrança 100% autônoma</div>
+          <div class="ccard-metric-sub" data-i18n="un.metric.sub">recuperação de receita de inadimplentes</div>
+        </div>
+      </a>
+      <a class="ccard" href="casos.html#fialdini">
+        <div class="ccard-img ccard-img--logo">
+          <img class="ccard-logo ccard-logo--sq" src="assets/logos/fialdini-trim.png" alt="Fialdini Advogados" />
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-name">Fialdini</div>
+          <div class="ccard-tag" data-i18n="fl.sector">Jurídico</div>
+          <div class="ccard-metric" data-i18n="fl.metric">Classificação autônoma</div>
+          <div class="ccard-metric-sub" data-i18n="fl.metric.sub">triagem e distribuição de processos jurídicos</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== DOBRA 8 — FINAL CTA (OUTLIER) ===================== -->
+  <section class="final wrap reveal" id="final">
+    <div class="final-outlier">
+      <div class="final-copy">
+        <h2 class="headline h-lg" data-i18n="final.title">Seja uma <b>Organização Agêntica</b></h2>
+        <p class="lede" data-i18n="final.sub">Confie em quem te guia da forma correta pela transformação.</p>
+        <div class="final-ctas">
+          <a href="mailto:contato@daltonlab.ai" class="btn btn-primary" data-i18n="final.cta1">Fale com um especialista</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DOBRA 9 — INSIGHTS ===================== -->
+  <section class="insights section wrap reveal glow-tl" id="insights">
+    <div class="ins-head">
+      <div class="l">
+        <span class="eyebrow" data-i18n="ins.tag">Conteúdos</span>
+        <a href="insights.html" class="ins-all"><span data-i18n="ins.all">Ver todos</span><span class="ins-all-arrow" aria-hidden="true">→</span></a>
+      </div>
+      <div class="ins-controls">
+        <button class="sol-arrow ins-arrow" data-dir="-1" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <button class="sol-arrow ins-arrow" data-dir="1" aria-label="Próximo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="ins-grid">
+      <a class="ins-card" href="https://www.cnnbrasil.com.br/infra/ia-promete-reduzir-custos-e-acelerar-projetos-em-infraestrutura/" target="_blank" rel="noopener">
+        <div class="i-art i-art--cover"><img src="assets/media/cnn-preview.png" alt="CNN Brasil" /></div>
+        <div class="i-body">
+          <div class="i-meta"><span class="i-type" data-i18n="ins.m1.type">Mídia</span><span class="sep"></span><span data-i18n="ins.m1.date">Mai 2026</span></div>
+          <div class="i-title" data-i18n="ins.m1.title">IA promete reduzir custos e acelerar projetos em infraestrutura</div>
+          <div class="i-src" data-i18n="ins.m1.src">CNN Brasil</div>
+        </div>
+      </a>
+      <a class="ins-card" href="https://veja.abril.com.br/coluna/radar-economico/o-aporte-de-um-socio-do-atacadista-mundial-mix-em-uma-startup-de-ia/" target="_blank" rel="noopener">
+        <div class="i-art i-art--cover"><img src="assets/media/veja-preview.webp" alt="Veja Negócios" /></div>
+        <div class="i-body">
+          <div class="i-meta"><span class="i-type" data-i18n="ins.m2.type">Mídia</span><span class="sep"></span><span data-i18n="ins.m2.date">Fev 2026</span></div>
+          <div class="i-title" data-i18n="ins.m2.title">O aporte de um sócio do atacadista Mundial Mix em uma startup de IA</div>
+          <div class="i-src" data-i18n="ins.m2.src">Veja Negócios</div>
+        </div>
+      </a>
+      <a class="ins-card" href="insights.html#paradoxo-ia-marketing">
+        <div class="i-art art-1"></div>
+        <div class="i-body">
+          <div class="i-meta"><span class="i-type" data-i18n="ins.1.type">Artigo</span><span class="sep"></span><span data-i18n="ins.1.date">Mai 2026</span></div>
+          <div class="i-title" data-i18n="ins.1.title">O Paradoxo da IA no Marketing: a tecnologia está em todo lugar, menos nos resultados</div>
+          <div class="i-src" data-i18n="ins.1.src">Dalton Lab</div>
+        </div>
+      </a>
+      <a class="ins-card" href="insights.html#individuos-produtivos">
+        <div class="i-art art-2"></div>
+        <div class="i-body">
+          <div class="i-meta"><span class="i-type" data-i18n="ins.2.type">Artigo</span><span class="sep"></span><span data-i18n="ins.2.date">Mai 2026</span></div>
+          <div class="i-title" data-i18n="ins.2.title">Indivíduos produtivos não fazem empresas produtivas</div>
+          <div class="i-src" data-i18n="ins.2.src">Dalton Lab</div>
+        </div>
+      </a>
+      <a class="ins-card" href="insights.html#roteiro-ceo">
+        <div class="i-art art-3"></div>
+        <div class="i-body">
+          <div class="i-meta"><span class="i-type" data-i18n="ins.3.type">Artigo</span><span class="sep"></span><span data-i18n="ins.3.date">Mai 2026</span></div>
+          <div class="i-title" data-i18n="ins.3.title">Da intenção à execução: o roteiro do CEO para a transformação agêntica</div>
+          <div class="i-src" data-i18n="ins.3.src">Dalton Lab</div>
+        </div>
+      </a>
+      <a class="ins-card" href="insights.html#iniciativas-ia-retorno">
+        <div class="i-art art-4"></div>
+        <div class="i-body">
+          <div class="i-meta"><span class="i-type" data-i18n="ins.4.type">Artigo</span><span class="sep"></span><span data-i18n="ins.4.date">Abr 2026</span></div>
+          <div class="i-title" data-i18n="ins.4.title">Por que a maioria das iniciativas de IA não gera retorno</div>
+          <div class="i-src" data-i18n="ins.4.src">Dalton Lab</div>
+        </div>
+      </a>
+      <a class="ins-card" href="insights.html#organizacao-agentica-ruptura">
+        <div class="i-art art-1"></div>
+        <div class="i-body">
+          <div class="i-meta"><span class="i-type" data-i18n="ins.5.type">Artigo</span><span class="sep"></span><span data-i18n="ins.5.date">Abr 2026</span></div>
+          <div class="i-title" data-i18n="ins.5.title">Organização Agêntica: a ruptura estrutural que define a próxima era da produtividade</div>
+          <div class="i-src" data-i18n="ins.5.src">Dalton Lab</div>
+        </div>
+      </a>
+      <a class="ins-card" href="insights.html#ai-last-not-first">
+        <div class="i-art art-2"></div>
+        <div class="i-body">
+          <div class="i-meta"><span class="i-type" data-i18n="ins.6.type">Artigo</span><span class="sep"></span><span data-i18n="ins.6.date">Jun 2026</span></div>
+          <div class="i-title" data-i18n="ins.6.title">AI Last, Not First: por que a ordem da transformação importa</div>
+          <div class="i-src" data-i18n="ins.6.src">Dalton Lab</div>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" id="about">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/dalton-lab-logo.png" alt="Dalton Lab" class="brand-logo" /></a>
+    <p class="footer-copy" data-i18n="footer.rights">© 2026 Dalton Lab. Todos os direitos reservados.</p>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/company/dalton-lab/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a href="https://youtube.com/@dalton_lab?si=mOfQCKAmASA4TKYB" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      </a>
+      <a href="https://open.spotify.com/show/4fnDNmjCB0EQzT7HlmCUr4?si=932194c816404620" target="_blank" rel="noopener" aria-label="Spotify">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.32a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.59 11.66 1.34.36.22.47.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 0 1-.55-1.8c4.37-1.33 9.79-.68 13.5 1.6.44.27.58.85.31 1.29zm.13-3.4C15.73 8.4 8.86 8.18 5.16 9.3a1.12 1.12 0 1 1-.65-2.15c4.25-1.29 11.83-1.04 16.5 1.73a1.12 1.12 0 1 1-1.15 1.93l.24-.05z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/daltonlab.ai?igsh=MW84MHo5dW91ZDA1ag==" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.73 3.73 0 0 1-1.38-.9c-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.95c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.17.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.17 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.17-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.41-2.19a3.63 3.63 0 0 0-.88-1.35 3.63 3.63 0 0 0-1.35-.88c-.42-.17-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 3.32a4.57 4.57 0 1 1 0 9.14 4.57 4.57 0 0 1 0-9.14zm0 7.54a2.97 2.97 0 1 0 0-5.94 2.97 2.97 0 0 0 0 5.94zm5.82-7.74a1.07 1.07 0 1 1-2.14 0 1.07 1.07 0 0 1 2.14 0z"/></svg>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      <nav class="footer-legal">
+        <a href="privacidade.html" data-i18n="footer.privacy">Política de Privacidade</a>
+        <a href="termos.html" data-i18n="footer.cookies">Termos de Uso</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div id="tweaks-root"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/image-slot.js"></script>
+<script src="js/orgchart.js"></script>
+<script src="js/hero-merge.js"></script>
+<script src="js/sol-motion.js"></script>
+<script src="js/cta-outlier.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Tweaks (React + Babel) -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks.jsx"></script>
+</body>
 </html>

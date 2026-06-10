@@ -113,7 +113,6 @@ export default function FinalCTASection() {
           display: flex;
           align-items: flex-start;
           isolation: isolate;
-          min-height: 360px;
         }
         .dl-final-copy { position: relative; z-index: 2; max-width: 100%; }
         .dl-final-ctas {

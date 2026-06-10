@@ -106,9 +106,10 @@ export default function CasesSection() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 800,
-                letterSpacing: '-0.03em',
-                lineHeight: 1.04,
-                fontSize: 'clamp(1.75rem, 6vw, 3.4rem)',
+                letterSpacing: '-0.035em',
+                lineHeight: 1.03,
+                fontSize: 'clamp(2.2rem, 8vw, 3.4rem)',
+                textWrap: 'balance',
                 marginTop: 16,
               }}
             >

@@ -548,7 +548,7 @@ export default function AgenticOrgChart({
       </div>
 
       {/* keyframes for the ticker pulse (scoped, no global CSS dependency) */}
-      <style>{`@keyframes orgTickerBlink { 0%,100%{opacity:1} 50%{opacity:.25} }`}</style>
+      <style>{`@keyframes orgTickerBlink { 0%,100%{opacity:1} 50%{opacity:.25} } @media (max-width: 640px){ .org-ticker-live{ display:none !important; } }`}</style>
     </div>
   );
 }

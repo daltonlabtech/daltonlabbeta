@@ -24,7 +24,7 @@ const QuemSomos = () => {
   }, [t]);
 
   return (
-    <div className="redesign-scope" style={{ background: "var(--bg)", minHeight: "100vh", color: "var(--text)" }}>
+    <div className="redesign-scope" style={{ background: "transparent", minHeight: "100vh", color: "var(--text)" }}>
       {/* Estilos escopados: fade dos painéis + grids responsivos (media queries não cabem em inline style) */}
       <style>{`
         .qs-panel-anim { animation: qsFade .45s ease both; }

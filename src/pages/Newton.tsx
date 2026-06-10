@@ -72,7 +72,7 @@ const Newton = () => {
   return (
     <div
       className="redesign-scope flex flex-col"
-      style={{ background: 'var(--bg)', minHeight: '100vh', color: 'var(--text)' }}
+      style={{ background: 'transparent', minHeight: '100vh', color: 'var(--text)' }}
     >
       <SiteHeader />
 

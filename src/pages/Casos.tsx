@@ -26,7 +26,7 @@ const Casos = () => {
   }, [t]);
 
   return (
-    <div className="redesign-scope" style={{ background: "var(--bg)", minHeight: "100vh", color: "var(--text)" }}>
+    <div className="redesign-scope" style={{ background: "transparent", minHeight: "100vh", color: "var(--text)" }}>
       <style>{`
         .cases-grid {
           display: grid;
@@ -149,7 +149,7 @@ const Casos = () => {
         }}
       >
         <span className="eyebrow">{t("cases.tag", "Casos")}</span>
-        <h1 className="headline" style={{ marginTop: 12 }}>
+        <h1 className="headline h-xl" style={{ marginTop: 12 }}>
           <Trans i18nKey="casos.title" components={{ b: <b /> }} />
         </h1>
 

@@ -36,7 +36,7 @@ const CasoDetalhe = () => {
   ];
 
   return (
-    <div className="redesign-scope" style={{ background: "var(--bg)", minHeight: "100vh", color: "var(--text)" }}>
+    <div className="redesign-scope" style={{ background: "transparent", minHeight: "100vh", color: "var(--text)" }}>
       <style>{`
         .redesign-scope .cr-tagcase { align-self: flex-start; display: inline-flex; align-items: center; padding: 5px 12px; margin-bottom: 18px; border: 1px solid var(--border-navy); border-radius: 999px; font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); }
 
@@ -77,8 +77,9 @@ const CasoDetalhe = () => {
 
         .redesign-scope .cr-q { margin: 40px 0; padding-left: 22px; border-left: 2px solid var(--cyan); font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: clamp(1.35rem, 5vw, 1.75rem); line-height: 1.3; color: var(--text); text-wrap: balance; }
 
-        .redesign-scope .cr-cta { margin-top: 24px; padding: clamp(28px, 5vw, 42px); border: 1px solid var(--border-navy); border-radius: var(--navy-radius); text-align: center; background: radial-gradient(90% 120% at 50% 0%, rgba(76,184,232,0.09), transparent 60%), var(--surface); }
-        .redesign-scope .cr-cta h2 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; font-size: clamp(1.4rem, 3.2vw, 1.9rem); color: var(--text); margin-bottom: 18px; text-wrap: balance; }
+        .redesign-scope .cr-cta { margin-top: 24px; padding: 28px; border: 1px solid var(--border-navy); border-radius: 16px; text-align: center; background: var(--surface); }
+        .redesign-scope .cr-cta h2 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.04; font-size: clamp(1.4rem, 3.2vw, 1.9rem); color: var(--text); margin-bottom: 18px; text-wrap: balance; }
+        .redesign-scope .cr-cta h2 b { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--cyan); -webkit-text-fill-color: var(--cyan); }
       `}</style>
 
       <SiteHeader />

@@ -18,7 +18,7 @@ const Artigo = () => {
   }, [article?.title, slug])
 
   return (
-    <div className="redesign-scope" style={{ minHeight: '100vh', background: 'var(--bg)' }}>
+    <div className="redesign-scope" style={{ minHeight: '100vh', background: 'transparent' }}>
       <SiteHeader />
       <main>
         <InsightsReader slug={slug} />

@@ -30,7 +30,7 @@ const TermosDeUso = () => {
   return (
     <div
       className="redesign-scope"
-      style={{ background: "var(--bg)", minHeight: "100vh", color: "var(--text)" }}
+      style={{ background: "transparent", minHeight: "100vh", color: "var(--text)" }}
     >
       <SiteHeader />
 

@@ -63,7 +63,7 @@ const Index = () => {
   return (
     <div
       className="redesign-scope min-h-screen"
-      style={{ background: 'var(--bg, #0A1628)', color: 'var(--text, #FFFFFF)' }}
+      style={{ background: 'transparent', color: 'var(--text, #FFFFFF)' }}
     >
       <SiteHeader />
       {/* overflow-x: clip (não 'hidden') — 'hidden' força overflow-y a computar como

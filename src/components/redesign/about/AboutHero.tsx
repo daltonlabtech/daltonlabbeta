@@ -97,38 +97,6 @@ export default function AboutHero({ activeTab, onTabChange }: AboutHeroProps) {
             pointerEvents: 'none',
           }}
         />
-        <div
-          style={{
-            position: 'absolute',
-            left: 14,
-            bottom: 14,
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            padding: '8px 13px',
-            borderRadius: 999,
-            background: 'rgba(6,13,26,0.62)',
-            border: '1px solid var(--border-navy)',
-            backdropFilter: 'blur(8px)',
-            WebkitBackdropFilter: 'blur(8px)',
-            fontFamily: 'var(--font-mono)',
-            fontSize: 11,
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            color: 'var(--text)',
-          }}
-        >
-          <span
-            style={{
-              width: 7,
-              height: 7,
-              borderRadius: '50%',
-              background: 'var(--cyan)',
-              boxShadow: '0 0 10px var(--cyan)',
-            }}
-          />
-          {t('qs.photo.badge', 'Operação 24/7 · 4 continentes')}
-        </div>
       </div>
 
       {/* Tabs */}

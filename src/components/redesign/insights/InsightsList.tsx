@@ -4,17 +4,19 @@ import { useArticles } from '@/hooks/useSanity';
 import SearchBar from './SearchBar';
 import Tabs, { InsightKind } from './Tabs';
 import ArticleRow, { ArticleListItem } from './ArticleRow';
+import ContentRow from './ContentRow';
+import { MEDIA, INSIGHTS, L, insightTs } from '@/data/insightsContent';
 
 /**
  * Hub de insights — porta `.ins-index` do original.
- * Hero "Mídia, artigos e insights" + SearchBar + Tabs + lista filtrada de `useArticles`.
+ * Hero "Mídia, artigos e insights" + SearchBar + Tabs + lista filtrada.
  *
- * Schema: o tipo `article` do Sanity não tem campo de categoria/tipo, então
- * apenas a tab "Artigos" é populável. Ela inicia ativa; "Mídia" e "Insights"
- * ficam visíveis porém inertes (ver Tabs.tsx).
+ * Artigos vêm do Sanity (`useArticles`). Mídia e Insights são conteúdo estático
+ * (`src/data/insightsContent.ts`), portado da referência. As três abas ficam ativas.
  */
 export default function InsightsList() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language?.startsWith('pt') ? 'pt' : 'en';
   const { data: articles = [], isLoading } = useArticles() as {
     data?: ArticleListItem[];
     isLoading: boolean;
@@ -22,13 +24,94 @@ export default function InsightsList() {
   const [activeKind, setActiveKind] = useState<InsightKind>('article');
   const [term, setTerm] = useState('');
 
-  const shown = useMemo(() => {
-    const list = activeKind === 'article' ? articles : [];
-    if (!term) return list;
-    return list.filter((a) =>
+  const shownArticles = useMemo(() => {
+    if (!term) return articles;
+    return articles.filter((a) =>
       `${a.title ?? ''} ${a.author ?? ''}`.toLowerCase().includes(term),
     );
-  }, [articles, activeKind, term]);
+  }, [articles, term]);
+
+  const shownMedia = useMemo(() => {
+    if (!term) return MEDIA;
+    return MEDIA.filter((m) =>
+      `${L(m.title, lang)} ${L(m.source, lang)}`.toLowerCase().includes(term),
+    );
+  }, [term, lang]);
+
+  const shownInsights = useMemo(() => {
+    const sorted = [...INSIGHTS].sort((a, b) => insightTs(b.date) - insightTs(a.date));
+    if (!term) return sorted;
+    return sorted.filter((i) =>
+      `${L(i.title, lang)} ${L(i.cat, lang)} ${L(i.dek, lang)}`.toLowerCase().includes(term),
+    );
+  }, [term, lang]);
+
+  const emptyText = (
+    <p
+      style={{
+        color: 'var(--muted-navy)',
+        padding: '40px 0',
+        fontFamily: 'var(--font-mono)',
+        fontSize: 13,
+      }}
+    >
+      {t('insp.empty', 'Nada encontrado.')}
+    </p>
+  );
+
+  const renderList = () => {
+    if (activeKind === 'article') {
+      if (isLoading) {
+        return (
+          <p
+            style={{
+              color: 'var(--muted-navy)',
+              padding: '40px 0',
+              fontFamily: 'var(--font-mono)',
+              fontSize: 13,
+            }}
+          >
+            {t('insp.loading', 'Carregando…')}
+          </p>
+        );
+      }
+      if (!shownArticles.length) return emptyText;
+      return shownArticles.map((a, i) => (
+        <ArticleRow
+          key={a._id ?? a.slug?.current ?? i}
+          article={a}
+          isLast={i === shownArticles.length - 1}
+        />
+      ));
+    }
+
+    if (activeKind === 'media') {
+      if (!shownMedia.length) return emptyText;
+      return shownMedia.map((m, i) => (
+        <ContentRow
+          key={m.id}
+          date={L(m.date, lang)}
+          title={L(m.title, lang)}
+          byline={L(m.source, lang)}
+          href={m.url}
+          isLast={i === shownMedia.length - 1}
+        />
+      ));
+    }
+
+    // insight
+    if (!shownInsights.length) return emptyText;
+    return shownInsights.map((ins, i) => (
+      <ContentRow
+        key={ins.id}
+        date={L(ins.date, lang)}
+        title={L(ins.title, lang)}
+        byline={`${ins.author.name} · ${L(ins.author.role, lang)}`}
+        to={`/artigos/insight/${ins.id}`}
+        isLast={i === shownInsights.length - 1}
+      />
+    ));
+  };
 
   return (
     <div className="ins-index">
@@ -64,7 +147,7 @@ export default function InsightsList() {
 
           <SearchBar onChange={setTerm} />
 
-          <Tabs active={activeKind} onChange={setActiveKind} enabled={['article']} />
+          <Tabs active={activeKind} onChange={setActiveKind} enabled={['media', 'article', 'insight']} />
         </div>
       </section>
 
@@ -77,39 +160,7 @@ export default function InsightsList() {
           boxSizing: 'border-box',
         }}
       >
-        <div style={{ display: 'flex', flexDirection: 'column', marginTop: 8 }}>
-          {isLoading ? (
-            <p
-              style={{
-                color: 'var(--muted-navy)',
-                padding: '40px 0',
-                fontFamily: 'var(--font-mono)',
-                fontSize: 13,
-              }}
-            >
-              {t('insp.loading', 'Carregando…')}
-            </p>
-          ) : shown.length ? (
-            shown.map((a, i) => (
-              <ArticleRow
-                key={a._id ?? a.slug?.current ?? i}
-                article={a}
-                isLast={i === shown.length - 1}
-              />
-            ))
-          ) : (
-            <p
-              style={{
-                color: 'var(--muted-navy)',
-                padding: '40px 0',
-                fontFamily: 'var(--font-mono)',
-                fontSize: 13,
-              }}
-            >
-              {t('insp.empty', 'Nada encontrado.')}
-            </p>
-          )}
-        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', marginTop: 8 }}>{renderList()}</div>
       </section>
     </div>
   );

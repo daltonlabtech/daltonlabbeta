@@ -225,6 +225,18 @@ body.no-motion .strike::after { animation: none; transform: scaleX(1); }
     @apply bg-background text-foreground font-inter antialiased;
   }
 
+  /* Backdrop de gradiente radial ancorado na viewport — portado do styles.css
+     da referência (body::before). As páginas .redesign-scope ficam transparentes
+     para este glow aparecer atrás do conteúdo. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(ellipse at 50% 45%, #1A3A5C 0%, #0A1628 55%, #060D1A 100%);
+    pointer-events: none;
+  }
+
   /* Focus styles for accessibility - visible keyboard focus */
   :focus-visible {
     outline: 3px solid hsl(var(--dalton-blue));
@@ -299,6 +311,40 @@ body.no-motion .strike::after { animation: none; transform: scaleX(1); }
   .glass-card {
     @apply bg-white/5 border border-white/10 rounded-2xl backdrop-blur-xl;
     box-shadow: var(--shadow-card);
+  }
+
+  /* Pill CTA — portado do styles.css da referência (.btn / .btn-primary) */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    padding: 15px 26px; border-radius: 100px;
+    font-size: 15px; font-weight: 600; letter-spacing: -0.01em; min-height: 48px;
+    white-space: nowrap;
+    transition: transform .3s var(--ease), background .3s var(--ease),
+                border-color .3s var(--ease), color .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .btn:active { transform: scale(.97); }
+  .btn-primary { background: var(--cyan); color: var(--accent-ink); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(76,184,232,0.38); }
+
+  /* Headlines — portado do styles.css da referência (.headline / .h-xl / .h-lg).
+     Os headers da home passam style inline (que sobrescreve isto); páginas que usam
+     só a classe (ex.: /casos) dependem destas regras. */
+  .headline {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+  .h-xl { font-size: clamp(2.2rem, 8vw, 5rem); }
+  .h-lg { font-size: clamp(1.75rem, 6vw, 3.4rem); }
+  .headline b {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.005em;
+    color: var(--cyan);
+    -webkit-text-fill-color: var(--cyan);
   }
 
   /* CTA Button */

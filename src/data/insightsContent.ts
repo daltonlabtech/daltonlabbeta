@@ -69,6 +69,86 @@ const RODRIGO: InsightAuthor = {
    ============================================================ */
 export const MEDIA: MediaItem[] = [
   {
+    id: 'websummit-pitch-winner',
+    source: t('Web Summit Rio', 'Web Summit Rio'),
+    date: t('11 jun 2026', 'Jun 11, 2026'),
+    url: 'https://rio.websummit.com/pt-br/blog/news/dalton-pitch-winner-web-summit-rio-2026/',
+    title: t(
+      'A empresa brasileira Dalton Lab venceu o PITCH na Web Summit Rio 2026 com uma IA que muda a forma como trabalhamos',
+      'Brazilian company Dalton Lab won the PITCH at Web Summit Rio 2026 with an AI that changes the way we work',
+    ),
+  },
+  {
+    id: 'gazeta-paulistana-pitch',
+    source: t('Gazeta Paulistana', 'Gazeta Paulistana'),
+    date: t('11 jun 2026', 'Jun 11, 2026'),
+    url: 'https://gazetapaulistana.com.br/startup-brasileira-vence-competicao-de-pitches-do-web-summit-rio-e-ganha-destaque-internacional/',
+    title: t(
+      'Startup brasileira vence competição de pitches do Web Summit Rio e ganha destaque internacional',
+      'Brazilian startup wins Web Summit Rio pitch competition and gains international spotlight',
+    ),
+  },
+  {
+    id: 'gazeta-corporativa-pitch',
+    source: t('Gazeta Corporativa', 'Gazeta Corporativa'),
+    date: t('11 jun 2026', 'Jun 11, 2026'),
+    url: 'https://gazetacorporativa.com.br/startup-brasileira-vence-competicao-de-pitches-do-web-summit-rio-e-ganha-destaque-internacional/',
+    title: t(
+      'Startup brasileira vence competição de pitches do Web Summit Rio e ganha destaque internacional',
+      'Brazilian startup wins Web Summit Rio pitch competition and gains international spotlight',
+    ),
+  },
+  {
+    id: 'brasil-em-folhas-pitch',
+    source: t('Brasil em Folhas', 'Brasil em Folhas'),
+    date: t('11 jun 2026', 'Jun 11, 2026'),
+    url: 'https://www.brasilemfolhas.com.br/2026/06/startup-brasileira-dalton-lab-vence-pitch-do-web-summit-rio-2026/',
+    title: t(
+      'Startup brasileira Dalton Lab vence Pitch do Web Summit Rio 2026',
+      'Brazilian startup Dalton Lab wins the Web Summit Rio 2026 Pitch',
+    ),
+  },
+  {
+    id: 'pegn-pitch-vencedora',
+    source: t('Pequenas Empresas Grandes Negócios', 'Pequenas Empresas Grandes Negócios'),
+    date: t('11 jun 2026', 'Jun 11, 2026'),
+    url: 'https://revistapegn.globo.com/web-summit-rio/noticia/2026/06/dalton-lab-e-a-vencedora-do-pitch-no-web-summit-rio-2026.ghtml',
+    title: t(
+      'Dalton Lab é a vencedora do PITCH no Web Summit Rio 2026',
+      'Dalton Lab is the winner of the PITCH at Web Summit Rio 2026',
+    ),
+  },
+  {
+    id: 'oglobo-pitch-vence',
+    source: t('O Globo', 'O Globo'),
+    date: t('11 jun 2026', 'Jun 11, 2026'),
+    url: 'https://oglobo.globo.com/google/amp/rio/web-summit-rio/noticia/2026/06/11/startup-brasileira-dalton-vence-pitch-do-web-summit-rio-2026.ghtml',
+    title: t(
+      'Startup brasileira Dalton Lab vence Pitch do Web Summit Rio 2026',
+      'Brazilian startup Dalton Lab wins the Web Summit Rio 2026 Pitch',
+    ),
+  },
+  {
+    id: 'canaltech-ia-websummit',
+    source: t('Canaltech', 'Canaltech'),
+    date: t('jun 2026', 'Jun 2026'),
+    url: 'https://canaltech.com.br/mercado/ia-domina-o-web-summit-rio-2026-veja-os-destaques-do-evento/',
+    title: t(
+      'IA domina o Web Summit Rio 2026: veja os destaques do evento',
+      'AI dominates Web Summit Rio 2026: see the highlights of the event',
+    ),
+  },
+  {
+    id: 'nextbigidea-pitch-vencedor',
+    source: t('The Next Big Idea', 'The Next Big Idea'),
+    date: t('jun 2026', 'Jun 2026'),
+    url: 'https://thenextbigidea.pt/dalton-lab-o-pitch-vencedor-do-web-summit-rio-2026/',
+    title: t(
+      'Dalton Lab, o pitch vencedor do Web Summit Rio 2026',
+      'Dalton Lab, the winning pitch of Web Summit Rio 2026',
+    ),
+  },
+  {
     id: 'cnn-ia-infraestrutura',
     source: t('CNN Brasil', 'CNN Brasil'),
     date: t('16 mai 2026', 'May 16, 2026'),
@@ -89,6 +169,33 @@ export const MEDIA: MediaItem[] = [
     ),
   },
 ];
+
+/* ============================================================
+   PRESS_HIGHLIGHTS — as 4 matérias do Web Summit Rio em destaque na home
+   (cards abaixo do vídeo + início do carrossel de Conteúdos). Derivado de
+   MEDIA para manter título/fonte/URL como fonte única e bilíngue; só
+   acrescenta a foto do evento de cada matéria.
+   ============================================================ */
+export interface PressHighlight {
+  src: string;
+  img: string;
+  href: string;
+  title: Bi;
+}
+
+const HIGHLIGHT_IMG: Record<string, string> = {
+  'websummit-pitch-winner': '/novo/assets/media/websummit-1.jpg',
+  'brasil-em-folhas-pitch': '/novo/assets/media/websummit-2.avif',
+  'pegn-pitch-vencedora': '/novo/assets/media/websummit-3.jpg',
+  'oglobo-pitch-vence': '/novo/assets/media/websummit-4.jpeg',
+};
+
+export const PRESS_HIGHLIGHTS: PressHighlight[] = Object.keys(HIGHLIGHT_IMG)
+  .map((id) => {
+    const m = MEDIA.find((item) => item.id === id);
+    return m ? { src: m.source.en, img: HIGHLIGHT_IMG[id], href: m.url, title: m.title } : null;
+  })
+  .filter((h): h is PressHighlight => h !== null);
 
 /* ============================================================
    INSIGHTS — posts do time (leitor próprio em /artigos/insight/:id)

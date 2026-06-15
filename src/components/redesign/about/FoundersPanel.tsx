@@ -13,6 +13,8 @@ export default function FoundersPanel() {
       index: '01',
       name: 'Rodrigo Spínola',
       photo: '/novo/assets/team/rodrigo-sm.jpg',
+      linkedin: 'https://www.linkedin.com/in/orodrigospinola/',
+      instagram: 'https://www.instagram.com/orodrigospinola',
       role: t('qs.fo.1.role', 'Fundador e CEO'),
       bio: t(
         'qs.fo.1.bio',
@@ -23,6 +25,8 @@ export default function FoundersPanel() {
       index: '02',
       name: 'Marcelo Ramos',
       photo: '/novo/assets/team/marcelo-sm.jpg',
+      linkedin: 'https://www.linkedin.com/in/marceloramossa/',
+      instagram: 'https://www.instagram.com/marceloramos.ia',
       role: t('qs.fo.2.role', 'Fundador e COO'),
       bio: t(
         'qs.fo.2.bio',
@@ -33,6 +37,8 @@ export default function FoundersPanel() {
       index: '03',
       name: 'Julio Lohn',
       photo: '/novo/assets/team/julio-sm.jpg',
+      linkedin: 'https://www.linkedin.com/in/julio-cesar-lohn-6b63b231/',
+      instagram: 'https://www.instagram.com/julioclohn',
       role: t('qs.fo.3.role', 'Sócio-conselheiro'),
       bio: t(
         'qs.fo.3.bio',

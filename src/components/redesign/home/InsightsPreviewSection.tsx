@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useArticles } from '@/hooks/useSanity';
+import { L, PRESS_HIGHLIGHTS, type Bi } from '@/data/insightsContent';
 
 function useReveal<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
@@ -40,20 +41,34 @@ interface SanityArticle {
 
 interface MediaCard {
   href: string;
-  img: string;
+  img?: string;
+  art?: string;
   type: string;
   date: string;
-  title: string;
+  title: Bi;
   src: string;
 }
 
 const MEDIA_CARDS: MediaCard[] = [
+  ...PRESS_HIGHLIGHTS.map(
+    (p): MediaCard => ({
+      href: p.href,
+      img: p.img,
+      type: 'Mídia',
+      date: 'Jun 2026',
+      title: p.title,
+      src: p.src,
+    })
+  ),
   {
     href: 'https://www.cnnbrasil.com.br/infra/ia-promete-reduzir-custos-e-acelerar-projetos-em-infraestrutura/',
     img: '/novo/assets/media/cnn-preview.png',
     type: 'Mídia',
     date: 'Mai 2026',
-    title: 'IA promete reduzir custos e acelerar projetos em infraestrutura',
+    title: {
+      pt: 'IA promete reduzir custos e acelerar projetos em infraestrutura',
+      en: 'AI promises to cut costs and accelerate infrastructure projects',
+    },
     src: 'CNN Brasil',
   },
   {
@@ -61,7 +76,10 @@ const MEDIA_CARDS: MediaCard[] = [
     img: '/novo/assets/media/veja-preview.webp',
     type: 'Mídia',
     date: 'Fev 2026',
-    title: 'O aporte de um sócio do atacadista Mundial Mix em uma startup de IA',
+    title: {
+      pt: 'O aporte de um sócio do atacadista Mundial Mix em uma startup de IA',
+      en: "A Mundial Mix partner's investment in an AI startup",
+    },
     src: 'Veja Negócios',
   },
 ];
@@ -214,10 +232,14 @@ export default function InsightsPreviewSection() {
         >
           {MEDIA_CARDS.map((m) => (
             <a key={m.href} className="dl-ins-card" href={m.href} target="_blank" rel="noopener noreferrer">
-              <div className="dl-i-art dl-i-art-cover">
-                <img src={m.img} alt={m.src} />
-              </div>
-              <Body type={m.type} date={m.date} title={m.title} src={m.src} />
+              {m.img ? (
+                <div className="dl-i-art dl-i-art-cover">
+                  <img src={m.img} alt={m.src} />
+                </div>
+              ) : (
+                <div className={`dl-i-art ${m.art ?? 'dl-art-1'}`} />
+              )}
+              <Body type={m.type} date={m.date} title={L(m.title, i18n.language)} src={m.src} />
             </a>
           ))}
 

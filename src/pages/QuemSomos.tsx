@@ -30,6 +30,8 @@ const QuemSomos = () => {
         .qs-panel-anim { animation: qsFade .45s ease both; }
         @keyframes qsFade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
         @media (prefers-reduced-motion: reduce) { .qs-panel-anim { animation: none; } }
+        .redesign-scope .founder-social { color: var(--text-dim); transition: color .3s; }
+        .redesign-scope .founder-social:hover { color: var(--cyan); }
         @media (min-width: 720px) {
           .redesign-scope .qs-stats { grid-template-columns: repeat(4, 1fr) !important; }
           .redesign-scope .qs-founders { display: grid !important; grid-template-columns: repeat(3, 1fr); align-items: stretch; }

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useArticles } from '@/hooks/useSanity';
+import { L, PRESS_HIGHLIGHTS, type Bi } from '@/data/insightsContent';
 
 function useReveal<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
@@ -44,49 +45,30 @@ interface MediaCard {
   art?: string;
   type: string;
   date: string;
-  title: string;
+  title: Bi;
   src: string;
 }
 
 const MEDIA_CARDS: MediaCard[] = [
-  {
-    href: 'https://rio.websummit.com/pt-br/blog/news/dalton-pitch-winner-web-summit-rio-2026/',
-    img: '/novo/assets/media/websummit-1.jpg',
-    type: 'Mídia',
-    date: 'Jun 2026',
-    title: 'A empresa brasileira Dalton Lab venceu o PITCH na Web Summit Rio 2026 com uma IA que muda a forma como trabalhamos',
-    src: 'Web Summit Rio',
-  },
-  {
-    href: 'https://www.brasilemfolhas.com.br/2026/06/startup-brasileira-dalton-lab-vence-pitch-do-web-summit-rio-2026/',
-    img: '/novo/assets/media/websummit-2.avif',
-    type: 'Mídia',
-    date: 'Jun 2026',
-    title: 'Startup brasileira Dalton Lab vence Pitch do Web Summit Rio 2026',
-    src: 'Brasil em Folhas',
-  },
-  {
-    href: 'https://revistapegn.globo.com/web-summit-rio/noticia/2026/06/dalton-lab-e-a-vencedora-do-pitch-no-web-summit-rio-2026.ghtml',
-    img: '/novo/assets/media/websummit-3.jpg',
-    type: 'Mídia',
-    date: 'Jun 2026',
-    title: 'Dalton Lab é a vencedora do PITCH no Web Summit Rio 2026',
-    src: 'Pequenas Empresas Grandes Negócios',
-  },
-  {
-    href: 'https://oglobo.globo.com/google/amp/rio/web-summit-rio/noticia/2026/06/11/startup-brasileira-dalton-vence-pitch-do-web-summit-rio-2026.ghtml',
-    img: '/novo/assets/media/websummit-4.jpeg',
-    type: 'Mídia',
-    date: 'Jun 2026',
-    title: 'Startup brasileira Dalton Lab vence Pitch do Web Summit Rio 2026',
-    src: 'O Globo',
-  },
+  ...PRESS_HIGHLIGHTS.map(
+    (p): MediaCard => ({
+      href: p.href,
+      img: p.img,
+      type: 'Mídia',
+      date: 'Jun 2026',
+      title: p.title,
+      src: p.src,
+    })
+  ),
   {
     href: 'https://www.cnnbrasil.com.br/infra/ia-promete-reduzir-custos-e-acelerar-projetos-em-infraestrutura/',
     img: '/novo/assets/media/cnn-preview.png',
     type: 'Mídia',
     date: 'Mai 2026',
-    title: 'IA promete reduzir custos e acelerar projetos em infraestrutura',
+    title: {
+      pt: 'IA promete reduzir custos e acelerar projetos em infraestrutura',
+      en: 'AI promises to cut costs and accelerate infrastructure projects',
+    },
     src: 'CNN Brasil',
   },
   {
@@ -94,7 +76,10 @@ const MEDIA_CARDS: MediaCard[] = [
     img: '/novo/assets/media/veja-preview.webp',
     type: 'Mídia',
     date: 'Fev 2026',
-    title: 'O aporte de um sócio do atacadista Mundial Mix em uma startup de IA',
+    title: {
+      pt: 'O aporte de um sócio do atacadista Mundial Mix em uma startup de IA',
+      en: "A Mundial Mix partner's investment in an AI startup",
+    },
     src: 'Veja Negócios',
   },
 ];
@@ -254,7 +239,7 @@ export default function InsightsPreviewSection() {
               ) : (
                 <div className={`dl-i-art ${m.art ?? 'dl-art-1'}`} />
               )}
-              <Body type={m.type} date={m.date} title={m.title} src={m.src} />
+              <Body type={m.type} date={m.date} title={L(m.title, i18n.language)} src={m.src} />
             </a>
           ))}
 

@@ -171,6 +171,33 @@ export const MEDIA: MediaItem[] = [
 ];
 
 /* ============================================================
+   PRESS_HIGHLIGHTS — as 4 matérias do Web Summit Rio em destaque na home
+   (cards abaixo do vídeo + início do carrossel de Conteúdos). Derivado de
+   MEDIA para manter título/fonte/URL como fonte única e bilíngue; só
+   acrescenta a foto do evento de cada matéria.
+   ============================================================ */
+export interface PressHighlight {
+  src: string;
+  img: string;
+  href: string;
+  title: Bi;
+}
+
+const HIGHLIGHT_IMG: Record<string, string> = {
+  'websummit-pitch-winner': '/novo/assets/media/websummit-1.jpg',
+  'brasil-em-folhas-pitch': '/novo/assets/media/websummit-2.avif',
+  'pegn-pitch-vencedora': '/novo/assets/media/websummit-3.jpg',
+  'oglobo-pitch-vence': '/novo/assets/media/websummit-4.jpeg',
+};
+
+export const PRESS_HIGHLIGHTS: PressHighlight[] = Object.keys(HIGHLIGHT_IMG)
+  .map((id) => {
+    const m = MEDIA.find((item) => item.id === id);
+    return m ? { src: m.source.en, img: HIGHLIGHT_IMG[id], href: m.url, title: m.title } : null;
+  })
+  .filter((h): h is PressHighlight => h !== null);
+
+/* ============================================================
    INSIGHTS — posts do time (leitor próprio em /artigos/insight/:id)
    ============================================================ */
 export const INSIGHTS: InsightItem[] = [

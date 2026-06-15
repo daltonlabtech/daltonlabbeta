@@ -1,35 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { L, PRESS_HIGHLIGHTS } from '@/data/insightsContent';
 
 const YT_ID = 'UH8qo-ZU5jI';
-
-/** Mídias em destaque exibidas como cards abaixo do vídeo do pitch. */
-const PRESS_CARDS = [
-  {
-    src: 'Web Summit Rio',
-    img: '/novo/assets/media/websummit-1.jpg',
-    title:
-      'A empresa brasileira Dalton Lab venceu o PITCH na Web Summit Rio 2026 com uma IA que muda a forma como trabalhamos',
-    href: 'https://rio.websummit.com/pt-br/blog/news/dalton-pitch-winner-web-summit-rio-2026/',
-  },
-  {
-    src: 'Brasil em Folhas',
-    img: '/novo/assets/media/websummit-2.avif',
-    title: 'Startup brasileira Dalton Lab vence Pitch do Web Summit Rio 2026',
-    href: 'https://www.brasilemfolhas.com.br/2026/06/startup-brasileira-dalton-lab-vence-pitch-do-web-summit-rio-2026/',
-  },
-  {
-    src: 'Pequenas Empresas Grandes Negócios',
-    img: '/novo/assets/media/websummit-3.jpg',
-    title: 'Dalton Lab é a vencedora do PITCH no Web Summit Rio 2026',
-    href: 'https://revistapegn.globo.com/web-summit-rio/noticia/2026/06/dalton-lab-e-a-vencedora-do-pitch-no-web-summit-rio-2026.ghtml',
-  },
-  {
-    src: 'O Globo',
-    img: '/novo/assets/media/websummit-4.jpeg',
-    title: 'Startup brasileira Dalton Lab vence Pitch do Web Summit Rio 2026',
-    href: 'https://oglobo.globo.com/google/amp/rio/web-summit-rio/noticia/2026/06/11/startup-brasileira-dalton-vence-pitch-do-web-summit-rio-2026.ghtml',
-  },
-];
 
 /** Hook de scroll-reveal local (porta `.reveal`/`.in` do main.js para React). */
 function useReveal<T extends HTMLElement>() {
@@ -61,8 +34,16 @@ function useReveal<T extends HTMLElement>() {
  * youtube-nocookie via estado React (sem manipular DOM, ao contrário do main.js).
  */
 export default function VideoBand() {
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+  const isPt = lang === 'pt';
   const ref = useReveal<HTMLElement>();
   const [playing, setPlaying] = useState(false);
+
+  const playLabel = isPt ? 'Reproduzir vídeo do pitch' : 'Play pitch video';
+  const videoTitle = isPt
+    ? 'Dalton Lab — Pitch vencedor do Web Summit Rio 2026'
+    : 'Dalton Lab — Winning pitch at Web Summit Rio 2026';
 
   return (
     <section
@@ -88,7 +69,7 @@ export default function VideoBand() {
             margin: '0 auto 28px',
           }}
         >
-          Dalton Lab é a{' '}
+          {isPt ? 'Dalton Lab é a ' : 'Dalton Lab is the '}
           <span
             style={{
               fontFamily: 'var(--font-serif)',
@@ -98,9 +79,9 @@ export default function VideoBand() {
               WebkitTextFillColor: 'var(--cyan)',
             }}
           >
-            vencedora
-          </span>{' '}
-          do PITCH no Web Summit Rio 2026
+            {isPt ? 'vencedora' : 'winner'}
+          </span>
+          {isPt ? ' do PITCH no Web Summit Rio 2026' : ' of the PITCH at Web Summit Rio 2026'}
         </h2>
 
         <div
@@ -138,7 +119,7 @@ export default function VideoBand() {
               />
               <button
                 type="button"
-                aria-label="Reproduzir vídeo institucional"
+                aria-label={playLabel}
                 className="group"
                 style={{
                   position: 'absolute',
@@ -178,7 +159,7 @@ export default function VideoBand() {
 
           {playing && (
             <iframe
-              title="Dalton Lab — Vídeo institucional"
+              title={videoTitle}
               src={`https://www.youtube-nocookie.com/embed/${YT_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -188,7 +169,7 @@ export default function VideoBand() {
         </div>
 
         <div className="press-cards">
-          {PRESS_CARDS.map((c) => (
+          {PRESS_HIGHLIGHTS.map((c) => (
             <a
               key={c.href}
               className="press-card"
@@ -201,9 +182,9 @@ export default function VideoBand() {
               </div>
               <div className="press-card-body">
                 <span className="press-card-src">{c.src}</span>
-                <span className="press-card-title">{c.title}</span>
+                <span className="press-card-title">{L(c.title, lang)}</span>
                 <span className="press-card-cta" aria-hidden="true">
-                  Ler matéria →
+                  {isPt ? 'Ler matéria →' : 'Read article →'}
                 </span>
               </div>
             </a>

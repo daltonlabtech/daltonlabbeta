@@ -1,6 +1,35 @@
 import { useEffect, useRef, useState } from 'react';
 
-const YT_ID = 'Xo4xvR7v0l4';
+const YT_ID = 'UH8qo-ZU5jI';
+
+/** Mídias em destaque exibidas como cards abaixo do vídeo do pitch. */
+const PRESS_CARDS = [
+  {
+    src: 'Web Summit Rio',
+    img: '/novo/assets/media/websummit-1.jpg',
+    title:
+      'A empresa brasileira Dalton Lab venceu o PITCH na Web Summit Rio 2026 com uma IA que muda a forma como trabalhamos',
+    href: 'https://rio.websummit.com/pt-br/blog/news/dalton-pitch-winner-web-summit-rio-2026/',
+  },
+  {
+    src: 'Brasil em Folhas',
+    img: '/novo/assets/media/websummit-2.avif',
+    title: 'Startup brasileira Dalton Lab vence Pitch do Web Summit Rio 2026',
+    href: 'https://www.brasilemfolhas.com.br/2026/06/startup-brasileira-dalton-lab-vence-pitch-do-web-summit-rio-2026/',
+  },
+  {
+    src: 'Pequenas Empresas Grandes Negócios',
+    img: '/novo/assets/media/websummit-3.jpg',
+    title: 'Dalton Lab é a vencedora do PITCH no Web Summit Rio 2026',
+    href: 'https://revistapegn.globo.com/web-summit-rio/noticia/2026/06/dalton-lab-e-a-vencedora-do-pitch-no-web-summit-rio-2026.ghtml',
+  },
+  {
+    src: 'O Globo',
+    img: '/novo/assets/media/websummit-4.jpeg',
+    title: 'Startup brasileira Dalton Lab vence Pitch do Web Summit Rio 2026',
+    href: 'https://oglobo.globo.com/google/amp/rio/web-summit-rio/noticia/2026/06/11/startup-brasileira-dalton-vence-pitch-do-web-summit-rio-2026.ghtml',
+  },
+];
 
 /** Hook de scroll-reveal local (porta `.reveal`/`.in` do main.js para React). */
 function useReveal<T extends HTMLElement>() {
@@ -45,6 +74,35 @@ export default function VideoBand() {
         className="mx-auto w-full px-6 lg:px-12"
         style={{ maxWidth: 'var(--navy-maxw, 1200px)', boxSizing: 'border-box' }}
       >
+        <h2
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontWeight: 800,
+            letterSpacing: '-0.035em',
+            lineHeight: 1.08,
+            fontSize: 'clamp(1.6rem, 5vw, 2.6rem)',
+            textWrap: 'balance',
+            textAlign: 'center',
+            color: 'var(--text)',
+            maxWidth: 820,
+            margin: '0 auto 28px',
+          }}
+        >
+          Dalton Lab é a{' '}
+          <span
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontWeight: 500,
+              fontStyle: 'italic',
+              color: 'var(--cyan)',
+              WebkitTextFillColor: 'var(--cyan)',
+            }}
+          >
+            vencedora
+          </span>{' '}
+          do PITCH no Web Summit Rio 2026
+        </h2>
+
         <div
           className="relative w-full overflow-hidden"
           style={{
@@ -128,7 +186,68 @@ export default function VideoBand() {
             />
           )}
         </div>
+
+        <div className="press-cards">
+          {PRESS_CARDS.map((c) => (
+            <a
+              key={c.href}
+              className="press-card"
+              href={c.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="press-card-img">
+                <img src={c.img} alt={c.src} loading="lazy" />
+              </div>
+              <div className="press-card-body">
+                <span className="press-card-src">{c.src}</span>
+                <span className="press-card-title">{c.title}</span>
+                <span className="press-card-cta" aria-hidden="true">
+                  Ler matéria →
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
+
+      <style>{`
+        .press-cards {
+          display: flex;
+          gap: 16px;
+          margin-top: 28px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          scroll-behavior: smooth;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          padding-bottom: 4px;
+        }
+        .press-cards::-webkit-scrollbar { display: none; }
+        .press-card {
+          flex: 0 0 82%;
+          scroll-snap-align: start;
+          display: flex;
+          flex-direction: column;
+          border: 1px solid var(--border-navy);
+          border-radius: 16px;
+          background: var(--surface);
+          overflow: hidden;
+          text-decoration: none;
+          color: inherit;
+          transition: transform .3s var(--ease, ease), border-color .3s, box-shadow .3s;
+        }
+        @media (min-width: 700px) { .press-card { flex: 0 0 calc((100% - 16px) / 2); } }
+        @media (min-width: 1000px) { .press-card { flex: 0 0 calc((100% - 48px) / 4); } }
+        .press-card:hover { transform: translateY(-3px); border-color: rgba(76,184,232,0.40); box-shadow: 0 20px 44px rgba(0,0,0,0.34); }
+        .press-card-img { height: 128px; flex: none; border-bottom: 1px solid var(--border-navy-2); background: #0b0b0b; overflow: hidden; }
+        .press-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+        .press-card-body { display: flex; flex-direction: column; gap: 12px; padding: 22px; flex: 1; }
+        .press-card-src { font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); }
+        .press-card-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1.25; color: var(--text); text-wrap: pretty; flex: 1; }
+        .press-card-cta { font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--text-dim); transition: transform .3s; }
+        .press-card:hover .press-card-cta { color: var(--cyan); }
+      `}</style>
     </section>
   );
 }

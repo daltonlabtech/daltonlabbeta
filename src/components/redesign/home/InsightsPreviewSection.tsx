@@ -40,7 +40,8 @@ interface SanityArticle {
 
 interface MediaCard {
   href: string;
-  img: string;
+  img?: string;
+  art?: string;
   type: string;
   date: string;
   title: string;
@@ -48,6 +49,38 @@ interface MediaCard {
 }
 
 const MEDIA_CARDS: MediaCard[] = [
+  {
+    href: 'https://rio.websummit.com/pt-br/blog/news/dalton-pitch-winner-web-summit-rio-2026/',
+    img: '/novo/assets/media/websummit-1.jpg',
+    type: 'Mídia',
+    date: 'Jun 2026',
+    title: 'A empresa brasileira Dalton Lab venceu o PITCH na Web Summit Rio 2026 com uma IA que muda a forma como trabalhamos',
+    src: 'Web Summit Rio',
+  },
+  {
+    href: 'https://www.brasilemfolhas.com.br/2026/06/startup-brasileira-dalton-lab-vence-pitch-do-web-summit-rio-2026/',
+    img: '/novo/assets/media/websummit-2.avif',
+    type: 'Mídia',
+    date: 'Jun 2026',
+    title: 'Startup brasileira Dalton Lab vence Pitch do Web Summit Rio 2026',
+    src: 'Brasil em Folhas',
+  },
+  {
+    href: 'https://revistapegn.globo.com/web-summit-rio/noticia/2026/06/dalton-lab-e-a-vencedora-do-pitch-no-web-summit-rio-2026.ghtml',
+    img: '/novo/assets/media/websummit-3.jpg',
+    type: 'Mídia',
+    date: 'Jun 2026',
+    title: 'Dalton Lab é a vencedora do PITCH no Web Summit Rio 2026',
+    src: 'Pequenas Empresas Grandes Negócios',
+  },
+  {
+    href: 'https://oglobo.globo.com/google/amp/rio/web-summit-rio/noticia/2026/06/11/startup-brasileira-dalton-vence-pitch-do-web-summit-rio-2026.ghtml',
+    img: '/novo/assets/media/websummit-4.jpeg',
+    type: 'Mídia',
+    date: 'Jun 2026',
+    title: 'Startup brasileira Dalton Lab vence Pitch do Web Summit Rio 2026',
+    src: 'O Globo',
+  },
   {
     href: 'https://www.cnnbrasil.com.br/infra/ia-promete-reduzir-custos-e-acelerar-projetos-em-infraestrutura/',
     img: '/novo/assets/media/cnn-preview.png',
@@ -214,9 +247,13 @@ export default function InsightsPreviewSection() {
         >
           {MEDIA_CARDS.map((m) => (
             <a key={m.href} className="dl-ins-card" href={m.href} target="_blank" rel="noopener noreferrer">
-              <div className="dl-i-art dl-i-art-cover">
-                <img src={m.img} alt={m.src} />
-              </div>
+              {m.img ? (
+                <div className="dl-i-art dl-i-art-cover">
+                  <img src={m.img} alt={m.src} />
+                </div>
+              ) : (
+                <div className={`dl-i-art ${m.art ?? 'dl-art-1'}`} />
+              )}
               <Body type={m.type} date={m.date} title={m.title} src={m.src} />
             </a>
           ))}

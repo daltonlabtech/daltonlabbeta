@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { trackPageView } from "@/lib/analytics";
+import Seo from "@/components/Seo";
 import SiteHeader from "@/components/redesign/shell/SiteHeader";
 import SiteFooter from "@/components/redesign/shell/SiteFooter";
 
@@ -23,7 +24,6 @@ const PoliticaPrivacidade = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    document.title = `${t('pp.title')} | Dalton Lab`;
     trackPageView('/politica-de-privacidade', 'Política de Privacidade');
   }, [t]);
 
@@ -32,6 +32,10 @@ const PoliticaPrivacidade = () => {
       className="redesign-scope"
       style={{ background: "transparent", minHeight: "100vh", color: "var(--text)" }}
     >
+      <Seo
+        title={`${t('pp.title')} | Dalton Lab`}
+        description={t('pages.politica.description')}
+      />
       <SiteHeader />
 
       <main

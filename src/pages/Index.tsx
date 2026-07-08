@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { trackPageView } from "@/lib/analytics";
+import Seo from "@/components/Seo";
 import SiteHeader from "@/components/redesign/shell/SiteHeader";
 import HeroSection from "@/components/redesign/home/HeroSection";
 import SkeletonSection from "@/components/ui/SkeletonSection";
@@ -32,12 +33,7 @@ const Index = () => {
   const location = useLocation();
 
   useEffect(() => {
-    document.title = t('pages.index.title');
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', t('pages.index.description'));
-    }
-    trackPageView(window.location.pathname, document.title);
+    trackPageView(window.location.pathname, t('pages.index.title'));
     const cleanup = prefetchSections();
     return cleanup;
   }, [t]);
@@ -65,6 +61,7 @@ const Index = () => {
       className="redesign-scope min-h-screen"
       style={{ background: 'transparent', color: 'var(--text, #FFFFFF)' }}
     >
+      <Seo title={t('pages.index.title')} description={t('pages.index.description')} />
       <SiteHeader />
       {/* overflow-x: clip (não 'hidden') — 'hidden' força overflow-y a computar como
           'auto', criando um scroll container aninhado (segundo scrollbar). 'clip' corta

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { trackPageView } from "@/lib/analytics";
+import Seo from "@/components/Seo";
 import SiteHeader from "@/components/redesign/shell/SiteHeader";
 import SiteFooter from "@/components/redesign/shell/SiteFooter";
 import AboutHero from "@/components/redesign/about/AboutHero";
@@ -14,17 +15,12 @@ const QuemSomos = () => {
   const [activeTab, setActiveTab] = useState<Tab>("company");
 
   useEffect(() => {
-    const pageTitle = t("pages.quemSomos.title");
-    document.title = pageTitle;
-    trackPageView("/quem-somos", pageTitle);
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", t("pages.quemSomos.description"));
-    }
+    trackPageView("/quem-somos", t("pages.quemSomos.title"));
   }, [t]);
 
   return (
     <div className="redesign-scope" style={{ background: "transparent", minHeight: "100vh", color: "var(--text)" }}>
+      <Seo title={t("pages.quemSomos.title")} description={t("pages.quemSomos.description")} />
       {/* Estilos escopados: fade dos painéis + grids responsivos (media queries não cabem em inline style) */}
       <style>{`
         .qs-panel-anim { animation: qsFade .45s ease both; }

@@ -10,6 +10,15 @@
     "startTransformation": "联系我们"
   },
   "pages": {
+    "casos": {
+      "title": "成功案例 | Dalton Lab – 智能体组织"
+    },
+    "politica": {
+      "description": "Dalton Lab 隐私政策：我们如何收集、使用和保护您的个人数据。"
+    },
+    "termos": {
+      "description": "Dalton Lab 使用条款：使用我们网站和服务的条件与规则。"
+    },
     "index": {
       "title": "Dalton Lab – 将您的企业转型为代理型组织",
       "description": "Dalton Lab通过定制AI代理将企业转型为代理型组织。诊断、AI优先流程、培训和技术助力规模化成果。"

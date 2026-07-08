@@ -1,18 +1,23 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
+import Seo from "@/components/Seo";
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    document.title = '404 - Página não encontrada | Dalton Lab';
     trackPageView(location.pathname, '404 - Página não encontrada');
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
   }, [location.pathname]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted">
+      <Seo
+        title="404 - Página não encontrada | Dalton Lab"
+        description="A página que você procura não foi encontrada. Volte para a home da Dalton Lab."
+        noindex
+      />
       <div className="text-center">
         <h1 className="mb-4 text-4xl font-bold">404</h1>
         <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>

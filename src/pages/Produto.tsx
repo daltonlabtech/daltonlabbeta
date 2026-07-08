@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
 import { useTranslation } from "react-i18next";
+import Seo from "@/components/Seo";
 import SiteHeader from "@/components/redesign/shell/SiteHeader";
 import SiteFooter from "@/components/redesign/shell/SiteFooter";
 import ProdutoHero from "@/components/redesign/produto/ProdutoHero";
@@ -13,13 +14,7 @@ const Produto = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const pageTitle = t('pages.produto.title');
-    document.title = pageTitle;
-    trackPageView('/produto', pageTitle);
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', t('pages.produto.description'));
-    }
+    trackPageView('/produto', t('pages.produto.title'));
   }, [t]);
 
   return (
@@ -27,6 +22,7 @@ const Produto = () => {
       className="redesign-scope"
       style={{ background: "transparent", minHeight: "100vh", color: "var(--text)" }}
     >
+      <Seo title={t('pages.produto.title')} description={t('pages.produto.description')} />
       <SiteHeader />
 
       <main id="top">

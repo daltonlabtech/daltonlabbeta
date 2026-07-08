@@ -10,6 +10,15 @@
     "startTransformation": "お問い合わせ"
   },
   "pages": {
+    "casos": {
+      "title": "導入事例 | Dalton Lab – エージェンティック組織"
+    },
+    "politica": {
+      "description": "Dalton Labのプライバシーポリシー：個人データの収集・利用・保護の方法をご説明します。"
+    },
+    "termos": {
+      "description": "Dalton Labの利用規約：当ウェブサイトおよびサービスの利用条件とルール。"
+    },
     "index": {
       "title": "Dalton Lab – 企業をエージェント型組織に変革",
       "description": "Dalton LabはカスタムのAIエージェントで企業をエージェント型組織に変革します。診断、AI優先プロセス、トレーニング、成果を拡大する技術。"

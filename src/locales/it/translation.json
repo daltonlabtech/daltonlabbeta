@@ -10,6 +10,15 @@
     "startTransformation": "Contattaci"
   },
   "pages": {
+    "casos": {
+      "title": "Casi di Successo | Dalton Lab – Organizzazioni Agentiche"
+    },
+    "politica": {
+      "description": "Informativa sulla Privacy di Dalton Lab: come raccogliamo, usiamo e proteggiamo i tuoi dati personali."
+    },
+    "termos": {
+      "description": "Termini di Utilizzo di Dalton Lab: condizioni e regole per l'uso del nostro sito e dei nostri servizi."
+    },
     "index": {
       "title": "Dalton Lab – Trasforma la tua Azienda in un'Organizzazione Agentica",
       "description": "Dalton Lab trasforma le aziende in organizzazioni agentiche con agenti IA su misura. Diagnosi, processi AI-first, formazione e tecnologia per scalare i risultati."

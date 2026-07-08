@@ -73,34 +73,39 @@ export function assertArticles(articles) {
   return articles
 }
 
+/** Render a single <url> entry. `loc` is XML-escaped here. */
+function urlEntry({ loc, lastmod, changefreq, priority }) {
+  return [
+    '  <url>',
+    `    <loc>${xmlEscape(loc)}</loc>`,
+    `    <lastmod>${lastmod}</lastmod>`,
+    `    <changefreq>${changefreq}</changefreq>`,
+    `    <priority>${priority}</priority>`,
+    '  </url>',
+  ].join('\n')
+}
+
 /** Build the full sitemap XML string. Pure + deterministic (given buildDate). */
 export function buildSitemap({ staticRoutes = STATIC_ROUTES, articles = [], buildDate = new Date() } = {}) {
   const buildLastmod = toIsoDate(buildDate)
 
-  const staticEntries = staticRoutes.map((route) => {
-    const loc = xmlEscape(`${SITE_URL}${route.path}`)
-    return [
-      '  <url>',
-      `    <loc>${loc}</loc>`,
-      `    <lastmod>${buildLastmod}</lastmod>`,
-      `    <changefreq>${route.changefreq}</changefreq>`,
-      `    <priority>${route.priority}</priority>`,
-      '  </url>',
-    ].join('\n')
-  })
+  const staticEntries = staticRoutes.map((route) =>
+    urlEntry({
+      loc: `${SITE_URL}${route.path}`,
+      lastmod: buildLastmod,
+      changefreq: route.changefreq,
+      priority: route.priority,
+    }),
+  )
 
-  const articleEntries = articles.map((article) => {
-    const loc = xmlEscape(`${SITE_URL}/artigos/${article.slug}`)
-    const lastmod = toIsoDate(article._updatedAt || article.publishedAt)
-    return [
-      '  <url>',
-      `    <loc>${loc}</loc>`,
-      `    <lastmod>${lastmod}</lastmod>`,
-      '    <changefreq>monthly</changefreq>',
-      '    <priority>0.6</priority>',
-      '  </url>',
-    ].join('\n')
-  })
+  const articleEntries = articles.map((article) =>
+    urlEntry({
+      loc: `${SITE_URL}/artigos/${article.slug}`,
+      lastmod: toIsoDate(article._updatedAt || article.publishedAt),
+      changefreq: 'monthly',
+      priority: '0.6',
+    }),
+  )
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -135,7 +140,6 @@ async function main() {
     console.error('[generate-sitemap] Sanity query FAILED — build aborted, existing sitemap left untouched.')
     console.error(err?.message || err)
     process.exit(1)
-    return
   }
 
   try {
@@ -144,7 +148,6 @@ async function main() {
     console.error(`[generate-sitemap] ${err.message}`)
     console.error('[generate-sitemap] Build aborted, existing sitemap left untouched.')
     process.exit(1)
-    return
   }
 
   const xml = buildSitemap({ articles, buildDate: new Date() })

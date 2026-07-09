@@ -17,7 +17,7 @@ import { writeFileSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
-export const SITE_URL = 'https://daltonlab.ai'
+export const SITE_URL = 'https://www.daltonlab.ai'
 
 /**
  * Public static routes to include.

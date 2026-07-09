@@ -2,6 +2,7 @@ import { Fragment, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { trackPageView } from "@/lib/analytics";
+import Seo from "@/components/Seo";
 import SiteHeader from "@/components/redesign/shell/SiteHeader";
 import SiteFooter from "@/components/redesign/shell/SiteFooter";
 import { getCase } from "@/data/cases";
@@ -14,14 +15,9 @@ const CasoDetalhe = () => {
 
   useEffect(() => {
     if (c) {
-      document.title = `${c.name} — Dalton Lab`;
-      trackPageView(`/casos/${slug}`, document.title);
-      const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute("content", c.summary[lang]);
-      }
+      trackPageView(`/casos/${slug}`, `${c.name} — Dalton Lab`);
     }
-  }, [slug, c, lang]);
+  }, [slug, c]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -37,6 +33,7 @@ const CasoDetalhe = () => {
 
   return (
     <div className="redesign-scope" style={{ background: "transparent", minHeight: "100vh", color: "var(--text)" }}>
+      <Seo title={`${c.name} — Dalton Lab`} description={c.summary[lang]} type="article" />
       <style>{`
         .redesign-scope .cr-tagcase { align-self: flex-start; display: inline-flex; align-items: center; padding: 5px 12px; margin-bottom: 18px; border: 1px solid var(--border-navy); border-radius: 999px; font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); }
 

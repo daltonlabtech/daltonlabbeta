@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import { trackPageView } from "@/lib/analytics";
+import Seo from "@/components/Seo";
 import SiteHeader from "@/components/redesign/shell/SiteHeader";
 import SiteFooter from "@/components/redesign/shell/SiteFooter";
 import { CASES } from "@/data/cases";
@@ -16,17 +17,15 @@ const Casos = () => {
   const { t, i18n } = useTranslation();
   const lang = (i18n.language || "pt").startsWith("en") ? "en" : "pt";
 
+  const pageTitle = t("pages.casos.title", "Casos — Dalton Lab");
+
   useEffect(() => {
-    document.title = "Casos — Dalton Lab";
-    trackPageView("/casos", document.title);
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", t("casos.lede"));
-    }
-  }, [t]);
+    trackPageView("/casos", pageTitle);
+  }, [pageTitle]);
 
   return (
     <div className="redesign-scope" style={{ background: "transparent", minHeight: "100vh", color: "var(--text)" }}>
+      <Seo title={pageTitle} description={t("casos.lede")} />
       <style>{`
         .cases-grid {
           display: grid;

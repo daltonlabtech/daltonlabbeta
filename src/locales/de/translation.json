@@ -10,6 +10,15 @@
     "startTransformation": "Kontaktieren Sie uns"
   },
   "pages": {
+    "casos": {
+      "title": "Fallstudien | Dalton Lab – Agentische Organisationen"
+    },
+    "politica": {
+      "description": "Datenschutzrichtlinie von Dalton Lab: wie wir Ihre personenbezogenen Daten erheben, nutzen und schützen."
+    },
+    "termos": {
+      "description": "Nutzungsbedingungen von Dalton Lab: die Bedingungen und Regeln für die Nutzung unserer Website und Dienste."
+    },
     "index": {
       "title": "Dalton Lab – Transformieren Sie Ihr Unternehmen in eine Agentische Organisation",
       "description": "Dalton Lab verwandelt Unternehmen in agentische Organisationen mit maßgeschneiderten KI-Agenten. Diagnose, AI-first-Prozesse, Schulung und Technologie zur Skalierung von Ergebnissen."

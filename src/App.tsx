@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { trackPageView } from "@/lib/analytics";
 
@@ -102,37 +103,39 @@ const PageLoader = () => (
 );
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <PageViewTracker />
-        <ChunkErrorBoundary>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/produto" element={<Produto />} />
-              
-              <Route path="/newton" element={<Newton />} />
-              <Route path="/quem-somos" element={<QuemSomos />} />
-              <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
-              <Route path="/termos-de-uso" element={<TermosDeUso />} />
-              <Route path="/artigos" element={<Artigos />} />
-              <Route path="/artigos/insight/:id" element={<ArtigoInsight />} />
-              <Route path="/artigos/:slug" element={<Artigo />} />
-              <Route path="/casos" element={<Casos />} />
-              <Route path="/casos/:slug" element={<CasoDetalhe />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </ChunkErrorBoundary>
-        
-        <SpeedInsights />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <PageViewTracker />
+          <ChunkErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/produto" element={<Produto />} />
+
+                <Route path="/newton" element={<Newton />} />
+                <Route path="/quem-somos" element={<QuemSomos />} />
+                <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
+                <Route path="/termos-de-uso" element={<TermosDeUso />} />
+                <Route path="/artigos" element={<Artigos />} />
+                <Route path="/artigos/insight/:id" element={<ArtigoInsight />} />
+                <Route path="/artigos/:slug" element={<Artigo />} />
+                <Route path="/casos" element={<Casos />} />
+                <Route path="/casos/:slug" element={<CasoDetalhe />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </ChunkErrorBoundary>
+
+          <SpeedInsights />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

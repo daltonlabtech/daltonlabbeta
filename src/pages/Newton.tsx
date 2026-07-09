@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { trackPageView } from '@/lib/analytics';
+import Seo from '@/components/Seo';
 import SiteHeader from '@/components/redesign/shell/SiteHeader';
 import SiteFooter from '@/components/redesign/shell/SiteFooter';
 import chatAvatar from '@/assets/d-branco.webp';
@@ -31,7 +32,6 @@ const Newton = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = 'Newton | Dalton Lab';
     trackPageView('/newton', 'Newton');
   }, []);
 
@@ -74,6 +74,10 @@ const Newton = () => {
       className="redesign-scope flex flex-col"
       style={{ background: 'transparent', minHeight: '100vh', color: 'var(--text)' }}
     >
+      <Seo
+        title="Newton | Dalton Lab"
+        description="Converse com o Newton, o agente de IA da Dalton Lab, e monte um plano personalizado para alavancar receita, reduzir custos e escalar a margem da sua empresa."
+      />
       <SiteHeader />
 
       {/* Chat Area */}

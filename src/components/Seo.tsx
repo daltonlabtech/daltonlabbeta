@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
  * host — nunca para URLs de preview da Vercel — para que os buscadores
  * consolidem os sinais no domínio correto.
  */
-export const SITE_URL = 'https://daltonlab.ai';
+export const SITE_URL = 'https://www.daltonlab.ai';
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 export interface SeoProps {

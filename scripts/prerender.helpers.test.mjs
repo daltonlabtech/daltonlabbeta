@@ -1,7 +1,17 @@
 // scripts/prerender.helpers.test.mjs
 import { describe, it, expect } from 'vitest'
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { resolve, dirname } from 'node:path'
 import { getPrerenderRoutes } from './generate-sitemap.mjs'
 import { outputPathForRoute, htmlHasContent } from './prerender.mjs'
+
+const pt = JSON.parse(
+  readFileSync(
+    resolve(dirname(fileURLToPath(import.meta.url)), '..', 'src/locales/pt/translation.json'),
+    'utf8',
+  ),
+)
 
 describe('getPrerenderRoutes', () => {
   it('inclui as rotas estáticas e um path por slug de artigo', () => {
@@ -37,10 +47,10 @@ describe('htmlHasContent', () => {
   it('aceita HTML com title e body', () => {
     expect(htmlHasContent('<html><head><title>Oi | Dalton Lab</title></head><body><main>texto</main></body></html>')).toBe(true)
   })
-  it('rejeita snapshot em estado de carregamento/erro (sentinela)', () => {
-    const loading = '<html><head><title>Dalton Lab</title></head><body><main>Carregando…</main></body></html>'
-    const notFound = '<html><head><title>Dalton Lab</title></head><body><main>Artigo não encontrado.</main></body></html>'
-    expect(htmlHasContent(loading)).toBe(false)
-    expect(htmlHasContent(notFound)).toBe(false)
+  it('rejeita snapshot em estado de carregamento/erro (sentinela da tradução pt)', () => {
+    const shell = (body) => `<html><head><title>Dalton Lab</title></head><body><main>${body}</main></body></html>`
+    expect(htmlHasContent(shell(pt.insp.loading))).toBe(false)
+    expect(htmlHasContent(shell(pt.insp.notfound))).toBe(false)
+    expect(htmlHasContent(shell(pt.insp.empty))).toBe(false)
   })
 })

@@ -2,7 +2,13 @@
 /**
  * Snapshot headless: serve dist/ localmente, visita cada rota com Chromium,
  * espera window.__PRERENDER_READY__ e grava dist/<rota>/index.html.
- * Guard-rail: se qualquer rota não render conteúdo válido, sai != 0.
+ *
+ * Prontidão em camadas (defense-in-depth, intencional): `networkidle` +
+ * `__PRERENDER_READY__` cobrem o caso comum, mas o flag é `true` tanto antes
+ * de a query começar quanto depois de terminar — não distingue os dois. A
+ * rede de segurança é o guard-rail de conteúdo (htmlHasContent): se o snapshot
+ * ainda mostra loading/erro (sentinela), o build FALHA em vez de publicar
+ * casco vazio. Um dos três precisa falhar para publicarmos lixo.
  *
  * Detalhes de integração (por que não é só "abrir a página"):
  *  - Idioma: força pt-BR setando localStorage['i18nextLng']='pt' antes do app
@@ -14,22 +20,25 @@
  *    self-contained (sem depender de config manual no dashboard do Sanity).
  */
 import { chromium } from '@playwright/test'
-import { createServer } from 'node:http'
-import { readFile, writeFile, mkdir } from 'node:fs/promises'
-import { existsSync } from 'node:fs'
-import { resolve, dirname, join, extname } from 'node:path'
+import { writeFile, mkdir } from 'node:fs/promises'
+import { existsSync, readFileSync } from 'node:fs'
+import { resolve, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { getPrerenderRoutes, fetchArticleSlugs } from './generate-sitemap.mjs'
+import { createApp } from '../server.mjs'
 
-const DIST = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'dist')
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
+const DIST = resolve(ROOT, 'dist')
 const PORT = 4173
-const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.ico': 'image/x-icon', '.woff2': 'font/woff2' }
 
 /**
- * Marcadores (i18n pt) de página que não terminou de carregar dados. Se o
- * snapshot ainda os contém, é casco vazio — falha o build em vez de publicar.
+ * Marcadores de página que não terminou de carregar dados, lidos da tradução
+ * pt (fonte única) — se o snapshot ainda os contém, é casco vazio e o build
+ * falha. Derivar da tradução evita divergir silenciosamente quando o texto
+ * visível muda.
  */
-export const EMPTY_SENTINELS = ['Artigo não encontrado.', 'Nada encontrado.', 'Carregando…']
+const pt = JSON.parse(readFileSync(resolve(ROOT, 'src/locales/pt/translation.json'), 'utf8'))
+export const EMPTY_SENTINELS = [pt.insp?.notfound, pt.insp?.empty, pt.insp?.loading].filter(Boolean)
 
 /** Caminho de saída (relativo a dist/) para uma rota. */
 export function outputPathForRoute(route) {
@@ -46,24 +55,6 @@ export function htmlHasContent(html) {
   const hasBody = /<(main|article)[\s>]/i.test(html) || /<body[^>]*>[\s\S]{200,}<\/body>/i.test(html)
   const isEmptyState = EMPTY_SENTINELS.some((s) => html.includes(s))
   return Boolean(title) && hasBody && !isEmptyState
-}
-
-/** Servidor estático mínimo do dist/ (SPA fallback para index.html). */
-function startStaticServer() {
-  const server = createServer(async (req, res) => {
-    const url = decodeURIComponent((req.url || '/').split('?')[0])
-    let filePath = join(DIST, url)
-    if (!extname(filePath)) filePath = join(DIST, 'index.html') // SPA fallback (pré-snapshot)
-    try {
-      const buf = await readFile(filePath)
-      res.setHeader('Content-Type', MIME[extname(filePath)] || 'application/octet-stream')
-      res.end(buf)
-    } catch {
-      res.statusCode = 404
-      res.end('not found')
-    }
-  })
-  return new Promise((res) => server.listen(PORT, () => res(server)))
 }
 
 /**
@@ -105,7 +96,12 @@ async function bypassSanityCors(context) {
 async function main() {
   const slugs = await fetchArticleSlugs() // herda o guard-rail (falha se Sanity cair/0 artigos)
   const routes = getPrerenderRoutes(slugs)
-  const server = await startStaticServer()
+  // Reusa o mesmo servidor do runtime (server.mjs) para o snapshot rodar no
+  // ambiente que produção serve. Antes do snapshot, todas as rotas caem no
+  // fallback SPA (index.html), que boota e renderiza a rota no cliente.
+  const server = await new Promise((res) => {
+    const s = createApp({ distDir: DIST }).listen(PORT, () => res(s))
+  })
   const browser = await chromium.launch()
   const context = await browser.newContext({ locale: 'pt-BR' })
   // Força pt-BR: localStorage é o 1º da ordem de detecção do i18n.

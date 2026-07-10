@@ -3,9 +3,10 @@ import { existsSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { dirname } from 'node:path'
+import { SITE_URL } from './shared/site.mjs'
 
-const APEX = 'daltonlab.ai'
-const WWW = 'https://www.daltonlab.ai'
+const WWW = SITE_URL // host canônico (fonte única em shared/site.mjs)
+const APEX = new URL(WWW).host.replace(/^www\./, '')
 
 export function createApp({ distDir }) {
   const app = express()

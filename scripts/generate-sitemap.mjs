@@ -16,8 +16,9 @@ import { createClient } from '@sanity/client'
 import { writeFileSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { SITE_URL } from '../shared/site.mjs'
 
-export const SITE_URL = 'https://www.daltonlab.ai'
+export { SITE_URL }
 
 /**
  * Public static routes to include.

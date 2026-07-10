@@ -3,12 +3,13 @@
  * Snapshot headless: serve dist/ localmente, visita cada rota com Chromium,
  * espera window.__PRERENDER_READY__ e grava dist/<rota>/index.html.
  *
- * Prontidão em camadas (defense-in-depth, intencional): `networkidle` +
- * `__PRERENDER_READY__` cobrem o caso comum, mas o flag é `true` tanto antes
- * de a query começar quanto depois de terminar — não distingue os dois. A
- * rede de segurança é o guard-rail de conteúdo (htmlHasContent): se o snapshot
- * ainda mostra loading/erro (sentinela), o build FALHA em vez de publicar
- * casco vazio. Um dos três precisa falhar para publicarmos lixo.
+ * Prontidão (determinística, route-specific): como o servidor serve o fallback
+ * SPA (a home renderizada) para rotas ainda não gravadas, o `__PRERENDER_READY__`
+ * sozinho não basta — ele fica `true` também antes de o React Router trocar de
+ * rota, e um snapshot cedo fotografaria a home (que passa no htmlHasContent).
+ * Por isso esperamos o canonical do <Seo> no DOM bater com SITE_URL+route (prova
+ * que ESTA rota renderizou) E o flag de pronto (dados resolvidos). Se não bater
+ * no tempo, a rota é FALHA e o build falha — nunca grava casco/home errada.
  *
  * Detalhes de integração (por que não é só "abrir a página"):
  *  - Idioma: força pt-BR setando localStorage['i18nextLng']='pt' antes do app
@@ -26,6 +27,7 @@ import { resolve, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { getPrerenderRoutes, fetchArticleSlugs } from './generate-sitemap.mjs'
 import { createApp } from '../server.mjs'
+import { SITE_URL } from '../shared/site.mjs'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = resolve(ROOT, 'dist')
@@ -118,9 +120,26 @@ async function main() {
 
   for (const route of routes) {
     await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: 'networkidle' })
-    await page.waitForFunction('window.__PRERENDER_READY__ === true', { timeout: 15000 }).catch(() => {})
+    // Sinal route-specific e determinístico: espera o React Router realmente
+    // renderizar ESTA rota (canonical do <Seo> == SITE_URL+route) E os dados
+    // resolverem (__PRERENDER_READY__). Sem isso, um snapshot cedo demais pode
+    // fotografar o fallback SPA (home) antes da troca de rota — que passaria no
+    // htmlHasContent (tem título/main) e gravaria a home no arquivo da rota.
+    // Se não bater no tempo, é FALHA (build falha alto, não grava casco).
+    let settled = true
+    await page
+      .waitForFunction(
+        (expected) =>
+          window.__PRERENDER_READY__ === true &&
+          document.querySelector('link[rel="canonical"]')?.getAttribute('href') === expected,
+        `${SITE_URL}${route}`,
+        { timeout: 15000 },
+      )
+      .catch(() => {
+        settled = false
+      })
     const html = '<!doctype html>\n' + (await page.content()).replace(/^<!doctype html>/i, '')
-    if (!htmlHasContent(html)) { failures.push(route); continue }
+    if (!settled || !htmlHasContent(html)) { failures.push(route); continue }
     const out = resolve(DIST, outputPathForRoute(route))
     if (!existsSync(dirname(out))) await mkdir(dirname(out), { recursive: true })
     await writeFile(out, html, 'utf8')

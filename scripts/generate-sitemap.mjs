@@ -159,6 +159,21 @@ async function main() {
   )
 }
 
+/** Slugs publicados, reusando a mesma query do sitemap. */
+export async function fetchArticleSlugs() {
+  const articles = await fetchArticles()
+  assertArticles(articles)
+  return articles.map((a) => a.slug)
+}
+
+/** Lista de paths a prerenderizar: rotas estáticas + 1 por artigo. */
+export function getPrerenderRoutes(slugs = []) {
+  return [
+    ...STATIC_ROUTES.map((r) => r.path),
+    ...slugs.map((slug) => `/artigos/${slug}`),
+  ]
+}
+
 // Only run when executed directly (not when imported by tests).
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   main()

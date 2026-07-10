@@ -37,4 +37,10 @@ describe('htmlHasContent', () => {
   it('aceita HTML com title e body', () => {
     expect(htmlHasContent('<html><head><title>Oi | Dalton Lab</title></head><body><main>texto</main></body></html>')).toBe(true)
   })
+  it('rejeita snapshot em estado de carregamento/erro (sentinela)', () => {
+    const loading = '<html><head><title>Dalton Lab</title></head><body><main>Carregando…</main></body></html>'
+    const notFound = '<html><head><title>Dalton Lab</title></head><body><main>Artigo não encontrado.</main></body></html>'
+    expect(htmlHasContent(loading)).toBe(false)
+    expect(htmlHasContent(notFound)).toBe(false)
+  })
 })

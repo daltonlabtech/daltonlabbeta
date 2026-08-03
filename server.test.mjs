@@ -61,3 +61,33 @@ describe('server', () => {
     expect(r.headers.location).toBe('https://www.daltonlab.ai/produto')
   })
 })
+
+/**
+ * Sintoma Railway: postbuild visita /produto antes do snapshot existir.
+ * Sem spaFallback → 404 → prerender falha. Com spaFallback → shell SPA (home).
+ */
+describe('server spaFallback (modo prerender)', () => {
+  let prerenderApp
+  let prodApp
+  beforeAll(() => {
+    const dist = mkdtempSync(join(tmpdir(), 'dist-pre-'))
+    writeFileSync(join(dist, 'index.html'), '<html><body>home</body></html>')
+    writeFileSync(join(dist, '404.html'), '<html><body>not found page</body></html>')
+    // Sem dist/produto/index.html — estado no meio do postbuild
+    prerenderApp = createApp({ distDir: dist, spaFallback: true })
+    prodApp = createApp({ distDir: dist })
+  })
+
+  it('com spaFallback: rota ainda sem snapshot serve shell (200 + home)', async () => {
+    const r = await request(prerenderApp).get('/produto')
+    expect(r.status).toBe(200)
+    expect(r.text).toContain('home')
+  })
+
+  it('sem spaFallback (prod): mesma rota sem snapshot continua 404', async () => {
+    const r = await request(prodApp).get('/produto')
+    expect(r.status).toBe(404)
+    expect(r.text).toContain('not found page')
+    expect(r.text).not.toContain('home')
+  })
+})

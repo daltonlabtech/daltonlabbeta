@@ -3,8 +3,8 @@
  * Snapshot headless: serve dist/ localmente, visita cada rota com Chromium,
  * espera window.__PRERENDER_READY__ e grava dist/<rota>/index.html.
  *
- * Prontidão (determinística, route-specific): como o servidor serve o fallback
- * SPA (a home renderizada) para rotas ainda não gravadas, o `__PRERENDER_READY__`
+ * Prontidão (determinística, route-specific): com spaFallback:true o servidor
+ * serve o shell SPA (home) para rotas ainda não gravadas. O `__PRERENDER_READY__`
  * sozinho não basta — ele fica `true` também antes de o React Router trocar de
  * rota, e um snapshot cedo fotografaria a home (que passa no htmlHasContent).
  * Por isso esperamos o canonical do <Seo> no DOM bater com SITE_URL+route (prova
@@ -98,11 +98,11 @@ async function bypassSanityCors(context) {
 async function main() {
   const slugs = await fetchArticleSlugs() // herda o guard-rail (falha se Sanity cair/0 artigos)
   const routes = getPrerenderRoutes(slugs)
-  // Reusa o mesmo servidor do runtime (server.mjs) para o snapshot rodar no
-  // ambiente que produção serve. Antes do snapshot, todas as rotas caem no
-  // fallback SPA (index.html), que boota e renderiza a rota no cliente.
+  // Reusa o mesmo servidor do runtime (server.mjs). Durante o snapshot as
+  // rotas ainda não têm arquivo em dist/ — spaFallback:true serve o shell SPA
+  // pra o Chromium renderizar. Em produção o default é spaFallback:false (404).
   const server = await new Promise((res) => {
-    const s = createApp({ distDir: DIST }).listen(PORT, () => res(s))
+    const s = createApp({ distDir: DIST, spaFallback: true }).listen(PORT, () => res(s))
   })
   const browser = await chromium.launch()
   const context = await browser.newContext({ locale: 'pt-BR' })

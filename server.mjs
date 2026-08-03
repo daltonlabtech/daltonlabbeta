@@ -33,7 +33,13 @@ const FALLBACK_404_HTML = `<!DOCTYPE html>
 </body>
 </html>`
 
-export function createApp({ distDir }) {
+/**
+ * @param {{ distDir: string, spaFallback?: boolean }} opts
+ * spaFallback: true só no postbuild/prerender — rotas ainda sem snapshot
+ * precisam do shell SPA pra o Chromium renderizar. Em produção (default false)
+ * path desconhecido vira HTTP 404 real.
+ */
+export function createApp({ distDir, spaFallback = false }) {
   const app = express()
 
   // 308 apex -> www (o host é dono do redirect; Cloudflare fica DNS-only)
@@ -70,12 +76,13 @@ export function createApp({ distDir }) {
       return res.sendFile(candidate)
     }
 
-    // Rotas client-only: shell SPA pra humano; crawlers devem respeitar noindex da página
-    if (isSpaOnlyRoute(clean)) {
+    // spaFallback (só prerender): shell pra rotas ainda sem snapshot.
+    // SPA-only (prod): shell pra humano; crawlers devem respeitar noindex da página.
+    if (spaFallback || isSpaOnlyRoute(clean)) {
       return res.sendFile(join(distDir, 'index.html'))
     }
 
-    // Rota desconhecida / legado: 404 real (mata soft 404 + identical title/meta)
+    // Produção: rota desconhecida / legado → 404 real
     const notFoundFile = join(distDir, '404.html')
     if (existsSync(notFoundFile)) {
       return res.status(404).sendFile(notFoundFile)

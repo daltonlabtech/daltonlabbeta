@@ -1,5 +1,4 @@
 import { lazy, Suspense, useEffect, Component, type ReactNode } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { trackPageView } from "@/lib/analytics";
+import { usePrerenderReady } from "@/lib/prerender-ready";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -94,6 +94,12 @@ const PageViewTracker = () => {
   return null;
 };
 
+// Signals to the prerenderer when the current route finished loading its data
+const PrerenderReady = () => {
+  usePrerenderReady();
+  return null;
+};
+
 // Page loader with logo and smooth animation
 const PageLoader = () => (
   <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-6 animate-fade-in">
@@ -110,6 +116,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <PageViewTracker />
+          <PrerenderReady />
           <ChunkErrorBoundary>
             <Suspense fallback={<PageLoader />}>
               <Routes>
@@ -130,8 +137,6 @@ const App = () => (
               </Routes>
             </Suspense>
           </ChunkErrorBoundary>
-
-          <SpeedInsights />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

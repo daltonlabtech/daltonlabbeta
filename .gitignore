@@ -33,3 +33,4 @@ docs/
 .claude/
 .playwright-cli/
 .superpowers/
+.vercel

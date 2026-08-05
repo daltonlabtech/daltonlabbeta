@@ -33,7 +33,7 @@ export default function FounderCard({ index, name, photo, role, bio, linkedin, i
         transition: 'border-color .4s, transform .4s, box-shadow .4s',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = 'rgba(76,184,232,0.4)';
+        e.currentTarget.style.borderColor = 'rgba(143,230,255,0.4)';
         e.currentTarget.style.transform = 'translateY(-3px)';
         e.currentTarget.style.boxShadow = '0 22px 48px rgba(0,0,0,0.34)';
         const img = e.currentTarget.querySelector('img');

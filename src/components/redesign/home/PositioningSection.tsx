@@ -49,7 +49,7 @@ export default function PositioningSection() {
           height: '60vw',
           maxWidth: 640,
           maxHeight: 640,
-          background: 'radial-gradient(circle at 30% 30%, rgba(76,184,232,0.16), transparent 62%)',
+          background: 'radial-gradient(circle at 30% 30%, rgba(143,230,255,0.16), transparent 62%)',
           filter: 'blur(40px)',
           zIndex: -1,
         }}

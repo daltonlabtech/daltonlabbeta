@@ -190,7 +190,7 @@ export default function InsightsPreviewSection() {
           height: '60vw',
           maxWidth: 640,
           maxHeight: 640,
-          background: 'radial-gradient(circle at 30% 30%, rgba(76,184,232,0.16), transparent 62%)',
+          background: 'radial-gradient(circle at 30% 30%, rgba(143,230,255,0.16), transparent 62%)',
           filter: 'blur(40px)',
           zIndex: -1,
         }}
@@ -286,14 +286,14 @@ export default function InsightsPreviewSection() {
           overflow: hidden;
           transition: transform .4s var(--ease), border-color .4s;
         }
-        .dl-ins-card:hover { transform: translateY(-3px); border-color: rgba(76,184,232,0.38); }
+        .dl-ins-card:hover { transform: translateY(-3px); border-color: rgba(143,230,255,0.38); }
         .dl-i-art { height: 128px; position: relative; flex: none; border-bottom: 1px solid var(--border-navy-2); }
         .dl-i-art-cover { background: #0b0b0b; }
         .dl-i-art-cover img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-        .dl-art-1 { background: radial-gradient(120% 140% at 0% 0%, #3A9FD5 0%, transparent 45%), radial-gradient(120% 140% at 100% 100%, #5EC8F0 0%, transparent 50%), #0A1628; }
-        .dl-art-2 { background: radial-gradient(130% 130% at 100% 0%, #4CB8E8 0%, transparent 48%), radial-gradient(120% 120% at 0% 100%, #1A3A5C 0%, transparent 52%), #0A1628; }
-        .dl-art-3 { background: radial-gradient(120% 130% at 20% 20%, #5EC8F0 0%, transparent 42%), radial-gradient(120% 130% at 90% 90%, #3A9FD5 0%, transparent 46%), radial-gradient(140% 140% at 60% 0%, #1A3A5C 0%, transparent 55%), #0A1628; }
-        .dl-art-4 { background: radial-gradient(120% 140% at 50% 0%, #1A3A5C 0%, transparent 55%), radial-gradient(120% 120% at 100% 100%, #4CB8E8 0%, transparent 42%), #060D1A; }
+        .dl-art-1 { background: radial-gradient(120% 140% at 0% 0%, #8fe6ff 0%, transparent 45%), radial-gradient(120% 140% at 100% 100%, #8fe6ff 0%, transparent 50%), #0A1628; }
+        .dl-art-2 { background: radial-gradient(130% 130% at 100% 0%, #8fe6ff 0%, transparent 48%), radial-gradient(120% 120% at 0% 100%, #1A3A5C 0%, transparent 52%), #0A1628; }
+        .dl-art-3 { background: radial-gradient(120% 130% at 20% 20%, #8fe6ff 0%, transparent 42%), radial-gradient(120% 130% at 90% 90%, #8fe6ff 0%, transparent 46%), radial-gradient(140% 140% at 60% 0%, #1A3A5C 0%, transparent 55%), #0A1628; }
+        .dl-art-4 { background: radial-gradient(120% 140% at 50% 0%, #1A3A5C 0%, transparent 55%), radial-gradient(120% 120% at 100% 100%, #8fe6ff 0%, transparent 42%), #060D1A; }
         .dl-i-body { display: flex; flex-direction: column; gap: 18px; padding: 22px; flex: 1; min-height: 150px; }
         .dl-i-meta { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-navy); }
         .dl-i-meta .dl-i-type { color: var(--cyan); }
@@ -346,7 +346,7 @@ function ArrowBtn({ dir, disabled, onClick, label }: { dir: number; disabled: bo
         if (disabled) return;
         e.currentTarget.style.borderColor = 'var(--cyan)';
         e.currentTarget.style.color = 'var(--cyan)';
-        e.currentTarget.style.background = 'rgba(76,184,232,0.08)';
+        e.currentTarget.style.background = 'rgba(143,230,255,0.08)';
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.borderColor = 'var(--border-navy)';

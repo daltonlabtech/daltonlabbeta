@@ -28,7 +28,7 @@ function RelatedItem({ article }: { article: RelatedArticle }) {
       style={{
         display: 'block',
         textDecoration: 'none',
-        border: hover ? '1px solid rgba(76,184,232,0.4)' : '1px solid var(--border-navy)',
+        border: hover ? '1px solid rgba(143,230,255,0.4)' : '1px solid var(--border-navy)',
         borderRadius: 'var(--navy-radius)',
         background: 'var(--surface)',
         padding: 18,

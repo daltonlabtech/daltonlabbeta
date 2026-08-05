@@ -20,7 +20,7 @@ import { useCanvasAnimation } from '@/hooks/useCanvasAnimation';
    ============================================================ */
 
 const C = {
-  cyan: [76, 184, 232],
+  cyan: [143,230,255],
   soft: [94, 200, 240],
   deep: [58, 159, 213],
   dim: [142, 180, 212],

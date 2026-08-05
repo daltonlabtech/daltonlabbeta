@@ -28,7 +28,7 @@ import { useCanvasAnimation } from '@/hooks/useCanvasAnimation';
 
 /* ---- palette (vibrant agents on navy) — verbatim from source ---- */
 const COL = {
-  blue: [76, 184, 232],
+  blue: [143,230,255],
   sky: [56, 189, 250],
   teal: [22, 196, 178],
   green: [42, 200, 140],

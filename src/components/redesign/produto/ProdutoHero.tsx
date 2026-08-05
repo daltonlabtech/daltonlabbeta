@@ -54,7 +54,7 @@ export default function ProdutoHero() {
           height: '60vw',
           maxWidth: 680,
           maxHeight: 680,
-          background: 'radial-gradient(circle at 70% 30%, rgba(76,184,232,0.16), transparent 62%)',
+          background: 'radial-gradient(circle at 70% 30%, rgba(143,230,255,0.16), transparent 62%)',
           filter: 'blur(40px)',
           zIndex: -1,
         }}
@@ -121,7 +121,7 @@ export default function ProdutoHero() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 12px 34px rgba(76,184,232,0.38)';
+              e.currentTarget.style.boxShadow = '0 12px 34px rgba(143,230,255,0.38)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = '';

@@ -171,7 +171,7 @@ export default function SolutionsCarousel() {
           height: '60vw',
           maxWidth: 640,
           maxHeight: 640,
-          background: 'radial-gradient(circle at 30% 30%, rgba(76,184,232,0.16), transparent 62%)',
+          background: 'radial-gradient(circle at 30% 30%, rgba(143,230,255,0.16), transparent 62%)',
           filter: 'blur(40px)',
           zIndex: -1,
         }}
@@ -295,12 +295,12 @@ export default function SolutionsCarousel() {
           overflow: hidden;
           transition: border-color .4s var(--ease), transform .4s var(--ease), box-shadow .4s;
         }
-        .dl-sol-card:hover { border-color: rgba(76,184,232,0.40); transform: translateY(-3px); box-shadow: 0 22px 46px rgba(0,0,0,0.34); }
+        .dl-sol-card:hover { border-color: rgba(143,230,255,0.40); transform: translateY(-3px); box-shadow: 0 22px 46px rgba(0,0,0,0.34); }
         .dl-sol-viz {
           position: relative;
           height: 130px;
           border-bottom: 1px solid var(--border-navy-2);
-          background: radial-gradient(120% 120% at 50% 0%, rgba(76,184,232,0.08), transparent 60%), #0A1628;
+          background: radial-gradient(120% 120% at 50% 0%, rgba(143,230,255,0.08), transparent 60%), #0A1628;
           overflow: hidden;
         }
         @media (min-width: 720px) { .dl-sol-card { flex-basis: calc((100% - 20px) / 2); } }
@@ -337,7 +337,7 @@ function ArrowBtn({ dir, disabled, onClick, label }: { dir: number; disabled: bo
         if (disabled) return;
         e.currentTarget.style.borderColor = 'var(--cyan)';
         e.currentTarget.style.color = 'var(--cyan)';
-        e.currentTarget.style.background = 'rgba(76,184,232,0.08)';
+        e.currentTarget.style.background = 'rgba(143,230,255,0.08)';
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.borderColor = 'var(--border-navy)';

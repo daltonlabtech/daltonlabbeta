@@ -62,7 +62,7 @@ export default function HeroSection() {
           maxWidth: 720,
           maxHeight: 720,
           background:
-            'radial-gradient(circle at 50% 42%, rgba(76,184,232,0.26) 0%, rgba(76,184,232,0.12) 32%, rgba(76,184,232,0.04) 52%, transparent 72%)',
+            'radial-gradient(circle at 50% 42%, rgba(143,230,255,0.26) 0%, rgba(143,230,255,0.12) 32%, rgba(143,230,255,0.04) 52%, transparent 72%)',
           filter: 'blur(80px)',
           opacity: 0.8,
         }}
@@ -220,7 +220,7 @@ const ghostBtn: React.CSSProperties = {
 
 function hoverPrimaryIn(e: React.MouseEvent<HTMLElement>) {
   e.currentTarget.style.transform = 'translateY(-2px)';
-  e.currentTarget.style.boxShadow = '0 12px 34px rgba(76,184,232,0.38)';
+  e.currentTarget.style.boxShadow = '0 12px 34px rgba(143,230,255,0.38)';
 }
 function hoverPrimaryOut(e: React.MouseEvent<HTMLElement>) {
   e.currentTarget.style.transform = '';
@@ -229,7 +229,7 @@ function hoverPrimaryOut(e: React.MouseEvent<HTMLElement>) {
 function hoverGhostIn(e: React.MouseEvent<HTMLElement>) {
   e.currentTarget.style.borderColor = 'var(--cyan)';
   e.currentTarget.style.color = 'var(--cyan)';
-  e.currentTarget.style.background = 'rgba(76,184,232,0.06)';
+  e.currentTarget.style.background = 'rgba(143,230,255,0.06)';
 }
 function hoverGhostOut(e: React.MouseEvent<HTMLElement>) {
   e.currentTarget.style.borderColor = 'var(--border-navy)';

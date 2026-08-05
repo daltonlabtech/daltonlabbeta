@@ -176,14 +176,14 @@ export default function CasesSection() {
         .cases-controls { display: flex; gap: 10px; }
         .cases-arrow { width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--border-navy); background: transparent; color: var(--text); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color .2s, opacity .2s; }
         .cases-arrow svg { width: 18px; height: 18px; }
-        .cases-arrow:hover:not(:disabled) { border-color: rgba(76,184,232,0.40); }
+        .cases-arrow:hover:not(:disabled) { border-color: rgba(143,230,255,0.40); }
         .cases-arrow:disabled { opacity: .35; cursor: default; }
         .case-cards { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none; cursor: grab; padding-bottom: 4px; }
         .case-cards::-webkit-scrollbar { display: none; }
         .case-cards.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
         .case-cards.dragging a, .case-cards.dragging img { pointer-events: none; }
         .ccard { flex: 0 0 86%; scroll-snap-align: start; display: flex; flex-direction: column; border: 1px solid var(--border-navy); border-radius: 16px; overflow: hidden; background: var(--surface); text-decoration: none; color: inherit; transition: transform .3s var(--ease, ease), border-color .3s, box-shadow .3s; }
-        .ccard:hover { transform: translateY(-3px); border-color: rgba(76,184,232,0.40); box-shadow: 0 20px 44px rgba(0,0,0,0.34); }
+        .ccard:hover { transform: translateY(-3px); border-color: rgba(143,230,255,0.40); box-shadow: 0 20px 44px rgba(0,0,0,0.34); }
         .ccard-img { position: relative; height: 188px; overflow: hidden; flex: none; border-bottom: 1px solid var(--border-navy); }
         .ccard-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
         .ccard-img--logo { display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); }

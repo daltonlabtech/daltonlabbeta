@@ -67,7 +67,7 @@ export default function ManifestoSection() {
             fontSize: 12,
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
-            color: 'var(--muted-navy, #5d7da3)',
+            color: 'var(--muted-navy, #7d8898)',
           }}
         >
           {t('manifesto.source', 'Dalton Lab, 2026')}

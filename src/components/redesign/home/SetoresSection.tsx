@@ -103,7 +103,7 @@ export default function SetoresSection() {
           border: 1px solid var(--border); background: var(--surface); color: var(--text-dim);
           transition: border-color .3s, color .3s, background .3s;
         }
-        .dl-setor.is-active { border-color: var(--cyan); color: var(--cyan); background: rgba(76,184,232,0.08); }
+        .dl-setor.is-active { border-color: var(--cyan); color: var(--cyan); background: rgba(143,230,255,0.08); }
       `}</style>
     </section>
   );

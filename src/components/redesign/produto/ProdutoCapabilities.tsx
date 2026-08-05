@@ -138,7 +138,7 @@ export default function ProdutoCapabilities() {
         }
         .dl-cap-card:hover {
           transform: translateY(-4px);
-          border-color: rgba(76,184,232,0.40);
+          border-color: rgba(143,230,255,0.40);
           box-shadow: 0 16px 40px rgba(6,13,26,0.45);
         }
         @media (min-width: 720px) {

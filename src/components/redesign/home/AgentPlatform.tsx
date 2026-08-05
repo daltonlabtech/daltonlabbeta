@@ -41,7 +41,7 @@ const AGENTS: Agent[] = [
 ];
 
 const STATUS_META: Record<Status, { key: string; def: string; color: string }> = {
-  ativo: { key: 'platform.status.ativo', def: 'Ativo', color: '#4CB8E8' },
+  ativo: { key: 'platform.status.ativo', def: 'Ativo', color: '#8fe6ff' },
   atencao: { key: 'platform.status.atencao', def: 'Atenção', color: '#F0A04C' },
   inativo: { key: 'platform.status.inativo', def: 'Inativo', color: 'rgba(142,180,212,0.45)' },
 };
@@ -206,7 +206,7 @@ export default function AgentPlatform() {
           border: 1px solid var(--border); background: transparent; color: var(--text-dim);
           cursor: pointer; transition: border-color .25s, color .25s, background .25s;
         }
-        .dl-pf-tab:hover { border-color: rgba(76,184,232,0.40); color: var(--text); }
+        .dl-pf-tab:hover { border-color: rgba(143,230,255,0.40); color: var(--text); }
         .dl-pf-tab.is-active { background: var(--cyan); color: var(--accent-ink, #07131f); border-color: var(--cyan); }
         .dl-pf-grid { display: grid; grid-template-columns: 1fr; gap: 10px; max-width: 720px; margin: 0 auto; }
         @media (min-width: 720px) { .dl-pf-grid { grid-template-columns: 1fr 1fr; } }
@@ -216,11 +216,11 @@ export default function AgentPlatform() {
           background: var(--surface); color: var(--text); cursor: pointer;
           transition: border-color .25s, transform .25s, box-shadow .25s;
         }
-        .dl-pf-card:hover { border-color: rgba(76,184,232,0.40); transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,0.28); }
+        .dl-pf-card:hover { border-color: rgba(143,230,255,0.40); transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,0.28); }
         .dl-pf-avatar {
           flex: none; width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center;
           font-family: var(--font-display); font-weight: 800; font-size: 16px;
-          color: var(--cyan); background: rgba(76,184,232,0.12); border: 1px solid rgba(76,184,232,0.25);
+          color: var(--cyan); background: rgba(143,230,255,0.12); border: 1px solid rgba(143,230,255,0.25);
         }
         .dl-pf-avatar--lg { width: 52px; height: 52px; font-size: 22px; border-radius: 14px; }
         .dl-pf-card-main { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
@@ -236,7 +236,7 @@ export default function AgentPlatform() {
         }
         @media (min-width: 720px) { .dl-pf-sheet { border-radius: 20px; } }
         .dl-pf-close { position: absolute; top: 14px; right: 16px; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); background: transparent; color: var(--text-dim); font-size: 20px; line-height: 1; cursor: pointer; }
-        .dl-pf-close:hover { color: var(--text); border-color: rgba(76,184,232,0.40); }
+        .dl-pf-close:hover { color: var(--text); border-color: rgba(143,230,255,0.40); }
         .dl-pf-sheet-head { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
         .dl-pf-sheet-name { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; }
         .dl-pf-sheet-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }

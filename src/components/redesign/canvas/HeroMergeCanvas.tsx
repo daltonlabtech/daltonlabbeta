@@ -13,14 +13,14 @@ import { useCanvasAnimation } from '@/hooks/useCanvasAnimation';
 
 // --- color palette (verbatim from source) ---
 const GHOST: number[] = [142, 180, 212];
-const CYAN: number[] = [76, 184, 232];
+const CYAN: number[] = [143,230,255];
 const SOFT: number[] = [94, 200, 240];
 const WHITE: number[] = [226, 240, 252];
 const STAR_C: number[][] = [
-  [76, 184, 232],
+  [143,230,255],
   [56, 189, 250],
   [94, 200, 240],
-  [76, 184, 232],
+  [143,230,255],
   [56, 189, 250],
 ];
 

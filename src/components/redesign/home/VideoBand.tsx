@@ -90,7 +90,7 @@ export default function VideoBand() {
             borderRadius: 16,
             border: '1px solid var(--border-navy)',
             background:
-              'radial-gradient(120% 120% at 50% 0%, rgba(76,184,232,0.16), transparent 55%), linear-gradient(160deg, #0F2440, #0A1628)',
+              'radial-gradient(120% 120% at 50% 0%, rgba(143,230,255,0.16), transparent 55%), linear-gradient(160deg, #0F2440, #0A1628)',
             aspectRatio: '16 / 10',
             cursor: playing ? 'default' : 'pointer',
           }}
@@ -220,7 +220,7 @@ export default function VideoBand() {
         }
         @media (min-width: 700px) { .press-card { flex: 0 0 calc((100% - 16px) / 2); } }
         @media (min-width: 1000px) { .press-card { flex: 0 0 calc((100% - 48px) / 4); } }
-        .press-card:hover { transform: translateY(-3px); border-color: rgba(76,184,232,0.40); box-shadow: 0 20px 44px rgba(0,0,0,0.34); }
+        .press-card:hover { transform: translateY(-3px); border-color: rgba(143,230,255,0.40); box-shadow: 0 20px 44px rgba(0,0,0,0.34); }
         .press-card-img { height: 128px; flex: none; border-bottom: 1px solid var(--border-navy-2); background: #0b0b0b; overflow: hidden; }
         .press-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
         .press-card-body { display: flex; flex-direction: column; gap: 12px; padding: 22px; flex: 1; }

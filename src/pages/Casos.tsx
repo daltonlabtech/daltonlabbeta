@@ -40,7 +40,7 @@ const Casos = () => {
           border: 1px solid var(--border-navy);
           border-radius: var(--navy-radius, 16px);
           background:
-            radial-gradient(120% 90% at 0% 0%, rgba(76,184,232,0.07), transparent 52%),
+            radial-gradient(120% 90% at 0% 0%, rgba(143,230,255,0.07), transparent 52%),
             var(--surface);
           padding: clamp(22px, 4vw, 30px);
           display: flex;
@@ -52,7 +52,7 @@ const Casos = () => {
           transition: border-color .3s, transform .3s, box-shadow .3s;
         }
         .redesign-scope .case-prev:hover {
-          border-color: rgba(76,184,232,0.42);
+          border-color: rgba(143,230,255,0.42);
           transform: translateY(-3px);
           box-shadow: 0 22px 48px rgba(0,0,0,0.36);
         }

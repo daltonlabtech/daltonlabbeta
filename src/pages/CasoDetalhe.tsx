@@ -44,7 +44,7 @@ const CasoDetalhe = () => {
 
         .redesign-scope .cr-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
 
-        .redesign-scope .cr-hero { height: 168px; margin: 18px 0 32px; border-radius: var(--navy-radius); border: 1px solid var(--border-navy); position: relative; overflow: hidden; display: grid; place-items: center; background: radial-gradient(90% 130% at 50% -10%, rgba(76,184,232,0.16), transparent 60%), radial-gradient(80% 120% at 100% 120%, rgba(168,85,247,0.10), transparent 55%), var(--surface); }
+        .redesign-scope .cr-hero { height: 168px; margin: 18px 0 32px; border-radius: var(--navy-radius); border: 1px solid var(--border-navy); position: relative; overflow: hidden; display: grid; place-items: center; background: radial-gradient(90% 130% at 50% -10%, rgba(143,230,255,0.16), transparent 60%), radial-gradient(80% 120% at 100% 120%, rgba(168,85,247,0.10), transparent 55%), var(--surface); }
         .redesign-scope .cr-hero::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 22px 22px; opacity: .5; -webkit-mask-image: radial-gradient(70% 80% at 50% 50%, #000, transparent 85%); mask-image: radial-gradient(70% 80% at 50% 50%, #000, transparent 85%); }
         .redesign-scope .cr-herologo { position: relative; z-index: 1; height: 40px; width: auto; max-width: 62%; object-fit: contain; filter: brightness(0) invert(1); }
         .redesign-scope .cr-herologo--sq { height: 60px; }
@@ -58,12 +58,12 @@ const CasoDetalhe = () => {
 
         .redesign-scope .cr-body { margin-top: 36px; }
 
-        .redesign-scope .cr-callout { border: 1px solid var(--border-navy); border-radius: var(--navy-radius); background: radial-gradient(100% 120% at 0% 0%, rgba(76,184,232,0.06), transparent 55%), rgba(255,255,255,0.015); padding: clamp(22px, 4vw, 28px); margin-bottom: 40px; }
+        .redesign-scope .cr-callout { border: 1px solid var(--border-navy); border-radius: var(--navy-radius); background: radial-gradient(100% 120% at 0% 0%, rgba(143,230,255,0.06), transparent 55%), rgba(255,255,255,0.015); padding: clamp(22px, 4vw, 28px); margin-bottom: 40px; }
         .redesign-scope .cr-callout-h { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); display: flex; align-items: center; gap: 9px; margin-bottom: 18px; }
         .redesign-scope .cr-callout-h::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); flex: none; }
         .redesign-scope .cr-keys { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
         .redesign-scope .cr-keys li { display: flex; align-items: flex-start; gap: 13px; }
-        .redesign-scope .cr-keys .ic { flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: rgba(76,184,232,0.12); color: var(--cyan); margin-top: 1px; }
+        .redesign-scope .cr-keys .ic { flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: rgba(143,230,255,0.12); color: var(--cyan); margin-top: 1px; }
         .redesign-scope .cr-keys .ic svg { width: 14px; height: 14px; }
         .redesign-scope .cr-keys span.t { color: var(--text); font-size: 15px; line-height: 1.5; font-weight: 500; }
 

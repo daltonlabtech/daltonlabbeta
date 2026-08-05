@@ -46,7 +46,7 @@ export default function ClosingSection() {
           height: '40vw',
           maxWidth: 720,
           maxHeight: 420,
-          background: 'radial-gradient(circle at 50% 50%, rgba(76,184,232,0.12), transparent 65%)',
+          background: 'radial-gradient(circle at 50% 50%, rgba(143,230,255,0.12), transparent 65%)',
           filter: 'blur(50px)',
           zIndex: -1,
         }}

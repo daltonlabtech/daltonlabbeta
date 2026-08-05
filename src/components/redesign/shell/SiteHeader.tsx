@@ -8,8 +8,8 @@ import MobileNav from './MobileNav';
 const CONTACT_URL = 'https://formulario.daltonlab.ai/';
 
 /**
- * Header fixo do novo design system — porta `<header class="header">` do original.
- * Detecta scroll (> 12px) para aplicar o blur backdrop (classe `scrolled`).
+ * Header fixo do tema void — grid 1fr/auto/1fr (marca, nav central, ações),
+ * transparente no topo e vidro (blur) após 80px de scroll.
  */
 export default function SiteHeader() {
   const { t } = useTranslation();
@@ -29,7 +29,7 @@ export default function SiteHeader() {
   };
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -38,103 +38,89 @@ export default function SiteHeader() {
   const navLinks = [
     { label: t('nav.solutions', 'Metodologia'), href: '/#solutions' },
     { label: t('nav.cases', 'Casos'), href: '/casos' },
-    { label: t('nav.insights', 'Insights'), href: '/artigos' },
-    { label: t('nav.about', 'Sobre'), href: '/quem-somos' },
+    { label: t('nav.insights', 'Conteúdos'), href: '/artigos' },
+    { label: t('nav.about', 'Quem Somos'), href: '/quem-somos' },
   ];
 
   return (
     <>
+      <style>{`
+        .void-header { height: 72px; padding: 0 22px; }
+        .void-header .brand-img { height: 16px; }
+        @media (min-width: 1024px) {
+          .void-header { height: 92px; padding: 0 44px; }
+          .void-header .brand-img { height: 22px; }
+        }
+      `}</style>
       <header
-        className="fixed left-0 right-0 top-0 z-[100]"
+        className="void-header fixed left-0 right-0 top-0 z-[100] grid items-center"
         style={{
-          paddingTop: 'var(--safe-top, 16px)',
-          transition: 'background .4s var(--ease), backdrop-filter .4s',
-          background: scrolled ? 'color-mix(in oklab, var(--bg-deep) 88%, transparent)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(20px) saturate(1.4)' : undefined,
-          WebkitBackdropFilter: scrolled ? 'blur(20px) saturate(1.4)' : undefined,
+          gridTemplateColumns: '1fr auto 1fr',
+          gap: 24,
+          transition: 'background .3s, border-color .3s, backdrop-filter .3s',
+          background: scrolled ? 'rgba(8,10,15,.72)' : 'transparent',
+          borderBottom: scrolled ? '1px solid var(--line-soft)' : '1px solid transparent',
+          backdropFilter: scrolled ? 'blur(12px)' : undefined,
+          WebkitBackdropFilter: scrolled ? 'blur(12px)' : undefined,
         }}
       >
-        <div
-          className="mx-auto flex h-14 items-center justify-between px-6 md:px-12"
-          style={{ maxWidth: 'var(--navy-maxw)', width: '100%', boxSizing: 'border-box' }}
+        <Link to="/" aria-label="Dalton Lab" className="inline-flex items-center justify-self-start">
+          <img
+            className="brand-img"
+            src="/novo/assets/dalton-lab-logo.png"
+            alt="Dalton Lab"
+            style={{ width: 'auto', display: 'block' }}
+          />
+        </Link>
+
+        {/* Nav desktop — coluna central do grid (só ≥1024px; tablet/mobile usam o hambúrguer) */}
+        <nav
+          className="hidden items-center lg:flex"
+          aria-label="Navegação principal"
+          style={{ gap: 34, fontSize: 15, color: 'var(--ink2)' }}
         >
-          <Link to="/" aria-label="Dalton Lab" className="inline-flex items-center">
-            <img
-              src="/novo/assets/dalton-lab-logo.png"
-              alt="Dalton Lab"
-              style={{ height: 24, width: 'auto', display: 'block' }}
-            />
-          </Link>
+          {navLinks.map((l) => (
+            <Link
+              key={l.href}
+              to={l.href}
+              onClick={(e) => handleHashClick(e, l.href)}
+              className="transition-colors"
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--ink)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--ink2)')}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
 
-          {/* Nav desktop — centralizada (só ≥1024px; tablet/mobile usam o hambúrguer) */}
-          <nav
-            className="absolute left-1/2 hidden -translate-x-1/2 items-center lg:flex"
-            style={{ gap: 32, fontSize: 14, color: 'var(--text-dim)' }}
-          >
-            {navLinks.map((l) => (
-              <Link
-                key={l.href}
-                to={l.href}
-                onClick={(e) => handleHashClick(e, l.href)}
-                className="transition-colors"
-                style={{ position: 'relative' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--cyan)')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-dim)')}
-              >
-                {l.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="flex items-center" style={{ gap: 8 }}>
+        <div className="flex items-center justify-self-end" style={{ gap: 16, gridColumn: 3 }}>
+          <span className="hidden lg:inline-flex">
             <LangToggle />
-            <a
-              href={CONTACT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackCtaClick(t('cta.contact', 'Fale conosco'), 'header', CONTACT_URL)}
-              className="hidden items-center justify-center rounded-full lg:inline-flex"
-              style={{
-                padding: '15px 26px',
-                minHeight: 48,
-                fontSize: 15,
-                fontWeight: 600,
-                letterSpacing: '-0.01em',
-                background: 'var(--cyan)',
-                color: 'var(--accent-ink)',
-                transition: 'transform .3s var(--ease), box-shadow .3s var(--ease)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 12px 34px rgba(143,230,255,0.38)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = '';
-                e.currentTarget.style.boxShadow = '';
-              }}
-            >
-              {t('cta.contact', 'Fale conosco')}
-            </a>
+          </span>
+          <a
+            href={CONTACT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackCtaClick(t('cta.contact', 'Fale conosco'), 'header', CONTACT_URL)}
+            className="btn-p hidden lg:inline-flex"
+            style={{ minHeight: 38, padding: '9px 20px', fontSize: 14 }}
+          >
+            {t('cta.contact', 'Fale conosco')}
+          </a>
 
-            {/* Burger — mobile */}
-            <button
-              type="button"
-              aria-label="Menu"
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((o) => !o)}
-              className="flex flex-col items-center justify-center lg:hidden"
-              style={{
-                width: 44,
-                height: 44,
-                border: '1px solid var(--border-navy)',
-                borderRadius: 10,
-              }}
-            >
-              <span style={burgerBar(menuOpen, 0)} />
-              <span style={burgerBar(menuOpen, 1)} />
-              <span style={burgerBar(menuOpen, 2)} />
-            </button>
-          </div>
+          {/* Burger — mobile */}
+          <button
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((o) => !o)}
+            className="flex flex-col items-center justify-center lg:hidden"
+            style={{ width: 44, height: 44, background: 'none', border: 0, gap: 6 }}
+          >
+            <span style={burgerBar(menuOpen, 0)} />
+            <span style={burgerBar(menuOpen, 1)} />
+            <span style={burgerBar(menuOpen, 2)} />
+          </button>
         </div>
       </header>
 
@@ -146,14 +132,13 @@ export default function SiteHeader() {
 function burgerBar(open: boolean, i: number): React.CSSProperties {
   const base: React.CSSProperties = {
     display: 'block',
-    width: 18,
-    height: 1.5,
-    background: 'var(--text)',
+    width: 20,
+    height: 1.4,
+    background: 'var(--ink)',
     transition: 'transform .3s, opacity .3s',
-    marginTop: i === 0 ? 0 : 4,
   };
   if (!open) return base;
-  if (i === 0) return { ...base, transform: 'translateY(5.5px) rotate(45deg)' };
+  if (i === 0) return { ...base, transform: 'translateY(7.4px) rotate(45deg)' };
   if (i === 1) return { ...base, opacity: 0 };
-  return { ...base, transform: 'translateY(-5.5px) rotate(-45deg)' };
+  return { ...base, transform: 'translateY(-7.4px) rotate(-45deg)' };
 }

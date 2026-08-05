@@ -25,13 +25,14 @@ const SOCIAL = [
 ];
 
 /**
- * Footer do novo design system — porta `<footer class="footer">` do original.
+ * Footer do tema void — porta o `<footer>` do protótipo:
+ * logo, copyright + social na mesma linha (desktop), divisor e links legais centrados.
  */
 export default function SiteFooter() {
   const { t } = useTranslation();
 
   const legalLinkStyle: React.CSSProperties = {
-    color: 'var(--text-dim)',
+    color: 'var(--ink2)',
     fontSize: 14,
     transition: 'color .3s',
   };
@@ -40,69 +41,66 @@ export default function SiteFooter() {
     <footer
       id="about"
       style={{
-        borderTop: '1px solid var(--border-navy)',
-        paddingBlock: '56px 40px',
-        background: 'var(--bg-deep)',
+        position: 'relative',
+        zIndex: 3,
+        borderTop: '1px solid var(--line-soft)',
+        padding: '48px 22px 36px',
       }}
     >
-      <div className="mx-auto px-6 md:px-12" style={{ maxWidth: 'var(--navy-maxw)', width: '100%', boxSizing: 'border-box' }}>
+      <div className="mx-auto" style={{ maxWidth: 1180, width: '100%' }}>
         <Link to="/" className="inline-block">
-          <img src="/novo/assets/dalton-lab-logo.png" alt="Dalton Lab" style={{ height: 28, width: 'auto' }} />
+          <img src="/novo/assets/dalton-lab-logo.png" alt="Dalton Lab" style={{ height: 16, width: 'auto' }} />
         </Link>
 
-        <p style={{ color: 'var(--text-dim)', marginTop: 22, fontSize: 15, textAlign: 'left' }}>
-          {t('footer.rights', '© 2026 Dalton Lab. Todos os direitos reservados.')}
-        </p>
-
-        <div className="flex justify-center" style={{ gap: 14, marginTop: 20 }}>
-          {SOCIAL.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={s.label}
-              className="inline-flex items-center justify-center"
-              style={{ width: 40, height: 40, color: 'var(--text-dim)', transition: 'color .3s, transform .3s' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'var(--cyan)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'var(--text-dim)';
-                e.currentTarget.style.transform = '';
-              }}
-            >
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-                <path d={s.path} />
-              </svg>
-            </a>
-          ))}
-        </div>
-
         <div
-          className="flex flex-wrap items-center justify-center"
-          style={{ gap: 20, marginTop: 28, paddingTop: 26, borderTop: '1px solid var(--border-navy-2)' }}
+          className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center"
+          style={{ marginTop: 28 }}
         >
-          <nav className="flex flex-wrap justify-center" style={{ gap: '12px 26px' }}>
-            <Link
-              to="/politica-de-privacidade"
-              style={legalLinkStyle}
-              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--cyan)')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-dim)')}
-            >
-              {t('footer.privacy', 'Política de Privacidade')}
-            </Link>
-            <Link
-              to="/termos-de-uso"
-              style={legalLinkStyle}
-              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--cyan)')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-dim)')}
-            >
-              {t('footer.cookies', 'Termos de Uso')}
-            </Link>
-          </nav>
+          <p style={{ color: 'var(--ink2)', fontSize: 14 }}>
+            {t('footer.rights', '© 2026 Dalton Lab. Todos os direitos reservados.')}
+          </p>
+
+          <div className="flex" style={{ gap: 28 }}>
+            {SOCIAL.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="inline-flex"
+                style={{ color: 'var(--ink2)', transition: 'color .3s' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--ink)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--ink2)')}
+              >
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                  <path d={s.path} />
+                </svg>
+              </a>
+            ))}
+          </div>
         </div>
+
+        <div style={{ height: 1, background: 'var(--line-soft)', margin: '32px 0 22px' }} />
+
+        <nav className="flex flex-wrap justify-center" style={{ gap: '12px 44px' }}>
+          <Link
+            to="/politica-de-privacidade"
+            style={legalLinkStyle}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--ink)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--ink2)')}
+          >
+            {t('footer.privacy', 'Política de Privacidade')}
+          </Link>
+          <Link
+            to="/termos-de-uso"
+            style={legalLinkStyle}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--ink)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--ink2)')}
+          >
+            {t('footer.cookies', 'Termos de Uso')}
+          </Link>
+        </nav>
       </div>
     </footer>
   );

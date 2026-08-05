@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { trackCtaClick } from '@/lib/analytics';
+import LangToggle from './LangToggle';
 
 interface MobileNavProps {
   open: boolean;
@@ -9,8 +10,8 @@ interface MobileNavProps {
 }
 
 /**
- * Sheet mobile — porta `.sheet` do original. Abre/fecha por estado React
- * (em vez da classe `.open` manipulada no main.js). Fecha ao clicar num item.
+ * Menu overlay fullscreen do tema void — porta `.menu` do protótipo:
+ * fundo quase opaco com blur, links grandes Manrope 200, idioma + CTA no rodapé.
  */
 export default function MobileNav({ open, onClose }: MobileNavProps) {
   const { t } = useTranslation();
@@ -27,7 +28,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
     onClose();
   };
 
-  // Trava o scroll do body enquanto aberto (equivalente ao document.body.style.overflow)
+  // Trava o scroll do body enquanto aberto
   useEffect(() => {
     if (open) {
       const prev = document.body.style.overflow;
@@ -38,76 +39,91 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
     }
   }, [open]);
 
-  const items: Array<{ label: string; href: string; idx: string; external?: boolean }> = [
-    { label: t('nav.solutions', 'Metodologia'), href: '/#solutions', idx: '01' },
-    { label: t('nav.cases', 'Casos'), href: '/casos', idx: '02' },
-    { label: t('nav.insights', 'Insights'), href: '/artigos', idx: '03' },
-    { label: t('nav.about', 'Sobre'), href: '/quem-somos', idx: '04' },
-  ];
+  // Fecha com Escape
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open, onClose]);
 
-  const linkStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-display)',
-    fontSize: '1.25rem',
-    fontWeight: 500,
-    letterSpacing: '-0.02em',
-    padding: '12px 0',
-    borderBottom: '1px solid var(--border-navy-2)',
-    color: 'var(--text)',
-  };
+  const items = [
+    { label: t('nav.solutions', 'Metodologia'), href: '/#solutions' },
+    { label: t('nav.cases', 'Casos'), href: '/casos' },
+    { label: t('nav.insights', 'Conteúdos'), href: '/artigos' },
+    { label: t('nav.about', 'Quem Somos'), href: '/quem-somos' },
+  ];
 
   return (
     <div
-      className="fixed left-0 right-0 z-[99] flex flex-col gap-[2px] px-6 pt-3 pb-6 lg:hidden"
-      style={{
-        top: 'calc(56px + var(--safe-top, 16px))',
-        background: 'color-mix(in oklab, var(--bg-deep) 95%, transparent)',
-        backdropFilter: 'blur(18px)',
-        WebkitBackdropFilter: 'blur(18px)',
-        borderBottom: '1px solid var(--border-navy)',
-        transform: open ? 'translateY(0)' : 'translateY(-120%)',
-        opacity: open ? 1 : 0,
-        visibility: open ? 'visible' : 'hidden',
-        transition: open
-          ? 'transform .45s var(--ease), opacity .3s var(--ease), visibility 0s'
-          : 'transform .45s var(--ease), opacity .3s var(--ease), visibility 0s linear .45s',
-      }}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu"
       aria-hidden={!open}
+      className="fixed inset-0 z-[110] flex-col lg:hidden"
+      style={{
+        display: open ? 'flex' : 'none',
+        background: 'rgba(5,6,8,.94)',
+        backdropFilter: 'blur(14px)',
+        WebkitBackdropFilter: 'blur(14px)',
+        padding: '10px 22px 44px',
+      }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
     >
-      {items.map((item) => (
-        <Link
-          key={item.href}
-          to={item.href}
-          onClick={(e) => handleItemClick(e, item.href)}
-          className="flex items-center justify-between"
-          style={linkStyle}
-        >
-          <span>{item.label}</span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--muted-navy)', fontWeight: 500 }}>
-            {item.idx}
-          </span>
+      <div className="flex items-center justify-between" style={{ height: 54 }}>
+        <Link to="/" aria-label="Dalton Lab" onClick={onClose} className="inline-flex items-center">
+          <img src="/novo/assets/dalton-lab-logo.png" alt="Dalton Lab" style={{ height: 16, width: 'auto' }} />
         </Link>
-      ))}
-      <a
-        href="https://formulario.daltonlab.ai/"
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => {
-          trackCtaClick(t('cta.contact', 'Fale conosco'), 'mobile_nav', 'https://formulario.daltonlab.ai/');
-          onClose();
-        }}
-        className="mt-4 inline-flex items-center justify-center rounded-full"
-        style={{
-          padding: '15px 26px',
-          minHeight: 48,
-          fontSize: 15,
-          fontWeight: 600,
-          letterSpacing: '-0.01em',
-          background: 'var(--cyan)',
-          color: 'var(--accent-ink)',
-        }}
-      >
-        {t('cta.contact', 'Fale conosco')}
-      </a>
+        <button
+          type="button"
+          aria-label="Fechar menu"
+          onClick={onClose}
+          style={{
+            width: 44,
+            height: 44,
+            background: 'none',
+            border: 0,
+            color: 'var(--ink)',
+            font: '200 30px/1 var(--font-sans)',
+            cursor: 'pointer',
+          }}
+        >
+          ×
+        </button>
+      </div>
+
+      <nav className="flex flex-col" style={{ gap: 26, margin: 'auto 0', paddingTop: 40 }}>
+        {items.map((item) => (
+          <Link
+            key={item.href}
+            to={item.href}
+            onClick={(e) => handleItemClick(e, item.href)}
+            style={{ font: '200 30px var(--font-sans)', color: 'var(--ink)' }}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+
+      <div className="flex flex-col items-start" style={{ gap: 20 }}>
+        <LangToggle />
+        <a
+          href="https://formulario.daltonlab.ai/"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            trackCtaClick(t('cta.contact', 'Fale conosco'), 'mobile_nav', 'https://formulario.daltonlab.ai/');
+            onClose();
+          }}
+          className="btn-p"
+        >
+          {t('cta.contact', 'Fale conosco')}
+        </a>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dalton Lab · Demos da página Quem Somos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#050608;
+  --ink:#e6edf4; --ink2:#aab8c8; --ink3:#7d8898;
+  --accent:#8fe6ff;
+  --line:rgba(162,182,206,.26);
+  --line-soft:rgba(162,182,206,.12);
+  --sans:"Manrope","Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono","Cascadia Code","SF Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--void);color:var(--ink2);font:400 15px/1.5 var(--sans);min-height:100vh;display:flex;flex-direction:column}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(120% 100% at 50% 30%,#12131a 0%,#0a0b11 42%,#050608 78%,#030304 100%);pointer-events:none;z-index:0}
+a{color:var(--ink2);text-decoration:none}
+.top{position:relative;z-index:2;padding:20px 40px 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+.back{grid-column:1;justify-self:start;display:inline-flex;align-items:center;gap:8px;background:rgba(16,20,27,.55);border:1px solid var(--line-soft);border-radius:999px;padding:8px 14px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);transition:color .2s,border-color .2s}
+.back:hover{color:var(--ink);border-color:var(--line)}
+.title{grid-column:2;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3)}
+.title strong{font-weight:400;color:var(--ink)}
+.sync{grid-column:3;justify-self:end;display:inline-flex;align-items:center;gap:10px;background:rgba(16,20,27,.7);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font:400 13px var(--sans);color:var(--ink2);cursor:pointer}
+.sync .dot{width:8px;height:8px;border-radius:50%;background:var(--ink3);transition:background .2s,box-shadow .2s}
+.sync.on{color:var(--ink);border-color:rgba(143,230,255,.5)}
+.sync.on .dot{background:var(--accent);box-shadow:0 0 10px rgba(143,230,255,.8)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:999px}
+.stage{position:relative;z-index:1;flex:1;display:flex;align-items:center;justify-content:center;gap:56px;padding:34px 40px;flex-wrap:wrap}
+.demo{display:flex;flex-direction:column;gap:12px}
+.demo-label{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3)}
+.frame{border:1px solid var(--line);background:var(--void);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.frame-phone{border-radius:30px;width:331.5px;height:717.4px}
+.frame-desk{border-radius:12px;width:604.8px;height:378px}
+.frame iframe{border:0;transform-origin:top left;display:block}
+.frame-phone iframe{width:390px;height:844px;transform:scale(.85)}
+.frame-desk iframe{width:1440px;height:900px;transform:scale(.42)}
+.hint{position:relative;z-index:2;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--ink3);padding-bottom:28px}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="back" href="index.html">← Home</a>
+  <div class="title"><strong>Dalton Lab</strong> · quem somos · aprovação interna</div>
+  <button class="sync" id="sync" type="button" aria-pressed="false"><span class="dot"></span>Scroll sincronizado</button>
+</div>
+<div class="stage">
+  <div class="demo">
+    <div class="demo-label">Mobile · 390 × 844</div>
+    <div class="frame frame-phone"><iframe id="fMob" src="quem-somos-mobile.html" title="Quem Somos mobile"></iframe></div>
+  </div>
+  <div class="demo">
+    <div class="demo-label">Desktop · 1440 × 900</div>
+    <div class="frame frame-desk"><iframe id="fDesk" src="quem-somos-desktop.html" title="Quem Somos desktop"></iframe></div>
+  </div>
+</div>
+<div class="hint">a navegação do menu funciona dentro de cada tela</div>
+
+<script>
+(function(){
+"use strict";
+const fMob=document.getElementById('fMob'),fDesk=document.getElementById('fDesk');
+const syncBtn=document.getElementById('sync');
+let sync=false,lock=false;
+
+syncBtn.addEventListener('click',()=>{
+  sync=!sync;
+  syncBtn.classList.toggle('on',sync);
+  syncBtn.setAttribute('aria-pressed',String(sync));
+});
+
+function attach(f,other){
+  f.addEventListener('load',()=>{
+    const w=f.contentWindow;
+    w.addEventListener('scroll',()=>{
+      if(!sync||lock)return;
+      lock=true;
+      try{
+        const d=w.document.documentElement;
+        const max=d.scrollHeight-w.innerHeight;
+        const p=max>0?w.scrollY/max:0;
+        const ow=other.contentWindow,od=ow.document.documentElement;
+        ow.scrollTo(0,p*(od.scrollHeight-ow.innerHeight));
+      }catch(e){}
+      requestAnimationFrame(()=>{lock=false;});
+    },{passive:true});
+  });
+}
+attach(fMob,fDesk);
+attach(fDesk,fMob);
+})();
+</script>
+</body>
+</html>

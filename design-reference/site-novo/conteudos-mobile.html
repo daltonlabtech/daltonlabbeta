@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dalton Lab · Conteúdos (mobile)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400&family=Playfair+Display:ital,wght@1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#050608;
+  --ink:#e6edf4; --ink2:#aab8c8; --ink3:#7d8898;
+  --accent:#8fe6ff;
+  --line:rgba(162,182,206,.26);
+  --line-soft:rgba(162,182,206,.12);
+  --sans:"Manrope","Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,sans-serif;
+  --serif:"Playfair Display","Baskerville","Bodoni MT","Didot",Georgia,serif;
+  --mono:"JetBrains Mono","Cascadia Code","SF Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--void);color:var(--ink2);font:400 15px/1.55 var(--sans);overflow-x:hidden}
+a{color:var(--ink2);text-decoration:none}
+a:hover{color:var(--ink)}
+button{font:inherit;background:none;border:none;color:inherit}
+.bg-grad,.bg-grain,.bg-vig{position:fixed;inset:0;pointer-events:none}
+.bg-grad{background:radial-gradient(120% 100% at 50% 30%,#12131a 0%,#0a0b11 42%,#050608 78%,#030304 100%);z-index:0}
+.bg-grain{background-image:radial-gradient(rgba(200,220,255,.6) .5px,transparent .5px);background-size:3px 3px;opacity:.045;mix-blend-mode:screen;z-index:1}
+.bg-vig{box-shadow:inset 0 0 260px 70px rgba(0,0,0,.82);z-index:2}
+main,footer{position:relative;z-index:3}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent);text-shadow:0 0 28px rgba(143,230,255,.35),0 0 60px rgba(143,230,255,.14)}
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:14px 24px;border-radius:999px;border:0;font:400 15px var(--sans);white-space:nowrap;cursor:pointer}
+.btn-p{background:var(--accent);color:#04121a;box-shadow:0 0 26px rgba(143,230,255,.28)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:999px}
+.btn-col{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
+.btn-col .btn{width:100%;max-width:320px}
+/* header (igual à home mobile) */
+header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 22px;background:transparent;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+header.scrolled{background:rgba(8,10,15,.72);backdrop-filter:blur(12px);border-bottom-color:var(--line-soft)}
+.brand{display:inline-flex;align-items:center}
+.brand img{height:16px;display:block}
+.burger{width:44px;height:44px;background:none;border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.burger span{display:block;width:20px;height:1.4px;background:var(--ink)}
+/* menu overlay */
+.menu{position:fixed;inset:0;z-index:30;background:rgba(5,6,8,.94);backdrop-filter:blur(14px);display:none;flex-direction:column;padding:10px 22px 44px}
+.menu.open{display:flex}
+.menu-top{display:flex;align-items:center;justify-content:space-between;height:54px}
+.menu-x{width:44px;height:44px;background:none;border:0;color:var(--ink);font:200 30px/1 var(--sans);cursor:pointer}
+.menu nav{display:flex;flex-direction:column;gap:26px;margin:auto 0;padding-top:40px}
+.menu nav a{font:200 30px var(--sans);color:var(--ink2)}
+.menu nav .atual{font:200 30px var(--sans);color:var(--ink);padding-bottom:6px;border-bottom:1px solid var(--accent);align-self:flex-start}
+.menu-foot{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:rgba(16,20,27,.55)}
+.lang span{font:400 12px var(--sans);padding:8px 14px;color:var(--ink3)}
+.lang .on{background:rgba(162,182,206,.14);color:var(--ink)}
+.dead{cursor:default}
+/* hero */
+.hero{padding:108px 22px 24px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.mono-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink3)}
+.hero h1{margin-top:14px;font-weight:200;font-size:26px;line-height:1.15;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.wrap{padding:0 22px 44px}
+/* destaque */
+.feat{display:flex;flex-direction:column;border-radius:14px;overflow:hidden;background:rgba(14,18,24,.72);border:1px solid var(--line-soft)}
+.feat .img{aspect-ratio:16/9;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center}
+.feat .body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:10px}
+.tagrow{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.tag{font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.tag.artigo{color:#c9b8ff}
+.data{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--ink3)}
+.feat h2{font-weight:200;font-size:18px;line-height:1.35;color:var(--ink)}
+.feat .veic{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink3)}
+.feat .leia{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--accent);min-height:24px}
+/* filtro */
+.filtro{margin-top:28px;display:flex;gap:8px;overflow-x:auto;padding:4px 0;scrollbar-width:none;align-items:center}
+.filtro::-webkit-scrollbar{display:none}
+.filtro .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-right:6px;flex:none}
+.pill{padding:10px 16px;min-height:40px;border-radius:999px;font-size:13.5px;cursor:pointer;white-space:nowrap;flex:none;border:1px solid var(--line);background:rgba(16,20,27,.7);color:var(--ink2);transition:background .2s,color .2s,border-color .2s}
+.pill.on{background:var(--accent);border-color:var(--accent);color:#04121a;box-shadow:0 0 26px rgba(143,230,255,.28)}
+/* grid */
+.grid{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px}
+.card{display:flex;flex-direction:column;border-radius:14px;overflow:hidden;background:rgba(14,18,24,.72);border:1px solid var(--line-soft)}
+.card .img{aspect-ratio:16/9;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center}
+.card .img .veic-fallback,.feat .img .veic-fallback{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(230,237,244,.8);text-align:center;padding:0 20px}
+.card .body{padding:15px 17px 18px;display:flex;flex-direction:column;gap:8px}
+.card h3{font-weight:400;font-size:14px;line-height:1.45;color:var(--ink)}
+.card .veic{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;color:var(--ink3)}
+/* vazio */
+.vazio{margin-top:20px;border:1px dashed var(--line);border-radius:14px;padding:36px 24px;display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center}
+.vazio .t{font-weight:200;font-size:17px;color:var(--ink)}
+.vazio .s{font-size:13px;color:var(--ink3)}
+/* fecho */
+.fecho{padding:12px 22px 36px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.fecho p{font-weight:200;font-size:22px;line-height:1.3;color:var(--ink)}
+.fecho .btn-col{margin-top:18px}
+/* footer (igual à home mobile) */
+footer{border-top:1px solid var(--line-soft);padding:40px 22px 32px}
+.foot-logo{height:14px;display:block}
+.foot-copy{margin-top:24px;font-size:14px;color:var(--ink2)}
+.foot-social{display:flex;gap:26px;margin-top:28px}
+.foot-social a{color:var(--ink2);display:inline-flex}
+.foot-div{height:1px;background:var(--line-soft);margin:32px 0 22px}
+.foot-links{display:flex;justify-content:center;gap:32px}
+.foot-links a{font-size:14px;color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="bg-grad"></div><div class="bg-grain"></div><div class="bg-vig"></div>
+
+<header id="hdr">
+  <a class="brand" href="mobile.html" aria-label="Dalton Lab — voltar à home"><img src="daltonlab-logo.png" alt="Dalton Lab"></a>
+  <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-top">
+    <a class="brand" href="mobile.html"><img src="daltonlab-logo.png" alt="Dalton Lab"></a>
+    <button class="menu-x" id="menuX" aria-label="Fechar menu">×</button>
+  </div>
+  <nav>
+    <a href="mobile.html#dobra5" data-close>Metodologia</a>
+    <a href="casos-mobile.html" data-close>Casos</a>
+    <span class="atual" aria-current="page">Conteúdos</span>
+    <a href="quem-somos-mobile.html" data-close>Quem Somos</a>
+  </nav>
+  <div class="menu-foot">
+    <div class="lang" role="group" aria-label="Idioma"><span class="on">PT</span><span>EN</span></div>
+    <a class="btn btn-p" href="https://formulario.daltonlab.ai/" target="_blank" rel="noopener">Fale conosco</a>
+  </div>
+</div>
+
+<main>
+  <section class="hero" data-screen-label="Conteúdos · Hero (mobile)">
+    <div class="mono-label">Conteúdos</div>
+    <h1>O Dalton Lab na mídia e nossos <em class="em">artigos</em>.</h1>
+  </section>
+
+  <div class="wrap" id="view" aria-live="polite"></div>
+
+  <section class="fecho" data-screen-label="Conteúdos · Fecho (mobile)">
+    <p>Seja uma organização <em class="em">agêntica</em>.</p>
+    <div class="btn-col"><a class="btn btn-p" href="https://formulario.daltonlab.ai/" target="_blank" rel="noopener">Fale com um especialista</a></div>
+  </section>
+</main>
+
+<footer>
+  <a href="mobile.html"><img class="foot-logo" src="daltonlab-logo.png" alt="Dalton Lab"></a>
+  <p class="foot-copy">© 2026 Dalton Lab. Todos os direitos reservados.</p>
+  <div class="foot-social">
+    <a href="#" class="dead" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect><circle cx="8" cy="8.6" r="1.4"></circle><rect x="6.9" y="11" width="2.2" height="6.5" rx="1"></rect><path d="M12 11h2.1v1c.5-.7 1.3-1.2 2.4-1.2 1.8 0 2.7 1.1 2.7 3.2v3.5h-2.2v-3.2c0-1-.4-1.6-1.3-1.6-.9 0-1.5.6-1.5 1.7v3.1H12z"></path></svg></a>
+    <a href="#" class="dead" aria-label="YouTube"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect><path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor"></path></svg></a>
+    <a href="#" class="dead" aria-label="Spotify"><svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M7.5 10.2c3-.9 6.2-.5 8.8 1M8 13c2.4-.7 5-.4 7 .8M8.6 15.6c1.8-.5 3.7-.3 5.2.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg></a>
+    <a href="#" class="dead" aria-label="Instagram"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="2.5" y="2.5" width="19" height="19" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"></rect><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"></circle><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"></circle></svg></a>
+  </div>
+  <div class="foot-div"></div>
+  <div class="foot-links">
+    <a href="#" class="dead">Política de Privacidade</a>
+    <a href="#" class="dead">Termos de Uso</a>
+  </div>
+</footer>
+
+<script src="conteudos-data.js"></script>
+<script>
+(function(){
+'use strict';
+var C=window.CONTEUDOS;
+var view=document.getElementById('view');
+var filtro='Todos';
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function itens(){
+  var a=C.artigos.map(function(x){x=Object.assign({},x);x.tipo='Artigo';return x;});
+  var m=C.midia.map(function(x){x=Object.assign({},x);x.tipo='Mídia';return x;});
+  return a.concat(m);
+}
+function imgHtml(item,i){
+  if(item.img) return '<span class="img" style="background-image:url(\''+item.img+'\')"></span>';
+  return '<span class="img" style="background:'+C.grads[i%C.grads.length]+'"><span class="veic-fallback">'+esc(item.veiculo)+'</span></span>';
+}
+function cardHtml(item,i){
+  return '<a class="card" href="'+esc(item.url)+'" target="_blank" rel="noopener">'
+    +imgHtml(item,i)
+    +'<span class="body">'
+    +'<span class="tagrow"><span class="tag'+(item.tipo==='Artigo'?' artigo':'')+'">'+item.tipo+'</span><span class="data">'+esc(item.data)+'</span></span>'
+    +'<h3>'+esc(item.titulo)+'</h3>'
+    +'<span class="veic">'+esc(item.veiculo)+' →</span>'
+    +'</span></a>';
+}
+function render(){
+  var todos=itens();
+  var lista=todos.filter(function(x){return filtro==='Todos'||(filtro==='Artigos'?x.tipo==='Artigo':x.tipo==='Mídia');});
+  var html='';
+  if(lista.length){
+    var f=lista[0];
+    html+='<a class="feat" href="'+esc(f.url)+'" target="_blank" rel="noopener">'
+      +imgHtml(f,0)
+      +'<span class="body">'
+      +'<span class="tagrow"><span class="tag'+(f.tipo==='Artigo'?' artigo':'')+'">'+f.tipo+'</span><span class="data">'+esc(f.data)+'</span></span>'
+      +'<h2>'+esc(f.titulo)+'</h2>'
+      +'<span class="veic">'+esc(f.veiculo)+'</span>'
+      +'<span class="leia">Leia a matéria →</span>'
+      +'</span></a>';
+  }
+  html+='<div class="filtro" role="group" aria-label="Filtrar conteúdo"><span class="lbl">Filtrar</span>'
+    +['Todos','Artigos','Mídia'].map(function(n){return '<button class="pill'+(n===filtro?' on':'')+'" data-f="'+n+'">'+n+'</button>';}).join('')
+    +'</div>';
+  var resto=lista.slice(1);
+  if(resto.length){
+    html+='<div class="grid">'+resto.map(cardHtml).join('')+'</div>';
+  }
+  if(!lista.length){
+    html+='<div class="vazio"><div class="t">Nossos artigos chegam em breve.</div><div class="s">Estamos preparando publicações sobre organizações agênticas, agentes de IA na operação e o futuro do trabalho.</div></div>';
+  }
+  view.innerHTML=html;
+  view.querySelectorAll('.pill').forEach(function(b){b.addEventListener('click',function(){filtro=b.dataset.f;render();});});
+}
+render();
+
+/* header vidro */
+var hdr=document.getElementById('hdr');
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>80);},{passive:true});
+
+/* menu overlay */
+var menu=document.getElementById('menu'),burger=document.getElementById('burger');
+function openMenu(){menu.classList.add('open');burger.setAttribute('aria-expanded','true');}
+function closeMenu(){menu.classList.remove('open');burger.setAttribute('aria-expanded','false');}
+burger.addEventListener('click',openMenu);
+document.getElementById('menuX').addEventListener('click',closeMenu);
+menu.addEventListener('click',function(e){if(e.target===menu)closeMenu();});
+menu.querySelectorAll('[data-close]').forEach(function(a){a.addEventListener('click',closeMenu);});
+addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+document.querySelectorAll('a.dead').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();});});
+})();
+</script>
+</body>
+</html>

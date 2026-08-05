@@ -12,8 +12,6 @@
     "quoteSource": "Sequoia Capital, 2024"
   },
   "ailast": {
-    "tag": "Methodology",
-    "title": "<b>AI Last</b>, not AI First.",
     "1": {
       "name": "Processes first",
       "desc": "Processes must be structured before they can be automated. AI amplifies what already exists — good or bad management."
@@ -25,13 +23,11 @@
     "3": {
       "name": "Tools last",
       "desc": "AI tools come last. Chosen for the process, not to impress the board."
-    }
+    },
+    "tag": "Methodology",
+    "title": "<b>AI Last</b>, not AI First."
   },
   "os": {
-    "tag": "Intellectual property",
-    "title": "Dalton Lab OS",
-    "sub": "The operating system of agentic transformation.",
-    "body": "Proprietary infrastructure that orchestrates agents, processes and people inside the client's operation. Not generic software — built on Dalton Lab's methodology.",
     "1": {
       "name": "Management",
       "desc": "Real-time visibility into every agent, its actions and its impact on the business."
@@ -47,7 +43,11 @@
     "4": {
       "name": "Productivity",
       "desc": "Agentic KPIs that connect every operation to a measurable business result."
-    }
+    },
+    "tag": "Intellectual property",
+    "title": "Dalton Lab OS",
+    "sub": "The operating system of agentic transformation.",
+    "body": "Proprietary infrastructure that orchestrates agents, processes and people inside the client's operation. Not generic software — built on Dalton Lab's methodology."
   },
   "compass": {
     "tag": "Maturity diagnostic",
@@ -85,34 +85,34 @@
     "title": "Your <s>bigger</s> <b>agentic</b> operational structure"
   },
   "sol": {
-    "tag": "Methodology",
-    "title": "The <b>agentic</b> journey",
     "1": {
       "name": "Agentic Immersion",
       "desc": "We map where AI creates value and the implementation roadmap for your business."
     },
     "2": {
       "name": "Agentic Sprint",
-      "desc": "We develop and deploy AI agents to drive competitive advantage and reduce costs."
+      "desc": "We build and deploy AI agents to create competitive advantage and reduce costs."
     },
     "3": {
       "name": "Agentic Operation",
-      "desc": "We scale AI across your entire company with architecture, governance and autonomy."
+      "desc": "We scale AI across the company with architecture, governance and autonomy."
     },
     "4": {
       "name": "Agentic Culture",
       "desc": "We train your team to use AI autonomously and gain productivity."
-    }
+    },
+    "tag": "Methodology",
+    "title": "The <b>agentic</b> journey"
   },
   "cases": {
-    "tag": "Cases",
-    "title": "Who already operates with an <b>agentic</b> structure",
-    "all": "See all",
     "1": {
       "sector": "Global Industry",
       "metric": "49 processes",
       "metric.sub": "agentic support & marketing"
-    }
+    },
+    "tag": "Cases",
+    "title": "Who already operates with an <b>agentic</b> structure",
+    "all": "See all"
   },
   "casos": {
     "title": "Who already operates with an <b>agentic</b> structure",
@@ -132,8 +132,6 @@
     "back": "Back to home"
   },
   "pp": {
-    "title": "Privacy Policy",
-    "updated": "Last updated: January 2026",
     "1": {
       "t": "1. Introduction",
       "b": "Dalton Lab values the privacy of its users. This Privacy Policy describes how we collect, use, store and protect your personal information when you use our services."
@@ -161,11 +159,11 @@
     "7": {
       "t": "7. Contact",
       "b": "If you have questions about this Privacy Policy, contact us at: administrativo@daltonlab.ai"
-    }
+    },
+    "title": "Privacy Policy",
+    "updated": "Last updated: January 2026"
   },
   "tu": {
-    "title": "Terms of Use",
-    "updated": "Last updated: January 2026",
     "1": {
       "t": "1. Acceptance of Terms",
       "b": "By accessing and using Dalton Lab's services, you agree to comply with these Terms of Use. If you do not agree with any part of these terms, do not use our services."
@@ -197,7 +195,9 @@
     "8": {
       "t": "8. Contact",
       "b": "For questions about these Terms of Use, contact us at: administrativo@daltonlab.ai"
-    }
+    },
+    "title": "Terms of Use",
+    "updated": "Last updated: January 2026"
   },
   "final": {
     "tag": "The next level",
@@ -206,11 +206,11 @@
     "cta1": "Talk to a specialist"
   },
   "ins": {
-    "tag": "Content",
-    "all": "View all",
     "1": {
       "type": "Article"
-    }
+    },
+    "tag": "Content",
+    "all": "View all"
   },
   "insp": {
     "eyebrow": "Content",
@@ -270,8 +270,6 @@
       "l": "continuous operation"
     },
     "fo": {
-      "kicker": "Leadership",
-      "title": "The founders",
       "1": {
         "role": "Founder & CEO",
         "bio": "Former CEO of Serasa's largest SMB commercial operation in Brazil. Led and trained 500+ high-performance salespeople. Won several national and international awards (Paris 2018, Hawaii 2019, Montevideo 2019 and USA 2020). Today he leads Dalton Lab in transforming companies into Agentic Organizations. Ambassador of the AI School at PUC/PR. Obsessed with culture, results and growth."
@@ -283,7 +281,9 @@
       "3": {
         "role": "Partner & Advisor",
         "bio": "Commercial and Marketing Director of Grupo Mundial Mix, which controls Brasil Atacadista and Supermercados Imperatriz, one of the largest food retail chains in Santa Catarina. Chairman of the Board of Rede Brasil - RBSM. 13+ years leading commercial strategy and innovation in the sector."
-      }
+      },
+      "kicker": "Leadership",
+      "title": "The founders"
     }
   },
   "produto": {
@@ -854,5 +854,63 @@
       "saved": "saved",
       "roi": "avg. ROI"
     }
+  },
+  "choreo": {
+    "aria": "Hierarchical org chart that transforms into a structure with AI agents and ends on the detail of a one-person team",
+    "t1": {
+      "h": "<s>Not bigger.</s> <em>Agentic.</em>",
+      "sub": "The companies of the future won't be <s>bigger</s>. They'll be <em>agentic</em>."
+    },
+    "t2": "Your operating structure <s>bigger</s> <em>agentic</em>",
+    "t3": {
+      "h": "A team of <em>just one person</em>.",
+      "body": "One person amplified by agents delivers what once took a whole team."
+    },
+    "areas": {
+      "1": "HR Director",
+      "2": "Marketing",
+      "3": "VP of CS",
+      "4": "Legal"
+    },
+    "agents": {
+      "1": "Recruiting",
+      "2": "Onboarding",
+      "3": "Culture Pulse",
+      "4": "1:1 Prep"
+    }
+  },
+  "path": {
+    "title": "<s>AI first.</s> AI <em>last</em>.",
+    "aria": "Process track: Processes, then People, AI last",
+    "s1": {
+      "name": "Processes",
+      "head": "Processes first."
+    },
+    "s2": {
+      "name": "People",
+      "head": "People next."
+    },
+    "s3": {
+      "name": "AI",
+      "head": "AI agents last."
+    }
+  },
+  "journey": {
+    "title": "The <em>agentic</em> journey",
+    "prev": "Previous card",
+    "next": "Next card"
+  },
+  "places": {
+    "title": "<em>Agentic</em> Places to Work",
+    "aria": "Client logos",
+    "cta": "Explore our case studies →"
+  },
+  "close": {
+    "phrase": "The companies of the future won't be <s>bigger</s>. They'll be <em>agentic</em>."
+  },
+  "press": {
+    "title": "Content",
+    "seeAll": "See all →",
+    "tag": "Media"
   }
 }

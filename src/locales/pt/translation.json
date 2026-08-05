@@ -12,8 +12,6 @@
     "quoteSource": "Sequoia Capital, 2024"
   },
   "ailast": {
-    "tag": "Metodologia",
-    "title": "<b>AI Last</b>, not AI First.",
     "1": {
       "name": "Processos primeiro",
       "desc": "Processos precisam ser estruturados antes de serem automatizados. IA amplifica o que existe, boa ou má gestão."
@@ -25,13 +23,11 @@
     "3": {
       "name": "Ferramentas por último",
       "desc": "Ferramentas de IA vêm por último. Escolhidas para o processo, não para impressionar o conselho."
-    }
+    },
+    "tag": "Metodologia",
+    "title": "<b>AI Last</b>, not AI First."
   },
   "os": {
-    "tag": "Propriedade intelectual",
-    "title": "Dalton Lab OS",
-    "sub": "O sistema operacional da transformação agêntica.",
-    "body": "Infraestrutura proprietária que orquestra agentes, processos e pessoas dentro da operação do cliente. Não é um software genérico — é construído sobre a metodologia da Dalton Lab.",
     "1": {
       "name": "Gestão",
       "desc": "Visibilidade em tempo real de todos os agentes, suas ações e impacto no negócio."
@@ -47,7 +43,11 @@
     "4": {
       "name": "Produtividade",
       "desc": "KPIs agênticos que conectam cada operação a um resultado mensurável de negócio."
-    }
+    },
+    "tag": "Propriedade intelectual",
+    "title": "Dalton Lab OS",
+    "sub": "O sistema operacional da transformação agêntica.",
+    "body": "Infraestrutura proprietária que orquestra agentes, processos e pessoas dentro da operação do cliente. Não é um software genérico — é construído sobre a metodologia da Dalton Lab."
   },
   "compass": {
     "tag": "Diagnóstico de maturidade",
@@ -85,8 +85,6 @@
     "title": "Sua estrutura operacional <s>maior</s> <b>agêntica</b>"
   },
   "sol": {
-    "tag": "Metodologia",
-    "title": "A jornada <b>agêntica</b>",
     "1": {
       "name": "Imersão Agêntica",
       "desc": "Mapeamos onde a IA gera valor e o roteiro de implementação para o seu negócio."
@@ -102,17 +100,19 @@
     "4": {
       "name": "Cultura Agêntica",
       "desc": "Treinamos seu time para usar IA com autonomia e ganhar produtividade."
-    }
+    },
+    "tag": "Metodologia",
+    "title": "A jornada <b>agêntica</b>"
   },
   "cases": {
-    "tag": "Casos",
-    "title": "Quem já opera com estrutura <b>agêntica</b>",
-    "all": "Ver todos",
     "1": {
       "sector": "Indústria Global",
       "metric": "49 processos",
       "metric.sub": "suporte e marketing agênticos"
-    }
+    },
+    "tag": "Casos",
+    "title": "Quem já opera com estrutura <b>agêntica</b>",
+    "all": "Ver todos"
   },
   "casos": {
     "title": "Quem já opera com estrutura <b>agêntica</b>",
@@ -132,8 +132,6 @@
     "back": "Voltar ao início"
   },
   "pp": {
-    "title": "Política de Privacidade",
-    "updated": "Última atualização: Janeiro de 2026",
     "1": {
       "t": "1. Introdução",
       "b": "O Dalton Lab valoriza a privacidade de seus usuários. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais quando você utiliza nossos serviços."
@@ -161,11 +159,11 @@
     "7": {
       "t": "7. Contato",
       "b": "Se tiver dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail: administrativo@daltonlab.ai"
-    }
+    },
+    "title": "Política de Privacidade",
+    "updated": "Última atualização: Janeiro de 2026"
   },
   "tu": {
-    "title": "Termos de Uso",
-    "updated": "Última atualização: Janeiro de 2026",
     "1": {
       "t": "1. Aceitação dos Termos",
       "b": "Ao acessar e utilizar os serviços do Dalton Lab, você concorda em cumprir estes Termos de Uso. Se não concordar com qualquer parte destes termos, não utilize nossos serviços."
@@ -197,7 +195,9 @@
     "8": {
       "t": "8. Contato",
       "b": "Para dúvidas sobre estes Termos de Uso, entre em contato pelo e-mail: administrativo@daltonlab.ai"
-    }
+    },
+    "title": "Termos de Uso",
+    "updated": "Última atualização: Janeiro de 2026"
   },
   "final": {
     "tag": "O próximo nível",
@@ -206,11 +206,11 @@
     "cta1": "Fale com um especialista"
   },
   "ins": {
-    "tag": "Conteúdos",
-    "all": "Ver todos",
     "1": {
       "type": "Artigo"
-    }
+    },
+    "tag": "Conteúdos",
+    "all": "Ver todos"
   },
   "insp": {
     "eyebrow": "Conteúdos",
@@ -270,8 +270,6 @@
       "l": "operação contínua"
     },
     "fo": {
-      "kicker": "Liderança",
-      "title": "Os fundadores",
       "1": {
         "role": "Fundador e CEO",
         "bio": "Foi CEO da maior operação comercial da Serasa para PMEs no Brasil. Liderou e formou +500 vendedores de alta performance. Recebeu diversos prêmios nacionais e internacionais (Paris 2018, Hawaii 2019, Montevideo 2019 e USA 2020). Hoje lidera o Dalton Lab na transformação de empresas em Organizações Agênticas. Embaixador da Escola de IA da Pós PUC/PR. Obcecado por cultura, resultado e crescimento."
@@ -283,7 +281,9 @@
       "3": {
         "role": "Sócio-conselheiro",
         "bio": "Diretor Comercial e Marketing do Grupo Mundial Mix, que controla Brasil Atacadista e Supermercados Imperatriz, uma das maiores redes do varejo alimentar de Santa Catarina. Presidente do Conselho da Rede Brasil - RBSM. +13 anos liderando estratégia comercial e inovação no setor."
-      }
+      },
+      "kicker": "Liderança",
+      "title": "Os fundadores"
     }
   },
   "produto": {
@@ -854,5 +854,63 @@
       "saved": "economizados",
       "roi": "ROI médio"
     }
+  },
+  "choreo": {
+    "aria": "Organograma hierárquico que se transforma em estrutura com agentes de IA e termina no detalhe de um time de uma pessoa só",
+    "t1": {
+      "h": "<s>Not bigger.</s> <em>Agentic.</em>",
+      "sub": "As empresas do futuro não serão <s>maiores</s>. Serão <em>agênticas</em>."
+    },
+    "t2": "Sua estrutura operacional <s>maior</s> <em>agêntica</em>",
+    "t3": {
+      "h": "Time de <em>uma pessoa só</em>.",
+      "body": "Uma pessoa ampliada por agentes entrega o que antes exigia uma equipe."
+    },
+    "areas": {
+      "1": "Diretor de RH",
+      "2": "Marketing",
+      "3": "VP de CS",
+      "4": "Jurídico"
+    },
+    "agents": {
+      "1": "Recrutamento",
+      "2": "Onboarding",
+      "3": "Pulso de Cultura",
+      "4": "Preparo de 1:1"
+    }
+  },
+  "path": {
+    "title": "<s>IA primeiro.</s> IA por <em>último</em>.",
+    "aria": "Trilho do processo: Processos, depois Pessoas, IA por último",
+    "s1": {
+      "name": "Processos",
+      "head": "Processos primeiro."
+    },
+    "s2": {
+      "name": "Pessoas",
+      "head": "Pessoas depois."
+    },
+    "s3": {
+      "name": "IA",
+      "head": "Agentes de IA por último."
+    }
+  },
+  "journey": {
+    "title": "A jornada <em>agêntica</em>",
+    "prev": "Card anterior",
+    "next": "Próximo card"
+  },
+  "places": {
+    "title": "<em>Agentic</em> Places to Work",
+    "aria": "Logos de clientes",
+    "cta": "Conheça nossos casos →"
+  },
+  "close": {
+    "phrase": "As empresas do futuro não serão <s>maiores</s>. Serão <em>agênticas</em>."
+  },
+  "press": {
+    "title": "Conteúdos",
+    "seeAll": "Ver todos →",
+    "tag": "Mídia"
   }
 }

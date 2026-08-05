@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { trackPageView } from "@/lib/analytics";
 import { usePrerenderReady } from "@/lib/prerender-ready";
 import VoidBackground from "@/components/redesign/shell/VoidBackground";
@@ -19,7 +19,6 @@ const ArtigoInsight = lazy(() => import("./pages/ArtigoInsight"));
 const Newton = lazy(() => import("./pages/Newton"));
 const QuemSomos = lazy(() => import("./pages/QuemSomos"));
 const Casos = lazy(() => import("./pages/Casos"));
-const CasoDetalhe = lazy(() => import("./pages/CasoDetalhe"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const TermosDeUso = lazy(() => import("./pages/TermosDeUso"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -133,7 +132,8 @@ const App = () => (
                 <Route path="/artigos/insight/:id" element={<ArtigoInsight />} />
                 <Route path="/artigos/:slug" element={<Artigo />} />
                 <Route path="/casos" element={<Casos />} />
-                <Route path="/casos/:slug" element={<CasoDetalhe />} />
+                {/* URLs antigas /casos/:slug (jeisys, smartrisk…) redirecionam para o índice novo */}
+                <Route path="/casos/:slug" element={<Navigate to="/casos" replace />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

@@ -115,17 +115,33 @@
     "all": "Ver todos"
   },
   "casos": {
-    "title": "Quem já opera com estrutura <b>agêntica</b>",
+    "title": "Organizações que já operam com <em>agentes de IA</em>.",
     "lede": "Operações reais redesenhadas com agentes de IA — do desenho à execução em produção.",
     "read": "Ler o caso",
     "allcases": "Todos os casos",
     "tagcase": "Caso",
     "resumo": "Resumo",
-    "back": "Voltar ao início",
+    "back": "← Voltar para os casos",
     "highlights": "Destaques",
     "challenge": "O desafio",
     "solution": "A solução",
-    "how": "Como funciona na prática"
+    "how": "Como funciona na prática",
+    "label": "Casos",
+    "filterAria": "Filtrar por setor",
+    "todos": "Todos",
+    "fecho": "Seja uma organização <em>agêntica</em>.",
+    "opTitle": "O agente na operação",
+    "chip": "Humano acima do loop",
+    "meta": {
+      "setor": "Setor",
+      "estagio": "Estágio",
+      "papel": "Papel do agente"
+    },
+    "sec": {
+      "desafio": "Desafio",
+      "solucao": "Solução",
+      "impacto": "Impacto"
+    }
   },
   "legalPage": {
     "eyebrow": "Legal",
@@ -322,7 +338,8 @@
   },
   "pages": {
     "casos": {
-      "title": "Casos de Sucesso | Dalton Lab – Organizações Agênticas"
+      "title": "Casos | Dalton Lab",
+      "description": "Organizações que já operam com agentes de IA: casos reais de agentes em operação, prova de conceito e implantação."
     },
     "politica": {
       "description": "Política de Privacidade da Dalton Lab: como coletamos, usamos e protegemos seus dados pessoais em conformidade com a LGPD."

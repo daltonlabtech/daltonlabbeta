@@ -115,17 +115,33 @@
     "all": "See all"
   },
   "casos": {
-    "title": "Who already operates with an <b>agentic</b> structure",
+    "title": "Organizations already operating with <em>AI agents</em>.",
     "lede": "Real operations redesigned with AI agents — from design to production execution.",
     "read": "Read the case",
     "allcases": "All cases",
     "tagcase": "Case",
     "resumo": "Summary",
-    "back": "Back to home",
+    "back": "← Back to case studies",
     "highlights": "Highlights",
     "challenge": "The challenge",
     "solution": "The solution",
-    "how": "How it works in practice"
+    "how": "How it works in practice",
+    "label": "Case studies",
+    "filterAria": "Filter by sector",
+    "todos": "All",
+    "fecho": "Become an <em>agentic</em> organization.",
+    "opTitle": "The agent in operation",
+    "chip": "Human above the loop",
+    "meta": {
+      "setor": "Sector",
+      "estagio": "Stage",
+      "papel": "Agent role"
+    },
+    "sec": {
+      "desafio": "Challenge",
+      "solucao": "Solution",
+      "impacto": "Impact"
+    }
   },
   "legalPage": {
     "eyebrow": "Legal",
@@ -322,7 +338,8 @@
   },
   "pages": {
     "casos": {
-      "title": "Case Studies | Dalton Lab – Agentic Organizations"
+      "title": "Case Studies | Dalton Lab",
+      "description": "Organizations already operating with AI agents: real cases of agents in operation, proof of concept and deployment."
     },
     "politica": {
       "description": "Dalton Lab Privacy Policy: how we collect, use, and protect your personal data in compliance with data protection laws."

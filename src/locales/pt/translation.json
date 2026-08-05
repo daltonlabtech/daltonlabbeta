@@ -758,7 +758,7 @@
     ]
   },
   "articles": {
-    "pageTitle": "Insights & Publicações",
+    "pageTitle": "Conteúdos",
     "pageSubtitle": "Explore nosso pensamento mais recente sobre economia agêntica, estratégias de transformação com IA e o futuro do trabalho.",
     "featuredLabel": "Destaque",
     "readArticle": "Ler artigo",
@@ -929,5 +929,19 @@
     "title": "Conteúdos",
     "seeAll": "Ver todos →",
     "tag": "Mídia"
+  },
+  "conteudos": {
+    "label": "Conteúdos",
+    "title": "O Dalton Lab na mídia e nossos <em>artigos</em>.",
+    "lede": "O Dalton Lab na mídia e nossos artigos sobre organizações agênticas.",
+    "filtrar": "Filtrar",
+    "filterAria": "Filtrar conteúdo",
+    "todos": "Todos",
+    "artigos": "Artigos",
+    "midia": "Mídia",
+    "tagArtigo": "Artigo",
+    "leia": "Leia a matéria →",
+    "leiaArtigo": "Leia o artigo →",
+    "vazioSub": "Estamos preparando publicações sobre organizações agênticas, agentes de IA na operação e o futuro do trabalho."
   }
 }

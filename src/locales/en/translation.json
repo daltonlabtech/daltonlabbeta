@@ -758,7 +758,7 @@
     ]
   },
   "articles": {
-    "pageTitle": "Insights & Publications",
+    "pageTitle": "Content",
     "pageSubtitle": "Explore our latest thinking on agentic economics, AI transformation strategies, and the future of work.",
     "featuredLabel": "Featured",
     "readArticle": "Read article",
@@ -929,5 +929,19 @@
     "title": "Content",
     "seeAll": "See all →",
     "tag": "Media"
+  },
+  "conteudos": {
+    "label": "Content",
+    "title": "Dalton Lab in the media and our <em>articles</em>.",
+    "lede": "Dalton Lab in the media and our articles on agentic organizations.",
+    "filtrar": "Filter",
+    "filterAria": "Filter content",
+    "todos": "All",
+    "artigos": "Articles",
+    "midia": "Media",
+    "tagArtigo": "Article",
+    "leia": "Read the story →",
+    "leiaArtigo": "Read the article →",
+    "vazioSub": "We are preparing publications on agentic organizations, AI agents in operation and the future of work."
   }
 }

@@ -264,14 +264,15 @@
     },
     "co": {
       "kicker": "A empresa",
-      "p1": "Nossa missão é clara: transformar empresas convencionais em organizações agênticas, onde agentes de IA executam tarefas operacionais complexas e humanos se concentram em decisões estratégicas.",
+      "p1": "Nossa missão é clara: transformar empresas tradicionais em organizações agênticas, onde agentes de IA executam tarefas operacionais complexas e humanos se concentram em decisões estratégicas.",
       "p2": "Enquanto o mercado ainda debate o potencial da IA, nós já vivemos essa realidade. Somos 11 profissionais trabalhando lado a lado com mais de 30 agentes de IA proprietários — uma configuração híbrida que define a nova era do trabalho.",
       "p3": "Nesse modelo, agentes operam em escala e mantêm operações 24/7, enquanto humanos focam no que fazem de melhor: estratégia, relacionamentos e liderança.",
       "quote": {
         "pre": "Praticamos o que vendemos: ",
         "em": "escala infinita",
         "post": " através de organizações agênticas."
-      }
+      },
+      "destaque": "Praticamos o que vendemos: escala infinita através de organizações <em>agênticas</em>."
     },
     "stat1": {
       "l": "profissionais"
@@ -280,7 +281,7 @@
       "l": "agentes de IA proprietários"
     },
     "stat3": {
-      "l": "continentes"
+      "l": "de operação contínua"
     },
     "stat4": {
       "l": "operação contínua"
@@ -299,8 +300,13 @@
         "bio": "Diretor Comercial e Marketing do Grupo Mundial Mix, que controla Brasil Atacadista e Supermercados Imperatriz, uma das maiores redes do varejo alimentar de Santa Catarina. Presidente do Conselho da Rede Brasil - RBSM. +13 anos liderando estratégia comercial e inovação no setor."
       },
       "kicker": "Liderança",
-      "title": "Os fundadores"
-    }
+      "title": "Os fundadores",
+      "label": "Os fundadores",
+      "head": "Quem lidera essa transformação."
+    },
+    "label": "Quem Somos",
+    "headline": "Transformamos empresas tradicionais em organizações <em>agênticas</em>.",
+    "fotoAlt": "Time do Dalton Lab reunido no escritório"
   },
   "produto": {
     "hero": {

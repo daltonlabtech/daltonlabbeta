@@ -264,14 +264,15 @@
     },
     "co": {
       "kicker": "The company",
-      "p1": "Our mission is clear: turn conventional companies into agentic organizations, where AI agents run complex operational tasks and humans focus on strategic decisions.",
-      "p2": "While the market still debates AI's potential, we already live it. We're 11 professionals working side by side with more than 30 proprietary AI agents — a hybrid setup that defines the new era of work.",
+      "p1": "Our mission is clear: to transform traditional companies into agentic organizations, where AI agents execute complex operational tasks and humans focus on strategic decisions.",
+      "p2": "While the market still debates the potential of AI, we already live that reality. We are 11 professionals working side by side with more than 30 proprietary AI agents — a hybrid configuration that defines the new era of work.",
       "p3": "In this model, agents operate at scale and keep operations running 24/7, while humans focus on what they do best: strategy, relationships and leadership.",
       "quote": {
         "pre": "We practice what we sell: ",
         "em": "infinite scale",
         "post": " through agentic organizations."
-      }
+      },
+      "destaque": "We practice what we sell: infinite scale through <em>agentic</em> organizations."
     },
     "stat1": {
       "l": "professionals"
@@ -280,7 +281,7 @@
       "l": "proprietary AI agents"
     },
     "stat3": {
-      "l": "continents"
+      "l": "continuous operation"
     },
     "stat4": {
       "l": "continuous operation"
@@ -288,19 +289,24 @@
     "fo": {
       "1": {
         "role": "Founder & CEO",
-        "bio": "Former CEO of Serasa's largest SMB commercial operation in Brazil. Led and trained 500+ high-performance salespeople. Won several national and international awards (Paris 2018, Hawaii 2019, Montevideo 2019 and USA 2020). Today he leads Dalton Lab in transforming companies into Agentic Organizations. Ambassador of the AI School at PUC/PR. Obsessed with culture, results and growth."
+        "bio": "Former CEO of Serasa’s largest commercial operation for SMBs in Brazil. Led and trained 500+ high-performance salespeople. Received several national and international awards (Paris 2018, Hawaii 2019, Montevideo 2019 and USA 2020). Today he leads Dalton Lab in transforming companies into Agentic Organizations. Ambassador of the AI School at PUC/PR Graduate Programs. Obsessed with culture, results and growth."
       },
       "2": {
         "role": "Founder & COO",
-        "bio": "Managed over 120 digital initiative projects in the Health and Education markets, generating 7,000+ clients in his first venture at age 21. With experience at multinationals such as Deloitte, he now designs the operational architecture that turns strategy into execution at Dalton Lab."
+        "bio": "Managed more than 120 digital initiative projects in the Healthcare and Education markets, generating 7,000+ customers in his first venture at age 21. With experience at multinationals such as Deloitte, today he designs the operational architecture that turns strategy into execution at Dalton Lab."
       },
       "3": {
-        "role": "Partner & Advisor",
+        "role": "Partner & Board Advisor",
         "bio": "Commercial and Marketing Director of Grupo Mundial Mix, which controls Brasil Atacadista and Supermercados Imperatriz, one of the largest food retail chains in Santa Catarina. Chairman of the Board of Rede Brasil - RBSM. 13+ years leading commercial strategy and innovation in the sector."
       },
       "kicker": "Leadership",
-      "title": "The founders"
-    }
+      "title": "The founders",
+      "label": "The founders",
+      "head": "Who leads this transformation."
+    },
+    "label": "About Us",
+    "headline": "We transform traditional companies into <em>agentic</em> organizations.",
+    "fotoAlt": "The Dalton Lab team together at the office"
   },
   "produto": {
     "hero": {

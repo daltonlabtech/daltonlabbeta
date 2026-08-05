@@ -8,52 +8,67 @@
    Os tokens antigos abaixo permanecem por enquanto (removidos na Fase 6).
    ============================================================ */
 :root {
-  /* ---- Backgrounds (deep navy system) ---- */
-  --bg:        #0A1628;   /* base navy */
-  --bg-deep:   #060D1A;   /* header / footer floor */
-  --bg-navy:   #0E1E36;   /* default dark */
-  --bg-soft:   #0F2440;   /* lifted dark for stages */
-  --surface:   rgba(26,58,92,0.18);  /* translucent elevated */
-  --surface-2: rgba(26,58,92,0.28);  /* lifted */
-  --ink-glow:  #1A3A5C;   /* gradient peak + glow tint */
+  /* ---- Tokens do tema "void" (protótipo site-novo) ---- */
+  --void:      #050608;
+  --ink:       #e6edf4;
+  --ink2:      #aab8c8;
+  --ink3:      #7d8898;
+  --accent:    #8fe6ff;
+  --line:      rgba(162,182,206,0.26);
+  --line-soft: rgba(162,182,206,0.12);
+  /* pastéis (agentes / setores) */
+  --p-lilac:   #c9b8ff;
+  --p-mint:    #a8f0cf;
+  --p-pink:    #ffb8d9;
+  --p-coral:   #ff9e9e;
+  --p-blue:    #a8d8ff;
+  --p-amber:   #ffd7a8;
+  --p-gray:    #dfe7f2;
 
-  /* ---- Text ---- */
-  --text:      #FFFFFF;
-  --text-dim:  #8EB4D4;   /* secondary */
-  --muted-navy:#5d7da3;   /* tertiary */
-  --label:     #5EC8F0;   /* labels / tags */
-  --border-navy:   rgba(100,160,210,0.15);
-  --border-navy-2: rgba(100,160,210,0.08);
-  --overlay-navy:  rgba(8,14,28,0.40);   /* photo overlay */
+  /* ---- Aliases legados → tema void (herdados pelos componentes) ---- */
+  --bg:        var(--void);
+  --bg-deep:   #08090e;
+  --bg-navy:   #0a0c12;
+  --bg-soft:   #10141b;
+  --surface:   rgba(16,20,27,0.55);  /* vidro dos cards */
+  --surface-2: rgba(16,20,27,0.7);
+  --ink-glow:  #12131a;
 
-  /* ---- Brand accents (electric cyan family) ---- */
-  --cyan:      #4CB8E8;   /* electric cyan — primary accent */
-  --cyan-soft: #5EC8F0;   /* label cyan */
-  --cyan-deep: #3A9FD5;   /* decorative line / deep accent */
-  --blue-navy: #38BDFA;
-  --orange-navy: #F0A04C; /* attention (warm) */
+  --text:      var(--ink);
+  --text-dim:  var(--ink2);
+  --muted-navy:var(--ink3);
+  --label:     var(--ink3);
+  --border-navy:   var(--line);
+  --border-navy-2: var(--line-soft);
+  --overlay-navy:  rgba(3,4,6,0.40);
 
-  --accent-navy:     var(--cyan);
-  --accent-ink:      #06121a;
-  --offline:         #4a607d;
+  --cyan:      var(--accent);
+  --cyan-soft: var(--accent);
+  --cyan-deep: var(--accent);
+  --blue-navy: var(--p-blue);
+  --orange-navy: var(--p-amber);
 
-  --grad-hero: linear-gradient(135deg, #5EC8F0, #3A9FD5);
-  --grad-cta:  linear-gradient(135deg, #4CB8E8, #2f87bd);
+  --accent-navy:     var(--accent);
+  --accent-ink:      #04121a;
+  --offline:         var(--ink3);
+
+  --grad-hero: linear-gradient(135deg, #8fe6ff, #a8d8ff);
+  --grad-cta:  linear-gradient(135deg, #8fe6ff, #6fc4de);
 
   /* Glow */
-  --glow-cyan:   0 0 40px rgba(76,184,232,0.40);
-  --glow-purple: 0 0 40px rgba(76,184,232,0.30);
+  --glow-cyan:   0 0 26px rgba(143,230,255,0.28);
+  --glow-purple: 0 0 40px rgba(201,184,255,0.30);
 
   /* ---- Type ---- */
-  --font-sans:    "DM Sans", "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "DM Sans", "Inter", sans-serif;   /* ExtraBold headlines */
-  --font-serif:   "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  --font-sans:    "Manrope", "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-sans);
+  --font-serif:   "Playfair Display", "Baskerville", "Bodoni MT", "Didot", Georgia, serif;
+  --font-mono:    "JetBrains Mono", "Cascadia Code", "SF Mono", ui-monospace, monospace;
 
   /* ---- Rhythm ---- */
-  --navy-maxw: 1200px;
+  --navy-maxw: 1120px;
   --navy-gutter: 24px;
-  --navy-section-y: 64px;
+  --navy-section-y: 56px;
   --navy-radius: 16px;
   --navy-radius-sm: 12px;
 
@@ -62,31 +77,87 @@
 
 /* ---- Visual treatments (redesign) ---- */
 
-/* Scrollbar — dark navy, matches the theme */
+/* Scrollbar — void, matches the theme */
 .redesign-scope ::-webkit-scrollbar { width: 12px; height: 12px; }
-.redesign-scope ::-webkit-scrollbar-track { background: #060D1A; }
-.redesign-scope ::-webkit-scrollbar-thumb { background: #1A3A5C; border-radius: 8px; border: 3px solid #060D1A; }
-.redesign-scope ::-webkit-scrollbar-thumb:hover { background: #244a73; }
+.redesign-scope ::-webkit-scrollbar-track { background: #08090e; }
+.redesign-scope ::-webkit-scrollbar-thumb { background: #1c222c; border-radius: 8px; border: 3px solid #08090e; }
+.redesign-scope ::-webkit-scrollbar-thumb:hover { background: #2a323f; }
 
-/* Eyebrow label + dot */
+/* Camadas de fundo do tema void (montadas uma vez pelo VoidBackground) */
+.bg-grad, .bg-grain, .bg-vig { position: fixed; inset: 0; pointer-events: none; }
+.bg-grad {
+  background: radial-gradient(120% 100% at 50% 30%, #12131a 0%, #0a0b11 42%, #050608 78%, #030304 100%);
+  z-index: 0;
+}
+.bg-grain {
+  background-image: radial-gradient(rgba(200,220,255,.6) .5px, transparent .5px);
+  background-size: 3px 3px;
+  opacity: .045;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+.bg-vig { box-shadow: inset 0 0 260px 70px rgba(0,0,0,.82); z-index: 2; }
+
+/* Eyebrow label — mono-label do protótipo */
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--label);
+  color: var(--ink3);
   display: inline-flex;
   align-items: center;
-  gap: 9px;
 }
-.eyebrow::before {
-  content: "";
-  width: 6px; height: 6px;
-  background: var(--cyan-soft);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--cyan);
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink3);
 }
+
+/* Par negação/afirmação (.na) e afirmação isolada (.em) */
+.na s {
+  color: var(--ink3);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--ink3);
+}
+.na em, .em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  text-shadow: 0 0 28px rgba(143,230,255,.35), 0 0 60px rgba(143,230,255,.14);
+}
+
+/* Título de dobra */
+.h-fold {
+  font-weight: 200;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+/* Botões pill do protótipo */
+.btn-p, .btn-s {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 15px 30px; border-radius: 999px; border: 0;
+  font: 400 15px var(--font-sans); white-space: nowrap; cursor: pointer;
+  transition: filter .2s, color .2s, border-color .2s;
+}
+.btn-p { background: var(--accent); color: #04121a; box-shadow: 0 0 26px rgba(143,230,255,.28); }
+.btn-p:hover { filter: brightness(1.08); color: #04121a; }
+.btn-s {
+  background: rgba(16,20,27,.7);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+  color: var(--ink2);
+}
+.btn-s:hover { color: var(--ink); border-color: rgba(162,182,206,.45); }
 
 /* Strikethrough highlight — cyan line drawn through a word, with glow */
 .strike {
@@ -102,8 +173,8 @@
   height: 0.09em;
   min-height: 3px;
   border-radius: 4px;
-  background: var(--cyan);
-  box-shadow: 0 0 12px rgba(76,184,232,0.85), 0 0 26px rgba(76,184,232,0.45);
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(143,230,255,0.85), 0 0 26px rgba(143,230,255,0.45);
   transform: scaleX(0);
   transform-origin: left center;
 }
@@ -150,8 +221,8 @@ body.no-motion .strike::after { animation: none; transform: scaleX(1); }
     --dalton-text: 0 0% 88%;             /* #E0E0E0 - Texto corpo */
 
     /* Core System Colors */
-    --background: 218 29% 14%;
-    --foreground: 0 0% 88%;
+    --background: 220 25% 3%;
+    --foreground: 209 32% 93%;
 
     --card: 0 0% 12%;
     --card-foreground: 0 0% 100%;
@@ -222,7 +293,7 @@ body.no-motion .strike::after { animation: none; transform: scaleX(1); }
   }
 
   body {
-    @apply bg-background text-foreground font-inter antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 
   /* Backdrop de gradiente radial ancorado na viewport — portado do styles.css
@@ -233,14 +304,15 @@ body.no-motion .strike::after { animation: none; transform: scaleX(1); }
     position: fixed;
     inset: 0;
     z-index: -1;
-    background: radial-gradient(ellipse at 50% 45%, #1A3A5C 0%, #0A1628 55%, #060D1A 100%);
+    background: #050608;
     pointer-events: none;
   }
 
   /* Focus styles for accessibility - visible keyboard focus */
   :focus-visible {
-    outline: 3px solid hsl(var(--dalton-blue));
-    outline-offset: 2px;
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 999px;
   }
 
   /* Remove default focus for mouse users */
@@ -316,35 +388,37 @@ body.no-motion .strike::after { animation: none; transform: scaleX(1); }
   /* Pill CTA — portado do styles.css da referência (.btn / .btn-primary) */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-    padding: 15px 26px; border-radius: 100px;
-    font-size: 15px; font-weight: 600; letter-spacing: -0.01em; min-height: 48px;
+    padding: 15px 30px; border-radius: 999px;
+    font-size: 15px; font-weight: 400; letter-spacing: 0; min-height: 48px;
     white-space: nowrap;
-    transition: transform .3s var(--ease), background .3s var(--ease),
+    transition: transform .3s var(--ease), background .3s var(--ease), filter .3s var(--ease),
                 border-color .3s var(--ease), color .3s var(--ease), box-shadow .3s var(--ease);
   }
   .btn:active { transform: scale(.97); }
-  .btn-primary { background: var(--cyan); color: var(--accent-ink); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(76,184,232,0.38); }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 26px rgba(143,230,255,.28); }
+  .btn-primary:hover { filter: brightness(1.08); }
 
   /* Headlines — portado do styles.css da referência (.headline / .h-xl / .h-lg).
      Os headers da home passam style inline (que sobrescreve isto); páginas que usam
      só a classe (ex.: /casos) dependem destas regras. */
   .headline {
     font-family: var(--font-display);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.04;
+    font-weight: 200;
+    letter-spacing: -0.012em;
+    line-height: 1.08;
     text-wrap: balance;
+    color: var(--ink);
   }
-  .h-xl { font-size: clamp(2.2rem, 8vw, 5rem); }
-  .h-lg { font-size: clamp(1.75rem, 6vw, 3.4rem); }
+  .h-xl { font-size: clamp(1.9rem, 5.5vw, 2.9rem); }
+  .h-lg { font-size: clamp(1.5rem, 4vw, 2.1rem); }
   .headline b {
     font-family: var(--font-serif);
-    font-weight: 500;
+    font-weight: 400;
     font-style: italic;
     letter-spacing: -0.005em;
-    color: var(--cyan);
-    -webkit-text-fill-color: var(--cyan);
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+    text-shadow: 0 0 28px rgba(143,230,255,.35), 0 0 60px rgba(143,230,255,.14);
   }
 
   /* CTA Button */

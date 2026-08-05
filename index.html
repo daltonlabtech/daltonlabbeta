@@ -11,25 +11,26 @@
     -->
     <meta name="keywords" content="organização agêntica, agentes de IA, IA agêntica, transformação digital, automação com IA, agentes inteligentes, AI-first, Dalton Lab, inteligência artificial para empresas" />
     <meta name="author" content="Dalton Lab" />
-    <meta name="theme-color" content="#0A1628" />
+    <meta name="theme-color" content="#050608" />
 
     <!-- Critical CSS Inline - Above the fold rendering -->
     <style>
-      /* Critical CSS for immediate first paint — espelha o HeroSection do novo design */
+      /* Critical CSS for immediate first paint — espelha o 1º frame da coreografia (tema void) */
       *,*::before,*::after{box-sizing:border-box}
-      body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;background:#0A1628;color:#FFFFFF;-webkit-font-smoothing:antialiased}
+      body{margin:0;font-family:Manrope,"Segoe UI",system-ui,-apple-system,sans-serif;background:#050608;color:#aab8c8;-webkit-font-smoothing:antialiased}
       #root{min-height:100vh}
-      .hero-critical{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:#0A1628;padding:80px 24px 170px}
-      .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(100,160,210,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(100,160,210,0.08) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 70% 0%,#000 0%,transparent 72%);mask-image:radial-gradient(120% 90% at 70% 0%,#000 0%,transparent 72%);opacity:.6}
-      .hero-glow{pointer-events:none;position:absolute;top:-18%;right:0;width:70vw;height:70vw;max-width:720px;max-height:720px;background:radial-gradient(circle at 50% 42%,rgba(76,184,232,0.26) 0%,rgba(76,184,232,0.12) 32%,rgba(76,184,232,0.04) 52%,transparent 72%);filter:blur(80px);opacity:.8}
-      .hero-content{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto}
-      .hero-h1{font-family:"DM Sans","Inter",sans-serif;font-weight:800;letter-spacing:-0.03em;line-height:1.04;font-size:clamp(2.2rem,8vw,5rem);max-width:16ch;color:#FFFFFF;margin:0}
-      .hero-serif{font-family:"Playfair Display",Georgia,serif;font-weight:500;font-style:italic;color:#4CB8E8}
-      .hero-actions{display:flex;flex-direction:column;align-items:stretch;gap:8px;margin-top:24px}
-      .hero-cta,.hero-ghost{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:11px 24px;border-radius:100px;font-size:14px;font-weight:600;letter-spacing:-0.01em;min-height:42px;text-decoration:none;white-space:nowrap}
-      .hero-cta{background:#4CB8E8;color:#06121a}
-      .hero-ghost{background:transparent;color:#FFFFFF;border:1px solid rgba(100,160,210,0.15)}
-      @media(min-width:640px){.hero-actions{flex-direction:row;align-items:center}}
+      .hero-critical{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(120% 100% at 50% 30%,#12131a 0%,#0a0b11 42%,#050608 78%,#030304 100%);padding:92px 24px}
+      .hero-content{position:relative;z-index:2;width:100%;max-width:760px;margin:0 auto;text-align:center}
+      .hero-h1{font-weight:200;letter-spacing:-0.012em;line-height:1.06;font-size:clamp(30px,3.4vw,46px);color:#e6edf4;margin:0;text-wrap:balance}
+      .hero-h1 s{color:#7d8898;text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:#7d8898}
+      .hero-serif{font-family:"Playfair Display",Georgia,serif;font-weight:400;font-style:italic;color:#8fe6ff;text-shadow:0 0 28px rgba(143,230,255,.35),0 0 60px rgba(143,230,255,.14)}
+      .hero-sub{margin:14px auto 0;font-size:16px;line-height:1.5;color:#aab8c8;max-width:48ch}
+      .hero-sub s{color:#7d8898;text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:#7d8898}
+      .hero-actions{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:26px}
+      .hero-cta,.hero-ghost{display:inline-flex;align-items:center;justify-content:center;padding:15px 30px;border-radius:999px;font-size:15px;font-weight:400;min-height:48px;text-decoration:none;white-space:nowrap}
+      .hero-cta{background:#8fe6ff;color:#04121a;box-shadow:0 0 26px rgba(143,230,255,.28)}
+      .hero-ghost{background:rgba(16,20,27,.7);color:#aab8c8;border:1px solid rgba(162,182,206,.26)}
+      @media(min-width:640px){.hero-actions{flex-direction:row;justify-content:center;align-items:center}}
     </style>
 
     <!-- DNS Prefetch & Preconnect for Performance -->
@@ -59,9 +60,9 @@
         rel="stylesheet"
     /></noscript>
 
-    <!-- Redesign fonts (novo design system: DM Sans / Playfair Display / JetBrains Mono) -->
+    <!-- Redesign fonts (tema void: Manrope / Playfair Display / JetBrains Mono) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400;1,500&display=swap"
       rel="stylesheet"
     />
 
@@ -126,10 +127,9 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="root"><section class="hero-critical" aria-label="Hero">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-content">
-        <h1 class="hero-h1">Transformando empresas em <span class="hero-serif">Organizações Agênticas</span></h1>
+        <h1 class="hero-h1"><s>Not bigger.</s> <span class="hero-serif">Agentic.</span></h1>
+        <p class="hero-sub">As empresas do futuro não serão <s>maiores</s>. Serão <span class="hero-serif">agênticas</span>.</p>
         <div class="hero-actions">
           <a href="https://formulario.daltonlab.ai/" class="hero-cta">Fale com um especialista</a>
           <a href="#solutions" class="hero-ghost">Explore nossa metodologia</a>

@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { trackPageView } from "@/lib/analytics";
 import { usePrerenderReady } from "@/lib/prerender-ready";
+import VoidBackground from "@/components/redesign/shell/VoidBackground";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -115,6 +116,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <VoidBackground />
           <PageViewTracker />
           <PrerenderReady />
           <ChunkErrorBoundary>

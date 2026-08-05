@@ -16,9 +16,9 @@ export default {
       fontFamily: {
         'space-grotesk': ['Space Grotesk', 'ui-sans-serif', 'system-ui'],
         'inter': ['Inter', 'ui-sans-serif', 'system-ui'],
-        // Redesign (novo design system)
-        sans: ['DM Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['DM Sans', 'Inter', 'sans-serif'],
+        // Redesign (tema void)
+        sans: ['Manrope', 'Segoe UI Variable Display', 'Segoe UI', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Manrope', 'Segoe UI', 'sans-serif'],
         serif: ['Playfair Display', 'Georgia', 'Times New Roman', 'serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'SF Mono', 'monospace'],
       },
@@ -66,22 +66,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Redesign — navy/ciano palette (novo design system)
+        // Redesign — tema void (mesmos valores dos tokens em index.css)
         navy: {
-          bg: "#0A1628",
-          deep: "#060D1A",
-          navy: "#0E1E36",
-          soft: "#0F2440",
-          ink: "#1A3A5C",
-          text: "#FFFFFF",
-          dim: "#8EB4D4",
-          muted: "#5d7da3",
-          label: "#5EC8F0",
-          cyan: "#4CB8E8",
-          "cyan-soft": "#5EC8F0",
-          "cyan-deep": "#3A9FD5",
-          blue: "#38BDFA",
-          orange: "#F0A04C",
+          bg: "#050608",
+          deep: "#08090e",
+          navy: "#0a0c12",
+          soft: "#10141b",
+          ink: "#12131a",
+          text: "#e6edf4",
+          dim: "#aab8c8",
+          muted: "#7d8898",
+          label: "#8fe6ff",
+          cyan: "#8fe6ff",
+          "cyan-soft": "#8fe6ff",
+          "cyan-deep": "#8fe6ff",
+          blue: "#a8d8ff",
+          orange: "#ffd7a8",
         },
         // Dalton Lab Brand Colors
         dalton: {

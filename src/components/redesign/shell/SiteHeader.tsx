@@ -45,11 +45,13 @@ export default function SiteHeader() {
   return (
     <>
       <style>{`
+        /* O wordmark é bem horizontal (703x80), por isso alturas menores que as
+           da marca antiga — mantém a mesma presença visual sem esticar demais. */
         .void-header { height: 72px; padding: 0 22px; }
-        .void-header .brand-img { height: 16px; }
+        .void-header .brand-img { height: 11px; }
         @media (min-width: 1024px) {
           .void-header { height: 92px; padding: 0 44px; }
-          .void-header .brand-img { height: 22px; }
+          .void-header .brand-img { height: 14px; }
         }
       `}</style>
       <header

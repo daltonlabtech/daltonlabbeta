@@ -40,14 +40,27 @@ const FOUNDERS = [
     bioDefault:
       'Diretor Comercial e Marketing do Grupo Mundial Mix, que controla Brasil Atacadista e Supermercados Imperatriz, uma das maiores redes do varejo alimentar de Santa Catarina. Presidente do Conselho da Rede Brasil - RBSM. +13 anos liderando estratégia comercial e inovação no setor.',
     linkedin: 'https://www.linkedin.com/in/julio-cesar-lohn-6b63b231/',
-    instagram: null,
+    instagram: 'https://www.instagram.com/julioclohn',
   },
 ];
 
-const LINKEDIN_PATH =
-  'M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z';
-const INSTAGRAM_PATH =
-  'M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.73 3.73 0 0 1-1.38-.9c-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.32a4.57 4.57 0 1 1 0 9.14 4.57 4.57 0 0 1 0-9.14zm0 7.54a2.97 2.97 0 1 0 0-5.94 2.97 2.97 0 0 0 0 5.94zm5.82-7.74a1.07 1.07 0 1 1-2.14 0 1.07 1.07 0 0 1 2.14 0z';
+/** Ícones em contorno, como no protótipo (o traçado lê melhor no card escuro). */
+const IconLinkedIn = () => (
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+    <rect x="2" y="2" width="20" height="20" rx="4" fill="none" stroke="currentColor" strokeWidth="1.6" />
+    <circle cx="8" cy="8.6" r="1.4" />
+    <rect x="6.9" y="11" width="2.2" height="6.5" rx="1" />
+    <path d="M12 11h2.1v1c.5-.7 1.3-1.2 2.4-1.2 1.8 0 2.7 1.1 2.7 3.2v3.5h-2.2v-3.2c0-1-.4-1.6-1.3-1.6-.9 0-1.5.6-1.5 1.7v3.1H12z" />
+  </svg>
+);
+
+const IconInstagram = () => (
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+    <rect x="2.5" y="2.5" width="19" height="19" rx="5" fill="none" stroke="currentColor" strokeWidth="1.6" />
+    <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" strokeWidth="1.6" />
+    <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" />
+  </svg>
+);
 
 /**
  * /quem-somos no novo design — fluxo único (sem abas): hero, foto do time,
@@ -175,15 +188,11 @@ const QuemSomos = () => {
                 <p className="qs-fbio">{t(f.bioKey, f.bioDefault)}</p>
                 <div className="qs-flinks">
                   <a href={f.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${f.nome}`}>
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-                      <path d={LINKEDIN_PATH} />
-                    </svg>
+                    <IconLinkedIn />
                   </a>
                   {f.instagram && (
                     <a href={f.instagram} target="_blank" rel="noopener noreferrer" aria-label={`Instagram de ${f.nome}`}>
-                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-                        <path d={INSTAGRAM_PATH} />
-                      </svg>
+                      <IconInstagram />
                     </a>
                   )}
                 </div>

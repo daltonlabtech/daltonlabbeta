@@ -1,17 +1,23 @@
 import { Link } from 'react-router-dom';
 import { Trans, useTranslation } from 'react-i18next';
 
-const LOGOS: Array<{ src: string; alt: string; w: number }> = [
-  { src: '/novo/assets/logos/accesstage.png', alt: 'Accesstage', w: 108 },
-  { src: '/novo/assets/logos/billion-dollar-boy.png', alt: 'Billion Dollar Boy', w: 41 },
-  { src: '/novo/assets/logos/fialdini.png', alt: 'Fialdini', w: 38 },
-  { src: '/novo/assets/logos/jeisys.png', alt: 'Jeisys', w: 82 },
-  { src: '/novo/assets/logos/mundial-mix.png', alt: 'Grupo Mundial Mix', w: 108 },
-  { src: '/novo/assets/logos/neogrid.png', alt: 'Neogrid', w: 98 },
-  { src: '/novo/assets/logos/practical-center.png', alt: 'Practical Center', w: 90 },
-  { src: '/novo/assets/logos/rumo.png', alt: 'Rumo', w: 107 },
-  { src: '/novo/assets/logos/smartrisk.png', alt: 'Smartrisk', w: 108 },
-  { src: '/novo/assets/logos/vero.png', alt: 'Vero', w: 32 },
+/**
+ * Cada marca tem proporção e respiro interno próprios, então a altura é
+ * calibrada por logo (não uma largura fixa) para que todas tenham peso visual
+ * parecido na faixa. Onde existe versão `-trim` (sem margem interna), ela é
+ * usada. A Jeisys é preta na origem — só ela recebe o filtro que a torna branca.
+ */
+const LOGOS: Array<{ src: string; alt: string; h: number; white?: boolean }> = [
+  { src: '/novo/assets/logos/accesstage.png', alt: 'Accesstage', h: 22 },
+  { src: '/novo/assets/logos/billion-dollar-boy-trim.png', alt: 'Billion Dollar Boy', h: 32 },
+  { src: '/novo/assets/logos/fialdini-trim.png', alt: 'Fialdini', h: 30 },
+  { src: '/novo/assets/logos/jeisys-trim.png', alt: 'Jeisys', h: 26, white: true },
+  { src: '/novo/assets/logos/mundial-mix.png', alt: 'Grupo Mundial Mix', h: 24 },
+  { src: '/novo/assets/logos/neogrid.png', alt: 'Neogrid', h: 26 },
+  { src: '/novo/assets/logos/practical-center-trim.png', alt: 'Practical Center', h: 26 },
+  { src: '/novo/assets/logos/rumo.png', alt: 'Rumo', h: 24 },
+  { src: '/novo/assets/logos/smartrisk-trim.png', alt: 'Smartrisk', h: 30 },
+  { src: '/novo/assets/logos/vero.png', alt: 'Vero', h: 32 },
 ];
 
 /**
@@ -26,7 +32,8 @@ export default function PlacesSection() {
       <style>{`
         .places-title { font-weight: 200; font-size: 23px; line-height: 1.12; letter-spacing: -0.01em; color: var(--ink); text-align: center; text-wrap: balance; }
         .logo-strip { margin: 22px auto 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 18px; justify-items: center; align-items: center; padding: 24px 18px; background: rgba(16,20,27,.45); border: 1px solid var(--line-soft); border-radius: 14px; }
-        .logo-strip img { height: auto; opacity: .9; max-width: 100%; }
+        .logo-strip img { width: auto; max-width: 100%; object-fit: contain; opacity: .9; }
+        .logo-strip img.white { filter: brightness(0) invert(1); }
         .places-cta { display: flex; justify-content: center; margin-top: 22px; }
         @media (min-width: 760px) {
           .places-title { font-size: clamp(24px, 2.2vw, 34px); line-height: 1.08; }
@@ -42,7 +49,14 @@ export default function PlacesSection() {
         </h2>
         <div className="logo-strip" aria-label={t('places.aria', 'Logos de clientes')}>
           {LOGOS.map((l) => (
-            <img key={l.alt} src={l.src} alt={l.alt} width={l.w} loading="lazy" />
+            <img
+              key={l.alt}
+              src={l.src}
+              alt={l.alt}
+              className={l.white ? 'white' : undefined}
+              style={{ height: l.h }}
+              loading="lazy"
+            />
           ))}
         </div>
         <div className="places-cta">

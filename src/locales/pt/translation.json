@@ -882,7 +882,7 @@
     "aria": "Organograma hierárquico que se transforma em estrutura com agentes de IA e termina no detalhe de um time de uma pessoa só",
     "t1": {
       "h": "<s>Not bigger.</s> <em>Agentic.</em>",
-      "sub": "As empresas do futuro não serão <s>maiores</s>. Serão <em>agênticas</em>."
+      "sub": "As empresas do futuro não serão maiores. Serão agênticas."
     },
     "t2": "Sua estrutura operacional <s>maior</s> <em>agêntica</em>",
     "t3": {

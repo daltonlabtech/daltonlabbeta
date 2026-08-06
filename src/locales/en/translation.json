@@ -882,7 +882,7 @@
     "aria": "Hierarchical org chart that transforms into a structure with AI agents and ends on the detail of a one-person team",
     "t1": {
       "h": "<s>Not bigger.</s> <em>Agentic.</em>",
-      "sub": "The companies of the future won't be <s>bigger</s>. They'll be <em>agentic</em>."
+      "sub": "The companies of the future won't be bigger. They'll be agentic."
     },
     "t2": "Your operating structure <s>bigger</s> <em>agentic</em>",
     "t3": {

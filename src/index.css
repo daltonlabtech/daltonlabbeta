@@ -98,6 +98,12 @@
 }
 .bg-vig { box-shadow: inset 0 0 260px 70px rgba(0,0,0,.82); z-index: 2; }
 
+/* As camadas acima são fixas e ocupam z-index 0–2; sem isto, o conteúdo de
+   qualquer página fica atrás da vinheta e some da tela. Regra global para não
+   depender de cada página lembrar de se posicionar. */
+.redesign-scope main,
+.redesign-scope footer { position: relative; z-index: 3; }
+
 /* Classes de componente do tema void.
    Ficam em @layer components para que os utilitários do Tailwind (hidden,
    lg:inline-flex etc.) continuem vencendo — fora da layer, `.btn-p` sobrescrevia

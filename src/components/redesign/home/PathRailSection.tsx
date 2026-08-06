@@ -98,6 +98,10 @@ export default function PathRailSection() {
         .void-fold { padding: 48px 22px; scroll-margin-top: 92px; }
         .void-inner { max-width: 1120px; margin: 0 auto; }
         @media (min-width: 760px) { .void-fold { padding: 56px 40px; } }
+        /* Só esta dobra sobe: no desktop a coreografia termina com muito respiro
+           em tela. A regra é presa ao #path — .void-fold é compartilhada com a
+           dobra seguinte, que não deve se mover. */
+        @media (min-width: 760px) { #path { margin-top: -10vh; padding-top: 24px; } }
         .path-rail .stn-name { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--ink3); transition: color .4s; }
         .path-rail .stn-head { margin-top: 8px; font-weight: 200; font-size: 17px; color: var(--ink3); transition: color .4s; }
         .path-rail .stn.lit .stn-name, .path-rail .stn.lit .stn-head { color: var(--ink); }

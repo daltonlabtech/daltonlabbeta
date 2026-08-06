@@ -112,10 +112,10 @@ export default function ChoreoSection() {
                 <s>Not bigger.</s> <em>Agentic.</em>
               </Trans>
             </h1>
+            {/* Sem destaque: o subtítulo fica todo na mesma fonte (o par
+                riscado/serifado vive só no h1 acima). */}
             <p className="hero-sub">
-              <Trans i18nKey="choreo.t1.sub" components={na}>
-                As empresas do futuro não serão <s>maiores</s>. Serão <em>agênticas</em>.
-              </Trans>
+              {t('choreo.t1.sub', 'As empresas do futuro não serão maiores. Serão agênticas.')}
             </p>
             <div className="choreo-btns">
               <a

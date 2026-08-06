@@ -76,7 +76,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
     >
       <div className="flex items-center justify-between" style={{ height: 54 }}>
         <Link to="/" aria-label="Dalton Lab" onClick={onClose} className="inline-flex items-center">
-          <img src="/novo/assets/dalton-lab-wordmark.png" alt="Dalton Lab" style={{ height: 11, width: 'auto' }} />
+          <img src="/novo/assets/dalton-lab-wordmark.png" alt="Dalton Lab" style={{ height: 14, width: 'auto' }} />
         </Link>
         <button
           type="button"

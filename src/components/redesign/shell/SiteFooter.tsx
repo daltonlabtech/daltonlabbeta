@@ -49,7 +49,7 @@ export default function SiteFooter() {
     >
       <div className="mx-auto" style={{ maxWidth: 1180, width: '100%' }}>
         <Link to="/" className="inline-block">
-          <img src="/novo/assets/dalton-lab-wordmark.png" alt="Dalton Lab" style={{ height: 11, width: 'auto' }} />
+          <img src="/novo/assets/dalton-lab-wordmark.png" alt="Dalton Lab" style={{ height: 14, width: 'auto' }} />
         </Link>
 
         <div

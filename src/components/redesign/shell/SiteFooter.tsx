@@ -40,22 +40,30 @@ export default function SiteFooter() {
   return (
     <footer
       id="about"
+      className="void-footer"
       style={{
         position: 'relative',
         zIndex: 3,
         borderTop: '1px solid var(--line-soft)',
-        padding: '48px 22px 36px',
       }}
     >
+      <style>{`
+        /* Rodapé compacto no mobile: menos respiro e logo junto do texto. */
+        .void-footer { padding: 28px 22px 22px; }
+        .void-footer .foot-top { margin-top: 14px; gap: 18px; }
+        .void-footer .foot-div { margin: 20px 0 16px; }
+        @media (min-width: 640px) {
+          .void-footer { padding: 48px 22px 36px; }
+          .void-footer .foot-top { margin-top: 28px; gap: 24px; }
+          .void-footer .foot-div { margin: 32px 0 22px; }
+        }
+      `}</style>
       <div className="mx-auto" style={{ maxWidth: 1180, width: '100%' }}>
         <Link to="/" className="inline-block">
           <img src="/novo/assets/dalton-lab-wordmark.png" alt="Dalton Lab" style={{ height: 14, width: 'auto' }} />
         </Link>
 
-        <div
-          className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center"
-          style={{ marginTop: 28 }}
-        >
+        <div className="foot-top flex flex-col items-start justify-between sm:flex-row sm:items-center">
           <p style={{ color: 'var(--ink2)', fontSize: 14 }}>
             {t('footer.rights', '© 2026 Dalton Lab. Todos os direitos reservados.')}
           </p>
@@ -81,7 +89,7 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div style={{ height: 1, background: 'var(--line-soft)', margin: '32px 0 22px' }} />
+        <div className="foot-div" style={{ height: 1, background: 'var(--line-soft)' }} />
 
         <nav className="flex flex-wrap justify-center" style={{ gap: '12px 44px' }}>
           <Link

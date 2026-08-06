@@ -99,7 +99,8 @@ const QuemSomos = () => {
         .qs-fnome { font-weight: 400; font-size: 17px; color: var(--ink); }
         .qs-fcargo { font-family: var(--font-mono); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); }
         .qs-fbio { margin-top: 6px; font-size: 13px; line-height: 1.6; color: var(--ink2); }
-        .qs-flinks { margin-top: auto; padding-top: 14px; display: flex; gap: 16px; }
+        .qs-flinks { margin-top: auto; padding-top: 14px; display: flex; gap: 8px; }
+        .qs-flinks a { padding: 2px; }
         .qs-flinks a { color: var(--ink3); display: inline-flex; }
         .qs-flinks a:hover { color: var(--ink); }
         .qs-fecho { padding: 40px 22px 48px; display: flex; flex-direction: column; align-items: center; text-align: center; }

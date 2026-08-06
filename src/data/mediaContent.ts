@@ -105,17 +105,6 @@ export const PRESS_ITEMS: PressItem[] = [
     img: '/novo/assets/press/gazetapaulistana.jpg',
   },
   {
-    id: 'gazeta-corporativa-pitch',
-    titulo: {
-      pt: 'Startup brasileira vence competição de pitches do Web Summit Rio e ganha destaque internacional',
-      en: 'Brazilian startup wins Web Summit Rio pitch competition and gains international spotlight',
-    },
-    veiculo: 'Gazeta Corporativa',
-    data: { pt: 'Jun 2026', en: 'Jun 2026' },
-    url: 'https://gazetacorporativa.com.br/startup-brasileira-vence-competicao-de-pitches-do-web-summit-rio-e-ganha-destaque-internacional/',
-    img: '/novo/assets/press/gazetacorporativa.jpg',
-  },
-  {
     id: 'cnn-ia-infraestrutura',
     titulo: {
       pt: 'IA promete reduzir custos e acelerar projetos em infraestrutura',

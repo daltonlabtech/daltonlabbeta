@@ -8,7 +8,7 @@ import ProdutoHero from "@/components/redesign/produto/ProdutoHero";
 import ProdutoCapabilities from "@/components/redesign/produto/ProdutoCapabilities";
 
 // CTA final compartilhada (canvas outlier) — lazy abaixo do fold
-const FinalCTASection = lazy(() => import("@/components/redesign/home/FinalCTASection"));
+const CloseFoldSection = lazy(() => import("@/components/redesign/home/CloseFoldSection"));
 
 const Produto = () => {
   const { t } = useTranslation();
@@ -31,7 +31,7 @@ const Produto = () => {
         <ProdutoCapabilities />
 
         <Suspense fallback={<div style={{ minHeight: 360 }} />}>
-          <FinalCTASection />
+          <CloseFoldSection />
         </Suspense>
       </main>
 

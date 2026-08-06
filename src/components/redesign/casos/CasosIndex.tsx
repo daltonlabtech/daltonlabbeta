@@ -128,7 +128,7 @@ export default function CasosIndex({ onOpen }: CasosIndexProps) {
                   {SETOR_LABELS[c.setor][lang]} · {c.papel[lang]}
                 </span>
                 <span className="miolo">
-                  <span className="num">{c.vitrine.num}</span>
+                  <span className="num">{c.vitrine.num[lang]}</span>
                   <span className="frase">{c.vitrine.frase[lang]}</span>
                 </span>
                 <span className="cli">{c.cliente[lang]}</span>

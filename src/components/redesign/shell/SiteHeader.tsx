@@ -78,7 +78,7 @@ export default function SiteHeader() {
         {/* Nav desktop — coluna central do grid (só ≥1024px; tablet/mobile usam o hambúrguer) */}
         <nav
           className="hidden items-center lg:flex"
-          aria-label="Navegação principal"
+          aria-label={t('a11y.mainNav', 'Navegação principal')}
           style={{ gap: 34, fontSize: 15, color: 'var(--ink2)' }}
         >
           {navLinks.map((l) => (
@@ -113,7 +113,7 @@ export default function SiteHeader() {
           {/* Burger — mobile */}
           <button
             type="button"
-            aria-label="Abrir menu"
+            aria-label={t('a11y.openMenu', 'Abrir menu')}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((o) => !o)}
             className="flex flex-col items-center justify-center lg:hidden"

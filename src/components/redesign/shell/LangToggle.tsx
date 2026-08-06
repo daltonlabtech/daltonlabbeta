@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
  * Chama i18n.changeLanguage e marca o ativo via i18n.language.
  */
 export default function LangToggle() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   // Normaliza "pt-BR" → "pt", "en-US" → "en"
   const current = (i18n.language || 'pt').slice(0, 2);
 
@@ -14,7 +14,7 @@ export default function LangToggle() {
   return (
     <div
       role="group"
-      aria-label="Idioma"
+      aria-label={t('a11y.lang', 'Idioma')}
       className="inline-flex overflow-hidden rounded-full"
       style={{
         border: '1px solid var(--line)',

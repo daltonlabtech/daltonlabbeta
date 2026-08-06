@@ -60,7 +60,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Menu"
+      aria-label={t('a11y.menu', 'Menu')}
       aria-hidden={!open}
       className="fixed inset-0 z-[110] flex-col lg:hidden"
       style={{
@@ -80,7 +80,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
         </Link>
         <button
           type="button"
-          aria-label="Fechar menu"
+          aria-label={t('a11y.closeMenu', 'Fechar menu')}
           onClick={onClose}
           style={{
             width: 44,

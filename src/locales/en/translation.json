@@ -949,5 +949,12 @@
     "leia": "Read the story →",
     "leiaArtigo": "Read the article →",
     "vazioSub": "We are preparing publications on agentic organizations, AI agents in operation and the future of work."
+  },
+  "a11y": {
+    "lang": "Language",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "mainNav": "Main navigation",
+    "openMenu": "Open menu"
   }
 }

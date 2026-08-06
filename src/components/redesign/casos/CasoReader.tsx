@@ -91,9 +91,9 @@ export default function CasoReader({ caso, onBack }: CasoReaderProps) {
 
       <div className="cr-kpis">
         {c.kpis.map((k) => (
-          <div className="cr-kpi" key={k.numero}>
+          <div className="cr-kpi" key={k.numero.pt}>
             <div className="rot">{k.rotulo[lang]}</div>
-            <div className="num">{k.numero}</div>
+            <div className="num">{k.numero[lang]}</div>
           </div>
         ))}
       </div>

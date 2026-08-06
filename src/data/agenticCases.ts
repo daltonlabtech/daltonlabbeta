@@ -23,7 +23,7 @@ export interface AgenticCase {
   papel: Bi;
   cliente: Bi;
   headline: Bi;
-  kpis: Array<{ numero: string; rotulo: Bi }>;
+  kpis: Array<{ numero: Bi; rotulo: Bi }>;
   problema: Bi;
   comoTrabalhava: Bi;
   oQueMudou: Bi;
@@ -38,7 +38,7 @@ export interface AgenticCase {
     nota: Bi;
   };
   /** O que aparece no card do índice. */
-  vitrine: { num: string; frase: Bi };
+  vitrine: { num: Bi; frase: Bi };
 }
 
 export const SETOR_LABELS: Record<SetorId, Bi> = {
@@ -88,8 +88,8 @@ export const AGENTIC_CASES: AgenticCase[] = [
       en: 'What slipped through the spreadsheet became a same-day alert.',
     },
     kpis: [
-      { numero: '~R$26mil', rotulo: { pt: 'em divergências achadas no primeiro ciclo', en: 'in discrepancies found in the first cycle' } },
-      { numero: '3', rotulo: { pt: 'fontes cruzadas todo dia', en: 'sources cross-checked every day' } },
+      { numero: { pt: '~R$26mil', en: '~R$26k' }, rotulo: { pt: 'em divergências achadas no primeiro ciclo', en: 'in discrepancies found in the first cycle' } },
+      { numero: { pt: '3', en: '3' }, rotulo: { pt: 'fontes cruzadas todo dia', en: 'sources cross-checked every day' } },
     ],
     problema: {
       pt: 'Pagamentos duplicados e notas divergentes entre 3 fontes (ERP, planilha interna e notas fiscais); só no primeiro ciclo, o agente achou cerca de R$26 mil fora de controle.',
@@ -115,7 +115,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
       { pt: 'Alerta e consolida', en: 'Alerts and consolidates' },
       { pt: 'Humano decide sobre o alerta', en: 'Human decides on the alert' },
     ],
-    vitrine: { num: 'R$26 mil', frase: { pt: 'em divergências flagradas no primeiro ciclo', en: 'in discrepancies caught in the first cycle' } },
+    vitrine: { num: { pt: 'R$26 mil', en: 'R$26k' }, frase: { pt: 'em divergências flagradas no primeiro ciclo', en: 'in discrepancies caught in the first cycle' } },
   },
   {
     slug: 'conformidade-bacen',
@@ -128,8 +128,8 @@ export const AGENTIC_CASES: AgenticCase[] = [
       en: 'The Central Bank regulatory matrix no longer depends on manual checking.',
     },
     kpis: [
-      { numero: '378', rotulo: { pt: 'processos monitorados no Bacen', en: 'processes monitored at the Central Bank' } },
-      { numero: '0', rotulo: { pt: 'atualização do Bacen perdida', en: 'Central Bank updates missed' } },
+      { numero: { pt: '378', en: '378' }, rotulo: { pt: 'processos monitorados no Bacen', en: 'processes monitored at the Central Bank' } },
+      { numero: { pt: '0', en: '0' }, rotulo: { pt: 'atualização do Bacen perdida', en: 'Central Bank updates missed' } },
     ],
     problema: {
       pt: '378 processos no Bacen para acompanhar, com normas e atualizações espalhadas, exigindo conferência manual para manter a matriz regulatória organizada e em dia.',
@@ -155,7 +155,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
       { pt: 'Sinaliza o que mudou', en: 'Flags what changed' },
       { pt: 'Advogado valida a mudança', en: 'Lawyer validates the change' },
     ],
-    vitrine: { num: 'zero', frase: { pt: 'atualizações do Bacen perdidas', en: 'Central Bank updates missed' } },
+    vitrine: { num: { pt: 'zero', en: 'zero' }, frase: { pt: 'atualizações do Bacen perdidas', en: 'Central Bank updates missed' } },
   },
   {
     slug: 'contencioso',
@@ -168,9 +168,9 @@ export const AGENTIC_CASES: AgenticCase[] = [
       en: 'The entire litigation portfolio now keeps itself organized.',
     },
     kpis: [
-      { numero: '+50', rotulo: { pt: 'PDFs de +30 páginas organizados', en: 'PDFs of 30+ pages organized' } },
-      { numero: '~1.500', rotulo: { pt: 'páginas lidas e classificadas', en: 'pages read and classified' } },
-      { numero: '0', rotulo: { pt: 'prazo de contencioso perdido', en: 'litigation deadlines missed' } },
+      { numero: { pt: '+50', en: '+50' }, rotulo: { pt: 'PDFs de +30 páginas organizados', en: 'PDFs of 30+ pages organized' } },
+      { numero: { pt: '~1.500', en: '~1,500' }, rotulo: { pt: 'páginas lidas e classificadas', en: 'pages read and classified' } },
+      { numero: { pt: '0', en: '0' }, rotulo: { pt: 'prazo de contencioso perdido', en: 'litigation deadlines missed' } },
     ],
     problema: {
       pt: 'Mais de 50 e-mails com PDFs de mais de 30 páginas cada, cerca de 1.500 páginas, exigindo leitura e organização manual de prazos, andamentos e documentos.',
@@ -196,7 +196,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
       { pt: 'Alerta o prazo', en: 'Alerts on deadlines' },
       { pt: 'Advogado decide a estratégia', en: 'Lawyer decides the strategy' },
     ],
-    vitrine: { num: '~1.500', frase: { pt: 'páginas de contencioso organizadas', en: 'litigation pages organized' } },
+    vitrine: { num: { pt: '~1.500', en: '~1,500' }, frase: { pt: 'páginas de contencioso organizadas', en: 'litigation pages organized' } },
   },
   {
     slug: 'reporte-reunioes',
@@ -209,8 +209,8 @@ export const AGENTIC_CASES: AgenticCase[] = [
       en: 'Coordinating 120 people and the meeting routine no longer weighs on the lawyer.',
     },
     kpis: [
-      { numero: '120', rotulo: { pt: 'pessoas coordenadas', en: 'people coordinated' } },
-      { numero: '+13/sem', rotulo: { pt: 'reuniões com reporte e briefing', en: 'meetings with reports and briefings' } },
+      { numero: { pt: '120', en: '120' }, rotulo: { pt: 'pessoas coordenadas', en: 'people coordinated' } },
+      { numero: { pt: '+13/sem', en: '+13/wk' }, rotulo: { pt: 'reuniões com reporte e briefing', en: 'meetings with reports and briefings' } },
     ],
     problema: {
       pt: 'Coordenação de 120 pessoas que realizam mais de 13 reuniões por semana, com reporte de movimentação e agenda consumindo tempo dos advogados.',
@@ -236,7 +236,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
       { pt: 'Briefing pré e pós-reunião', en: 'Pre- and post-meeting briefings' },
       { pt: 'Advogado conduz o caso', en: 'Lawyer leads the case' },
     ],
-    vitrine: { num: '120', frase: { pt: 'pessoas coordenadas por um agente', en: 'people coordinated by one agent' } },
+    vitrine: { num: { pt: '120', en: '120' }, frase: { pt: 'pessoas coordenadas por um agente', en: 'people coordinated by one agent' } },
   },
   {
     slug: 'cobranca-previdencia',
@@ -249,9 +249,9 @@ export const AGENTIC_CASES: AgenticCase[] = [
       en: 'Collections and credit recovery became an agent in operation.',
     },
     kpis: [
-      { numero: '+300mil', rotulo: { pt: 'CPFs na base de cobrança', en: 'individuals in the collections base' } },
-      { numero: '51mil', rotulo: { pt: 'contratos ativos na carteira', en: 'active contracts in the portfolio' } },
-      { numero: 'R$6M/mês', rotulo: { pt: 'de faturamento', en: 'in monthly revenue' } },
+      { numero: { pt: '+300mil', en: '+300k' }, rotulo: { pt: 'CPFs na base de cobrança', en: 'individuals in the collections base' } },
+      { numero: { pt: '51mil', en: '51k' }, rotulo: { pt: 'contratos ativos na carteira', en: 'active contracts in the portfolio' } },
+      { numero: { pt: 'R$6M/mês', en: 'R$6M/mo' }, rotulo: { pt: 'de faturamento', en: 'in monthly revenue' } },
     ],
     problema: {
       pt: 'Base de mais de 300 mil CPFs em cobrança sobre uma carteira de 51 mil contratos ativos e R$6M por mês, tudo trabalhado manualmente, contrato a contrato.',
@@ -277,7 +277,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
       { pt: 'Registra e concilia', en: 'Records and reconciles' },
       { pt: 'Humano cuida do caso sensível', en: 'Human handles sensitive cases' },
     ],
-    vitrine: { num: '+300 mil', frase: { pt: 'CPFs em cobrança ativa', en: 'individuals in active collections' } },
+    vitrine: { num: { pt: '+300 mil', en: '+300k' }, frase: { pt: 'CPFs em cobrança ativa', en: 'individuals in active collections' } },
   },
   {
     slug: 'pre-vendas-saude',
@@ -290,8 +290,8 @@ export const AGENTIC_CASES: AgenticCase[] = [
       en: 'The Brazilian operation became the AI benchmark within the global group.',
     },
     kpis: [
-      { numero: '49', rotulo: { pt: 'agentes mirando o lançamento', en: 'agents aimed at the launch' } },
-      { numero: '5x', rotulo: { pt: 'de ROI no contrato âncora', en: 'ROI on the anchor contract' } },
+      { numero: { pt: '49', en: '49' }, rotulo: { pt: 'agentes mirando o lançamento', en: 'agents aimed at the launch' } },
+      { numero: { pt: '5x', en: '5x' }, rotulo: { pt: 'de ROI no contrato âncora', en: 'ROI on the anchor contract' } },
     ],
     problema: {
       pt: 'Back office e front office pedindo escala, com a operação brasileira liderando a inovação no grupo.',
@@ -326,7 +326,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
         en: '5x ROI on the anchor contract · SDR and customer service unified',
       },
     },
-    vitrine: { num: '5x', frase: { pt: 'de ROI no contrato âncora', en: 'ROI on the anchor contract' } },
+    vitrine: { num: { pt: '5x', en: '5x' }, frase: { pt: 'de ROI no contrato âncora', en: 'ROI on the anchor contract' } },
   },
   {
     slug: 'comunicacao-varejo',
@@ -339,8 +339,8 @@ export const AGENTIC_CASES: AgenticCase[] = [
       en: 'Communications for a chain of 2,000+ employees became an agent, and the sales base became a conversation.',
     },
     kpis: [
-      { numero: '+2.000', rotulo: { pt: 'funcionários na comunicação interna', en: 'employees reached by internal comms' } },
-      { numero: '2', rotulo: { pt: 'fontes (o ERP da rede e o BI) em linguagem natural', en: 'sources (the chain’s ERP and BI) in natural language' } },
+      { numero: { pt: '+2.000', en: '+2,000' }, rotulo: { pt: 'funcionários na comunicação interna', en: 'employees reached by internal comms' } },
+      { numero: { pt: '2', en: '2' }, rotulo: { pt: 'fontes (o ERP da rede e o BI) em linguagem natural', en: 'sources (the chain’s ERP and BI) in natural language' } },
     ],
     problema: {
       pt: 'Uma rede com mais de 2.000 funcionários e 2 sistemas (o ERP da rede e o BI) guardando os dados de venda, que só viravam comunicação e decisão com colaboradores humanos técnicos no meio.',
@@ -366,7 +366,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
       { pt: 'Comunica aos times', en: 'Communicates to the teams' },
       { pt: 'Humano publica', en: 'Human publishes' },
     ],
-    vitrine: { num: '+2.000', frase: { pt: 'funcionários atendidos por um agente', en: 'employees served by one agent' } },
+    vitrine: { num: { pt: '+2.000', en: '+2,000' }, frase: { pt: 'funcionários atendidos por um agente', en: 'employees served by one agent' } },
   },
   {
     slug: 'agendamento-whatsapp',
@@ -379,7 +379,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
       en: 'Scheduling for thousands of members became a WhatsApp conversation.',
     },
     kpis: [
-      { numero: '+2.000/mês', rotulo: { pt: 'pessoas atendidas no agendamento', en: 'people served by scheduling' } },
+      { numero: { pt: '+2.000/mês', en: '+2,000/mo' }, rotulo: { pt: 'pessoas atendidas no agendamento', en: 'people served by scheduling' } },
     ],
     problema: {
       pt: 'Mais de 2.000 pessoas por mês pedindo agendamento sem um canal único, dependendo de pessoas para consultar agenda, confirmar e lembrar.',
@@ -405,7 +405,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
       { pt: 'Confirma e lembra', en: 'Confirms and reminds' },
       { pt: 'Humano cuida da exceção', en: 'Human handles exceptions' },
     ],
-    vitrine: { num: '+2.000/mês', frase: { pt: 'agendamentos resolvidos no WhatsApp', en: 'appointments resolved on WhatsApp' } },
+    vitrine: { num: { pt: '+2.000/mês', en: '+2,000/mo' }, frase: { pt: 'agendamentos resolvidos no WhatsApp', en: 'appointments resolved on WhatsApp' } },
   },
   {
     slug: 'acompanhamento-saude',
@@ -418,7 +418,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
       en: 'More than 200 people a day followed up, with the professional making the decisions.',
     },
     kpis: [
-      { numero: '+200/dia', rotulo: { pt: 'pessoas atendidas em São Paulo', en: 'people served in São Paulo' } },
+      { numero: { pt: '+200/dia', en: '+200/day' }, rotulo: { pt: 'pessoas atendidas em São Paulo', en: 'people served in São Paulo' } },
     ],
     problema: {
       pt: 'Mais de 200 pessoas por dia, em São Paulo, para orientar e acompanhar, muito além do que cabe numa agenda de atendimento individual.',
@@ -444,7 +444,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
       { pt: 'Sinaliza quando precisa', en: 'Flags when needed' },
       { pt: 'Profissional decide o cuidado', en: 'Professional decides on the care' },
     ],
-    vitrine: { num: '+200/dia', frase: { pt: 'pessoas acompanhadas em paralelo', en: 'people followed up in parallel' } },
+    vitrine: { num: { pt: '+200/dia', en: '+200/day' }, frase: { pt: 'pessoas acompanhadas em paralelo', en: 'people followed up in parallel' } },
   },
   {
     slug: 'pre-vendas-financeiro',
@@ -457,8 +457,8 @@ export const AGENTIC_CASES: AgenticCase[] = [
       en: 'Lead qualification became R$50k+ a month that used to go cold in the queue.',
     },
     kpis: [
-      { numero: '~18%', rotulo: { pt: 'recuperados que esfriavam na fila', en: 'recovered from leads going cold in the queue' } },
-      { numero: '24/7', rotulo: { pt: 'qualificação e follow-up sem parar', en: 'non-stop qualification and follow-up' } },
+      { numero: { pt: '~18%', en: '~18%' }, rotulo: { pt: 'recuperados que esfriavam na fila', en: 'recovered from leads going cold in the queue' } },
+      { numero: { pt: '24/7', en: '24/7' }, rotulo: { pt: 'qualificação e follow-up sem parar', en: 'non-stop qualification and follow-up' } },
     ],
     problema: {
       pt: 'Leads chegando em volume e esfriando na fila, dependendo de alguém para qualificar e dar follow-up, mais de R$50 mil por mês escapando.',
@@ -484,7 +484,7 @@ export const AGENTIC_CASES: AgenticCase[] = [
       { pt: 'Agenda o que está quente', en: 'Books the hot ones' },
       { pt: 'Humano conduz a venda', en: 'Human leads the sale' },
     ],
-    vitrine: { num: '+R$50 mil', frase: { pt: 'recuperados por mês da fila de leads', en: 'recovered per month from the lead queue' } },
+    vitrine: { num: { pt: '+R$50 mil', en: '+R$50k' }, frase: { pt: 'recuperados por mês da fila de leads', en: 'recovered per month from the lead queue' } },
   },
 ];
 

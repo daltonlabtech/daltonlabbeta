@@ -949,5 +949,12 @@
     "leia": "Leia a matéria →",
     "leiaArtigo": "Leia o artigo →",
     "vazioSub": "Estamos preparando publicações sobre organizações agênticas, agentes de IA na operação e o futuro do trabalho."
+  },
+  "a11y": {
+    "lang": "Idioma",
+    "menu": "Menu",
+    "closeMenu": "Fechar menu",
+    "mainNav": "Navegação principal",
+    "openMenu": "Abrir menu"
   }
 }

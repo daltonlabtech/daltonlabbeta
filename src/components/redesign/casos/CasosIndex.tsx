@@ -52,7 +52,7 @@ export default function CasosIndex({ onOpen }: CasosIndexProps) {
         .casos-wrap { max-width: 1120px; margin: 0 auto; padding: 0 0 56px; }
         .casos-pills { display: flex; gap: 8px; overflow-x: auto; padding: 4px 22px; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 22px, #000 calc(100% - 22px), transparent); mask-image: linear-gradient(90deg, transparent, #000 22px, #000 calc(100% - 22px), transparent); }
         .casos-pills::-webkit-scrollbar { display: none; }
-        .casos-pill { padding: 10px 20px; min-height: 40px; border-radius: 999px; font-size: 13.5px; cursor: pointer; white-space: nowrap; border: 1px solid var(--line); background: rgba(16,20,27,.7); backdrop-filter: blur(8px); color: var(--ink2); transition: background .2s, color .2s, border-color .2s; }
+        .casos-pill { flex: none; padding: 10px 20px; min-height: 40px; border-radius: 999px; font-size: 13.5px; cursor: pointer; white-space: nowrap; border: 1px solid var(--line); background: rgba(16,20,27,.7); backdrop-filter: blur(8px); color: var(--ink2); transition: background .2s, color .2s, border-color .2s; }
         .casos-pill:hover { color: var(--ink); }
         .casos-grid { margin-top: 24px; padding: 0 22px; display: grid; grid-template-columns: 1fr; gap: 14px; }
         .casos-grid.fading .caso { opacity: 0; }

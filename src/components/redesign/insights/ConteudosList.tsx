@@ -92,7 +92,7 @@ export default function ConteudosList() {
         .ct-leia { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 14px; color: var(--accent); }
         .ct-filtro { margin-top: 32px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
         .ct-filtro .lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: var(--ink3); margin-right: 8px; }
-        .ct-pill { padding: 10px 20px; min-height: 40px; border-radius: 999px; font-size: 13.5px; cursor: pointer; white-space: nowrap; border: 1px solid var(--line); background: rgba(16,20,27,.7); backdrop-filter: blur(8px); color: var(--ink2); transition: background .2s, color .2s, border-color .2s; }
+        .ct-pill { flex: none; padding: 10px 20px; min-height: 40px; border-radius: 999px; font-size: 13.5px; cursor: pointer; white-space: nowrap; border: 1px solid var(--line); background: rgba(16,20,27,.7); backdrop-filter: blur(8px); color: var(--ink2); transition: background .2s, color .2s, border-color .2s; }
         .ct-pill:hover { color: var(--ink); }
         .ct-pill.on { background: var(--accent); border-color: var(--accent); color: #04121a; box-shadow: 0 0 26px rgba(143,230,255,.28); }
         .ct-grid { margin-top: 28px; display: grid; grid-template-columns: 1fr; gap: 14px; }

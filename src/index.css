@@ -98,7 +98,11 @@
 }
 .bg-vig { box-shadow: inset 0 0 260px 70px rgba(0,0,0,.82); z-index: 2; }
 
-/* Eyebrow label — mono-label do protótipo */
+/* Classes de componente do tema void.
+   Ficam em @layer components para que os utilitários do Tailwind (hidden,
+   lg:inline-flex etc.) continuem vencendo — fora da layer, `.btn-p` sobrescrevia
+   `hidden` e o CTA do header vazava no mobile. */
+@layer components {
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -158,6 +162,7 @@
   color: var(--ink2);
 }
 .btn-s:hover { color: var(--ink); border-color: rgba(162,182,206,.45); }
+}
 
 /* Strikethrough highlight — cyan line drawn through a word, with glow */
 .strike {

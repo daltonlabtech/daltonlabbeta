@@ -50,7 +50,7 @@ function RelatedItem({ article }: { article: RelatedArticle }) {
       <div
         style={{
           fontFamily: 'var(--font-display)',
-          fontWeight: 700,
+          fontWeight: 400,
           letterSpacing: '-0.02em',
           fontSize: '1.06rem',
           lineHeight: 1.25,

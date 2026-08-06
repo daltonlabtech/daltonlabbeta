@@ -83,7 +83,7 @@ export default function ProdutoCapabilities() {
           <h2
             style={{
               fontFamily: 'var(--font-display)',
-              fontWeight: 800,
+              fontWeight: 200,
               letterSpacing: '-0.03em',
               lineHeight: 1.06,
               fontSize: 'clamp(1.75rem, 6vw, 3.4rem)',
@@ -108,7 +108,7 @@ export default function ProdutoCapabilities() {
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '1.4rem',
-                  fontWeight: 800,
+                  fontWeight: 200,
                   letterSpacing: '-0.03em',
                   color: 'var(--text)',
                 }}

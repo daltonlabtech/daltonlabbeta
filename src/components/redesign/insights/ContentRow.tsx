@@ -56,7 +56,7 @@ export default function ContentRow({ date, title, byline, to, href, isLast }: Co
         <div
           style={{
             fontFamily: 'var(--font-display)',
-            fontWeight: 700,
+            fontWeight: 400,
             letterSpacing: '-0.02em',
             fontSize: 'clamp(1.12rem, 4.4vw, 1.32rem)',
             lineHeight: 1.22,

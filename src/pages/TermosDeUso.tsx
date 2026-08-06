@@ -9,7 +9,7 @@ const sectionStyle: React.CSSProperties = { marginTop: 36 };
 const h2Style: React.CSSProperties = {
   fontFamily: "var(--font-display)",
   fontSize: "1.25rem",
-  fontWeight: 700,
+  fontWeight: 400,
   letterSpacing: "-0.02em",
   color: "var(--text)",
   marginBottom: 12,
@@ -52,7 +52,7 @@ const TermosDeUso = () => {
         <h1
           style={{
             fontFamily: "var(--font-display)",
-            fontWeight: 800,
+            fontWeight: 200,
             letterSpacing: "-0.03em",
             lineHeight: 1.08,
             fontSize: "clamp(2rem, 6vw, 3.2rem)",

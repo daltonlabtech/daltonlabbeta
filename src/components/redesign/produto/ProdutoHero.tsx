@@ -71,7 +71,7 @@ export default function ProdutoHero() {
         <h1
           style={{
             fontFamily: 'var(--font-display)',
-            fontWeight: 800,
+            fontWeight: 200,
             letterSpacing: '-0.035em',
             lineHeight: 1.05,
             fontSize: 'clamp(2.2rem, 7vw, 4.6rem)',

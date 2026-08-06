@@ -6,7 +6,7 @@ import { findInsight, L, type Block } from '@/data/insightsContent';
 
 const headStyle: React.CSSProperties = {
   fontFamily: 'var(--font-display)',
-  fontWeight: 700,
+  fontWeight: 400,
   letterSpacing: '-0.02em',
   fontSize: 'clamp(1.3rem, 5vw, 1.6rem)',
   lineHeight: 1.18,
@@ -151,7 +151,7 @@ export default function StaticInsightReader({ id }: { id: string }) {
         <h1
           style={{
             fontFamily: 'var(--font-display)',
-            fontWeight: 800,
+            fontWeight: 200,
             letterSpacing: '-0.035em',
             fontSize: 'clamp(1.95rem, 8vw, 2.7rem)',
             lineHeight: 1.06,

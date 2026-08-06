@@ -69,7 +69,7 @@ export default function SiteHeader() {
         <Link to="/" aria-label="Dalton Lab" className="inline-flex items-center justify-self-start">
           <img
             className="brand-img"
-            src="/novo/assets/dalton-lab-logo.png"
+            src="/novo/assets/dalton-lab-wordmark.png"
             alt="Dalton Lab"
             style={{ width: 'auto', display: 'block' }}
           />

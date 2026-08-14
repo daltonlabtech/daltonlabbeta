@@ -17,13 +17,14 @@ describe('getPrerenderRoutes', () => {
   it('inclui as rotas estáticas e um path por slug de artigo', () => {
     const routes = getPrerenderRoutes(['meu-artigo', 'outro'])
     expect(routes).toContain('/')
-    expect(routes).toContain('/produto')
+    expect(routes).toContain('/quem-somos')
     expect(routes).toContain('/artigos/meu-artigo')
     expect(routes).toContain('/artigos/outro')
   })
   it('não inclui rotas fora de escopo', () => {
     const routes = getPrerenderRoutes([])
     expect(routes).not.toContain('/newton')
+    expect(routes).not.toContain('/produto')
     expect(routes).not.toContain('/casos')
   })
 })
@@ -32,8 +33,8 @@ describe('outputPathForRoute', () => {
   it('mapeia / para dist/index.html', () => {
     expect(outputPathForRoute('/')).toBe('index.html')
   })
-  it('mapeia /produto para dist/produto/index.html', () => {
-    expect(outputPathForRoute('/produto')).toBe('produto/index.html')
+  it('mapeia /quem-somos para dist/quem-somos/index.html', () => {
+    expect(outputPathForRoute('/quem-somos')).toBe('quem-somos/index.html')
   })
   it('mapeia artigo aninhado', () => {
     expect(outputPathForRoute('/artigos/x')).toBe('artigos/x/index.html')

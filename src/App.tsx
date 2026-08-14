@@ -11,12 +11,9 @@ import VoidBackground from "@/components/redesign/shell/VoidBackground";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
-const Produto = lazy(() => import("./pages/Produto"));
 const Artigos = lazy(() => import("./pages/Artigos"));
 const Artigo = lazy(() => import("./pages/Artigo"));
 const ArtigoInsight = lazy(() => import("./pages/ArtigoInsight"));
-
-const Newton = lazy(() => import("./pages/Newton"));
 const QuemSomos = lazy(() => import("./pages/QuemSomos"));
 const Casos = lazy(() => import("./pages/Casos"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
@@ -122,9 +119,9 @@ const App = () => (
             <Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route path="/" element={<Index />} />
-                <Route path="/produto" element={<Produto />} />
-
-                <Route path="/newton" element={<Newton />} />
+                {/* Legado pré-redesign: páginas removidas → home */}
+                <Route path="/produto" element={<Navigate to="/" replace />} />
+                <Route path="/newton" element={<Navigate to="/" replace />} />
                 <Route path="/quem-somos" element={<QuemSomos />} />
                 <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
                 <Route path="/termos-de-uso" element={<TermosDeUso />} />

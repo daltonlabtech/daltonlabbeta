@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { trackPageView } from "@/lib/analytics";
 import Seo from "@/components/Seo";
@@ -29,6 +29,7 @@ const prefetchSections = () => {
 const Index = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     trackPageView(window.location.pathname, t('pages.index.title'));
@@ -36,10 +37,17 @@ const Index = () => {
     return cleanup;
   }, [t]);
 
+  // Legacy: /#cases ia para a seção de casos. Casos agora vivem em /casos.
+  useEffect(() => {
+    if (location.hash === '#cases') {
+      navigate('/casos', { replace: true });
+    }
+  }, [location.hash, navigate]);
+
   // Rola até a seção do hash (ex.: "#solutions") ao chegar de outra página.
   // Faz polling porque as seções são lazy e podem montar depois da navegação.
   useEffect(() => {
-    if (!location.hash) return;
+    if (!location.hash || location.hash === '#cases') return;
     const selector = location.hash;
     let elapsed = 0;
     const interval = window.setInterval(() => {

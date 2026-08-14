@@ -29,6 +29,7 @@ describe("generate-sitemap: buildSitemap", () => {
       expect(xml).toContain(`<loc>${SITE_URL}${route.path}</loc>`);
     }
     expect(xml).not.toContain("/newton");
+    expect(xml).not.toContain("/produto");
     expect(xml).not.toContain("/casos");
     expect(xml).not.toContain("/artigos/insight");
   });

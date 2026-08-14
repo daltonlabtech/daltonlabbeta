@@ -32,7 +32,7 @@ describe('Seo', () => {
   });
 
   it('emits exactly one description meta tag', async () => {
-    renderSeo({ title: 'T', description: 'Uma descrição única.' }, '/produto');
+    renderSeo({ title: 'T', description: 'Uma descrição única.' }, '/artigos');
     await waitFor(() => {
       expect(document.title).toBe('T');
     });

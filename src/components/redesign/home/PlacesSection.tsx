@@ -22,13 +22,13 @@ const LOGOS: Array<{ src: string; alt: string; h: number; white?: boolean }> = [
 
 /**
  * Dobra 6 — "Agentic Places to Work": faixa de logos de clientes + CTA para /casos.
- * Mantém o id="cases" usado pelos links de hash.
+ * id="places" (não "cases"): /#cases redireciona para /casos na Index.
  */
 export default function PlacesSection() {
   const { t } = useTranslation();
 
   return (
-    <section id="cases" className="void-fold" style={{ padding: '48px 22px', scrollMarginTop: 92 }}>
+    <section id="places" className="void-fold" style={{ padding: '48px 22px', scrollMarginTop: 92 }}>
       <style>{`
         .places-title { font-weight: 200; font-size: 23px; line-height: 1.12; letter-spacing: -0.01em; color: var(--ink); text-align: center; text-wrap: balance; }
         .logo-strip { margin: 22px auto 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 18px; justify-items: center; align-items: center; padding: 24px 18px; background: rgba(16,20,27,.45); border: 1px solid var(--line-soft); border-radius: 14px; }

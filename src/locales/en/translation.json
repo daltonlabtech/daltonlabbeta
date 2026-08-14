@@ -921,7 +921,13 @@
   "journey": {
     "title": "The <em>agentic</em> journey",
     "prev": "Previous card",
-    "next": "Next card"
+    "next": "Next card",
+    "aria": {
+      "1": "Diffuse cloud of dots, one of them lit",
+      "2": "Grid of dots with the first columns lit",
+      "3": "Arc gauge with a percentage",
+      "4": "Central node with satellites in a ring linked by thin lines"
+    }
   },
   "places": {
     "title": "<em>Agentic</em> Places to Work",

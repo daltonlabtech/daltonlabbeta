@@ -188,11 +188,11 @@ const QuemSomos = () => {
                 <div className="qs-fcargo">{t(f.roleKey, f.roleDefault)}</div>
                 <p className="qs-fbio">{t(f.bioKey, f.bioDefault)}</p>
                 <div className="qs-flinks">
-                  <a href={f.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${f.nome}`}>
+                  <a href={f.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn — ${f.nome}`}>
                     <IconLinkedIn />
                   </a>
                   {f.instagram && (
-                    <a href={f.instagram} target="_blank" rel="noopener noreferrer" aria-label={`Instagram de ${f.nome}`}>
+                    <a href={f.instagram} target="_blank" rel="noopener noreferrer" aria-label={`Instagram — ${f.nome}`}>
                       <IconInstagram />
                     </a>
                   )}

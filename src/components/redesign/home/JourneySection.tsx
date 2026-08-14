@@ -17,28 +17,28 @@ export default function JourneySection() {
       variant: 1,
       name: t('sol.1.name', 'Imersão Agêntica'),
       desc: t('sol.1.desc', 'Mapeamos onde a IA gera valor e o roteiro de implementação para o seu negócio.'),
-      aria: 'Nuvem difusa de pontos, um deles aceso',
+      aria: t('journey.aria.1', 'Nuvem difusa de pontos, um deles aceso'),
     },
     {
       num: '02',
       variant: 2,
       name: t('sol.2.name', 'Sprint Agêntico'),
       desc: t('sol.2.desc', 'Desenvolvemos e implementamos agentes de IA para gerar vantagem competitiva e reduzir custos.'),
-      aria: 'Grade de pontos com as primeiras colunas acesas',
+      aria: t('journey.aria.2', 'Grade de pontos com as primeiras colunas acesas'),
     },
     {
       num: '03',
       variant: 3,
       name: t('sol.3.name', 'Operação Agêntica'),
       desc: t('sol.3.desc', 'Escalamos IA em toda a empresa com arquitetura, governança e autonomia.'),
-      aria: 'Medidor em arco com percentual',
+      aria: t('journey.aria.3', 'Medidor em arco com percentual'),
     },
     {
       num: '04',
       variant: 4,
       name: t('sol.4.name', 'Cultura Agêntica'),
       desc: t('sol.4.desc', 'Treinamos seu time para usar IA com autonomia e ganhar produtividade.'),
-      aria: 'Nó central com satélites em anel ligados por linhas finas',
+      aria: t('journey.aria.4', 'Nó central com satélites em anel ligados por linhas finas'),
     },
   ];
 

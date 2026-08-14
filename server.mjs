@@ -10,10 +10,14 @@ const APEX = new URL(WWW).host.replace(/^www\./, '')
 
 /** Rotas SPA-only (existem no React, sem snapshot prerender). */
 function isSpaOnlyRoute(cleanPath) {
-  if (cleanPath === '/newton') return true
   if (cleanPath === '/casos' || cleanPath.startsWith('/casos/')) return true
   if (cleanPath.startsWith('/artigos/insight/')) return true
   return false
+}
+
+/** Páginas removidas no redesign — 301 permanente para a home. */
+function isLegacyHomeRedirect(cleanPath) {
+  return cleanPath === '/produto' || cleanPath === '/newton'
 }
 
 const FALLBACK_404_HTML = `<!DOCTYPE html>
@@ -52,6 +56,13 @@ export function createApp({ distDir, spaFallback = false }) {
   // /index.html é duplicata da home — 301 canônico (antes do static)
   app.use((req, res, next) => {
     if (req.path === '/index.html') return res.redirect(301, '/')
+    next()
+  })
+
+  // Legado /produto e /newton → home (antes do static, para não servir HTML velho em cache)
+  app.use((req, res, next) => {
+    const clean = req.path.replace(/\/$/, '') || '/'
+    if (isLegacyHomeRedirect(clean)) return res.redirect(301, '/')
     next()
   })
 

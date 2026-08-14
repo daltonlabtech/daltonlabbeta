@@ -9,7 +9,7 @@ Site institucional da Dalton Lab, empresa brasileira pioneira em transformação
 - **Roteamento**: React Router DOM
 - **CMS**: Sanity (project ID: `ss6d4h78`, dataset: `production`)
 - **Data fetching**: TanStack React Query
-- **i18n**: react-i18next (8 idiomas: pt, en, es, fr, de, it, ja, zh)
+- **i18n**: react-i18next (pt/en; fallback `pt`). Arquivos `es`/`fr`/`de`/`it`/`ja`/`zh` em `src/locales/` são sobras — não estão em `supportedLngs`.
 - **Deploy**: Vercel
 - **Analytics**: funções customizadas `trackPageView` e `trackCtaClick` em `src/lib/analytics`
 
@@ -75,7 +75,7 @@ src/
 ├── lib/
 │   ├── sanity.ts        # Client Sanity + urlFor
 │   └── analytics.ts     # trackPageView, trackCtaClick
-└── locales/             # Traduções por idioma (pt, en, es, fr, de, it, ja, zh)
+└── locales/             # Traduções ativas: pt, en (demais pastas são sobras)
 ```
 
 ## Padrões do projeto

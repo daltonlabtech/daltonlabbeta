@@ -140,7 +140,7 @@ export default function ConteudosList() {
             <span className="body">
               <span className="ct-tagrow">
                 <span className={`ct-tag${destaque.tipo === 'Artigo' ? ' artigo' : ''}`}>
-                  {destaque.tipo === 'Artigo' ? filtroLabel['Artigos'].replace(/s$/, '') : t('press.tag', 'Mídia')}
+                  {destaque.tipo === 'Artigo' ? t('conteudos.tagArtigo', 'Artigo') : t('press.tag', 'Mídia')}
                 </span>
                 <span className="ct-data">{destaque.data}</span>
               </span>

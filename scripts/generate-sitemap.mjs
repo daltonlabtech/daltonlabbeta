@@ -24,16 +24,13 @@ export { SITE_URL }
  * Public static routes to include.
  *
  * Excluded on purpose:
- *  - /newton                -> Disallowed in robots.txt
+ *  - /produto, /newton      -> legacy; 301 → / (not indexed)
  *  - *  (NotFound)          -> not a real page
  *  - /artigos/insight/:id   -> dynamic, non-canonical entry route
- *  - /casos and /casos/:slug -> NOT linked anywhere in site navigation
- *    (src/components/Header.tsx nav is: /, #journey, #media, /artigos,
- *    /quem-somos). Left out until they are surfaced in the UI.
+ *  - /casos and /casos/:slug -> SPA-only (no prerender snapshot yet)
  */
 export const STATIC_ROUTES = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
-  { path: '/produto', changefreq: 'monthly', priority: '0.9' },
   { path: '/quem-somos', changefreq: 'monthly', priority: '0.7' },
   { path: '/artigos', changefreq: 'weekly', priority: '0.8' },
   { path: '/politica-de-privacidade', changefreq: 'yearly', priority: '0.3' },

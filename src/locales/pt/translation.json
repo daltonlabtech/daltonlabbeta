@@ -921,7 +921,13 @@
   "journey": {
     "title": "A jornada <em>agêntica</em>",
     "prev": "Card anterior",
-    "next": "Próximo card"
+    "next": "Próximo card",
+    "aria": {
+      "1": "Nuvem difusa de pontos, um deles aceso",
+      "2": "Grade de pontos com as primeiras colunas acesas",
+      "3": "Medidor em arco com percentual",
+      "4": "Nó central com satélites em anel ligados por linhas finas"
+    }
   },
   "places": {
     "title": "<em>Agentic</em> Places to Work",

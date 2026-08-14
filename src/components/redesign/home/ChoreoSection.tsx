@@ -80,12 +80,11 @@ export default function ChoreoSection() {
         .choreo-btns { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; margin-top: 22px; }
         .choreo-btns .btn-p, .choreo-btns .btn-s { width: 100%; max-width: 320px; }
         .choreo-t2 { align-items: flex-end; justify-content: center; opacity: 0; }
-        /* No mobile o texto sobe para encostar no organograma (o canvas desenha
-           a última fileira por volta de 78% da altura útil). */
-        .choreo-t2 > div { text-align: center; margin-bottom: 15vh; }
+        /* Longe do organograma: 15vh encostava na última fileira. */
+        .choreo-t2 > div { text-align: center; margin-bottom: 6vh; }
         .choreo-t3 { align-items: flex-end; justify-content: center; opacity: 0; }
-        .choreo-t3 > div { max-width: 100%; text-align: center; margin-bottom: 7vh; }
-        .choreo-t3 .body { margin: 14px auto 0; font-size: 15px; line-height: 1.55; color: var(--ink2); max-width: 34ch; }
+        .choreo-t3 > div { max-width: 100%; text-align: center; margin-bottom: 18vh; }
+        .choreo-t3 .body { margin: 22px auto 0; font-size: 15px; line-height: 1.55; color: var(--ink2); max-width: 34ch; }
         @media (min-width: 760px) {
           .choreo-layer { padding: 0 40px; }
           .choreo-t1 h1 { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.06; }

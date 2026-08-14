@@ -45,19 +45,18 @@ export default function SiteHeader() {
   return (
     <>
       <style>{`
-        /* O wordmark é bem horizontal (703x80), por isso alturas menores que as
-           da marca antiga — mantém a mesma presença visual sem esticar demais. */
-        .void-header { height: 72px; padding: 0 22px; }
-        .void-header .brand-img { height: 14px; }
+        /* Mobile: logo 2× sem esticar. O grid 1fr/1fr espremia a marca
+           (wordmark 8.8:1) e o height fixo distorcia. */
+        .void-header { height: 80px; padding: 0 22px; grid-template-columns: auto 1fr auto; }
+        .void-header .brand-img { height: 28px; width: auto; max-width: none; object-fit: contain; }
         @media (min-width: 1024px) {
-          .void-header { height: 92px; padding: 0 44px; }
+          .void-header { height: 92px; padding: 0 44px; grid-template-columns: 1fr auto 1fr; }
           .void-header .brand-img { height: 17.5px; }
         }
       `}</style>
       <header
         className="void-header fixed left-0 right-0 top-0 z-[100] grid items-center"
         style={{
-          gridTemplateColumns: '1fr auto 1fr',
           gap: 24,
           transition: 'background .3s, border-color .3s, backdrop-filter .3s',
           background: scrolled ? 'rgba(8,10,15,.72)' : 'transparent',

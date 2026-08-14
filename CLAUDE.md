@@ -26,13 +26,14 @@ Site institucional da Dalton Lab, empresa brasileira pioneira em transformação
 | Path | Página | Descrição |
 |---|---|---|
 | `/` | Index | Home — seções hero, journey, definition, prospection, CTA, map, media |
-| `/produto` | Produto | Agentes de IA para Vendas |
-| `/newton` | Newton | Agente Newton (redirect para chat externo) |
 | `/quem-somos` | QuemSomos | Sobre a empresa e fundadores |
 | `/artigos` | Artigos | Listagem de artigos do Sanity |
 | `/artigos/:slug` | Artigo | View individual de artigo |
+| `/casos` | Casos | Casos de organizações agênticas |
 | `/politica-de-privacidade` | PoliticaPrivacidade | Política de privacidade |
 | `/termos-de-uso` | TermosDeUso | Termos de uso |
+
+`/produto` e `/newton` respondem 301 para `/`.
 
 ## Design System
 

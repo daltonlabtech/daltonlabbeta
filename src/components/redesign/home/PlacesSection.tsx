@@ -22,7 +22,6 @@ const LOGOS: Array<{ src: string; alt: string; h: number; white?: boolean }> = [
 
 /**
  * Dobra 6 — "Agentic Places to Work": faixa de logos de clientes + CTA para /casos.
- * id="places" (não "cases"): /#cases redireciona para /casos na Index.
  */
 export default function PlacesSection() {
   const { t } = useTranslation();

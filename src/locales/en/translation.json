@@ -308,40 +308,6 @@
     "headline": "We transform traditional companies into <em>agentic</em> organizations.",
     "fotoAlt": "The Dalton Lab team together at the office"
   },
-  "produto": {
-    "hero": {
-      "tag": "AI Agents for Sales",
-      "title": "Turn your company into an <b>Agentic Organization</b>",
-      "sub": "AI agents that qualify leads, follow up 24/7 and drive the close — scaling your sales operation without growing the team.",
-      "cta": "Get in touch"
-    },
-    "cap": {
-      "tag": "What we automate",
-      "title": "Agents for every area of your <b>sales operation</b>",
-      "items": {
-        "vendas": {
-          "title": "Sales",
-          "desc": "Lead qualification, automatic follow-up and driving the close — your team focuses only on hot opportunities."
-        },
-        "marketing": {
-          "title": "Marketing",
-          "desc": "Demand generation and nurturing with agents that personalize each lead's journey at scale."
-        },
-        "financeiro": {
-          "title": "Finance",
-          "desc": "Smart collections, reconciliation and automatic reports that cut delinquency and manual work."
-        },
-        "atendimento": {
-          "title": "Support",
-          "desc": "24/7 support with agents that answer questions, open tickets and escalate only what needs a human."
-        },
-        "operacoes": {
-          "title": "Operations",
-          "desc": "Automation of repetitive processes and system integration for a truly AI-first operation."
-        }
-      }
-    }
-  },
   "pages": {
     "casos": {
       "title": "Case Studies | Dalton Lab",
@@ -356,11 +322,6 @@
     "index": {
       "title": "Dalton Lab – Transform Your Company into an Agentic Organization",
       "description": "Dalton Lab transforms companies into agentic organizations with custom AI agents. Diagnostics, AI-first processes, training, and technology to scale results."
-    },
-    "produto": {
-      "title": "AI Agents for Sales | Dalton Lab – Agentic Organization",
-      "description": "Meet Dalton Lab's AI Agents. Lead qualification, 24/7 follow-up, automatic closing, and agentic transformation for your company.",
-      "h1": "AI Agents for Sales"
     },
     "faleComDalton": {
       "title": "Talk to Dalton | Dalton Lab – AI Agents",

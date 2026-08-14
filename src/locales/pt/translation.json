@@ -308,40 +308,6 @@
     "headline": "Transformamos empresas tradicionais em organizações <em>agênticas</em>.",
     "fotoAlt": "Time do Dalton Lab reunido no escritório"
   },
-  "produto": {
-    "hero": {
-      "tag": "Agentes de IA para Vendas",
-      "title": "Transforme sua empresa em uma <b>Organização Agêntica</b>",
-      "sub": "Agentes de IA que qualificam leads, fazem follow-up 24/7 e conduzem o fechamento — escalando sua operação comercial sem aumentar o time.",
-      "cta": "Fale conosco"
-    },
-    "cap": {
-      "tag": "O que automatizamos",
-      "title": "Agentes para cada área da sua <b>operação comercial</b>",
-      "items": {
-        "vendas": {
-          "title": "Vendas",
-          "desc": "Qualificação de leads, follow-up automático e condução do fechamento — sua equipe foca apenas nas oportunidades quentes."
-        },
-        "marketing": {
-          "title": "Marketing",
-          "desc": "Geração e nutrição de demanda com agentes que personalizam a jornada de cada lead em escala."
-        },
-        "financeiro": {
-          "title": "Financeiro",
-          "desc": "Cobrança inteligente, conciliação e relatórios automáticos que reduzem inadimplência e trabalho manual."
-        },
-        "atendimento": {
-          "title": "Atendimento",
-          "desc": "Suporte 24/7 com agentes que resolvem dúvidas, abrem chamados e escalam apenas o que precisa de humano."
-        },
-        "operacoes": {
-          "title": "Operações",
-          "desc": "Automação de processos repetitivos e integração entre sistemas para uma operação verdadeiramente AI-first."
-        }
-      }
-    }
-  },
   "pages": {
     "casos": {
       "title": "Casos | Dalton Lab",
@@ -356,11 +322,6 @@
     "index": {
       "title": "Dalton Lab – Transforme sua Empresa em uma Organização Agêntica",
       "description": "A Dalton Lab transforma empresas em organizações agênticas com agentes de IA sob medida. Diagnóstico, processos AI-first, capacitação e tecnologia para escalar resultados."
-    },
-    "produto": {
-      "title": "Agentes de IA para Vendas | Dalton Lab – Organização Agêntica",
-      "description": "Conheça os Agentes de IA da Dalton Lab. Qualificação de leads, follow-up 24/7, fechamento automático e transformação agêntica para sua empresa.",
-      "h1": "Agentes de IA para Vendas"
     },
     "faleComDalton": {
       "title": "Fale com o Dalton | Dalton Lab – Agentes de IA Agêntica",

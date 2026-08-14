@@ -119,7 +119,6 @@ const App = () => (
             <Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route path="/" element={<Index />} />
-                {/* Legado pré-redesign: páginas removidas → home */}
                 <Route path="/produto" element={<Navigate to="/" replace />} />
                 <Route path="/newton" element={<Navigate to="/" replace />} />
                 <Route path="/quem-somos" element={<QuemSomos />} />

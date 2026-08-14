@@ -37,17 +37,14 @@ const Index = () => {
     return cleanup;
   }, [t]);
 
-  // Legacy: /#cases ia para a seção de casos. Casos agora vivem em /casos.
+  // Hash: /#cases era a seção de casos (agora /casos). Outros hashes rolam
+  // até a dobra; polling porque as seções lazy podem montar depois.
   useEffect(() => {
     if (location.hash === '#cases') {
       navigate('/casos', { replace: true });
+      return;
     }
-  }, [location.hash, navigate]);
-
-  // Rola até a seção do hash (ex.: "#solutions") ao chegar de outra página.
-  // Faz polling porque as seções são lazy e podem montar depois da navegação.
-  useEffect(() => {
-    if (!location.hash || location.hash === '#cases') return;
+    if (!location.hash) return;
     const selector = location.hash;
     let elapsed = 0;
     const interval = window.setInterval(() => {
@@ -60,7 +57,7 @@ const Index = () => {
       }
     }, 100);
     return () => window.clearInterval(interval);
-  }, [location.hash, location.key]);
+  }, [location.hash, location.key, navigate]);
 
   return (
     <div

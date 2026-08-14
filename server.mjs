@@ -15,11 +15,6 @@ function isSpaOnlyRoute(cleanPath) {
   return false
 }
 
-/** Páginas removidas no redesign — 301 permanente para a home. */
-function isLegacyHomeRedirect(cleanPath) {
-  return cleanPath === '/produto' || cleanPath === '/newton'
-}
-
 const FALLBACK_404_HTML = `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -53,16 +48,12 @@ export function createApp({ distDir, spaFallback = false }) {
     next()
   })
 
-  // /index.html é duplicata da home — 301 canônico (antes do static)
-  app.use((req, res, next) => {
-    if (req.path === '/index.html') return res.redirect(301, '/')
-    next()
-  })
-
-  // Legado /produto e /newton → home (antes do static, para não servir HTML velho em cache)
+  // 301 antes do static: /index.html duplicata + páginas removidas (HTML velho em cache)
   app.use((req, res, next) => {
     const clean = req.path.replace(/\/$/, '') || '/'
-    if (isLegacyHomeRedirect(clean)) return res.redirect(301, '/')
+    if (req.path === '/index.html' || clean === '/produto' || clean === '/newton') {
+      return res.redirect(301, '/')
+    }
     next()
   })
 

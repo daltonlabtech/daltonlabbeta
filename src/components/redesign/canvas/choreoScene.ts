@@ -227,7 +227,11 @@ export function createChoreoScene(labels: ChoreoLabels) {
     const camS = lerp(1.5, 1.0, reveal);
     const camY = lerp(portrait ? 0.5 : 0.44, 0, reveal) * H;
     const colX = (portrait ? 0.34 : 0.3) * W;
-    const colY = [0.3, 0.475, 0.65, 0.825].map((f) => padY + f * usableH * 1.05);
+    // Portrait: coluna comprimida para o 4º agente ficar ~0.58H (acima do
+    // terço de baixo, onde vive o t3). Desktop segue a escala original.
+    const colY = (portrait ? [0.18, 0.32, 0.46, 0.6] : [0.3, 0.475, 0.65, 0.825]).map(
+      (f) => padY + f * usableH * 1.05,
+    );
 
     function pos(p: Person): [number, number] {
       let x = padX + p.x * (W - 2 * padX);

@@ -83,7 +83,9 @@ export default function ChoreoSection() {
         /* Longe do organograma: 15vh encostava na última fileira. */
         .choreo-t2 > div { text-align: center; margin-bottom: 6vh; }
         .choreo-t3 { align-items: flex-end; justify-content: center; opacity: 0; }
-        .choreo-t3 > div { max-width: 100%; text-align: center; margin-bottom: 18vh; }
+        /* 8vh (não 18vh): 18vh subia o bloco para cima do 4º agente. O canvas
+           agora reserva o terço de baixo; o texto fica nesse respiro. */
+        .choreo-t3 > div { max-width: 100%; text-align: center; margin-bottom: 8vh; }
         .choreo-t3 .body { margin: 22px auto 0; font-size: 15px; line-height: 1.55; color: var(--ink2); max-width: 34ch; }
         @media (min-width: 760px) {
           .choreo-layer { padding: 0 40px; }

@@ -45,10 +45,10 @@ export default function SiteHeader() {
   return (
     <>
       <style>{`
-        /* Mobile: logo 2× sem esticar. O grid 1fr/1fr espremia a marca
-           (wordmark 8.8:1) e o height fixo distorcia. */
+        /* Mobile: wordmark ~15% menor que o 2× (Isabel). O grid auto/1fr/auto
+           evita o squeeze do 1fr/1fr no wordmark 8.8:1. */
         .void-header { height: 80px; padding: 0 22px; grid-template-columns: auto 1fr auto; }
-        .void-header .brand-img { height: 28px; width: auto; max-width: none; object-fit: contain; }
+        .void-header .brand-img { height: 24px; width: auto; max-width: none; object-fit: contain; }
         @media (min-width: 1024px) {
           .void-header { height: 92px; padding: 0 44px; grid-template-columns: 1fr auto 1fr; }
           .void-header .brand-img { height: 17.5px; }

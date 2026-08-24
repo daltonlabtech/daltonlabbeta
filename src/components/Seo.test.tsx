@@ -32,7 +32,7 @@ describe('Seo', () => {
   });
 
   it('emits exactly one description meta tag', async () => {
-    renderSeo({ title: 'T', description: 'Uma descrição única.' }, '/produto');
+    renderSeo({ title: 'T', description: 'Uma descrição única.' }, '/artigos');
     await waitFor(() => {
       expect(document.title).toBe('T');
     });
@@ -61,7 +61,7 @@ describe('Seo', () => {
       expect(document.title).toBe('T');
     });
     const ogImage = document.head.querySelector('meta[property="og:image"]');
-    expect(ogImage?.getAttribute('content')).toBe(`${SITE_URL}/og-image.png`);
+    expect(ogImage?.getAttribute('content')).toBe(`${SITE_URL}/og-image-v2.png`);
   });
 
   it('emits noindex (and no canonical) when noindex is set', async () => {

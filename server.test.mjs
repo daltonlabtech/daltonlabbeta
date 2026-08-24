@@ -10,16 +10,16 @@ beforeAll(() => {
   const dist = mkdtempSync(join(tmpdir(), 'dist-'))
   writeFileSync(join(dist, 'index.html'), '<html><body>home</body></html>')
   writeFileSync(join(dist, '404.html'), '<html><body>not found page</body></html>')
-  mkdirSync(join(dist, 'produto'))
-  writeFileSync(join(dist, 'produto', 'index.html'), '<html><body>produto prerender</body></html>')
+  mkdirSync(join(dist, 'quem-somos'))
+  writeFileSync(join(dist, 'quem-somos', 'index.html'), '<html><body>quem somos prerender</body></html>')
   app = createApp({ distDir: dist })
 })
 
 describe('server', () => {
   it('serve a rota prerenderizada sem barra final', async () => {
-    const r = await request(app).get('/produto')
+    const r = await request(app).get('/quem-somos')
     expect(r.status).toBe(200)
-    expect(r.text).toContain('produto prerender')
+    expect(r.text).toContain('quem somos prerender')
   })
   it('index.html sai com no-cache', async () => {
     const r = await request(app).get('/')
@@ -40,13 +40,18 @@ describe('server', () => {
     expect(r.status).toBe(301)
     expect(r.headers.location).toBe('/')
   })
+  it('legado /produto redireciona 301 para /', async () => {
+    const r = await request(app).get('/produto')
+    expect(r.status).toBe(301)
+    expect(r.headers.location).toBe('/')
+  })
+  it('legado /newton redireciona 301 para /', async () => {
+    const r = await request(app).get('/newton')
+    expect(r.status).toBe(301)
+    expect(r.headers.location).toBe('/')
+  })
   it('rota SPA-only (/casos) ainda serve shell', async () => {
     const r = await request(app).get('/casos')
-    expect(r.status).toBe(200)
-    expect(r.text).toContain('home')
-  })
-  it('rota SPA-only (/newton) ainda serve shell', async () => {
-    const r = await request(app).get('/newton')
     expect(r.status).toBe(200)
     expect(r.text).toContain('home')
   })
@@ -56,14 +61,14 @@ describe('server', () => {
     expect(r.text).toContain('home')
   })
   it('redireciona apex -> www com 308', async () => {
-    const r = await request(app).get('/produto').set('Host', 'daltonlab.ai')
+    const r = await request(app).get('/quem-somos').set('Host', 'daltonlab.ai')
     expect(r.status).toBe(308)
-    expect(r.headers.location).toBe('https://www.daltonlab.ai/produto')
+    expect(r.headers.location).toBe('https://www.daltonlab.ai/quem-somos')
   })
 })
 
 /**
- * Sintoma Railway: postbuild visita /produto antes do snapshot existir.
+ * Sintoma Railway: postbuild visita rota antes do snapshot existir.
  * Sem spaFallback → 404 → prerender falha. Com spaFallback → shell SPA (home).
  */
 describe('server spaFallback (modo prerender)', () => {
@@ -73,19 +78,19 @@ describe('server spaFallback (modo prerender)', () => {
     const dist = mkdtempSync(join(tmpdir(), 'dist-pre-'))
     writeFileSync(join(dist, 'index.html'), '<html><body>home</body></html>')
     writeFileSync(join(dist, '404.html'), '<html><body>not found page</body></html>')
-    // Sem dist/produto/index.html — estado no meio do postbuild
+    // Sem dist/artigos/index.html — estado no meio do postbuild
     prerenderApp = createApp({ distDir: dist, spaFallback: true })
     prodApp = createApp({ distDir: dist })
   })
 
   it('com spaFallback: rota ainda sem snapshot serve shell (200 + home)', async () => {
-    const r = await request(prerenderApp).get('/produto')
+    const r = await request(prerenderApp).get('/artigos')
     expect(r.status).toBe(200)
     expect(r.text).toContain('home')
   })
 
   it('sem spaFallback (prod): mesma rota sem snapshot continua 404', async () => {
-    const r = await request(prodApp).get('/produto')
+    const r = await request(prodApp).get('/artigos')
     expect(r.status).toBe(404)
     expect(r.text).toContain('not found page')
     expect(r.text).not.toContain('home')

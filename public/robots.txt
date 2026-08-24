@@ -12,6 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
-Disallow: /newton
 
 Sitemap: https://www.daltonlab.ai/sitemap.xml

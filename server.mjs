@@ -10,7 +10,6 @@ const APEX = new URL(WWW).host.replace(/^www\./, '')
 
 /** Rotas SPA-only (existem no React, sem snapshot prerender). */
 function isSpaOnlyRoute(cleanPath) {
-  if (cleanPath === '/newton') return true
   if (cleanPath === '/casos' || cleanPath.startsWith('/casos/')) return true
   if (cleanPath.startsWith('/artigos/insight/')) return true
   return false
@@ -49,9 +48,12 @@ export function createApp({ distDir, spaFallback = false }) {
     next()
   })
 
-  // /index.html é duplicata da home — 301 canônico (antes do static)
+  // 301 antes do static: /index.html duplicata + páginas removidas (HTML velho em cache)
   app.use((req, res, next) => {
-    if (req.path === '/index.html') return res.redirect(301, '/')
+    const clean = req.path.replace(/\/$/, '') || '/'
+    if (req.path === '/index.html' || clean === '/produto' || clean === '/newton') {
+      return res.redirect(301, '/')
+    }
     next()
   })
 

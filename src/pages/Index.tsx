@@ -1,29 +1,27 @@
 import { lazy, Suspense, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { trackPageView } from "@/lib/analytics";
 import Seo from "@/components/Seo";
 import SiteHeader from "@/components/redesign/shell/SiteHeader";
-import HeroSection from "@/components/redesign/home/HeroSection";
+import ChoreoSection from "@/components/redesign/home/ChoreoSection";
 import SkeletonSection from "@/components/ui/SkeletonSection";
 
-// Abaixo da dobra → lazy + Suspense
-// Estrutura espelha exatamente as 9 dobras do index.html de referência.
-const VideoBand = lazy(() => import("@/components/redesign/home/VideoBand"));
-const PositioningSection = lazy(() => import("@/components/redesign/home/PositioningSection"));
-const ClientsSection = lazy(() => import("@/components/redesign/home/ClientsSection"));
-const OrgChartSection = lazy(() => import("@/components/redesign/home/OrgChartSection"));
-const SolutionsCarousel = lazy(() => import("@/components/redesign/home/SolutionsCarousel"));
-const CasesSection = lazy(() => import("@/components/redesign/home/CasesSection"));
-const FinalCTASection = lazy(() => import("@/components/redesign/home/FinalCTASection"));
-const InsightsPreviewSection = lazy(() => import("@/components/redesign/home/InsightsPreviewSection"));
+// Abaixo da dobra → lazy + Suspense.
+// Estrutura espelha as 8 dobras do protótipo (design-reference/site-novo):
+// 1–3 coreografia · 4 o caminho · 5 jornada · 6 places to work · 7 fecho · 8 conteúdos.
+const PathRailSection = lazy(() => import("@/components/redesign/home/PathRailSection"));
+const JourneySection = lazy(() => import("@/components/redesign/home/JourneySection"));
+const PlacesSection = lazy(() => import("@/components/redesign/home/PlacesSection"));
+const CloseFoldSection = lazy(() => import("@/components/redesign/home/CloseFoldSection"));
+const PressSection = lazy(() => import("@/components/redesign/home/PressSection"));
 const SiteFooter = lazy(() => import("@/components/redesign/shell/SiteFooter"));
 
 const prefetchSections = () => {
   const prefetchTimeout = setTimeout(() => {
-    import("@/components/redesign/home/VideoBand");
-    import("@/components/redesign/home/PositioningSection");
-    import("@/components/redesign/home/OrgChartSection");
+    import("@/components/redesign/home/PathRailSection");
+    import("@/components/redesign/home/JourneySection");
+    import("@/components/redesign/home/PlacesSection");
   }, 5000);
   return () => clearTimeout(prefetchTimeout);
 };
@@ -31,6 +29,7 @@ const prefetchSections = () => {
 const Index = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     trackPageView(window.location.pathname, t('pages.index.title'));
@@ -38,9 +37,13 @@ const Index = () => {
     return cleanup;
   }, [t]);
 
-  // Rola até a seção do hash (ex.: "#solutions") ao chegar de outra página.
-  // Faz polling porque as seções são lazy e podem montar depois da navegação.
+  // Hash: /#cases era a seção de casos (agora /casos). Outros hashes rolam
+  // até a dobra; polling porque as seções lazy podem montar depois.
   useEffect(() => {
+    if (location.hash === '#cases') {
+      navigate('/casos', { replace: true });
+      return;
+    }
     if (!location.hash) return;
     const selector = location.hash;
     let elapsed = 0;
@@ -54,43 +57,34 @@ const Index = () => {
       }
     }, 100);
     return () => window.clearInterval(interval);
-  }, [location.hash, location.key]);
+  }, [location.hash, location.key, navigate]);
 
   return (
     <div
       className="redesign-scope min-h-screen"
-      style={{ background: 'transparent', color: 'var(--text, #FFFFFF)' }}
+      style={{ background: 'transparent', color: 'var(--ink2)' }}
     >
       <Seo title={t('pages.index.title')} description={t('pages.index.description')} />
       <SiteHeader />
       {/* overflow-x: clip (não 'hidden') — 'hidden' força overflow-y a computar como
-          'auto', criando um scroll container aninhado (segundo scrollbar). 'clip' corta
-          o overflow horizontal sem virar scroller nem afetar o eixo vertical. */}
-      <main id="top" style={{ overflowX: 'clip', maxWidth: '100vw', width: '100%' }}>
-        <HeroSection />
-        <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
-          <VideoBand />
-        </Suspense>
+          'auto', criando um scroll container aninhado, o que quebraria o sticky da
+          coreografia. 'clip' corta o overflow horizontal sem virar scroller. */}
+      <main id="top" style={{ overflowX: 'clip', maxWidth: '100vw', width: '100%', position: 'relative', zIndex: 3 }}>
+        <ChoreoSection />
         <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
-          <PositioningSection />
-        </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[200px]" />}>
-          <ClientsSection />
-        </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[500px]" />}>
-          <OrgChartSection />
-        </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[500px]" showCards />}>
-          <SolutionsCarousel />
-        </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
-          <CasesSection />
-        </Suspense>
-        <Suspense fallback={<SkeletonSection height="min-h-[400px]" />}>
-          <FinalCTASection />
+          <PathRailSection />
         </Suspense>
         <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
-          <InsightsPreviewSection />
+          <JourneySection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
+          <PlacesSection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>
+          <CloseFoldSection />
+        </Suspense>
+        <Suspense fallback={<SkeletonSection height="min-h-[400px]" showCards />}>
+          <PressSection />
         </Suspense>
       </main>
       <Suspense fallback={<SkeletonSection height="min-h-[300px]" />}>

@@ -79,7 +79,7 @@ export default function AuthorCard({ name, role, photo, linkedin }: AuthorCardPr
         <div
           style={{
             fontFamily: 'var(--font-display)',
-            fontWeight: 700,
+            fontWeight: 400,
             fontSize: '1rem',
             color: 'var(--text)',
             letterSpacing: '-0.01em',

@@ -9,7 +9,7 @@ Site institucional da Dalton Lab, empresa brasileira pioneira em transformação
 - **Roteamento**: React Router DOM
 - **CMS**: Sanity (project ID: `ss6d4h78`, dataset: `production`)
 - **Data fetching**: TanStack React Query
-- **i18n**: react-i18next (8 idiomas: pt, en, es, fr, de, it, ja, zh)
+- **i18n**: react-i18next (pt/en; fallback `pt`). Arquivos `es`/`fr`/`de`/`it`/`ja`/`zh` em `src/locales/` são sobras — não estão em `supportedLngs`.
 - **Deploy**: Vercel
 - **Analytics**: funções customizadas `trackPageView` e `trackCtaClick` em `src/lib/analytics`
 
@@ -26,13 +26,14 @@ Site institucional da Dalton Lab, empresa brasileira pioneira em transformação
 | Path | Página | Descrição |
 |---|---|---|
 | `/` | Index | Home — seções hero, journey, definition, prospection, CTA, map, media |
-| `/produto` | Produto | Agentes de IA para Vendas |
-| `/newton` | Newton | Agente Newton (redirect para chat externo) |
 | `/quem-somos` | QuemSomos | Sobre a empresa e fundadores |
 | `/artigos` | Artigos | Listagem de artigos do Sanity |
 | `/artigos/:slug` | Artigo | View individual de artigo |
+| `/casos` | Casos | Casos de organizações agênticas |
 | `/politica-de-privacidade` | PoliticaPrivacidade | Política de privacidade |
 | `/termos-de-uso` | TermosDeUso | Termos de uso |
+
+`/produto` e `/newton` respondem 301 para `/`.
 
 ## Design System
 
@@ -75,7 +76,7 @@ src/
 ├── lib/
 │   ├── sanity.ts        # Client Sanity + urlFor
 │   └── analytics.ts     # trackPageView, trackCtaClick
-└── locales/             # Traduções por idioma (pt, en, es, fr, de, it, ja, zh)
+└── locales/             # Traduções ativas: pt, en (demais pastas são sobras)
 ```
 
 ## Padrões do projeto

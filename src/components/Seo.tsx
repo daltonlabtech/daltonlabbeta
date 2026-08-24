@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
  * consolidem os sinais no domínio correto.
  */
 export const SITE_URL = 'https://www.daltonlab.ai';
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image-v2.png`;
 
 export interface SeoProps {
   /** <title> completo da página (já inclui sufixo de marca quando aplicável). */

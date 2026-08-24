@@ -61,7 +61,7 @@ describe('Seo', () => {
       expect(document.title).toBe('T');
     });
     const ogImage = document.head.querySelector('meta[property="og:image"]');
-    expect(ogImage?.getAttribute('content')).toBe(`${SITE_URL}/og-image.png`);
+    expect(ogImage?.getAttribute('content')).toBe(`${SITE_URL}/og-image-v2.png`);
   });
 
   it('emits noindex (and no canonical) when noindex is set', async () => {
